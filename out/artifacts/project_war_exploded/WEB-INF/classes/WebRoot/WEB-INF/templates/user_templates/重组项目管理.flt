@@ -1,0 +1,298 @@
+<link href="iwork_js/plugs/gantt2/jquery-ui-1.8.4.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="iwork_js/jqueryjs/ui/jquery.ui.core.js"></script>
+<script type="text/javascript" src="iwork_js/plugs/gantt2/jquery-ui-1.8.4.js"></script>
+<script type="text/javascript" src="iwork_js/jqueryjs/ui/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="iwork_js/jqueryjs/ui/jquery.ui.position.js"></script>
+<script type="text/javascript" src="iwork_js/jqueryjs/ui/jquery.ui.autocomplete.js"></script>
+<script type="text/javascript">
+$(function(){
+            $("#KHLXDH").autocomplete({
+        		source:function(request,response) {
+        			$.ajax({
+        				url:"zqb_project_sx_industrymsgassociate.action",
+        				dataType:"json",
+        				data:{
+        					xmbz:request.term
+        				},
+        				success: function(data) {
+        					response($.map(data, function(item) {
+        						return {
+        							label:item.ZIHY,
+        							value:item.ZHUHY+"-"+item.ZIHY,
+        						}
+        					}));
+        				}
+        			});
+        		},
+        		minLength:1,
+        		select:function(event,ui){}
+        	});
+})
+$(function(){
+	$("#JYDSF").attr("disabled","true");
+
+	var projectno = $("#XMBH").val();
+	var instanceid = $("#instanceId").val();
+	var projectname = $("#JYF").val();
+	var owner= $("#OWNER").val();
+	$("#URL").attr("src",encodeURI("hl_zqb_bgGetJdContent.action?xmbh="+projectno+"&projectname="+projectname+"&instanceid="+instanceid+"&owner="+owner));
+        $("#rzURL").attr("src", "zqb_project_showDaily.action?projectNo=" + projectno + "&projectname="+encodeURI(projectname));
+	
+	
+	
+	
+	$("#title_XMFX").hide();
+	$("#data_XMFX").hide();
+	
+	$('#TJZT').change(
+	function(){
+		var p1=$(this).children('option:selected').val();
+		if(p1=='中止'||p1=='终止'){
+			$("#title_XMFX").show();
+			$("#data_XMFX").show();
+		}
+		if(p1=='正常'||p1==''){
+			$("#title_XMFX").hide();
+			$("#data_XMFX").hide();
+			 $("#XMFX").val("");
+		}
+	});
+	if( $("#XMFX").val()!=null &&  $("#XMFX").val()!=""){
+		$("#title_XMFX").show();
+		$("#data_XMFX").show();
+	 }
+});
+function dept_book(targetname,targetid) {
+    var pageUrl = "zqb_gpfx_addxmcy_department_index.action?targetname="+targetname;
+    art.dialog.open(pageUrl,{
+        id: "deptBookDialog",
+        title: '部门地址簿',
+        content: pageUrl,
+        pading: 0,
+        lock: true,
+        width: 350,
+        height: 550
+    });
+}
+</script>
+<style type="text/css">
+.formpage_title {
+	text-align: center;
+	vertical-align:bottom;
+	height:50px;
+	font-size: 22px;
+	color:#000;
+	margin-bottom:20px;
+}
+.line {
+	background-color: #ccc;
+	height:15px;
+	margin-bottom:20px;
+}
+td {
+	line-height: 30px;
+	padding-left: 3px;
+	font-size: 12px;
+	border-bottom:1px #efefef dotted;
+	vertical-align:middle;
+	word-wrap:break-word;
+	word-break:break-all;
+	font-weight:100;
+	line-height:15px;
+	padding-top:5px;
+	text-align:left;
+}
+legend {
+	font-size: 16px;
+}
+</style>
+<div id="border">
+	<table width="100%" style="margin-bottom:5px;">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					重组项目管理
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help" style="text-align:right;">
+					<p style="margin-left:15px;float:right;">
+						填报时间:${TBSJ}
+					</p>
+					<p style="margin-left:15px;float:right;">
+						填报人:${TBRID}
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+		</tbody>
+	</table>
+<fieldset style="border:1px dashed #CCCCCC;border-image:none;width:96%;color:#004080;margin-top:15px;">
+        <legend style="color:#004080;" algin="right">项目基本信息</legend>
+		<table width="100%">
+			<tbody>
+				<tr id="itemTr_0">
+					<td width="15%" class="td_title" id="title_KHLXDH">
+						<span style="color:red;">*</span>项目名称
+					</td>
+					<td width="35%" class="td_data" id="data_KHLXDH">
+						${JYF}&nbsp;　
+					</td>
+					<td width="180" class="td_title" id="title_CZBM">
+						<span style="color:red;">*</span>项目承揽人
+					</td>
+					<td width="35%" class="td_data" id="data_CZBM">
+						${CZBM}&nbsp;　
+					</td>
+				</tr>
+				<tr id="itemTr_2976">
+					<td width="180" class="td_title" id="title_XMFQRQ">
+						立项时间
+					</td>
+					<td width="35%" class="td_data" id="data_XMFQRQ">
+						${XMFQRQ}&nbsp;　
+					</td>
+					<td width="15%" class="td_title" id="title_TPRQ">
+						签约时间
+					</td>
+					<td id="data_TPRQ">
+						${TPRQ}&nbsp;
+					</td>
+				</tr>
+				<tr id="itemTr_2976">
+					<td width="180" class="td_title" id="title_JYF">
+						<span style="color:red;">*</span>所属行业
+					</td>
+					<td width="35%" class="td_data" id="data_JYF">
+						${KHLXDH}&nbsp;　
+					</td>
+					<td width="15%" class="td_title" id="title_BZ">
+						<span style="color:red;">*</span>主营业务
+					</td>
+					<td id="data_BZ">
+						${BZ}&nbsp;
+					</td>
+				</tr>
+				<tr id="itemTr_2976">
+					<td width="180" class="td_title" id="title_KHLXR">
+						<span style="color:red;">*</span>注册地址
+					</td>
+					<td width="35%" class="td_data" id="data_KHLXR">
+						${KHLXR}&nbsp;　
+					</td>
+					<td width="15%" class="td_title" id="title_SGFS">
+						<span style="color:red;">*</span>注册资本（万元）
+					</td>
+					<td id="data_SGFS">
+						${SGFS}&nbsp;
+					</td>
+				</tr>
+				<tr id="itemTr_2976">
+					<td width="180" class="td_title" id="title_MANAGER">
+						<span style="color:red;">*</span>项目负责人
+					</td>
+					<td width="35%" class="td_data" id="data_MANAGER">
+						${MANAGER}&nbsp;　
+					</td>
+					<td width="15%" class="td_title" id="title_OWNER">
+						<span style="color:red;">*</span>业务部门负责人
+					</td>
+					<td id="data_OWNER">
+						${OWNER}&nbsp;
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</fieldset>
+	<fieldset style="border:1px dashed #CCCCCC;border-image:none;width:96%;color:#004080;margin-top:15px;">
+		<legend style="color:#004080;" algin="right">重组类型</legend>
+		<table width="100%">
+			<tbody>
+				<tr id="itemTr_2964">
+					<td width="15%" class="td_title" id="title_SFWG">
+						<span style="color:red;">*</span>重组方式
+					</td>
+					<td width="35%" class="td_data" id="data_SFWG">
+						${SFWG}&nbsp;　
+					</td>
+					<td width="15%" class="td_title" id="title_SFGLJY">
+						<span style="color:red;">*</span>资产类型
+					</td>
+					<td width="35%" class="td_data" id="data_SFGLJY">
+						${SFGLJY}&nbsp;　
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</fieldset>
+	<fieldset style="border:1px dashed #CCCCCC;border-image:none;width:96%;color:#004080;margin-top:15px;">
+		<legend style="color:#004080;" algin="right">项目进度情况</legend>
+		<table width="100%">
+			<tbody>
+				<tr id="itemTr_2964">
+					<td width="15%" class="td_title" id="title_JYDSF">
+						<span style="color:red;">*</span>项目进度
+					</td>
+					<td width="35%" class="td_data" id="data_JYDSF">
+						${JYDSF}&nbsp;　
+					</td>
+				</tr>
+				<tr id="itemTr_2964">
+					<td width="15%" class="td_title" id="title_XMZT">
+						<span style="color:red;">*</span>推进情况
+					</td>
+					<td width="35%" class="td_data" id="data_XMZT">
+						${TJZT}&nbsp;　
+					</td>
+					<td width="15%" class="td_title" id="title_XMFX">
+						<span style="color:red;">*</span>原因
+					</td>
+					<td width="35%" class="td_data" id="data_XMFX">
+						${XMFX}&nbsp;　
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</fieldset>
+	<div class="easyui-tabs" id="mainFrameTab" style="border-width:0px;border-image:none;width:840px;" fit="true">
+		<div title="项目阶段" style="border:0px solid #EFEFEF;border-image:none;height:500px;image:none;" border="true" cache="false">
+			<iframe name="URL" width="100%" height="100%" id="URL" border="0" qbiframeattached="true">
+			</iframe>
+		</div>
+		<div title="项目组成员" style="border:0px solid #EFEFEF;border-image:none;height:500px;" border="true" cache="false">
+			${SUBFORM_XMCYLB}&nbsp;
+		</div>
+		<div title="项目日志" style="border:0px solid #EFEFEF;border-image:none;height:500px;image:none;" border="true" cache="false">
+				<iframe name="rzURL" width="100%" height="100%" id="rzURL" border="0" qbiframeattached="true">
+			</iframe>
+		</div>
+		<div title="收费进度" style="border:0px solid #EFEFEF;border-image:none;height:500px;" border="true" cache="false">
+			${SUBFORM_SFJD}&nbsp;
+		</div>
+		<div title="主要财务数据" style="border:0px solid #EFEFEF;border-image:none;height:500px;" border="true" cache="false">
+			${SUBFORM_GSCWGK}&nbsp;
+		</div>
+		<!--
+			<div title="中介机构" style="border:0px solid #EFEFEF;border-image:none;height:500px;" border="true" cache="false">
+			${SUBFORM_XMZJJG}&nbsp;
+		</div>
+		-->
+		
+		<div title="尽调报告" style="border:0px solid #EFEFEF;border-image:none;" border="true" cache="false">
+			${SUBFORM_JDBG}&nbsp;
+		</div>
+		<div title="备忘录" style="border:0px solid #EFEFEF;border-image:none;" border="true" cache="false">
+			${SUBFORM_XMBWL}&nbsp;
+		</div>
+		
+		<div title="通讯录" style="border:0px solid #EFEFEF;border-image:none;" border="true" cache="false">
+			${SUBFORM_XMTXL}&nbsp;
+		</div>
+	</div>
+</div>
+<div style="display:none;">
+	${INSTANCEID}${COMPANYNO}${COMPANYNAME}${XMBH}${XMTZZT}${XMZT}${JDBH}
+</div>

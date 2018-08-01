@@ -1,0 +1,8 @@
+$(document).ready(function () {
+    for (i = 0; i < $("a").length; i++) {
+        var a = $("a:eq(" + i + ")");
+        if (a.html() == "ÐÞ¸Ä") {
+            a.hide();
+        }
+    }
+});

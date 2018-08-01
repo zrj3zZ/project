@@ -1,0 +1,88 @@
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					通知公告
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" border="0" cellpadding="0" cellspacing="0" width="100%">
+						<tbody>
+							<tr id="itemTr_1913">
+								<td class="td_title" id="title_TZBT" width="180">
+									通知标题
+								</td>
+								<td class="td_data" id="data_TZBT">
+									${TZBT}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1914">
+								<td class="td_title" id="title_ZCHFSJ" width="180">
+									最迟回复时间
+								</td>
+								<td class="td_data" id="data_ZCHFSJ">
+									${ZCHFSJ}&nbsp;
+								</td>
+							</tr>
+<tr id="itemTr_1911">
+								<td class="td_title" id="title_TZLX" width="180">
+									通知类型
+								</td>
+								<td class="td_data" id="data_TZLX">
+									${TZLX}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1915">
+								<td class="td_title" id="title_TZNR" width="180">
+									通知内容
+								</td>
+								<td class="td_data" id="data_TZNR">
+									${TZNR}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1916">
+								<td class="td_title" id="title_XGZL" width="180">
+									相关资料
+								</td>
+								<td class="td_data" id="data_XGZL">
+									${XGZL}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1917">
+								<td class="td_title" id="title_HFR" width="180">
+									回复人
+								</td>
+								<td class="td_data" id="data_HFR">
+									${HFR}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1918">
+								<td class="td_title" id="title_SFTZ" width="180">
+									是否通知回复人
+								</td>
+								<td class="td_data" id="data_SFTZ">
+									${SFTZ}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${FSRID}
+</div>

@@ -1,0 +1,15 @@
+$(function () {
+    $.post("sx_getJdzl.action", {
+        "jdmc": "股转反馈及回复",
+        "customerno": $("#CUSTOMERNO").val()
+    }, function (data) {
+        var dataJson = eval("(" + data + ")");
+        var content = dataJson[0].CONTENT;
+        $("#spanjdzl").html(content);
+        var CUSTOMERNAME = dataJson[0].CUSTOMERNAME;
+        $("#projectName").html(CUSTOMERNAME);
+        var MANAGER = dataJson[0].MANAGER;
+        $("#manager").html(MANAGER)
+        $("#COMPANYNAME").val(CUSTOMERNAME);
+    });
+});

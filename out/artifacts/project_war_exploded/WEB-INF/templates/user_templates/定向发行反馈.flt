@@ -1,0 +1,57 @@
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					反馈
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_0">
+								<td class="td_title" id="title_PROJECTNAME" width="10%">
+									项目名称
+								</td>
+								<td class="td_data" id="data_PROJECTNAME" width="45%">
+									${PROJECTNAME}&nbsp;　
+								</td>
+								<td class="td_title" id="title_CJSJ" width="10%">
+									填报日期
+								</td>
+								<td class="td_data" id="data_CJSJ" width="45%">
+									${CJSJ}&nbsp;　
+								</td>
+							</tr>
+							<tr id="fjTr_4902">
+								<td class="td_title" id="title_NFXFILE">
+									附件
+								</td>
+								<td id="data_NFXFILE" class="td_data" colspan="3">
+									${NFXFILE}&nbsp;　
+								</td>
+							</tr>
+							<tr id="subformTr_182">
+								<td class="td_data" colspan="4" width="80%">
+									${SUBFORM_DXFZFKJL}&nbsp;　
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${PROJECTNO}${GROUPID}${INSTANCEID}${CREATEUSER}${CREATEUSERID}${EXTEND1}${EXTEND2}${EXTEND3}${EXTEND4}${EXTEND5}
+</div>

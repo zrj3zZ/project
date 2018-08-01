@@ -1,0 +1,236 @@
+<script type="text/javascript">
+$(function(){
+
+	var sfpl=$("#NODE3").val();
+	var sfbs=$("#NODE6").val();
+	
+	if(sfpl=='是'){
+		$("#data_NODE5").append("<span style='margin-left:-16px;color:red;'id='sfspan1'>*</span>");
+		$('input[id="NODE5"]').attr("required", "true");
+		
+		
+	}
+	if(sfbs=='是'){
+		$("#data_NODE7").append("<span style='margin-left:-16px;color:red;'id='sfspan2'>*</span>");
+		$("#data_NODE8").append("<span style='margin-left:-16px;color:red;'id='sfspan3'>*</span>");
+		$('input[id="NODE7"]').attr("required", "true");
+		$('input[id="NODE8"]').attr("required", "true");
+	}
+$('#NODE1SFKF').attr("placeholder","报送依据等相关资料");
+ 
+	if( !('placeholder' in document.createElement('textarea')) ){  
+   
+    $('input[placeholder],textarea[placeholder]').each(function(){   
+      var that = $(this),   
+      text= that.attr('placeholder');   
+      if(that.val()===""){   
+        that.val(text).addClass('placeholder');   
+      }   
+      that.focus(function(){   
+        if(that.val()===text){   
+          that.val("").removeClass('placeholder');   
+        }   
+      })   
+      .blur(function(){   
+        if(that.val()===""){   
+          that.val(text).addClass('placeholder');   
+        }   
+      })   
+      .closest('form').submit(function(){   
+        if(that.val() === text){   
+          that.val('');   
+        }   
+      });   
+    });   
+  }   
+
+	
+});
+
+
+
+function sfpl(data){
+	
+	var sfpl=data.value;
+	
+	if(sfpl=='是'){
+		$("#data_NODE5").append("<span style='margin-left:-16px;color:red;'id='sfspan1'>*</span>");
+		$('input[id="NODE5"]').attr("required", "true");
+	}else{
+		$("#sfspan1").remove();	
+		$('input[id="NODE5"]').attr("required", "");
+		$("#NODE5").val("");
+	}
+	
+	
+}
+function sfbs(data){
+	
+	var sfbs=data.value;
+	
+	if(sfbs=='是'){
+		$("#data_NODE7").append("<span style='margin-left:-16px;color:red;'id='sfspan2'>*</span>");
+		$("#data_NODE8").append("<span style='margin-left:-16px;color:red;'id='sfspan3'>*</span>");
+		$('input[id="NODE7"]').attr("required", "true");
+		$('input[id="NODE8"]').attr("required", "true");
+	}else{
+		$("#sfspan2").remove();
+		$("#sfspan3").remove();
+		$('input[id="NODE7"]').attr("required", "");
+		$('input[id="NODE8"]').attr("required", "");
+		$("#NODE7").val("");
+		$("#NODE8").val("");
+	}
+	
+	
+}
+/*function bsobs(){
+
+	var sfbs1=$("#NODE6").val();
+	if(sfbs1=='是'){
+	var node7= $("#NODE7").val();
+	if(node7==""){
+	alert("报送部门不能为空");
+}
+}else{
+	$("#NODE7").val("");
+}
+}
+function bsobn(){
+	var sfbs2=$("#NODE6").val();
+	if(sfbs2=='是'){
+	var node8= $("#NODE8").val();
+	if(node8==""){
+	alert("最晚报送日期不能为空");
+}else{
+	$("#NODE8").val("");
+}
+}
+function plob(){
+	alert('123');
+	var sfpl=$("#NODE3").val();
+	if(sfpl=='是'){
+	var node5= $("#NODE5").val();
+	if(node8==""){
+	alert("最晚披露日期不能为空");
+}else{
+	alert('123');
+}
+}*/
+</script>
+
+<style>
+    #NODE1SFKF::-webkit-textarea-placeholder{
+                color: #DBDBDB;
+                font-size: 10px;
+            }
+  
+        </style>
+
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					内部业务流程
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_0">
+								<td class="td_title" id="title_NODE1" width="15%">
+									公司简称
+								</td>
+								<td class="td_data" id="data_NODE1" width="35%">
+									${NODE1}&nbsp;　
+								</td>
+								<td class="td_title" id="title_NODE2" width="15%">
+									证券代码
+								</td>
+								<td class="td_data" id="data_NODE2" width="35%">
+									${NODE2}&nbsp;　
+								</td>
+							</tr>
+							<tr id="txtAreaTr_4822">
+								<td class="td_title" id="title_NODE4">
+									事项描述
+								</td>
+								<td id="data_NODE4" class="td_data" colspan="3">
+									${NODE4}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_3">
+								<td class="td_title" id="title_NODE3" width="15%">
+									是否披露
+								</td>
+								<td class="td_data" id="data_NODE3" width="35%">
+									${NODE3}&nbsp;　
+								</td>
+								<td class="td_title" id="title_NODE5" width="15%">
+									最晚披露日期
+								</td>
+								<td class="td_data" id="data_NODE5" width="35%">
+									${NODE5}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_6">
+								<td class="td_title" id="title_NODE6" width="15%">
+									是否对外报送
+								</td>
+								<td class="td_data" id="data_NODE6" width="35%">
+									${NODE6}&nbsp;　
+								</td>
+								<td class="td_title" id="title_NODE7" width="15%">
+									报送部门
+								</td>
+								<td class="td_data" id="data_NODE7" width="35%">
+									${NODE7}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_8">
+								<td class="td_title" id="title_NODE8" width="15%">
+									最晚报送日期
+								</td>
+								<td class="td_data" id="data_NODE8" width="35%">
+									${NODE8}&nbsp;　
+								</td>
+								
+							</tr>
+							
+							
+							<tr id="txtAreaTr_4828">
+								<td class="td_title" id="title_NODE1SFKF">
+									其他说明
+								</td>
+								<td id="data_NODE1SFKF" class="td_data" colspan="3">
+									${NODE1SFKF}&nbsp;　
+								</td>
+							</tr>
+							<tr id="fjTr_4827">
+								<td class="td_title" id="title_NODE9">
+									附件资料
+								</td>
+								<td id="data_NODE9" class="td_data" colspan="3">
+									${NODE9}&nbsp;　
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${TYPE}${NODE2SFKF}${NODE3SFKF}${NODE4SFKF}${NODE5SFKF}${NODE7SFKF}${NODE9SFKF}${NODE1SKP}${NODE2SKP}${NODE3SKP}${NODE4SKP}${NODE5SKP}${NODE6SKP}${NODE7SKP}${NODE8SKP}${NODE9SKP}${EXTENDSFKF}${EXTENDSGSP}${INSTANCEID}${NODE6SFKF}${NODE8SFKF}
+</div>

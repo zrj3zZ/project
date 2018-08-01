@@ -1,0 +1,73 @@
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					股转系统意见
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_2873">
+								<td class="td_title" id="title_GZYJLRR" width="180">
+									录入人
+								</td>
+								<td class="td_data" id="data_GZYJLRR">
+									${GZYJLRR}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${GZYJLRSJ}
+								</td>
+							</tr>
+							<!--<tr id="itemTr_2874">
+								<td class="td_title" id="title_GZYJLRSJ" width="180">
+									录入时间
+								</td>
+								<td class="td_data" id="data_GZYJLRSJ">
+									${GZYJLRSJ}&nbsp;
+								</td>
+							</tr>-->
+							<tr id="itemTr_2875">
+								<td class="td_title" id="title_GZYJJSM" width="180">
+									股转意见及说明
+								</td>
+								<td class="td_data" id="data_GZYJJSM">
+									${GZYJJSM}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2877">
+								<td class="td_title" id="title_DXYJTZR" width="180">
+									短信邮件通知人
+								</td>
+								<td class="td_data" id="data_DXYJTZR">
+<a href="javascript:AnnouncementUsermulti();" iconcls="icon-multibook" class="easyui-linkbutton l-btn l-btn-plain" plain="true" title="多选地址薄">
+</a>
+<div id="DXYJTZRDIV">
+</div>
+								</td>
+							</tr>
+							<tr id="itemTr_2876">
+								<td class="td_title" id="title_GZYJSMWD" width="180">
+									说明文档
+								</td>
+								<td class="td_data" id="data_GZYJSMWD">
+									${GZYJSMWD}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${GGID}${KHBH}${GZYJLRRID}${DXYJTZR}
+</div>

@@ -1,0 +1,175 @@
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					试卷管理维护表单
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+						<tbody>
+							<tr>
+								<td id="title_NO" class="td_title" width="15%">
+									<span style="color:red;">*</span>试卷编号
+								</td>
+								<td id="data_NO" class="td_data" width="35%">
+									${NO}&nbsp;
+								</td>
+								<td id="title_NAME" class="td_title" width="15%">
+									<span style="color:red;">*</span>试卷名称
+								</td>
+								<td id="data_NAME" class="td_data" width="35%">
+									${NAME}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td id="title_STATUS" class="td_title" width="15%">
+									试卷状态
+								</td>
+								<td id="data_STATUS" class="td_data" width="35%">
+									${STATUS}&nbsp;
+								</td>
+								<td id="title_TYPE" class="td_title" width="15%">
+									<span style="color:red;">*</span>试卷类型
+								</td>
+								<td id="data_TYPE" class="td_data" width="35%">
+									${TYPE}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td id="title_EXAMZONE" class="td_title" width="15%">
+									考试范围地区
+								</td>
+								<td id="data_EXAMZONE" class="td_data" width="35%" colspan="3">
+									${EXAMZONE}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td id="title_TYPENAME" class="td_title" width="15%">
+									<span style="color:red;">*</span>类别名称
+								</td>
+								<td id="data_TYPENAME" class="td_data" width="35%">
+									${TYPENAME}&nbsp;
+								</td>
+								<td id="title_TYPENO" class="td_title" width="15%">
+									类别编号
+								</td>
+								<td id="data_TYPENO" class="td_data" width="35%">
+									${TYPENO}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td id="title_BEGINDATE" class="td_title" width="15%">
+									开始日期
+								</td>
+								<td id="data_BEGINDATE" class="td_data" width="35%">
+									${BEGINDATE}&nbsp;
+								</td>
+								<td id="title_ENDDATE" class="td_title" width="15%">
+									结束日期
+								</td>
+								<td id="data_ENDDATE" class="td_data" width="35%">
+									${ENDDATE}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td id="title_EXAMTIME" class="td_title" width="15%">
+									考试时间（分钟）
+								</td>
+								<td id="data_EXAMTIME" class="td_data" width="35%">
+									${EXAMTIME}&nbsp;
+								</td>
+								<td id="title_ORDERBY" class="td_title" width="15%">
+									排序
+								</td>
+								<td id="data_ORDERBY" class="td_data" width="35%">
+									${ORDERBY}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td id="title_ZF" class="td_title" width="15%">
+									试卷总分
+								</td>
+								<td id="data_ZF" class="td_data" width="35%">
+									${ZF}&nbsp;
+								</td>
+								<td id="title_DXT" class="td_title" width="15%">
+									单选题总分
+								</td>
+								<td id="data_DXT" class="td_data" width="35%">
+									${DXT}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td id="title_PDT" class="td_title" width="15%">
+									判断题总分
+								</td>
+								<td id="data_PDT" class="td_data" width="35%">
+									${PDT}&nbsp;
+								</td>
+								<td id="title_FXT" class="td_title" width="15%">
+									复选题总分
+								</td>
+								<td id="data_FXT" class="td_data" width="35%">
+									${FXT}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td id="title_MEMO" class="td_title" width="15%">
+									<span style="color:red;">*</span>试卷介绍
+								</td>
+								<td id="data_MEMO" class="td_data" width="35%" colspan="3">
+									${MEMO}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" width="20%">
+									<span style="color:red;">*</span>考试范围人员
+								</td>
+								<td class="td_data" width="80%" colspan="3">
+									${EXAMUSER}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" width="20%">
+									试卷判断题目表单
+								</td>
+								<td class="td_data" width="80%" colspan="3">
+									${SUBFORM_PDT}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" width="20%">
+									试卷复选题目表单
+								</td>
+								<td class="td_data" width="80%" colspan="3">
+									${SUBFORM_FXT}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" width="20%">
+									试卷单选题目表单
+								</td>
+								<td class="td_data" width="80%" colspan="3">
+									${SUBFORM_DXT}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

@@ -1,0 +1,62 @@
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" width="100%" cellspacing="0" cellpadding="0" border="0">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					其他文件
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" width="100%" cellspacing="0" cellpadding="0" border="0">
+						<tbody>
+							<tr id="itemTr_0">
+								<td class="td_title" id="title_PROJECTNAME" width="15%">
+									项目名称
+								</td>
+								<td class="td_data" id="data_PROJECTNAME" width="35%">
+									${PROJECTNAME}&nbsp;　
+								</td>
+								<td class="td_title" id="title_GXSJ" width="15%">
+									填报时间
+								</td>
+								<td class="td_data" id="data_GXSJ" width="35%">
+									${GXSJ}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_3">
+								<td class="td_title" id="title_MANAGER" width="15%">
+									填报人姓名
+								</td>
+								<td class="td_data" id="data_MANAGER" width="35%">
+									${MANAGER}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_6">
+								<td class="td_title" id="title_ATTACH" width="15%">
+									附件
+								</td>
+								<td class="td_data" id="data_ATTACH" width="35%">
+									${ATTACH}&nbsp;　
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${PJINSID}${PROJECTNO}${MEMO}${GROUPID}${JDZL}${LCBS}${LCBH}${RWID}${YXID}${SPZT}${STEPID}
+</div>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="gb2312"?>
+<lookandfeel>
+<skins-schema>
+		<key>appTab</key>
+		<title>响应式布局Tab</title>
+		<purview>iwork_layout/default/img/default.gif</purview>
+		<interface-class>com.iwork.core.lookandfeel.interceptor.LookAndFeelInterface</interface-class>
+		<implements-class>com.iwork.core.lookandfeel.interceptor.impl.LookAndFeelDspMenuImpl</implements-class>
+		<welcome>index.jsp</welcome> 
+		<desc>系统默认布局样式及外观风格</desc>
+	</skins-schema> 
+<skins-schema>
+		<key>default</key>
+		<title>响应式布局(默认)</title>
+		<purview>iwork_layout/default/img/default.gif</purview>
+		<interface-class>com.iwork.core.lookandfeel.interceptor.LookAndFeelInterface</interface-class>
+		<implements-class>com.iwork.core.lookandfeel.interceptor.impl.LookAndFeelDspMenuImpl</implements-class>
+		<welcome>iwork_layout/topmenu/index.jsp</welcome>   
+		<desc>系统默认布局样式及外观风格</desc>
+	</skins-schema>
+	<skins-schema>
+		<key>zui</key>
+		<title>ZUI布局</title>
+		<purview>iwork_layout/default/img/default.gif</purview>
+		<interface-class>com.iwork.core.lookandfeel.interceptor.LookAndFeelInterface</interface-class>
+		<implements-class>com.iwork.core.lookandfeel.interceptor.impl.LookAndFeelZUIImpl</implements-class>
+		<welcome>iwork_layout/zui/layout/index.jsp</welcome> 
+		<desc>系统默认布局样式及外观风格</desc>
+	</skins-schema>
+	<skins-schema>
+		<key>eteams</key>
+		<title>eteams布局</title>
+		<purview>iwork_layout/default/img/default.gif</purview>
+		<interface-class>com.iwork.core.lookandfeel.interceptor.LookAndFeelInterface</interface-class>
+		<implements-class>com.iwork.core.lookandfeel.interceptor.impl.LookAndFeelZUIImpl</implements-class>
+		<welcome>iwork_layout/eteams/layout/index.jsp</welcome> 
+		<desc>系统默认布局样式及外观风格</desc>
+	</skins-schema>
+	<skins-schema>
+		<key>treeTab</key>
+		<title>树+Tab布局样式</title>
+		<purview>iwork_layout/default/img/preview.jpg</purview>
+		<interface-class>com.iwork.core.lookandfeel.interceptor.LookAndFeelInterface</interface-class>
+		<implements-class>com.iwork.core.lookandfeel.interceptor.impl.LookAndFeelTopMenuImpl</implements-class>
+		<welcome>iwork_layout/default/frame/index2.jsp</welcome>
+		<desc>树型菜单及TAB页签显示方式</desc>
+	</skins-schema>
+	<skins-schema>
+		<key>blue</key>
+		<title>蓝色风格</title>
+		<purview>iwork_layout/blue/img/preview.jpg</purview>
+		<interface-class>com.iwork.core.lookandfeel.interceptor.LookAndFeelInterface</interface-class>
+		<implements-class>com.iwork.core.lookandfeel.interceptor.impl.LookAndFeelTopMenuImpl</implements-class>
+		<welcome>iwork_layout/blue/frame/index2.jsp</welcome> 
+		<desc>适用于顶部菜单的蓝色外观风格</desc>
+	</skins-schema> 
+	<skins-schema>
+		<key>skins2019</key>
+		<title>响应式布局(自定义)</title>
+		<purview>iwork_layout/default/img/default.gif</purview>
+		<interface-class>com.iwork.core.lookandfeel.interceptor.LookAndFeelInterface</interface-class>
+		<implements-class>com.iwork.core.lookandfeel.interceptor.impl.LookAndFeelTopMenu_Impl</implements-class>
+		<welcome>iwork_layout/topmenu/index2.jsp</welcome>   
+		<desc>系统默认布局样式及外观风格</desc>
+	</skins-schema> 
+	<!-- 
+	<skins-schema>
+		<key>bpm2013</key>
+		<title>BPM2013样式</title>
+		<purview>iwork_layout/bpm2013/img/preview.jpg</purview>
+		<interface-class>com.iwork.core.lookandfeel.interceptor.LookAndFeelInterface</interface-class>
+		<implements-class>com.iwork.core.lookandfeel.interceptor.impl.LookAndFeelTopMenuImpl</implements-class>
+		<welcome>iwork_layout/bpm2013/frame/index2.jsp</welcome> 
+		<desc>适用于顶部菜单的蓝色外观风格</desc>
+	</skins-schema> 
+	<skins-schema>
+		<key>outlook</key>
+		<title>OutLOOK样式</title>
+		<purview>iwork_layout/outlook/img/preview.jpg</purview>
+		<interface-class>com.iwork.core.lookandfeel.interceptor.LookAndFeelInterface</interface-class>
+		<implements-class>com.iwork.core.lookandfeel.interceptor.impl.LookAndFeelTopMenuImpl</implements-class>
+		<welcome>iwork_layout/outlook/frame/index2.jsp</welcome> 
+		<desc>适用于OutLook外观风格</desc>
+	</skins-schema>
+	
+	
+	<skins-schema>
+		<key>skins2014</key>
+		<title>skins2014样式</title>
+		<purview>iwork_layout/skins2014/img/preview.jpg</purview>
+		<interface-class>com.iwork.core.lookandfeel.interceptor.LookAndFeelInterface</interface-class>
+		<implements-class>com.iwork.core.lookandfeel.interceptor.impl.LookAndFeelTopMenuImpl</implements-class>
+		<welcome>iwork_layout/skins2014/frame/index2.jsp</welcome> 
+		<desc>适用于顶部菜单的蓝色外观风格</desc>
+	</skins-schema> 
+	
+	
+	<skins-schema>
+		<key>ecom</key>
+		<title>BPM2013样式</title>
+		<purview>iwork_layout/ecom/img/preview.jpg</purview>
+		<interface-class>com.iwork.core.lookandfeel.interceptor.LookAndFeelInterface</interface-class>
+		<implements-class>com.iwork.core.lookandfeel.interceptor.impl.LookAndFeelTopMenuImpl</implements-class>
+		<welcome>iwork_layout/ecom/frame/index2.jsp</welcome> 
+		<desc>适用于顶部菜单的蓝色外观风格</desc>
+	</skins-schema> 
+	<skins-schema>
+		<key>boss</key>
+		<title>领导办公桌面</title>
+		<purview>iwork_layout/boss/img/preview.jpg</purview>
+		<interface-class>com.iwork.core.lookandfeel.interceptor.LookAndFeelInterface</interface-class>
+		<implements-class>com.iwork.core.lookandfeel.interceptor.impl.LookAndFeelBossMenuImpl</implements-class>
+		<welcome>iwork_layout/boss/frame/index2.jsp</welcome> 
+		<desc>适用极简功能的系统用户使用（领导）</desc>
+	</skins-schema>   -->
+</lookandfeel>

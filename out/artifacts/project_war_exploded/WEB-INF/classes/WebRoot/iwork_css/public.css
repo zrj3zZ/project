@@ -1,0 +1,87 @@
+
+/*滚动条设置参数*/
+body {
+	SCROLLBAR-FACE-COLOR: #e4e4e4; /*滚动条凸出部分的颜色*/
+	SCROLLBAR-HIGHLIGHT-COLOR: #cccccc;  /*滚动条空白部分的颜色 */
+	SCROLLBAR-SHADOW-COLOR: #cccccc;  /*立体滚动条阴影的颜色 */
+	SCROLLBAR-3DLIGHT-COLOR: #cccccc;  /*滚动条亮边的颜色*/
+	SCROLLBAR-ARROW-COLOR: #000000;  /*上下按钮上三角箭头的颜色 */
+	SCROLLBAR-TRACK-COLOR: #cccccc;  /*滚动条的背景颜色*/
+	SCROLLBAR-DARKSHADOW-COLOR: #cccccc;  /*滚动条强阴影的颜色 */
+	SCROLLBAR-BASE-COLOR: rgb(66,93,128);/*滚动条的基本颜色*/
+	background-color: #ffffff;/*页面背景*/
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-right:0px;
+	margin-top: 0px;
+}
+
+body,table,td,p,font,br{font-size: 12px;color:#000000}
+ table {
+            border: 0px solid black;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+        
+   
+html{height:100%}
+body{height:100%}
+
+
+/*普通连接*/
+A:link {text-decoration: none;	color: #1E4871}
+A:visited {text-decoration: none;color: #336699}
+A:Hover {text-decoration: underline;color: #AA0606;}
+
+
+/*当前日期行样式*/
+.daterow{width:400px;
+		font-size:12px;
+		color:#000000;
+		padding-left:20px;}
+/*可写入表单*/
+.true_input{
+	width:144px;
+	height:22px;
+	color:#003366; 
+	line-height:22px;
+	border:1px solid #A9BAC9;
+	background:url(../../../iwork_img/bg_input.gif) no-repeat #fff;
+	padding:0 3px;
+	font-size:12px;
+}
+		   }
+/*不可写入的表单*/
+.no_input{
+	background-color:#EEEEED;/*不可写入的表单颜色*/
+	color:#A9A292;
+	width:144px;
+	height:22px;
+	line-height:22px;
+	border:1px solid #A9BAC9;
+	padding:0 3px;
+	font-size:12px;
+}
+
+.textarea{
+	background:#f8f8f8;
+	border-bottom:#b7b7b71pxsolid;
+	border-left:#b7b7b71pxsolid;
+	border-right:#b7b7b71pxsolid;
+	border-top:#b7b7b71pxsolid;
+	color:#003366;
+	cursor:text;
+	width:300px;
+	font-family:"arial";
+	font-size:9pt;
+	padding:1px;
+}
+.select{
+	border-right:#000000 1px solid;
+	border-top:#ffffff 1px solid;
+	font-size:12px;
+	border-left:#ffffff 1px solid;
+	color:#003366;
+	border-bottom:#000000 1px solid;
+	background-color:#f4f4f4;
+}

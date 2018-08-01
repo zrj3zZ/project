@@ -1,0 +1,38 @@
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.table3{
+	width:98%;
+	border:1px solid #efefef;
+	margin:5px;
+}
+.table3 th{
+	background-color:#efefef;
+	border-bottom:1px solid #efefef;
+	padding-left:5px;
+	height:15px;
+	 
+}
+.table3 tr{
+	height:20px;
+	background-color:#fff;
+	border-bottom:1px solid #efefef;
+	line-height:30px;
+	text-align:left;
+}
+.table3 td{
+	text-align:left;
+	padding-left:5px;
+}
+.table3 tr:hover{
+	background-color:#efefef;
+	cursor:pointer; 
+}
+.page{
+	text-align:right;
+	padding:5px;
+	padding-top:10px;
+}

@@ -1,0 +1,63 @@
+
+.icon-transfer_run{
+	background:url('../../iwork_img/engine/transfer_cfg.gif') no-repeat; 
+} 
+.icon-reload{
+	background:url('../../iwork_img/engine/transfer_load.gif') no-repeat;
+}
+.icon-transfer_del{
+	background:url('../../iwork_img/del3.gif') no-repeat;
+}
+.icon-transfer_log{
+	background:url('../../iwork_img/engine/transfer_search.gif') no-repeat;
+}
+.transferInfo{
+	margin:10px;
+	border:1px solid #efefef;
+	padding:5px;
+}
+.toolbar{
+			padding:3px;
+			border-bottom:1px solid #efefef;
+			background:#fafafa url('../../iwork_css/jquerycss/default/images/datagrid_header_bg.gif') repeat-x left bottom;
+		}
+.transfermemo{
+margin:5px;
+padding:5px;
+border:1px solid #efefef;
+color:#0000FF
+}
+.infoData{
+	font-size:12px;
+	font-family:Î¢ÈíÑÅºÚ;
+	color:#0000FF
+}
+.infoTitle{ 
+font-size:12px;
+	font-family:Î¢ÈíÑÅºÚ;
+	color:#666;
+	text-align:right;
+	padding-right:10px;
+	height:18px;
+}
+.header td{
+			font-weight:bold;
+			font-size:12px;
+			padding:3px;
+			white-space:nowrap;
+			padding-left:5px;
+			background:#fafafa url('../../iwork_css/jquerycss/default/images/datagrid_header_bg.gif') repeat-x left bottom;
+			border-bottom:1px dotted #ccc;
+			border-top:1px dotted #fff;
+			border-right:1px dotted #ccc;
+		}
+		.cell td{
+					margin:0;
+					padding:3px 4px;
+					font-size:12px;
+					overflow:hidden;
+					text-align:left;
+					border-bottom:1px dotted #eee;
+					border-top:1px dotted #fff;
+					border-right:1px dotted #ccc;
+				}

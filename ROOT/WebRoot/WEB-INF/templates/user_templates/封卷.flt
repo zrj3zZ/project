@@ -1,0 +1,52 @@
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					封卷
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_6181">
+								<td class="td_title" id="title_CJSJ" width="15%">
+									填报日期
+								</td>
+								<td class="td_data" id="data_CJSJ" width="35%">
+									${CJSJ}&nbsp;　
+								</td>
+								<td class="td_title" id="title_" width="15%">
+									封卷日
+								</td>
+								<td class="td_data" id="data_" width="35%">
+									${SLRQ}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_6316">
+								<td class="td_title" id="title_FJ" width="180">
+									附件
+								</td>
+								<td class="td_data" id="data_FJ">
+									${FJ}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${INSTANCEID}${COMPANYNO}${COMPANYNAME}${TBRID}${XMBH}${PROJECTNAME}${LXRQ}${LX1}${LX2}${LX3}${LX4}${LX5}${GGRQ}${GG1}${GG2}${GG3}${GG4}${GG5}${FDCY}${FD1}${FD2}${FD3}${FD4}${FD5}${FK}${FKHFRQ}${SHRQ}${SHJG}${FXGFS}${FXGJ}${MJZJZE}${MJZJJE}${ZQJC}${ZQDM}${SSRQ}${XMNR}${XMSJ}${XMFJ}${ZZSJ}${JCXYYY}${JDBH}
+</div>

@@ -1,0 +1,24 @@
+document.write("<script type='text/javascript' src='iwork_js/iwork/info/info.js'><\/script>");
+function savebeforeEvent() {
+var userid=$("#USERID").val();
+var now = new Date();
+var year = now.getFullYear();       //年
+var month = now.getMonth() + 1;     //月
+var day = now.getDate();            //日
+var hh = now.getHours();            //时
+var mm = now.getMinutes();          //分
+var clock = userid+year;
+if(month < 10)
+clock += "0";
+clock += month;
+if(day < 10)
+clock += "0";
+clock += day + " ";
+if(hh < 10)
+clock += "0";
+clock += hh + ":";
+if (mm < 10) clock += "0"; 
+clock += mm;
+iformMain.WebOffice.WebSaveVersionByFileID(clock);  	//交互OfficeServer的OPTION="SAVEVERSION"  同时带FileID值   <参考技术文档>
+StatusMsg(iformMain.WebOffice.Status);
+}

@@ -1,0 +1,78 @@
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					人员新增
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_2737">
+								<td class="td_title" id="title_USERID" width="180">
+									<span style="color:red;">*</span>账号
+								</td>
+								<td class="td_data" id="data_USERID">
+									${USERID}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2738">
+								<td class="td_title" id="title_USERNAME" width="180">
+									<span style="color:red;">*</span>姓名
+								</td>
+								<td class="td_data" id="data_USERNAME">
+									${USERNAME}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2741">
+								<td class="td_title" id="title_ROLEID" width="180">
+									<span style="color:red;">*</span>角色
+								</td>
+								<td class="td_data" id="data_ROLEID">
+									${ROLEID}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2739">
+								<td class="td_title" id="title_MOBILE" width="180">
+									手机
+								</td>
+								<td class="td_data" id="data_MOBILE">
+									${MOBILE}&nbsp;<span id="spanphone"></span>
+								</td>
+							</tr>
+							<tr id="itemTr_2740">
+								<td class="td_title" id="title_EMAIL" width="180">
+									邮箱
+								</td>
+								<td class="td_data" id="data_EMAIL">
+									${EMAIL}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2742">
+								<td class="td_title" id="title_DEPARTMENTNAME" width="180">
+									<span style="color:red;">*</span>所属部门
+								</td>
+								<td class="td_data" id="data_DEPARTMENTNAME">
+									${DEPARTMENTNAME}&nbsp;<a href="###" onclick="dept_book();" title="部门地址薄" class="easyui-linkbutton" plain="true" iconCls="icon-deptbook"></a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${DEPARTMENTID}${CJSJ}
+</div>

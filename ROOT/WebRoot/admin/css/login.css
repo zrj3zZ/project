@@ -1,0 +1,131 @@
+﻿@charset "utf-8";
+/* CSS Document */
+* {
+	margin:0px;
+	padding:0px;
+	
+}
+body {
+	background-color:#2d7fce
+}
+/*控制台管理员登陆css*/
+.console_top {
+	background:url(../img/login/console_top.jpg) repeat-x;
+	height:75px;
+}
+.console_bg {
+	background:url(../img/login/console_bg.jpg) repeat-x;
+	height:518px;
+}
+.console_logo {
+	z-index:99999;
+	width:147px;
+	height:40px;
+	background:url(../img/login/console_logo.png) no-repeat;
+	position:absolute;
+	left:80px;
+	top:20px;
+	_background:none;
+_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../img/login/console_logo.png", sizingMethod="crop")
+}
+
+.console_login_box {
+	width:366px;
+	height:309px;
+	position:absolute;
+	top:120px;
+	left:50%;
+	margin-left:-183px;
+	background:url(../img/login/console_login_bg.jpg); 
+}
+.text{
+	
+	z-index:9994;
+	position:relative;
+	top:75px;
+	left:20px;
+	font-size:12px;
+	width:80px;
+	height:120px;
+	color:#0375b7;
+	font-weight:bold;
+	text-align:right;
+	line-height:42px;}
+.console_input1 {
+	z-index:9996;
+	position:relative;
+	top:-40px;
+	left:110px;
+	font-size:14px;
+		width:200px;
+
+
+}
+.console_input2 {
+	z-index:9997;
+	position:relative;
+	top:-25px;
+	left:110px;
+	font-size:14px;
+	width:200px;
+
+}
+.console_input3 {
+	z-index:9998;
+	position:relative;
+	top:-10px;
+	left:110px;
+	font-size:14px;
+	width:60px;
+
+}
+.input_style{padding-left:5px;height:24px; line-height:24px; width:200px;font-size:14px;font-weight:bold;}
+.console_validate{
+	font-size:12px;
+	position:relative;
+	top:-60px;
+	left:183px;
+	font-size:14px;
+
+	width:150px;
+}
+.console_checkbox{
+	z-index:9995;
+	font-size:12px;
+	position:relative;
+	top:5px;
+	left:110px;
+	height: 24px;
+	width: 200px;
+}
+.console_error {
+	font-size:12px;
+	position:relative;
+	top:60px;
+	left:0px;
+	height: 20px;
+	width: 360px;
+	text-align:center;
+	color:#F00;
+}
+.console_genghuan {
+	font-size:12px;
+	position:relative;
+	top:-78px;
+	left:250px;
+
+	width:80px;
+}
+.console_sumit {
+	z-index:9999;
+	position:relative;
+	top:-40px;
+	left:230px;
+
+	cursor: pointer;
+	width: 90px;
+	height:30px;
+	line-height:30px;
+	
+
+}

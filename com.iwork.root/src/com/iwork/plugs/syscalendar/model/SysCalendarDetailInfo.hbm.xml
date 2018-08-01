@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.iwork.plugs.syscalendar.model.SysCalendarDetailInfoModel" table="SYS_CALENDAR_DETAIL_INFO">
+        <id name="id" type="java.lang.Long">
+            <column name="ID" precision="20" scale="0" />
+            <generator class="increment" />
+        </id> 
+        <property name="CDate" type="java.util.Date">
+            <column name="C_DATE" length="7">
+                <comment>日期</comment>
+            </column>
+        </property>
+        <property name="actualDayType" type="java.lang.String">
+            <column name="ACTUAL_DAY_TYPE" length="2">
+                <comment>实际日期类型 1:工作,0:休息</comment>
+            </column>
+        </property>
+        <property name="commonDayType" type="java.lang.String">
+            <column name="COMMON_DAY_TYPE" length="2">
+                <comment>正常日期类型 1:工作日,0:周末</comment>
+            </column>
+        </property>
+        <property name="calendarId" type="java.lang.Long">
+            <column name="CALENDAR_ID" precision="20" scale="0" />
+        </property>
+        <property name="ts" type="java.lang.String">
+            <column name="TS" length="30" />
+        </property>
+        <property name="dayOfWeek" type="java.lang.String">
+            <column name="DAY_OF_WEEK" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

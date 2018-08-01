@@ -1,0 +1,43 @@
+<div id="border">
+	<table width="100%" class="ke-zeroborder" style="margin-bottom:5px;" border="0" cellspacing="0" cellpadding="0">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					项目资料表单
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table width="100%" class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0">
+						<tbody>
+							<tr id="itemTr_1850">
+								<td width="180" class="td_title" id="title_JDZL">
+									阶段资料
+								</td>
+								<td class="td_data" id="data_JDZL">
+									${JDZL}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1849">
+								<td width="180" class="td_title" id="title_JDBH">
+									阶段编号
+								</td>
+								<td class="td_data" id="data_JDBH">
+									${JDBH}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

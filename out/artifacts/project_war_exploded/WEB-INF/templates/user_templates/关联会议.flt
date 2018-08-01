@@ -1,0 +1,193 @@
+<script>
+  $(function(){
+$("input[name='MEETNAME']").css("display", "none");
+    var str = $("input[name='MEETNAME']").val();
+    if ($("#MEETNAME").val() == undefined) {
+        $("#data_MEETNAME").hide();
+        $("#GLHYDIV").css('background', 'none');
+        $("#GLHYDIV").css('border', '0px');
+    }
+ 
+    var id = $("input[name='MEETID']").val();
+
+
+
+        if (id != str) {
+	
+            $.post("zqb_glhy_getthisname.action?id=" + id, function (data) {
+
+                $("#GLHYDIV").empty();
+                $("#GLHYDIV").html(data);
+            });
+            $.post("zqb_xpsxt_gg_getbc.action?id=" + id, function (data) {
+                $("#data_SXBCDES").html(data);
+            });
+            $.post("zqb_xpsxt_gg_getbcfile.action?id=" + id, function (data) {
+                $("#DIVSXBCFILEHTML").html(data);
+            });
+            str = id;
+        }
+
+      
+});
+function checkGlhy(id) {
+    var pageUrl = "zqb_glhy_check.action?id=" + id;
+    art.dialog.open(pageUrl,{ 
+        title: '会议计划表单',
+        loadingText: '正在加载中,请稍后...',
+        bgcolor: '#999',
+        rang: true,
+        width: 890,
+        cache: false,
+        lock: true,
+        height: 530,
+        iconTitle: false,
+        extendDrag: true,
+        autoSize: false,
+ close: function () {}
+    });
+}
+
+
+function del(bs,id,name){
+
+	   document.getElementById("div"+bs).style.display = "none";
+var meetname= document.getElementById("MEETNAME").value;
+var meetid= document.getElementById("MEETID").value;
+
+var name2="";
+var id2="";
+
+var name1=meetname.split(",");
+var id1=meetid.split(",");
+if(name1.length>1){
+	for(var i=0;i<name1.length;i++){
+		
+		if(name1[i]!=name){
+			if(name2==""){
+				name2=name1[i];
+			}else{
+				name2=name2+","+name1[i];
+			}
+		}
+			
+		
+  	}
+	for(var i=0;i<id1.length;i++){
+		
+		if(id1[i]!=id){
+			if(id2==""){
+				id2=id1[i];
+			}else{
+				id2=id2+","+id1[i];
+			}
+		}
+			
+		
+  	}
+}
+
+document.getElementById("MEETNAME").value=name2;
+document.getElementById("MEETID").value=id2;
+}
+function hdsx(){
+	 var id = $("input[name='MEETID']").val();
+
+
+
+      
+	
+            $.post("zqb_glhy_getthisname.action?id=" + id, function (data) {
+
+                $("#GLHYDIV").empty();
+                $("#GLHYDIV").html(data);
+            });
+            $.post("zqb_xpsxt_gg_getbc.action?id=" + id, function (data) {
+                $("#data_SXBCDES").html(data);
+            });
+            $.post("zqb_xpsxt_gg_getbcfile.action?id=" + id, function (data) {
+                $("#DIVSXBCFILEHTML").html(data);
+            });
+           
+
+}
+
+function openDictionary(uuid){
+	var subformkey="";
+	var subformid=""
+	var pageUrl = "sys_dictionary_runtime_show.action?dictionaryUUID="+uuid+"&subformkey="+subformkey+"&subformid="+subformid;
+	art.dialog.open(pageUrl,{
+			id:'DictionaryDialog',
+			title:"数据选择",
+			lock:true,
+			background: '#999', // 背景色
+		    opacity: 0.87,	// 透明度
+		    width:'90%',
+		    height:'90%',
+		    close: function () {
+		    	hdsx();
+		    }
+		 });
+}
+function saveForm(){
+	var valid = mainFormValidator.form(); //执行校验操作
+	if(!valid){
+	return false;
+	}
+	//保存富文本
+ 	try{ 
+ 		saveHtmlEditor();  
+ 	}catch(e){} 	
+var meetname= document.getElementById("MEETNAME").value;
+var meetid= document.getElementById("MEETID").value;
+	var instanceId =$("#instanceId").val();
+	 $.post("zqb_tbsj.action?instanceid="+instanceId+"&JC=" + meetid+"&HC=" + encodeURI(meetname), function (data) {
+		document.getElementById("submitbtn").click();	
+          });
+	
+} 
+</script>
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					关联会议
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+						<tbody>
+							<tr id="itemTr_1876">
+								<td id="title_MEETNAME" class="td_title" width="180">
+									相关会议名称
+								</td>
+								<td class="td_data" colspan="5">
+									<div id="GLHYDIV" style="width:auto;float:left;">
+									</div>
+									<div id="data_MEETNAME" style="width:auto;">
+										${MEETNAME}&nbsp;
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+${GGDF}${INSTANCEID}${SPZT}${COMPANYNAME}${NOTICENO}${YXID}${MEETID}${PRCID}${LCBH}${LCBS}${KHMC}${KHBH}${CREATEDATE}${CREATENAME}${PAPERFILENO}${NOTICEFLAG}${NOTICETYPE}${NOTICEDATE}${STEPID}${RWID}${MTYDKJ}${BZLX}${NOTICENAME}${NOTICEFILE}${CREATERID}${NOTICETEXT}${COMPANYNO}${NOTICESQ}${ZQDMXS}${ZQJCXS}${GGZY}${QCRID}
+</div>

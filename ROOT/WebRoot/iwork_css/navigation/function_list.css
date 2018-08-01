@@ -1,0 +1,50 @@
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.toolbar{
+	text-align:left;
+	height:35px; 
+	background:url(../../../iwork_img/engine/tools_nav_bg.jpg) repeat-x;
+			height:35px;
+			line-height:25px;
+			padding-left:20px;
+			padding-right:20px;
+			vertical-align:middle;
+			padding-top:2px; 
+			padding-bottom:2px; 
+			margin-bottom:5px;
+}
+.itemlist{
+	line-height:30px;
+	height:30px; 
+	
+}
+.RowData2{
+	line-height:30px;
+	height:30px; 
+}
+.table3{
+	width:95%;
+	border:1px solid #efefef;
+	
+}
+.cell th{
+	line-height:20px;
+	padding:5px;
+	border-right:1px dotted #999;
+	border-bottom:1px solid #efefef;
+	background:url(../../../iwork_img/engine/tools_nav_bg.jpg) repeat-x;
+}
+.cell td{
+					margin:0;
+					padding:3px 4px;
+					font-size:12px;
+					overflow:hidden;
+					text-align:left;
+					border-bottom:1px dotted #eee;
+					border-top:1px dotted #fff;
+					border-right:1px dotted #ccc;
+				}

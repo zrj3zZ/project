@@ -1,0 +1,54 @@
+<div>
+	<table style="margin-bottom:5px;" class="ke-zeroborder" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" border="0" cellpadding="0" cellspacing="0" width="100%">
+						<tbody>
+							<tr id="itemTr_1155">
+								<td class="td_title" id="title_GROUPNAME" width="180">
+									<span style="color:red;">*</span>阶段名称
+								</td>
+								<td class="td_data" id="data_GROUPNAME">
+									${GROUPNAME}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1156" style="display:none;">
+								<td class="td_title" id="title_MANAGER" width="180">
+									<span style="color:red;">*</span>负责人
+								</td>
+								<td class="td_data" id="data_MANAGER">
+									${MANAGER}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1170" style="display:none;">
+								<td class="td_title" id="title_PROJECTNAME" width="180">
+									项目名称
+								</td>
+								<td class="td_data" id="data_PROJECTNAME">
+									${PROJECTNAME}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1171" style="display:none;">
+								<td class="td_title" id="title_PROJECTNO" width="180">
+									项目编号
+								</td>
+								<td class="td_data" id="data_PROJECTNO">
+									${PROJECTNO}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1174" style="display:none;">
+								<td class="td_title" id="title_ORDER_INDEX" width="180">
+									排序
+								</td>
+								<td class="td_data" id="data_ORDER_INDEX">
+									${ORDER_INDEX}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

@@ -1,0 +1,273 @@
+@charset "utf-8";
+@import url("container.css");
+/* CSS Document */
+
+ 
+.main {
+	background-image:url(../../iwork_img/know/main_bg.jpg);
+	width:914px;
+	height:560px;
+	background-repeat:repeat-y;
+	margin:0 auto;
+	margin-top:3px;
+}
+.header {
+	background-image:url(../../iwork_img/know/head.jpg);
+	width:914px;
+	height:107px;
+	background-repeat:no-repeat;
+}
+.header_font {
+	height:32px;
+	clear:both;
+	line-height:32px;
+	display:inline;
+}
+.header_font li {
+	float:right;
+	display:block;
+	margin-right:20px;
+}
+.header_font a:link {
+	color:#fff;
+}
+.header_font a:visited {
+	color:#fff;
+}
+.header_font a:hover {
+	color:#fff;
+}
+.header_font a:active {
+	color:#fff;
+}
+
+
+/*顶部导航*/
+.header_icon {
+	clear:both;
+	margin-left:25px;
+
+	
+}
+.header_icon a{ }
+.header_icon1 {
+	background-image:url(../../iwork_img/know/icon/icon_03.jpg);
+	height:69px;
+	width:72px;
+	float:left;
+	cursor:pointer;
+	margin-right:6px;
+	margin-top:1px;
+}
+.header_icon2 {
+	background-image:url(../../iwork_img/know/icon/icon_05.jpg);
+	height:69px;
+	width:72px;
+	float:left;
+	cursor:pointer;
+	margin-right:6px;
+		margin-top:1px;
+}
+.header_icon3 {
+	background-image:url(../../iwork_img/know/icon/icon_07.jpg);
+	height:69px;
+	width:72px;
+	float:left;
+	cursor:pointer;
+	margin-right:6px;
+		margin-top:1px;
+}
+.header_icon4 {
+	background-image:url(../../iwork_img/know/icon/icon_09.jpg);
+	height:69px;
+	width:72px;
+	float:left;
+	cursor:pointer;
+	margin-right:6px;
+		margin-top:1px;
+}
+.header_icon5 {
+	background-image:url(../../iwork_img/know/icon/icon_11.jpg);
+	height:69px;
+	width:72px;
+	float:left;
+	cursor:pointer;
+	margin-right:6px;
+	margin-top:1px;
+}
+.header_icon6 {
+	background-image:url(../../iwork_img/know/icon/icon_13.jpg);
+	height:69px;
+	width:72px;
+	float:left;
+	cursor:pointer;
+	margin-right:6px;
+	margin-top:1px;
+}
+.header_icon7 {
+	background-image:url(../../iwork_img/know/icon/icon_15.jpg);
+	height:69px;
+	width:72px;
+	float:left;
+	cursor:pointer;
+	margin-right:6px;
+	margin-top:1px;
+}
+/*顶部导航变换图片*/
+.header_icon1 a:hover {
+	background-image:url(../../iwork_img/know/icon/icon_hover_03.jpg);
+	background-repeat:no-repeat;
+	height:69px;
+	width:72px;
+	float:left;
+	margin-right:6px;
+	margin-top:1px;
+}
+.header_icon2 a:hover {
+	background-image:url(../../iwork_img/know/icon/icon_hover_05.jpg);
+	background-repeat:no-repeat;
+	height:69px;
+	width:72px;
+	float:left;
+	margin-right:6px;
+	margin-top:1px;
+}
+.header_icon3 a:hover {
+	background-image:url(../../iwork_img/know/icon/icon_hover_07.jpg);
+	background-repeat:no-repeat;
+	height:69px;
+	width:72px;
+	float:left;
+	margin-right:6px;
+	margin-top:1px;
+}
+.header_icon4 a:hover {
+	background-image:url(../../iwork_img/know/icon/icon_hover_09.jpg);
+	background-repeat:no-repeat;
+	height:69px;
+	width:72px;
+	float:left;
+	margin-right:6px;
+	margin-top:1px;
+}
+.header_icon5 a:hover {
+	background-image:url(../../iwork_img/know/icon/icon_hover_11.jpg);
+	background-repeat:no-repeat;
+	height:69px;
+	width:72px;
+	float:left;
+	margin-right:6px;
+	margin-top:1px;
+}
+.header_icon6 a:hover {
+	background-image:url(../../iwork_img/know/icon/icon_hover_13.jpg);
+	background-repeat:no-repeat;
+	height:69px;
+	width:72px;
+	float:left;
+	margin-right:6px;
+	margin-top:1px;
+}
+.header_icon7 a:hover {
+	background-image:url(../../iwork_img/know/icon/icon_hover_15.jpg);
+	background-repeat:no-repeat;
+	height:69px;
+	width:72px;
+	float:left;
+	margin-right:6px;
+	margin-top:1px;
+}
+/*鹰眼搜索部分*/
+.eagle_search {
+	width:914px;
+	background-image:url(../../iwork_img/know/eagle_search.jpg);
+	background-repeat:no-repeat;
+	height:29px;
+	line-height:29px;
+
+}
+.eagle_search_left {
+	height:29px;
+	line-height:29px;
+	margin-left:25px;
+	width:200px;
+	float:left;
+	display:inline
+}
+.eagle_search_right {
+	width:310px;
+	float:right;
+	height:29px;
+	line-height:29px;
+	_padding-top:5px;
+	_height:24px;
+}
+.eagle_radio {
+	margin:0;
+	width:13px;
+	height:13px;
+	overflow:hidden;
+	vertical-align:middle;
+	margin-top:-2px;
+	margin-bottom:1px;
+}
+.eagle_input {
+	background:transparent none!important;
+	cursor:pointer;
+	vertical-align:middle;
+	width:90px;
+	border:0 none;
+	margin-left:10px;
+	vertical-align:middle;
+	margin-top:-2px;
+	margin-bottom:1px;
+	color:#999;
+}
+.eagle_btn {
+	background:transparent none!important;
+	width:20px;
+	height:20px;
+	cursor:pointer;
+	vertical-align:middle;
+	border:0 none;
+}
+/*内容显示区域*/
+.container {
+	width:904px;
+	background:url(../../iwork_img/know/container_bg.jpg) #f8f8f8;
+	background-repeat:repeat-y;
+	height:400px;
+	margin:0 auto;
+}
+.container_main {
+	padding:10px 0px;
+	background-color:#f5f5f5;
+	margin-left:4px;
+	margin-right:4px;
+	height:380px;
+}
+/*底部信息*/
+.footer {
+	width:914px;
+	background-image:url(../../iwork_img/know/footer.jpg);
+	background-repeat:no-repeat;
+	height:29px;
+	color:#fff;
+	line-height:29px;
+}
+.footer_left {
+	height:29px;
+	color:#fff;
+	line-height:29px;
+	margin-left:25px;
+	width:200px;
+	float:left
+}
+.footer_right {
+	height:29px;
+	color:#fff;
+	line-height:29px;
+	margin-right:25px;
+	width:150px;
+	float:right;
+}

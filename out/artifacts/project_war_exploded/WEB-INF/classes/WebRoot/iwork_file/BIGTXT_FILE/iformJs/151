@@ -1,0 +1,20 @@
+function savebeforeEvent() {
+    $.ajaxSetup({
+        async: false
+    });
+    var groupid = $("#GROUPID").val();
+    var projectno = $("#PROJECTNO").val();
+    var flag = new Boolean();
+    $.post("zqb_project_checkpj.action", {
+        groupid: groupid,
+        projectNo: projectno
+    }, function (data) {
+        if (data == "false") {
+            flag = false;
+            alert("已存在该阶段的评价信息！");
+        } else {
+            flag = true;
+        }
+    });
+    return flag;
+}

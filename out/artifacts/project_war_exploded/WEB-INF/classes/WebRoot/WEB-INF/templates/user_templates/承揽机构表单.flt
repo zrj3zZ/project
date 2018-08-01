@@ -1,0 +1,39 @@
+<div id="border">
+		<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 5px" width="100%">
+			<tbody>
+				<tr>
+					<td class="formpage_title">承揽机构表单</td>
+				</tr>
+				<tr>
+					<td align="right" id="help"></td>
+				</tr>
+				<tr>
+					<td align="right" class="line"></td>
+				</tr>
+				<tr>
+					<td align="left">
+						<table border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody>
+								<tr id="itemTr_2315">
+									<td class="td_title"  id="title_JGMC" width="180">									<font color='red'>*</font>机构名称									</td>
+									<td class="td_data"  id="data_JGMC">${JGMC}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_2316">
+									<td class="td_title"  id="title_FPBL" width="180">									<font color='red'>*</font>分配比例(%)									</td>
+									<td class="td_data"  id="data_FPBL">${FPBL}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_2317">
+									<td class="td_title"  id="title_TBR" width="180">									<font color='red'>*</font>填报人									</td>
+									<td class="td_data"  id="data_TBR">${TBR}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_2318">
+									<td class="td_title"  id="title_TBSJ" width="180">									<font color='red'>*</font>填报时间									</td>
+									<td class="td_data"  id="data_TBSJ">${TBSJ}&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+</div>

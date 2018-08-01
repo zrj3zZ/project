@@ -1,0 +1,4 @@
+#nav { height:24px;  background:url(../iwork_img/topbg.gif) repeat-x;  margin-bottom:3px; margin-top:3px; margin-right:0px;}
+.tit2 { background:url(../iwork_img/homepage.gif);background-repeat:no-repeat;background-position:5px;padding:3px 21 px; height:24px;  line-height:24px; color:#666666;  font-size:12px;font-family:Arial;border-bottom:1px solid #BEBEBE;}
+.tit2 img {margin-top:4px; margin-left:3px;}
+.fleft {float:left;}

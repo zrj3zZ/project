@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" 
+
+"file:///E:/source/RMS/ROOT/WebRoot/WEB-INF/spring-beans-2.0.dtd">
+<beans>
+    <!-- 证券宝 -->
+     <bean id="zqbProjectManageAction" class=" com.ibpmsoft.project.zqb.action.ZqbProjectManageAction" scope="prototype">   
+    	<property name="zqbProjectManageService" ref="zqbProjectManageService" /> 
+    </bean>
+    <bean id="zqbProjectManageService" class="com.ibpmsoft.project.zqb.service.ZqbProjectManageService" scope="prototype">
+   		 <property name="zqbProjectManageDAO" ref="zqbProjectManageDAO" /> 
+    </bean>
+    <bean id="zqbProjectManageDAO" class="com.ibpmsoft.project.zqb.dao.ZqbProjectManageDAO" parent="baseDAO">   
+    </bean>
+    
+    <bean id="zqbGpfxProjectManageAction" class=" com.ibpmsoft.project.zqb.action.ZqbGpfxProjectManageAction" scope="prototype">   
+    	<property name="zqbGpfxProjectManageService" ref="zqbGpfxProjectManageService" /> 
+    </bean>
+    <bean id="zqbGpfxProjectManageService" class="com.ibpmsoft.project.zqb.service.ZqbGpfxProjectManageService" scope="prototype">
+   		 <property name="zqbGpfxProjectManageDAO" ref="zqbGpfxProjectManageDAO" /> 
+    </bean>
+    <bean id="zqbGpfxProjectManageDAO" class="com.ibpmsoft.project.zqb.dao.ZqbGpfxProjectManageDAO" parent="baseDAO">   
+    </bean>
+     
+     <bean id="zqbMeetingManageAction" class=" com.ibpmsoft.project.zqb.action.ZqbMeetingManageAction" scope="prototype">   
+    	<property name="zqbMeetingManageService" ref="zqbMeetingManageService" /> 
+    	<property name="uploadifyService" ref="uploadifyService" />
+    </bean>
+    <bean id="zqbMeetingManageService" class="com.ibpmsoft.project.zqb.service.ZqbMeetingManageService" scope="prototype">
+   	 <property name="uploadifyService" ref="uploadifyService" />
+   		 <property name="zqbMeetingManageDAO" ref="zqbMeetingManageDAO" /> 
+    </bean>
+    <bean id="zqbMeetingManageDAO" class="com.ibpmsoft.project.zqb.dao.ZqbMeetingManageDAO" parent="baseDAO">   
+    </bean>
+    
+     <bean id="zqbWorkFlowAction" class=" com.ibpmsoft.project.zqb.action.ZqbWorkFlowAction" scope="prototype">   
+    	<property name="zqbWorkFlowService" ref="zqbWorkFlowService" /> 
+    </bean>
+    <bean id="zqbWorkFlowService" class="com.ibpmsoft.project.zqb.service.ZqbWorkFlowService" scope="prototype">
+   		 <property name="zqbWorkFlowDAO" ref="zqbWorkFlowDAO" /> 
+    </bean>
+    <bean id="zqbWorkFlowDAO" class="com.ibpmsoft.project.zqb.dao.ZqbWorkFlowDAO"  parent="baseDAO">
+    </bean>
+     <bean id="zqbEventManageAction" class=" com.ibpmsoft.project.zqb.action.ZqbEventManageAction" scope="prototype">   
+    	<property name="zqbEventManageService" ref="zqbEventManageService" /> 
+    </bean>
+    <bean id="zqbEventManageService" class="com.ibpmsoft.project.zqb.service.ZqbEventManageService" scope="prototype">
+   		 <property name="zqbEventManageDAO" ref="zqbEventManageDAO" /> 
+    </bean>
+    <bean id="zqbEventManageDAO" class="com.ibpmsoft.project.zqb.dao.ZqbEventManageDAO" scope="prototype">   
+    </bean>
+     <bean id="zqbSearchCenterAction" class=" com.ibpmsoft.project.zqb.action.ZqbSearchCenterAction" scope="prototype">   
+    	<property name="zqbSearchCenterService" ref="zqbSearchCenterService" /> 
+    </bean>
+    <bean id="zqbSearchCenterService" class="com.ibpmsoft.project.zqb.service.ZqbSearchCenterService" scope="prototype">
+    </bean>
+     <bean id="zqbShenPiAction" class=" com.ibpmsoft.project.zqb.action.ZqbShenPiAction" scope="prototype">   
+    	<property name="zqbShenPiService" ref="zqbShenPiService" /> 
+    </bean>
+    <bean id="zqbShenPiService" class="com.ibpmsoft.project.zqb.service.ZqbShenPiService" scope="prototype">
+    </bean>
+    
+    <bean id="zqbFileUploadCommitAction" class=" com.ibpmsoft.project.zqb.action.ZqbFileUploadCommitAction" scope="prototype">   
+    	<property name="zqbFileUploadCommitService" ref="zqbFileUploadCommitService" /> 
+    </bean>
+    <bean id="zqbFileUploadCommitService" class="com.ibpmsoft.project.zqb.service.ZqbFileUploadCommitService" scope="prototype">
+   		 <property name="zqbFileUploadCommitDAO" ref="zqbFileUploadCommitDAO" /> 
+    </bean>
+    <bean id="zqbFileUploadCommitDAO" class="com.ibpmsoft.project.zqb.dao.ZqbFileUploadCommitDAO" parent="baseDAO">   
+    </bean>
+    
+    <bean id="zqbOnlineChatAction" class=" com.ibpmsoft.project.zqb.action.ZqbOnlineChatAction" scope="prototype">   
+    	<property name="zqbOnlineChatService" ref="zqbOnlineChatService" />
+    </bean>
+    <bean id="zqbOnlineChatService" class="com.ibpmsoft.project.zqb.service.ZqbOnlineChatService" scope="prototype">
+    	<property name="zqbOnlineChatDAO" ref="zqbOnlineChatDAO" />
+    </bean>
+    <bean id="zqbOnlineChatDAO" class="com.ibpmsoft.project.zqb.dao.ZqbOnlineChatDAO" parent="baseDAO">
+    </bean>
+    
+    <bean id="zqbCheckAction" class=" com.ibpmsoft.project.zqb.action.ZqbCheckAction" scope="prototype">   
+    	<property name="zqbCheckService" ref="zqbCheckService" />
+    </bean>
+    <bean id="zqbCheckService" class="com.ibpmsoft.project.zqb.service.ZqbCheckService" scope="prototype">
+    	<property name="processEngine" ref="processEngine" />
+    	<property name="taskService" ref="taskService" />
+    </bean>
+    
+    <!-- 新时代证券 -->
+    <bean id="xsdZqbProjectManageAction" class=" com.ibpmsoft.project.zqb.action.XSDZqbProjectManageAction" scope="prototype">   
+    	<property name="xsdZqbProjectManageService" ref="xsdZqbProjectManageService" /> 
+    </bean>
+    <bean id="xsdZqbProjectManageService" class="com.ibpmsoft.project.zqb.service.XSDZqbProjectManageService" scope="prototype">
+   		 <property name="xsdZqbProjectManageDAO" ref="xsdZqbProjectManageDAO" /> 
+    </bean>
+    <bean id="xsdZqbProjectManageDAO" class="com.ibpmsoft.project.zqb.dao.XSDZqbProjectManageDAO" parent="baseDAO">   
+    </bean>
+    
+    <bean id="itsArticlesAction" class="com.iwork.plugs.itsArticles.action.ItsArticlesAction" scope="prototype">   
+    	<property name="itsArticlesService" ref="itsArticlesService" /> 
+    </bean>
+    <bean id="itsArticlesService" class="com.iwork.plugs.itsArticles.service.ItsArticlesService" scope="prototype">
+   		 <property name="itsArticlesDao" ref="itsArticlesDao" />
+    </bean>
+    <bean id="itsArticlesDao" class="com.iwork.plugs.itsArticles.dao.ItsArticlesDao" parent="baseDAO">   
+    </bean>
+    <bean id="zqbUpdateDataService" class="com.ibpmsoft.project.zqb.service.ZqbUpdateDataService" scope="prototype">
+    </bean>
+    <bean id="zqbInvoiceAction" class="com.ibpmsoft.project.zqb.action.ZqbInvoiceAction" scope="prototype">   
+    	<property name="zqbInvoiceService" ref="zqbInvoiceService" /> 
+    </bean>
+    <bean id="zqbInvoiceService" class="com.ibpmsoft.project.zqb.service.ZqbInvoiceService" scope="prototype">   
+    	<property name="zqbInvoiceDAO" ref="zqbInvoiceDAO" /> 
+    </bean>
+    <bean id="zqbInvoiceDAO" class="com.ibpmsoft.project.zqb.dao.ZqbInvoiceDAO" parent="baseDAO">   
+    </bean>
+    <bean id="zqbProjectSxService" class="com.ibpmsoft.project.zqb.sx.service.ZqbProjectSxService" scope="prototype">
+    	<property name="zqbProjectSxDAO" ref="zqbProjectSxDAO" />
+    </bean>
+    <bean id="zqbProjectSxDAO" class="com.ibpmsoft.project.zqb.sx.dao.ZqbProjectSxDAO" parent="baseDAO">   
+    </bean>
+    <bean id="zqbGpfxProjectSxService" class="com.ibpmsoft.project.zqb.sx.gpfx.service.ZqbGpfxProjectSxService" scope="prototype">
+    	<property name="zqbGpfxProjectSxDAO" ref="zqbGpfxProjectSxDAO" />
+    </bean>
+    <bean id="zqbGpfxProjectSxDAO" class="com.ibpmsoft.project.zqb.sx.gpfx.dao.ZqbGpfxProjectSxDAO" parent="baseDAO">   
+    </bean>
+    
+    <bean id="dongGuanZqbProjectManageAction" class="com.ibpmsoft.project.zqb.action.DongGuanZqbProjectManageAction" scope="prototype">   
+    	<property name="dongGuanZqbProjectManageService" ref="dongGuanZqbProjectManageService" /> 
+    </bean>
+    <bean id="dongGuanZqbProjectManageService" class="com.ibpmsoft.project.zqb.service.DongGuanZqbProjectManageService" scope="prototype">   
+    	<property name="dongGuanZqbProjectManageDAO" ref="dongGuanZqbProjectManageDAO" /> 
+    </bean>
+    <bean id="dongGuanZqbProjectManageDAO" class="com.ibpmsoft.project.zqb.dao.DongGuanZqbProjectManageDAO" parent="baseDAO">   
+    </bean>
+</beans>
+
+
+
+
+

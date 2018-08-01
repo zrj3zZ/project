@@ -1,0 +1,387 @@
+<link href="iwork_js/plugs/gantt2/jquery-ui-1.8.4.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="iwork_js/jqueryjs/ui/jquery.ui.core.js"></script>
+<script type="text/javascript" src="iwork_js/plugs/gantt2/jquery-ui-1.8.4.js"></script>
+<script type="text/javascript" src="iwork_js/jqueryjs/ui/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="iwork_js/jqueryjs/ui/jquery.ui.position.js"></script>
+<script type="text/javascript" src="iwork_js/jqueryjs/ui/jquery.ui.autocomplete.js"></script>
+<link href="iwork_plugs/artDialog/skins/blue.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="iwork_plugs/artDialog/artDialog.js"></script>
+<script type="text/javascript" src="iwork_plugs/artDialog/plugins/iframeTools.js"></script>
+<script type="text/javascript">
+
+$(function(){
+    $("#RSSFCG").autocomplete({
+              source:function(request,response) {
+                 $.ajax({
+                    url:"zqb_project_sx_industrymsgassociate.action",
+                    dataType:"json",
+                    data:{
+                       xmbz:request.term
+                    },
+                    success: function(data) {
+                       response($.map(data, function(item) {
+                          return {
+                             label:item.ZIHY,
+                             value:item.ZHUHY+"-"+item.ZIHY,
+                          }
+                       }));
+                    }
+                 });
+              },
+              minLength:1,
+              select:function(event,ui){}
+       });
+})
+$(function(){
+	$("#FXZT").attr("disabled","true");
+	$("#title_MEMO").hide();
+	$("#data_MEMO").hide();
+	$('#XZYJL').change(function(){
+		var p1=$(this).children('option:selected').val();
+		if(p1=='中止'||p1=='终止'){
+			$("#title_MEMO").show();
+	        $("#data_MEMO").show();
+		}
+		if(p1=='正常'||p1==''){
+			$("#title_MEMO").hide();
+	        $("#data_MEMO").hide();
+		}
+	});
+   $(".subReportTable").css("width","99.5%");
+   //$("#data_CUSTOMERNAME font").remove();
+   //$("#data_CUSTOMERNAME").append("<span style='margin-left:-4px;color:red;'>*</span>")
+   //$("#data_CLBM font").remove();
+   //$("#data_CLBM").append("<span style='margin-left:-16px;color:red;'>*</span>")
+   //$("#data_CZBM font").remove();
+   //$("#data_CZBM").append("<span style='margin-left:-16px;color:red;'>*</span>")
+   
+	
+	    
+	    var projectno = $("#PROJECTNO").val();
+	    var instanceid = $("#instanceId").val();
+	    var projectname = $("#PROJECTNAME").val();
+	    var customername = $("#CUSTOMERNAME").val();
+	    var owner= $("#OWNER").val();
+	    $("#GPFXXMJD").attr("src",encodeURI("hl_zqb_dzwthGetJdContent.action?xmbh="+projectno+"&projectname="+customername+"&instanceid="+instanceid+"&owner="+owner));
+	    $("#rzURL").attr("src", encodeURI("zqb_project_showDaily.action?projectNo=" + projectno + "&projectname="+customername));
+	    
+	    
+	    var xiangmujindu= $('#JSYY option:selected').val();
+  if(xiangmujindu=='中止'||xiangmujindu=='终止'){
+	        $("#title_MEMO").show();
+	        $("#data_MEMO").show();
+	    }else{
+	        $("#title_MEMO").hide();
+	        $("#data_MEMO").hide();
+	    }
+	    
+	    
+	    $('#JSYY').change(
+	        function(){
+	            var p1=$(this).children('option:selected').val();
+          if(p1=='中止'||p1=='终止'){
+	                $("#title_MEMO").show();
+	                $("#data_MEMO").show();
+	            }
+          if(p1=='正常'||p1=='-空-'){
+	                $("#title_MEMO").hide();
+	                $("#data_MEMO").hide();
+	            }
+	        });
+	    
+	});
+	function setJSYY(obj){
+  if(obj.value=="股转系统报批"){
+      $("#JSYY").val("已向股转系统递交定增备案申请材料");
+	    }else{
+	        $("#JSYY").val("");
+	    }
+	}
+	function Dictionary(){
+	    var pageUrl = "zqb_gpfxproject_costormer_set.action";
+	    art.dialog.open(pageUrl,{
+      title:'数据选择',
+      loadingText:'正在加载中,请稍后...',
+	        bgcolor:'#999',
+	        rang:true,
+	        width:800,
+	        cache:false,
+	        lock: true,
+	        stack:true,
+	        zIndex:10,
+	        top:100,
+	        height:550,
+	        iconTitle:false,
+	        drag:false,
+	        autoSize:true,
+	        close:function(){
+	            //window.location.reload();
+	        }
+	    });
+	}
+	function dept_book(targetname,targetid) {
+	var pageUrl = "zqb_gpfx_addxmcy_department_index.action?targetname="+targetname;
+	    art.dialog.open(pageUrl,{
+	        id:"deptBookDialog",
+      title:'部门地址簿',
+        pading:0,
+        lock:true,
+        width:350,
+        height:550
+    });
+}
+function dept_clbm_book(){
+    var pageUrl = "zqb_gpfx_clbm_index.action";
+    art.dialog.open(pageUrl,{
+     title:'部门地址簿',
+     loadingText:'正在加载中,请稍后...',
+        bgcolor:'#999',
+        rang:true,
+        width:350,
+        cache:false,
+        lock: true,
+	        stack:true,
+	        zIndex:10,
+	        top:100,
+	        height:550,
+	        iconTitle:false,
+	        extendDrag:true,
+	        autoSize:true,
+	        close:function(){
+	            //window.location.reload();
+	        }
+	    });
+	}
+	
+	</script>
+	<style type="text/css">
+	.formpage_title {
+	    text-align: center;
+	    vertical-align:bottom;
+	    height:50px;
+	    font-size: 22px;
+	    color:#000;
+	    margin-bottom:20px;
+	}
+	.line {
+	    background-color: #ccc;
+	    height:15px;
+	    margin-bottom:20px;
+	}
+	td {
+	    line-height: 30px;
+	    padding-left: 3px;
+	    font-size: 12px;
+	    border-bottom:1px #efefef dotted;
+	    vertical-align:middle;
+	    word-wrap:break-word;
+	    word-break:break-all;
+	    font-weight:100;
+	    line-height:15px;
+	    padding-top:5px;
+	    text-align:left;
+	}
+	legend {
+	    font-size: 16px;
+	}
+	</style>
+	<div id="border">
+	    <table width="100%" style="margin-bottom:5px;">
+	        <tbody>
+	            <tr>
+	                <td class="formpage_title">
+                 定增项目信息(200人以内)
+	                </td>
+	            </tr>
+	            <tr>
+	                <td align="right" id="help" style="text-align:right;">
+	                    <p style="margin-left:15px;float:right;">
+                     填报时间:${CREATEDATE}
+	                    </p>
+	                    <p style="margin-left:15px;float:right;">
+                     填报人:${CREATEUSER}[${CREATEUSERID}]
+	                    </p>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td align="right" class="line">
+	                </td>
+	            </tr>
+	        </tbody>
+	    </table>
+	    <fieldset style="border:1px dashed #CCCCCC;border-image:none;color:#004080;margin-top:15px;">
+     <legend style="color:#004080;" algin="right">项目基本信息</legend>
+	        <table width="100%">
+	            <tbody>
+	                <tr id="itemTr_0">
+	                    <td width="15%">
+                     <span style="color:red;">*</span>项目名称
+	                    </td>
+	                    <td width="35%" id="data_PROJECTNAME">
+                        ${CUSTOMERNAME}<!--<a class="easyui-linkbutton l-btn l-btn-plain" id="selfdefinedic" style="margin-left:5px;" href="javascript:Dictionary();" iconcls="icon-dictionary" plain="true"></a> -->
+                    </td>
+                    
+                 <td width="15%">
+                     <span style="color:red;">*</span>项目承揽人
+	                    </td>
+	                    <td width="35%">
+	                        ${CLBM}
+	                    </td>
+	                </tr>
+	                <tr id="itemTr_1">
+	                    <td width="15%" >
+                     立项时间
+	                    </td>
+	                    <td width="35%">
+	                        ${STARTDATE}
+	                    </td>
+	                    <td width="15%" >
+                     签约时间
+	                    </td>
+	                    <td width="35%" >
+	                        ${ENDDATE}
+	                    </td>
+	                </tr>
+	                <tr id="itemTr_2">
+	                    <td width="15%">
+                     <span style="color:red;">*</span>所属行业
+	                    </td>
+	                    <td width="35%">
+	                        ${RSSFCG}
+	                    </td>
+	                    <td width="15%">
+                     <span style="color:red;">*</span>主营业务
+	                    </td>
+	                    <td width="35%" id="data_ATTACH">
+                     ${ATTACH}<!--<a title="部门地址薄" class="easyui-linkbutton" id="selfdefinebook2" style="margin-left:5px;" href="###" iconcls="icon-deptbook" plain="true" onclick="dept_clbm_book();"></a>　-->
+	                    </td>
+	                </tr>
+	                <tr id="itemTr_3">
+	                    <td width="15%">
+                     <span style="color:red;">*</span>注册地址
+	                    </td>
+	                    <td width="35%">
+	                        ${CZBM}
+	                    </td>
+	                    <td width="15%">
+                     <span style="color:red;">*</span>注册资本（万元）
+	                    </td>
+	                    <td width="35%" id="data_MJZJZE">
+                         ${MJZJZE}<!--<a title="部门地址薄" class="easyui-linkbutton" id="selfdefinebook1" style="margin-left:5px;" href="###" iconcls="icon-deptbook" plain="true" onclick="dept_book('CZBM','');"></a>　-->
+	                    </td>
+	                </tr>
+	                <tr id="itemTr_4">
+	                    <td width="15%">
+                     <span style="color:red;">*</span>发行价格
+	                    </td>
+	                    <td width="35%">
+	                        ${FXGPJG}
+	                    </td>
+	                    <td width="15%">
+                     <span style="color:red;">*</span>发行数量
+	                    </td>
+	                    <td width="35%">
+	                        ${GPFXSL}
+	                    </td>
+	                </tr>
+	                <tr id="itemTr_5">
+	                    <td width="15%">
+                     <span style="color:red;">*</span>发行对象
+	                    </td>
+	                    <td width="35%">
+	                        ${SFZYXS}
+	                    </td>
+	                    <td width="15%">
+                     <span style="color:red;">*</span>融资来源
+	                    </td>
+	                    <td width="35%">
+	                        ${FXMDCS}
+	                    </td>
+	                </tr>
+	                <tr id="itemTr_6">
+	                    <td width="15%">
+                     <span style="color:red;">*</span>项目负责人
+	                    </td>
+	                    <td width="35%">
+	                        ${MANAGER}
+	                    </td>
+	                    <td width="15%">
+                     <span style="color:red;">*</span>业务部门负责人
+	                    </td>
+	                    <td width="35%">
+	                        ${OWNER}
+	                    </td>
+	                </tr>
+	            </tbody>
+	        </table>
+	    </fieldset>
+	    <fieldset style="margin-top:15px;color:#004080;width:96%;border:1px dashed #CCCCCC;">
+     <legend algin="right" style="color:#004080;">项目进度情况</legend>
+	        <table width="100%">
+	            <tbody>
+	                <tr id="itemTr_2964">
+	                    <td width="15%" class="td_title" id="title_OWNER">
+                     项目进度
+	                    </td>
+	                    <td width="35%" class="td_data" id="data_OWNER">
+                     ${FXZT}&nbsp;　
+	                    </td>
+	                </tr>
+	                <tr id="itemTr_2976">
+	                    <td width="180" class="td_title" id="title_JSYY">
+                     <span style="color:red;">*</span>推进情况
+	                    </td>
+	                    <td width="35%" class="td_data" id="data_JSYY">
+                     ${JSYY}&nbsp;　
+	                    </td>
+	                    <td width="15%" class="td_title" id="title_MEMO">
+                     <span style="color:red;">*</span>原因
+	                    </td>
+	                    <td id="data_MEMO">
+	                        ${MEMO}&nbsp;
+	                    </td>
+	                </tr>
+	            </tbody>
+	        </table>
+	    </fieldset>
+	    <div class="easyui-tabs" style="border-width:0px;border-image:none;margin-top:25px;" fit="true">
+     <div title="项目阶段" style="border:0px solid #EFEFEF;border-image:none;" border="true" cache="false">
+	            <iframe width="100%" height="100%" id="GPFXXMJD" border="0">
+	            </iframe>
+	        </div>
+     <div title="项目组成员" style="border:0px solid #EFEFEF;border-image:none;" border="true" cache="false">
+	            ${SUBFORM_XMCYLBG}&nbsp;
+	        </div>
+      <div style="border-bottom:#efefef 0px solid;border-left:#efefef 0px solid;height:800px;border-top:#efefef 0px solid;border-right:#efefef 0px solid;border-image:none;image:none;" title="项目日志" border="true" cache="false">
+	            <iframe id="rzURL" height="100%" border="0" width="100%" name="rzURL" qbiframeattached="true">
+	            </iframe>
+	        </div>
+	        
+     <div title="收费进度" style="border:0px solid #EFEFEF;border-image:none;" border="true" cache="false">
+	            ${SUBFORM_SFJD}&nbsp
+	        </div>
+     <div title="主要财务数据" style="border:0px solid #EFEFEF;border-image:none;" border="true" cache="false">
+	            ${SUBFORM_GSCWGK}&nbsp
+	        </div>
+     <div title="尽调报告" style="border:0px solid #EFEFEF;border-image:none;" border="true" cache="false">
+	            ${SUBFORM_JDBG}&nbsp;
+	        </div>
+     <div title="备忘录" style="border:0px solid #EFEFEF;border-image:none;" border="true" cache="false">
+	            ${SUBFORM_XMBWL}&nbsp;
+	        </div>
+     <div title="通讯录" style="border:0px solid #EFEFEF;border-image:none;" border="true" cache="false">
+	            ${SUBFORM_XMTXL}&nbsp;
+	        </div>
+	        <!--
+     <div title="定增对象" style="border:0px solid #EFEFEF;border-image:none;" border="true" cache="false">
+	            ${SUBFORM_DZDX}&nbsp;
+	        </div>
+     <div title="中介机构" style="border:0px solid #EFEFEF;border-image:none;" border="true" cache="false">
+	            ${SUBFORM_ZJJGG}&nbsp;
+	        </div>-->
+	        
+	    </div>
+	    <div style="display:none;">
+	        ${ENDDATE}${CUSTOMERNO}${XMJD}${STATUS}${PROJECTNO}${JSYY}${MEMO}${ATTACH}${GPFXSL}${NFXRQ}${MJZJZE}${FXMDCS}${FXGPJG}${SFZYXS}${FXZT}${SJFXGPJG}${RSSFCG}${SJFXZE}${FXRQ}${SYL}${SJGPFXSL}
+	    </div>
+	</div>

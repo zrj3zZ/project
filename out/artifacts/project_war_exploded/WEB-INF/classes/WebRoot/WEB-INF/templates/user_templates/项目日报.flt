@@ -1,0 +1,137 @@
+<script type="text/javascript" src="iwork_js/jqueryjs/ui/jquery.ui.core.js"></script>
+<script type="text/javascript" src="iwork_js/plugs/gantt2/jquery-ui-1.8.4.js"></script>
+<script type="text/javascript" src="iwork_js/jqueryjs/ui/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="iwork_js/jqueryjs/ui/jquery.ui.position.js"></script>
+<script type="text/javascript" src="iwork_js/jqueryjs/ui/jquery.ui.autocomplete.js"></script>
+
+<script type="text/javascript">
+$(function(){
+		
+				
+			var projectname = $("#projectname").val();	
+			
+			var projectNo = $("#projectNo").val();
+			
+			document.getElementById("XMBH").setAttribute("value",projectNo);
+			if($("#PROJECTNO").val()==null||""==$("#PROJECTNO").val()){
+			document.getElementById("PROJECTNO").setAttribute("value",projectname);
+			}
+			var instanceId= $("#instanceId").val();
+			
+    $.post("zqb_announcement_gettentuserdateforpro.action",{instanceId:instanceId},function (data) {
+	$("#contenttd").html(data);
+    });
+			
+});
+</script>
+	
+
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					项目日志
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_2111">
+								<td class="td_title" id="title_CREATEUSER" width="180">
+									填报人
+								</td>
+								<td class="td_data" id="data_CREATEUSER">
+									${CREATEUSER}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2112">
+								<td class="td_title" id="title_PROJECTNO" width="180">
+									项目名称
+								</td>
+								<td class="td_data" id="data_PROJECTNO">
+									${PROJECTNO}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2112">
+								<td class="td_title" id="title_PROJECTDATE" width="180">
+									日期
+								</td>
+								<td class="td_data" id="data_PROJECTDATE">
+									${PROJECTDATE}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2116">
+								<td class="td_title" id="title_TRACKING" width="180">
+									项目阶段
+								</td>
+								<td class="td_data" id="data_TRACKING">
+									${TRACKING}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2113">
+								<td class="td_title" id="title_PROGRESS" width="180">
+									工作内容
+								</td>
+								<td class="td_data" id="data_PROGRESS">
+									${PROGRESS}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2114">
+								<td class="td_title" id="title_USERNAME" width="180">
+									进度说明
+								</td>
+								<td class="td_data" id="data_USERNAME">
+									${USERNAME}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2115">
+								<td class="td_title" id="title_TEL" width="180">
+									备注说明
+								</td>
+								<td class="td_data" id="data_TEL">
+									${TEL}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2117">
+								<td class="td_title" id="title_EXTEND1" width="180">
+									抄送人
+								</td>
+								<td class="td_data" id="data_EXTEND1">
+									${EXTEND1}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2116">
+								<td class="td_title" id="title_FJ" width="180">
+									附件
+								</td>
+								<td class="td_data" id="data_FJ">
+									${FJ}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1793">
+								<td width="15%" class="td_title" id="title_FJ">
+								</td>
+								<td width="85%" class="td_data" id="contenttd" style="color:red;border-bottom-color:#999999;border-bottom-width:0px;border-bottom-style:dotted;" colspan="3">
+								</td>
+							</tr>
+
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${CJSJ}${CREATEUSERID}${XMBH}
+</div>

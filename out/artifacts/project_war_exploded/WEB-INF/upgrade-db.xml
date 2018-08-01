@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!--
+#############################################################
+##
+## 	IForm电子表单UI组件库配置IFormComponentOneBarcodeImpl
+## 
+##
+#############################################################
+-->
+<upgrade-config>
+<upgrade-item>
+	<upgrade-key>001</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>create table DB_UPGRADE_LOG(UPGRADE_KEY VARCHAR2(128) not null,UPGRADE_DATE DATE,UPGRADE_TYPE VARCHAR2(32) not null,JIRA_CODE VARCHAR2(64) not null,UPGRADE_MEMO VARCHAR2(512) not null)</sql>
+	<jira-code>STANDARD-226</jira-code>
+	<desc>增加系统数据库自动升级功能</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>002</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version> 
+	<sql>alter table SYS_OPERATE_LOG add tmp_col number(8)</sql>
+	<sql>update SYS_OPERATE_LOG set tmp_col = id</sql>
+	<sql>alter table SYS_OPERATE_LOG drop column ID</sql>
+	<sql>alter table SYS_OPERATE_LOG add ID VARCHAR2(128)</sql>
+	<sql>update SYS_OPERATE_LOG set id = tmp_col</sql>
+	<sql>alter table SYS_OPERATE_LOG add constraint PK_SYS_OPERATE_LOG primary key (ID)</sql>
+	<sql>alter table SYS_OPERATE_LOG drop column tmp_col</sql>
+	<jira-code>STANDARD-226</jira-code>
+	<desc>修改SYS_OPERATE_LOG 类型为UUID</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>003</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>alter table IWORK_CMS_COMMENT modify TALKCONTENT VARCHAR2(2048)</sql>
+	<jira-code>STANDARD-226</jira-code>
+	<desc>评论信息资讯-评论文章，评论文本框字数限制 加大 IWORK_CMS_COMMENT表中TALKCONTENT字段的长度</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>004</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>create table BRIDGE_BASEINFO(ID NUMBER(11) not null,BRIDGE_NAME VARCHAR2(64) default '' not null,UUID VARCHAR2(64) default '' not null,VALIDATE_ADDRESS VARCHAR2(2000) default '' not null,STATUS VARCHAR2(64) default '' not null,DELAY NUMBER(25))</sql>
+	<jira-code>BASE-250</jira-code>
+	<desc>连接桥 基本信息表</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>005</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>create table BRIDGE_IN_PARAMS(ID NUMBER(11) not null,UUID VARCHAR2(64) default '' not null,PARAM_NAME VARCHAR2(64) default '' not null,PARAM_KEY VARCHAR2(64) default '' not null,PARAM_VALUE VARCHAR2(64) default '',PARAM_TYPE VARCHAR2(64) default '' not null,PARAM_SURFACE VARCHAR2(64) default '' not null,IS_REQUIRED VARCHAR2(64) default '' not null,PARAM_EXTEND VARCHAR2(2000) default '',DEFAULT_VALUE VARCHAR2(64) default '',SUBMIT_MODE VARCHAR2(64) default '' not null,ORDERINDEX NUMBER(22) not null)</sql>
+	<jira-code>BASE-250</jira-code>
+	<desc>连接桥 输入参数表</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>006</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>create table BRIDGE_LOGIN_USERINFO(ID NUMBER(11) not null,UUID VARCHAR2(64) default '' not null,USERID VARCHAR2(64) default '' not null,KEY VARCHAR2(64) default '' not null,VALUE VARCHAR2(64) default '',START_DATE DATE default '' not null,END_DATE DATE default '' not null,SUBMIT_MODE VARCHAR2(64) not null)</sql>
+	<jira-code>BASE-250</jira-code>
+	<desc>连接桥 登陆用户数据表</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>007</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>create table BRIDGE_OUT_PARAMS(ID NUMBER(11) not null,UUID VARCHAR2(64) default '' not null,PARAM_NAME VARCHAR2(64) default '' not null,PARAM_KEY VARCHAR2(512) default '' not null,URL VARCHAR2(512) default '' not null,ORDERINDEX NUMBER(25) default 0 not null)</sql>
+	<jira-code>BASE-250</jira-code>
+	<desc>连接桥 输出参数表</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>008</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>alter table sys_engine_iform_map add mapType number(2)</sql>
+	<sql>update sys_engine_iform_map set mapType = 1</sql>
+	<jira-code>BASE-256</jira-code>
+	<desc>增加表单引擎域类型设置，实现表单引擎支持虚拟域</desc>
+</upgrade-item>
+
+<upgrade-item>
+	<upgrade-key>009</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>alter table SYSPURGROUP add COMPANYID NUMBER(8)</sql>
+	<jira-code>STANDARD-226</jira-code>
+	<desc>修改权限组表增加公司ID字段</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>010</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>alter table SYS_USER_LOGIN_LOG add LOGOUT_TIME DATE</sql>
+	<jira-code>STANDARD-226</jira-code>
+	<desc>用户登录日志表增加登出时间字段</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>011</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>alter table SYS_OPERATE_LOG add IP_ADDRESS VARCHAR2(500)</sql>
+	<jira-code>STANDARD-226</jira-code>
+	<desc>用户操作日志表增加IP地址字段</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>012</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>create table IWORK_SEC_MANAGE_GROUP(ID NUMBER not null,GROUP_NAME VARCHAR2(128),COMPANY_ID NUMBER,PARENT_COMPANY_ID NUMBER,USERID VARCHAR2(64),USERNAME VARCHAR2(64))</sql>
+	<sql>alter table IWORK_SEC_MANAGE_GROUP add constraint SEC_MANAGE_GORUP_ID primary key (ID)</sql>
+	<jira-code>STANDARD-226</jira-code>
+	<desc>初始化管理组表</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>013</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>create table IWORK_SEC_PURGROUP(ID NUMBER not null,GROUPID NUMBER,CATEGORY_NAME VARCHAR2(64))</sql>
+	<sql>alter table IWORK_SEC_PURGROUP add constraint SEC_PUGROUP_ID primary key (ID)</sql>
+	<jira-code>STANDARD-226</jira-code>
+	<desc>初始化管理组权限表表</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>014</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>create table IWORK_SEC_PURVIEW(ID NUMBER not null,GROUPID NUMBER,NODE_TYPE VARCHAR2(32),NAV_ID NUMBER)</sql>
+	<sql>alter table IWORK_SEC_PURVIEW add constraint SEC_PURVIEW_ID primary key (ID)</sql>
+	<jira-code>STANDARD-226</jira-code>
+	<desc>初始化权限组权限表</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>015</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>alter table orguser add SEC_CLASSIFY INTEGER</sql>
+	<sql>insert into orguser (ID,USERID,USERNAME,PASSWORD,DEPARTMENTID,DEPARTMENTNAME,ORGROLEID,LOGINCOUNTER,BOSSID,COSTCENTERID,COSTCENTERNAME,ISMANAGER,POSTSID,POSTSNAME,ISROVING,ISSINGLELOGIN,OFFICETEL,OFFICEFAX,HOMETEL,MOBILE,EMAIL,JJLINKMAN,JJLINKTEL,USERNO,ORDERINDEX,WORK_STATUS,PORTALMODEL,EXTEND1,EXTEND2,EXTEND3,EXTEND4,EXTEND5,EXTEND6,EXTEND7,EXTEND8,EXTEND9,EXTEND10,USERTYPE,STARTDATE,ENDDATE,USERSTATE,COMPANYID,COMPANYNAME,MENULAYOUTTYPE,POSTSRESPONSIBILITY,QQMSN,SELFDESC,PRIORITY,WEIXIN_CODE,MAIL_SIZE,SEC_CLASSIFY)) values (-1,'SYSSECURITY','权限管理员','E10ADC3949BA59ABBE56E057F20F883E',31,'北京信息部',1,null,'','','',0,'','',null,null,'','','','','','','','S1',null,'','','','','','','','','','','','',4,to_date('25-04-2016','dd-mm-yyyy'),to_date('31-12-9999','dd-mm-yyyy'),0,2,'北京程易科技有限公司2','','','','',null,'',null,null)</sql>
+	<sql>insert into orguser (ID,USERID,USERNAME,PASSWORD,DEPARTMENTID,DEPARTMENTNAME,ORGROLEID,LOGINCOUNTER,BOSSID,COSTCENTERID,COSTCENTERNAME,ISMANAGER,POSTSID,POSTSNAME,ISROVING,ISSINGLELOGIN,OFFICETEL,OFFICEFAX,HOMETEL,MOBILE,EMAIL,JJLINKMAN,JJLINKTEL,USERNO,ORDERINDEX,WORK_STATUS,PORTALMODEL,EXTEND1,EXTEND2,EXTEND3,EXTEND4,EXTEND5,EXTEND6,EXTEND7,EXTEND8,EXTEND9,EXTEND10,USERTYPE,STARTDATE,ENDDATE,USERSTATE,COMPANYID,COMPANYNAME,MENULAYOUTTYPE,POSTSRESPONSIBILITY,QQMSN,SELFDESC,PRIORITY,WEIXIN_CODE,MAIL_SIZE,SEC_CLASSIFY)) values (-2,'SYSAUDIT','审计管理员','E10ADC3949BA59ABBE56E057F20F883E',31,'北京信息部',1,null,'','','',0,'','',null,null,'','','','','','','','S2',null,'','','','','','','','','','','','',5,to_date('25-04-2016','dd-mm-yyyy'),to_date('31-12-9999','dd-mm-yyyy'),0,2,'北京程易科技有限公司2','','','','',null,'',null,null)</sql>
+	<sql>insert into orguser (ID,USERID,USERNAME,PASSWORD,DEPARTMENTID,DEPARTMENTNAME,ORGROLEID,LOGINCOUNTER,BOSSID,COSTCENTERID,COSTCENTERNAME,ISMANAGER,POSTSID,POSTSNAME,ISROVING,ISSINGLELOGIN,OFFICETEL,OFFICEFAX,HOMETEL,MOBILE,EMAIL,JJLINKMAN,JJLINKTEL,USERNO,ORDERINDEX,WORK_STATUS,PORTALMODEL,EXTEND1,EXTEND2,EXTEND3,EXTEND4,EXTEND5,EXTEND6,EXTEND7,EXTEND8,EXTEND9,EXTEND10,USERTYPE,STARTDATE,ENDDATE,USERSTATE,COMPANYID,COMPANYNAME,MENULAYOUTTYPE,POSTSRESPONSIBILITY,QQMSN,SELFDESC,PRIORITY,WEIXIN_CODE,MAIL_SIZE,SEC_CLASSIFY)) values (-3,'SYSADMIN','系统管理员','E10ADC3949BA59ABBE56E057F20F883E',31,'北京信息部',1,null,'','','',0,'','',null,null,'','','','','','','','S3',null,'','','','','','','','','','','','',3,to_date('25-04-2016','dd-mm-yyyy'),to_date('31-12-9999','dd-mm-yyyy'),0,2,'北京程易科技有限公司2','','','','',null,'',null,null)</sql>
+	<jira-code>STANDARD-226</jira-code>
+	<desc>orguser表增加密级字段，初始化时新增权限管理员、审计管理员、系统管理员</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>016</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>create table PROCESS_RU_SIGNS(ID number,OWNER varchar2(64),CREATE_TIME date,ACT_DEF_ID varchar2(128),PRC_DEF_ID number,ACT_STEP_ID varchar2(128),TASKID number,INSTANCEID number,EXCUTIONID number,TARGET_USER varchar2(128),TITLE varchar2(512),STATUS number,READTIME date,SIGN_TIME date,OPINION varchar2(128),ATTACH varchar2(2000),OPINION_DESC varchar2(2000))</sql>
+	<sql>create index ENGINTYPE_KEY on SYS_ENGINE_FORM_BIND (ENGINE_TYPE)</sql>
+	<sql>create index INSTANCEID_KEY on SYS_ENGINE_FORM_BIND (INSTANCEID)</sql>
+	<sql>create index METADATAID_KEY on SYS_ENGINE_FORM_BIND (METADATAID)</sql>
+	<jira-code>STANDARD-221</jira-code>
+	<desc>会签</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>017</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>ALTER TABLE process_step_supervise ADD ENUM_PARAMS VARCHAR2(256)</sql>
+	<sql>ALTER TABLE PROCESS_STEP_MAP ADD IS_REBACK NUMBER</sql>
+	<jira-code>版本升级</jira-code>
+	<desc>督办</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>018</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql> ALTER TABLE PROCESS_STEP_ROUTE ADD ROUTE_PARAM2 VARCHAR2(500)</sql>
+	<sql>create table ORG_STATION(ID NUMBER not null,STATION_NAME VARCHAR2(64),UUID VARCHAR2(64),MEMO VARCHAR2(512))</sql>
+	<sql>alter table ORG_STATION add constraint ORG_STATION_PK primary key (ID)</sql>
+	<sql>create table ORG_STATION_INS(ID NUMBER not null,TITLE VARCHAR2(64),STATION_ID NUMBER,OWNERS VARCHAR2(2000),START_DATE DATE,END_DATE DATE,STATUS NUMBER,ORDERINDEX NUMBER)</sql>
+	<sql>alter table ORG_STATION_INS add constraint ORG_STATION_INS_PK primary key (ID)</sql>
+	<sql> create table ORG_STATION_INS_ITEM(ID NUMBER not null,STATION_INS_ID NUMBER,ORGTYPE VARCHAR2(32),VAL VARCHAR2(512),STATION_ID NUMBER)</sql>
+	<sql>alter table ORG_STATION_INS_ITEM add constraint ORG_STATION_INS_ITEM_ID primary key (ID)</sql>
+	<jira-code>版本升级</jira-code>
+	<desc>岗位路由</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>019</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql> ALTER TABLE PROCESS_RU_OPINION ADD IP_ADDRESS VARCHAR2(256)</sql>
+	<jira-code>版本升级</jira-code>
+	<desc>审核意见IP地址</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>020</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql> ALTER TABLE process_entrust_person ADD ITEM_OPTION NUMBER</sql>
+	<sql>ALTER TABLE ORGUSER ADD MAIL_SIZE NUMBER</sql>
+	<jira-code>版本升级</jira-code>
+	<desc>委托</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>021</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>ALTER TABLE ORGUSER ADD WEIXIN_CODE VARCHAR2(128)</sql>
+	<sql>ALTER TABLE PROCESS_STEP_MAP ADD SEND_WEIXIN NUMBER</sql>
+	<jira-code>版本升级</jira-code>
+	<desc>微信</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>022</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>ALTER TABLE ORGUSER ADD MAIL_SIZE NUMBER</sql>
+	<jira-code>版本升级</jira-code>
+	<desc>用户帐号邮件大小</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>023</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>ALTER TABLE orgcompany ADD PARENTID NUMBER</sql>
+	<jira-code>版本升级</jira-code>
+	<desc>支持集团化组织</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>024</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>ALTER TABLE IWORK_CMS_CONTENT ADD SORT VARCHAR2(128)</sql>
+	<jira-code>版本升级</jira-code>
+	<desc>CMS显示排序功能升级</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>026</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>alter table PROCESS_RU_SIGNS add constraint PROCESS_RU_SIGNS primary key (ID)</sql>
+	<sql> ALTER TABLE PROCESS_STEP_MAP ADD IS_SIGNS NUMBER</sql>
+	<sql> ALTER TABLE PROCESS_STEP_MAP ADD SIGNS_DEF_USER VARCHAR2(2048)</sql>
+	<jira-code>版本升级</jira-code>
+	<desc>会签功能补充</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>027</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>ALTER TABLE PROCESS_RU_OPINION ADD ATTACH VARCHAR2(2048)</sql>
+	<sql>ALTER TABLE PROCESS_STEP_MAP ADD IS_OPINION_ATTACH NUMBER</sql>
+	<jira-code>版本升级</jira-code>
+	<desc>审核意见附件升级功能</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>028</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>ALTER TABLE ORGUSER ADD WEIXIN_CODE VARCHAR2(128)</sql>
+	<sql>ALTER TABLE PROCESS_STEP_MAP ADD SEND_WEIXIN NUMBER</sql>
+	<jira-code>版本升级</jira-code>
+	<desc>微信提醒升级功能</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>029</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version> 
+	<sql>ALTER TABLE SYS_DICTIONARY_BASEINFO ADD IS_DEM NUMBER</sql>
+	<sql>ALTER TABLE SYS_DICTIONARY_BASEINFO ADD DEM_UUID VARCHAR2(256)</sql>
+	<jira-code>版本升级</jira-code>
+	<desc>数据字典标识升级功能</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>030</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version> 
+	<sql>ALTER TABLE SYS_DICTIONARY_BASEINFO ADD IS_AUTO_SHOW NUMBER</sql>
+	<jira-code>版本升级</jira-code>
+	<desc>数据字典自动加载功能</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>031</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>create table IWORK_SEC_MANAGE_GROUP(ID NUMBER not null,GROUP_NAME VARCHAR2(128),COMPANY_ID NUMBER,PARENT_COMPANY_ID NUMBER,USERID VARCHAR2(64),USERNAME VARCHAR2(64))</sql>
+	<sql>alter table IWORK_SEC_MANAGE_GROUP add constraint SEC_MANAGE_GORUP_ID primary key (ID)</sql>
+	<jira-code>STANDARD-226</jira-code>
+	<desc>初始化管理组表</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>032</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>create table IWORK_SEC_PURGROUP(ID NUMBER not null,GROUPID NUMBER,CATEGORY_NAME VARCHAR2(64))</sql>
+	<sql>alter table IWORK_SEC_PURGROUP add constraint SEC_PUGROUP_ID primary key (ID)</sql>
+	<jira-code>STANDARD-226</jira-code>
+	<desc>初始化管理组权限表表</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>033</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>create table IWORK_SEC_PURVIEW(ID NUMBER not null,GROUPID NUMBER,NODE_TYPE VARCHAR2(32),NAV_ID NUMBER)</sql>
+	<sql>alter table IWORK_SEC_PURVIEW add constraint SEC_PURVIEW_ID primary key (ID)</sql>
+	<jira-code>STANDARD-226</jira-code>
+	<desc>初始化权限组权限表</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>035</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>update sysnavsystem set sys_icon='fa-gavel' where id = 469</sql>
+	<sql>update sysnavsystem set sys_icon='fa-lemon-o' where id = 465</sql>
+	<sql>update sysnavsystem set sys_icon='fa-cogs' where id = 454</sql>
+	<sql>update sysnavsystem set sys_icon='fa-check-square-o ' where id = 3</sql>
+	<sql>update sysnavsystem set sys_icon='fa-cog' where id = 8</sql>
+	<sql>update sysnavsystem set sys_icon='glyphicon-euro ' where id = 453</sql>
+	<sql>update sysnavsystem set sys_icon=' fa-bookmark' where id = 458</sql>
+	<sql>update sysnavsystem set sys_icon='fa-credit-card ' where id = 464</sql>
+	<jira-code>STANDARD-226</jira-code>
+	<desc>菜单图标升级</desc>	
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>036</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>create table IWORK_MAIL_DATA(ID NUMBER,IS_SEND NUMBER,MAIL_TYPE NUMBER,IS_IMPORTANT NUMBER,MAIL_SIZE NUMBER,CREATE_USER VARCHAR2(64),CREATE_DATE DATE,TOO VARCHAR2(2048),CC VARCHAR2(2048),BCC VARCHAR2(2048),MAIL_FROM VARCHAR2(2048),TITLE VARCHAR2(512),CONTENT VARCHAR2(2048),ATTACHMENTS VARCHAR2(2048),RELATEDID NUMBER)</sql>
+	<sql>alter table IWORK_MAIL_DATA add constraint IWORK_MAIL_DATA_ID primary key (ID)</sql>
+	<sql> create table IWORK_MAIL_BOX(ID NUMBER,USERID VARCHAR2(100),BOXNAME VARCHAR2(256))</sql>
+	<sql>alter table IWORK_MAIL_BOX add constraint IWORK_MAIL_DATA_ID primary key (ID)</sql>
+	<sql>create table IWORK_MAIL_TASK(ID NUMBER not null,BIND_ID NUMBER,OWNER VARCHAR2(32),IS_READ NUMBER,IS_DEL NUMBER,IS_STAR NUMBER,IS_ARCHIVES NUMBER,IS_RE NUMBER,IS_IMPORTANT NUMBER,MAIL_SIZE NUMBER,TITLE VARCHAR2(256),CREATE_TIME DATE,READ_TIME DATE,MAIL_BOX NUMBER)</sql>
+	<sql>alter table IWORK_MAIL_TASK add constraint IWORK_MAIL_TASK_ID primary key (ID)</sql>
+	<sql>ALTER TABLE IWORK_MAIL_TASK add MAIL_FORM VARCHAR2(128)</sql>
+	<sql>create table IWORK_MAIL_FOLDER(ID NUMBER not null,USERID VARCHAR2(32),FOLDERNAME VARCHAR2(32),FOLDERMEMO VARCHAR2(256),CREATEDATE DATE)</sql>
+	<sql>alter table IWORK_MAIL_FOLDER add constraint IWORK_MAIL_FOLDER_ID primary key (ID)</sql>
+	<sql> create table IWORK_MAIL_OWNER(ID NUMBER not null,BIND_ID NUMBER,OWNER VARCHAR2(32),IS_DEL NUMBER,IS_ARCHIVES NUMBER,IS_RE NUMBER,IS_IMPORTANT NUMBER,MAIL_SIZE NUMBER,TITLE VARCHAR2(256),CREATE_TIME DATE,MAIL_BOX NUMBER,MAIL_TO VARCHAR2(256)</sql>
+	<sql>alter table IWORK_MAIL_OWNER add constraint IWORK_MAIL_OWNER_ID primary key (ID)</sql>
+	<sql>alter table IWORK_MAIL_TASK add IS_STAR NUMBER</sql>
+	<jira-code>版本升级</jira-code>
+	<desc>内部邮件功能升级</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>037</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>alter table orguser add SEC_CLASSIFY INTEGER</sql>
+	<sql>insert into orguser (ID,USERID,USERNAME,PASSWORD,DEPARTMENTID,DEPARTMENTNAME,ORGROLEID,LOGINCOUNTER,BOSSID,COSTCENTERID,COSTCENTERNAME,ISMANAGER,POSTSID,POSTSNAME,ISROVING,ISSINGLELOGIN,OFFICETEL,OFFICEFAX,HOMETEL,MOBILE,EMAIL,JJLINKMAN,JJLINKTEL,USERNO,ORDERINDEX,WORK_STATUS,PORTALMODEL,EXTEND1,EXTEND2,EXTEND3,EXTEND4,EXTEND5,EXTEND6,EXTEND7,EXTEND8,EXTEND9,EXTEND10,USERTYPE,STARTDATE,ENDDATE,USERSTATE,COMPANYID,COMPANYNAME,MENULAYOUTTYPE,POSTSRESPONSIBILITY,QQMSN,SELFDESC,PRIORITY,WEIXIN_CODE,MAIL_SIZE,SEC_CLASSIFY)) values (-1,'SYSSECURITY','权限管理员','E10ADC3949BA59ABBE56E057F20F883E',31,'北京信息部',1,null,'','','',0,'','',null,null,'','','','','','','','S1',null,'','','','','','','','','','','','',4,to_date('25-04-2016','dd-mm-yyyy'),to_date('31-12-9999','dd-mm-yyyy'),0,2,'北京程易科技有限公司2','','','','',null,'',null,null)</sql>
+	<sql>insert into orguser (ID,USERID,USERNAME,PASSWORD,DEPARTMENTID,DEPARTMENTNAME,ORGROLEID,LOGINCOUNTER,BOSSID,COSTCENTERID,COSTCENTERNAME,ISMANAGER,POSTSID,POSTSNAME,ISROVING,ISSINGLELOGIN,OFFICETEL,OFFICEFAX,HOMETEL,MOBILE,EMAIL,JJLINKMAN,JJLINKTEL,USERNO,ORDERINDEX,WORK_STATUS,PORTALMODEL,EXTEND1,EXTEND2,EXTEND3,EXTEND4,EXTEND5,EXTEND6,EXTEND7,EXTEND8,EXTEND9,EXTEND10,USERTYPE,STARTDATE,ENDDATE,USERSTATE,COMPANYID,COMPANYNAME,MENULAYOUTTYPE,POSTSRESPONSIBILITY,QQMSN,SELFDESC,PRIORITY,WEIXIN_CODE,MAIL_SIZE,SEC_CLASSIFY)) values (-2,'SYSAUDIT','审计管理员','E10ADC3949BA59ABBE56E057F20F883E',31,'北京信息部',1,null,'','','',0,'','',null,null,'','','','','','','','S2',null,'','','','','','','','','','','','',5,to_date('25-04-2016','dd-mm-yyyy'),to_date('31-12-9999','dd-mm-yyyy'),0,2,'北京程易科技有限公司2','','','','',null,'',null,null)</sql>
+	<sql>insert into orguser (ID,USERID,USERNAME,PASSWORD,DEPARTMENTID,DEPARTMENTNAME,ORGROLEID,LOGINCOUNTER,BOSSID,COSTCENTERID,COSTCENTERNAME,ISMANAGER,POSTSID,POSTSNAME,ISROVING,ISSINGLELOGIN,OFFICETEL,OFFICEFAX,HOMETEL,MOBILE,EMAIL,JJLINKMAN,JJLINKTEL,USERNO,ORDERINDEX,WORK_STATUS,PORTALMODEL,EXTEND1,EXTEND2,EXTEND3,EXTEND4,EXTEND5,EXTEND6,EXTEND7,EXTEND8,EXTEND9,EXTEND10,USERTYPE,STARTDATE,ENDDATE,USERSTATE,COMPANYID,COMPANYNAME,MENULAYOUTTYPE,POSTSRESPONSIBILITY,QQMSN,SELFDESC,PRIORITY,WEIXIN_CODE,MAIL_SIZE,SEC_CLASSIFY)) values (-3,'SYSADMIN','系统管理员','E10ADC3949BA59ABBE56E057F20F883E',31,'北京信息部',1,null,'','','',0,'','',null,null,'','','','','','','','S3',null,'','','','','','','','','','','','',3,to_date('25-04-2016','dd-mm-yyyy'),to_date('31-12-9999','dd-mm-yyyy'),0,2,'北京程易科技有限公司2','','','','',null,'',null,null)</sql>
+	<jira-code>STANDARD-226</jira-code>
+	<desc>orguser表增加密级字段，初始化时新增权限管理员、审计管理员、系统管理员</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>038</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>alter table SYS_UPLOAD_FILE add SEC_CLASSIFY INTEGER</sql>
+	<jira-code>STANDARD-226</jira-code>
+	<desc>orguser附件表增加密级字段</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>039</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>alter table sys_nav_node add SEC_CLASSIFY INTEGER</sql>
+	<sql>alter table SYSNAVSYSTEM add SEC_CLASSIFY INTEGER</sql>
+	<jira-code>STANDARD-226</jira-code>
+	<desc>前台导航2张表增加密级字段</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>040</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>alter table SYSPURGROUP add COMPANYID NUMBER(8)</sql>
+	<jira-code>STANDARD-226</jira-code>
+	<desc>修改权限组表增加公司ID字段</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>041</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>alter table SYS_UPLOAD_FILE add SEC_CLASSIFY INTEGER</sql>
+	<jira-code>STANDARD-226</jira-code>
+	<desc>orguser附件表增加密级字段</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>042</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>alter table sys_nav_node add SEC_CLASSIFY INTEGER</sql>
+	<sql>alter table SYSNAVSYSTEM add SEC_CLASSIFY INTEGER</sql>
+	<jira-code>STANDARD-226</jira-code>
+	<desc>前台导航2张表增加密级字段</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>043</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>alter table sys_purview_org add COMPANYID VARCHAR2(32)</sql>
+	<sql>alter table SYSPURVIEWSCHEMA add COMPANYID VARCHAR2(32)</sql>
+	<sql>alter table SYS_PURVIEW_DEM add COMPANYID VARCHAR2(32)</sql>
+	<sql>alter table SYS_PURVIEW_PROCESS add COMPANYID VARCHAR2(32)</sql>
+	<sql>alter table SYS_PURVIEW_REPORT add COMPANYID VARCHAR2(32)</sql>
+	<jira-code>STANDARD-226</jira-code>
+	<desc>权限表增加公司id字段</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>044</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>alter table SYS_UPLOAD_FILE modify FILE_SRC_NAME VARCHAR2(256)</sql>
+	<sql>alter table SYS_UPLOAD_FILE modify FILE_SAVE_NAME VARCHAR2(256)</sql>
+	<sql>alter table SYS_UPLOAD_FILE modify FILE_URL VARCHAR2(256)</sql>
+	<sql>alter table SYS_UPLOAD_FILE modify MEMO VARCHAR2(512)</sql>
+	<jira-code>STANDARD-226</jira-code>
+	<desc>修改上传附件表字段长度</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>046</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql> ALTER TABLE PROCESS_STEP_ROUTE ADD ROUTE_PARAM2 VARCHAR2(500)</sql>
+	<sql>create table ORG_STATION(ID NUMBER not null,STATION_NAME VARCHAR2(64),UUID VARCHAR2(64),MEMO VARCHAR2(512))</sql>
+	<sql>alter table ORG_STATION add constraint ORG_STATION_PK primary key (ID)</sql>
+	<sql>create table ORG_STATION_INS(ID NUMBER not null,TITLE VARCHAR2(64),STATION_ID NUMBER,OWNERS VARCHAR2(2000),START_DATE DATE,END_DATE DATE,STATUS NUMBER,ORDERINDEX NUMBER)</sql>
+	<sql>alter table ORG_STATION_INS add constraint ORG_STATION_INS_PK primary key (ID)</sql>
+	<sql> create table ORG_STATION_INS_ITEM(ID NUMBER not null,STATION_INS_ID NUMBER,ORGTYPE VARCHAR2(32),VAL VARCHAR2(512),STATION_ID NUMBER)</sql>
+	<sql>alter table ORG_STATION_INS_ITEM add constraint ORG_STATION_INS_ITEM_ID primary key (ID)</sql>
+	<jira-code>版本升级</jira-code>
+	<desc>岗位路由</desc> 
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>047</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+	<sql>ALTER TABLE ORGUSER ADD WEIXIN_CODE VARCHAR2(128)</sql>
+	<sql>ALTER TABLE PROCESS_STEP_MAP ADD SEND_WEIXIN NUMBER</sql>
+	<sql>create table IWORK_MAIL_DEL(ID NUMBER not null,BIND_ID NUMBER,TASK_ID NUMBER,OWNER VARCHAR2(32),TYPE VARCHAR2(32),CREATE_TIME DATE)</sql>
+	<sql>create table IWORK_MAIL_GROUPLIST(ID NUMBER not null,USERID VARCHAR2(128),GROUP_TITLE VARCHAR2(512),GROUP_DESC VARCHAR2(2000))</sql>
+	<sql>alter table IWORK_MAIL_GROUPLIST add constraint IWORK_MAIL_GROUPLIST_ID primary key (ID)</sql>
+	<sql>create table IWORK_MAIL_GROUP_ITEM(ID NUMBER not null,PID NUMBER,USERID VARCHAR2(128))</sql>
+	<sql>alter table IWORK_MAIL_GROUP_ITEM add constraint IWORK_MAIL_GROUP_ITEM_ID primary key (ID)</sql>
+	<jira-code>版本升级</jira-code>
+	<desc>微信</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>1024</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+    <sql>alter table SYS_ENGINE_FORM_BIND ADD (TEMPID nvarchar2(32))</sql>
+	<sql>UPDATE SYS_ENGINE_FORM_BIND SET TEMPID = ID</sql>
+	<sql>alter table SYS_ENGINE_FORM_BIND drop (ID)</sql>
+	<sql>alter table SYS_ENGINE_FORM_BIND add  (ID nvarchar2(32))</sql>
+	<sql>UPDATE SYS_ENGINE_FORM_BIND SET   ID = TEMPID</sql>
+	<sql>alter table SYS_ENGINE_FORM_BIND add constraint SYS_ENGINE_FORM_BIND_PK primary key (ID)</sql>
+	<sql>alter table SYS_ENGINE_FORM_BIND drop (TEMPID)</sql>
+	<jira-code>STANDARD-166</jira-code>
+	<desc>平台升级，修改sys_engine_from_bind表ID类型，适应集群方案</desc>
+</upgrade-item>
+<upgrade-item>
+	<upgrade-key>1025</upgrade-key>
+	<upgrade-type>DB</upgrade-type>
+	<version>3.8</version>
+    <sql>Alter table sys_engine_iform modify (IFORM_JS  VARCHAR2(4000),IFORM_CSS VARCHAR2(4000),MEMO VARCHAR2(4000))</sql>
+	<jira-code>STANDARD-166</jira-code>
+	<desc>增加表单模型字段长度</desc>
+</upgrade-item>
+
+</upgrade-config> 

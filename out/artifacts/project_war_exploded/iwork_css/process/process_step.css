@@ -1,0 +1,13 @@
+*{margin:0px;padding:0px;list-style:none;font:12px "ËÎÌå";color:#505050;}
+a:link,a:visited{}
+a:hover{color:#0000ff;}
+img{border:none;}
+.stepTitle{
+	font-size:18px;
+	font-family:Î¢ÈíÑÅºÚ;
+	font-weight:bold;
+	padding:5px;
+	padding-left:20px;
+	background:#f2f9ff;
+	border:1px solid #d4e4f2;
+}

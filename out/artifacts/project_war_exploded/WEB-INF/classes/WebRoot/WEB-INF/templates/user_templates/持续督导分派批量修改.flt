@@ -1,0 +1,86 @@
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					持续督导分派批量修改
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+						<tbody>
+							<tr id="itemTr_1896">
+								<td id="title_KHFZR" class="td_title" width="180">
+									持续督导专员
+								</td>
+								<td id="data_KHFZR" class="td_data">
+									${KHFZR}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1900">
+								<td id="title_ZZCXDD" class="td_title" width="180">
+									投行审核人员
+								</td>
+								<td id="data_ZZCXDD" class="td_data">
+									${ZZCXDD}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1901">
+								<td id="title_FHSPR" class="td_title" width="180">
+									专职持续督导
+								</td>
+								<td id="data_FHSPR" class="td_data">
+									${FHSPR}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1902">
+								<td id="title_ZZSPR" class="td_title" width="180">
+									质控部负责人
+								</td>
+								<td id="data_ZZSPR" class="td_data">
+									${ZZSPR}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1904">
+								<td id="title_CWSCBFZR2" class="td_title" width="180">
+									场外市场部负责人1
+								</td>
+								<td id="data_CWSCBFZR2" class="td_data">
+									${CWSCBFZR2}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1905">
+								<td id="title_CWSCBFZR3" class="td_title" width="180">
+									场外市场部负责人2
+								</td>
+								<td id="data_CWSCBFZR3" class="td_data">
+									${CWSCBFZR3}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1903">
+								<td id="title_GGFBR" class="td_title" width="180">
+									公告发布人
+								</td>
+								<td id="data_GGFBR" class="td_data">
+									${GGFBR}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${KHBH}${KHMC}${BZ}${TXDF}${SFFP}
+</div>

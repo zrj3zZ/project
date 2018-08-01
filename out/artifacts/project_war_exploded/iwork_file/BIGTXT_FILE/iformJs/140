@@ -1,0 +1,149 @@
+document.write("<script type='text/javascript' src='iwork_js/iwork/info/validation.js'><\/script>");
+$(function () {
+    var khbh = $("#KHBH").val();
+    var actDefId = $("#actDefId").val();
+    var actStepDefId = $("#actStepDefId").val();
+    var instanceId = $("#instanceId").val();
+    $.post("zqb_LCGG_check.action", {
+        "khbh": khbh,
+        "actDefId": actDefId,
+        "actStepDefId": actStepDefId,
+        "instanceId": instanceId
+    }, function (data) {
+        var dataJson = eval("(" + data + ")");
+        if (dataJson.isDel) {
+            $(".delButton").show();
+        } else {
+            $(".delButton").hide();
+        }
+    });
+});
+
+function getGLFxx() {
+    var khbh = $("#KHBH").val();
+    var url = "zqb_glf_gg_getglf.action?khbh=" + khbh;
+    var target = "_blank";
+    var win_width = window.screen.width;
+    var page = window.open('form/loader_frame.html', target, 'width=' + win_width + ',height=800,top=50,left=150,location=no,menubar=no,toolbar=no,status=no,directories=no,scrollbars=yes,resizable=no');
+    page.location = url;
+    return;
+}
+
+function ReplaceAll(str, sptr, sptr1) {
+    while (str.indexOf(sptr) >= 0) {
+        str = str.replace(sptr, sptr1);
+    }
+    return str;
+}
+
+function checkNOTICENAME() {
+    var NOTICENAME = $("#NOTICENAME").val();
+    $("#NOTICENAME").val(ReplaceAll(NOTICENAME, ',', ''));
+}
+$(function () {
+    $("input[name='BZLX']").css("display", "none");
+    var str = $("input[name='BZLX']").val();
+    if ($("#BZLX").val() == undefined) {
+        $("#data_XPSX").hide();
+        $("#XPSXDIV").css('background', 'none');
+        $("#XPSXDIV").css('border', '0px');
+    }
+    var id = $("input[name='BZLX']").val();
+    $("#fpcontent").mouseover(function () {
+        var id = $("input[name='BZLX']").val();
+        if (id != str) {
+            $.post("zqb_xpsxt_getthisname.action?id=" + id, function (data) {
+                $("#XPSXDIV").empty();
+                $("#XPSXDIV").html(data);
+            });
+            $.post("zqb_xpsxt_gg_getbc.action?id=" + id, function (data) {
+                $("#data_SXBCDES").html(data);
+            });
+            $.post("zqb_xpsxt_gg_getbcfile.action?id=" + id, function (data) {
+                $("#DIVSXBCFILEHTML").html(data);
+            });
+            str = id;
+        }
+    });
+    var userid = $("#QCRID").val();
+    $.post("zqb_xpsxt_noticetypecheck.action?createuser=" + userid, function (data) {
+        if (data == 1) {
+            $("option[value='券商公告']").remove();
+            $("option[value='风险提示性公告']").remove();
+        }
+    });
+    $.post("zqb_xpsxt_getthisname.action?id=" + id, function (data) {
+        $("#XPSXDIV").html(data);
+    });
+    $.post("zqb_xpsxt_gg_getbc.action?id=" + id, function (data) {
+        $("#data_SXBCDES").html(data);
+    });
+    $.post("zqb_xpsxt_gg_getbcfile.action?id=" + id, function (data) {
+        $("#DIVSXBCFILEHTML").html(data);
+    });
+});
+
+function check(type) {
+    var id = $("#BZLX").val();
+    if (id != null && id != "") {
+        var pageUrl = "url:zqb_xpsxt_type_gg.action?nr=" + encodeURI(type) + "&id=" + id + "&type=" + encodeURI(type);
+        $.dialog({
+            title: type,
+            loadingText: '正在加载中,请稍后...',
+            bgcolor: '#999',
+            rang: true,
+            width: 900,
+            cache: false,
+            lock: true,
+            height: 500,
+            iconTitle: false,
+            extendDrag: true,
+            autoSize: false,
+            content: pageUrl,
+            zIndex: 3999,
+            stack: true,
+            modal: true,
+            //position:'absolute',
+            close: function () {}
+        });
+    }
+}
+
+function deletefile(uuid) {
+    var url = encodeURI("zqb_xpsx_deletefile.action?uuid=" + uuid);
+    $.post(url, function (data) {});
+}
+
+function checkXpsx(id) {
+    var pageUrl = "zqb_xpsxt_check.action?id=" + id;
+    art.dialog.open(pageUrl,{ 
+        title: '信披事项表单',
+        loadingText: '正在加载中,请稍后...',
+        bgcolor: '#999',
+        rang: true,
+        width: 890,
+        cache: false,
+        lock: true,
+        height: 530,
+        iconTitle: false,
+        extendDrag: true,
+        autoSize: false
+    });
+}
+
+function downloadThisNoticeFile() {
+    var instanceId = $("#instanceId").val();
+    var noticefile = $("#NOTICEFILE").val();
+    if (instanceId == 0 || noticefile == "") {
+        alert("请先上传公告附件!")
+        return;
+    }
+    var strs = new Array();
+    strs = noticefile.split(",");
+    if (strs.length > 1) {
+        var url = encodeURI("zqb_nmsx_downloadthisnoticefile.action?instanceId=" + instanceId);
+    } else {
+        var url = "uploadifyDownload.action?fileUUID=" + noticefile
+    }
+    window.location.href = url;
+}

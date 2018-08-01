@@ -1,0 +1,23 @@
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+img.selected{
+	padding:2px;
+	border:1px solid #AAAAAA;
+}
+img.noselected{
+	padding:2px;
+	border:1px solid #FFFFFF;
+}
+.lookandfeel{
+	width:100px;
+	border:1px solid #efefef;
+	padding:5px;
+	
+}
+.lookandfeel:hover{
+	border:1px solid #bbb;
+}

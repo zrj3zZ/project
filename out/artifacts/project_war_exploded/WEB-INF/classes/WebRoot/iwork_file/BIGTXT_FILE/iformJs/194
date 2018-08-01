@@ -1,0 +1,38 @@
+$(document).ready(function () {
+    var instanceId = $('#instanceId').val();
+    var isd = $('#isDialogDisabled').val();
+    if (instanceId == 0 || isd == null || isd == "null") {
+        $("#itemTr_2867").remove();
+        $("#itemTr_2868").remove();
+    }
+    var isDialogDisabled = $("#isDialogDisabled").val();
+    if (isDialogDisabled == 1) {
+        var px = $("#TZNR").val().length / 50 * 10 + "px"
+        $("#TZBT").attr("readonly", true);
+        $("#TZBT").css('border', '0px solid white');
+        $("#ZCHFSJ").attr("readonly", true);
+        $("#ZCHFSJ").css('border', '0px solid white');
+        $("#TZNR").attr("readonly", true);
+        $("#TZNR").css('height', px);
+        $("#TZNR").css('width', "600px");
+        $("#TZNR").css('border', '0px solid white');
+        $("font").hide();
+        $("#DIVXGZL").hide();
+        $("#subTableTools154").hide();
+        $("#txtAreaTr_154").hide();
+        $("#data_XGZL div div a").hide();
+        for (i = 0; i < $("#itemTr_2866 a").length; i++) {
+            var a = $("a:eq(" + i + ")");
+            if (a.html() == "ÐÞ¸Ä" || (a.html()).match("img")) {
+                a.remove();
+            }
+        }
+    }
+    var isHFRandHFNRdiaplsy = $("#isHFRandHFNRdiaplsy").val();
+    if (isHFRandHFNRdiaplsy == 1) {
+        $("#HFR").attr("readonly", true);
+        $("#HFR").css('border', '0px solid white');
+        $("#HFR").css('height', 'auto');
+        $("#DIVSFTZHFR").hide();
+    }
+});

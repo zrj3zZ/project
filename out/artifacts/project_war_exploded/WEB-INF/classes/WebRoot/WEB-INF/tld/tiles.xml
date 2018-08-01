@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="toIndex" template="index2.jsp" >
+		<put-attribute name="title" value="struts2-jqueryEasyUI demo" />
+		<put-attribute name="north" value="/iwork_skins/_def1/layout/northPanel.jsp" />
+		<put-attribute name="south" value="/iwork_skins/_def1/layout/southPanel.jsp" />
+		<put-attribute name="east" value="/iwork_skins/_def1/layout/eastPanel.jsp" />
+		<put-attribute name="west" value="/iwork_skins/_def1/layout/westPanel.jsp" />
+	    <put-attribute name="center" value="/iwork_skins/_def1/layout/centerPanel.jsp" />
+		<put-list-attribute name="cssFileList">
+			<add-attribute type="string" value="/iwork_css/jquerycss/icon.css"></add-attribute>
+			<add-attribute type="string" value="/iwork_css/jquerycss/default/easyui.css"></add-attribute>
+		</put-list-attribute>
+		<put-list-attribute name="jsFileList">
+			<add-attribute type="string" value="/iwork_js/jqueryjs/jquery-3.0.4.min.js"></add-attribute>
+			<add-attribute type="string" value="/iwork_js/jqueryjs/jquery.easyui.min.js"></add-attribute>
+		</put-list-attribute> 
+	</definition>
+</tiles-definitions>

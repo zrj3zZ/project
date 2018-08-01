@@ -1,0 +1,66 @@
+@charset "utf-8";
+/* CSS Document */
+*{ padding:0px;margin:0px;}
+img{ border:0px;}
+body{ font-size:12px; font-family:"宋体"; font-family:Arial;}
+/* 数据列表表格样式 */
+.div_list {
+	clear:both;
+	
+}
+.div_list table {
+	background: #fff;
+	width: 100%;
+	border-collapse:collapse;
+	border-style:none;
+}
+.div_list table th {
+	padding: 0px;
+	text-align: center;
+	font-weight: bold;
+	color: #656464;
+	border-collapse:collapse;
+	border-style:none;
+	cursor:pointer;
+	border:1px solid #f7f7f7;
+	background:url(images/thead_bg.jpg);
+	height:29px;
+	line-height:29px;
+}
+.div_list_th{
+	padding: 0px;
+	text-align: center;
+	font-weight: bold;
+	color: #656464;
+	border-collapse:collapse;
+	border-style:none;
+	cursor:pointer;
+	border:1px solid #000;
+	background:url(images/thead_bg.jpg);
+	height:29px;
+	line-height:29px;
+	font-family: Arial; color: #000; font-size: 12px; font-weight: bold;
+}
+.div_list table td {
+	color: #656464;
+	text-align:center;
+	border-collapse:collapse;
+	padding:0px;
+	height:29px;
+	line-height:29px;
+}
+.div_list table tr:hover {
+	background:url(images/tr_hover_bg.jpg);
+	height:29px;
+	line-height:29px;
+	color:#000;
+}
+.div_list table td:hover {
+	color:#000;
+}
+.div_list table tr {
+	background: #fff;
+}
+.even {
+	background:url(images/table_td_even.jpg) repeat-x
+}

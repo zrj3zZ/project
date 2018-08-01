@@ -1,0 +1,57 @@
+<div id="border">
+		<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 5px" width="100%">
+			<tbody>
+				<tr>
+					<td class="formpage_title">证照使用申请单</td>
+				</tr>
+				<tr>
+					<td align="right" id="help"></td>
+				</tr>
+				<tr>
+					<td align="right" class="line"></td>
+				</tr>
+				<tr>
+					<td align="left">
+						<table border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody>
+								<tr>
+									<td class="td_title"  id="title_SQR" width="15%">申请人									</td>
+									<td class="td_data"  id="data_SQR"  width="35%">${SQR}&nbsp;　</td>
+									<td class="td_title"  id="title_SQRZH" width="15%">申请人帐号									</td>
+									<td class="td_data"  id="data_SQRZH"  width="35%">${SQRZH}&nbsp;　</td>
+								</tr>
+								<tr>
+									<td class="td_title"  id="title_SQRQ" width="15%">申请日期									</td>
+									<td class="td_data"  id="data_SQRQ"  width="35%">${SQRQ}&nbsp;　</td>
+									<td class="td_title"  id="title_SQBM" width="15%">申请部门名称									</td>
+									<td class="td_data"  id="data_SQBM"  width="35%">${SQBM}&nbsp;　</td>
+								</tr>
+								<tr>
+									<td class="td_title"  id="title_SQBMBH" width="15%">申请部门编号									</td>
+									<td class="td_data"  id="data_SQBMBH"  width="35%">${SQBMBH}&nbsp;　</td>
+									<td class="td_title"  id="title_RESOURCEID" width="15%">证照编号									</td>
+									<td class="td_data"  id="data_RESOURCEID"  width="35%">${RESOURCEID}&nbsp;　</td>
+								</tr>
+								<tr>
+									<td class="td_title"  id="title_RESOURCENAME" width="15%">证照名称									</td>
+									<td class="td_data"  id="data_RESOURCENAME"  width="35%">${RESOURCENAME}&nbsp;　</td>
+									<td class="td_title"  id="title_SQKSRQ" width="15%">申请开始日期									</td>
+									<td class="td_data"  id="data_SQKSRQ"  width="35%">${SQKSRQ}&nbsp;　</td>
+								</tr>
+								<tr>
+									<td class="td_title"  id="title_SQJSRQ" width="15%">申请结束日期									</td>
+									<td class="td_data"  id="data_SQJSRQ"  width="35%">${SQJSRQ}&nbsp;　</td>
+								</tr>
+								<tr><td   class="td_title" id="title_SQYY" >申请原因									</td>
+									<td id="data_SQYY"  class="td_data" colspan="3">${SQYY}&nbsp;　</td>
+								</td></tr>
+								<tr>
+									<td class="td_data"  colspan="4"  width="80%">${SUBFORM_BGYPSQDZB_1}&nbsp;　</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+</div>

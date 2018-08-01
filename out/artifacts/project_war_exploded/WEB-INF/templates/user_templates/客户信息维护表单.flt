@@ -1,0 +1,574 @@
+<link rel="stylesheet" type="text/css" href="iwork_js/plugs/gantt2/jquery-ui-1.8.4.css" />
+<script type="text/javascript" src="iwork_js/jqueryjs/ui/jquery.ui.core.js"></script>
+<script type="text/javascript" src="iwork_js/plugs/gantt2/jquery-ui-1.8.4.js"></script>
+<script type="text/javascript" src="iwork_js/jqueryjs/ui/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="iwork_js/jqueryjs/ui/jquery.ui.position.js"></script>
+<script type="text/javascript" src="iwork_js/jqueryjs/ui/jquery.ui.autocomplete.js"></script>
+<script type="text/javascript">
+
+$(function(){
+	selectuserrole();
+$.ajaxSetup({
+		async: false
+	});
+	$("#CUSTOMERNAME").autocomplete({
+		source:function(request,response) {
+				$.ajax({type : "GET",
+					url:"zqb_customer_associate.action",
+					dataType:"json",
+					data:{
+						khmc:request.term
+					},
+					success: function(data) {
+					response($.map(data, function(item) {
+						return {
+							label:item.CUSTOMERNAME,
+							id:item.INSTANCEID
+						}
+					}));
+				}
+			});
+		},
+		max : 12,
+		minChars : 1,
+		width : 400,
+		scrollHeight : 300,
+		matchContains : true,
+		autoFill : true,
+		minLength : 1,
+		select: function( event, ui ) {
+		window.onbeforeunload = null;
+		edit(ui.item.id);
+		parent.window.close();
+	}});
+	$("#spanzhxgsj").html($("#ZHXGSJ").val());
+	$("#SSHY").autocomplete({
+		source:function(request,response) {
+			$.ajax({
+				url:"zqb_project_sx_industrymsgassociate.action",
+				dataType:"json",
+				data:{
+					xmbz:request.term
+				},
+				success: function(data) {
+					response($.map(data, function(item) {
+						return {
+							label:item.ZIHY,
+							value:item.ZHUHY+"-"+item.ZIHY,
+						}
+					}));
+				}
+			});
+		},
+		minLength:1,
+		select:function(event,ui){}
+	});
+	
+});
+$(function(){
+	if($("#CXDDBGSJ").val()!=""){
+		$("#CXDDBGSJ").val($("#CXDDBGSJ").val().substring(0,10));
+	}
+	
+	var extend5=$("#EXTEND5").val();
+	var cxddbgsj=$("#CXDDBGSJ").val();
+  	$.post("khxxglRsx.action", { startdate: extend5,enddate:cxddbgsj }, function (data) {
+               if(data=='0'){
+	       	    $("#EXTEND5").attr("readOnly","true");
+		    $("#CXDDBGSJ").attr("readOnly","true");
+			 document.getElementById("EXTEND5").onfocus=function(){};
+document.getElementById("CXDDBGSJ").onfocus=function(){};
+	       }else if(data=='1'){
+	            $("#EXTEND5").attr("readOnly","true");
+    
+			document.getElementById("EXTEND5").onfocus=function(){};
+	       }else if(data=='2'){
+	            $("#CXDDBGSJ").attr("readOnly","true");
+                   
+document.getElementById("CXDDBGSJ").onfocus=function(){};
+	       }
+        });
+});
+function edit(instanceid){
+	var pageUrl = "openFormPage.action?formid=88&demId=21&instanceId="+instanceid;
+    	var target = "_blank";
+    	var win_width = window.screen.width;
+    	var page = window.open('form/loader_frame.html',target,'width='+win_width
++',height=800,top=50,left=150,location=no,menubar=no,toolbar=no,status=no,directories=no,scrollbars=yes,resizable=yes');
+    	page.location = pageUrl;
+}
+function selectuserrole(){
+	$.ajax({
+		type: "POST",
+		url: "sx_zqb_pdjsid.action",//判断角色id
+		data: {},
+		success: function(data){
+			if(data=='true'){
+			$("#gspj").hide();
+			}			
+		}
+	});
+}
+function saveForm(){
+	for (var int = 0; int < subReportSaveFunction.length; int++) {
+		document.getElementById("saveSubReportData"+subReportSaveFunction[int]).click();
+	}
+	var valid = mainFormValidator.form(); //执行校验操作
+	if(!valid){
+	return false;
+	}
+	
+	//保存富文本
+ 	try{ 
+ 		saveHtmlEditor();  
+ 	}catch(e){} 
+	document.getElementById("submitbtn").click();	
+} 
+</script>
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" width="100%" cellspacing="0" cellpadding="0" border="0">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					客户信息维护表单
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" width="100%" cellspacing="0" cellpadding="0" border="0">
+						<tbody>
+							<tr id="itemTr_100">
+								<td class="td_title" colspan="4">
+									最后修改人：${ZHXGR}&nbsp;&nbsp;最后修改时间：<span id="spanzhxgsj"></span> &nbsp;&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<fieldset style="border-width:1px;border-color:#999999;">
+						<legend algin="right" style="font-size:12px;font-weight:900;">公司工商注册信息</legend>
+						<table class="ke-zeroborder" style="padding-bottom:10px;padding-left:20px;" width="90%" cellspacing="0" cellpadding="0" border="0">
+							<tbody>
+								<tr id="itemTr_0">
+									<td class="td_title" id="title_CUSTOMERNAME" width="15%">
+										公司名称
+									</td>
+									<td class="td_data" id="data_CUSTOMERNAME" width="35%">
+										${CUSTOMERNAME}&nbsp;
+									</td>
+									<td class="td_title" id="title_GFGSRQ" width="15%">
+										股份公司成立日期
+									</td>
+									<td class="td_data" id="data_GFGSRQ" width="35%">
+										${GFGSRQ}&nbsp;<span style="color:#333;">状态</span>${STATUS}&nbsp;
+									</td>
+								</tr>
+								<tr id="itemTr_1">
+									<td class="td_title" id="title_ZQJCM" width="15%">
+										证券简称
+									</td>
+									<td class="td_data" id="title_ZQDM" width="35%">
+										${ZQJC}&nbsp;<span style="color:#333;">证券代码</span>${ZQDM}
+									</td>									
+									<td class="td_title" id="title_ZCQX" width="15%">
+										所属部门
+									</td>
+									<td class="td_data" id="data_ZCQX" width="35%">
+										${ZCQX}&nbsp;
+									</td>
+								</tr>
+								<tr id="itemTr_2">
+									<td class="td_title" id="title_GPSJ" width="15%">
+										挂牌日期
+									</td>
+									<td class="td_data" id="data_GPSJ" width="35%">
+										${GPSJ}&nbsp;<span style="color:#004080;">创新层</span>${INNOVATION}
+									</td>
+									<td class="td_title" id="title_SSZJJ" width="15%">
+										所属证监局
+									</td>
+									<td class="td_data" id="data_SSZJJ" width="35%">
+										${EXTEND4}&nbsp;
+									</td>
+								</tr>
+								<tr id="itemTr_3">
+									<td class="td_title" id="title_FDDBR" width="15%">
+										法定代表人
+									</td>
+									<td class="td_data" id="data_FDDBR" width="35%">
+										${FDDBR}&nbsp;<span style="color:#333;">注册资本（万元）</span>${ZCZB}
+									</td>
+									<td class="td_title" id="title_SSHY" width="15%">
+										所属行业
+									</td>
+									<td class="td_data" id="data_SSHY" width="35%">
+										${SSHY}&nbsp;
+									</td>
+								</tr>
+								<tr id="itemTr_4">
+									<td class="td_title" id="title_GB" width="15%">
+										股本(万元)
+									</td>
+									<td class="td_data" id="data_GB" width="35%">
+										${GB}&nbsp;<span style="color:#333;">已挂牌</span>&nbsp;${YGP}
+									</td>
+									<td class="td_title" id="title_TYPE" width="15%">
+										注册类型
+									</td>
+									<td class="td_data" id="data_TYPE" width="35%">
+										${TYPE}&nbsp;
+									</td>
+								</tr>
+								<tr id="itemTr_5">
+									<td class="td_title" id="title_DMNAME" width="15%">
+										董秘
+									</td>
+									<td class="td_data" id="data_DMNAME" width="35%">
+										${EXTEND1}&nbsp;
+									</td>
+									<td class="td_title" id="title_USERNAME" width="15%">
+										信披人
+									</td>
+									<td class="td_data" id="data_USERNAME" width="35%">
+										${USERNAME}&nbsp;
+									</td>
+								</tr>
+								<tr id="itemTr_6">
+									<td class="td_title" id="title_DMDH" width="15%">
+										董秘电话
+									</td>
+									<td class="td_data" id="data_DMDH" width="35%">
+										${EXTEND2}&nbsp;
+									</td>
+									<td class="td_title" id="title_TEL" width="15%">
+										信披人电话
+									</td>
+									<td class="td_data" id="data_TEL" width="35%">
+										${TEL}&nbsp;
+									</td>
+								</tr>
+								<tr id="itemTr_7">
+									<td class="td_title" id="title_DMYX" width="15%">
+										董秘邮箱
+									</td>
+									<td class="td_data" id="data_DMYX" width="35%">
+										${EXTEND3}&nbsp;
+									</td>
+									<td class="td_title" id="title_EMAIL" width="15%">
+										信披人邮箱
+									</td>
+									<td class="td_data" id="data_EMAIL" width="35%">
+										${EMAIL}&nbsp;
+									</td>
+								</tr>
+								<tr id="itemTr_8">
+									<td class="td_title" id="title_ZWMC" width="15%">
+										住所地省市
+									</td>
+									<td class="td_data" id="data_ZWMC" width="35%">
+										${ZWMC}&nbsp;<span style="color:#333;">市区</span>${YWMC}
+									</td>
+									<td class="td_title" id="title_YXGSRQ" width="15%">
+										有限公司成立日期
+									</td>
+									<td class="td_data" id="data_YXGSRQ" width="35%">
+										${YXGSRQ}<span style="color:#333;">转让方式</span>${ZRFS}&nbsp;
+									</td>
+								</tr>
+								<tr id="itemTr_9">
+									<td class="td_title" id="title_ZCDZ" width="15%">
+										注册地址
+									</td>
+									<td class="td_data" id="data_ZCDZ" width="35%">
+										${ZCDZ}&nbsp;
+									</td>
+									<td class="td_title" id="title_JLNJLR" width="15%">
+										2年累计净利润（万元）
+									</td>
+									<td class="td_data" id="data_JLNJLR" width="35%">
+										${JLNJLR}&nbsp;<span id="gspj"><span style="color:#333;">公司评级</span>&nbsp;${CLASSIFICATION}</span>
+									</td>
+								</tr>	
+   <tr id="itemTr_18">
+									<td class="td_title" id="title_EXTEND5" width="15%">
+										摘牌时间
+									</td>
+									<td class="td_data" id="data_EXTEND5" width="35%">
+										${EXTEND5}&nbsp;
+									</td>
+									<td class="td_title" id="title_CXDDBGSJ" width="15%">
+										持续督导转出时间
+									</td>
+									<td class="td_data" id="data_CXDDBGSJ" width="35%">
+										${CXDDBGSJ}&nbsp;
+									</td>
+								</tr>							
+								<tr>
+									<td colspan="4">
+										<fieldset style="border-width:1px;border-color:#999999;">
+											<legend algin="right" style="font-size:12px;font-weight:900;">未来一年内融资需求金额（万元）</legend>
+											<table class="ke-zeroborder" style="padding-bottom:10px;padding-left:20px;table-layout:fixed;" width="100%" cellspacing="0" cellpadding="0" border="0">
+												<tbody>
+													<tr id="itemTr_38">
+														<td class="td_title" id="title_YXDK" width="15%">
+															银行贷款
+														</td>
+														<td class="td_data" id="data_YXDK" width="35%">
+															${YXDK}&nbsp;
+														</td>
+														<td class="td_title" id="title_ZQRZ" width="15%">
+															债券融资
+														</td>
+														<td class="td_data" id="data_ZQRZ" width="35%">
+															${ZQRZ}&nbsp;
+														</td>
+													</tr>
+													<tr id="itemTr_40">
+														<td class="td_title" id="title_GQRZ" width="15%">
+															股权融资
+														</td>
+														<td class="td_data" id="data_GQRZ" width="35%">
+															${GQRZ}&nbsp;
+														</td>
+														<td class="td_title" id="title_QTRZ" width="15%">
+															其他融资
+														</td>
+														<td class="td_data" id="data_QTRZ" width="35%">
+															${QTRZ}&nbsp;
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</fieldset>
+									</td>
+								</tr>
+								<tr>
+									<td id="title_ZYYW" class="td_title" colspan="4" style="text-align:left;overflow:auto;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word;">主营业务描述（包括主营业务范围、主营产品、业务发展情况等）</td>
+								</tr>
+								<tr>
+									<td id="data_ZYYW" class="td_data" colspan="4">
+										${ZYYW}&nbsp;
+									</td>
+								</tr>
+								<tr>
+									<td id="title_MEMO" class="td_title" style="text-align:left;">
+										补充说明
+									</td>
+								</tr>
+								<tr>
+									<td id="data_MEMO" class="td_data" colspan="4">
+										${MEMO}&nbsp;
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</fieldset>
+<br />
+					<!--<fieldset style="border-width:1px;border-color:#999999;">
+						<legend algin="right" style="font-size:12px;font-weight:900;">股东简介</legend>
+						<table class="ke-zeroborder" style="padding-bottom:10px;padding-left:20px;" width="100%" cellspacing="0" cellpadding="0" border="0">
+							<tbody>
+								<tr>
+									<td id="data_CUSTOMERDESC" class="td_data" colspan="4">
+										${CUSTOMERDESC}&nbsp;
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</fieldset>
+<br />
+					<fieldset style="border-width:1px;border-color:#999999;">
+						<legend algin="right" style="font-size:12px;font-weight:900;">历史沿革问题</legend>
+						<table class="ke-zeroborder" style="padding-bottom:10px;padding-left:20px;table-layout:fixed;" width="100%" cellspacing="0" cellpadding="0" border="0">
+							<tbody>
+								<tr>
+									<td class="td_title" id="title_CZJGQBD" colspan="4" style="text-align:left;overflow:auto;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word;">是否存在国有股或外资股，是否取得国有股权设置批复或商务部门批复</td>
+								</tr>
+								<tr>
+									<td id="data_CZJGQBD" class="td_data" colspan="4">
+										${CZJGQBD}&nbsp;
+									</td>
+								</tr>
+								<tr>
+									<td class="td_title" id="title_KGGD" colspan="4" style="text-align:left;overflow:auto;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word;" width="15%">是否存在代持股现象/职工持股会/工会持股</td>
+								</tr>
+								<tr>
+									<td class="td_data" id="data_KGGD" colspan="4" width="35%">
+										${KGGD}&nbsp;
+									</td>
+								</tr>
+								<tr>
+									<td class="td_title" id="title_WXZC" colspan="4" width="35%" style="text-align:left;overflow:auto;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word;">是否有无形资产出资（如专利、非专利技术、版权等，包括在历次增资中的无形资产出资）用以出资的无形资产是否存在减值迹象，是否为职务发明</td>
+								</tr>
+								<tr>
+									<td id="data_WXZC" class="td_data" colspan="4">
+										${WXZC}&nbsp;
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</fieldset>
+<br />
+					<fieldset style="border-width:1px;border-color:#999999;">
+						<legend algin="right" style="font-size:12px;font-weight:900;">公司业务及经营现状</legend>
+						<table class="ke-zeroborder" style="padding-bottom:10px;padding-left:20px;" width="100%" cellspacing="0" cellpadding="0" border="0">
+							<tbody>
+								<tr>
+									<td class="td_title" id="title_ZYCP" colspan="4" style="text-align:left;">
+										公司主营业务介绍
+									</td>
+								</tr>
+								<tr>
+									<td id="data_ZYCP" class="td_data" colspan="4">
+										${ZYCP}&nbsp;
+									</td>
+								</tr>
+								<tr>
+									<td class="td_title" id="title_JYXKXM" colspan="4" style="text-align:left;overflow:auto;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word;">公司所属行业是否需要特殊生产许可资质、相关的行政准入或许可审批（如需要，是否取得）</td>
+								</tr>
+								<tr>
+									<td id="data_JYXKXM" class="td_data" colspan="4">
+										${JYXKXM}&nbsp;
+									</td>
+								</tr>
+								<tr>
+									<td class="td_title" id="title_HBYS" colspan="4" style="text-align:left;overflow:auto;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word;">最近两年是否受过环保验收、排污许可、社保、工商、税务简要情况，以及是否受到处罚</td>
+								</tr>
+								<tr>
+									<td id="data_HBYS" class="td_data" colspan="4">
+										${HBYS}&nbsp;
+									</td>
+								</tr>
+								<tr>
+									<td class="td_title" id="title_SLQK" colspan="4" style="text-align:left;overflow:auto;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word;">公司的盈利模式（利润的主要来源）</td>
+								</tr>
+								<tr>
+									<td id="data_SLQK" class="td_data" colspan="4">
+										${SLQK}&nbsp;
+									</td>
+								</tr>
+								<tr>
+									<td class="td_title" id="title_CXJY" colspan="4" style="text-align:left;">
+										持续经营能力说明
+									</td>
+								</tr>
+								<tr>
+									<td id="data_CXJY" class="td_data" colspan="4">
+										${CXJY}&nbsp;
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</fieldset>
+<br />
+					<fieldset style="border-width:1px;border-color:#999999;">
+						<legend algin="right" style="font-size:12px;font-weight:900;">同业竞争及关联交易情况说明</legend>
+						<table class="ke-zeroborder" style="padding-bottom:10px;padding-left:20px;" width="100%" cellspacing="0" cellpadding="0" border="0">
+							<tbody>
+								<tr>
+									<td class="td_title" id="title_JZYS" colspan="4" style="text-align:left;overflow:auto;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word;">是否存在同业竞争，请予说明</td>
+								</tr>
+								<tr>
+									<td id="data_JZYS" class="td_data" colspan="4">
+										${JZYS}&nbsp;
+									</td>
+								</tr>
+								<tr>
+									<td class="td_title" id="title_GLJY" colspan="4" style="text-align:left;overflow:auto;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word;">是否存在关联交易，请予说明</td>
+								</tr>
+								<tr>
+									<td id="data_GLJY" class="td_data" colspan="4">
+										${GLJY}&nbsp;
+									</td>
+								</tr>
+								<tr>
+									<td class="td_title" id="title_DWDB" colspan="4" style="text-align:left;overflow:auto;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word;">是否存在对外担保事项（包含关联方），请予说明</td>
+								</tr>
+								<tr>
+									<td id="data_DWDB" class="td_data" colspan="4">
+										${DWDB}&nbsp;
+									</td>
+								</tr>
+								<tr>
+									<td class="td_title" id="title_ZYZJ" colspan="4" style="text-align:left;overflow:auto;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word;">是否存在控股股东、实际控制人及其控制的其他企业占用公司款项的情形</td>
+								</tr>
+								<tr>
+									<td id="data_ZYZJ" class="td_data" colspan="4">
+										${ZYZJ}&nbsp;
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</fieldset>-->
+<br />
+					<fieldset style="border-width:1px;border-color:#999999;">
+						<legend algin="right" style="font-size:12px;font-weight:900;">其他说明</legend>
+						<table class="ke-zeroborder" style="padding-bottom:10px;padding-left:20px;" width="100%" cellspacing="0" cellpadding="0" border="0">
+							<tbody>
+								<!--<tr>
+									<td class="td_title" id="title_WLGH" colspan="4" style="text-align:left;overflow:auto;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word;">公司未来两年发展规划（简述）</td>
+								</tr>
+								<tr>
+									<td id="data_WLGH" class="td_data" colspan="4">
+										${WLGH}&nbsp;
+									</td>
+								</tr>
+								<tr>
+									<td class="td_title" id="title_SSSJ" colspan="4" style="text-align:left;">
+										公司涉诉事件说明
+									</td>
+								</tr>
+								<tr>
+									<td id="data_SSSJ" class="td_data" colspan="4">
+										${SSSJ}&nbsp;
+									</td>
+								</tr>-->
+								<tr>
+									<td class="td_title" id="title_QTSM" colspan="4" style="text-align:left;overflow:auto;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word;">项目异常情况记录</td>
+								</tr>
+								<tr>
+									<td id="data_QTSM" class="td_data" colspan="4">
+										${QTSM}&nbsp;
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</fieldset>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+<br />
+	<div style="border-right-width:0px;width:auto;border-top-width:0px;border-bottom-width:0px;height:auto;border-left-width:0px;border-image:none;" id="mainFrameTab" class="easyui-tabs">
+		<div style="border-bottom:#efefef 0px solid;border-left:#efefef 0px solid;height:auto;border-top:#efefef 0px solid;border-right:#efefef 0px solid;border-image:none;" title="挂牌时股本结构" border="true" cache="false">
+			${SUBFORM_GSCSGQJG}&nbsp;
+		</div>
+		<div style="border-bottom:#efefef 0px solid;border-left:#efefef 0px solid;height:auto;border-top:#efefef 0px solid;border-right:#efefef 0px solid;border-image:none;" title="挂牌后股本变动" border="true" cache="false">
+			${SUBFORM_LCGQBDMS}&nbsp;
+		</div>
+		<div style="border-bottom:#efefef 0px solid;border-left:#efefef 0px solid;height:auto;border-top:#efefef 0px solid;border-right:#efefef 0px solid;border-image:none;" title="最终公司股权结构" border="true" cache="false">
+			${SUBFORM_ZZGSGQJG}&nbsp;
+		</div>
+		<div style="border-bottom:#efefef 0px solid;border-left:#efefef 0px solid;height:auto;border-top:#efefef 0px solid;border-right:#efefef 0px solid;border-image:none;" title="公司关联情况" border="true" cache="false">
+			${SUBFORM_GSGLQK}&nbsp;
+		</div>
+		<div style="border-bottom:#efefef 0px solid;border-left:#efefef 0px solid;height:auto;border-top:#efefef 0px solid;border-right:#efefef 0px solid;border-image:none;" title="技术与知识产权" border="true" cache="false">
+			${SUBFORM_JSYZSCQ}&nbsp;
+		</div>
+		<div style="border-bottom:#efefef 0px solid;border-left:#efefef 0px solid;height:auto;border-top:#efefef 0px solid;border-right:#efefef 0px solid;border-image:none;" title="公司财务概况" border="true" cache="false">
+			${SUBFORM_GSCWGK}&nbsp;
+		</div>
+	</div>
+</div>
+<div style="display:none;">
+${CREATEUSER}${CREATEDATE}${CUSTOMERNO}${NDYS}${JLR}${GSWZ}${PHONE}${ZYCP}${JYXKXM}${JZYS}${WLGH}${SSSJ}${GLJY}${DWDB}${ZYZJ}${HBYS}${SLQK}${CXJY}${CZJGQBD}${FAX}${SHTZFS}${GDDH}${DSHSPQX}${XGZL}${POST}${KGGD}${WXZC}${CGBL}${BGDZ}${CXDDBG}${CXDDBGSJ}${QNJLR}${QIANNJLR}${USERID}${ZHXGR}${ZHXGSJ}${CUSTOMERDESC}
+</div>

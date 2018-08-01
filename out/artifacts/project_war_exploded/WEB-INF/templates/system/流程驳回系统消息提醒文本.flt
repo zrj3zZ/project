@@ -1,0 +1,2 @@
+${USERNAME},您好！ 您曾经办理过的流程标题为【${TASKTITLE}】的流程<br>
+在审批过程中被${SENDER} <b><font color="red">驳回办理</font></b>，驳回意见为【${OPINION}】,特此通知！<br>

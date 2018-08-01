@@ -1,0 +1,27 @@
+$(function(){
+var wlins=$("#WLINS").val();
+$("#URL").attr("src","zqb_cxdd_search.action?WLINS="+wlins);
+});
+function showlog(){
+	var instanceId = $("#WLINS").val();
+	var modelId = $("#modelId").val();
+	var formid = $("#formid").val(); 
+	var pageUrl = "url:sysForm_showlog.action?modelId="+modelId;
+	var dg =$.dialog({
+			id:'updatelogDialog',
+			cover:true,
+			title:"更新日志",
+			width:800,
+			height:520,
+			loadingText:'正在加载中,请稍后...',
+			bgcolor:'#999',
+			rang:true, 
+			lock: true,
+			iconTitle:false,
+			extendDrag:true, 
+			autoSize:false,
+			resize:false,
+			content:pageUrl
+		});
+	dg.ShowDialog();
+}

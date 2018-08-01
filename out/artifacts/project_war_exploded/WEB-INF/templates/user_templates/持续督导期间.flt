@@ -1,0 +1,56 @@
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" width="100%" cellspacing="0" cellpadding="0" border="0">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					持续督导期间
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" width="100%" cellspacing="0" cellpadding="0" border="0">
+						<tbody>
+							<tr id="itemTr_0">
+								<td class="td_title" id="title_TBSJ" width="15%">
+									填报时间
+								</td>
+								<td class="td_data" id="data_TBSJ" width="35%">
+									${TBSJ}&nbsp;　
+								</td>
+								<td class="td_title" id="title_EXTEND2" width="15%">
+									督导期间情况概述
+								</td>
+								<td class="td_data" id="data_EXTEND2" width="35%">
+									${EXTEND2}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_17">
+							</tr>
+							<tr id="fjTr_5987">
+								<td class="td_title" id="title_FJ">
+									附件
+								</td>
+								<td id="data_FJ" class="td_data" colspan="3">
+									${FJ}&nbsp;　
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${TBRID}${XMBH}${LCBH}${LCBS}${TASKID}${SPZT}${JDBH}${SCORE}${COMPANYNAME}${JDMC}${TJRID}${TJRXM}${TJSJ}${EXTEND1}${EXTEND3}${EXTEND4}${EXTEND5}
+</div>

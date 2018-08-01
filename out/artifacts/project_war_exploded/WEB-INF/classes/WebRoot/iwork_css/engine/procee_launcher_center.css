@@ -1,0 +1,218 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+	padding:0px;
+	margin:0px;
+	font-size:12px;
+}
+img {
+	border:0px;
+}
+BODY {
+	min-width:700px;
+width:expression(document.body.clientWidth <= 700? "700px": "auto")
+}
+.colmask {
+	POSITION: relative;
+	WIDTH: 100%;
+	FLOAT: left;
+	CLEAR: both;
+	OVERFLOW: hidden
+}
+.colright {
+	POSITION: relative;
+	WIDTH: 100%;
+	FLOAT: left
+}
+.colmid {
+	POSITION: relative;
+	WIDTH: 100%;
+	FLOAT: left
+}
+.colleft {
+	POSITION: relative;
+	WIDTH: 100%;
+	FLOAT: left
+}
+.col1 {
+	POSITION: relative;
+	PADDING-BOTTOM: 1em;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	FLOAT: left;
+	OVERFLOW: hidden;
+	PADDING-TOP: 0px
+}
+.col2 {
+	POSITION: relative;
+	PADDING-BOTTOM: 1em;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	FLOAT: left;
+	OVERFLOW: hidden;
+	PADDING-TOP: 0px
+}
+.col3 {
+	POSITION: relative;
+	PADDING-BOTTOM: 1em;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	FLOAT: left;
+	OVERFLOW: hidden;
+	PADDING-TOP: 0px
+}
+.threecol {
+}
+.threecol .colmid {
+	BACKGROUND: #fff;
+	RIGHT: 33%
+}
+.threecol .colleft {
+	RIGHT: 33%
+}
+.threecol .col1 {
+	WIDTH: 33%;
+	LEFT: 101%
+}
+.threecol .col2 {
+	WIDTH: 33%;
+	LEFT: 34%
+}
+.threecol .col3 {
+	WIDTH: 33%;
+	LEFT: 69%
+}
+.drag_div {
+	border:1px solid #ebebeb;
+	background:url(../../iwork_img/report_frame_bg.jpg) repeat-x;
+	margin-top:5px;
+}
+.drag_header {
+	height:32px;
+	line-height:32px;
+	font-size:14px;
+	font-weight:bold;
+	padding-left:20px;
+}
+.drag_content {
+	line-height:24px;
+	font-size:12px;
+	background:#FFF;
+	padding:0px 20px 20px 30px;
+}
+.drag_content a {
+	color:#3a64b0;
+	text-decoration:none;
+}
+.drag_content a:hover {
+	text-decoration:underline;
+}
+.drag_div_selected {
+	border:1px solid #bcdaf8;
+	background:url(../../iwork_img/report_frame_selected_bg.jpg) repeat-x;
+	margin-top:5px;
+}
+/*选项卡内容中的二级tab选项卡通用样式*/
+.report_top {
+	height:30px;
+	line-height:30px;
+	clear:both;
+	padding-left:20px;
+	padding-right: 20px;
+}
+.sub_tab li {
+	display:block;
+	float:left;
+}
+.sub_tab li a {
+	display:block;
+	height:29px;
+	line-height:29px;
+	text-align:center;
+	font-size:12px;
+	padding:0px 10px 0px 10px;
+}
+.sub_tab_selected {
+	color:black;
+	font-weight:bold;
+	text-decoration:none;
+	background:url(images/tab_bg.jpg);
+	height:29px;
+	line-height:29px;
+	padding:0px 10px 0px 10px;
+}
+.sub_tab a:link {
+	color:#0175bb;
+	text-decoration:none;
+}
+.sub_tab a:visited {
+	color:#0175bb;
+	text-decoration:none;
+}
+.sub_tab a:hover {
+	color:#0175bb;
+	text-decoration:none;
+}
+.sub_tab a:active {
+	color:#0175bb;
+	text-decoration:none;
+}
+/*消息中心*/
+.news_center {
+	background:url(images/report_frame_bg.jpg);
+	margin:0px 10px 0px 10px;
+	border:1px solid #ebebeb;
+	color:#9e9e9e;
+	margin-bottom:5px;
+}
+.news_center a {
+	color:#9e9e9e;
+	text-decoration:none;
+}
+.news_center_selected {
+	background:url(images/report_frame_selected_bg.jpg);
+	margin:0px 10px 0px 10px;
+	border:1px solid #bcdaf8;
+	color:#9e9e9e;
+	margin-bottom:5px;
+}
+.news_center_selected a {
+	color:#9e9e9e;
+	text-decoration:none;
+}
+.news_center_title {
+	height:32px;
+	line-height:32px;
+	font-size:14px;
+	padding-left:20px;
+}
+.news_center_main {
+	line-height:24px;
+	font-size:12px;
+	background:#FFF;
+	padding:0px 20px 20px 20px;
+}
+.news_icon1 {
+	background:url(images/new_icon1.png) no-repeat;
+	height:60px;
+	width:60px;
+	margin-top:10px;
+}
+.news_icon2 {
+	background:url(images/new_icon2.png) no-repeat;
+	height:60px;
+	width:60px;
+	margin-top:10px;
+}
+.news_icon3 {
+	background:url(images/new_icon3.png) no-repeat;
+	height:60px;
+	width:60px;
+	margin-top:10px;
+}
+.news_icon4 {
+	background:url(images/new_icon4.png) no-repeat;
+	height:60px;
+	width:60px;
+	margin-top:10px;
+}

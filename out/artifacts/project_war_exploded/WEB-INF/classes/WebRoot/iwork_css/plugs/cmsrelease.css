@@ -1,0 +1,10 @@
+.td_title{
+	text-align:right;
+	padding-left:15px;
+}
+td{
+	padding:0px; height:30px;line-height:30px; text-overflow:ellipsis; overflow:hidden;text-align:left;
+}
+.td_data{
+	text-align:left;
+}

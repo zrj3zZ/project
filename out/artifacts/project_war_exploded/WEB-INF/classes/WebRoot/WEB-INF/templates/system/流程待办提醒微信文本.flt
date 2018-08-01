@@ -1,0 +1,5 @@
+${TASKTITLE}
+【发 送 人】${SENDER}
+【所在部门】${SENDER_DEPT}
+【意见留言】${OPINION}
+目前您在系统中共有 ${TASK_SUM}个审批任务待处理。

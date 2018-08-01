@@ -1,0 +1,70 @@
+<script type="text/javascript">
+$(function(){
+	if($("#isHFRandHFNRdiaplsy").val()==1||$("#isHFRandHFNRdiaplsy").val()=="1"){
+		$("#itemTr_1").hide();
+		$.post("zqb_announcement_getusertime.action", function (data) {
+			var dataJson = eval("(" + data + ")");
+			$("#CONUSER").val(dataJson[0].USER);
+			$("#CONDATE").val(dataJson[0].TIME);
+		});
+		$("#pagetitle").html("意见详情");
+		$("title").html("意见详情");
+	}else{
+		if($("#CONTENT").val()==null||$("#CONTENT").val()==''){
+			$("#itemTr_0").remove();
+		}else{
+			$("#itemTr_0").hide();
+		}
+		$("#pagetitle").html("备查文件");
+		$("title").html("备查文件");
+	}
+});
+</script>
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>
+			<tr>
+				<td id="pagetitle" class="formpage_title">
+					
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" border="0" cellpadding="0" cellspacing="0" width="100%">
+						<tbody>
+							<tr id="itemTr_0">
+								<td id="title_" class="td_title" width="15%">
+									意见
+								</td>
+								<td colspan=3 id="data_" class="td_data" width="85%">
+									${CONTENT}
+								</td>
+							</tr>
+							<tr id="itemTr_1">
+								<td class="td_title" id="title_SMJ" width="180">
+									扫描件
+								</td>
+								<td class="td_data" id="data_SMJ">
+									${SMJ}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${GGID}${GGINS}${CONDATE}${CONUSER}
+</div>

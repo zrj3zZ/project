@@ -1,0 +1,18 @@
+function savebeforeEvent() {
+    $.ajaxSetup({
+        async: false
+    });
+    var zb = $("#ZB").val();
+    var flag = new Boolean();
+    $.post("phoneBook_checkZB.action", {
+        zb: zb
+    }, function (data) {
+        if (data != "") {
+            flag = false;
+            alert(data);
+        } else {
+            flag = true;
+        }
+    });
+    return flag;
+}

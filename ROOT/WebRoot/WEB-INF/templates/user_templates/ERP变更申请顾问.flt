@@ -1,0 +1,118 @@
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					ERP变更申请顾问
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+					<span id="data_DJBH">单据编号:${SQDBH}</span> 
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr>
+								<td id="title_SQRQ" class="td_title" width="180">
+									申请日期
+								</td>
+								<td id="data_SQRQ" class="td_data">
+									${SQRQ}&nbsp;
+								</td>
+							</tr>
+							
+							<tr>
+								<td id="title_SQR" class="td_title" width="180">
+									申请人
+								</td>
+								<td class="td_data" id="data_SQRBMID" width="85%" colspan="3">
+										${SQR}【${SQRZH},${SQRGW},${SQRDH}&nbsp;】【${SQRBMMC} 】
+									</td>
+							</tr>
+							
+							<tr>
+								<td class="td_title" id="title_SAPMK" width="15%">
+									SAP模块
+								</td>
+								<td class="td_data" id="data_SAPMK" width="85%" colspan="3">
+									${SAPMK}&nbsp;　
+								</td>
+							</tr>
+							
+							<tr>
+								<td class="td_title" id="title_BGYYJXQMS" width="15%">
+									变更原因及需求描述
+								</td>
+								<td class="td_data" id="data_BGYYJXQMS" width="85%" colspan="3">
+									${BGYYJXQMS}&nbsp;　
+								</td>
+							</tr>
+							
+
+							<tr>
+								<td class="td_title" id="title_BGLX" width="15%">
+									变更类型
+								</td>
+								<td class="td_data" id="data_BGLX" width="35%">
+									${BGLX}&nbsp;　
+								</td>
+								
+								<td class="td_title" id="title_GZLPG" width="15%">
+									工作量评估
+								</td>
+								<td class="td_data" id="data_GZLPG" width="35%">
+									${GZLPG}&nbsp;　
+								</td>
+							</tr>
+							
+							<tr>
+								<td class="td_title" id="title_KFRY" width="15%">
+									开发人员
+								</td>
+								<td class="td_data" id="data_KFRY" width="85%" colspan="3">
+									${KFRY}&nbsp;　
+								</td>
+							</tr>
+							
+							<tr>
+								<td class="td_title" id="title_JJFA" width="15%">
+									解决方案
+								</td>
+								<td class="td_data" id="data_JJFA" width="85%" colspan="3">
+									${JJFA}&nbsp;　
+								</td>
+							</tr>
+							
+							<tr>
+								<td class="td_data"  colspan="4"  width="80%">${SUBFORM_ERPBGSQGWZB1}&nbsp;　</td>
+							</tr>
+							<tr>
+								<td class="td_data"  colspan="4"  width="80%">${SUBFORM_ERPBGSQGWZB2}&nbsp;　</td>
+							</tr>
+								
+								
+							<tr>
+								<td class="td_title" id="title_FJ" width="15%">
+									附件
+								</td>
+								<td class="td_data" id="data_FJ" width="85%" colspan="3">
+									${FJ}&nbsp;　
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div>
+${SYBMBH}${SYBM}${DWMC}${NBGW}${SYR}${SYRZH}${DWBH}${BGDZT}${XTGLYCSH}${JSMC}
+</div>

@@ -1,0 +1,127 @@
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					持续督导分派
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_1357">
+								<td class="td_title" id="title_KHMC" width="180">
+									客户名称
+								</td>
+								<td class="td_data" id="data_KHMC">
+									${KHMC}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2218">
+								<td class="td_title" id="title_QYNBRYSH" width="180">
+									企业内部人员审核
+								</td>
+								<td class="td_data" id="data_QYNBRYSH">
+									${QYNBRYSH}&nbsp;<a href="javascript:clean('QYNBRYSH');" class="easyui-linkbutton" plain="true" iconcls="icon-remove">清空</a> 
+								</td>
+							</tr>
+							<tr id="itemTr_1358">
+								<td class="td_title" id="title_KHFZR" width="180">
+									持续督导专员
+								</td>
+								<td class="td_data" id="data_KHFZR">
+									${KHFZR}&nbsp;${KHFZRDQ}<a href="javascript:clean('KHFZR');" class="easyui-linkbutton" plain="true" iconcls="icon-remove">清空</a> 
+								</td>
+							</tr>
+							<tr id="itemTr_1535">
+								<td class="td_title" id="title_ZZCXDD" width="180">
+									投行审核人员
+								</td>
+								<td class="td_data" id="data_ZZCXDD">
+									${ZZCXDD}&nbsp;${ZZCXDDDQ}<a href="javascript:clean('ZZCXDD');" class="easyui-linkbutton" plain="true" iconcls="icon-remove">清空</a> 
+								</td>
+							</tr>
+							<tr id="itemTr_1536">
+								<td class="td_title" id="title_FHSPR" width="180">
+									专职持续督导
+								</td>
+								<td class="td_data" id="data_FHSPR">
+									${FHSPR}&nbsp;${FHSPRDQ}<a href="javascript:clean('FHSPR');" class="easyui-linkbutton" plain="true" iconcls="icon-remove">清空</a> 
+								</td>
+							</tr>
+							<tr id="itemTr_1602">
+								<td class="td_title" id="title_ZZSPR" width="180">
+									质控部负责人
+								</td>
+								<td class="td_data" id="data_ZZSPR">
+									${ZZSPR}&nbsp;${ZZSPRDQ}<a href="javascript:clean('ZZSPR');" class="easyui-linkbutton" plain="true" iconcls="icon-remove">清空</a> 
+								</td>
+							</tr>
+							<tr id="itemTr_1824">
+								<td class="td_title" id="title_CWSCBFZR2" width="180">
+									场外市场部负责人1
+								</td>
+								<td class="td_data" id="data_CWSCBFZR2">
+									${CWSCBFZR2}&nbsp;${CWSCBFZR2DQ}<a href="javascript:clean('CWSCBFZR2');" class="easyui-linkbutton" plain="true" iconcls="icon-remove">清空</a> 
+								</td>
+							</tr>
+							<tr id="itemTr_1825">
+								<td class="td_title" id="title_CWSCBFZR3" width="180">
+									场外市场部负责人2
+								</td>
+								<td class="td_data" id="data_CWSCBFZR3">
+									${CWSCBFZR3}&nbsp;${CWSCBFZR3DQ}<a href="javascript:clean('CWSCBFZR3');" class="easyui-linkbutton" plain="true" iconcls="icon-remove">清空</a> 
+								</td>
+							</tr>
+<tr id="itemTr_1915">
+								<td class="td_title" id="title_FBBWJSHR" width="180">
+									发布文件审核人
+								</td>
+								<td class="td_data" id="data_FBBWJSHR">
+									${FBBWJSHR}&nbsp;${FBBWJSHRDQ}<a href="javascript:clean('FBBWJSHR');" class="easyui-linkbutton" plain="true" iconcls="icon-remove">清空</a> 
+								</td>
+							</tr>
+							<tr id="itemTr_1812">
+								<td class="td_title" id="title_GGFBR" width="180">
+									公告发布人
+								</td>
+								<td class="td_data" id="data_GGFBR">
+									${GGFBR}&nbsp;${GGFBRDQ}<a href="javascript:clean('GGFBR');" class="easyui-linkbutton" plain="true" iconcls="icon-remove">清空</a> 
+								</td>
+							</tr>
+
+							<tr id="itemTr_1802">
+								<td class="td_title" id="title_BZ" width="180">
+									备注
+								</td>
+								<td class="td_data" id="data_BZ">
+									${BZ}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1805">
+								<td class="td_title" id="title_TXDF" width="180">
+									提醒对方
+								</td>
+								<td class="td_data" id="data_TXDF">
+									${TXDF}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${KHBH}${SFFP}${CJSJ}${EXTEND1}${EXTEND2}${EXTEND3}${EXTEND4}${EXTEND5}
+</div>

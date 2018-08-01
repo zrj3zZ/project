@@ -1,0 +1,70 @@
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					股票发行问题反馈表单
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_2369">
+								<td class="td_title" id="title_ANSWERMAN" width="180">
+									解答人
+								</td>
+								<td class="td_data" id="data_ANSWERMAN">
+									${ANSWERMAN}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2361">
+								<td class="td_title" id="title_USERNAME" width="180">
+									问题反馈人姓名
+								</td>
+								<td class="td_data" id="data_USERNAME">
+									${USERNAME}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2364">
+								<td class="td_title" id="title_TASKNO" width="180">
+									任务阶段
+								</td>
+								<td class="td_data" id="data_TASKNO">
+									${TASKNO}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2362">
+								<td class="td_title" id="title_QUESTION" width="180">
+									<span style="color:red;">*</span>反馈问题
+								</td>
+								<td class="td_data" id="data_QUESTION">
+									${QUESTION}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2368">
+								<td class="td_title" id="title_ATTACH" width="180">
+									附件
+								</td>
+								<td class="td_data" id="data_ATTACH">
+									${ATTACH}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${XMBH}${XMMC}${USERID}${STATUS}${XMLXID}${TYPE}${CREATEDATE}${SFTZ}
+</div>

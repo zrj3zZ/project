@@ -1,0 +1,286 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+	padding:0px;
+	margin:0px;
+	font-size:12px;
+}
+img {
+	border:0px;
+}
+body {
+	color:#4f4f4f;
+	background:#fbfbfb;
+	font-family:"宋体";
+	font-family:Arial;
+}
+a:link {
+	color:#4f4f4f;
+	text-decoration:none;
+}
+a:visited {
+	color:#4f4f4f;
+	text-decoration:none;
+}
+a:hover {
+	color:#4f4f4f;
+	text-decoration:underline;
+}
+a:active {
+	color:#4f4f4f;
+	text-decoration:none;
+}
+/*选项卡内容中的二级tab选项卡通用样式*/
+.top_tab {
+	background-color:#FFFFFF;
+	width:100%;
+	position:fixed !important; 
+	top:0px;
+	position:absolute; 
+	z-index:100; 
+	top:expression(offsetParent.scrollTop);
+}
+
+.sub_tab li {
+	display:block;
+	float:left;
+}
+.sub_tab li a {
+	display:block;
+	height:29px;
+	line-height:29px;
+	text-align:center;
+	font-size:12px;
+	padding:0px 10px 0px 10px;
+}
+.sub_tab_selected {
+	color:black;
+	font-weight:bold;
+	text-decoration:none;
+	background:url(../../iwork_img/engine/tab_bg.jpg);
+	height:29px;
+	line-height:29px;
+	padding:0px 10px 0px 10px;
+}
+.sub_tab a:link {
+	color:#0175bb;
+	text-decoration:none;
+}
+.sub_tab a:visited {
+	color:#0175bb;
+	text-decoration:none;
+}
+.sub_tab a:hover {
+	color:#0175bb;
+	text-decoration:none;
+}
+.sub_tab a:active {
+	color:#0175bb;
+	text-decoration:none;
+}
+.shenglue{
+	width:240px;
+	white-space:nowrap;
+	overflow:hidden;
+	float:left;
+	-o-text-overflow: ellipsis;    /* for Opera */
+	text-overflow:ellipsis;        /* for IE */
+
+}
+
+
+
+/*首页*/
+.fontpage_frame {
+width:expression(document.body.clientWidth <= 940? "940px": "auto" );
+min-width:940px;
+
+}
+.left {
+	width:100%;
+	margin-right:280px;
+}
+.left td {
+	padding:4px;
+}
+.left_title {
+	background:url(../../iwork_img/engine/right_h_fenge.png) repeat-x bottom;
+	height:40px;
+}
+.left_title span {
+	background:url(../../iwork_img/engine/ring.png) no-repeat 10px 6px;
+	height:40px;
+	width:auto;
+	line-height:30px;
+	padding-left:30px;
+	color:#1e95d7;
+	font-size:18px;
+	font-family:微软雅黑;
+}
+.more {
+	float:right;
+	margin-right:20px;
+	cursor:pointer;
+	background:none;
+	margin-top:8px;
+}
+.gonggao {
+	background: #fcfcfc;
+	height:286px;
+}
+.gonggao_pic {
+	position: absolute;
+	top: 40px;
+	left: 0px;
+	width:300px;
+	background:url(../../iwork_img/engine/index_frame_bg.jpg) no-repeat right bottom #fcfcfc;
+	height:226px;
+	padding:0px 20px 0px 10px;
+}
+.gonggao_new {
+	background:url(../../iwork_img/engine/index_frame_bg.jpg) no-repeat right bottom #fcfcfc;
+	height:236px;
+	margin-left:320px;
+	margin-right:280px;
+	top: 0px;
+	left: 0px;
+	padding:10px 20px 0px 10px;
+}
+.gonggao td {
+	padding:3px;
+}
+.horizontal {
+	background: #fcfcfc;
+	margin-right:280px;
+	height:306px;
+}
+.tuijian {
+	width:50%;
+	float:left;
+	border-top:1px solid #fff;
+}
+.tuijian_new {
+	background:url(../../iwork_img/engine/index_frame_bg.jpg) no-repeat right;
+	height:256px;
+	border-left:1px solid #fff;
+	padding:0px 20px 0px 10px;
+}
+.xinwen {
+	width:50%;
+	float:right;
+	border-top:1px solid #fff;
+}
+.xinwen_new {
+	background:url(../../iwork_img/engine/index_frame_bg.jpg) no-repeat right;
+	height:256px;
+	border-left:1px solid #fff;
+	padding:0px 20px 0px 10px;
+}
+.right {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width:280px;
+	float:right;
+	color:#6d6d6d;
+	background:#f8f8f8;
+}
+.right a {
+	color:#6d6d6d;
+	text-decoration:none
+}
+.right_fenge {
+	width:8px;
+	background:url(../../iwork_img/engine/right_fenge.png) repeat-y;
+	float:left;
+	height:900px;
+}
+.right_main {
+	width:270px;
+	height:744px;
+	float:left;
+}
+.right_title {
+	background:url(../../iwork_img/engine/right_h_fenge.png) repeat-x bottom;
+	height:40px;
+}
+.right_title span {
+	background:url(../../iwork_img/engine/ring.png) no-repeat 10px 6px;
+	height:40px;
+	width:auto;
+	line-height:30px;
+	padding-left:30px;
+	color:#1e95d7;
+	font-size:18px;
+	font-family:微软雅黑;
+}
+.right_title_main {
+	padding:10px;
+}
+.right_title_main td {
+	padding:5px
+}
+.tv {
+	padding:5px;
+}
+/*最近浏览报表*/
+.report_top {
+	height:30px;
+	line-height:30px;
+	border-bottom:solid 1px #ccc;
+	clear:both;
+	padding-left:20px;
+}
+.report_left {
+	margin-right:220px;
+	padding:20px 20px 20px 20px;
+	color:#1f72d0;
+	background-color:#fff;
+	height:520px;
+}
+.report_left a {
+	color:#1f72d0
+}
+.report_left td {
+	padding:3px;
+}
+.report_right {
+	background:url(../../iwork_img/engine/zjll_bb_bg.jpg) repeat-y;
+	width:220px;
+	position:absolute;
+	top:32px;
+	right:0px;
+	height:550px;
+	border-bottom:solid 1px #ccc;
+	padding:5px 0px 10px 5px
+}
+.time_style {
+	color:#c7c7c7;
+	text-align:center
+}
+.time_style2 {
+	color:#626262;
+	font-weight:bold;
+	padding:10px 0px 10px 0px
+}
+
+.loading {
+	background:#BDEBEE;
+	color:#303030;
+	font-size:20px;
+	padding:5px 10px;
+	text-align:center;
+	width:450px;
+	margin:0px auto;
+	display:none;
+	border-radius: 5px;
+}
+
+/*日历部分*/
+/*
+边线： border:1px solid #e9f5ff; 
+字体：font-family:arial;
+字色（有记录）：font-weight:bold; color:#1f72df;
+字色（无记录）：font-weight:bold; color:#c0c0c0;
+*/

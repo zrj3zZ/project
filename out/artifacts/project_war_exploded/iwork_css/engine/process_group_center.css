@@ -1,0 +1,38 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+	padding:0px;
+	margin:0px;
+	font-size:14px;
+}
+img {
+	border:0px;
+}
+.layout_title{ font-size:16px; font-weight:bold; color:#787878; font-family:微软雅黑; clear:both;margin-bottom:20px;}
+.layout_bg {
+	background:url(../../iwork_img/engine/formtemplate/layout_frame_bg.png) repeat-x;
+	height:450px;
+
+	padding:50px 0px 0px 150px;
+	
+}
+.layout_box {
+	background-image:url(../../iwork_img/engine/formtemplate/layout_box.png);
+	height:80px;
+	width:275px;
+	cursor:pointer;
+	padding:15px;
+	float:left;
+	margin:0px 5px 5px 0px;
+}
+.layout_box_hover {
+	background-image:url(../../iwork_img/engine/formtemplate/layout_box_hover.png);
+	height:80px;
+	width:275px;
+	cursor:pointer;
+	padding:15px;
+	cursor:pointer;
+	float:left;
+	margin:0px 5px 5px 0px;
+}

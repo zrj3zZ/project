@@ -1,0 +1,22 @@
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.toolbar{
+	text-align:left;
+	height:35px;
+	background:url(../../../iwork_img/engine/tools_nav_bg.jpg) repeat-x;
+			height:35px;
+			line-height:25px;
+			padding-left:20px;
+			padding-right:20px;
+			vertical-align:middle;
+			padding-top:2px; 
+			padding-bottom:2px; 
+			margin-bottom:5px;
+}
+.table3 td{
+	line-height:30px;
+}

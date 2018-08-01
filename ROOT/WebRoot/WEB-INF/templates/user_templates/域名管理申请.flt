@@ -1,0 +1,139 @@
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					域名管理申请
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+					<span id="data_DJBH">单据编号:${DJBH}</span> 
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+						<tbody>
+							<tr>
+								<td id="title_SQRQ" class="td_title" width="15%">
+									申请日期
+								</td>
+								<td id="data_SQRQ" class="td_data" width="85%">
+									${SQRQ}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_SQRBMID" width="15%">
+									申请人：
+								</td>
+								<td class="td_data" id="data_SQRBMID" width="85%">
+									${SQRXM}【${SQRZH},${SQRGW},${SQRDH}&nbsp;】【${SQRBMMC} 】
+								</td>
+							</tr>
+							<tr>
+								<td id="title_SQLX" class="td_title" width="15%">
+									申请类型
+								</td>
+								<td id="data_SQLX" class="td_data" width="85%">
+									${SQLX}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td id="title_YMZCZZ" class="td_title" width="15%">
+									域名注册组织
+								</td>
+								<td id="data_YMZCZZ" class="td_data" width="85%">
+									${YMZCZZ}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td id="title_YMFZR" class="td_title" width="15%">
+									域名负责人
+								</td>
+								<td id="data_YMFZR" class="td_data" width="85%">
+									${YMFZR}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td id="title_YMSYR" class="td_title" width="15%">
+									域名使用人
+								</td>
+								<td id="data_YMSYR" class="td_data" width="85%">
+									${YMSYR}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td id="title_FWSYR" class="td_title" width="15%">
+									法务审阅人
+								</td>
+								<td id="data_FWSYR" class="td_data" width="85%">
+									${FWSYR}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td id="title_BZ" class="td_title" width="15%">
+									备注
+								</td>
+								<td id="data_BZ" class="td_data" width="85%">
+									${BZ}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td id="title_FJ" class="td_title" width="15%">
+									附件
+								</td>
+								<td id="data_FJ" class="td_data" width="85%">
+									${FJ}&nbsp;
+								</td>
+							</tr>
+							
+							<tr id="tr_subformSUBFORM_YMGLSQZCXFZB">
+								<td class="td_data" width="100%"  colspan="2">
+									${SUBFORM_YMGLSQZCXFZB}&nbsp;
+								</td>
+							</tr>
+							
+							<tr id="tr_subformSUBFORM_YMGLSQGHZB">
+								<td class="td_data" width="100%"  colspan="2">
+									${SUBFORM_YMGLSQGHZB}&nbsp;
+								</td>
+							</tr>
+							<tr id="tr_subformSUBFORM_YMGLSQBAZB">
+								<td class="td_data" width="100%"  colspan="2">
+									${SUBFORM_YMGLSQBAZB}&nbsp;
+								</td>
+							</tr>
+							<tr id="tr_subformSUBFORM_YMGLSQQTZB">
+								<td class="td_data" width="100%"  colspan="2">
+									${SUBFORM_YMGLSQQTZB}&nbsp;
+								</td>
+							</tr>
+							
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<table class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+		<tbody>
+			<tr>
+				<td style="padding:10px;" class="data">
+					<fieldset class="td_memo">
+						<legend class="td_memo_title">使用说明</legend>
+						<p>
+							1. 该流程适用于域名注册，续费，过户，备案等申请。<br />
+2. “域名负责人”为域名过户和备案等工作的联系人，“域名使用人”为域名续费等工作的联系人，两个人不能相同。<br />
+3. 在域名过户和备案之前，由申请人发送邮件管理员，并抄送公司的法务和VP，进行邮件沟通。各方同意后，上传邮件截图，作为流程参考。
+						</p>
+					</fieldset>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

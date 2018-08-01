@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "file:///E:/source/RMS/ROOT/WebRoot/WEB-INF/spring-beans-2.0.dtd">
+<beans> 
+<!-- 流程部署操作 -->
+<bean id="winxinAction" class="com.iwork.app.weixin.core.action.WeiXinAction" scope="prototype">
+    </bean> 
+    <bean id="winxinConfigAction" class="com.iwork.app.weixin.config.action.WeiXinConfigAction" scope="prototype">
+    </bean> 
+<bean id="winxinOrgAction" class="com.iwork.app.weixin.org.action.WeiXinOrgAction" scope="prototype">
+        <property name="winxinOrgService" ref="winxinOrgService" />
+        <property name="loginService" ref="loginService" />
+    </bean> 
+ 	<bean id="winxinOrgService" class="com.iwork.app.weixin.org.service.WeiXinOrgService" scope="prototype">
+        <property name="weixinOrgDAO" ref="weixinOrgDAO" />
+        <property name="orgCompanyDAO" ref="orgCompanyDAO" />
+    	<property name="orgDepartmentDAO" ref="orgDepartmentDAO" />
+    	<property name="orgUserDAO" ref="orgUserDAO" />
+    	<property name="orgRoleDAO" ref="orgRoleDAO" />
+    	<property name="orgUserMapDAO" ref="orgUserMapDAO" />
+    </bean> 
+ 	<bean id="weixinOrgDAO" class="com.iwork.app.weixin.org.dao.WeiXinOrgDAO" scope="prototype">
+    </bean>
+    <bean id="weiXinProcessDeskAction" class="com.iwork.app.weixin.process.action.WeiXinProcessDeskAction" scope="prototype">
+        <property name="weiXinProcessDeskService" ref="weiXinProcessDeskService" />
+    </bean> 
+ 	<bean id="weiXinProcessDeskService" class="com.iwork.app.weixin.process.service.WeiXinProcessDeskService" scope="prototype">
+ 		<property name="processDeskService" ref="processDeskService" />
+ 		<property name="processEngine" ref="processEngine" />
+    	<property name="taskService" ref="taskService" />
+    	<property name="historyService" ref="historyService" />
+    	<property name="runtimeService" ref="runtimeService" />
+    	<property name="processRuntimeCcDAO" ref="processRuntimeCcDAO" />
+    	<property name="processRuntimeExcuteService" ref="processRuntimeExcuteService" />
+    	<property name="processRuntimeSendService" ref="processRuntimeSendService" />
+    	<property name="processDeploymentService" ref="processDeploymentService" />
+    	<property name="processOpinionService" ref="processOpinionService" />
+    	<property name="processDefTriggerService" ref="processDefTriggerService" />
+    	<property name="processStepSummaryService" ref="processStepSummaryService" />
+    	<property name="sysPurviewProcessService" ref="sysPurviewProcessService" />
+    	<property name="sysEngineGroupDAO" ref="sysEngineGroupDAO" /> 
+    	<property name="processDefMapDAO" ref="processDefMapDAO" />
+    	<property name="processEntrustPersonService" ref="processEntrustPersonService" />
+    	
+    </bean> 
+     <!-- 流程任务监控 -->
+    <bean id="weixinProcessRuntimeMonitorAction" class="com.iwork.app.weixin.process.action.WeiXinProcessRuntimeMonitorAction" scope="prototype">
+    	<property name="weixinProcessRuntimeMonitorService" ref="weixinProcessRuntimeMonitorService" /> 
+    	<property name="processOpinionService" ref="processOpinionService" /> 
+    	<property name="processStepMapService" ref="processStepMapService" />
+    </bean>
+     <bean id="weixinProcessRuntimeMonitorService" class="com.iwork.app.weixin.process.service.WeiXinProcessRuntimeMonitorService" scope="prototype">
+    	<property name="processEngine" ref="processEngine" />
+    	<property name="taskService" ref="taskService" />
+    	<property name="runtimeService" ref="runtimeService" />
+    	<property name="iformService" ref="iformService" />
+    	<property name="repositoryService" ref="repositoryService" />
+    	<property name="historyService" ref="historyService" />
+    	<property name="processStepMapService" ref="processStepMapService" />
+    	<property name="processRuntimeCcDAO" ref="processRuntimeCcDAO" />   
+    	<property name="weixinProcessRuntimeOffLineService" ref="weixinProcessRuntimeOffLineService" />
+    </bean>
+    <bean id="weixinProcessRuntimeOffLineService" class="com.iwork.app.weixin.process.service.WeiXinProcessRuntimeOffLineService">
+    	<property name="processRuntimeOffLineDAO" ref="processRuntimeOffLineDAO"></property>
+    	<property name="processStepOffLineDAO" ref="processStepOffLineDAO"></property>
+    		<property name="processStepMapService" ref="processStepMapService" />
+    	<property name="historyService" ref="historyService" /> 
+    </bean>
+    <bean id="weiXinProcessRuntimeExcuteAction" class="com.iwork.app.weixin.process.action.WeiXinProcessRuntimeExcuteAction" scope="prototype">
+        <property name="weiXinProcessRuntimeExcuteService" ref="weiXinProcessRuntimeExcuteService" />
+        <property name="processRuntimeExcuteService" ref="processRuntimeExcuteService" />
+    	<property name="processStepTriggerService" ref="processStepTriggerService" />
+    	<property name="processDeploymentService" ref="processDeploymentService" /> 
+    	<property name="iformService" ref="iformService" /> 
+    	<property name="sysEngineSubformService" ref="sysEngineSubformService" />
+    	<property name="sysEngineIFormService" ref="sysEngineIFormService" />
+    	<property name="processOpinionService" ref="processOpinionService" />
+    	<property name="processStepFormService" ref="processStepFormService" />
+    	<property name="processStepFormMapService" ref="processStepFormMapService" />
+    	<property name="processRuntimeSignsService" ref="processRuntimeSignsService" />
+    </bean> 
+    <bean id="weiXinProcessRuntimeExcuteService" class="com.iwork.app.weixin.process.service.WeiXinProcessRuntimeExcuteService" scope="prototype">
+ 		<property name="processDeploymentService" ref="processDeploymentService" />
+    	<property name="processEngine" ref="processEngine" />
+    	<property name="taskService" ref="taskService" />
+    	<property name="runtimeService" ref="runtimeService" />
+    	<property name="repositoryService" ref="repositoryService" />
+    	<property name="processStepFormDAO" ref="processStepFormDAO" />
+		<property name="sysEngineIFormDAO" ref="sysEngineIFormDAO" />
+		<property name="sysEngineSubformDAO" ref="sysEngineSubformDAO" />
+		<property name="iformService" ref="iformService" /> 
+		<property name="processRuntimeCcDAO" ref="processRuntimeCcDAO" />    
+		<property name="processDefActionService" ref="processDefActionService" />	
+    	<property name="processDefMapService" ref="processDefMapService" />
+		<property name="processDefParamService" ref="processDefParamService" />
+		<property name="processDefTriggerService" ref="processDefTriggerService" />
+		<property name="processStepFormService" ref="processStepFormService" />
+		<property name="processStepFormMapService" ref="processStepFormMapService" />
+		<property name="processStepManualJumpService" ref="processStepManualJumpService" /> 
+		<property name="processStepMapService" ref="processStepMapService" />
+		<property name="processStepSysjumpService" ref="processStepSysjumpService" />
+		<property name="processStepTriggerService" ref="processStepTriggerService" />
+		<property name="processStepDIYBtnService" ref="processStepDIYBtnService" />
+		<property name="processStepScriptTriggerService" ref="processStepScriptTriggerService" />
+    </bean>
+     <!-- 流程任务操作 -->
+    <bean id="weiXinProcessRuntimeOperateAction" class="com.iwork.app.weixin.process.action.WeiXinProcessRuntimeOperateAction" scope="prototype">
+    	<property name="processRuntimeOperateService" ref="processRuntimeOperateService" />
+    	<property name="processStepTriggerService" ref="processStepTriggerService" /> 
+    </bean> 
+    <!-- 流程任务执行 -->
+    <bean id="processRuntimeSendAction" class="com.iwork.process.runtime.action.ProcessRuntimeSendAction" scope="prototype">
+    	<property name="processOpinionService" ref="processOpinionService" /> <!-- 意见跟踪 -->
+    	<property name="processStepTriggerService" ref="processStepTriggerService" />
+    	<property name="processRuntimeSendService" ref="processRuntimeSendService" />
+    	<property name="iformService" ref="iformService" />
+    	<property name="sysEngineIFormService" ref="sysEngineIFormService" />
+    </bean>
+    
+    <!-- 信息资讯-->
+     <bean id="weiXinCmsAction" class="com.iwork.app.weixin.cms.action.WeiXinCmsAction" scope="prototype">
+    	<property name="weiXinCmsService" ref="weiXinCmsService" />
+    </bean> 
+    <bean id="weiXinCmsService" class="com.iwork.app.weixin.cms.service.WeiXinCmsService" scope="prototype">
+    	<property name="cmsInfoDAO" ref="cmsInfoDAO" /> 	
+    	<property name="cmsPortletDAO" ref="cmsPortletDAO" /> 	
+    	<property name="cmsRelationDAO" ref="cmsRelationDAO" />
+    	<property name="cmsChannelDAO" ref="cmsChannelDAO" />  	
+    </bean>
+       <!-- 知识管理-->
+     <bean id="weiXinKMAction" class="com.iwork.app.weixin.km.action.WeiXinKMAction" scope="prototype">
+    	<property name="weiXinKMService" ref="weiXinKMService" />
+    </bean> 
+    <bean id="weiXinKMService" class="com.iwork.app.weixin.km.service.WeiXinKMService" scope="prototype">
+    	<property name="kmDirectoryDAO" ref="kmDirectoryDAO" />
+    	<property name="kmDocDAO" ref="kmDocDAO" />
+    	<property name="uploadifyDAO" ref="uploadifyDAO" /> 
+    	<property name="fileUploadUtil" ref="fileUploadUtil" /> 
+    	<property name="kmPurViewService" ref="kmPurViewService" />
+    </bean>
+      <!--内部邮件-->
+     <bean id="weiXinMailAction" class="com.iwork.app.weixin.mail.action.WeiXinMailAction" scope="prototype">
+    	<property name="weiXinMailService" ref="weiXinMailService" />
+    </bean> 
+    <bean id="weiXinMailService" class="com.iwork.app.weixin.mail.service.WeiXinMailService" scope="prototype">
+    </bean>
+    <!-- 报表中心 -->
+    <bean id="weiXinReportAction" class="com.iwork.app.weixin.report.action.WeiXinReportAction" scope="prototype">
+        <property name="weiXinReportService" ref="weiXinReportService" />
+    </bean> 
+ 	<bean id="weiXinReportService" class="com.iwork.app.weixin.report.service.WeiXinReportService" scope="prototype">
+         <property name="iReportRuntimeService" ref="iReportRuntimeService" />
+         <property name="sysPurviewReportService" ref="sysPurviewReportService" />
+    </bean> 
+    <!-- 个人设置 -->
+     <bean id="weiXinPersonAction" class="com.iwork.app.weixin.person.action.WeiXinPersonAction" scope="prototype">
+    	<property name="weiXinPersonService" ref="weiXinPersonService" />
+    </bean> 
+    <bean id="weiXinPersonService" class="com.iwork.app.weixin.person.service.WeiXinPersonService" scope="prototype">
+    </bean>
+    <!-- 讨论区 -->  
+    <bean id="weixinTalkService" class="com.iwork.app.weixin.talk.service.WeiXinTalkService" scope="prototype">
+    	<property name="taskService" ref="taskService" />
+    </bean> 
+    <bean id="weiXin2Action" class="com.iwork.app.weixin2.action.WeiXin2Action" scope="prototype">
+    	<property name="weiXin2Service" ref="weiXin2Service" />
+    	<property name="processDeskManagementService" ref="processDeskManagementService" />
+    </bean>
+    <bean id="weiXin2Service" class="com.iwork.app.weixin2.service.WeiXin2Service" scope="prototype">
+    
+    </bean>
+</beans>
+ 

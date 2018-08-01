@@ -1,0 +1,20 @@
+$(function(){
+var url=location.search; 
+var Request = new Object(); 
+if(url.indexOf("?")!=-1){
+var str = url.substr(1);
+strs= str.split("&"); 
+for(var i=0;i <strs.length;i++){ 
+Request[strs[i].split("=")[0]]=(strs[i].split("=")[1]); 
+}
+ggId= Request["GGID"];
+if(ggId==undefined||ggId==""){
+instanceid= Request["instanceId"];
+}
+}
+if(ggId!=undefined){
+$("#URL").attr("src", "loadAnnouncement.action?ggid=" + ggId);
+}else{
+$("#URL").attr("src", "loadAnnouncement.action?instanceId=" + instanceid);
+}
+});

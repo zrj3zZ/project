@@ -1,0 +1,19 @@
+*{margin:0px;padding:0px;list-style:none;font-size:12px;font-family:"Arial", "Helvetica", "sans-serif";color:#505050;}
+a:link,a:visited{color:#505050;text-decoration:none;}
+a:hover{color:#C00102;text-decoration:underline;}
+img{border:none;vertical-align:top;}
+.clear_b{clear:both;}
+.top{background:url(../img2011/top_bg.jpg) repeat-x;height:56px;position:relative;width:100%;}
+.top_rgt{position:absolute;right:0px;top:0px;background:url(../img2011/top_rgt.jpg) no-repeat right top;width:430px;height:56px;padding-right:80px;float:right;}
+.top_rgt1{position:absolute;right:0px;top:0px;background:url(../img2011/top_rgt1.jpg) no-repeat right top;width:400px;height:56px;padding-right:80px;float:right;}
+.top_rgt p{height:23px;line-height:23px;text-align:right;}
+.top_r_p{margin-top:8px;}
+.bottom_bg{background:url(../img2011/bottom_bg.jpg) repeat-x;height:213px;position:relative;width:100%}
+.mainframe{position:absolute;left:80px;top:30px;background-color:#F7F7F7;}
+.login{background:url(../img2011/login_bg.jpg) repeat-x;height:312px;position:relative;width:100%}
+.login_rgt{position:absolute;right:0px;top:0px;background:url(../img2011/login_rgt.jpg) no-repeat right top;width:240px;height:312px;}
+.login_text{height:30px;background:url(../img2011/login_text.jpg) no-repeat;position:relative;left:5px;}
+.login_txt{border:none;background:none;position:relative;left:8px;width:138px;top:-1px !important;top:5px;font-weight:bold;}
+.login_option{height:23px;line-heigt:23px;}
+.login_sub{width:62px;height:21px;line-height:21px;text-align:center;border:none;background:url(../img2011/login_sub.jpg) no-repeat;}
+.footer{height: 30px; width: 760px;text-align: center;line-height: 20px; font-size:12px;}

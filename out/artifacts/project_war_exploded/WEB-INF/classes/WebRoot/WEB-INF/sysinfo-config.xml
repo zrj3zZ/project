@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="gb2312"?>
+<sysinfo-config>
+<!--用户参数-->
+<item>
+	<key>PROCESS-FORWORD-001</key>
+	<type>流程转发</type>
+	<title>当前用户姓名</title>
+	<desc>转发操作执行成功</desc>
+</item>
+</sysinfo-config>

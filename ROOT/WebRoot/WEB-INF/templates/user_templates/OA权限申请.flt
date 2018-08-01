@@ -1,0 +1,84 @@
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					OA权限申请
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+					<span id="data_DJBH">单据编号:${DJBH}</span> 
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr>
+								<td class="td_title" id="title_SQRBMID" width="15%">
+									申请人：
+								</td>
+								<td class="td_data" id="data_SQRBMID" width="85%" colspan="3">
+									${SQRXM}【${SQRZH},${SQRGW},${SQRDH}&nbsp;】【${SQRBMMC} 】
+								</td>
+							</tr>
+							
+							<tr>
+								<td class="td_title" id="title_SQRBMID" width="15%">
+									申请类型：
+								</td>
+								<td class="td_data" id="data_SQRBMID" width="35%" colspan="3">
+									${SQLX} 
+								</td>
+							</tr>
+							
+							<tr>
+								<td class="td_title" id="title_SQRBMID" width="15%">
+									需求说明：
+								</td>
+								<td class="td_data" id="data_SQRBMID" width="85%" colspan="3">
+									${XQXS}
+								</td>
+							</tr>
+							
+							<tr>
+								<td class="td_title" id="title_SQRBMID" width="15%">
+									附件：
+								</td>
+								<td class="td_data" id="data_SQRBMID" width="85%" colspan="3">
+									${FJ}
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tbody>
+				<tr>
+					<td class="data" style="padding:10px;padding-left:10px;padding-right:10px">
+						<fieldset class="td_memo">
+						<legend class="td_memo_title">使用说明</legend>
+						<p>
+							1. 该流程用于OA系统的权限申请，全员都可起草，适用于组织结构调整、部门助理变动、流程审批人变动、新功能发布等系统使用权限。 <br />
+变更的权限流程是：申请人起草--部门负责人审批--信息技术部总监审批--OA系统管理员实施。 <br />
+2. 加签是用于征求不在流程审批环节出现的人员审批意见的一种方式，点击加签按钮直接进行加签操作。<br />
+3. 公司一级部门组织结构调整需由集团人力资源部正式批准或颁布。
+						</p>
+					</fieldset>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+</div>
+<div style="display:none;">
+	${ZT}
+</div>

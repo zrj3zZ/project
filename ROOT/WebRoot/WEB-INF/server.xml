@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="GB2312"?>
+
+<config>
+    <!--
+        #############################################################
+        ##服务器参数配置
+        ## platform.title  应用平台标题
+        ## platform.short.title  应用平台短标题
+        ## platform.login.url  应用平台登录地址
+        ## platform  应用平台服务器类型 windows/linux/unix/solaris/aix
+        ## platform.debug 平台调试模式状态 on/off
+        ## login.class.adapter 登陆适配器,使用当前系统登陆方案，定义为：local,如采用其他系统验证方式，可填写类路径（实现类继承LoginInterface接口）
+        ## sso.class.adapter 统一身份认证适配器,使用当前系统登陆方案，定义为：local,如采用其他系统验证方式，可填写类路径（实现类继承SSOAdapterInterface接口）
+        ## org.class.adapter 组织结构适配器,使用当前系统登陆方案，定义为：local,如采用其他系统组织结构，可填写对应的适配器类路径（实现类继承	OrgnizationInterface接口）
+        ## pause.login.count 登陆次数约束
+        ## pause.login.verify 登陆约束
+        ## language.locale.default 默认语言
+        ## language.multi 是否支持多语言
+        ## group.mode 集团化模式，应用于集团及各个分子公司，权限管控体系，集团可查看所有分子公司数据，分子公司间数据不共享（集团化模式创建所有的存储，都携带单位编号及名称）
+        ## multi.role 多角色支持模式，用户兼任多个角色时登陆后，可进行角色选择，用于一个用户进行多个角色人物执行
+        ## user.default.password 默认初始化密码
+        ## user.default.lookandfeel 默认外观风格样式
+        ## shortmessage.server 是否支持短信服务
+        ## task.server.time  后台任务管理器加载时间间隔
+        ## cache有效期时长（生命周期）
+        ## jdbc.encrypt JDBC配置加密  true，加密，false 非加密
+        ############################################################
+         -->
+    <!--com.iwork.app.login.adapter.IWorkDemoLoginAdapterImpl  -->
+    <base-config
+            platform.title="投行业务管理系统"
+            platform.short.title="投行业务管理系统"
+            platform.version="V4.2"
+            platform.login.url="http://demo.hibpm.cn/"
+            platform="windows"
+            platform.debug="on"
+            platform.src.path="D:\Project\standard\ROOT\WebRoot"
+            login.class.adapter="local"
+            org.class.adapter="local"
+            pause.login.verify="on"
+            language.locale.default="zh_CN"
+            language.multi="off"
+            group.mode="on"
+            multi.role="on"
+            pause.login.count="10"
+            user.default.password="dgzq@2016"
+            user.default.lookandfeel="_def"
+            shortmessage.server="off"
+            task.server.time="6000"
+            cache.times = "1800"
+            session.times = "1800"
+            jdbc.encrypt = "false"
+            login.https="on"
+            login.isRSA="on"
+    />
+
+    <!--
+    #############################################################
+    ## 分级保护设置
+    ## role.mode 是否开启三员管理（系统管理员、权限管理员、审计管理员）
+    ## sys.owner 系统管理员账号
+    ## sys.log 安全管理员账号
+    ## sys.audit 审计管理员账号
+    ## log.auto.clear 日志自动清理
+    ## log.days 日志保存天数
+    #############################################################
+    -->
+    <security-config
+            role.mode="on"
+            sys.owner="SYSADMIN"
+            security.owner="SYSSECURITY"
+            audit.owner="SYSAUDIT"
+            log.auto.clear="on"
+            log.days="180"
+    />
+
+    <sso-config
+            sso.mode="off"
+            sso.server="https://secure.ubox.cn/ubox-sso/login"
+            sso.client="http://app1.hibpm.cn:8080/"
+            sso.class.adapter="com.iwork.app.sso.IWorkSSOAdapterImpl"
+    />
+    <!--
+   #############################################################
+   ## 系统文档路径设置
+   ## bigTxtfilePath 大文本存储路径
+   ## formfilePath 数据表单、流程表单附件存储路径
+   ## talkfilePath 流程讨论区存储路径
+   ## userPhotoPath 用户头像存储路径
+   ## kmfilePath 知识文档存储路径
+   ## Path 默认文档路径
+   ## size 附件大小(单位KB)
+   #############################################################
+   -->
+    <fileserver-config
+            bigTxtfilePath="iwork_file/BIGTXT_FILE"
+            formfilePath="iwork_file/FORM_FILE"
+            talkfilePath="iwork_file/TALK_FILE"
+            userPhotoPath="iwork_file/USER_PHOTO"
+            kmfilePath="iwork_file/KM_FILE"
+            cmsFilePath="iwork_file/CMS_FILE"
+            emailFilePath="iwork_file/MAIL_FILE"
+            path = "iwork_file/OTHER"
+            size="2048"/>
+    <!--
+#############################################################
+## 鹰眼检索设置
+## indexRootDirPath 索引文件存放跟目录
+#############################################################
+-->
+    <eagles-search
+            indexRootDirPath="%WEB_HOME%/eaglesIndexDir"
+    />
+    <!--
+    #############################################################
+	## 表单引擎配置
+	## com.iwork.app.conf.IformConf
+	## 1.diy.path     是否使用自定义路径
+	## 2.template.home 表单模版目录
+	## 3.template.history 表单模版历史版本目录
+	## D:\platform\Tomcat6.0.33\webapps\ROOT\WEB-INF\templates\user_templates
+	## \Users\davidyang\Documents\tool\Tomcat6.0.33\webapps\ROOT\WEB-INF\templates\user_templates
+	#############################################################
+	-->
+    <iform
+
+            diy.path="false"
+            template.home="D:\Project\apache-tomcat-6.0.41\webapps\ROOT\WEB-INF\templates\user_templates"
+            template.history="D:\Project\apache-tomcat-6.0.41\webapps\ROOT\WEB-INF\templates\history"
+            template.src="D:\Project\apache-tomcat-6.0.41\webapps\WEB-INF\templates\user_templates"
+    />
+    <!--
+        #############################################################
+        ## 流程设计器引擎配置
+        ## com.iwork.app.conf.WFDesignerConf
+        ## 1.design.ip   平台访问地址
+        ## 2.design.port 平台访问端口
+        ##
+        #############################################################
+        -->
+    <design-config
+            design.ip ="172.18.23.156"
+            design.port="80"
+    />
+    <!--
+    #############################################################
+    ## 优化配置
+    ## com.iwork.app.conf.OptimizeConf
+    ## 1.max.client 最大并发访问量
+    ## 2.thread.overtime 一个用户线称的超时执行时间
+    ## 3.database.max.session 数据库最大用户Session数
+    ## 4.database.pool.init 连接池初始化时的装载数目
+    ## 5.database.pool.max.workload 一个Connect连接的优化压力
+    #############################################################
+    -->
+    <optimize
+            max.client="100"
+            thread.overtime="1200000"
+            database.max.session="200000"
+            database.pool.init="5"
+            database.pool.max.workload="30000"
+    />
+
+    <!--
+    #############################################################
+    ## *LOG配置
+    ## com.iwork.app.conf.LogConf
+    ## 1.runtime.server 是否记录用户访问日志
+    ## 2.runtime.filename 运行时刻的log日志文件路径及名称
+    ## 3.error.filename 运行时刻的error日志文件路径及名称
+    #############################################################
+    -->
+    <log
+            runtime.server="on"
+            runtime.filename="../logs/access.log"
+            error.filename="../logs/error.log"
+    />
+
+    <!--
+    #############################################################
+    ## *邮件配置
+    ## com.iwork.app.conf.EmailConf
+    ## mail.from 系统邮件发送地址
+    ## mail.user
+    ## mail.password
+    ## smtp.services 是否可以向外部发送邮件
+    ## smtp.host SMTP服务器地址
+    ## smtp.port SMTP服务器端口号
+    ## smtp.auth 发送邮件时，是否需要身份验证
+    ## smtp.ssl 是否需要SSL加密链接
+    ## pop3.services 是否可以收外部邮件
+    ## pop3.host POP3邮件收取服务器地址
+    ## pop3.port POP3端口
+    ## pop3.auth 收取邮件是否需要身份验证
+    ## pop3.ssl 收取邮件是否需要SSL加密链接
+    ## pop3.backup 收取邮件后是否需要在服务器上留下备份
+    ## mail.debug   是否是调试状态，设置调试状态后，必须设置调试用户，系统自动将收件人地址修改为调试地址
+    ## mail.debug.address   调试地址
+    #############################################################
+    -->
+    <!--mail.from="东莞证券&lt;service@dgzq.com.cn&gt;"  -->
+    <mail-server
+            mail.from="service@dgzq.com.cn"
+            mail.user="service@dgzq.com.cn"
+            mail.password="dgzq95328"
+            smtp.services="on"
+            smtp.host="192.168.6.85"
+            smtp.port="25"
+            smtp.auth="true"
+            smtp.ssl="true"
+            pop3.services="on"
+            pop3.host="192.168.6.85"
+            pop3.port="110"
+            pop3.auth="true"
+            pop3.ssl="true"
+            pop3.backup="false"
+            mail.debug="off"
+            mail.debug.address="service@dgzq.com.cn"
+    />
+
+    <!--
+    #############################################################
+    ## IM插件配置
+    ##im.server IM即时通讯开关
+    ##im.src 显示提醒来源
+    ##im.ip IMserver IP地址
+    ##im.title 显示标题
+    ##im.debug="on" 是否为调试状态
+    ##im.debug.user 调试用户
+    #############################################################
+    -->
+    <im-server
+            im.server="on"
+            im.src="信使"
+            im.ip="192.168.11.39"
+            im.url="http://192.168.11.39:8012/SendNotify.cgi"
+            im.title="金鹰BPM系统提示"
+            im.debug="on"
+            im.debug.user="YANGDAYONG"
+    />
+    <!--
+#############################################################
+## 微信插件配置
+##weixin.server 微信终端开关
+##weixin.url 微信页面访问地址
+##weixin.token 微信访问令牌
+##weixin.EncodingAESKey  AES方式加密KEY
+##weixin.CorpID 微信企业唯一标识
+##weixin.message.Secret 消息权限账号
+##weixin.account.Secret 账号管理权限账号
+##weixin.config.Secret 应用配置管理账号
+#############################################################
+-->
+    <weixin-server
+            weixin.server="off"
+            weixin.url="http://weixin.taopu1.com/"
+            weixin.agentid="1"
+            weixin.token="KIQcLYDC9LAnBk8ESoaSmv99Y"
+            weixin.EncodingAESKey="csblJVe1NuukDktKx0UpwlAOyOsEOGDPiEvSMAxtSmz"
+            weixin.CorpID="wx14d879cecf31a790"
+            weixin.message.Secret="9vvB5qMzqBFb9zloALd5_785u8n0TK1vkwfbcVtwcykYBtUoLu4TWWHX8-E73eYB"
+            weixin.account.Secret="9vvB5qMzqBFb9zloALd5_785u8n0TK1vkwfbcVtwcykYBtUoLu4TWWHX8-E73eYB"
+            weixin.config.Secret="9vvB5qMzqBFb9zloALd5_785u8n0TK1vkwfbcVtwcykYBtUoLu4TWWHX8-E73eYB"
+    />
+    <!--
+    #############################################################
+    ## 短信SMS插件配置
+    ## sms.server 短信开关
+    ## sms.src 显示提醒来源
+    ## sms.type 发送方式 POST/GET
+    ## sms.url http方式发送的URL地址
+    ## sms.debug 是否为调试状态
+    ## sms.debug.mobile 调试用户
+    #############################################################
+    -->
+    <sms-server
+            sms.server="on"
+            sms.src="HiBPM"
+            sms.sn="payh"
+            sms.type="POST"
+            sms.url="http://sms.taopu1.com/Service1.svc"
+            sms.debug="off"
+            sms.debug.mobile="15383432658"
+            dgsms.url="http://172.18.23.39:8080/mmsapi/sms"
+            dgsms.cmd="send"
+            dgsms.uid="admin"
+            dgsms.msgid="2000002"
+            dgsms.psw="E10ADC3949BA59ABBE56E057F20F883E"
+    />
+    <crawler-server crawler.url="http://news.taopu1.net:8081/server/services/WebService" />
+    <ggsplc-server ggsplc.jd1="usertask2" ggsplc.jd0="usertask20" ggsplc.jd2="usertask3" ggsplc.jd3="usertask4" ggsplc.jd4="usertask10"
+                   ggsplc.jd5="usertask11" ggsplc.jd6="usertask15" ggsplc.jd7="usertask16" ggsplc.jd8="step_29697ca7-4e4c-3134-e78c-df998cc317fb" ggsplc.jd9="step_3a49bc1d-6bbd-26b8-8bdf-455e18944dd7" ggsplc.jd10="step_3ce29d07-6fdf-0883-d7e6-f754e5e24932"  ggsplc.jd11="step_3221918c-3910-8111-2de1-be8f52295e5c" ggsplc.jd12="step_4f19c83a-10cc-70f3-b6c4-0dd28a0c8ca2" ggsplc.end="endevent5"/>
+    <cxddfqlc-server cxddfqlc.jd1="usertask2" cxddfqlc.jd2="usertask3" cxddfqlc.jd3="usertask4" cxddfqlc.jd4="usertask5"
+                     cxddfqlc.jd5="usertask12" cxddfqlc.jd6="usertask13" cxddfqlc.jd7="step_ad47d4a8-2830-3fd2-e268-1ed6119b4c9f" cxddfqlc.jd8="step_57ad308b-fd53-8b29-de2c-ce8abc3a33d3" cxddfqlc.jd9="step_45651b0f-3c4a-10cf-ab37-3181aa546682" cxddfqlc.jd10="step_73c23ea1-bad6-642b-917a-d38fe1ad56a6" cxddfqlc.end="endevent6"/>
+    <cxddyfplc-server cxddyfplc.jd1="usertask3" cxddyfplc.jd2="usertask6" cxddyfplc.jd3="usertask4" cxddyfplc.jd4="usertask5"
+                      cxddyfplc.end="endevent2"/>
+    <xmsplc-server xmsplc.jd1="usertask3" xmsplc.jd2="usertask4" xmsplc.jd3="usertask5" xmsplc.end="endevent2"/>
+    <xmlxnfx-server
+            xmlxnfx.jd1="step_996a5c26-0048-b4a9-cb0a-79cc7bed6112"
+            xmlxnfx.jd2="step_6cb2b07e-efc4-bf0f-22b0-b5bffddbeafc"
+            xmlxnfx.jd3="step_fa7c526e-75ff-e755-0442-9998edd7d119"
+            xmlxnfx.jd4="step_7ee92152-e221-896f-836e-eccdbb225185"
+            xmlxnfx.jd5="step_f9b05afc-0e93-4a67-8baa-75690e300ba3"
+            xmlxnfx.end="end"
+    />
+
+    <zlgdsjfx-server
+            zlgdsjfx.jd1="step_cd805ddc-e740-7541-6cd0-ea36eb19efab"
+            zlgdsjfx.jd2="step_ac5c5e0d-deac-09e2-ecfd-6f0c96cd7769"
+            zlgdsjfx.jd3="step_3b7e82ef-efb4-b891-4a63-991fdb9b55ef"
+            zlgdsjfx.jd4="step_5008a30a-d486-e91a-8c24-207e657eaa7b"
+            zlgdsjfx.jd5="step_6f2ef278-a880-b062-5f39-99a385c9e942"
+            zlgdsjfx.jd6="step_86df56f5-04b4-a74a-197f-49511a749986"
+            zlgdsjfx.end="end"/>
+
+    <!-- 项目任务审批流程，
+     1代表审批流程为项目负责人1-》初审负责人-》复审负责人-》领导；后面的节点要配置为对应审批流程的节点
+     2。代表审批流程为项目负责人-》质控部初审人1-》质控部初审人2 后面的节点要配置为对应审批流程的节点-->
+    <!-- <xmlc-server xmlc.config="2" xmlc.jd1="usertask3" xmlc.jd2="usertask4" xmlc.jd3="usertask5" xmlc.jd4="usertask6" xmlc.end="endevent2"/> -->
+    <xmlc-server xmlc.config="1" xmlc.jd1="usertask3" xmlc.jd2="usertask4" xmlc.jd3="usertask5" xmlc.jd4="usertask6" xmlc.jd5="usertask7" xmlc.end="endevent2"/>
+    <gpfxxmlc-server gpfxxmlc.config="1" gpfxxmlc.jd1="usertask2" gpfxxmlc.jd2="usertask3" gpfxxmlc.jd3="usertask4" gpfxxmlc.jd4="usertask5" gpfxxmlc.jd5="usertask6" gpfxxmlc.end="endevent7"/>
+    <xmzbsplc-server xmzbsplc.jd1="usertask2" xmzbsplc.jd2="usertask3" xmzbsplc.end="usertask4"/>
+    <!-- 山西推荐挂牌项目 -->
+    <xmlxsplc-server
+            xmlxsplc.jd1="step_fa8c9f84-0c9d-8de4-b6b8-806f9d43143c"
+            xmlxsplc.jd2="step_ed4c2aa5-cc98-8ad0-e31e-64c1fc4e203b"
+            xmlxsplc.jd3="step_b43ba10b-dc7d-eee4-2cfe-cf744d7cde14"
+            xmlxsplc.jd4="step_65faced9-d037-cddf-93c7-9c827fc2b692"
+            xmlxsplc.jd5="step_932ae019-4f67-1094-5ff9-63694004940c"
+            xmlxsplc.jd6="step_516be154-0814-3ebf-6d8c-918d6e1a3c75"
+            xmlxsplc.end="end"
+    />
+    <gugailc-server gugailc.jd1="usertask2" gugailc.jd2="usertask3" gugailc.jd3="usertask4" gugailc.jd4="usertask5" gugailc.jd5="usertask6" gugailc.end="endevent7"/>
+    <xmnh-server
+            xmnh.jd1="usertask2"
+            xmnh.jd2="step_aa021581-3626-4f8a-5d7a-40b4de6bb437"
+            xmnh.jd3="usertask3"
+            xmnh.jd4="usertask4"
+            xmnh.jd5="usertask5"
+            xmnh.jd6="usertask6"
+            xmnh.jd7="usertask7"
+            xmnh.end="endevent8"
+    />
+    <nhfk-server nhfk.jd1="usertask2" nhfk.jd2="usertask3" nhfk.jd3="usertask4"  nhfk.jd4="usertask6" nhfk.end="endevent8"/>
+
+    <sbzl-server sbzl.jd1="step_3b7e0e5c-d7d2-3446-bd7a-572dd5a14153" sbzl.jd2="step_a0b0e3d1-6c94-6eaf-63d5-d7e28663b9a4" sbzl.jd3="step_2e70c36a-7696-911c-0a2c-ee1743cbe2b4" sbzl.jd4="step_58e7aa0b-7649-890b-b327-04f178af60c6" sbzl.jd5="step_23330e25-08cd-63dd-8fb8-42b60adbf039" sbzl.jd6="step_71b8d6ef-ea0d-2236-e20f-3d1d5fab6fb0" sbzl.end="end"/>
+    <fazlbs-server fazlbs.jd1="step_299bd197-b448-112e-321e-780dbbdc1e41" fazlbs.jd2="step_1df27006-2892-ed29-c71b-bf2984ba17d9" fazlbs.jd3="step_4eb818dc-66eb-f6eb-364f-a73e8c25dc5a" fazlbs.jd4="step_1633050d-d89a-13ca-a67f-73796f185a0d" fazlbs.jd5="step_791e8564-7142-29ac-dcd2-7ad0c789d0f9" fazlbs.end="end"/>
+    <bgsbzl-server bgsbzl.jd1="step_8049d933-4fcf-be78-1798-44b992f9e60e" bgsbzl.jd2="step_6597251a-b8bd-7974-e34d-0c4d80751dd4" bgsbzl.jd3="step_980ba668-b831-e6ff-8e04-5e878f9940da" bgsbzl.jd4="step_ef6d7fc2-64a8-862e-5c86-6fd2da268534" bgsbzl.jd5="step_9e39f988-162e-305d-5884-30da76a9b321" bgsbzl.jd6="step_41f50b67-373e-6124-47c7-f5fc308783e4" bgsbzl.end="end"/>
+    <bgxmlx-server
+            bgxmlx.jd1="step_825cea25-988e-cdb8-8ca4-3e0c049e74c4"
+            bgxmlx.jd2="step_d46bcd7e-bd80-f70b-8256-fbd6b4c11770"
+            bgxmlx.jd3="step_b3855814-fe23-da20-df62-7c6b55132d91"
+            bgxmlx.jd4="step_1772891c-12f7-c262-5f47-ee7dcf3c260a"
+            bgxmlx.jd5="step_c5f049ec-c6db-7d4b-3b78-da33130b61f2"
+            bgxmlx.end="end"
+    />
+    <bgfanganbs-server bgfanganbs.jd1="step_3dfe081b-30e1-6894-af6e-3a26f4866aa9" bgfanganbs.jd2="step_f5efc8c3-5de8-569c-0d6d-0c349c830ef2" bgfanganbs.jd3="step_8f630bb5-e25b-f07f-1fe0-023d9e1784ff" bgfanganbs.jd4="step_58473141-cbd0-51f4-9fd0-c1817977ab7e" bgfanganbs.jd5="step_047332ba-6f8f-1cd6-c791-7f0c273bd5e4" bgfanganbs.end="end"/>
+    <bgzlgd-server
+            bgzlgd.jd1="step_bc8acf4e-9b62-c924-7037-78f8e96fc8f9"
+            bgzlgd.jd2="step_048ed836-9378-6e4a-76fd-6232cc4371c9"
+            bgzlgd.jd3="step_b83bb484-bbf0-f365-bd0c-4f6b5b049a68"
+            bgzlgd.jd4="step_8b20a359-ac84-65a8-cda6-dd4bd0cd02f7"
+            bgzlgd.jd5="step_5891e7dc-e0e5-802f-2c11-b89246db86e1"
+            bgzlgd.jd6="step_5806b5ba-0a23-1f09-cea8-c4b956585fef"
+            bgzlgd.end="end"
+    />
+    <cwxmlx-server
+            cwxmlx.jd1="step_3369abe4-5aea-a683-1459-0e4660057119"
+            cwxmlx.jd2="step_ae08c856-10b7-919d-7f3e-b1bfa81dc026"
+            cwxmlx.jd3="step_a608680a-8181-1ad8-384e-a9505e7d48cb"
+            cwxmlx.jd4="step_38b9a22c-fa93-57f3-0de1-ed70059e4b51"
+            cwxmlx.jd5="step_9fea4137-eeaa-05ae-1a16-b4e38a75e93a"
+            cwxmlx.end="end"/>
+    <cwzlgd-server cwzlgd.jd1="step_ac4c3780-eeac-36bc-83e6-69f63439e213" cwzlgd.jd2="step_d31330f8-26e0-a0e1-a67e-81bd5cba8df9" cwzlgd.jd3="step_9c2f6198-9741-7ae7-32fb-49e612dd7326" cwzlgd.jd4="step_eb1a6280-fb58-ccd8-f30b-053dcf9a3512" cwzlgd.end="end"/>
+    <cwgzjdhb-server cwgzjdhb.jd1="step_190b07b4-5599-61d1-83bb-9fc393aaa7f2" cwgzjdhb.jd2="step_b5c1b1f2-d4b2-61e5-a14d-a2d19143a1f0" cwgzjdhb.jd3="step_dcac5856-1e6c-5559-fb85-1c8e94e4a067" cwgzjdhb.jd4="step_fddf5bb2-a181-4fbe-02a6-189d9f63bc3a" cwgzjdhb.jd5="step_efd3c255-0f6f-c9ac-9d13-1b0ee239bb65" cwgzjdhb.end="end"/>
+    <gzfk-server
+            gzfk.jd1="step_7074e3f4-a916-f7e3-4ffd-442ee5a42cf6"
+            gzfk.jd2="step_fa38ad79-5f40-9457-6577-75454f673672"
+            gzfk.jd3="step_1d0d1202-6c9c-e72a-7943-00e5ff75a639"
+            gzfk.jd4="step_dff05c5b-f0e1-b872-fe7d-56b333d75e94"
+            gzfk.jd5="step_1320328b-b591-be01-6bfa-338b50c51d6a"
+            gzfk.jd6="step_d1cedb9f-709c-67f8-c737-45c634a3682b"
+            gzfk.end="End"
+    />
+    <guapai-server
+            guapai.jd1="step_f7275616-46c3-9449-274a-67e5955fef26"
+            guapai.jd2="step_68f90c59-4b02-1511-3fcc-5ba5f0900dc5"
+            guapai.jd3="step_15ad8c5a-f95c-1f9c-90a6-6c24e19acb82"
+            guapai.jd4="step_dba00196-a4ee-780d-1f09-a9d17d049e9f"
+            guapai.jd5="step_4c2c8b4a-7576-cd70-49c2-37247a38accb"
+            guapai.jd6="step_6b003b01-79cd-c5bb-e40d-af2046676e5c"
+            guapai.jd7="step_4e04d2fd-60a0-3f4a-a142-abd93c4d2d73"
+            guapai.jd8="step_ab79fcee-0169-889e-9b51-75ddf00e9820"
+            guapai.jd9="step_ff450f8b-17ed-b473-cd86-6e794552989b"
+            guapai.jd10="step_3a60d615-3505-432f-5507-8910e406de4e"
+            guapai.end="End"
+    />
+    <cwrzsp-server
+            cwrzsp.jd1="step_18b3209a-ccf1-152c-e88f-81a35426955c"
+            cwrzsp.jd2="step_636ada10-361e-7a1d-2a3a-7e09f47956e2"
+            cwrzsp.end="end"
+    />
+    <rcywcblc-server rcywcblc.jd0="step_3aa0c8d2-65ea-bba8-cf12-a824eb60fe41" rcywcblc.jd1="step_67d2993d-180f-7169-1e7e-9f5d35bdf40c"
+                     rcywcblc.jd2="step_a22e7839-89d1-50b6-3563-c604326699dc" rcywcblc.jd3="step_e52ed188-5c6e-c21a-db9f-865df179334f"
+                     rcywcblc.jd4="step_3670b2c0-09ed-afa4-0be8-0be1ea93aa02" rcywcblc.jd5="step_1649b945-5c5b-6f23-eb03-001fe646aa8e"
+                     rcywcblc.jd6="step_03390816-2b3c-07fd-3deb-a545d368207c" rcywcblc.jd7="step_dae3e69b-9ac2-b1ce-ac34-dd47b8ea345c"
+                     rcywcblc.jd8="step_1e645f6f-50bb-bab3-3bf4-ef1ecd31e9b5" rcywcblc.jd9="step_b5bab053-071e-3588-0284-9ef11104bad5"
+                     rcywcblc.jd10="step_1649b945-5c5b-6f23-eb03-001fe646aa8e" rcywcblc.jd11="step_b2e9f06a-542a-3701-1f54-7d64241ccc61"
+                     rcywcblc.end="end"/>
+
+</config>

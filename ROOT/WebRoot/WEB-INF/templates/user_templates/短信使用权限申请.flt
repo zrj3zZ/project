@@ -1,0 +1,123 @@
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					短信使用权限申请
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+				</td>
+			</tr>
+			<tr>
+			<td align="right" id="help">
+					<span id="data_DJBH">单据编号:${DJBH}</span> 
+				</td>
+			</tr>
+				
+			<tr>
+				<td class="line" align="right">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+						<tbody>
+							<tr>
+								<td id="title_SQRQ" class="td_title" width="180">
+									申请日期
+								</td>
+								<td id="data_SQRQ" class="td_data">
+									${SQRQ}&nbsp;
+								</td>
+							</tr>
+							
+							<tr>
+								<td id="title_SQR" class="td_title" width="180">
+									申请人
+								</td>
+								<td class="td_data" id="data_SQRBMID" width="85%" colspan="3">
+										${SQRXM}【${SQRZH},${SQRGW},${SQRDH}&nbsp;】【${SQRBMMC} 】
+									</td>
+							</tr>
+							
+							<tr>
+								<td id="title_SYR" class="td_title" width="180">
+									使用人
+								</td>
+								<td id="data_SYR" class="td_data">
+									${SYR}
+								</td>
+							</tr>
+							
+							<tr>
+								<td>
+									<br />
+								</td>
+								<td class="td_data" colspan="3">
+									【${SYRZH}&nbsp;】【${SYRBMID}/${SYRBM}】<br />
+								</td>
+							</tr>
+							<tr>
+														
+							<tr>
+								<td id="title_SQLX" class="td_title" width="180">
+									申请类型
+								</td>
+								<td id="data_SQLX" class="td_data">
+									${SQLX}&nbsp;
+								</td>
+							</tr>
+							
+							<tr>
+								<td id="title_ED" class="td_title" width="180">
+									额度
+								</td>
+								<td id="data_ED" class="td_data">
+									${ED}&nbsp;
+								</td>
+							</tr>
+							
+							<tr>
+								<td id="title_SQYY" class="td_title" width="180">
+									申请原因
+								</td>
+								<td id="data_SQYY" class="td_data">
+									${SQYY}&nbsp;
+								</td>
+							</tr>
+							
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<table class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+		<tbody>
+			<tr>
+				<td style="padding:10px;" class="data">
+					<fieldset class="td_memo">
+						<legend class="td_memo_title">使用说明</legend>
+						<p>
+							<p>
+								1. 本流程用于短信平台的申请权限、增加额度、删除权限和账户变更。如有疑问或紧急事宜，请与KOA管理员联系。
+							</p>
+							<p>
+								2. 开通权限和增加额度：用于首次使用短信平台前申请权限和短信额度，以及短信额度不足时申请增加。请写清申请的短信额度（单位：条）和申请原因。
+							</p>
+							<p>
+								3. 删除权限：用于关闭短信发送权限，请申请人在申请原因中写明是否保留剩余短信额度。
+							</p>
+							<p>
+								4. 账户变更：用于将另一个用户的短信额度转移到本人帐号中，一般用于转移离职员工的短信额度。请在申请原因中写清转移原因、转出额度的用户帐号。
+							</p>
+							<p>
+								<br />
+							</p>
+								</fieldset>
+									</td>
+										</tr>
+											</tbody>
+												</table>
+													</div>

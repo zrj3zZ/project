@@ -1,0 +1,119 @@
+<script type="text/javascript">
+function getUrlParam(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+    var r = window.location.search.substr(1).match(reg); //匹配目标参数
+    if (r != null) return (r[2]);
+    return null; //返回参数值
+}
+$(function () {
+    var url = location.search;
+    var Request = new Object();
+    if (url.indexOf("?") != -1) {
+        var str = url.substr(1);
+        strs = str.split("&");
+        for (var i = 0; i < strs.length; i++) {
+            Request[strs[i].split("=")[0]] = (strs[i].split("=")[1]);
+        }
+        ggId = Request["GGID"];
+        if (ggId == undefined || ggId == "") {
+            instanceid = Request["instanceId"];
+        }
+        if (ggId == undefined) {
+            ggId = getUrlParam("ggid");
+        }
+        if (ggId == undefined) {
+            ggId =  $("#GGID").val();
+        }
+
+    }
+    var pageUrl = "";
+    if (ggId != undefined) {
+        $("#GGID").val(ggId);
+        $("#URL").attr("src", "loadAnnouncement.action?ggid=" + ggId);
+        pageUrl = "loadAnnouncement.action?ggid=" + ggId;
+    } else {
+        $("#URL").attr("src", "loadAnnouncement.action?instanceId=" + instanceid);
+        pageUrl = "loadAnnouncement.action?instanceId=" + instanceid;
+    }
+
+    $.post(pageUrl,function (data) {
+        var dataJson = eval("(" + data + ")");
+        $("#data_TZBT").html(dataJson[0].TZBT);
+        $("#data_ZCHFSJ").html(dataJson[0].ZCHFSJ);
+        $("#data_TZNR").html(dataJson[0].TZNR);
+        $("#data_XGZL").html(dataJson[0].COUNT);
+        $("#data_SFTZ").html(dataJson[0].SFTZ);
+    });
+});
+</script>
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					回复信息表单
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+						<tbody>
+							<tr id="itemTr_1913">
+								<td class="td_title" id="title_TZBT" width="180">通知标题</td>
+								<td class="td_data" id="data_TZBT"></td>
+							</tr>
+							<tr id="itemTr_1914">
+								<td class="td_title" id="title_ZCHFSJ" width="180">
+									最迟回复时间</td>
+								<td class="td_data" id="data_ZCHFSJ"></td>
+							</tr>
+							<tr id="itemTr_1915">
+								<td class="td_title" id="title_TZNR" width="180">通知内容</td>
+								<td class="td_data" id="data_TZNR"></td>
+							</tr>
+							<tr id="itemTr_1916">
+								<td class="td_title" id="title_XGZL" width="180">相关资料</td>
+								<td class="td_data" id="data_XGZL"></td>
+							</tr>
+							<tr id="itemTr_1918">
+								<td class="td_title" id="title_SFTZ" width="180">
+									是否通知回复人</td>
+								<td class="td_data" id="data_SFTZ"></td>
+							</tr>
+							<tr id="itemTr_1932">
+								<td id="title_CONTENT" class="td_title" width="180">
+									回复内容
+								</td>
+								<td id="data_CONTENT" class="td_data">
+									${CONTENT}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1933">
+								<td id="title_XGZL" class="td_title" width="180">
+									相关资料
+								</td>
+								<td id="data_XGZL" class="td_data">
+									${XGZL}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+        <div style="border-bottom:#efefef 0px solid;border-left:#efefef 0px solid;height:500px;border-top:#efefef 0px solid;border-right:#efefef 0px solid;border-image:none;" title="培训参与人" border="true" cache="false">
+			${SUBFORM_PXTZRYB}&nbsp;
+		</div>
+</div>
+<div style="display:none;">
+	${GGID}${HFR}${HFRID}${HFQKID}${INSTANCEID}${COMPANYNO}${COMPANYNAME}
+</div>

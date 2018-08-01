@@ -1,0 +1,3 @@
+${USERNAME},您好！ 您发起的流程单据编号为【${FORMNO}】的${PROCESS_NAME}，已审批完成,特此通知！ 
+<b><a target="_blank" href="${LINKURL}"><font size=3>查看详情</font></a></b><br>
+${SOURCE} 

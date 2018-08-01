@@ -1,0 +1,58 @@
+/*
+ * 加载后
+ */
+function onLoad() {
+    document.getElementById("tr_SYR").style.display = "";
+    document.getElementById("tr_SYRBH").style.display = "";
+    //document.getElementById("tr_FJ").style.display = "";
+    //document.getElementById("tr_GWFJ").style.display = "none";
+    //document.getElementById("tr_ZHSZXTKSPCLIENT").style.display = "none";
+    //document.getElementById("tr_ZHSZXTKSQCLIENT").style.display = "none";
+    //document.getElementById("tr_ZHSZXTKSDCLIENT").style.display = "none";
+    //document.getElementById("tr_SXQX").style.display = "none";
+    //document.getElementById("tr_TSQX").style.display = "none";
+    //document.getElementById("tr_SUBFORM_ERPCSHSQB").style.display = "none";
+    changeSQLX();
+}
+/**
+ * 点击“使用类型”
+ */
+function changeSYLX() {
+    var SYLX; //使用类型
+    $('input[name="SYLX"]').each(function () {
+        if (this.checked) {
+            SYLX = this.value;
+            // alert(this.value);
+        }
+    });
+    if (SYLX == '用户离职') {
+        $('input[name="ZHLX"]:eq(1)').hide();
+    } else {
+        $('input[name="ZHLX"]:eq(1)').show();
+    }
+    // 账号类型
+    changeZHLX();
+}
+/**
+ * 点击“账号类型”
+ */
+function changeZHLX() {
+    var type; //使用类型
+    $('input[name="ZHLX"]').each(function () {
+        if (this.checked) {
+            type = this.value;
+            // alert(this.value);
+        }
+    });
+    if (type == '公司员工') {
+        document.getElementById("tr_SYR").style.display = ""; // 使用人
+        document.getElementById("tr_SYRBH").style.display = "";
+    } else {
+        document.getElementById("tr_SYR").style.display = "none"; // 使用人
+        document.getElementById("tr_SYRBH").style.display = "none";
+    }
+}
+
+$().ready(function(){
+    onLoad();
+});

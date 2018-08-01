@@ -1,0 +1,92 @@
+.gridster * {
+  margin:0;
+  padding:0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+
+/*/
+/* demo
+/*/
+
+
+body {
+    font-size: 16px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #fff;
+    margin: 30px 40px; 
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+/*/
+/* gridster
+/*/
+
+.gridster ul {
+    background-color: #F7B58C; 
+}
+
+.gridster li {
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+	vertical-align:middle;
+    line-height: 100%;
+
+}
+.gridster li:hover{
+    border:1px solid #fff ; 
+}
+
+.gridster {
+    margin: 0 auto;
+    opacity: .8;
+    -webkit-transition: opacity .6s; 
+    -moz-transition: opacity .6s;
+    -o-transition: opacity .6s;
+    -ms-transition: opacity .6s;
+    transition: opacity .6s;
+}
+
+.gridster .gs-w {
+    background: #FFCC33;
+    cursor: pointer;
+	vertical-align:middle; 
+}
+
+.gridster .player {
+    background: #BBB; 
+}
+
+
+.gridster .preview-holder {
+    border: none!important;
+    background: red!important; 
+}
+.itemDiv{
+	padding:3px;
+	vertical-align:bottom; 
+}
+.itemTitle{
+text-align:left;
+color:#FFFFFF;
+padding:5px;
+top: 0;
+    bottom: 13px;
+    right: -5px;
+}
+ .box { 
+	float: left; position: relative;  background: #555; width:100%; height:100%; text-decoration: none; cursor: pointer; overflow: hidden; color: #fff; background: #00a8ec; z-index: 9;
+ } 
+.box .box_move { position: absolute; right: 1.5em; top: 0.2em; font-size: 1em; font-weight: normal; z-index: 7; }
+.box .box_close { position: absolute; right: 0.5em; top: 0.2em; font-size: 1em; font-weight: normal; z-index: 8; }
+.box .box_title { position: absolute; left: 0.5em; bottom: 0.5em; font-size: 1em; font-weight: normal; z-index: 9; }
+.box:hover .box_close{display:block} 
+.box:hover .box_move{display:block}
+.box_move:hover{cursor:move} 

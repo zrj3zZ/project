@@ -1,0 +1,58 @@
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					反馈
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_0">
+								<td class="td_title" id="title_" width="15%">
+									填报日期
+								</td>
+								<td class="td_data" id="data_" width="35%">
+									${TBSJ}&nbsp;
+								</td>
+								<td class="td_title" id="title_" width="15%">
+									
+								</td>
+								<td class="td_data" id="data_" width="35%">
+									
+								</td>
+							</tr>
+							<tr id="itemTr_4616">
+								<td class="td_title" id="title_" width="15%">
+									附件
+								</td>
+								<td class="td_data" id="data_FJ" width="85%" colspan="3">
+									${FJ}&nbsp;
+								</td>
+							</tr>
+							<tr id="txtAreaTr_178">
+								<td class="td_data" width="80%" colspan="4">
+									${SUBFORM_FKJLGD}&nbsp;
+								</td>
+							</tr>
+
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${TBRID}${CUSTOMERNAME}${CUSTOMERNO}${LCBH}${LCBS}${TASKID}${SPZT}${SCORE}${JDMC}${TJRID}${TJRXM}${TJSJ}${EXTEND2}${EXTEND3}${EXTEND4}${EXTEND5}${EXTEND1}
+</div>

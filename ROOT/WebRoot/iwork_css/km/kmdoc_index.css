@@ -1,0 +1,41 @@
+body { font-family:Verdana; font-size:14px; margin:0;}
+#container {margin:0 auto; width:100%;}
+#sidebar { float:left; width:200px; height:400px;}
+#sidebar2 { float:right; width:200px; height:400px;}
+#content { margin:0 205px !important; margin:0 202px; height:400px;}
+.STYLE1 {
+	color: #FFFFFF;
+	font-weight: bold; 
+	font-size: 12px;
+}
+.STYLE8 {color: #000000; font-size: 12px; }
+.IconNewMenu {
+background-image:url(iwork_img/km/treeimg/ftv2folderopen02.gif)!important;
+}
+.IconNewCard {
+background-image:url(aws_img/baseStore1.gif)!important;
+}
+.IconNewFolder {
+background-image:url(iwork_img/km/treeimg/ftv2folderopen02.gif)!important;
+}
+.IconRemove {
+background-image:url(aws_img/Delete.gif)!important;
+}
+.IconHome {
+background-image:url(aws_img/home_nav.gif)!important;
+}
+.IconWorkZone{
+background-image:url(aws_img/application_go.png)!important;
+}
+.IconUpload {
+background-image:url(aws_img/application_go.png)!important;
+}
+.IconUpFolder {
+background-image:url(aws_img/navup.gif)!important;
+}
+.IconSetAC {
+background-image:url(aws_img/user8.gif)!important;
+}
+.IconCard {
+background-image:url(aws_img/application_view_list.gif)!important;
+}

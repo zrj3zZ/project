@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+"http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+   <package strict-method-invocation="false"  name="iReport" extends="tiles-default">
+		<!-- 定义一个名为 checkLogin 的拦截器 -->  
+        <interceptors>  
+            <!-- 定义权限检查拦截器 -->  
+            <interceptor name="checkLogin" class="com.iwork.core.server.root.IWorkInterceptor" />  
+            <!-- 定义一个包含权限检查的拦截器栈 -->  
+            <interceptor-stack name="myDefaultStack">  
+                <!-- 定义拦截器栈包含checkLogin拦截器 -->  
+                <interceptor-ref name="checkLogin"></interceptor-ref>  
+                <interceptor-ref name="defaultStack"></interceptor-ref>  
+            </interceptor-stack>  
+        </interceptors>  
+        <!-- 设置全局 全局默认的拦截器栈-->  
+        <default-interceptor-ref name="myDefaultStack"></default-interceptor-ref>  
+  
+        <!-- 定义全局Result -->  
+        <global-results>  
+            <!-- 当返回login视图名时，转入/login.jsp页面 -->  
+            <result name="login">/login.jsp</result>  
+        </global-results>
+        
+		<action name="*" class="com.iwork.commons.AbstractAction">
+            <result>/{1}.jsp</result>
+	    </action>
+		<action name="ireport_designer_index" method="index" class="iReportDesignAction">
+			<result  name="success">app/ireport/designer/index.jsp</result>
+		</action>
+		<action name="sysEngineIReport_Help">
+				<result>app/ireport/designer/help.jsp</result>
+			</action>
+		<action name="ireport_designer_table" method="getTable" class="iReportDesignAction">
+		</action>
+		<action name="ireport_designer_showList" method="getWebList" class="iReportDesignAction">  
+			<result name="success">app/ireport/designer/showList.jsp</result>     
+		</action> 
+		<action name="ireport_designer_showTreeJson" method="showTreeJson" class="iReportDesignAction">
+		</action>
+		<action name="ireport_designer_newReport" method="newReport" class="iReportDesignAction">
+			<result  name="success">app/ireport/designer/newreport.jsp</result> 
+		</action>
+		<action name="ireport_designer_createReport" method="createReport" class="iReportDesignAction">
+			<result name="success">app/ireport/designer/designframe.jsp</result>  
+		</action>
+		<action name="ireport_designer_delReport" method="delReport" class="iReportDesignAction">
+		</action>
+		<action name="ireport_designer_frameset" class="iReportDesignAction">
+			<result>app/ireport/designer/designframe.jsp</result> 
+		</action>
+		<action name="ireport_designer_tablist" method = "showTabList" class="iReportDesignAction">
+			<result>app/ireport/designer/tablist.jsp</result> 
+		</action>
+		<action name="ireport_designer_baseInfo" method = "showBaseInfo" class="iReportDesignAction">
+			<result name="success">app/ireport/designer/baseInfo.jsp</result> 
+		</action> 
+		<action name="ireport_designer_baseInfo_save" method = "saveBaseInfo" class="iReportDesignAction">
+			<result name="success">app/ireport/designer/baseInfo.jsp</result> 
+		</action>
+		<action name="ireport_designer_selectChartReport" class="iReportDesignAction">
+			<result name="success">app/ireport/designer/selectChartReport.jsp</result> 
+		</action>
+		<action name="ireport_designer_CreateChartReport" method="createChartReport" class="iReportDesignAction">
+			<result name="success">app/ireport/designer/designframe.jsp</result> 
+		</action>
+		<action name="ireport_designer_showFieldJson" method="getFieldTreeJson" class="iReportDesignAction">
+		</action>
+		<action name="ireport_designer_showSqlFieldJson" method="getSqlFieldTreeJson" class="iReportDesignAction">
+		</action>
+		<!-- 查询条件 --> 
+		<action name="ireport_designer_condition" class="iReportDesignConditionAction">
+			<result name="success">app/ireport/designer/condition.jsp</result> 
+		</action>
+		<action name="ireport_designer_condition_table" method = "getTable" class="iReportDesignConditionAction">
+		</action>
+		<action name="ireport_designer_condition_edit" method = "edit" class="iReportDesignConditionAction">
+		     <result name="success">app/ireport/designer/condition_form.jsp</result> 
+		</action>
+		<action name="ireport_designer_condition_add" method = "add" class="iReportDesignConditionAction">
+		     <result name="success">app/ireport/designer/fieldTree.jsp</result> 
+		</action>
+		<action name="ireport_designer_condition_quickadd" method = "quickAdd" class="iReportDesignConditionAction">
+		</action>
+		<action name="ireport_designer_condition_save" method = "save" class="iReportDesignConditionAction">
+		</action>
+		<action name="ireport_designer_condition_moveUp" method = "moveUp" class="iReportDesignConditionAction">
+		</action>
+		<action name="ireport_designer_condition_moveTop" method = "moveTop" class="iReportDesignConditionAction">
+		</action>
+		<action name="ireport_designer_condition_moveDown" method = "moveDown" class="iReportDesignConditionAction">
+		</action>
+		<action name="ireport_designer_condition_moveBottom" method = "moveBottom" class="iReportDesignConditionAction">
+		</action>
+		<action name="ireport_designer_condition_del" method = "del" class="iReportDesignConditionAction">
+		</action>
+		<!-- 显示字段 -->
+		<action name="ireport_designer_showField" class="iReportDesignFormFieldAction">
+			<result name="success">app/ireport/designer/showField.jsp</result> 
+		</action>		
+		<action name="ireport_designer_showField_table" method = "getTable" class="iReportDesignFormFieldAction">
+		</action>
+		<action name="ireport_designer_showField_edit" method = "edit" class="iReportDesignFormFieldAction">
+		     <result name="success">app/ireport/designer/showField_form.jsp</result> 
+		</action>
+		<action name="ireport_designer_showField_add" method = "add" class="iReportDesignFormFieldAction">
+		      <result name="success">app/ireport/designer/fieldTree.jsp</result> 
+		</action>
+		<action name="ireport_designer_showField_purview" method = "showPurview" class="iReportDesignFormFieldAction">
+		      <result name="success">app/ireport/designer/showField_purview.jsp</result> 
+		</action>		
+		<action name="ireport_designer_showField_quickadd" method = "quickAdd" class="iReportDesignFormFieldAction">
+		</action>
+		<action name="ireport_designer_showField_save" method = "save" class="iReportDesignFormFieldAction">
+		</action>
+		<action name="ireport_designer_showField_moveUp" method = "moveUp" class="iReportDesignFormFieldAction">
+		</action>
+		<action name="ireport_designer_showField_moveTop" method = "moveTop" class="iReportDesignFormFieldAction">
+		</action>
+		<action name="ireport_designer_showField_moveDown" method = "moveDown" class="iReportDesignFormFieldAction">
+		</action>
+		<action name="ireport_designer_showField_moveBottom" method = "moveBottom" class="iReportDesignFormFieldAction">
+		</action>
+		<action name="ireport_designer_showField_del" method = "del" class="iReportDesignFormFieldAction">
+		</action>
+		<!-- 排序字段 -->
+		<action name="ireport_designer_orderField" class="iReportDesignOrderAction">
+			<result name="success">app/ireport/designer/orderField.jsp</result> 
+		</action>				
+		<action name="ireport_designer_orderField_table" method = "getTable" class="iReportDesignOrderAction">
+		</action>
+		<action name="ireport_designer_orderField_edit" method = "edit" class="iReportDesignOrderAction">
+		     <result name="success">app/ireport/designer/orderField_form.jsp</result> 
+		</action>
+		<action name="ireport_designer_orderField_add" method = "add" class="iReportDesignOrderAction">
+		 	<!--  zouyalei 2016-02-18 报表中无法添加排序字段
+		    <result name="success1">app/ireport/designer/fieldTree.jsp</result> 
+		    <result name="success2">app/ireport/designer/sqlFieldTree.jsp</result>
+		    -->
+		    <result name="success">app/ireport/designer/orderTree.jsp</result>   
+		</action>
+		<action name="ireport_designer_orderField_quickadd" method = "quickAdd" class="iReportDesignOrderAction">
+		</action>		
+		<action name="ireport_designer_orderField_save" method = "save" class="iReportDesignOrderAction">
+		</action>
+		<action name="ireport_designer_orderField_moveUp" method = "moveUp" class="iReportDesignOrderAction">
+		</action>
+		<action name="ireport_designer_orderField_moveTop" method = "moveTop" class="iReportDesignOrderAction">
+		</action>
+		<action name="ireport_designer_orderField_moveDown" method = "moveDown" class="iReportDesignOrderAction">
+		</action>
+		<action name="ireport_designer_orderField_moveBottom" method = "moveBottom" class="iReportDesignOrderAction">
+		</action>
+		<action name="ireport_designer_orderField_del" method = "del" class="iReportDesignOrderAction">
+		</action>
+		<!-- 报表权限 -->
+		<action name="ireport_designer_baseInfo_Purview_set" method = "setPurview" class="iReportDesignAction">
+		   <result name="success">app/ireport/designer/purviewSet.jsp</result>
+		</action>
+		<action name="ireport_designer_baseInfo_Purview_save" method = "savePurview" class="iReportDesignAction">
+		   <result name="success" type="redirect">ireport_designer_baseInfo_Purview_set.action?reportId=${baseModel.id}</result>
+		</action>
+		<!-- 数据权限 -->
+		<action name="ireport_designer_dataScope" method="load" class="iReportDesignScopeAction">
+			<result name="success">app/ireport/designer/dataScope.jsp</result> 
+		</action>
+		<action name="ireport_designer_dataScope_edit" method = "edit" class="iReportDesignScopeAction">
+		     <result name="success">app/ireport/designer/dataScope_form.jsp</result> 
+		</action>
+		<action name="ireport_designer_dataScope_add" method = "add" class="iReportDesignScopeAction">
+		     <result name="success">app/ireport/designer/dataScope_form.jsp</result> 
+		</action>
+		<action name="ireport_designer_dataScope_save" method = "save" class="iReportDesignScopeAction">
+		</action>
+		<action name="ireport_designer_dataScope_moveUp" method = "moveUp" class="iReportDesignScopeAction">
+		</action>
+		<action name="ireport_designer_dataScope_moveDown" method = "moveDown" class="iReportDesignScopeAction">
+		</action>
+		<action name="ireport_designer_dataScope_del" method = "del" class="iReportDesignScopeAction">
+		</action>	
+		<action name="ireport_designer_dataScope_purview" method = "showPurview" class="iReportDesignScopeAction">
+		     <result name="success">app/ireport/designer/dataScope_purview.jsp</result> 
+		</action>
+		<!-- 数据源权限 -->
+		<action name="ireport_designer_baseInfo_dbSourse_set" method = "setdbSourse" class="iReportDesignAction">
+		   <result name="success1">app/ireport/designer/formDbSrc.jsp</result>
+		   <result name="success2">app/ireport/designer/sqlDbSrc.jsp</result>
+		   <result name="success3">app/ireport/designer/connDbSrc.jsp</result>
+		</action>
+		<action name="ireport_designer_baseInfo_dbSourse_save" method = "savedbSourse" class="iReportDesignAction">
+		   <result name="success" type="redirect">ireport_designer_baseInfo_dbSourse_set.action?reportId=${baseModel.id}&amp;reportType=${baseModel.rpType}</result>
+		</action>
+		<action name="ireport_designer_baseInfo_dbSourse_test" method = "test" class="iReportDesignAction">
+		</action>
+		<action name="ireport_rt_showcenter" method = "rpcenter" class="iReportRuntimeAction">
+			<result name="success">app/ireport/runtime/rpcenter.jsp</result>
+		</action>
+		<action name="ireport_rt_backToDefaultSort" method = "backToDefault" class="iReportRuntimeAction">
+		</action>	
+		<action name="ireport_rt_index" method = "index" class="iReportRuntimeAction">
+			<result name="form_index">app/ireport/runtime/form_index.jsp</result>
+			<result name="chart_index">app/ireport/runtime/chart_index.jsp</result>
+			<result name="sql_index">app/ireport/runtime/sql_index.jsp</result> 
+			<result name="conn_index">app/ireport/runtime/conn_index.jsp</result>  
+			<result name="extend_index"  type="redirect">ReportEmitter?rpt=${param}</result>  
+		</action>	 
+		<action name="ireport_rt_doFormSearch" method = "queryFormReport" class="iReportRuntimeAction">
+		</action> 
+		<action name="ireport_rt_doSqlSearch" method = "querySqlReport" class="iReportRuntimeAction">
+		</action>
+		<action name="ireport_rt_doConnSearch" method = "queryConnReport" class="iReportRuntimeAction">
+		</action>
+		<action name="ireport_rt_sqlReportExportExcel" method = "sqlReportExportExcel" class="iReportRuntimeAction">
+            <result name="success">app/ireport/runtime/exportExcel.jsp</result>
+		</action>
+		<action name="ireport_rt_formReportExportExcel" method = "formReportExportExcel" class="iReportRuntimeAction">
+            <result name="success">app/ireport/runtime/exportExcel.jsp</result>
+		</action>
+		<action name="ireport_rt_connReportExportExcel" method = "connReportExportExcel" class="iReportRuntimeAction">
+            <result name="success">app/ireport/runtime/exportExcel.jsp</result>
+		</action>
+		
+		<action name="ireport_rt_doPIESearch" method = "queryPIEReport" class="iReportRuntimeAction">
+			<result name="success">app/ireport/runtime/index.jsp</result> 
+		</action> 
+		<action name="ireport_rt_getHtmlReport" method = "getHtmlReport" class="iReportRuntimeAction">
+			<result name="success">app/ireport/runtime/index.jsp</result> 
+		</action>
+		<action name="ireport_rt_getHtmlCount" method = "getHtmlCount" class="iReportRuntimeAction">
+		</action>
+		<action name="ireport_rt_linkform"  method="linkFormPage" class="iReportRuntimeAction">
+				<result  name="success">app/ireport/runtime/linkform.jsp</result> 
+				<result  name="error">app/public/nofind.jsp</result>
+			</action>
+			
+		<!-- 分组 --> 
+		<action name="ireport_designer_group" class="iReportDesignGroupAction">
+			<result name="success">app/ireport/designer/group.jsp</result> 
+		</action>
+		<action name="ireport_designer_group_table" method = "getTable" class="iReportDesignGroupAction">
+		</action>
+		<action name="ireport_designer_group_edit" method = "edit" class="iReportDesignGroupAction">
+		     <result name="success">app/ireport/designer/group_form.jsp</result> 
+		</action>
+		<action name="ireport_designer_group_add" method = "add" class="iReportDesignGroupAction">
+		     <result name="success1">app/ireport/designer/fieldTree.jsp</result> 
+		     <result name="success2">app/ireport/designer/sqlFieldTree.jsp</result> 
+		</action>
+		<action name="ireport_designer_group_quickadd" method = "quickAdd" class="iReportDesignGroupAction">
+		</action>
+		<action name="ireport_designer_group_save" method = "save" class="iReportDesignGroupAction">
+		</action>
+		<action name="ireport_designer_group_moveUp" method = "moveUp" class="iReportDesignGroupAction">
+		</action>
+		<action name="ireport_designer_group_moveTop" method = "moveTop" class="iReportDesignGroupAction">
+		</action>
+		<action name="ireport_designer_group_moveDown" method = "moveDown" class="iReportDesignGroupAction">
+		</action>
+		<action name="ireport_designer_group_moveBottom" method = "moveBottom" class="iReportDesignGroupAction">
+		</action>
+		<action name="ireport_designer_group_del" method = "del" class="iReportDesignGroupAction">
+		</action>
+		<!-- 统计 --> 
+		<action name="ireport_designer_statistics" class="iReportDesignStatisticsAction">
+			<result name="success">app/ireport/designer/statistics.jsp</result> 
+		</action>
+		<action name="ireport_designer_statistics_table" method = "getTable" class="iReportDesignStatisticsAction">
+		</action>
+		<action name="ireport_designer_statistics_edit" method = "edit" class="iReportDesignStatisticsAction">
+		     <result name="success">app/ireport/designer/statistics_form.jsp</result> 
+		</action>
+		<action name="ireport_designer_statistics_add" method = "add" class="iReportDesignStatisticsAction">
+		     <result name="success">app/ireport/designer/statistics_form.jsp</result>  
+		</action>
+		<action name="ireport_designer_statistics_quickadd" method = "quickAdd" class="iReportDesignStatisticsAction">
+		</action>
+		<action name="ireport_designer_statistics_save" method = "save" class="iReportDesignStatisticsAction">
+		</action>
+		<action name="ireport_designer_statistics_moveUp" method = "moveUp" class="iReportDesignStatisticsAction">
+		</action>
+		<action name="ireport_designer_statistics_moveTop" method = "moveTop" class="iReportDesignStatisticsAction">
+		</action>
+		<action name="ireport_designer_statistics_moveDown" method = "moveDown" class="iReportDesignStatisticsAction">
+		</action>
+		<action name="ireport_designer_statistics_moveBottom" method = "moveBottom" class="iReportDesignStatisticsAction">
+		</action>
+		<action name="ireport_designer_statistics_del" method = "del" class="iReportDesignStatisticsAction">
+		</action>
+		<!-- 页面外观 -->
+		<action name="get_report_center_save_str" method = "getReportCenterSaveStrByUserId" class="iReportRuntimeAction">
+		</action>
+		<action name="save_report_center_save_str" method = "saveReportCenterSaveStr" class="iReportRuntimeAction">
+		</action>
+		
+    </package>  
+</struts>

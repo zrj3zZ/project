@@ -1,0 +1,13 @@
+
+#basic-modal-content {display:none;}
+
+/* Overlay */
+#simplemodal-overlay {background-color:#000; cursor:default;}
+
+/* Container */
+#simplemodal-container {height:312px; width:416px; color:#333; background-color:#fff; padding:0px;}
+#simplemodal-container .simplemodal-data {padding:0px; overflow:hidden}
+
+#simplemodal-container a {color:#ddd;}
+#simplemodal-container a.modalCloseImg {background:url(../images/x.png) no-repeat; width:25px; height:29px; display:inline; z-index:3200; position:absolute; top:10px; right:3px; cursor:pointer;}
+#simplemodal-container h3 {color:#84b8d9;}

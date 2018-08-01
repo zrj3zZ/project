@@ -1,0 +1,4 @@
+$(function(){
+var xmbh = $("#XMBH").val();
+$("#URL").attr("src", "sx_zqb_bgGetJdContent.action?xmbh="+xmbh);
+});

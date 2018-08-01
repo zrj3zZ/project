@@ -1,0 +1,54 @@
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					三会审批说明
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+						<tbody>
+							<tr id="itemTr_1807">
+								<td id="title_GDDHSPQX" class="td_title" width="180">
+									股东大会审批权限
+								</td>
+								<td id="data_GDDHSPQX" class="td_data">
+									${GDDHSPQX}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1808">
+								<td id="title_SHTZFS" class="td_title" width="180">
+									三会通知方式
+								</td>
+								<td id="data_SHTZFS" class="td_data">
+									${SHTZFS}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1809">
+								<td id="title_DSHSPQX" class="td_title" width="180">
+									董事会审批权限
+								</td>
+								<td id="data_DSHSPQX" class="td_data">
+									${DSHSPQX}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${CUSTOMERNAME}${CUSTOMERNO}
+</div>

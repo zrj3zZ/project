@@ -1,0 +1,418 @@
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					挂牌登记及归档
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_0">
+								<td class="td_title" id="title_GSMC" width="15%">
+									<span style="color:red;">*</span>公司名称
+								</td>
+								<td class="td_data" id="data_GSMC" width="35%">
+									${GSMC}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_2">
+								<td class="td_title" id="title_GPRQ" width="15%">
+									<span style="color:red;">*</span>挂牌日期
+								</td>
+								<td class="td_data" id="data_GPRQ" width="35%">
+									${GPRQ}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_8">
+								<td class="td_title" id="title_ZQDM" width="15%">
+									证券代码&nbsp;
+								</td>
+								<td class="td_data" id="title_ZQDM" width="35%">
+									${ZQDM}&nbsp; 
+                                                                   </td>
+                                                          <tr id="itemTr_8">
+                                                               <td class="td_title" id="title_ZQJC" width="15%">
+                                                          <span style="color:red;">*</span>证券简称&nbsp;
+                                                                </td> 
+                                                                 <td class="td_data" id="title_ZQDM" width="35%">
+                                                                     ${ZQJC}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_9">
+								<td class="td_title" id="title_KHLXR" width="15%">
+									客户联系人
+								</td>
+								<td class="td_data" id="data_KHLXR" width="35%">
+									${KHLXR}&nbsp;
+								</td>
+								
+							</tr>
+							<tr id="itemTr_10">
+								<td class="td_title" id="title_XMCLR" width="15%">
+									项目承揽人
+								</td>
+								<td class="td_data" id="data_XMCLR" width="35%">
+									${XMCLR}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_11">
+								<td class="td_title" id="title_MOBILE" width="15%">
+									客户手机
+								</td>
+								<td class="td_data" id="data_MOBILE" width="35%">
+									${MOBILE}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_12">							
+								<td class="td_title" id="title_DQFZR" width="15%">
+									大区负责人
+								</td>
+								<td class="td_data" id="data_DQFZR" width="35%">
+									${DQFZR}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_13">
+								<td class="td_title" id="title_KHLXDH" width="15%">
+									客户联系电话
+								</td>														
+								<td class="td_data" id="data_KHLXDH" width="35%">
+									${KHLXDH}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_14">	
+								<td class="td_title" id="title_XMFZR" width="15%">
+									项目负责人
+								</td>
+								<td class="td_data" id="data_XMFZR" width="35%">
+									${XMFZR}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_15">
+								<td class="td_title" id="title_EMAIL" width="15%">
+									客户联系邮箱
+								</td>
+								<td class="td_data" id="data_EMAIL" width="35%">
+									${EMAIL}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_16">
+								<td class="td_title" id="title_DDAP" width="15%">
+									持续督导
+								</td>
+								<td class="td_data" id="data_DDAP" width="35%">
+									${DDAP}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_17">
+								<td class="td_title" id="title_CXDDMOBILE" width="15%">
+									持续督导手机
+								</td>
+								<td class="td_data" id="data_CXDDMOBILE" width="35%">
+									${CXDDMOBILE}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_18">
+								<td class="td_title" id="title_CXDDPHONE" width="15%">
+									持续督导座机
+								</td>
+								<td class="td_data" id="data_CXDDPHONE" width="35%">
+									${CXDDPHONE}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_19">
+								<td class="td_title" id="title_CXDDEMAIL" width="15%">
+									持续督导邮箱
+								</td>
+								<td class="td_data" id="data_CXDDEMAIL" width="35%">
+									${CXDDEMAIL}&nbsp;　
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<br/>
+	<fieldset style="border-width:1px;border-color:#999999;">
+		<legend algin="right" style="font-size:12px;font-weight:900;">推荐挂牌项目小组成员</legend>
+		<table class="ke-zeroborder" style="padding-bottom:10px;padding-left:20px;" width="100%" cellspacing="0" cellpadding="0" border="0">
+			<tbody>
+				<tr id="itemTr_20">
+					<td class="td_title" id="title_XMZK" width="15%">
+						项目注会
+					</td>
+					<td class="td_data" id="data_XMZK" width="35%">
+						${XMZK}&nbsp;　
+					</td>
+				</tr>
+				<tr id="itemTr_21">
+					<td class="td_title" id="title_XMHY" width="15%">
+						项目行研
+					</td>
+					<td class="td_data" id="data_XMHY" width="35%">
+						${XMHY}&nbsp;　
+					</td>
+				</tr>
+				<tr id="itemTr_22">
+					<td class="td_title" id="title_XMLS" width="15%">
+						项目律师
+					</td>
+					<td class="td_data" id="data_XMLS" width="35%">
+						${XMLS}&nbsp;　
+					</td>
+				</tr>
+				<tr id="itemTr_23">
+					<td class="td_title" id="title_XMQT" width="15%">
+						其他成员
+					</td>
+					<td class="td_data" id="data_XMQT" width="35%">
+						${XMQT}&nbsp;　
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</fieldset>
+	<br/>
+	<fieldset style="border-width:1px;border-color:#999999;">
+		<legend algin="right" style="font-size:12px;font-weight:900;">推荐挂牌内核小组成员</legend>
+		<table class="ke-zeroborder" style="padding-bottom:10px;padding-left:20px;" width="100%" cellspacing="0" cellpadding="0" border="0">
+			<tbody>
+				<tr id="itemTr_24">
+					<td class="td_title" id="title_NHZY" width="15%">
+						内核专员
+					</td>
+					<td class="td_data" id="data_NHZY" width="35%">
+						${NHZY}
+					</td>
+				</tr>
+				<tr id="itemTr_25">
+					<td class="td_title" id="title_NHZCKJS" width="15%">
+						注册会计师
+					</td>
+					<td class="td_data" id="data_NHZCKJS" width="35%">
+						${NHZCKJS}&nbsp;　
+					</td>
+				</tr>
+				<tr id="itemTr_26">
+					<td class="td_title" id="title_NHLS" width="15%">
+						内核律师
+					</td>
+					<td class="td_data" id="data_NHLS" width="35%">
+						${NHLS}&nbsp;　
+					</td>
+				</tr>
+				<tr id="itemTr_27">
+					<td class="td_title" id="title_NHHYZJ" width="15%">
+						行业专家
+					</td>
+					<td class="td_data" id="data_NHHYZJ" width="35%">
+						${NHHYZJ}&nbsp;　
+					</td>
+				</tr>
+				<tr id="itemTr_28">
+					<td class="td_title" id="title_NHQT" width="15%">
+						其他成员
+					</td>
+					<td class="td_data" id="data_NHQT" width="35%">
+						${NHQT}&nbsp;　
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</fieldset>
+	<br/>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+		<tbody>
+		<tr id="fjTr_3129">
+			<td colspan="4">
+				<table border="0" cellpadding="0" cellspacing="0" width="100%"
+					style="border-collapse:collapse;" class="ke-zeroborder">
+					<tbody>
+						<tr>
+							<td style="border:1px solid #000;width:30%;">项目阶段</td>
+							<td style="border:1px solid #000;width:30%;">需要上传的文件</td>
+							<td style="border:1px solid #000;width:30%;">已上传文件</td>
+							
+						</tr>
+						<tr>
+							<td style="border:1px solid #000;width:30%;">股改</td>
+							<td style="border:1px solid #000;width:30%;text-align: left;"><span
+								id="xmggcontent"></span></td>
+							<td style="border:1px solid #000;width:30%;text-align: left;"><span
+								id="xmggfilecontent"></span></td>
+							
+									<script>
+										function showUploadifyPageXMGGZL() {
+											mainFormAlertFlag = false;
+											saveSubReportFlag = false;
+											var valid = mainFormValidator
+													.form();
+											if (!valid) {
+												return false;
+											}
+											mainFormAlertFlag = false;
+											saveSubReportFlag = false;
+											uploadifyDialog(
+													'XMGGZL',
+													'XMGGZL',
+													'xmggfilecontent',
+													'',
+													'true',
+													'', '');
+										}
+									</script>
+									&nbsp;
+								
+							
+						</tr>
+						<tr>
+							<td style="border:1px solid #000;width:30%;">申报审核</td>
+							<td style="border:1px solid #000;width:30%;text-align: left;"><span
+								id="sbshcontent"></span></td>
+							<td style="border:1px solid #000;width:30%;text-align: left;"><span
+								id="sbshfilecontent"></span></td>
+							
+								
+									<script>
+										function showUploadifyPageSBSHZL() {
+											mainFormAlertFlag = false;
+											saveSubReportFlag = false;
+											var valid = mainFormValidator
+													.form();
+											if (!valid) {
+												return false;
+											}
+											mainFormAlertFlag = false;
+											saveSubReportFlag = false;
+											uploadifyDialog(
+													'SBSHZL',
+													'SBSHZL',
+													'sbshfilecontent',
+													'',
+													'true',
+													'', '');
+										}
+									</script>
+									&nbsp;
+								
+							
+						</tr>
+						<tr>
+							<td style="border:1px solid #000;width:30%;">内核反馈及回复</td>
+							<td style="border:1px solid #000;width:30%;text-align: left;"><span
+								id="nhfkcontent"></span></td>
+							<td style="border:1px solid #000;width:30%;text-align: left;"><span
+								id="nhfkfilecontent"></span></td>
+							
+								
+									<script>
+										function showUploadifyPageNHFKZL() {
+											mainFormAlertFlag = false;
+											saveSubReportFlag = false;
+											var valid = mainFormValidator
+													.form();
+											if (!valid) {
+												return false;
+											}
+											mainFormAlertFlag = false;
+											saveSubReportFlag = false;
+											uploadifyDialog(
+													'NHFKZL',
+													'NHFKZL',
+													'nhfkfilecontent',
+													'',
+													'true',
+													'', '');
+										}
+									</script>
+									&nbsp;
+								
+							
+						</tr>
+						<tr>
+							<td style="border:1px solid #000;width:30%;">股转反馈及回复</td>
+							<td style="border:1px solid #000;width:30%;text-align: left;"><span
+								id="gzfkcontent"></span></td>
+							<td style="border:1px solid #000;width:30%;text-align: left;"><span
+								id="gzfkfilecontent"></span></td>
+							<td style="border:1px solid #000;width:10%;">
+								
+									<script>
+										function showUploadifyPageGZFKZL() {
+											mainFormAlertFlag = false;
+											saveSubReportFlag = false;
+											var valid = mainFormValidator
+													.form();
+											if (!valid) {
+												return false;
+											}
+											mainFormAlertFlag = false;
+											saveSubReportFlag = false;
+											uploadifyDialog(
+													'GZFKZL',
+													'GZFKZL',
+													'gzfkfilecontent',
+													'',
+													'true',
+													'', '');
+										}
+									</script>
+									&nbsp;
+								
+							</td>
+						</tr>
+						<tr>
+							<td style="border:1px solid #000;width:30%;">挂牌登记及归档</td>
+							<td style="border:1px solid #000;width:30%;text-align: left;"><span
+								id="gpcontent"></span></td>
+							<td style="border:1px solid #000;width:30%;text-align: left;"><span
+								id="gpfilecontent"></span></td>
+							
+								
+									<script>
+										function showUploadifyPageGPZL() {
+											mainFormAlertFlag = false;
+											saveSubReportFlag = false;
+											var valid = mainFormValidator
+													.form();
+											if (!valid) {
+												return false;
+											}
+											mainFormAlertFlag = false;
+											saveSubReportFlag = false;
+											uploadifyDialog(
+													'GPZL',
+													'GPZL',
+													'gpfilecontent',
+													'',
+													'true',
+													'', '');
+										}
+									</script>
+									&nbsp;
+								
+							
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+	</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${INSTANCEID}${COMPANYNO}${COMPANYNAME}${TBRID}${TBSJ}${CUSTOMERNO}${TZZT}${LCBH}${LCBS}${TASKID}${SPZT}${SCORE}${JDMC}${TJRID}${TJRXM}${TJSJ}${EXTEND1}
+
+</div>

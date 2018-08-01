@@ -1,0 +1,2339 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+	<constant name="struts.convention.action.mapallmatches" value="true"/>
+	<constant name="struts.multipart.maxSize" value="50000000"></constant>
+	<constant name="struts.multipart.saveDir" value="/tmp"></constant>
+	<constant name="struts.configuration.xml.reload" value="true" />
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.custom.i18n.resources" value="message"/>
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<include file="strutsEngine.xml"></include>
+	<include file="struts-iwork.xml"></include>
+	<include file="struts-weixin.xml"></include>
+	<include file="struts-weixin2.xml"></include>
+	<include file="struts-zq.xml"></include>
+	<include file="struts-plugs-mobile.xml"></include>
+	<include file="struts-plugs-process.xml"></include>
+	<include file="struts-ireport.xml"></include>
+	<include file="struts-plugs-addressbook.xml"></include>
+	<include file="struts-login-pre.xml"></include>  
+	<include file="struts-console.xml"></include> 
+	<include file="struts-cms.xml"></include>
+	<include file="struts-analytics.xml"></include> 
+	<include file="struts-webservice.xml"></include>
+	<include file="struts-plugs-fi.xml"></include>
+	<include file="struts-plugs-eam.xml"></include>
+	<include file="strutsUnlogin.xml"></include>
+	<!-- 
+	<include file="struts-haihang.xml"></include>
+	<include file="struts-zbyz.xml"></include>
+	<include file="struts-shizhi.xml"></include>
+	<include file="struts-guanxi.xml"></include>
+	<include file="struts-plan.xml"></include>
+	  -->
+	<!--  月度预算模块配置文件-->
+	<package strict-method-invocation="false" name="default" extends="tiles-default">
+		<!-- 定义一个名为 checkLogin 的拦截器 -->
+		<interceptors>
+			<!-- 定义权限检查拦截器 -->
+			<interceptor name="checkLogin"
+				class="com.iwork.core.server.root.IWorkInterceptor" />
+			<!-- 定义一个包含权限检查的拦截器栈 -->
+			<interceptor-stack name="myDefaultStack">
+				<!-- 定义拦截器栈包含checkLogin拦截器 -->
+				<interceptor-ref name="checkLogin"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack> 
+		</interceptors>
+		<!-- 设置全局 全局默认的拦截器栈 -->
+		<default-interceptor-ref name="myDefaultStack"></default-interceptor-ref>
+		<!-- 定义全局Result -->
+		<global-results>
+			<!-- 当返回login视图名时，转入/login.jsp页面 -->
+			<result name="login" type="redirect" >login.action</result>
+		</global-results>
+
+		<action name="*" class="com.iwork.commons.AbstractAction">
+			<result>/app/public/nofind.jsp</result>
+		</action>
+		<!--frame框架管理 -->
+		<action name="showidentifyCode" method="showidentifyCode"
+			class="loginAction">
+			<result type="stream">
+				<param name="contentType">image/jpeg</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		<action name="login" method="login" class="loginAction">
+			<result name="success">login.jsp</result>
+			<result type="redirect" name="ssologin">mainAction.action</result>
+			<result name="nouser">app/public/nofind.jsp</result>
+		</action>
+		<action name="ssologin" method="ssologin" class="loginAction">
+			<result name="success">login.jsp</result>
+			<result type="redirect" name="ssologin">mainAction.action</result>
+			<result name="nouser">app/public/nofind.jsp</result>
+		</action>
+		<action name="dologin" method="dologin" class="loginAction">
+		<result type="redirect" name="redirectURL">${redirectURL}</result>
+			<result type="redirect" name="success">mainAction.action</result>
+			<result name="error">/login.jsp</result>
+		</action>
+		<action name="getmobileyzm" method="getmobileyzm" class="loginAction"></action>
+		<action name="getPhoneYZ" method="getPhoneYZ" class="loginAction"></action>
+		<action name="mobileLogin" method="mobileLogin" class="loginAction"></action>
+		<action name="showUserOnlineList" method="showUserOnlineList"
+			class="loginAction">
+			<result>app/global/userOnline.jsp</result>
+		</action>
+		<action name="mainAction" method="getMainPage" class="sysNavFrameAction">
+			<result type="tiles" name="success">${skinsKey}</result> 
+			<result name="success">${actionPath}</result> 
+			<result  name="audit"  type="redirect">sys_security_auditIndex.action</result> 
+			<result  name="security"  type="redirect">sys_security_Index.action?userid=${userid}</result>
+		</action> 
+		<action name="pageindex1" method="frame2Page" class="sysNavFrameAction">
+			<result  name="success">iwork_layout/skins2014/frame/frame.jsp</result>  
+		</action>
+		<action name="buildingTip" class="sysNavFrameAction">
+			<result  name="success">app/public/building.jsp</result>  
+		</action>
+		<action name="setWebBrowserType" method="setWebBrowserType" class="sysNavFrameAction">
+		</action>
+		<action name="pageindex2" method="frame2Page" class="sysNavFrameAction">
+			<result  name="success">iwork_layout/skins2014/frame/frame2.jsp</result>  
+		</action>
+		<action name="pageindex3" method="frame2Page" class="sysNavFrameAction">
+			<result  name="success">iwork_layout/skins2014/frame/frame3.jsp</result>  
+		</action>
+		<action name="showTipsInfo" method="showTipsInfo" class="sysNavFrameAction">
+			<result name="success">app/navigation/frame/openjson.jsp</result>
+		</action> 
+		<action name="mainpage_todolist" method="getTodolist" class="sysNavFrameAction">
+		</action> 
+		<action name="mainpage_sysmsglist" method="getSystemlist" class="sysNavFrameAction">
+		</action> 
+		<action name="mainpage_emaillist" method="getEmaillist" class="sysNavFrameAction">
+		</action> 
+		<action name="openjson" method="openjson" class="sysNavFrameAction">
+			<result>app/navigation/frame/openjson.jsp</result>
+		</action>
+		<action name="show_nav_forward" method="navForward" class="sysNavFrameAction">
+			<result  name="success" type="redirect">${navurl}</result> 
+		</action>
+		<!-- =============================收藏夹管理Start==================================== -->
+		<!-- 显示我的收藏夹 -->
+		<action name="favjson" method="favjson" class="sysFavFrameAction"></action>
+		<!-- 打开我的收藏夹 -->
+		<action name="myfav" method="myfav" class="sysFavFrameAction">
+			<result>app/navigation/favorite/myfav.jsp</result>
+		</action>
+		<!-- 我的收藏夹显示系统菜单 -->
+		<action name="sysfav" method="sysfav" class="sysFavFrameAction">
+			<result>app/navigation/favorite/sysfav.jsp</result>
+		</action>
+		<!-- 保存我的收藏夹 -->
+		<action name="savemyfav" method="savemyfav" class="sysFavFrameAction">
+			<result>app/navigation/favorite/myfav.jsp</result>
+		</action>
+		<!-- 保存外部链接 -->
+		<action name="saveurl" method="saveurl" class="sysFavFrameAction">
+			<result>app/navigation/favorite/myfav.jsp</result>
+		</action>
+		<!-- 添加至收藏夹 -->
+		<action name="addfav" method="addfav" class="sysFavFrameAction">
+			<result>app/navigation/favorite/addfav.jsp</result>
+		</action>
+		<!-- 打开系统收藏夹维护 -->
+		<action name="consysfav" method="consysfav" class="sysFavFrameAction">
+			<result>app/navigation/favorite/confav.jsp</result>
+		</action>
+		<!-- 系统收藏夹维护 -->
+		<action name="confav" method="confav" class="sysFavFrameAction">
+			<result>app/navigation/favorite/sysfavjson.jsp</result>
+		</action>
+		<!-- 保存系统收藏夹 -->
+		<action name="savesysfav" method="savesysfav" class="sysFavFrameAction">
+			<result type="redirect">consysfav.action</result>
+		</action>
+		<!-- 排序 -->
+		<action name="move" method="move" class="sysFavFrameAction">
+			<result>app/navigation/favorite/confav.jsp</result>
+		</action>
+		<!-- ================================收藏夹管理End====================================== -->
+
+		<!-- 显示计划任务 -->
+		<action name="sys_schedule" method="showSchedule" class="sysScheduleAction">
+			<result>app/system/schedule/conschedule.jsp</result>
+		</action>
+		<!-- 获得计划任务列表 -->
+		<action name="sys_schedule_getList" method="getScheduleList"
+			class="sysScheduleAction">
+			<result>app/system/schedule/sysschedule.jsp</result>
+		</action>
+		<!-- 保存系统计划任务 -->
+		<action name="sys_schedule_save" method="saveSchedule" class="sysScheduleAction">
+			<result>app/system/schedule/conschedule.jsp</result>
+			<result type="redirect">sys_schedule.action</result>
+		</action>
+		<!-- 计划任务启停 -->
+		<action name="sys_schedule_changeStatus" method="changeStatus"
+			class="sysScheduleAction">
+			<result>app/system/schedule/conschedule.jsp</result>
+			<result type="redirect">sys_schedule.action</result>
+		</action>
+		<!-- 模拟使用 -->
+		<action name="sys_schedule_simulate" method="simulate" class="sysScheduleAction">
+			<result>app/system/schedule/conschedule.jsp</result>
+		</action>
+		<!-- 测试类 -->
+		<action name="sys_schedule_testClass" method="testClass"
+			class="sysScheduleAction">
+			<result>app/system/schedule/conschedule.jsp</result>
+		</action>
+		<!-- 显示计划任务日志 -->
+		<action name="sys_schedule_showLog" method="showLog" class="sysScheduleAction">
+			<result name="success">app/system/schedule/schedulelog.jsp</result>
+			<result name="error">app/system/schedule/conschedule.jsp</result>
+		</action>
+		<!-- 获得计划任务日志列表 -->
+		<action name="sys_schedule_getLogList" method="getLogList"
+			class="sysScheduleAction">
+			<result>app/system/schedule/sysschedulelog.jsp</result>
+		</action>
+		<!-- 系统日志模块开始 -->
+		<!-- 显示操作日志 -->
+		<action name="sys_operation_log" method="showOperationLog"
+			class="sysLogAction">
+			<result>app/system/log/conOperationLog.jsp</result>
+		</action>
+		<!-- 获得操作日志列表 -->
+		<action name="sys_operation_log_getList" method="getOperationLogList"
+			class="sysLogAction">
+			<result>app/system/log/sysOperationLog.jsp</result>
+		</action>
+		<!-- 查询操作日志 -->
+		<!-- <action name="sys_operate_log_search" method="searchOperateLogList" 
+			class="sysLogAction"> <result>app/system/log/conOperationLog.jsp</result> 
+			</action> -->
+		<!-- 删除选中操作日志 -->
+		<action name="sys_operate_log_delete" method="deleteLog" class="sysLogAction">
+			<result>app/system/log/conOperationLog.jsp</result>
+			<result type="redirect">sys_operation_log.action</result>
+		</action>
+		<!-- 显示错误日志 -->
+		<action name="sys_error_log" method="showErrorLog" class="sysLogAction">
+			<result>app/system/log/conErrorLog.jsp</result>
+		</action>
+		<!-- 获得错误日志列表 -->
+		<action name="sys_error_log_getList" method="getErrorLogList"
+			class="sysLogAction">
+			<result>app/system/log/sysErrorLog.jsp</result>
+		</action>
+		<!-- 删除选中错误日志 -->
+		<action name="sys_error_log_delete" method="deleteLog" class="sysLogAction">
+			<result>app/system/log/conErrorLog.jsp</result>
+			<result type="redirect">sys_error_log.action</result>
+		</action>
+		<!-- 系统日志模块结束 -->
+
+		<action name="sysNavTopList" method="getSysTopList" class="sysNavFrameAction">
+			<result name="success">/iwork_skins/_def1/frame/Main_Frame_Top.jsp
+			</result>
+		</action>
+		<action name="sysNavMenuList" method="getSysMenuList" class="sysNavFrameAction">
+			<result name="success">/iwork_skins/_def1/frame/Main_Frame_LeftMenu.jsp
+			</result>
+		</action>
+		<action name="sysNode_dosearch" method="doSearchNodeJSON" class="sysNavFrameAction">
+		</action>
+
+		<action name="logout" method="exit" class="loginAction">
+			<result name="success">login.jsp</result>
+		</action>
+
+		<action name="sysindex" method="list" class="sysNavSystemAction">
+			<result name="success">app/navigation/sys/list.jsp</result>
+		</action>
+		<action name="system_add" method="addItem" class="sysNavSystemAction">
+			<result>app/navigation/sys/edit.jsp</result>
+		</action>
+		<action name="system_edit" method="load" class="sysNavSystemAction">
+			<result>app/navigation/sys/edit.jsp</result>
+		</action>
+		<action name="system_save" method="save" class="sysNavSystemAction">
+			<result name="success">app/public/succes.jsp</result>
+		</action>
+		<action name="system_delete" method="delete" class="sysNavSystemAction">
+			<result name="success">app/navigation/sys/list.jsp</result>
+			<result type="redirect">sysindex.action?queryMap=${queryMap}</result>
+		</action>
+		<action name="system_moveup" method="moveUp" class="sysNavSystemAction">
+			<result>app/navigation/sys/list.jsp</result>
+			<result type="redirect">sysindex.action?queryMap=${queryMap}</result>
+		</action>
+		<action name="system_movedown" method="moveDown" class="sysNavSystemAction">
+			<result>app/navigation/sys/list.jsp</result>
+			<result type="redirect">sysindex.action?queryMap=${queryMap}</result>
+		</action>
+		<action name="nofindpage">
+			<result>app/public/nofind.jsp</result>
+		</action>
+		<!-- 系统目录子节点管理 -->
+		<action name="sysNode_index" method="index" class="sysNavNodeAction">
+			<result name="success">app/navigation/node/index.jsp</result>
+		</action>
+		<action name="sysNode_save" method="save" class="sysNavNodeAction">
+			<result name="success">app/public/succes.jsp</result>
+		</action>
+		<action name="sysNode_list" method="list" class="sysNavNodeAction">
+			<result name="success">app/navigation/node/list.jsp</result>
+		</action>
+		<action name="sysNode_add" method="addItem" class="sysNavNodeAction">
+			<result name="success">app/navigation/node/edit.jsp</result>
+		</action>
+		<action name="sysNode_edit" method="load" class="sysNavNodeAction">
+			<result name="success">app/navigation/node/edit.jsp</result>
+		</action>
+		<action name="sysNode_delete" method="delete" class="sysNavNodeAction">
+			<result name="success">app/navigation/node/list.jsp</result>
+			<result type="redirect">sysNode_list.action?parentNodeId=${parentNodeId}&amp;systemId=${systemId}
+			</result>
+		</action>
+		<action name="sysNode_moveUp" method="moveUp" class="sysNavNodeAction">
+			<result name="success">app/navigation/node/list.jsp</result>
+			<result type="redirect">sysNode_list.action?parentNodeId=${parentNodeId}&amp;systemId=${systemId}
+			</result>
+		</action>
+		<action name="sysNode_moveDown" method="moveDown" class="sysNavNodeAction">
+			<result name="success">app/navigation/node/list.jsp</result>
+			<result type="redirect">sysNode_list.action?parentNodeId=${parentNodeId}&amp;systemId=${systemId}
+			</result>
+		</action>
+		<action name="sysNode_tree" method="showTree" class="sysNavNodeAction">
+			<result>app/navigation/node/navtree.jsp</result>
+		</action>
+		<action name="sysNode_tree_Json" method="showTree_Json" class="sysNavNodeAction"></action>
+		
+		<!-- 操作管理 -->
+		<action name="operation_index">
+			<result>app/navigation/operation/index.jsp</result>
+		</action>
+		<action name="operation_tree" method="showTree" class="sysNavOperationAction">
+			<result>app/navigation/operation/navtree.jsp</result>
+		</action>
+		<action name="operation_tree_Json" method="showTree_Json"
+			class="sysNavOperationAction">
+			<result>app/navigation/operation/navtree_Json.jsp</result>
+		</action>
+		<action name="operation_list" method="list" class="sysNavOperationAction">
+			<result name="success">app/navigation/operation/list.jsp</result>
+		</action>
+		<action name="operation_add" method="addItem" class="sysNavOperationAction">
+			<result>app/navigation/operation/edit.jsp</result>
+		</action>
+		<action name="operation_edit" method="load" class="sysNavOperationAction">
+			<result>app/navigation/operation/edit.jsp</result>
+		</action>
+		<action name="operation_save" method="save" class="sysNavOperationAction">
+			<result name="success">app/public/succes.jsp</result>
+		</action>
+		<action name="operation_delete" method="delete" class="sysNavOperationAction">
+			<result name="success">app/navigation/operation/list.jsp</result>
+			<result type="redirect">operation_list.action?queryMap=${queryMap}
+			</result>
+		</action>
+		<action name="operation_moveup" method="moveUp" class="sysNavOperationAction">
+			<result>app/navigation/operation/list.jsp</result>
+			<result type="redirect">operation_list.action?queryMap=${queryMap}
+			</result>
+		</action>
+		<action name="operation_movedown" method="moveDown"
+			class="sysNavOperationAction">
+			<result>app/navigation/operation/list.jsp</result>
+			<result type="redirect">operation_list.action?queryMap=${queryMap}
+			</result>
+		</action>
+		<!-- 组织管理 -->
+		<action name="company_tree_json" method="showTreeJson" class="orgCompanyAction">
+		</action>
+		<action name="company_list" method="list" class="orgCompanyAction">
+			<result name="success">app/org/company/list.jsp</result>
+		</action>
+		<action name="company_add" method="addItem" class="orgCompanyAction">
+			<result>app/org/company/edit.jsp</result>
+		</action>
+		<action name="company_quick_add" method="quickAddCompany" class="orgCompanyAction">
+		</action>
+		<action name="company_quick_addconfirm" method="confirmAddCompany" class="orgCompanyAction">
+			<result>app/org/department/confirm.jsp</result>
+		</action>
+		<action name="company_edit" method="load" class="orgCompanyAction">
+			<result>app/org/company/edit.jsp</result>
+		</action>
+		<action name="company_search" method="searchCompany" class="orgCompanyAction">
+		</action>
+		<action name="company_save" method="save" class="orgCompanyAction">
+			<result name="success">app/org/company/list.jsp</result>
+			<result type="redirect">company_list.action?queryMap=${queryMap}</result>
+		</action>
+		<action name="company_delete" method="delete" class="orgCompanyAction">
+			<result name="success" type="redirect">company_list.action?delInfo=${delInfo}
+			</result>
+			<result name="error" type="redirect">company_list.action?delInfo=${delInfo}
+			</result>
+		</action>
+		<action name="company_moveup" method="moveUp" class="orgCompanyAction">
+			<result name="success">app/org/company/list.jsp</result>
+			<result type="redirect">company_list.action?queryMap=${queryMap}</result>
+		</action>
+		<action name="company_movedown" method="moveDown" class="orgCompanyAction">
+			<result name="success">app/org/company/list.jsp</result>
+			<result type="redirect">company_list.action?queryMap=${queryMap}</result>
+		</action>
+		<!-- 部门管理 -->
+		<action name="department_index">
+			<result>app/org/department/index.jsp</result>
+		</action>
+		<action name="department_tree" method="showTree" class="orgDepartmentAction">
+			<result>app/org/department/navtree.jsp</result>
+		</action>
+		
+		<action name="department_tree_g" method="showTree_G" class="orgDepartmentAction">
+		</action>
+		
+		<action name="department_tree_Json" method="showTree_Json"
+			class="orgDepartmentAction">
+			<result>app/org/department/navtree_Json.jsp</result>
+		</action>
+		<action name="department_list" method="list" class="orgDepartmentAction">
+			<result name="success">app/org/department/list.jsp</result>
+		</action>
+		<action name="department_add" method="addItem" class="orgDepartmentAction">
+			<result>app/org/department/edit.jsp</result>
+		</action>
+		<action name="quickAddDepartment" method="quickAdd" class="orgDepartmentAction">
+		</action>
+		<action name="department_edit" method="load" class="orgDepartmentAction">
+			<result>app/org/department/edit.jsp</result>
+		</action>
+		<action name="department_save" method="save" class="orgDepartmentAction">
+			<result name="success" type="redirect">department_list.action?companyId=${model.companyid}&amp;layer=${model.layer}&amp;parentdeptid=${model.parentdepartmentid}
+			</result>
+		</action>
+		<action name="department_disable" method="disable" class="orgDepartmentAction">
+		</action>
+		<action name="department_active" method="doActive" class="orgDepartmentAction">
+		</action>
+		<action name="department_delete" method="delete" class="orgDepartmentAction">
+			<result name="success" type="redirect">department_list.action?companyId=${model.companyid}&amp;layer=${model.layer}&amp;parentdeptid=${model.parentdepartmentid}&amp;delInfo=${delInfo}
+			</result>
+			<result name="error" type="redirect">department_list.action?companyId=${model.companyid}&amp;layer=${model.layer}&amp;parentdeptid=${model.parentdepartmentid}&amp;delInfo=${delInfo}
+			</result>
+		</action>
+		<action name="department_moveup" method="moveUp" class="orgDepartmentAction">
+			<result name="success" type="redirect">department_list.action?companyId=${model.companyid}&amp;layer=${model.layer}&amp;parentdeptid=${model.parentdepartmentid}
+			</result>
+		</action>
+		<action name="department_movedown" method="moveDown" class="orgDepartmentAction">
+			<result name="success" type="redirect">department_list.action?companyId=${model.companyid}&amp;layer=${model.layer}&amp;parentdeptid=${model.parentdepartmentid}
+			</result>
+		</action>
+		<action name="department_search" method="dosearch" class="orgDepartmentAction">
+			<result name="success">app/org/department/list.jsp</result>
+		</action>
+		<action name="department_mini_index" method="miniIndex" class="orgDepartmentAction">
+			<result name="success">app/org/department/mini.jsp</result>
+		</action>
+
+		<!-- 角色管理 -->
+		<action name="role_list" method="list" class="orgRoleAction">
+			<result name="success">app/org/role/list.jsp</result>
+		</action>
+		<action name="role_add" method="addItem" class="orgRoleAction">
+			<result>app/org/role/edit.jsp</result>
+		</action>
+		<action name="role_addgroup" method="addGroup" class="orgRoleAction">
+			<result>app/org/role/group_edit.jsp</result>
+		</action>
+		<action name="role_editgroup" method="editGroup" class="orgRoleAction">
+			<result>app/org/role/group_edit.jsp</result>
+		</action>
+		<action name="role_delgroup" method="delGroup" class="orgRoleAction">
+			<result>app/org/role/group_edit.jsp</result>
+		</action>
+		<action name="role_savegroup" method="saveGroup" class="orgRoleAction"></action>
+		<action name="role_edit" method="load" class="orgRoleAction">
+			<result>app/org/role/edit.jsp</result>
+		</action>
+		<action name="role_save" method="save" class="orgRoleAction">
+			<result name="success">app/org/role/list.jsp</result>
+			<result type="redirect">role_list.action?queryMap=${queryMap}</result>
+		</action>
+		<action name="role_delete" method="delete" class="orgRoleAction">
+			<result name="success">app/org/role/list.jsp</result>
+			<result type="redirect">role_list.action</result>
+		</action>
+		<action name="role_moveup" method="moveUp" class="orgRoleAction">
+			<result name="success" type="redirect">role_list.action</result>
+		</action>
+		<action name="role_movedown" method="moveDown" class="orgRoleAction">
+			<result name="success" type="redirect">role_list.action</result>
+		</action>  
+		<action name="role_tree_book" class="orgRoleAction">
+			<result name="success">app/org/role/role_book.jsp</result>
+		</action>   
+		<action name="role_tree_json" method="showRoleTreeJson" class="orgRoleAction">
+		</action>  
+		<!-- 岗位设置 -->
+		<action name="org_station_index" method="index" class="orgStationAction"> 
+			<result name="success">app/org/station/index.jsp</result>
+		</action> 
+		<action name="org_station_add" method="addStationDlg" class="orgStationAction"> 
+			<result name="success">app/org/station/edit_station.jsp</result>
+		</action> 
+		<action name="org_station_load" method="loadStationDlg" class="orgStationAction"> 
+			<result name="success">app/org/station/edit_station.jsp</result>
+		</action> 
+		<action name="org_station_save" method="saveStation" class="orgStationAction"> 
+		</action> 
+		<action name="org_station_delete" method="deleteStation" class="orgStationAction"> 
+		</action> 
+		
+		<!-- 岗位实例设置 -->
+		<action name="org_station_ins_list" method="loadStationInsList" class="orgStationAction"> 
+			<result name="success">app/org/station/inslist.jsp</result>
+		</action> 
+		<action name="org_station_ins_add" method="addStationInsDlg" class="orgStationAction"> 
+			<result name="success">app/org/station/edit_station_ins.jsp</result>
+		</action> 
+		<action name="org_station_ins_load" method="loadStationInsDlg" class="orgStationAction"> 
+			<result name="success">app/org/station/edit_station_ins.jsp</result>
+		</action>
+		
+		<action name="org_station_ins_save" method="saveStationIns" class="orgStationAction"> 
+		</action> 
+		<action name="org_station_ins_del" method="deleteStationIns" class="orgStationAction"> 
+		</action> 
+		<!--岗位范围设置-部门 -->
+		<action name="org_station_scope" method="scopeIndex" class="orgStationAction"> 
+			<result name="success">app/org/station/scope_page.jsp</result> 
+		</action> 
+		<action name="org_station_scope_json" method="showStationScopeJson" class="orgStationAction"> 
+		</action> 
+		<!--岗位范围设置 -人员-->
+		<action name="org_station_user_scope" method="scopeUserIndex" class="orgStationAction"> 
+			<result name="success">app/org/station/scope_user_page.jsp</result> 
+		</action> 
+		<action name="org_station_scope_user_json" method="showStationScopeUserJson" class="orgStationAction"> 
+		</action> 
+		<action name="org_station_scope_user_save" method="stationScopeUserItemSave" class="orgStationAction"> 
+		</action> 
+		<action name="org_station_scope_save" method="stationScopeItemSave" class="orgStationAction"> 
+		</action> 
+		<action name="org_station_book" method="orgStationBook" class="orgStationAction"> 
+			<result name="success">app/org/station/station_book.jsp</result> 
+		</action> 
+		
+		
+				
+		<!--用户管理 -->
+		<action name="user_index">
+			<result>app/org/user/index.jsp</result>
+		</action>
+		<action name="user_load_autocomplete_json" method="loadAllUserJson"
+			class="orgUserAction">
+		</action>
+		<action name="jsonOrgUsertree" method="loadTree" class="orgUserAction">
+			<result>app/org/user/openjson.jsp</result>
+		</action>
+		<action name="user_tree" method="showTree" class="orgUserAction">
+			<result>app/org/user/navtree.jsp</result>
+		</action>
+		<action name="user_tree_Json" method="showTree_Json" class="orgUserAction">
+			<result>app/org/user/navtree_Json.jsp</result>
+		</action>
+		<action name="user_list" method="list" class="orgUserAction">
+			<result name="success">app/org/user/list.jsp</result>
+		</action>
+		<action name="user_add" method="addItem" class="orgUserAction">
+			<result>app/org/user/edit.jsp</result>
+		</action>
+		<action name="user_edit" method="load" class="orgUserAction">
+			<result>app/org/user/edit.jsp</result>
+		</action>
+		
+		<action name="user_customerNo" method="user_customerNo" class="orgUserAction"></action>
+		
+		<action name="user_pwd_showpage"  class="orgUserAction">
+			<result>app/org/user/pwdinitpage.jsp</result> 
+		</action> 
+		<action name="user_pwd_send" method="sendpwd" class="orgUserAction">
+			<result>app/org/user/pwdinitpage.jsp</result> 
+		</action> 
+		<action name="user_tip" method="tip" class="orgUserAction">
+			<result name="success">app/org/user/tip.jsp</result>
+			<result name="error">app/public/nofind.jsp</result>
+		</action>
+		<action name="user_save" method="save" class="orgUserAction"> 
+			<result name="input">app/org/user/edit.jsp</result>
+			<result name="success">app/org/user/edit.jsp</result>
+			<result type="redirect">user_edit.action?userid=${model.userid}</result>
+		</action>
+		<action name="user_disable" method="disable" class="orgUserAction">
+		</action>
+		<action name="user_unlock" method="unlock" class="orgUserAction">
+		</action>
+		<action name="user_activating" method="activating" class="orgUserAction">
+		</action>
+		<action name="user_pwd_init" method="initPWD" class="orgUserAction">
+		</action>
+		<action name="quickAddUserAccount" method="quickAddUser" class="orgUserAction">
+		</action>
+		<action name="user_search" method="searchUser" class="orgUserAction">
+			<result name="success">app/org/user/list.jsp</result>
+		</action>
+
+		<action name="user_delete" method="delete" class="orgUserAction">
+			<result name="success" type="redirect">user_list.action?departmentid=${departmentid}
+			</result>
+			<result name="error" type="redirect">user_list.action?departmentid=${departmentid}&amp;delInfo=${delInfo}
+			</result>
+		</action>
+
+		<action name="user_moveup" method="moveUp" class="orgUserAction">
+			<result name="success" type="redirect">user_list.action?departmentid=${departmentid}
+			</result>
+		</action>
+		<action name="user_movedown" method="moveDown" class="orgUserAction">
+			<result name="success" type="redirect">user_list.action?departmentid=${departmentid}
+			</result>
+		</action>
+		<action name="user_moveTop" method="moveTop" class="orgUserAction">
+			<result name="success" type="redirect">user_list.action?departmentid=${departmentid}
+			</result>
+		</action>
+		<action name="user_moveBottem" method="moveBottem" class="orgUserAction">
+			<result name="success" type="redirect">user_list.action?departmentid=${departmentid}
+			</result>
+		</action>
+		<action name="user_template_download" method="tmpDownload" class="orgUserAction">
+		</action>
+        <action name="user_upload_page" class="orgUserMapAction">
+			<result name="success">app/org/user/excel_imp.jsp</result>
+		</action>
+		<action name="user_excel_imp"  method="doExcelImp" class="orgUserAction">
+			</action>
+		<!-- 兼职管理 -->
+		<action name="usermap_list" method="list" class="orgUserMapAction">
+			<result name="success">app/org/user/cclist.jsp</result>
+		</action>
+		<action name="usermap_add" method="addItem" class="orgUserMapAction">
+			<result name="success">app/org/user/ccedit.jsp</result>
+		</action>
+		<action name="usermap_edit" method="load" class="orgUserMapAction">
+			<result name="success">app/org/user/ccedit.jsp</result>
+		</action>
+		<action name="usermap_save" method="save" class="orgUserMapAction">
+		</action>
+		<action name="usermap_delete" method="delete" class="orgUserMapAction">
+			<result name="success">app/org/user/cclist.jsp</result>
+			<result type="redirect">usermap_list.action?userid=${userid}</result>
+		</action>
+		
+		<!-- 团队管理 -->
+		<action name="orgGroupAction" class="orgGroupAction">
+			<result name="index">app/org/group/index.jsp</result>
+			<result name="openjson">app/org/group/openjson.jsp</result>
+		</action>
+		<action name="saveGroup" method="saveGroup" class="orgGroupAction">
+			<result name="success">app/org/group/index.jsp</result>
+			<result type="redirect">orgGroupAction!index.action?gid=${gid}</result>
+		</action>
+		<action name="saveAddPerson" method="saveAddPerson" class="orgGroupAction">
+			<result name="success">app/org/group/index.jsp</result>
+			<result type="redirect">orgGroupAction!index.action?gid=${gid}</result>
+		</action>
+		<action name="saveAddDept" method="saveAddDept" class="orgGroupAction">
+			<result name="success">app/org/group/index.jsp</result>
+			<result type="redirect">orgGroupAction!index.action?gid=${gid}</result>
+		</action>
+		<action name="saveAddGroup" method="saveAddGroup" class="orgGroupAction">
+			<result name="success">app/org/group/index.jsp</result>
+			<result type="redirect">orgGroupAction!index.action?gid=${gid}</result>
+		</action>
+		<action name="itemcut" method="itemcut" class="orgGroupAction">
+			<result name="success">app/org/group/index.jsp</result>
+			<result type="redirect">orgGroupAction!index.action?gid=${gid}</result>
+		</action>
+		<!-- 查询团队下是否存在成员 -->
+		<action name="queryGroupItems"  method="queryGroupItems"  class="orgGroupAction">
+		</action>
+		<!-- 组织机构同步 -->
+		<action name="org_sync_index" method="index"   class="orgSynchronizeAction" >
+			<result name="success">app/org/sync/index.jsp</result> 
+		</action>
+		<action name="org_sync_doExcute" method="doExcute"   class="orgSynchronizeAction" > 
+		</action>
+		<!-- 部门字典选择 -->
+
+		<action name="departmentRadio_select" method="showDeptDictionaryRadio"
+			class="orgDepartmentAction">
+			<result name="success">app/org/common/OrgDeptRadioList.jsp</result>
+		</action>
+		<action name="departmentCheckList_select" method="showDeptDictionaryCheckList"
+			class="orgDepartmentAction">
+			<result name="success">app/org/common/OrgDeptCheckList.jsp</result>
+		</action>
+
+
+		<!-- 服务管理 -->
+		<action name="sysService_list" method="list" class="sysServiceManagerAction">
+			<result name="success">app/system/service/list.jsp</result>
+		</action>
+		<action name="sysService_add" method="addItem" class="sysServiceManagerAction">
+			<result name="success">app/system/service/edit.jsp</result>
+		</action>
+		<action name="sysService_edit" method="load" class="sysServiceManagerAction">
+			<result name="success">app/system/service/edit.jsp</result>
+		</action>
+		<action name="sysService_save" method="save" class="sysServiceManagerAction"></action>
+		<action name="sysService_delete" method="delete"
+			class="sysServiceManagerAction">
+			<result name="success" type="redirect">sysService_list.action</result>
+		</action>
+		<action name="sysService_start" method="startService"
+			class="sysServiceManagerAction">
+			<result name="success" type="redirect">sysService_list.action</result>
+		</action>
+		<action name="sysService_stop" method="stopService" class="sysServiceManagerAction">
+			<result name="success" type="redirect">sysService_list.action</result>
+		</action>
+		<action name="sysService_moveup" method="moveUp"
+			class="sysServiceManagerAction">
+			<result name="success" type="redirect">sysService_list.action</result>
+		</action>
+		<action name="sysService_movedown" method="moveDown"
+			class="sysServiceManagerAction">
+			<result name="success" type="redirect">sysService_list.action</result>
+		</action>
+		<!-- 权限组管理 -->
+		<action name="purgroup_index" method="list" class="sysPurGroupAction">
+			<result name="success">app/system/purview/index.jsp</result>
+		</action>
+		<action name="purgroup_index_search" method="search" class="sysPurGroupAction">
+			<result name="success">app/system/purview/index.jsp</result> 
+		</action>
+		<action name="purgroup_grouplist" method="showGroupList" class="sysPurGroupAction">
+			<result name="success">app/system/purview/tablist.jsp</result>
+		</action>
+		<action name="purgroup_list" method="list" class="sysPurGroupAction">
+			<result name="success">app/system/purview/list.jsp</result>
+		</action>
+		<action name="purgroup_add" method="addItem" class="sysPurGroupAction">
+			<result name="success">app/system/purview/edit.jsp</result>
+
+		</action>
+		<action name="purgroup_edit" method="load" class="sysPurGroupAction">
+			<result name="success">app/system/purview/edit.jsp</result>
+		</action>
+		<action name="purgroup_save" method="save" class="sysPurGroupAction">
+			<result name="success">app/public/succes.jsp</result>
+
+		</action>
+		<action name="purgroup_delete" method="delete" class="sysPurGroupAction">
+			<result name="success" type="redirect">purgroup_list.action</result>
+		</action>
+		<!-- 打开模块权限列表，根据权限组关联功能框架 -->
+		<action name="openpurview_web" method="openpurview" class="sysPurGroupAction">
+			<result name="success">app/system/purview/purviewList.jsp</result>
+		</action>
+		<action name="showpurview_json" method="loadPurviewJSON" class="sysPurGroupAction"></action>
+		<action name="setpurview_do" method="setpurview" class="sysPurGroupAction"></action>
+		<!-- 打开操作权限列表，根据权限组关联操作权限模块 -->
+		<action name="openpurviewToOperation_web" method="openPurviewOperation"
+			class="sysPurGroupAction">
+			<result name="success">app/system/purview/purviewOperationList.jsp
+			</result>
+		</action>
+		<action name="loadPurviewOperation_json" method="loadPurviewOperationJSON"
+			class="sysPurGroupAction"></action>
+		<action name="setpurviewOperation_do" method="setPurviewOperation"
+			class="sysPurGroupAction"></action>
+
+		<!-- 打开角色权限，根据权限组关联角色 -->
+		<action name="openpurviewToRole_web" method="openRolePurview"
+			class="sysPurGroupAction">
+			<result name="success">app/system/purview/purviewRoleList.jsp</result>
+		</action>
+		<action name="setpurviewRole_do" method="setPurviewRole" class="sysPurGroupAction">
+			<result name="success">app/system/purview/purviewRoleList.jsp</result>
+			<result type="redirect">openpurviewToRole_web.action?id=${id}</result>
+		</action>
+		<action name="openpurviewToRole_json" method="openRolePurviewTree"
+			class="sysPurGroupAction">
+			<result name="success">app/system/purview/purviewRoleList.jsp</result>
+		</action>
+		<action name="setpurviewRole_do" method="setRolePuview" class="sysPurviewRoleAction"></action>
+		<action name="show_cacheManageList" method="loadCacheList"
+			class="cacheManagementAction">
+			<result name="success">app/system/cache/cachelist.jsp</result>
+		</action>
+
+		<action name="reloadCacheList" method="reloadCacheModel" class="cacheManagementAction">
+			<result name="success">app/system/cache/cachelist.jsp</result>
+		</action>
+
+		<!-- 打开组织结构，根据权限组授权组织结构 -->
+		<action name="openPurviewOrgTree" method="openPurviewOrgTree"
+			class="sysPurGroupAction">
+			<result name="success">app/system/purview/purviewOrgTree.jsp</result>
+		</action>
+		<action name="jsonPurviewOrgTree" method="openOrgJsonTree"
+			class="sysPurGroupAction">
+			<result name="success">app/system/purview/openjson.jsp</result>
+		</action>
+		<action name="setPurviewOrg" method="setPurviewOrg" class="sysPurGroupAction">
+			<result name="success">app/system/purview/purviewOrgTree.jsp</result>
+		</action>
+		<action name="showPurviewOrgList" method="showPurviewOrgList"
+			class="sysPurGroupAction">
+			<result name="success">app/system/purview/purviewOrgTree.jsp</result>
+		</action>
+		<action name="getPurviewOrgGridData" method="getPurviewOrgGridData"
+			class="sysPurGroupAction">
+			<result name="success">app/system/purview/opengrid.jsp</result>
+		</action>
+
+		<!-- 权限组授权用户 -->
+		<action name="openPurviewUserIndex" method="index"
+			class="sysPurviewUserAction">
+			<result name="success">app/system/purview/purviewUserList.jsp</result>
+		</action>
+		<action name="openPurviewUser_treejson" method="showTreeJson"
+			class="sysPurviewUserAction"></action>
+		<action name="openPurviewUser_setpurview" method="setUserPuview"
+			class="sysPurviewUserAction"></action>
+		<!-- 权限组授权部门 -->
+		<action name="openPurviewDeptIndex" method="index"
+			class="sysPurviewDeptAction">
+			<result name="success">app/system/purview/purviewDeptList.jsp</result>
+		</action>
+		<action name="openPurviewDept_treejson" method="showTreeJson"
+			class="sysPurviewDeptAction"></action>
+		<action name="openPurviewDept_setpurview" method="setDeptPuview"
+			class="sysPurviewDeptAction"></action>
+		<!-- 权限组授权流程 -->
+		<action name="openPurviewProcessIndex" method="index"
+			class="sysPurviewProcessAction">
+			<result name="success">app/system/purview/processList.jsp</result>
+		</action>
+		<action name="openPurviewProcess_treejson" method="showTreeJson"
+			class="sysPurviewProcessAction"></action>
+		<action name="openPurviewProcess_setpurview" method="setProcessPuview"
+			class="sysPurviewProcessAction"></action>
+		<!-- 权限组授权数据维护 -->
+		<action name="openPurviewDemIndex" method="index" class="sysPurviewDemAction">
+			<result name="success">app/system/purview/purviewDemList.jsp</result>
+		</action>
+		<action name="openPurviewDemtreejson" method="showTreeJson"
+			class="sysPurviewDemAction"></action>
+		<action name="openPurviewDem_setpurview" method="setDemPuview"
+			class="sysPurviewDemAction"></action>
+		<!-- 权限组授权报表 -->
+		<action name="openPurviewReportIndex" method="index"
+			class="sysPurviewReportAction">
+			<result name="success">app/system/purview/purviewReportList.jsp</result>
+		</action>
+		<action name="openPurviewReporttreejson" method="showTreeJson"
+			class="sysPurviewReportAction"></action>
+		<action name="openPurviewReport_setpurview" method="setReportPuview"
+			class="sysPurviewReportAction"></action>
+
+		<!-- 用户授权权限组 -->
+		<action name="openUnPurviewUserIndex" method="unindex"
+			class="sysPurviewUserAction">
+			<result name="success">app/system/purview/user_to_index.jsp</result>
+		</action>
+		<action name="minUnPurviewUserIndex" method="userPurviewIndex"
+			class="sysPurviewUserAction">
+			<result name="success">app/system/purview/user_to_purview.jsp</result>
+		</action>
+		<action name="openUnUserPurviewList" method="showPurviewTreeByUserJson"
+			class="sysPurviewUserAction"></action>
+		<action name="openPurviewUser_setUserlist" method="setPuviewUser"
+			class="sysPurviewUserAction"></action>
+		<action name="openUnPurviewUserHelp" class="sysPurviewUserAction">
+			<result name="success">app/system/purview/user_to_help.jsp</result>
+		</action>
+		<!-- 部门授权权限组 -->
+		<action name="openUnPurviewDeptIndex" method="unindex"
+			class="sysPurviewDeptAction">
+			<result name="success">app/system/purview/dept_to_index.jsp</result>
+		</action>
+		<action name="openUnDeptPurviewList" method="showPurviewTreeByDeptJson"
+			class="sysPurviewDeptAction"></action>
+		<action name="openPurviewDept_setDeptlist" method="setPuviewDept"
+			class="sysPurviewDeptAction"></action>
+		<!-- 流程授权权限组 -->
+		<action name="openUnPurviewProcessIndex" method="unindex"
+			class="sysPurviewProcessAction"> 
+			<result name="success">app/system/purview/process_to_index.jsp</result>
+		</action>
+		<action name="openUnProcessPurviewList" method="showPurviewTreeByProcessJson"
+			class="sysPurviewProcessAction"></action>
+		<action name="openPurviewProcess_setProcesslist" method="setPuviewProcess"
+			class="sysPurviewProcessAction"></action>
+		<!-- 导航菜单授权权限组 -->
+		<action name="openUnPurviewNavIndex" method="unindex"
+			class="sysPurviewNavAction">
+			<result name="success">app/system/purview/nav_to_index.jsp</result>
+		</action>
+		<action name="openUnNavPurviewList" method="showPurviewTreeJson"
+			class="sysPurviewNavAction"></action>
+		<action name="openPurviewNav_setNavlist" method="setPuviewNav"
+			class="sysPurviewNavAction"></action>
+		<!-- 角色授权权限组 -->
+		<action name="openUnPurviewRoleIndex" method="unindex"
+			class="sysPurviewRoleAction">
+			<result name="success">app/system/purview/role_to_index.jsp</result>
+		</action>
+		<action name="showPurviewRoleTree" method="showRoleTreeJson"
+			class="sysPurviewRoleAction"></action>
+		<action name="openUnRolePurviewList" method="showPurviewTreeJson"
+			class="sysPurviewRoleAction"></action>
+		<action name="openPurviewRole_setRolelist" method="setPuviewRole"
+			class="sysPurviewRoleAction"></action>
+		<!-- 序列管理 -->
+		<action name="sequence_list" method="list" class="sysSequenceAction">
+			<result name="success">app/system/sequence/list.jsp</result>
+		</action>
+		<action name="sequence_add" method="addItem" class="sysSequenceAction">
+			<result name="success">app/system/sequence/edit.jsp</result>
+		</action>
+		<action name="sequence_edit" method="load" class="sysSequenceAction">
+			<result name="success">app/system/sequence/edit.jsp</result>
+		</action>
+		<action name="sequence_save" method="save" class="sysSequenceAction"></action>
+		<action name="sequence_delete" method="delete" class="sysSequenceAction">
+			<result name="success">app/system/sequence/list.jsp</result>
+			<result type="redirect">sequence_list.action</result>
+		</action>
+		<action name="showUploadifyPage" class="uploadifyAction"
+			method="showUploadifyPage">
+			<result name="success">app/upload/uploadify.jsp</result>
+		</action>
+		<!-- Web Uploader插件 -->
+		<action name="showWebUploaderPage" class="uploadifyAction"
+			method="showWebUploaderPage">
+			<result name="success">app/upload/webUploadify.jsp</result>
+		</action>
+		
+		<action name="showUploadifyPageTwo" class="uploadifyAction" method="showUploadifyPage">
+			<result name="success">app/upload/uploadifyTwo.jsp</result>
+		</action>
+		<action name="uploadifyUpload" class="uploadifyAction" method="upload"></action>
+		<action name="uploadifyRemove" class="uploadifyAction" method="remove"></action>
+		
+		
+		<action name="show_base_upload" method="baseUpload"  class="uploadifyAction">
+			<result name="success">app/upload/baseUpload.jsp</result>
+		</action>
+		<action name="uploadifyBaseUpload" class="uploadifyAction" method="doBaseUpload">
+			<result name="success">app/upload/upload_tips.jsp</result>
+		</action>
+		<!-- 系统消息管理 -->
+		<action name="sysmsg_index" method="list"  class="sysMessageAction">
+			<result>app/message/runtime/msgPage.jsp</result> 
+		</action>
+		<action name="sysmsg_mini_unread_list" method="miniWinlist"  class="sysMessageAction">
+			<result name="success">app/message/runtime/minilist.jsp</result>  
+		</action>
+		<action name="sysmsg_showItem" method="getSyMsgItem"  class="sysMessageAction">
+			<result name="success">app/message/runtime/msgInfo.jsp</result>  
+		</action>
+		<action name="sysmsg_mge_add" method="addIndex" class="sysMessageAction">
+			<result name="success">app/message/sys/add.jsp</result>
+		</action>
+		<action name="sysmsg_remove" method="remove" class="sysMessageAction">
+			<result type="redirect">sysmsg_list.action</result>
+		</action>
+		<action name="sysmsg_removeAll" method="removeAll" class="sysMessageAction">
+		</action>
+		<action name="sysmsg_setsutaus" method="changeStatus" class="sysMessageAction">
+			<result type="redirect">sysmsg_list.action</result>
+		</action>
+		<action name="sysmsg_mge_sender" method="index" class="sysMessageAction">
+			<result name="success">app/message/sys/index.jsp</result>
+		</action>
+		<!--个人设置 -->
+		
+		<action name="persion_role_exchange" method="roleExchange" class="sysPersionAction">
+			<result name="success">app/system/persion/roleset.jsp</result>
+		</action> 
+		<action name="persion_role_doexchange" method="doExchange" class="sysPersionAction">
+		</action> 
+		<action name="syspersion_info" method="getSysPersonIndexPage"
+			class="sysPersionAction">
+			<result name="success">app/system/persion/index.jsp</result>
+		</action>
+		<action name="syspersion_leftTitle" method="getSysPersonLeftPage"
+			class="sysPersionAction">
+			<result name="success">app/system/persion/leftTitle.jsp</result>
+		</action>
+		<action name="syspersion_topTitle" method="getSysPersonTopPage"
+			class="sysPersionAction">
+			<result name="success">app/system/persion/topTitle.jsp</result>
+		</action>
+		<action name="syspersion_generalSet" method="getMyPersionInfo" class="sysPersionAction">
+			<result name="success">app/system/persion/generalSet.jsp</result>
+		</action>
+		<action name="syspersion_update" method="updateUserInfo" class="sysPersionAction">
+			<result name="success">app/system/persion/generalSet.jsp</result>
+		</action>
+		<action name="syspersion_pwd_update" method="pwdUpdateWeb"
+			class="sysPersionAction">
+			<result name="success">app/system/persion/pwd_index.jsp</result>
+		</action>
+		<!-- 登录修改密码 -->
+		<action name="login_pwd_update" method="pwdUpdateWeb"
+			class="sysPersionAction">
+			<result name="success">app/system/persion/login_pwd_index.jsp</result>
+		</action>
+		<action name="syspersion_exec_pwd_update" method="excutePwdUpdate" class="sysPersionAction">
+		</action>
+		<action name="syspersion_photo" method="upfilePhoto" class="sysPersionAction">
+			<result name="success">app/system/persion/photoindex.jsp</result>
+		</action>
+		<action name="syspersion_photo_UpFile" method="execute"
+			class="sysPersionUploadPhotoAction"></action>
+		<action name="syspersion_photo_saveImage" method="saveImage"
+			class="sysPersionUploadPhotoAction">
+			<result name="success">app/system/persion/photoindex.jsp</result>
+		</action>
+		<action name="syspersion_photo_deleteImage" method="deleteImage"
+			class="sysPersionUploadPhotoAction">
+			<result name="success">app/org/user/edit.jsp</result>
+			<result type="redirect">user_edit.action?userid=${userid}</result>
+		</action>
+		<action name="persion_menuLayout" method="menuLayoutEdit"
+			class="sysPersionAction">
+			<result name="success">app/system/persion/menuLayout_index.jsp</result>
+		</action>
+		<action name="syspersion_loadMsRemindPage" method="loadMsRemindPage"
+			class="sysPersionAction">
+			<result name="success">app/system/persion/msRemind.jsp</result>
+		</action>
+		<action name="syspersion_saveMsRemindPage" method="saveMsRemindPage"
+			class="sysPersionAction">
+			<result name="success">app/system/persion/msRemind.jsp</result>
+		</action>
+		<action name="syspersion_loadSysStylePage" method="loadSysStylePage"
+			class="sysPersionAction">
+			<result name="success">app/system/persion/sysStylePage.jsp</result>
+		</action>
+		<action name="syspersion_saveSysStylePage" method="saveSysStylePage"
+			class="sysPersionAction">
+			<result name="success">app/system/persion/sysStylePage.jsp</result>
+		</action>
+		<action name="syspersion_loadOtherParamPage" method="loadOtherParamPage"
+			class="sysPersionAction">
+			<result name="success">app/system/persion/otherParamPage.jsp</result>
+		</action>
+		<action name="syspersion_saveOtherParamPage" method="saveOtherParamPage"
+			class="sysPersionAction">
+			<result name="success">app/system/persion/otherParamPage.jsp</result>
+		</action>
+		<action name="syspersion_loadEntrustPage" method="loadEntrustPage"
+			class="sysPersionAction">
+			<result name="success">/app/system/persion/syspersion_loadEntrustPage.jsp
+			</result>
+		</action>
+		<action name="syspersion_addPersonEntrust" method="addPersonEntrust"
+			class="sysPersionAction">
+			<result name="success">/app/system/persion/syspersion_addPersonEntrust.jsp
+			</result>
+		</action>
+		<action name="syspersion_loadEntrustedPage" method="loadEntrustedPage"
+			class="sysPersionAction">
+			<result name="success">/app/system/persion/syspersion_loadEntrustedPage.jsp
+			</result>
+		</action>
+		<action name="syspersion_loadEntrustLogPage" method="loadEntrustLogPage"
+			class="sysPersionAction">
+			<result name="success">/app/system/persion/syspersion_loadEntrustLogPage.jsp
+			</result>
+		</action>
+
+		<action name="syspersion_showTagetuserInfo" method="getTargetUserInfo"
+			class="sysPersionAction">
+			<result name="success">app/system/persion/userinfo.jsp</result>
+			<result name="error">app/public/nofind.jsp</result>
+		</action>
+
+		<action name="syspersion_saveProcessAndReportCenterSort"
+			method="saveProcessAndReportCenterSort" class="sysPersionAction"></action>
+		<!-- =================地址簿========================= -->
+		<action name="openaddresstree" method="getAddressTree" class="iworkToolsAddressAction">
+			<result name="radioAddress">app/system/addressbook/radiobook.jsp</result>
+			<result name="moreAddress">app/system/addressbook/morebook.jsp</result>
+		</action>
+		<action name="jsonAddresstree" method="openAddressJsonTree"
+			class="iworkToolsAddressAction">
+			<result name="success">app/system/addressbook/openjson.jsp</result>
+		</action>
+		
+		<!-- =================end=========================== -->
+
+		<!--=================================知识管理=========================================== -->
+		<action name="kmdoc_Index" method="openDocumentFrame" class="kmDocumentFrameAction">
+			<result name="success">app/km/document/index.jsp</result>
+			<result name="dmsy">app/km/document/zskdmindex.jsp</result>
+		</action>
+		<action name="show_dmtree_json" method="showdmTreeJson" class="kmDocumentFrameAction"></action>
+		
+		<action name="show_km_tree_json" method="showTreeJson" class="kmDocumentFrameAction"></action>
+		<action name="show_km_grid_json" method="showGridJson" class="kmDocumentFrameAction"></action>
+		<action name="show_km_downloadFile" method="downloadFile" class="kmDocumentFrameAction"></action>
+		<action name="show_km_zdown" method="down" class="kmDocumentFrameAction"></action>
+		<action  name="pxcl_index" method="getPxcl" class="kmDocumentFrameAction"></action>
+		<action name="show_km_superior" method="returnSuperior" class="kmDocumentFrameAction"></action>
+		<!-- 权限列表 -->
+		<action name="km_purview_orgjson" method="showOrgPurviewJson"
+			class="kmPurViewAction"></action>
+		<action name="km_doc_purviewlist" method="purviewList" class="kmPurViewAction">
+			<result name="success">app/km/document/doc_purview_list.jsp</result>
+		</action>
+		<action name="km_purview_tree" method="purviewTree" class="kmPurViewAction">
+			<result name="success">app/km/document/doc_purview_tree.jsp</result>
+		</action>
+		<action name="km_purview_set" method="setPurview" class="kmPurViewAction"></action>
+
+		<action name="km_dir_info" method="load" class="kmDirectoryAction">
+			<result name="success">app/km/document/dir_info.jsp</result>
+		</action>
+		<action name="km_dir_add" method="addDirectory" class="kmDirectoryAction">
+			<result name="success">app/km/document/dir_edit.jsp</result>
+		</action>
+		<action name="km_dir_edit" method="load" class="kmDirectoryAction">
+			<result name="success">app/km/document/dir_edit.jsp</result>
+		</action>
+		<action name="km_dir_change_address" method="changeAddress"
+			class="kmDirectoryAction"></action>
+		<action name="km_dir_save" method="save" class="kmDirectoryAction"></action>
+		<action name="km_dir_del" method="delDir" class="kmDirectoryAction"></action>
+		<action name="km_dir_isNull" method="isDirNull" class="kmDirectoryAction"></action>
+		<action name="km_dir_baseInfo" method="getBaseInfo" class="kmDirectoryAction">
+			<result name="success">app/km/document/dir_baseInfo.jsp</result>
+		</action>
+		<action name="km_dir_view" method="preview" class="kmDirectoryAction">
+			<result name="success">app/km/document/dir_preview.jsp</result>
+		</action>
+
+		<action name="opDocList" method="openDocList" class="kmDocAction">
+			<result name="success">app/km/document/doc_list.jsp</result>
+		</action>
+		<action name="km_file_edit" method="editFile" class="kmDocAction">
+			<result name="success">app/km/document/doc_edit.jsp</result>
+		</action>
+		<action name="km_file_add" method="addFile" class="kmDocAction">
+			<result name="success">app/km/document/doc_edit.jsp</result>
+		</action>
+		<action name="km_file_lock" method="lockFile" class="kmDocAction"></action>
+		<action name="km_file_unlock" method="unlockFile" class="kmDocAction"></action>
+		<action name="km_file_del" method="delFile" class="kmDocAction"></action>
+		<action name="km_file_hisdel" method="delHisFile" class="kmDocAction"></action>
+		<action name="km_showUploadManyPage" method="showUploadManyPage"
+			class="kmDocAction">
+			<result name="success">app/km/document/uploadify_many.jsp</result>
+		</action>
+		<action name="file_uploadMany_del" method="delFileFromUUID"
+			class="kmDocAction"></action>
+		<action name="file_uploadMany_save" method="saveFileFromUUID"
+			class="kmDocAction"></action>
+		<action name="km_showUploadOnePage" method="showUploadOnePage"
+			class="kmDocAction">
+			<result name="success">app/km/document/uploadify_one.jsp</result>
+		</action>
+		<action name="km_file_version_update" method="updateFileVersion" class="kmDocAction">
+		</action>
+		<action name="km_file_version_update_undo" method="UnUpdateFileVersion" class="kmDocAction">
+		</action>
+		<!-- =================================删除历史 zouyalei=========================================== -->
+		<action name="km_file_delversion" method="removeVersion" class="kmDocAction">
+		</action>
+
+
+		<action name="km_showUploadifyPage" method="showUploadifyPage"
+			class="kmDocAction">
+			<result name="success">app/km/document/uploadify.jsp</result>
+		</action>
+		<action name="km_file_uploadifyUpload" method="upload" class="kmDocAction"></action>
+		<action name="km_file_uploadifyRemove" method="remove" class="kmDocAction"></action>
+		<action name="km_file_uploadifyDownload" method="download"
+			class="kmDocAction"></action>
+		<action name="km_file_upload_reset" method="resetFileUUID"
+			class="kmDocAction"></action>
+
+		<action name="km_doc_save" method="save" class="kmDocAction"></action>
+		<action name="km_doc_view" method="preview" class="kmDocAction">
+			<result name="success">app/km/document/doc_preview.jsp</result>
+		</action>
+		<action name="km_doc_baseInfo" method="getBaseInfo" class="kmDocAction">
+			<result name="success">app/km/document/doc_baseInfo.jsp</result>
+		</action>
+		<action name="km_doc_hisVersion" method="getHisVersion" class="kmDocAction">
+			<result name="success">app/km/document/doc_history.jsp</result>
+		</action>
+		<action name="km_talk_show" method="showTalk" class="kmTalkAction">
+			<result name="success">app/km/document/talk.jsp</result>
+		</action>
+		<action name="km_doc_guessUwant" method="showWant" class="kmDocAction">
+			<result name="success">app/km/document/doc_want.jsp</result>
+		</action>
+
+		<!-- <action name="km_open_office" method="loadOfficeIndex" class="kmDocAction"> 
+			</action> -->
+		<action name="km_doc_getTypeAndEnum" method="getTypeAndEnum"
+			class="kmDocAction"></action>
+		<action name="km_doc_preview_orgPic" method="viewOriginalPic"
+			class="kmDocAction">
+			<result name="success">app/km/document/doc_originalPic.jsp</result>
+		</action>
+		<action name="km_doc_preview_pdf" method="viewPDF"
+			class="kmDocAction">
+			<result name="success">app/km/document/pdfView.jsp</result> 
+		</action>
+
+		<action name="km_readLog_showRecentLog" method="showRecentLog"
+			class="kmReadLogAction">
+			<result name="success">app/km/document/recentView.jsp</result>
+		</action>
+
+		<action name="km_fav_showFav" method="showFav" class="kmFavAction">
+			<result name="success">app/km/document/favorite.jsp</result>
+		</action>
+		<action name="km_fav_addFav" method="addFav" class="kmFavAction"></action>
+		<action name="km_fav_delFav" method="delFavModel" class="kmFavAction"></action>
+
+
+		<action name="km_talk_save" method="save" class="kmTalkAction"></action>
+
+		<action name="km_enterprise_tree" method="openKM_Enterprise_Tree"
+			class="kmDocumentFrameAction">
+			<result name="success">app/km/document/km_enterprise_tree.jsp</result>
+		</action>
+		<action name="km_list" method="openKM_Enterprise_list" class="kmDocumentFrameAction">
+			<result name="success">app/km/document/km_list.jsp</result>
+		</action>
+		<action name="kmfileUpload" method="kmDocUpload" class="kmUploadAction"></action>
+		<!--=================================END=========================================== -->
+		<!-- Engine -->
+		<action name="sysEngineGroup" class="sysEngineGroupAction">
+			<result name="success">app/engine/group/index.jsp</result>
+			<result name="openjson">app/engine/group/openjson.jsp</result>
+		</action>
+		<action name="sysEngineGroup_add" method="add" class="sysEngineGroupAction">
+			<result name="success">app/engine/group/edit.jsp</result>
+		</action>
+		<action name="sysEngineGroup_edit" method="edit"
+			class="sysEngineGroupAction">
+			<result name="success">app/engine/group/edit.jsp</result>
+		</action>
+		<action name="sysEngineGroup_moveUp" method="moveUp"
+			class="sysEngineGroupAction" />
+		<action name="sysEngineGroup_moveDown" method="moveDown"
+			class="sysEngineGroupAction" />
+		<action name="sysEngineGroup_remove" method="remove"
+			class="sysEngineGroupAction" />
+		<action name="sysEngineGroup_loadinfo" method="loadgroupInfo"
+			class="sysEngineGroupAction">
+			<result name="loadinfo">app/engine/group/info.jsp</result>
+			<result name="success">app/engine/group/info.jsp</result>
+		</action>
+		<action name="sysEngineMetadata" class="sysEngineMetadataAction">
+			<result name="success">app/engine/metadata/index.jsp</result>
+			<result name="openjson">app/engine/metadata/openjson.jsp</result>
+			<result name="metadatalist">app/engine/metadata/datagrid_json.jsp</result>
+			<result name="param">app/engine/metadata/param.jsp</result>
+		</action>
+
+		<action name="sysEngineMetadataMap" method="index"
+			class="sysEngineMetadataMapAction">
+			<result name="success">app/engine/metadatamap/index.jsp</result>
+		</action>
+
+		<action name="sysEngineMetadataMap_save" method="save"
+			class="sysEngineMetadataMapAction">
+			<result type="redirect">sysEngineMetadataMap!index.action?metadataid=${metadataid}
+			</result>
+		</action>
+		<action name="sysEngineMetadataMap_update" method="updateBaseInfo"
+			class="sysEngineMetadataMapAction">
+			<result type="redirect">sysEngineMetadataMap!index.action?metadataid=${metadataid}
+			</result>
+		</action>
+		<action name="sysEngineMetadataMap_remove" method="remove"
+			class="sysEngineMetadataMapAction">
+			<result type="redirect">sysEngineMetadataMap!index.action?metadataid=${metadataid}
+			</result>
+		</action>
+		<action name="sysEngineMetadataMap_loadbaseInfo" method="loadBaseInfo"
+			class="sysEngineMetadataMapAction">
+			<result name="success">app/engine/metadatamap/form_json.jsp</result>
+		</action>
+		<action name="sysEngineMetadataMap_loadmapInfo" method="loadMapInfo"
+			class="sysEngineMetadataMapAction">
+			<result name="success">app/engine/metadatamap/form_json.jsp</result>
+		</action>
+		<action name="sysEngineMetadataMap_loadstyleInfo" method="loadMapStyleInfo"
+			class="sysEngineMetadataMapAction">
+			<result name="success">app/engine/metadatamap/form_json.jsp</result>
+		</action>
+		<action name="sysEngineMetadataMap_styleList" method="styleList"
+			class="sysEngineMetadataMapAction">
+			<result name="success">app/engine/metadatamap/form_json.jsp</result>
+		</action>
+		<!-- END -->
+		<!--=================================activitiBPM=========================================== -->
+		<action name="mytasklist" method="getMyTaskList" class="myFlowTaskAction">
+			<result>app/flow/explorer/task/myflowtasklist.jsp</result>
+		</action>
+		<!-- 流程发起中心 -->
+		<action name="wfcreate" method="wfcreateCenter" class="myFlowTaskAction">
+			<result>app/flow/explorer/task/myflowcreate.jsp</result>
+		</action>
+		<action name="startProcessInstance" method="startProcessInstance"
+			class="myFlowTaskAction">
+			<result type="redirect">wfcreate.action</result>
+		</action>
+
+		<!--=================================activitiBPM-end=========================================== -->
+
+		<!--=================================短信平台-start=========================================== -->
+
+		<!-- 发送界面 -->
+		<action name="loginmsg" method="loginmsg"
+			class="com.iwork.plugs.sms.action.MessageSendAction">
+			<result name="success">app/plugs/sms/frame/msgsend/messagesend.jsp
+			</result>
+		</action>
+		<action name="zqb_phone_getXX" method="getXX" class="com.iwork.plugs.sms.action.MessageSendAction"> 
+			<result name="success">app/plugs/sms/frame/msgsend/mailsendcontent.jsp</result> 
+		</action>
+		<action name="messagesend" method="messagesend" class="com.iwork.plugs.sms.action.MessageSendAction">
+		</action>
+		<action name="messagesendbeforecontentcheck" method="messageSendBeforeContentCheck" class="com.iwork.plugs.sms.action.MessageSendAction">
+		</action>
+		<action name="phonebookSelectnum" method="phonebookSelectnum"
+			class="com.iwork.plugs.sms.action.MessageSendAction">
+			<result name="success">app/plugs/sms/frame/msgsend/selectphone.jsp
+			</result>
+		</action>
+		<action name="qselectnum" method="qselectnum"
+			class="com.iwork.plugs.sms.action.MessageSendAction">
+			<result name="success">app/plugs/sms/frame/msgsend/selectphone-xinxi.jsp
+			</result>
+		</action>
+		<action name="showPhoneBookJson" method="showPhoneBookJson"
+			class="com.iwork.plugs.sms.action.MessageSendAction">
+		</action>
+		<action name="showPhoneBookJsonTree" method="showPhoneBookJsonTree"
+			class="com.iwork.plugs.sms.action.MessageSendAction">
+		</action>
+		<action name="showPhoneBookJsonTreeNew" method="showPhoneBookJsonTreeNew"
+			class="com.iwork.plugs.sms.action.MessageSendAction">
+		</action>
+		<action name="justPhoneBookJsonTree" method="justPhoneBookJsonTree"
+			class="com.iwork.plugs.sms.action.MessageSendAction">
+		</action>
+		<action name="getphonegroup"  method="getphonegroup"
+			class="com.iwork.plugs.sms.action.MessageSendAction">
+		</action>
+		<action name="delphonegroup"  method="delphonegroup"
+			class="com.iwork.plugs.sms.action.MessageSendAction">
+		</action>
+		<action name="getphonegrouplist"  method="getphonegrouplist"
+			class="com.iwork.plugs.sms.action.MessageSendAction">
+		</action>
+		<action name="getallphone"  method="getallphone"
+			class="com.iwork.plugs.sms.action.MessageSendAction">
+		</action>
+		<action name="getgroupvalue"  method="getGroupValue"
+			class="com.iwork.plugs.sms.action.MessageSendAction">
+		</action>
+		<action name="getcompanyphonelist" method="getcompanyphonelist"
+			class="com.iwork.plugs.sms.action.MessageSendAction">
+		</action>
+		<action name="selectednum" method="selectednum"
+			class="com.iwork.plugs.sms.action.MessageSendAction">
+			<result name="success">app/plugs/sms/frame/msgsend/insert_page.jsp
+			</result>
+		</action>
+        <action name="phoneBook_index" method="index" class="com.iwork.plugs.sms.action.PhonebookAction">
+			<result name="success">app/plugs/sms/frame/phonebook/index.jsp</result>
+		</action>
+		<action name="phoneBook_checkZB" method="phoneBookcheckZB" class="com.iwork.plugs.sms.action.PhonebookAction">
+		</action>
+		<action name="phoneBook_index_address" method="address" class="com.iwork.plugs.sms.action.PhonebookAction">
+			<result name="success">app/plugs/sms/frame/phonebook/address.jsp</result>
+		</action>
+        <action name="phoneBook_index_exp" method="phoneBook_exp" class="com.iwork.plugs.sms.action.PhonebookAction">
+			<result name="success">app/plugs/sms/frame/phonebook/address.jsp</result>
+		</action>
+		<action name="phonebook_remove_item" method="removeItem" class="com.iwork.plugs.sms.action.PhonebookAction">
+		</action>
+		<action name="phonebook_index_impphonebook" method="impPhoneBook" class="com.iwork.plugs.sms.action.PhonebookAction">
+			<result name="success">app/plugs/sms/frame/phonebook/impPhone.jsp</result>
+		</action>
+		<action name="phonebook_impphonebook" method="doImpPhoneBook" class="com.iwork.plugs.sms.action.PhonebookAction">
+		</action>
+		<action name="phonebook_expphonebook" method="expPnoneBook" class="com.iwork.plugs.sms.action.PhonebookAction">
+		</action>
+
+		<!-- 号码簿 -->
+		<action name="typejson" method="typejson"
+			class="com.iwork.plugs.sms.action.PhonebookAction">
+			<!--result name="phonebookadd">app/plugs/sms/frame/phonebook-add.jsp</result> -->
+			<result name="phonebookjson">app/plugs/sms/frame/phonebook/phonebookjson.jsp
+			</result>
+		</action>
+		<action name="load" method="load"
+			class="com.iwork.plugs.sms.action.PhonebookAction">
+			<!--result name="phonebookadd">app/plugs/sms/frame/phonebook-add.jsp</result> -->
+			<result name="phonebook1">app/plugs/sms/frame/phonebook/phonebook1.jsp
+			</result>
+		</action>
+		<action name="qtypenums" method="qtypenums"
+			class="com.iwork.plugs.sms.action.PhonebookAction">
+			<!--result name="phonebookadd">app/plugs/sms/frame/phonebook-add.jsp</result> -->
+			<result name="phonebooknumsjson">app/plugs/sms/frame/phonebook/phonebooknumsjson.jsp
+			</result>
+		</action>
+		<action name="loginaddnum" method="loginaddnum"
+			class="com.iwork.plugs.sms.action.PhonebookAction">
+			<!--result name="phonebookadd">app/plugs/sms/frame/phonebook-add.jsp</result> -->
+			<result name="phonebookadd">app/plugs/sms/frame/phonebook/phonebook1.jsp
+			</result>
+		</action>
+		<action name="removetype" method="removetype"
+			class="com.iwork.plugs.sms.action.PhonebookAction">
+			<!--result name="phonebookadd">app/plugs/sms/frame/phonebook-add.jsp</result> -->
+			<result name="phonebook1">app/plugs/sms/frame/phonebook/phonebook1.jsp
+			</result>
+		</action>
+		<!-- <action name="removetype" method="removetype" class="com.iwork.plugs.sms.action.PhonebookAction"> 
+			<result name="phonebook1">app/plugs/sms/frame/phonebook1.jsp</result> </action> -->
+		<action name="savetype" method="savetype"
+			class="com.iwork.plugs.sms.action.PhonebookAction">
+			<!--result name="phonebookadd">app/plugs/sms/frame/phonebook-add.jsp</result> -->
+			<result name="addtypej">app/plugs/sms/frame/phonebook/addtypej.jsp
+			</result>
+		</action>
+		<action name="edittype" method="edittype"
+			class="com.iwork.plugs.sms.action.PhonebookAction">
+			<!--result name="phonebookadd">app/plugs/sms/frame/phonebook-add.jsp</result> -->
+			<result name="addtypej">app/plugs/sms/frame/phonebook/addtypej.jsp
+			</result>
+		</action>
+		<action name="addnumj" method="addnumj"
+			class="com.iwork.plugs.sms.action.PhonebookAction">
+			<!--result name="phonebookadd">app/plugs/sms/frame/phonebook-add.jsp</result> -->
+			<result name="addtypej">app/plugs/sms/frame/phonebook/addtypej.jsp
+			</result>
+		</action>
+		<action name="delnumj" method="delnumj"
+			class="com.iwork.plugs.sms.action.PhonebookAction">
+			<!--result name="phonebookadd">app/plugs/sms/frame/phonebook-add.jsp</result> -->
+			<result name="phonebook1">app/plugs/sms/frame/phonebook/phonebook1.jsp
+			</result>
+		</action>
+		<action name="saveeditnumj" method="saveeditnumj"
+			class="com.iwork.plugs.sms.action.PhonebookAction">
+			<!--result name="phonebookadd">app/plugs/sms/frame/phonebook-add.jsp</result> -->
+			<result name="addtypej">app/plugs/sms/frame/phonebook/addtypej.jsp
+			</result>
+		</action>
+		<action name="qnumload" method="qnumload"
+			class="com.iwork.plugs.sms.action.PhonebookAction">
+			<result name="phonebook1">app/plugs/sms/frame/phonebook/phonebook1.jsp
+			</result>
+		</action>
+		<action name="dataedit" method="dataedit"
+			class="com.iwork.plugs.sms.action.PhonebookAction">
+			<result name="typeset">app/plugs/sms/frame/typeset.jsp</result>
+		</action>
+
+		<!-- 个人短信查询 后缀有j的是指用jquery改的 -->
+		<action name="loginprimsg" method="loginprimsg"
+			class="com.iwork.plugs.sms.action.PrivateMsgAction">
+			<result name="privatemsg1">app/plugs/sms/frame/privatemsg/privatemsg1.jsp
+			</result>
+		</action>
+		<action name="privatemsgj" method="privatemsgj"
+			class="com.iwork.plugs.sms.action.PrivateMsgAction">
+			<result name="privatemsgjson">app/plugs/sms/frame/privatemsg/privatemsgjson.jsp
+			</result>
+		</action>
+		<action name="loadq" method="loadq"
+			class="com.iwork.plugs.sms.action.PrivateMsgAction">
+			<result name="privatemsg1">app/plugs/sms/frame/privatemsg/privatemsg1.jsp
+			</result>
+		</action>
+
+
+		<!-- 短信日志查询 -->
+		<action name="loginlog" method="loginlog"
+			class="com.iwork.plugs.sms.action.LogAction">
+			<result name="msglog1">app/plugs/sms/frame/msglog/msglog1.jsp</result>
+		</action>
+		<action name="qlogj" method="qlogj"
+			class="com.iwork.plugs.sms.action.LogAction">
+			<result name="msglogjson">app/plugs/sms/frame/msglog/msglogjson.jsp
+			</result>
+		</action>
+		<action name="loginj" method="loginj"
+			class="com.iwork.plugs.sms.action.LogAction">
+			<result name="msglog1">app/plugs/sms/frame/msglog/msglog1.jsp</result>
+		</action>
+
+
+		<!-- 用户管理 -->
+		<action name="loginuserj" method="loginuserj"
+			class="com.iwork.plugs.sms.action.SmsUser1Action">
+			<result name="userOperator">app/plugs/sms/frame/user/userOperator.jsp
+			</result>
+		</action>
+		<action name="quserj" method="quserj"
+			class="com.iwork.plugs.sms.action.SmsUser1Action">
+			<result name="userjson">app/plugs/sms/frame/user/userjson.jsp</result>
+		</action>
+		<action name="saveuser" method="saveuser"
+			class="com.iwork.plugs.sms.action.SmsUser1Action">
+			<result name="userOperator">app/plugs/sms/frame/user/userOperator.jsp
+			</result>
+		</action>
+		<!-- 系统设置 -->
+		<action name="loginconfig" method="loginconfig"
+			class="com.iwork.plugs.sms.action.ConfigAction">
+			<result name="configadd">app/plugs/sms/frame/config/configadd.jsp</result>
+		</action>
+
+		<action name="qconfig1" method="qconfig1"
+			class="com.iwork.plugs.sms.action.ConfigAction">
+			<result name="configaddxinxi">app/plugs/sms/frame/config/configadd-xinxi.jsp
+			</result>
+		</action>
+
+		<action name="queryconfig" method="queryconfig"
+			class="com.iwork.plugs.sms.action.ConfigAction">
+			<result name="configaddxinxi">app/plugs/sms/frame/config/configadd-xinxi.jsp
+			</result>
+		</action>
+		<action name="addconfig" method="addconfig"
+			class="com.iwork.plugs.sms.action.ConfigAction">
+			<result name="configaddxinxi">app/plugs/sms/frame/config/configadd-xinxi.jsp
+			</result>
+		</action>
+		<action name="delnumc" method="delnumc"
+			class="com.iwork.plugs.sms.action.ConfigAction">
+			<result name="configaddxinxi">app/plugs/sms/frame/config/configadd-xinxi.jsp
+			</result>
+		</action>
+
+		<action name="editnumc" method="editnumc"
+			class="com.iwork.plugs.sms.action.ConfigAction">
+			<result name="configaddxinxi">app/plugs/sms/frame/config/configadd-xinxi.jsp
+			</result>
+		</action>
+		<action name="dataeditc" method="dataeditc"
+			class="com.iwork.plugs.sms.action.ConfigAction">
+			<result name="configaddxinxi">app/plugs/sms/frame/config/configadd-xinxi.jsp
+			</result>
+		</action>
+		<action name="saveeditnumc" method="saveeditnumc"
+			class="com.iwork.plugs.sms.action.ConfigAction">
+			<result name="configaddxinxi" type="redirect">app/plugs/sms/frame/config/configadd-xinxi.jsp
+			</result>
+		</action>
+		<action name="queryconfig2" method="queryconfig2"
+			class="com.iwork.plugs.sms.action.ConfigAction">
+			<result name="configaddxinxi" type="redirect">app/plugs/sms/frame/config/configadd-xinxi.jsp
+			</result>
+		</action>
+		<!-- 加入日志 -->
+		<action name="add" method="add"
+			class="com.iwork.plugs.sms.action.AddlogAction"></action>
+		<!-- 短信管理 -->
+		<action name="loginmanage" method="loginmanage"
+			class="com.iwork.plugs.sms.action.MsgmanageAction">
+			<result name="msgmanage">app/plugs/sms/frame/msgmanage/msgmanage.jsp
+			</result>
+		</action>
+
+		<action name="msgmanage" method="msgmanage"
+			class="com.iwork.plugs.sms.action.MsgmanageAction">
+			<result name="msgmanagexinxi">app/plugs/sms/frame/msgmanage/msgmanage-xinxi.jsp
+			</result>
+		</action>
+		<action name="msgmanage1" method="msgmanage1"
+			class="com.iwork.plugs.sms.action.MsgmanageAction">
+			<result name="msgmanagexinxi">app/plugs/sms/frame/msgmanage/msgmanage-xinxi.jsp
+			</result>
+		</action>
+
+		<action name="updatemsg" method="updatemsg"
+			class="com.iwork.plugs.sms.action.MsgmanageAction">
+			<result name="msgmanagexinxi">app/plugs/sms/frame/msgmanage/msgmanage-xinxi.jsp
+			</result>
+		</action>
+		<action name="qbegin" method="qbegin"
+			class="com.iwork.plugs.sms.action.MsgmanageAction">
+			<result name="msgmanage1">app/plugs/sms/frame/msgmanage/msgmanage1.jsp
+			</result>
+		</action>
+		<!--=================================短信平台-end=========================================== -->
+		<!--=================================意见审批（张慧珊）======================================= -->
+		<action name="process_opin_showFrame"  method="loadUserDefinedOpinions"  class="processOpinionAction">
+			<result>app/engine/process/plugins/processopinion/opinionFrame.jsp
+			</result>
+		</action>
+		<action name="process_opin_loadDefaultOpinions" method="loadDefaultOpinions"
+			class="processOpinionAction">
+			<result name="success1" type="redirect">process_opin_loadUserDefinedOpinions.action?code=1
+			</result>
+			<result name="success2" type="redirect">process_opin_loadUserDefinedOpinions.action?code=2
+			</result>
+		</action>
+		<action name="process_opin_loadUserDefinedOpinions" method="loadUserDefinedOpinions"
+			class="processOpinionAction">
+			<result name="success1">app/engine/process/plugins/processopinion/ApproveOpinionLeft.jsp
+			</result>
+			<result name="success2">app/engine/process/plugins/processopinion/EditOpinion.jsp
+			</result>
+		</action>
+		<action name="process_opin_addOpinion" method="addOpinion"
+			class="processOpinionAction">
+			<result name="success" type="redirect">process_opin_loadUserDefinedOpinions.action?code=2
+			</result>
+		</action>
+		<action name="process_opin_modOpinion" method="modOpinion"
+			class="processOpinionAction">
+			<result name="success" type="redirect">process_opin_loadUserDefinedOpinions.action?code=2
+			</result>
+		</action>
+		<action name="process_opin_delOpinion" method="delOpinion"
+			class="processOpinionAction">
+			<result name="success" type="redirect">process_opin_loadUserDefinedOpinions.action?code=2
+			</result>
+		</action>
+		<action name="process_opin_openAddWin" method="openAddWin"
+			class="processOpinionAction">
+			<result name="success">app/engine/process/plugins/processopinion/AddOpinion.jsp
+			</result>
+		</action>
+		<action name="process_opin_openModWin" method="openModWin"
+			class="processOpinionAction">
+			<result name="success">app/engine/process/plugins/processopinion/ModifyOpinion.jsp
+			</result>
+		</action>
+		<action name="process_opin_addOpin" method="AddOpin"
+			class="processOpinionAction"></action>
+		<action name="process_opin_isOpinExist" method="IsOpinExist"
+			class="processOpinionAction"></action>
+		<action name="process_opinlist__moveUp" method="MoveUp"
+			class="processOpinionAction"></action>
+		<action name="process_opinlist_moveDown" method="MoveDown"
+			class="processOpinionAction"></action>
+		<action name="process_opinlist_moveTop" method="MoveTop"
+			class="processOpinionAction"></action>
+		<action name="process_opinlist_moveLow" method="MoveLow"
+			class="processOpinionAction"></action>
+		<action name="process_opin_sendOpinion" method="sendOpinion"
+			class="processOpinionAction"></action>
+		<action name="process_opin_addAttch" method="addOpinionAttach"
+			class="processOpinionAction"></action>
+		<action name="process_opin_editOpinion" method="loadRframe"
+			class="processOpinionAction">
+			<result name="success">app/engine/process/plugins/processopinion/ApproveOpinionRight.jsp
+			</result>
+		</action>
+		<action name="process_opin_loadtest">
+			<result name="success">app/engine/process/plugins/processopinion/ApproveOpinion.jsp
+			</result>
+		</action>
+		<action name="process_opin_openmodalWindow">
+			<result name="success">app/engine/process/plugins/processopinion/EditOpinionFrameSet.jsp
+			</result>
+		</action>
+		<action name="process_opin_attach">
+			<result name="success">app/engine/process/plugins/processopinion/opinion_uplodify.jsp
+			</result>
+		</action>
+		<action name="process_opin_baseAttach">
+			<result name="success">app/engine/process/plugins/processopinion/baseUpload.jsp
+			</result>
+		</action>
+		
+		<action name="process_opin_doAttach" method="doBaseUpload" class="uploadifyAction" >
+			<result name="success">app/engine/process/plugins/processopinion/upload_tips.jsp</result>
+		</action>
+		<!--=================================意见审批-end=========================================== -->
+		<!-- 跳转规则编辑 -->
+		<action name="stepSysJump_loadRuleEditer" method="load"
+			class="ruleEditerAction">
+			<result name="success">app/engine/process/plugins/processruleEditer/step_sysjump_ruleEditer.jsp
+			</result>
+			<result name="error">app/public/nofind.jsp</result>
+		</action>
+		<action name="stepSysJump_ruleEditer_JsonData" method="showJsonData"
+			class="ruleEditerAction">
+			<result name="success">app/engine/process/plugins/processruleEditer/step_sysjump_jsondata.jsp
+			</result>
+		</action>
+		<!--=================================跳转规则编辑-end=========================================== -->
+		<!-- 委托流程管理 Start -->
+		<action name="processEntrust_sys_index" method="loadSysIndex"
+			class="processEntrustPersonAction">
+			<result name="success">app/engine/process/entrust/processEntrust_sys_index.jsp
+			</result>
+		</action>
+		<action name="processEntrust_sys_add" method="add_sys"
+			class="processEntrustPersonAction">
+			<result name="success">app/engine/process/entrust/processEntrust_sys_edit.jsp
+			</result>
+		</action>
+		<action name="processEntrust_sys_edit" method="edit_sys"
+			class="processEntrustPersonAction">
+			<result name="success">app/engine/process/entrust/processEntrust_sys_info.jsp
+			</result>
+		</action>
+		<action name="processEntrust_sys_save" method="save_sys"
+			class="processEntrustPersonAction"></action>
+		<action name="processEntrust_sys_getProcessTree" method="getEntrustProcessTree"
+			class="processEntrustPersonAction"></action>
+		<action name="processEntrust_sys_getProcessTable" method="getEntrustProcessTable"
+			class="processEntrustPersonAction"></action>
+		<action name="processEntrust_sys_getNonTerminateTable" method="getNonTerminateTable"
+			class="processEntrustPersonAction"></action>
+		<action name="processEntrust_sys_terminate" method="terminate"
+			class="processEntrustPersonAction"></action>
+		<action name="processEntrust_sys_receive" method="receive"
+			class="processEntrustPersonAction"></action>
+		<action name="processEntrust_sys_LogIndex" method="loadLogIndex"
+			class="processEntrustLogAction">
+			<result name="success">app/engine/process/entrust/processEntrust_sys_LogIndex.jsp
+			</result>
+		</action>
+		<action name="processEntrust_sys_getLogTable" method="getEntrustLogTable"
+			class="processEntrustLogAction"></action>
+		<action name="processEntrust_sys_getPersonLogTable" method="getPersonEntrustLogTable"
+			class="processEntrustLogAction"></action>
+		<!--=================================委托流程管理-end=========================================== -->
+		<!-- 流程讨论 -->
+		<action name="process_talk_startWin" class="processTalkAction">
+			<result name="success">app/engine/process/plugins/processTalk/process_talk_startWin.jsp
+			</result>
+		</action>
+		<action name="process_talk_replyWin" class="processTalkAction">
+			<result name="success">app/engine/process/plugins/processTalk/process_talk_replyWin.jsp
+			</result>
+		</action>
+		<action name="process_talk_startTalk" method="startTalk"
+			class="processTalkAction">
+			<result name="success">app/engine/process/plugins/processTalk/process_talk_start.jsp
+			</result>
+		</action>
+		<action name="talk_starter_save" method="saveStarterTalk"
+			class="processTalkAction"></action>
+		<action name="process_talk_load" method="loadTalkSpace" class="processTalkAction">
+			<result name="success">app/engine/process/plugins/processTalk/process_talk_space.jsp
+			</result>
+		</action>
+		<action name="process_talk_download" method="download" class="processTalkAction"></action>
+		<action name="process_talk_closeSpace" method="closeTalkSpace"
+			class="processTalkAction">
+			<result name="success" type="redirect">process_talk_load.action?actDefId=${actDefId}&amp;proDefId=${proDefId}&amp;instanceId=${instanceId}
+			</result>
+		</action>
+		<action name="process_talk_reply" class="processTalkAction">
+			<result name="success">app/engine/process/plugins/processTalk/process_talk_reply.jsp
+			</result>
+		</action>
+		<action name="talk_reply_save" method="saveReplyTalk" class="processTalkAction"></action>
+		<action name="process_talk_checkTalkUsers" method="checkTalkUsers"
+			class="processTalkAction"></action>
+		<action name="process_talk_upload" method="upload" class="processTalkAction"></action>
+		<!--=================================流程讨论-end=========================================== -->
+		<!-- 外部数据源管理 -->
+		<action name="sys_extdbsrc_load" method="load" class="extDBSrcAction">
+			<result name="success">app/system/extdbsrc/extdbsrc_space.jsp</result>
+		</action>
+		<action name="sys_extdbsrc_add" method="add" class="extDBSrcAction">
+			<result name="success">app/system/extdbsrc/extdbsrc_edit.jsp</result>
+		</action>
+		<action name="sys_extdbsrc_edit" method="edit" class="extDBSrcAction">
+			<result name="success">app/system/extdbsrc/extdbsrc_edit.jsp</result>
+		</action>
+		<action name="sys_extdbsrc_save" method="save" class="extDBSrcAction"></action>
+		<action name="sys_extdbsrc_testCon" method="testCon" class="extDBSrcAction"></action>
+		<action name="sys_extdbsrc_delete" method="delete" class="extDBSrcAction">
+			<result name="success" type="redirect">sys_extdbsrc_load.action</result>
+		</action>
+		<!-- 数据选择器 -->
+		<action name="sys_dictionary_design_index" method="index"
+			class="sysDictionaryDesignAction">
+			<result name="success">app/plugs/dictionary/designindex.jsp</result>
+		</action>
+		<action name="sys_dictionary_design_showtree" method="showTreeJson"
+			class="sysDictionaryDesignAction">
+			<result name="success">app/plugs/dictionary/designindex.jsp</result>
+		</action>
+		<action name="sys_dictionary_design_showList" method="getTableJson"
+			class="sysDictionaryDesignAction"></action>
+		<action name="sys_dictionary_design_create" method="addDictionary"
+			class="sysDictionaryDesignAction">
+			<result name="success">app/plugs/dictionary/baseInfo.jsp</result>
+		</action>
+		<action name="sys_dictionary_design_saveBaseInfo" method="saveBaseInfo"
+			class="sysDictionaryDesignAction"></action>
+		<action name="sys_dictionary_design_openframe" class="sysDictionaryDesignAction">
+			<result>app/plugs/dictionary/designframe.jsp</result>
+		</action>
+		<action name="sys_dictionary_design_tablist" method="showTabList"
+			class="sysDictionaryDesignAction">
+			<result name="success">app/plugs/dictionary/tablist.jsp</result>
+		</action>
+		<action name="sys_dictionary_design_baseInfo" method="showBaseInfo"
+			class="sysDictionaryDesignAction">
+			<result name="success">app/plugs/dictionary/baseInfo.jsp</result>
+		</action>
+		<action name="sys_dictionary_design_showFieldJson" method="getFieldTreeJson"
+			class="sysDictionaryDesignAction"></action>
+		<action name="sys_dictionary_design_del" method="delDic"
+			class="sysDictionaryDesignAction"></action>
+		<!-- 条件设置 -->
+		<action name="sys_dictionary_condition" class="sysDictionaryConditionAction">
+			<result name="success">app/plugs/dictionary/condition.jsp</result>
+		</action>
+		<action name="sys_dictionary_condition_table" method="getTable"
+			class="sysDictionaryConditionAction"></action>
+		<action name="sys_dictionary_condition_edit" method="edit"
+			class="sysDictionaryConditionAction">
+			<result name="success">app/plugs/dictionary/condition_form.jsp</result>
+		</action>
+		<action name="sys_dictionary_condition_add" method="add"
+			class="sysDictionaryConditionAction">
+			<result name="success">app/plugs/dictionary/fieldTree.jsp</result>
+		</action>
+		<action name="sys_dictionary_condition_quickadd" method="quickAdd"
+			class="sysDictionaryConditionAction"></action>
+		<action name="sys_dictionary_condition_save" method="save"
+			class="sysDictionaryConditionAction"></action>
+		<action name="sys_dictionary_condition_moveUp" method="moveUp"
+			class="sysDictionaryConditionAction"></action>
+		<action name="sys_dictionary_condition_moveTop" method="moveTop"
+			class="sysDictionaryConditionAction"></action>
+		<action name="sys_dictionary_condition_moveDown" method="moveDown"
+			class="sysDictionaryConditionAction"></action>
+		<action name="sys_dictionary_condition_moveBottom" method="moveBottom"
+			class="sysDictionaryConditionAction"></action>
+		<action name="sys_dictionary_condition_del" method="del"
+			class="sysDictionaryConditionAction"></action>
+		<!-- 显示设置 -->
+		<action name="sys_dictionary_showField" class="sysDictionaryShowfieldAction">
+			<result name="success">app/plugs/dictionary/showField.jsp</result>
+		</action>
+		<action name="sys_dictionary_showField_table" method="getTable"
+			class="sysDictionaryShowfieldAction"></action>
+		<action name="sys_dictionary_showField_edit" method="edit"
+			class="sysDictionaryShowfieldAction">
+			<result name="success">app/plugs/dictionary/showField_form.jsp</result>
+		</action>
+		<action name="sys_dictionary_showField_add" method="add"
+			class="sysDictionaryShowfieldAction">
+			<result name="success">app/plugs/dictionary/fieldTree.jsp</result>
+		</action>
+		<action name="sys_dictionary_showField_quickadd" method="quickAdd"
+			class="sysDictionaryShowfieldAction"></action>
+		<action name="sys_dictionary_showField_save" method="save"
+			class="sysDictionaryShowfieldAction"></action>
+		<action name="sys_dictionary_showField_moveUp" method="moveUp"
+			class="sysDictionaryShowfieldAction"></action>
+		<action name="sys_dictionary_showField_moveTop" method="moveTop"
+			class="sysDictionaryShowfieldAction"></action>
+		<action name="sys_dictionary_showField_moveDown" method="moveDown"
+			class="sysDictionaryShowfieldAction"></action>
+		<action name="sys_dictionary_showField_moveBottom" method="moveBottom"
+			class="sysDictionaryShowfieldAction"></action>
+		<action name="sys_dictionary_showField_del" method="del"
+			class="sysDictionaryShowfieldAction"></action>
+		<action name="sys_dictionary_runtime_show" method="index"
+			class="sysDictionaryRuntimeAction">
+			<result name="radio">app/plugs/dictionary/show_dict_radio.jsp</result>
+			<result name="multi">app/plugs/dictionary/show_dict_multi.jsp</result>
+			<result name="subgrid">app/plugs/dictionary/show_dict_subgrid.jsp
+			</result>
+		</action>
+		<action name="sys_dictionary_runtime_showDataJson" method="showDataJson"
+			class="sysDictionaryRuntimeAction"></action>
+		<!-- 数据选择器end -->
+		<!-- OA知道 -->
+		<action name="know_index" method="getKnowIndexPage" class="knowAction">
+			<result name="success">app/km/know/knowIndex.jsp</result>
+		</action>
+		<action name="know_ask_question" method='askQuestion' class="knowAction">
+			<result name="success">app/km/know/questionForm.jsp</result>
+		</action>
+		<action name="know_edit_question" method='editQuestion' class="knowAction">
+			<result name="success">app/km/know/questionForm.jsp</result>
+		</action>
+		<action name="know_save_question" method="saveQuestion" class="knowAction"></action>
+		<action name="know_delete_question" method="delQuestion" class="knowAction"></action>
+		<action name="know_liveSearch_userInfo" method="autoGetUserInfo"
+			class="knowAction"></action>
+		<action name="know_open_question" method='openQuestion' class="knowAction">
+			<result name="success">app/km/know/questionDetail.jsp</result>
+		</action>
+		<action name="know_check_score_is_enough" method="checkScoreIsEnough"
+			class="knowAction"></action>
+		<action name="know_check_user_is_exist" method="checkUserIsExist"
+			class="knowAction"></action>
+		<action name="know_question_tabContent" method="getTabContent"
+			class="knowAction">
+			<result name="success">app/km/know/tabContent.jsp</result>
+		</action>
+		<action name="know_answer_holdout" method="holdOutAnswer"
+			class="knowAction"></action>
+		<action name="know_edit_answer" method="editAnswer" class="knowAction">
+			<result name="success">app/km/know/answerForm.jsp</result>
+		</action>
+		<action name="know_save_answer" method="saveAnswer" class="knowAction"></action>
+		<action name="know_answer_delete" method="delAnswer" class="knowAction"></action>
+		<action name="know_answer_setbest" method="setAnswerBest"
+			class="knowAction"></action>
+		<action name="know_talk_save" method="saveTalk" class="knowAction"></action>
+		<action name="know_talk_delete" method="delTalk" class="knowAction"></action>
+		<action name="know_bigclass_manager" method="BigClassManager" class="knowAction"> 
+			<result name="success">app/km/know/class_manager.jsp</result>
+		</action>
+		<action name="know_bigclass_save" method="saveBigClass" class="knowAction"></action>
+		<action name="know_bigclass_add" method="addBigClass" class="knowAction">
+			<result name="success">app/km/know/bigClassForm.jsp</result>
+		</action>
+		<action name="know_bigclass_edit" method="editBigClass" class="knowAction">
+			<result name="success">app/km/know/bigClassForm.jsp</result>
+		</action>
+		<action name="know_bigclass_start" method="startBigClass"
+			class="knowAction">
+			<result name="success" type="redirect">know_bigclass_manager.action
+			</result>
+		</action>
+		<action name="know_bigclass_stop" method="stopBigClass" class="knowAction">
+			<result name="success" type="redirect">know_bigclass_manager.action
+			</result>
+		</action>
+		<action name="know_bigclass_orderDown" method="setCorderDown"
+			class="knowAction">
+			<result name="success" type="redirect">know_bigclass_manager.action
+			</result>
+		</action>
+		<action name="know_bigclass_orderUp" method="setCorderUp"
+			class="knowAction">
+			<result name="success" type="redirect">know_bigclass_manager.action
+			</result>
+		</action>
+		<action name="know_bigclass_delete" method="delBigClass" class="knowAction">
+			<result name="success" type="redirect">know_bigclass_manager.action
+			</result>
+		</action>
+		<action name="know_bigclass_isQuestionExist" method="isQuestionExist"
+			class="knowAction"></action>
+		<action name="know_bigclass_showExperts" method="showExperts"
+			class="knowAction">
+			<result name="success">app/km/know/showBigCexperts.jsp</result>
+		</action>
+		<action name="know_showUploadifyPage" method="showUploadifyPage"
+			class="knowAction">
+			<result name="success">app/km/know/uploadify.jsp</result>
+		</action>
+		<action name="know_uploadifyUpload" method="upload" class="knowAction"></action>
+		<action name="know_uploadifyRemove" method="remove" class="knowAction"></action>
+		<action name="know_uploadifyDownload" method="download" class="knowAction"></action>
+		<action name="know_upload_synchron" method="fileUUIDSynchron"
+			class="knowAction"></action>
+		<action name="know_upload_answer_synchron" method="fileUUIDSynchronAnswer"
+			class="knowAction"></action>
+
+		<!-- 用户操作日志 -->
+		<action name="sysOperateLogIndexAction" method="index"
+			class="sysOperateLogAction">
+			<result name="success">app/engine/process/desk/launchcenter/operateLogIndex.jsp
+			</result>
+			<result name="error">app/public/nofind.jsp</result>
+		</action>
+		<action name="sysOperateLogaddOperateLogAction" method="addOperateLog"
+			class="sysOperateLogAction"></action>
+		<action name="sysOperateLogdeleteOperateLogAction" method="deleteOperateLog"
+			class="sysOperateLogAction"></action>
+		<action name="sysOperateLogdeleteUserCurDayLog" method="deleteUserCurDayLog"
+			class="sysOperateLogAction"></action>
+		<action name="sysOperateLogdeleteUserAllLog" method="deleteUserAllLog"
+			class="sysOperateLogAction"></action>
+
+		<!-- 办公用品管理 -->
+		<action name="iwork_bgyp_index" method="index" class="iworkbgypManageAction">
+			<result name="success">app/plugs/bgyp/index.jsp</result>
+		</action>
+		<action name="iwork_bgyp_selectTabs" method="selectTabs" class="iworkbgypManageAction">
+			<result name="success">app/plugs/bgyp/selectTab.jsp</result>
+		</action>
+		<action name="iwork_bgyp_selectTabByDJBH" method="selectTabByDJBH" class="iworkbgypManageAction">
+			<result name="success">app/plugs/bgyp/selectTabDJBH.jsp</result>
+		</action>
+		<action name="iwork_bgyp_shopcar" method="shopcar"
+			class="iworkbgypManageAction">
+			<result name="success">app/plugs/bgyp/shopcar.jsp</result>
+		</action>
+		<action name="iwork_bgyp_shopAdd" method="addshopItem"
+			class="iworkbgypManageAction">
+			<result name="success">app/plugs/bgyp/shopcar.jsp</result>
+		</action>
+		<action name="iwork_bgyp_shopRemove" method="remove"
+			class="iworkbgypManageAction">
+			<result name="success">app/plugs/bgyp/shopcar.jsp</result>
+		</action>
+		<action name="iwork_bgyp_showPage" method="showFlowPage"
+			class="iworkbgypManageAction">
+			<result name="success" type="redirect">loadProcessFormPage.action?actDefId=BGYPSQLC:1:35306&amp;instanceId=${instanceid}&amp;excutionId=${excutionId}&amp;taskId=${taskId}
+			</result>
+		</action>
+		<action name="iwork_bgyp_search" method="search" class="iworkbgypManageAction">
+			<result name="success">app/plugs/bgyp/index.jsp</result>
+		</action>
+		<!-- 办公用品管理 END -->
+		<!-- 会议室预订 -->
+		<action name="meetingRoomOrderList" method="meetingRoomOrderList"
+			class="meetingRoomOrderAction">
+			<result name="success">app/plugs/meetingroom/index.jsp</result>
+		</action>
+		<action name="meetingRoomTimeOrder" method="meetingRoomTimeOrder"
+			class="meetingRoomOrderAction">
+			<result name="success">app/plugs/meetingroom/orderHtml.jsp</result>
+		</action>
+		<action name="meetingRoomOrderOpen" method="meetingRoomOrderOpen"
+			class="meetingRoomOrderAction">
+			<result name="success">app/plugs/meetingroom/updateHtml.jsp</result>
+		</action>
+		<action name="orderSubmit" method="orderSubmit" class="meetingRoomOperationAction"></action>
+		<action name="orderCancel" method="orderCancel" class="meetingRoomOperationAction"></action>
+		<action name="orderUpdate" method="orderUpdate" class="meetingRoomOperationAction"></action>
+		<action name="checkUser" method="checkUser" class="meetingRoomOperationAction"></action>
+		<action name="sysmq_showtip" method="showCurrentUserTip" class="sysMsgQueueAction"></action>
+		<action name="sysmq_show_win" method="showCurrentWinMsg" class="sysMsgQueueAction"></action>
+		<action name="sysmq_mornitor_list" method="showMornitorList"
+			class="sysMsgQueueAction">
+			<result name="success">app/engine/mq/morniorlist.jsp</result>
+		</action>
+		<action name="sysmq_test_sender" method="sender" class="sysMsgQueueAction">
+			<result name="success">app/engine/mq/morniorlist.jsp</result>
+		</action>
+		<action name="sysmq_test_receiver" method="receiver" class="sysMsgQueueAction">
+			<result name="success">app/engine/mq/morniorlist.jsp</result>
+		</action>
+		<!-- RSS订阅 -->
+		<action name="information_Index" method="getIndexPage" class="rssInformationAction">
+			<result>app/plugs/rss/index.jsp</result>
+		</action>
+		<action name="getAddRssPage" method="getAddRssPage" class="getAddRssPage">
+			<result>app/plugs/rss/edit.jsp</result>
+		</action>
+		<action name="setRssUserProfile" method="setRssUserProfile"
+			class="setRssUserProfile"></action>
+		<action name="getRssUserProfile" method="getRssUserProfile"
+			class="getRssUserProfile"></action>
+		<action name="addRssSubscription" method="addRssSubscription"
+			class="addRssSubscription"></action>
+		<action name="deleteRssSubscription" method="deleteRssSubscription"
+			class="deleteRssSubscription"></action>
+		<action name="resetRssUserProfile" method="resetRssUserProfile"
+			class="resetRssUserProfile"></action>
+		<!-- end -->
+		<!-- KS视频 -->
+		<action name="videoPlay" method="videoPlay" class="cmsVideoAction">
+			<result>app/plugs/video/video_play.jsp</result>
+		</action>
+		<action name="videoList" method="videoList" class="cmsVideoAction">
+			<result>app/plugs/video/video_list.jsp</result>
+		</action>
+		<action name="videoEditList" method="videoEditList" class="cmsVideoAction">
+			<result>app/plugs/video/video_edit_list.jsp</result>
+		</action>
+		<action name="videoEdit" method="videoEdit" class="cmsVideoAction">
+			<result>app/plugs/video/video_edit.jsp</result>
+		</action>
+		<action name="videoEditAction" method="videoEditAction" class="cmsVideoAction">
+			<result  name="success" type="redirect" >videoEditList.action</result>
+		</action>
+		<!-- end -->
+		<!-- 常用资料 -->
+		<action name="appkmAction" method="index" class="cmsAppkmAction">
+			<result>app/plugs/appkm/edit.jsp</result>
+		</action>
+		<action name="appkmList" method="getList" class="cmsAppkmAction">
+			<result>app/plugs/appkm/index.jsp</result>
+		</action>
+		<action name="appkmEdit" method="edit" class="cmsAppkmAction">
+			<result  name="success" type="redirect" >appkmAction.action</result>
+			<!--<result>app/plugs/appkm/edit.jsp</result>-->
+		</action>
+		<!-- 在线测试 -->
+		<action name="topicIndex" method="index" class="onLineExamAction">
+			<result name="success">app/plugs/onlinetest/index.jsp</result>
+		</action>
+		<action name="topicTop" method="topicTop" class="onLineExamAction">
+			<result name="success">app/plugs/onlinetest/index_top.jsp</result>
+		</action>
+		<action name="topicList" method="topicList" class="onLineExamAction">
+			<result name="success">app/plugs/onlinetest/index_left.jsp</result>
+		</action>
+		<action name="topicContent" method="topicContent" class="onLineExamAction">
+			<result name="success">app/plugs/onlinetest/index_right.jsp</result>
+		</action>
+		<action name="examTreeJson" method="getTreeJson" class="onLineExamAction">
+		</action>
+		<action name="openOneExam" method="openOneExam" class="onLineExamAction">
+		</action>
+		<action name="answerQuestion" method="answerQuestion" class="onLineExamAction">
+		</action>
+		<action name="startTest" method="startTest" class="onLineExamAction">
+			<result name="success">app/plugs/onlinetest/exam_content.jsp</result>
+		</action>
+		<action name="examExecuteSubmit" method="examExecuteSubmit"
+			class="onLineExamAction">
+		</action>
+		<action name="onLineTestReport" method="onLineTestReport"
+			class="onLineExamAction">
+			<result name="success">app/plugs/onlinetest/onLineTestReport.jsp
+			</result>
+		</action>
+		<action name="onLineTestUserReport" method="onLineTestUserReport"
+			class="onLineExamAction">
+			<result name="success">app/plugs/onlinetest/onLineTestUserReport.jsp
+			</result>
+		</action>
+		<action name="onLineTestReportDoSearch" method="reportDoSearch"
+			class="onLineExamAction">
+		</action>
+		<action name="onLineTestUserReportDoSearch" method="userReportDoSearch"
+			class="onLineExamAction">
+		</action>
+
+		<!-- 公式规则编辑器 -->
+
+		<action name="expressionIndex" method="index" class="expressionAction">
+			<result name="success">app/plugs/expression/index.jsp
+			</result>
+		</action>
+		<action name="getTreeJsonStr" method="getTreeJsonStr" class="expressionAction">
+		</action>
+		<action name="openTreeItem" method="openTreeItem" class="expressionAction">
+		</action>
+		<action name="openTreeItemGrid" method="openTreeItemGrid"
+			class="expressionAction">
+		</action>
+		<action name="getParamsType" method="getParamsType" class="expressionAction">
+		</action>
+		<action name="getBase64Str" method="getBase64Str" class="expressionAction">
+		</action>
+
+		<!-- 公式规则编辑器END -->
+		<!-- 在线测试 end -->
+
+		<!-- 首页我的桌面 -->
+		<action name="getCommonTypeShowStr" method="getCommonTypeShowStr"
+			class="cmsMyDesktopPortletAction">
+			<result name="success">app/plugs/cms/myDesktopPortlet/index.jsp
+			</result>
+		</action>
+		<action name="getWeatherShowStr" method="getWeatherShowStr"
+			class="cmsMyDesktopPortletAction">
+			<result name="success">app/plugs/cms/myDesktopPortlet/index.jsp
+			</result>
+		</action>
+		<action name="getVideoShowStr" method="getVideoShowStr"
+			class="cmsMyDesktopPortletAction">
+			<result name="success">app/plugs/cms/myDesktopPortlet/index.jsp
+			</result>
+		</action>
+		<action name="getAppkmShowStr" method="getAppkmShowStr"
+			class="cmsMyDesktopPortletAction">
+			<result name="success">app/plugs/cms/myDesktopPortlet/index.jsp
+			</result>
+		</action>
+		
+		<action name="getKsBlogShowStr" method="getKsBlogShowStr"
+			class="cmsMyDesktopPortletAction">
+			<result name="success">app/plugs/cms/myDesktopPortlet/index.jsp
+			</result>
+		</action>
+		<action name="getPicShowStr" method="getPicShowStr"
+			class="cmsMyDesktopPortletAction">
+			<result name="success">app/plugs/cms/myDesktopPortlet/picShow.jsp
+			</result>
+		</action>
+		
+		<action name="getPicHtmlDivStr" method="getPicHtmlDivStr"
+			class="cmsMyDesktopPortletAction" />
+			
+		<action name="getMoreCommonTypeHtmlStr" method="getMoreCommonTypeHtmlStr"
+			class="cmsMyDesktopPortletAction" >
+			<result name="success">app/plugs/cms/myDesktopPortlet/more.jsp
+			</result>
+		</action>
+		
+		<action name="getMoreTitleStr" method="getMoreTitleStr"
+			class="cmsMyDesktopPortletAction" />
+		
+		<action name="getSearchTypeHtml" method="getSearchTypeHtml"
+			class="cmsMyDesktopPortletAction" />
+		
+		<!-- 首页我的桌面END -->
+		<!-- 照片上传 -->
+		<action name="cmsFileUpload" method="upload" class="cmsFileUploadAction" />
+		<!-- CMS评论 -->
+		<action name="addNewCmsComment" method="addNewCmsComment"  class="cmsInfoAction" />
+		<action name="delCmsComment" method="delCmsComment"  class="cmsInfoAction" />
+		<!-- 移动端权限控制-->
+		<action name="mobileAccessControlIndex" method="index"  class="mobileLoginAccessControlAction" >
+			<result name="success">app/plugs/mobileAccessControl/index.jsp</result>
+		</action>
+		<action name="mobileAccessControlGetTreeJson" method="mobileAccessControlGetTreeJson"  class="mobileLoginAccessControlAction" >
+			
+		</action>
+		<action name="mobileAccessSet" method="mobileAccessSet"  class="mobileLoginAccessControlAction" >
+			<result name="success">app/plugs/mobileAccessControl/accessSet.jsp</result>
+		</action>		
+		<action name="submitUserAccess" method="submitUserAccess"  class="mobileLoginAccessControlAction" >
+		</action>
+		
+		<action name="moreUserAccessSet" method="mobileAccessSet"  class="mobileLoginAccessControlAction" >
+			<result name="success">app/plugs/mobileAccessControl/moreUserAccessSet.jsp</result>
+		</action>		
+		<action name="moreUserAccessSubmit" method="moreUserAccessSubmit"  class="mobileLoginAccessControlAction" >
+		</action>  
+		
+		<action name="userMobileLonginIndex" method="userMobileLonginIndex"  class="mobileLoginAccessControlAction" >
+			<result name="success">app/plugs/mobileAccessControl/userMobileLonginIndex.jsp</result>
+		</action>	
+		
+		<action name="userMobileLonginData" method="userMobileLonginData"  class="mobileLoginAccessControlAction" >
+		</action>
+		
+		<action name="userMobileBindIndex" method="userMobileBindIndex"  class="mobileLoginAccessControlAction" >
+			<result name="success">app/plugs/mobileAccessControl/userMobileBindIndex.jsp</result>
+		</action>
+		
+		<action name="userMobileBindData" method="userMobileBindData"  class="mobileLoginAccessControlAction" >
+		</action>
+		<action name="ie6_subform_demo" >
+			<result name="success">demo.jsp</result>
+		</action>
+		<!-- 移动端权限控制END -->
+			<!-- 系统日历 -->
+		<action name="iwork_sys_calendar" method="list" class="sysworkcalendaraction">
+			<result name="success">app/plugs/sysworkcalendar/SysWorkCalendarList.jsp</result>
+		</action>
+		<action name="iwork_sys_calendar_tab" method="tab_list" class="sysworkcalendaraction">
+			<result name="success">app/plugs/sysworkcalendar/SysWorkTablist.jsp</result>
+		</action>
+		<action name="iwork_sys_calendar_insert" method="addCalendar" class="sysworkcalendaraction">
+			<result name="success">app/plugs/sysworkcalendar/SysWorkCalendarList.jsp</result>
+		</action>
+		<action name="iwork_sys_calendar_update" method="updateCalendar" class="sysworkcalendaraction">
+			<result name="success" >app/plugs/sysworkcalendar/SysWorkCalendarBaseInfo.jsp</result>
+		</action>
+		<action name="iwork_sys_calendar_update_byid" method="updateCalendarById" class="sysworkcalendaraction">
+			<result name="success" >app/plugs/sysworkcalendar/SysWorkCalendarBaseInfo.jsp</result>
+		</action>
+		<action name="iwork_sys_get_holidays_map" method="queryHolidaysByYear" class="sysworkcalendaraction">
+			<result name="success" >app/plugs/sysworkcalendar/SysWorkCalendarRemarks.jsp?mapHolidays=${mapHolidays}</result>
+		</action>
+		<action name="iwork_sys_calendar_get_holidays" method="getHolidays" class="sysworkcalendaraction">
+			<result name="success" >app/plugs/sysworkcalendar/SysWorkCalendarRemarks.jsp</result>
+		</action>
+		<action name="iwork_sys_calendar_add_holidays" method="addHolidays" class="sysworkcalendaraction">
+			<result name="success" >app/plugs/sysworkcalendar/SysWorkCalendarRemarks.jsp</result>
+		</action>
+		<action name="iwork_sys_calendar_add_workdays" method="addWorkdays" class="sysworkcalendaraction">
+			<result name="success" >app/plugs/sysworkcalendar/SysWorkCalendarRemarks.jsp</result>
+		</action>
+		<action name="iwork_sys_calendar_delete" method="deleteCalendar" class="sysworkcalendaraction">
+		</action>
+		<action name="iwork_sys_calendar_create" method="createCalendar" class="sysworkcalendaraction">
+			<result name="success">app/plugs/sysworkcalendar/SysWorkCalendarBaseInfo.jsp?isModify=1</result>
+		</action>
+		<action name="iwork_sys_calendar_show" method="showCalendar" class="sysworkcalendaraction">
+			<result name="success">app/plugs/sysworkcalendar/SysWorkCalendarMapFrame.jsp</result>
+		</action>
+		
+		<!-- 系统站内信 -->
+		<action name="iwork_sys_letter_list" method="list" class="sysletterscontrolsaction">
+			<result name="success">app/plugs/sysletterstation/Sysletterslist.jsp</result>
+		</action>
+		<action name="iwork_sys_letter_open_sent" method="openSentLetterPage" class="sysletterscontrolsaction">
+			<result name="success">app/plugs/sysletterstation/SysLettersSentLetter.jsp</result>
+		</action>
+		<action name="iwork_sys_letter_create_sent" method="createLetter" class="sysletterscontrolsaction">
+			<result name="success">app/plugs/sysletterstation/SysLettersSentLetter.jsp</result>
+		</action>
+		<action name="iwork_sys_letter_change_flag" method="changeLetterFlag" class="sysletterscontrolsaction">
+			<result name="success">app/plugs/sysletterstation/Sysletterslist.jsp</result>
+		</action>
+		<action name="iwork_sys_letter_look_for" method="lookForLetters" class="sysletterscontrolsaction">
+			<result name="success">app/plugs/sysletterstation/SysLetterLookFor.jsp</result>
+		</action>
+		<action name="iwork_sys_letter_look_for_reply" method="lookForLettersReply" class="sysletterscontrolsaction">
+			<result name="success">app/plugs/sysletterstation/SysLetterLookForDetail.jsp</result>
+		</action>
+		<action name="iwork_sys_letter_look_for_reply_page" method="lookForLettersContent" class="sysletterscontrolsaction">
+			<result name="success">app/plugs/sysletterstation/SysLetterLookForReplyPage.jsp</result>
+		</action>
+		<action name="iwork_sys_letter_sent_reply" method="createLetterReply" class="sysletterscontrolsaction">
+		</action>
+		<action name="iwork_sys_letter_detail_delete" method="delLetterReply" class="sysletterscontrolsaction">
+		</action>
+		<action name="iwork_sys_letter_delete" method="delLettersList" class="sysletterscontrolsaction">
+		</action>
+		<!-- 长轮询回复信息 -->
+		<action name="iwork_sys_test" method="requestReply" class="sysletterscontrolsaction">
+			<result name="success">app/plugs/sysletterstation/syslettertestajax.jsp</result>
+		</action>
+		<action name="iwork_sys_letter_long_request" method="getAjax" class="sysletterscontrolsaction">
+		</action>
+		<!-- 扫码管理 -->
+		<action name="iwork_doScanCode" method="doScanCode" class="scanCodeAction">
+		</action>
+		<action name="iwork_showQrCode" method="showQrCode" class="scanCodeAction">
+			<result type="stream">
+				<param name="contentType">image/jpeg</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		<action name="iwork_showBarCode" method="showBarCode" class="scanCodeAction">
+			<result type="stream">
+				<param name="contentType">image/jpeg</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+
+		<action name="showUploadifyPageMail" class="uploadifyAction"
+			method="showUploadifyPage">
+			<result name="success">app/plugs/sms/frame/mailsend/upload.jsp</result>
+		</action>
+	</package>
+</struts>

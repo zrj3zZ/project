@@ -1,0 +1,122 @@
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					股转并购立项
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_0">
+								<td class="td_title" id="title_COMPANYNAME" width="15%">
+									公司名称
+								</td>
+								<td class="td_data" id="data_COMPANYNAME" width="35%">
+									${COMPANYNAME}&nbsp;　
+								</td>
+								<td class="td_title" id="title_TBSJ" width="15%">
+									填报时间
+								</td>
+								<td class="td_data" id="data_TBSJ" width="35%">
+									${TBSJ}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_5">
+								<td class="td_title" id="title_JDMC" width="15%">
+									阶段名称
+								</td>
+								<td class="td_data" id="data_JDMC" width="35%">
+									${JDMC}&nbsp;　
+								</td>
+								<td class="td_title" id="title_JDMC" width="15%">
+									资金占用情况
+								</td>
+								<td class="td_data" id="data_JDMC" width="35%">
+									${LCBH}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_5">
+								<td class="td_title" id="title_JDMC" width="15%">
+									是否在进行其他行为
+								</td>
+								<td class="td_data" id="data_JDMC" width="35%">
+									${SPZT}&nbsp;　
+								</td>
+								<td class="td_title" id="title_" width="15%">
+									
+								</td>
+								<td class="td_data" id="data_" width="35%">
+									
+								</td>
+							</tr>
+							<tr id="itemTr_5">
+								<td class="td_title" id="title_JDMC" width="15%">
+									预计收入(万元)
+								</td>
+								<td class="td_data" id="data_JDMC" width="35%">
+									${EXTEND2}&nbsp;
+								</td>
+								<td class="td_title" id="title_JDMC" width="15%">
+									预计费用(万元)
+								</td>
+								<td class="td_data" id="data_JDMC" width="35%">
+									${EXTEND3}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_5">
+								<td class="td_title" id="title_JDMC" width="15%">
+									挂牌公司对标的公司</br>进行资产重组的意图
+								</td>
+								<td class="td_data" id="data_JDMC" width="35%">
+									${TJRID}&nbsp;　
+								</td>
+								<td class="td_title" id="title_JDMC" width="15%">
+									收购方拟进行的</br>资产重组（资产</br>收购）的情况说明
+								</td>
+								<td class="td_data" id="data_JDMC" width="35%">
+									${EXTEND1}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_5">
+								<td class="td_title" id="title_JDMC" width="15%">
+									交易对手基本情况
+								</td>
+								<td class="td_data" id="data_JDMC" width="35%">
+									${TJRXM}&nbsp;　
+								</td>
+								<td class="td_title" id="title_JDMC" width="15%">
+									项目立项申请人意见
+								</td>
+								<td class="td_data" id="data_JDMC" width="35%">
+									${EXTEND4}&nbsp;　
+								</td>
+							</tr>
+							<tr id="fjTr_4948">
+								<td class="td_title" id="title_FJ">
+									附件
+								</td>
+								<td id="data_FJ" class="td_data" colspan="3">
+									${FJ}&nbsp;　
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${INSTANCEID}${COMPANYNO}${TBRID}${XMBH}${LCBS}${TASKID}${JDBH}${SCORE}${EXTEND5}
+</div>

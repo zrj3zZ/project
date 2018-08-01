@@ -1,0 +1,193 @@
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					ERP权限申请
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+					<span id="data_DJBH">单据编号:${DJBH}</span> 
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr>
+								<td id="title_SQRQ" class="td_title" width="20%">
+									申请日期
+								</td>
+								<td id="data_SQRQ" class="td_data" width="80%" colspan="3">
+									${SQRQ}&nbsp;
+								</td>
+							</tr>
+							
+							<tr>
+								<td id="title_SQR" class="td_title" width="20%">
+									申请人
+								</td>
+								<td class="td_data" id="data_SQRBMID" width="80%" colspan="3">
+										${SQR}【${SQRZH},${SQRGW},${SQRDH}&nbsp;】【${SQRBMMC} 】
+									</td>
+							</tr>
+							
+							<tr>
+								<td class="td_title" id="title_SYLX" width="20%">
+									使用类型
+								</td>
+								<td class="td_data" id="data_SYLX" width="80%" colspan="3">
+									${SYLX}&nbsp;　
+								</td>
+							</tr>
+							
+							<tr>
+								<td class="td_title" id="title_ZHLX" width="20%">
+									帐号类型
+								</td>
+								<td class="td_data" id="data_ZHLX" width="80%" colspan="3">
+									${ZHLX}&nbsp;　
+								</td>
+							</tr>
+							
+							<tr id="tr_SYR">
+								<td id="title_SYR" class="td_title" width="20%">
+									使用人
+								</td>
+								<td id="data_SYR" class="td_data" width="80%" colspan="3">
+									${SYR}
+								</td>
+							</tr>
+							
+							<tr id="tr_SYRBH">
+								<td width="20%">
+									<br />
+								</td>
+								<td class="td_data" width="80%" colspan="3">
+									【${SYRBH}&nbsp;】【${SYBMBH}/${SYBM}】<br />
+								</td>
+							</tr>
+							
+							<tr>
+								<td class="td_title" id="title_SAPZH" width="20%">
+									SAP帐号
+								</td>
+								<td class="td_data" id="data_SAPZH" width="80%" colspan="3">
+									${SAPZH}&nbsp;　
+								</td>
+							</tr>
+							
+							<tr>
+								<td class="td_title" id="title_SAPMK" width="20%">
+									SAP模块
+								</td>
+								<td class="td_data" id="data_SAPMK" width="80%" colspan="3">
+									${SAPMK}&nbsp;　
+								</td>
+							</tr>
+							
+							<tr>
+								<td class="td_title" id="title_YXQC" width="20%">
+									有效期
+								</td>
+								<td class="td_data" id="data_YXQC" width="80%" colspan="3">
+									从&nbsp;${YXQC}&nbsp;到&nbsp;${YXQD}&nbsp;　
+								</td>
+							</tr>
+							
+							<tr>
+								<td class="td_title" id="title_ZZMS" width="20%">
+									职责描述
+								</td>
+								<td class="td_data" id="data_ZZMS" width="80%" colspan="3">
+									${ZZMS}
+								</td>
+							</tr>
+							
+							<tr>
+								<td class="td_title" id="title_XQMS" width="20%">
+									需求描述
+								</td>
+								<td class="td_data" id="data_XQMS" width="80%" colspan="3">
+									${XQMS}
+								</td>
+							</tr>
+							
+							<tr id="tr_ZHSZXTKSPCLIENT">
+								<td class="td_title"  id="title_ZHSZXTKSPCLIENT" width="20%">账户所在系统KSPClient
+								</td>
+								<td class="td_data"  id="data_ZHSZXTKSPCLIENT"  width="80%" colspan="3">${ZHSZXTKSPCLIENT}&nbsp;
+								</td>
+							</tr>
+
+							<tr id="tr_ZHSZXTKSQCLIENT">
+								<td class="td_title"  id="title_ZHSZXTKSQCLIENT" width="20%">账户所在系统KSQClient
+								</td>
+								<td class="td_data"  id="data_ZHSZXTKSQCLIENT"  width="80%" colspan="3">${ZHSZXTKSQCLIENT}&nbsp;
+								</td>
+							</tr>
+							
+							<tr id="tr_ZHSZXTKSDCLIENT">
+								<td class="td_title"  id="title_ZHSZXTKSDCLIENT" width="20%">账户所在系统KSDClient
+								</td>
+								<td class="td_data"  id="data_ZHSZXTKSDCLIENT"  width="80%" colspan="3">${ZHSZXTKSDCLIENT}&nbsp;
+								</td>
+							</tr>
+							
+							<tr id="tr_SXQX">
+								<td class="td_title" id="title_SXQX" width="20%">
+									工作岗位所需权限
+								</td>
+								<td class="td_data" id="data_SXQX" width="80%" colspan="3">
+									${SXQX}&nbsp;　
+								</td>
+							</tr>
+							
+							<tr id="tr_TSQX">
+								<td class="td_title" id="title_TSQX" width="20%">
+									特殊权限说明
+								</td>
+								<td class="td_data" id="data_TSQX" width="80%" colspan="3">
+									${TSQX}&nbsp;　
+								</td>
+							</tr>
+							
+							<tr id="tr_SUBFORM_ERPCSHSQB">
+								<td class="td_data" colspan="4" width="80%">
+									${SUBFORM_ERPCSHSQB}
+								</td>
+							</tr>
+							
+							<tr id="tr_FJ">
+								<td class="td_title" id="title_FJ" width="20%">
+									用户上传附件
+								</td>
+								<td class="td_data" id="data_FJ" width="80%" colspan="3">
+									${FJ}&nbsp;　
+								</td>
+							</tr>
+							
+							<tr id="tr_GWFJ">
+								<td class="td_title" id="title_GWFJ" width="20%">
+									顾问附件
+								</td>
+								<td class="td_data" id="data_GWFJ" width="80%" colspan="3">
+									${GWFJ}&nbsp;　
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

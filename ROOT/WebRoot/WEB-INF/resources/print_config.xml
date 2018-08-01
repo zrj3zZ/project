@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<congisSet> <!-- 根节点，打印设置集，可包含多个打印设置节点 -->
+
+	<config id="my_config"> <!-- id为'my_config'的打印设置节点，id需要唯一 -->
+	
+		<printer></printer> <!-- 默认使用的打印设备名称 -->
+		
+		<startPage>1</startPage> <!-- 打印起始页，从1开始 -->
+		
+		<endPage>0</endPage> <!-- 打印结束页，0表示尾页 -->
+		
+		<landscape></landscape> <!-- 纸张是否为横向，true | false -->
+		
+		<align></align> <!-- 打印定位，left | center | right -->
+		
+		<scale></scale> <!-- 打印缩放比例，1为保持原始大小，0.5为缩小到50%，以此类推 -->
+		
+		<pageFormat> <!-- 纸张格式 -->
+		
+			<paper></paper> <!-- 纸张名称，A4、B5...，自定义纸张时不用设置 -->
+			
+			<paperWidth></paperWidth> <!-- 自定义纸张宽度，单位:毫米 -->
+			
+			<paperHeight></paperHeight> <!-- 自定义纸张高度，单位:毫米 -->
+			
+			<marginTop></marginTop> <!-- 上边距，单位:毫米 -->
+			
+			<marginBottom></marginBottom> <!-- 下边距，单位:毫米 -->
+			
+			<marginLeft></marginLeft> <!-- 左边距，单位:毫米 -->
+			
+			<marginRight></marginRight> <!-- 右边距，单位:毫米 -->
+		
+		</pageFormat>
+		
+	</config>
+
+</congisSet>

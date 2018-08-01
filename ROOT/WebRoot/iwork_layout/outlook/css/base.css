@@ -1,0 +1,130 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+	padding:0px;
+	margin:0px;
+	font-size:12px;
+}
+.head_bg{
+	background-image:url(../../../iwork_layout/outlook/img/head_bg.jpg);
+}
+.head_font_top{
+
+}
+.head_font_top a{
+	color:#fff;
+}
+.logo{
+	padding:5px;
+	height:43px; width:200px; cursor:pointer; float:left;  
+	border:0px;
+	margin-top:10px;
+}
+
+.head_fav_bar{
+text-align:right;
+vertical-align:top;
+padding:5px;
+}
+.head_nav_menu{
+	padding-left:auto;
+	padding-right:auto;
+}
+.head_nav_menu ul,head_nav_menu li{
+	display: inline; margin: 0; padding: 0; color: #339; font-weight: bold;list-style: none;
+}
+.menuItem{ 
+	margin-left:10px;
+	margin-right:10px;
+	padding:5px;
+	border:1px;
+	text-align:center;
+	font-family:微软雅黑;
+	color:#fff;
+}
+.menuItem:hover{
+	padding:5px;
+	cursor:pointer;
+	color:red;
+	font-family:微软雅黑;
+	background-color:#0491d8;
+	filter:alpha(opacity=60); 
+	-moz-opacity:0.6; 
+	opacity:0.6;
+}
+.menuImg{
+	margin-bottom:3px;
+}
+.clickItem{
+	height:20px;
+	padding:5px;
+	padding-left:15px;
+	padding-top:10px;
+	font-size:12.5px;
+	cursor:pointer;
+	border-bottom:1px dotted #efefef;
+	background-image:url(../../../iwork_img/logoexit.gif);
+	background-repeat:no-repeat;
+	background-position:150px 15px;
+}
+.clickItem:hover{
+	background-color:#efefef;
+}
+
+.clickMenu{
+	height:20px;
+	padding-left:15px;
+	padding-top:10px;
+	padding-bottom:10px;
+	font-size:12.5px;
+	cursor:pointer;
+	border-bottom:1px solid #efefef;
+	background-image:url(../../../iwork_img/arrow_down.gif);
+	background-repeat:no-repeat;
+	background-position:150px 15px;
+	
+}
+.clickMenu_visit{
+	height:20px;
+	padding-left:15px;
+	padding-top:10px;
+	padding-bottom:10px;
+	font-size:12.5px;
+	cursor:pointer;
+	background-color:#efefef;
+	border-bottom:1px solid #efefef;
+	background-image:url(../../../iwork_img/arrow_down.gif);
+	background-repeat:no-repeat;
+	background-position:150px 15px;
+	border-left:1px solid #FF9900;
+	
+}
+.clickMenu:hover{
+	background-color:#efefef;
+	background-image:url(../../../iwork_img/arrow_down.gif);
+	background-repeat:no-repeat;
+	border-left:1px solid #FF9900;
+	background-position:150px 15px;
+}
+.subMenu{
+	line-height:20px;display:none;border:#ccc solid 0px;margin-bottom:2px;
+	padding:0px;
+	
+}
+.subMenuItem li{
+	padding-left:30px;
+	border-bottom:1px dotted #efefef;
+	padding-top:5px;
+	padding-bottom:5px;
+	
+}
+.subMenuItem li:hover{
+	color:#000;
+	background-color:#FFEEDD;
+	cursor:pointer;
+}
+
+
+
+

@@ -1,0 +1,53 @@
+      
+.PY_tag {
+		BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: right 50%; HEIGHT: 20px;TEXT-ALIGN:RIGHT; border-bottom:3px #D2D2D2 solid;
+}
+.PY_tag LI {
+	PADDING-RIGHT:1px; FLOAT: LEFT;
+	list-style-type:none;
+}
+.PY_tag .PY_tagn {
+	PADDING-RIGHT: 2px; BACKGROUND-POSITION: right top; FLOAT: left; HEIGHT: 30px;TEXT-DECORATION: underline;
+	cursor:hand;
+}
+.py_tag LI A:hover { 
+	TEXT-DECORATION: underline
+}
+.PY_tag .PY_tagn SPAN {
+	PADDING-BOTTOM: 0px; LINE-HEIGHT: 16px; PADDING-LEFT: 11px; PADDING-RIGHT: 9px; BACKGROUND-POSITION: left top; FLOAT: left; HEIGHT: 22px; FONT-SIZE: 12px; PADDING-TOP: 8px
+}
+.PY_tag .PY_tagn SPAN A:hover{
+	TEXT-DECORATION: underline
+}
+.PY_tag .PY_tago SPAN {
+	PADDING-BOTTOM: 0px;LINE-HEIGHT: 22px; PADDING-LEFT: 11px; PADDING-RIGHT: 9px; BACKGROUND-POSITION: left top; FLOAT: left; HEIGHT: 22px; FONT-SIZE: 12px; PADDING-TOP: 8px
+}
+.PY_tag .PY_tago {
+	PADDING-RIGHT: 2px; BACKGROUND-POSITION: right bottom; FLOAT: left; HEIGHT: 30px
+}
+.PY_tag .PY_tago SPAN {
+	BACKGROUND-POSITION: left bottom
+}
+
+.PY_tag LI EM {
+	FONT-WEIGHT: normal
+}
+.PY_tag IMG.add {
+	VERTICAL-ALIGN: 0px; MARGIN-RIGHT: 1px
+}
+.PY_tag {
+	background-repeat:repeat-x;
+}
+.PY_tag .PY_tagn {
+	BACKGROUND-IMAGE: url(../iwork_img/or_PY_tag2.gif);CURSOR:pointer
+}
+.PY_tag .PY_tagn SPAN {
+	BACKGROUND-IMAGE: url(../iwork_img/or_PY_tag2.gif); FONT-SIZE: 12px; CURSOR:pointer
+}
+
+.PY_tag .PY_tago {
+	BACKGROUND-IMAGE: url(../iwork_img/or_PY_tag2.gif)
+}
+.PY_tag .PY_tago SPAN {
+	BACKGROUND-IMAGE: url(../iwork_img/or_PY_tag2.gif); COLOR: #333
+}

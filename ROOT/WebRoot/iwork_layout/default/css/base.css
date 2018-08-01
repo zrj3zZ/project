@@ -1,0 +1,95 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+	padding:0px;
+	margin:0px;
+	font-size:12px;
+}
+
+.head_bg {
+	background:url(../img/head_bg.jpg) repeat-x;
+	height:53px;
+}
+.head {
+	background:url(../img/head.jpg) no-repeat;
+	height:53px;
+} 
+.logo{ height:53px; width:200px; cursor:pointer; float:left}
+.user_icon{
+
+}
+.head_font {
+	float:right;
+	width:400px;
+	margin-right:15px;
+	margin-top:3px;
+
+}
+.head_info_font{
+	float:right;
+	width:400px;
+	margin-right:-130px;
+	margin-top:28px;
+	color:#fff;  
+	cursor:pointer; 
+}
+.head_font_top{
+	text-align:right;
+	width:400px; 
+	height:25px;
+	line-height:25px;
+		color:#fff;  
+	}
+.head_font_top a{
+	cursor:pointer;
+	color:#fff;
+}
+.head_font_bottom{
+	text-align:right;
+	width:400px;
+	height:25px;
+	line-height:25px;
+	color:#f77215;  
+	}
+.head_font_bottom span{
+	color:#fff;
+	cursor:pointer;
+	font-family:微软雅黑;
+}
+.head_font_bottom a{
+	color:#fff;
+	font-family:微软雅黑;
+}
+.head_font{ color:#f77215; text-decoration:none;cursor:pointer;}	
+.head_info_font :link{ color:#f77215; text-decoration:none;cursor:pointer;}	
+.head_font a:link{ color:#f77215; text-decoration:none;cursor:pointer;}	
+.head_font a:visited{ color:#f77215; text-decoration:none;}	
+.head_font a:hover{ color:#f77215; text-decoration:underline;}	
+.head_font a:active{ color:#f77215; text-decoration:none;}	
+.head_foot_bg {
+	background:url(../img/head_bg.jpg) repeat-x;
+	height:53px;
+}
+.tipDiv{
+	vertical-align:top;
+	margin:0px 0px 0px 0px;
+	padding:0px 0px 0px 0px;
+	height:120px;
+	width:300px;
+	font-size:14px;
+}
+.tipTitle{ 
+	font-size:14px;
+	font-family:微软雅黑;
+	line-height:20px;
+	width:300px;
+	padding-left:0px;
+	border-bottom:1px solid #efefef;
+}
+.tipContent{
+	font-size:12px;
+	font-family:微软雅黑;
+	line-height:20px;
+	padding-left:10px;
+}

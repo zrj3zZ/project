@@ -1,0 +1,16 @@
+${USERNAME},您好！<br><br>
+	您于${SENDER_TIME}在${SYSTEMNAME}中新收到一条来自【${SENDER}】的审批任务，请及时处理：<br><br><br>
+	<b><a target="_blank" href="${LOGINURL}">${TASKTITLE}</a></b><br> 
+	<b><font size=2>【发 送 人】${SENDER} </font></b><br>
+	<b><font size=2>【所在部门】${SENDER_DEPT} </font></b><br>
+	<b><font size=2>【意见留言】${OPINION} </font></b><br><br>
+
+ 目前您在系统中共有 <font  color="red">${TASK_SUM}</font> 个审批任务待处理。<br>
+	<b><a target="_blank" href="${LOGINURL}"><font size=3>点击办理</font></a></b><br><br>
+说明： <br>
+1，单击“点击办理”链接，或直接访问 <a target='_blank' href="${LOGINURL}">${LOGINURL}</a>，使用公司邮箱账户密码登入系统；<br>
+2，此通知为系统自动发送邮件，不可直接回复；<br>
+3.${SYSTEMNAME}为公司内部办公系统，包含公司保密信息，请勿将其中信息透漏给无关人员。
+<br>
+ 
+<B>【${SOURCE}】</B>  

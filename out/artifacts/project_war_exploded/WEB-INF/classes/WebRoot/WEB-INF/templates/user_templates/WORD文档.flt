@@ -1,0 +1,44 @@
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					${FILENAME}
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+						<tbody>
+							<tr>
+								<td id="title_NOTICEDATE" class="td_title" width="180">
+									提示:
+								</td>
+								<td id="data_NOTICEDATE" class="td_data" colspan="3">
+									如果下方在线编辑器未正常显示，请查看<a href="iwork_file/BIGTXT_FILE/WordEdit.zip" target="_blank">帮助文件</a>或联系技术支持人员：010-59424994 <br />
+QQ：2404831516、2198206716。&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1907">
+								<td id="data_NOTICETEXT" class="td_data" colspan="4">
+									${NOTICETEXT}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${NOTICEFILE}
+</div>

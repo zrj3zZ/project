@@ -1,0 +1,10 @@
+$(function(){
+var instanceId=$("#instanceId").val();
+var pageUrl = "zqb_zydd_fkzl.action"; 
+$.post(pageUrl,{instanceid:instanceId},function(data){
+if(data=='success'){
+$("#itemTr_1769").show();
+}else{
+$("#itemTr_1769").hide();
+}});
+});

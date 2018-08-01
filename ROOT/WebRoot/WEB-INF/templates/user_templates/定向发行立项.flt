@@ -1,0 +1,192 @@
+<script type="text/javascript">
+$(function () {
+    $.post("dg_zqb_project_getCusMsgByProno.action", {
+        "projectno": $("#PROJECTNO").val()
+    }, function (data) {
+        var dataJson = eval("(" + data + ")");
+        var username = dataJson[0].USERNAME;
+        $("#gslxr").html(username);
+        var tel = dataJson[0].TEL;
+        $("#gslxdh").html(tel);
+    });
+});
+</script>
+
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					股转定增立项
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_0">
+								<td class="td_title" id="title_PROJECTNAME" width="15%">
+									项目名称
+								</td>
+								<td class="td_data" id="data_PROJECTNAME" width="35%">
+									${PROJECTNAME}&nbsp;　
+								</td>
+								<td class="td_title" id="title_NFXRQ" width="15%">
+									拟发行日期
+								</td>
+								<td class="td_data" id="data_NFXRQ" width="35%">
+									${NFXRQ}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_2">
+								<td class="td_title" id="title_MJZJZE" width="15%">
+									公司联系人
+								</td>
+								<td class="td_data" id="data_MJZJZE" width="35%">
+									<span id="gslxr"></span>&nbsp;　
+								</td>
+								<td class="td_title" id="title_FXGPJG" width="15%">
+									联系电话
+								</td>
+								<td class="td_data" id="data_FXGPJG" width="35%">
+									<span id="gslxdh"></span>&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_2">
+								<td class="td_title" id="title_MJZJZE" width="15%">
+									预计募集资金（万元）
+								</td>
+								<td class="td_data" id="data_MJZJZE" width="35%">
+									${MJZJZE}&nbsp;　
+								</td>
+								<td class="td_title" id="title_FXGPJG" width="15%">
+									预计发行价格（区间）
+								</td>
+								<td class="td_data" id="data_FXGPJG" width="35%">
+									${FXGPJG}元&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_4">
+								<td class="td_title" id="title_GPFXSL" width="15%">
+									预计发行数量（股）
+								</td>
+								<td class="td_data" id="data_GPFXSL" width="35%">
+									${GPFXSL}&nbsp;　
+								</td>
+								<td class="td_title" id="title_CJSJ" width="15%">
+									填报日期
+								</td>
+								<td class="td_data" id="data_CJSJ" width="35%">
+									${CJSJ}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_4">
+								<td class="td_title" id="title_GPFXSL" width="15%">
+									签署认购协议
+								</td>
+								<td class="td_data" id="data_GPFXSL" width="35%">
+									${EXTEND1}&nbsp;　
+								</td>
+								<td class="td_title" id="title_GPFXSL" width="15%">
+									享有优先认购权
+								</td>
+								<td class="td_data" id="data_GPFXSL" width="35%">
+									${EXTEND2}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_4">
+								<td class="td_title" id="title_GPFXSL" width="15%">
+									放弃承诺
+								</td>
+								<td class="td_data" id="data_GPFXSL" width="35%">
+									${EXTEND3}&nbsp;　
+								</td>
+								<td class="td_title" id="title_GPFXSL" width="15%">
+									其他说明
+								</td>
+								<td class="td_data" id="data_GPFXSL" width="35%">
+									${EXTEND4}&nbsp;　
+								</td>
+							</tr>
+							<tr id="txtAreaTr_4785">
+								<td class="td_title" id="title_FXMDCS" width="15%">
+									估值条款
+								</td>
+								<td id="data_FXMDCS" class="td_data" width="35%">
+									${EXTEND5}&nbsp;　
+								</td>
+								<td class="td_title" id="title_FXMDCS" width="15%">
+									发行目的
+								</td>
+								<td id="data_FXMDCS" class="td_data" width="35%">
+									${FXMDCS}&nbsp;　
+								</td>
+							</tr>
+							<tr id="txtAreaTr_4785">
+								<td class="td_title" id="title_FXMDCS" width="15%">
+									自愿锁定
+								</td>
+								<td id="data_FXMDCS" class="td_data" width="35%">
+									${EXTEND6}&nbsp;　
+								</td>
+								<td class="td_title" id="title_FXMDCS" width="15%">
+									对赌承诺
+								</td>
+								<td id="data_FXMDCS" class="td_data" width="35%">
+									${EXTEND7}&nbsp;　
+								</td>
+							</tr>
+							<tr id="txtAreaTr_4785">
+								<td class="td_title" id="title_FXMDCS" width="15%">
+									关联关系描述完整
+								</td>
+								<td id="data_FXMDCS" class="td_data" width="35%">
+									${EXTEND8}&nbsp;　
+								</td>
+								<td class="td_title" id="title_FXMDCS" width="15%">
+									控制权变更
+								</td>
+								<td id="data_FXMDCS" class="td_data" width="35%">
+									${EXTEND9}&nbsp;　
+								</td>
+							</tr>
+							<tr id="txtAreaTr_4785">
+								<td class="td_title" id="title_FXMDCS" width="15%">
+									同业竞争变更
+								</td>
+								<td id="data_FXMDCS" class="td_data" width="35%">
+									${EXTEND10}&nbsp;　
+								</td>
+								<td class="td_title" id="title_FXMDCS" width="15%">
+									触及权益变动
+								</td>
+								<td id="data_FXMDCS" class="td_data" width="35%">
+									${EXTEND11}&nbsp;　
+								</td>
+							</tr>
+							<tr id="fjTr_4792">
+								<td class="td_title" id="title_NFXFILE">
+									附件
+								</td>
+								<td id="data_NFXFILE" class="td_data" colspan="3">
+									${NFXFILE}&nbsp;　
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${PROJECTNO}${LCBS}${LCBH}${GROUPID}${SPZT}${STEPID}${INSTANCEID}${CREATEUSER}${CREATEUSERID}${TASKID}${EXCUTIONID}${SCORE}
+</div>

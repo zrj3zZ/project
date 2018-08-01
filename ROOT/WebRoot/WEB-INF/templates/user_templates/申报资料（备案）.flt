@@ -1,0 +1,200 @@
+<script type="text/javascript">
+$(function () {
+    var xmbh = $("#PROJECTNO").val();
+    $.post("hl_zqb_getdzwthMainContent.action", {
+        xmbh: xmbh
+    }, function (data) {
+        var dataJson = eval("(" + data + ")");
+        $("#customername").html(dataJson[0].CUSTOMERNAME);
+        $("#projectname").html(dataJson[0].PROJECTNAME);
+        $("#owner").html(dataJson[0].OWNER);
+        $("#manager").html(dataJson[0].MANAGER);
+        $("#khlxr").html(dataJson[0].KHLXR);
+        $("#clbm").html(dataJson[0].CLBM);
+        $("#khlxdh").html(dataJson[0].KHLXDH);
+        $("#czbm").html(dataJson[0].CZBM);
+	$("#EXTEND1").val(dataJson[0].EXTEND1);
+        $("#EXTEND2").val(dataJson[0].EXTEND2);
+        $("#EXTEND5").val(dataJson[0].CUSTOMERNO);
+    });
+    var instanceId= $("#instanceId").val();
+    $.post("zqb_announcement_gettentuserdateforpro.action",{instanceId:instanceId},function (data) {
+	$("#contenttd").html(data);
+    });
+});
+</script>
+<style type="text/css">
+.formpage_title {
+	text-align: center;
+	vertical-align:bottom;
+	height:50px;
+	font-size: 22px;
+	color:#000;
+	margin-bottom:20px;
+}
+.line {
+	background-color: #ccc;
+	height:15px;
+	margin-bottom:20px;
+}
+td {
+	line-height: 30px;
+	padding-left: 3px;
+	font-size: 12px;
+	border-bottom:1px #efefef dotted;
+	vertical-align:middle;
+	word-wrap:break-word;
+	word-break:break-all;
+	font-weight:100;
+	line-height:15px;
+	padding-top:5px;
+	text-align:left;
+}
+legend {
+	font-size: 16px;
+}
+</style>
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					申报资料（备案）
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+					<br />
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<fieldset style="margin-top:15px;color:#004080;width:100%;border:1px dashed #CCCCCC;">
+		<legend algin="right" style="color:#004080;">项目信息</legend>
+		<table width="100%">
+			<tbody>
+				<tr id="itemTr_0">
+					<!--
+					<td id="title_" class="td_title" width="15%">
+						客户名称
+					</td>
+					<td id="data_" class="td_data" width="35%">
+						<span id="customername"></span> 
+					</td>
+-->
+					<td id="title_" class="td_title" width="15%">
+						项目名称
+					</td>
+					<td id="data_" class="td_data" width="35%">
+						<span id="customername"></span> 
+					</td>
+					<td id="title_" class="td_title" width="15%">
+						承揽人
+					</td>
+					<td id="data_" class="td_data" width="35%">
+						<span id="clbm"></span> 
+					</td>
+				</tr>
+				<tr id="itemTr_0">
+					<td id="title_" class="td_title" width="15%">
+						业务部门负责人
+					</td>
+					<td id="data_" class="td_data" width="35%">
+						<span id="owner"></span> 
+					</td>
+					<td id="title_" class="td_title" width="15%">
+						项目负责人
+					</td>
+					<td id="data_" class="td_data" width="35%">
+						<span id="manager"></span> 
+					</td>
+				</tr>
+<!--
+				<tr id="itemTr_0">
+					<td id="title_" class="td_title" width="15%">
+						客户联系人
+					</td>
+					<td id="data_" class="td_data" width="35%">
+						<span id="khlxr"></span> 
+					</td>
+					<td id="title_" class="td_title" width="15%">
+						承揽部门
+					</td>
+					<td id="data_" class="td_data" width="35%">
+						<span id="clbm"></span> 
+					</td>
+				</tr>
+				<tr id="itemTr_0">
+					<td id="title_" class="td_title" width="15%">
+						客户联系电话
+					</td>
+					<td id="data_" class="td_data" width="35%">
+						<span id="khlxdh"></span> 
+					</td>
+					<td id="title_" class="td_title" width="15%">
+						承做部门
+					</td>
+					<td id="data_" class="td_data" width="35%">
+						<span id="czbm"></span> 
+					</td>
+				</tr>
+-->
+			</tbody>
+		</table>
+	</fieldset>
+	<fieldset style="margin-top:15px;color:#004080;width:100%;border:1px dashed #CCCCCC;">
+		<legend algin="right" style="color:#004080;">申报资料</legend>
+		<table width="100%">
+			<tbody>
+				<tr id="itemTr_0">
+					<td id="title_NFXFILE" class="td_title" width="15%">
+						附件
+					</td>
+					<td id="data_NFXFILE" class="td_data" width="85%" colspan="3">
+						<span style="color:red;">第一部分 要求披露的文件</span><br />
+<span style="color:red;margin-left:20px;">1-1 股票发行方案</span><br />
+<span style="color:red;margin-left:20px;">1-2 股票发行情况报告书</span><br />
+<span style="color:red;margin-left:20px;">1-3 公司关于股票发行的董事会决议</span><br />
+<span style="color:red;margin-left:20px;">1-4 公司关于股票发行的股东大会决议</span><br />
+<span style="color:red;margin-left:20px;">1-5 股票发行认购公告</span><br />
+<span style="color:red;margin-left:20px;">1-6 主办券商关于股票发行合法合规性意见</span><br />
+<span style="color:red;margin-left:20px;">1-7 股票发行法律意见书</span><br />
+<span style="color:red;margin-left:20px;">1-8 具有证券、期货相关业务资格的会计师事务所或资产评估机构出具的资产审计或评估报告</span><br />
+<span style="color:red;">第二部分 不要求披露的文件</span><br />
+<span style="color:red;margin-left:10px;">一、挂牌公司相关文件</span><br />
+<span style="color:red;margin-left:20px;">2-1 备案登记表</span><br />
+<span style="color:red;margin-left:20px;">2-2 股票发行备案报告</span><br />
+<span style="color:red;margin-left:20px;">2-3 认购合同或认购缴款凭证</span><br />
+<span style="color:red;margin-left:10px;">二、其他文件</span><br />
+<span style="color:red;margin-left:20px;">2-4  挂牌公司全体董事对备案文件真实性、准确性和完整性的承诺书</span><br />
+<span style="color:red;margin-left:20px;">2-5  本次股票发行的验资报告</span><br />
+<span style="color:red;margin-left:20px;">2-6  资产权属证明文件（如有</span><br />
+<span style="color:red;margin-left:20px;">2-7  资产生产经营所需行业资质的资质证明或批准文件（如有）</span><br />
+<span style="color:red;margin-left:20px;">2-8  签字注册会计师、律师或者资产评估师的执业证书复印件及其所在机构的执业证书复印件</span><br />
+<span style="color:red;margin-left:20px;">2-9  股票发行方案披露后的审查要点+收到股票发行备案文件后的审查要点</span><br />
+<span style="color:red;margin-left:20px;">2-10  关于XX公司股票发行备案的审查报告</span><br />
+<span style="color:red;margin-left:20px;">2-11  募集资金三方监管协议</span> ${NFXFILE}
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</fieldset>
+	<table width="100%">
+		<tbody>
+			<tr id="itemTr_1793">
+				<td class="td_title" id="title_FJ" width="15%">
+				</td>
+				<td id="contenttd" colspan="3" class="td_data" width="85%" style="border-bottom:0px dotted #999999;color:red;">
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${GROUPID}${PROJECTNO}${PROJECTNAME}${CJSJ}${CREATEUSER}${CREATEUSERID}${SCORE}${JDMC}${TJRID}${TJRXM}${TJSJ}${EXTEND1}${EXTEND2}${EXTEND3}${EXTEND4}${EXTEND5}${FXMDCS}${FXGPJG}${MJZJZE}${NFXRQ}${GPFXSL}
+</div>

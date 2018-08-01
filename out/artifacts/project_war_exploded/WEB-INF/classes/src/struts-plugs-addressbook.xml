@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+"http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+   <package strict-method-invocation="false"  name="AdressBook" extends="tiles-default">
+		  <!-- 定义一个名为 checkLogin 的拦截器 -->  
+        <interceptors>  
+            <!-- 定义权限检查拦截器 -->  
+            <interceptor name="checkLogin"  
+                class="com.iwork.core.server.root.IWorkInterceptor" />  
+            <!-- 定义一个包含权限检查的拦截器栈 -->  
+            <interceptor-stack name="myDefaultStack">  
+                <!-- 定义拦截器栈包含checkLogin拦截器 -->  
+                <interceptor-ref name="checkLogin"></interceptor-ref>  
+                <interceptor-ref name="defaultStack"></interceptor-ref>  
+            </interceptor-stack>  
+        </interceptors>  
+        <!-- 设置全局 全局默认的拦截器栈-->  
+        <default-interceptor-ref name="myDefaultStack"></default-interceptor-ref>  
+  
+        <!-- 定义全局Result -->  
+        <global-results>  
+            <!-- 当返回login视图名时，转入/login.jsp页面 -->  
+            <result name="login">/login.jsp</result>  
+        </global-results>
+        
+		<action name="*" class="com.iwork.commons.AbstractAction">
+            <result>/{1}.jsp</result>
+	    </action>
+		<!-- Authority chooser Action -->
+		<action name="authorityAddressBookAction" class="authorityAddressBookAction">
+			<result name="success">app/addressbook/authority/index.jsp</result>
+			<result name="index">app/addressbook/authority/authorityAddressBook.jsp</result>
+			<result name="demo">app/addressbook/authority/demo.jsp</result>
+			<result name="openjson">app/addressbook/authority/openjson.jsp</result>
+		</action>
+		<!-- end -->
+		<!-- radio book Action -->
+		<action name="radiobook_index" method="index" class="radioAddressBookAction">
+			<result name="success">app/addressbook/radio/radio.jsp</result>
+		</action>  
+		<action name="radiobook_orgjson" method="orgjson" class="radioAddressBookAction">
+			<result name="success">app/addressbook/radio/radio.jsp</result>
+		</action>  
+		<action name="radiobook_search" method="search" class="radioAddressBookAction">
+		</action>  
+		<!-- end -->	
+		<!-- Multi book Action -->
+		<action name="multibook_index" method="index" class="multiAddressBookAction">
+			<result name="success">app/addressbook/multi/multi.jsp</result>
+		</action>   
+		<action name="multibook_orgjson" method="orgjson" class="multiAddressBookAction">
+			<result name="success">app/addressbook/multi/multi.jsp</result>
+		</action>   
+		<action name="multibook_search" method="search" class="multiAddressBookAction">
+		</action> 
+		<!-- 部门字典 -->
+		<action name="deptbook_index" method="index" class="deptAddressBookAction">
+			<result name="success">app/addressbook/dept/dept.jsp</result>
+		</action>   
+		<action name="deptbook_multi_index" method="multiIndex" class="deptAddressBookAction"> 
+			<result name="success">app/addressbook/dept/multi_dept.jsp</result>
+		</action>   
+		<action name="deptbook_orgjson" method="orgjson" class="deptAddressBookAction">
+			<result name="success">app/addressbook/dept/dept.jsp</result>
+		</action>   
+		<action name="deptbook_search" method="search" class="deptAddressBookAction">
+		</action> 
+		<!-- end -->
+		
+		<action name="address_diy_index" method="diyIndex" class="multiAddressBookAction">
+			<result name="success">app/addressbook/radio/diy.jsp</result>
+		</action>  
+		<action name="address_diy_json" method="diyOrgJson" class="multiAddressBookAction">
+		</action>
+        
+    </package>  
+</struts>

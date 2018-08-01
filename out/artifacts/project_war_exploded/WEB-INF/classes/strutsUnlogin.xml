@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package strict-method-invocation="false"  name="unlogin" extends="tiles-default">
+		  <!-- 定义一个名为 checkLogin 的拦截器 -->  
+        <interceptors>  
+            <!-- 定义权限检查拦截器 -->  
+            <interceptor name="checkLogin"  
+                class="com.iwork.core.server.root.IWorkUnLoginInterceptor" />  
+            <!-- 定义一个包含权限检查的拦截器栈 -->  
+            <interceptor-stack name="myDefaultStack">  
+                <!-- 定义拦截器栈包含checkLogin拦截器 -->  
+                <interceptor-ref name="checkLogin"></interceptor-ref>  
+                <interceptor-ref name="defaultStack"></interceptor-ref>  
+            </interceptor-stack>  
+        </interceptors>  
+        <!-- 设置全局 全局默认的拦截器栈-->  
+        <default-interceptor-ref name="myDefaultStack"></default-interceptor-ref>  
+        <!-- 定义全局Result -->  
+        <global-results>  
+            <!-- 当返回login视图名时，转入/login.jsp页面 -->  
+            <result name="login">/login.jsp</result>  
+        </global-results>
+        
+		<action name="*" class="com.iwork.commons.AbstractAction">
+            <result>/{1}.jsp</result>
+        </action>
+     		 <action name="ulcmsOpen" method="cmsOpen"  class="cmsInfoAction" >
+		        <result name="cmsopen">app/plugs/cms/info/cmsopen.jsp</result>	
+		    </action>
+		<!-- 访问个人待办事项链接 -->    
+		<action name="show_desk_index" method ="index" class="xieTongAction">
+			<result name="success">app/plan/xitongInterg/deskIndex.jsp</result> 
+		</action>  
+		<action name="get_desk_List" method ="getDeskTaskList" class="xieTongAction">
+			<result name="success">app/plan/xitongInterg/deskIndex.jsp</result>
+		</action>     
+		<action name="account_apply" method ="index" class="hnaAccountApplyAction">
+			<result name="success">app/hna/base/apply.jsp</result>
+		</action>
+		<action name="account_do_apply" method ="doApply" class="hnaAccountApplyAction">
+		<result name="success">app/hna/base/success.jsp</result>
+		<result name="checkin">app/hna/base/checkin.jsp</result>
+		</action>
+		 <!--  hr库检索地址簿-->
+    	<action name="hr_info_load_autocomplete_json" method="loadHrInfoJson" class="baseInfoManageAction">
+        </action>
+         <action name="wechat_session_error"  method="init"  class="iWorkWeChatBaseAction" > 
+			  <result name="success">/mobile/wechat/base/nofind.jsp</result> 
+		</action>
+		<!-- <action name="uploadifyDownload" class="uploadifyAction" method="download"></action> -->
+	</package>
+     
+</struts>

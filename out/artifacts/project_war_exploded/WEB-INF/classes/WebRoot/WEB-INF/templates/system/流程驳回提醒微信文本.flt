@@ -1,0 +1,6 @@
+
+${USERNAME},您好！ 
+您曾经办理过的流程标题为【${TASKTITLE}】的流程在审批过程中被${SENDER}驳回办理
+【发送人】${SENDER}
+【日  期】${SENDDATE}
+【驳回意见】${OPINION}

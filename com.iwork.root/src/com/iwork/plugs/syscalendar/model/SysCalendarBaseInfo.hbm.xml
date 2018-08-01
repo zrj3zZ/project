@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.iwork.plugs.syscalendar.model.SysCalendarBaseInfoModel" table="SYS_CALENDAR_BASE_INFO">
+        <id name="id" type="java.lang.Long">
+            <column name="ID" precision="20" scale="0" />
+            <generator class="increment" />
+        </id>
+        <property name="calendarName" type="java.lang.String">
+            <column name="CALENDAR_NAME" length="100">
+                <comment>日历标题</comment>
+            </column>
+        </property>
+        <property name="describ" type="java.lang.String">
+            <column name="DESCRIB" length="200">
+                <comment>日历描述</comment>
+            </column>
+        </property>
+        <property name="ts" type="java.lang.String">
+            <column name="TS" length="30">
+                <comment>时间戳</comment>
+            </column>
+        </property>
+        <property name="sun" type="java.lang.String">
+            <column name="SUN" length="2">
+                <comment>星期日工作状态:1为工作,0为休息</comment>
+            </column>
+        </property>
+        <property name="mon" type="java.lang.String">
+            <column name="MON" length="2">
+                <comment>星期一工作状态:1为工作,0为休息</comment>
+            </column>
+        </property>
+        <property name="tues" type="java.lang.String">
+            <column name="TUES" length="2">
+                <comment>星期二工作状态:1为工作,0为休息</comment>
+            </column>
+        </property>
+        <property name="wed" type="java.lang.String">
+            <column name="WED" length="2">
+                <comment>星期三工作状态:1为工作,0为休息</comment>
+            </column>
+        </property>
+        <property name="turs" type="java.lang.String">
+            <column name="TURS" length="2">
+                <comment>星期四工作状态:1为工作,0为休息</comment>
+            </column>
+        </property>
+        <property name="fri" type="java.lang.String">
+            <column name="FRI" length="2">
+                <comment>星期五工作状态:1为工作,0为休息</comment>
+            </column>
+        </property>
+        <property name="sat" type="java.lang.String">
+            <column name="SAT" length="2">
+                <comment>星期六工作状态:1为工作,0为休息</comment>
+            </column>
+        </property>
+        <property name="expDateFrom" type="java.util.Date">
+            <column name="EXP_DATE_FROM" length="7">
+                <comment>有效日期起始</comment>
+            </column>
+        </property>
+        <property name="expDateTo" type="java.util.Date">
+            <column name="EXP_DATE_TO" length="7">
+                <comment>有效日期结束</comment>
+            </column>
+        </property>
+        <property name="status" type="java.lang.String">
+            <column name="STATUS" length="2">
+                <comment>开启状态:1为开启，0为关闭</comment>
+            </column>
+        </property>
+        <property name="workTimeFrom" type="java.lang.Long">
+            <column name="WORK_TIME_FROM" precision="22" scale="0">
+                <comment>开始工作时间</comment>
+            </column>
+        </property>
+        <property name="workTimeTo" type="java.lang.Long">
+            <column name="WORK_TIME_TO" precision="22" scale="0">
+                <comment>结束工作时间</comment>
+            </column>
+        </property>
+        <property name="grantUsers" type="java.lang.String">
+            <column name="GRANT_USERS" length="4000">
+                <comment>授权字符串</comment>
+            </column>
+        </property>
+        <property name="calendarType" type="java.lang.String">
+            <column name="CALENDAR_TYPE" length="2">
+                <comment>日期类型</comment>
+            </column>
+        </property>
+        <property name="createTime" type="java.lang.String">
+            <column name="CREATE_TIME" length="25">
+                <comment>创建时间</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

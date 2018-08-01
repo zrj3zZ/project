@@ -1,0 +1,136 @@
+<script type="text/javascript">
+$(function () {
+    var xmbh = $("#XMBH").val();
+    $.post("hl_zqb_getBgMainContent.action", {
+        xmbh: xmbh
+    }, function (data) {
+        var dataJson = eval("(" + data + ")");
+        $("#jyf").html(dataJson[0].JYF);
+        $("#jydsf").html(dataJson[0].JYDSF);
+        $("#sgfs").html(dataJson[0].SGFS);
+        $("#czbm").html(dataJson[0].CZBM);
+        $("#sfgljy").html(dataJson[0].SFGLJY);
+        $("#gdykzrbg").html(dataJson[0].GDYKZRBG);
+        $("#sfcz").html(dataJson[0].SFCZ);
+        $("#sfwg").html(dataJson[0].SFWG);
+        $("#owner").html(dataJson[0].OWNER);
+        $("#manager").html(dataJson[0].MANAGER);
+    });
+});
+</script>
+<style type="text/css">
+.formpage_title {
+	text-align: center;
+	vertical-align:bottom;
+	height:50px;
+	font-size: 22px;
+	color:#000;
+	margin-bottom:20px;
+}
+.line {
+	background-color: #ccc;
+	height:15px;
+	margin-bottom:20px;
+}
+td {
+	line-height: 30px;
+	padding-left: 3px;
+	font-size: 12px;
+	border-bottom:1px #efefef dotted;
+	vertical-align:middle;
+	word-wrap:break-word;
+	word-break:break-all;
+	font-weight:100;
+	line-height:15px;
+	padding-top:5px;
+	text-align:left;
+}
+legend {
+	font-size: 16px;
+}
+</style>
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					重组后续持续督导年报披露
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<fieldset style="margin-top:15px;color:#004080;width:100%;border:1px dashed #CCCCCC;">
+						<legend algin="right" style="color:#004080;">项目信息</legend>
+					/tr&gt;<tr
+						<td class="td_title" id="title_MANAGER" width="15%">
+							项目负责人</tr
+							<td>
+								&gt;
+								<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+									<tbody>
+										<tr id="itemTr_2">
+									<td class="td_title" id="title_JYF" width="50%">
+										交易方（客户名称）
+									</td>
+									<td class="td_data" id="data_JYF" width="50%">
+										<span id="jyf"></span> 
+									</td>
+								</tr>
+								
+								<tr>
+									<td class="td_title" id="title_CZBM" width="15%">
+										承揽人
+									</td>
+									<td class="td_data" id="data_CZBM" width="35%">
+										<span id="czbm"></span> 
+									</td>
+								</tr>
+								
+								<tr id="itemTr_8">
+									<td class="td_title" id="title_OWNER" width="15%">
+										业务部门负责人
+									</td>
+									<td class="td_data" id="data_OWNER" width="35%">
+										<span id="owner"></span> 
+									</td>
+								</tr>
+								<tr>
+									<td class="td_title" id="title_MANAGER" width="15%">
+										项目负责人
+									</td>
+									<td class="td_data" id="data_MANAGER" width="35%">
+										<span id="manager"></span> 
+									</td>
+								</tr>
+									</tbody>
+								</table>
+									</fieldset>
+									<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+										<tbody>
+											<tr id="itemTr_2">
+												<td class="td_title" id="title_FJ" width="15%">
+													附件
+												</td>
+												<td class="td_data" id="data_FJ" width="85%" colspan="3">
+													<span style="color:red;">（1）持续督导报告及附件</span><br />
+<span style="color:red;">（2）按月提交的督导报告</span> ${FJ}
+												</td>
+											</tr>
+										</tbody>
+									</table>
+										</td>
+											</tr>
+												</tbody>
+													</table>
+														</div>
+														<div style="display:none;">
+															${INSTANCEID}${COMPANYNO}${COMPANYNAME}${TBRID}${TBSJ}${XMBH}${LCBH}${LCBS}${TASKID}${SPZT}${SCORE}${JDBH}${JDMC}${TJRID}${TJRXM}${TJSJ}${EXTEND1}${EXTEND2}${EXTEND3}${EXTEND4}${EXTEND5}
+														</div>

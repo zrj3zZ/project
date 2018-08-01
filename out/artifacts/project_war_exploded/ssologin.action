@@ -1,0 +1,157 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="com.iwork.app.conf.SystemConfig"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<%
+//读取Cookie
+ Cookie[] cookies = request.getCookies();
+ String loginVerify = SystemConfig._iworkServerConf.getLoginVerify();
+ String isMultiLanguage = SystemConfig._iworkServerConf.getIsMultiLanguage();
+ String chkedn="";
+ String chkedp="";
+ boolean isCheckPWD = false;
+ boolean isCheckUser = false;
+ if(cookies!=null)
+{ 
+   for(int i=0;i<cookies.length;i++){   
+	  if(cookies[i].getName().equals("name")){
+	  	request.setAttribute("name",cookies[i].getValue());
+	  	chkedn="checked";
+	  		continue;
+	  } 
+	  if(cookies[i].getName().equals("pwd")){
+		  request.setAttribute("pwd",cookies[i].getValue());
+		  chkedp="checked";
+		  continue; 
+	  }   
+	  if(cookies[i].getName().equals("checkPwd")){
+		  if(cookies[i].getValue().equals("true")){
+			  isCheckPWD = true;
+		  }else{
+			  isCheckPWD = false;
+		  }
+		  continue;
+	  } 
+	  if(cookies[i].getName().equals("checkUser")){ 
+		  if(cookies[i].getValue().equals("true")){
+			  isCheckUser = true;
+		  }else{
+			  isCheckUser = false;
+		  } 
+		  continue;
+	  }
+	  
+	}
+}
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>用户登陆-HiBPM业务流程管理平台</title>
+    <link rel="stylesheet" type="text/css" href="iwork_css/login/themes/default/login.css">
+<script language="javascript" src="iwork_js/jqueryjs/jquery-3.0.7.min.js"></script>
+    <script language="javascript" type="text/javascript">
+    $(document).ready(function() {
+    	 if (top.location != self.location)top.location=self.location;
+    	if($("#userid").val()!=""){
+    		$("#userid").prev('span').hide();
+   		 }
+    	if($("#password").val()!=""){
+    		$("#password").prev('span').hide();
+   		 }
+    })
+   
+    	function dologin(){
+    		if($("#userid").val()!=""&&$("#password").val()!=""&&$("#identifyCode").val()!=""&&$("#identifyCode").val()!="验证码"){
+    			$("#loginForm").attr("action","dologin.action");
+    			$("#loginForm").submit();
+    		}else{
+    			if($("#userid").val()==""){
+    				$("#userid").focus(); 
+    				$("#ListMsg").html("请填写登录账号");
+    			}else if($("#password").val()==""){
+    				$("#password").focus(); 
+    				$("#ListMsg").html("请填写登录密码");
+    			}
+    		<%if(loginVerify!=null&&loginVerify.equals("on")){ %> 
+    			else if($("#identifyCode").val()==""||$("#identifyCode").val()=="验证码"){
+    				$("#identifyCode").focus(); 
+    				$("#ListMsg").html("请填写验证码");
+    			}
+    		 <%} %>
+    			return;
+    		}
+    	}
+    	function changeValidateCode(obj) {  
+    	    var currentTime= new Date().getTime();  
+    	    obj.src = "showidentifyCode.action?d=" + currentTime;  
+    	}  
+    </script>
+    <style type="text/css">
+    	.topBanner{
+    		height:30px;
+    		background:#4169E1;
+    	}
+    </style>
+</head> 
+<body onkeydown="if(event.keyCode==13) dologin();" style="padding-top:10px;" >
+<form method="post" name="loginForm" id="loginForm">
+
+<div class="logo wap"><a href="http://www.ibpmsoft.com/" target="_blank" title="HiBPM业务流程管理平台"><img src="iwork_img/login/default2/logo.png"  style="width:180px" alt="HiBPM业务流程管理平台"></a></div>
+<div class="lo_ct">
+    <div class="lo_bg wap">
+    <div class="lo_showimg">
+        <ul class="lo_list">
+            <li class="lo_list_text"><span style="display: block;"><s:text name="login.username.tip"/></span><input type="text" class="us_name"  value="${name}" name="userid" id="userid"  onfocus="$(this).prev('span').hide()" onblur="if(!value){$(this).prev('span').show()}"></li>
+            <li class="lo_list_text"><span style="display: block;"><s:text name="login.password.tip"/></span><input type="password" class="us_pwd" value="${pwd}"   name="password" id="password"  onfocus="$(this).prev('span').hide()" onblur="if(!value){$(this).prev('span').show()}"></li>
+            <%if(loginVerify!=null&&loginVerify.equals("on")){ %> 
+            <li class="spot_item">
+            	<table  border="0" cellspacing="0" cellpadding="0"><tr>
+            	<td> <input type="text" class="us_spot" value="验证码" name="identifyCode" id="identifyCode"  onkeydown="if(event.keyCode==13) dologin();"  onfocus="$(this).val('')" onblur="if(!value){$(this).val('验证码')}">
+            	</td>
+            	<td><img id="identifyPic"  alt="看不清楚？点击换一张"  src="showidentifyCode.action" onclick="changeValidateCode(this)" class="identifier"  />
+            	</td>
+            	</tr></table>
+             </li>
+             <%} %>
+              <%if(isMultiLanguage!=null&&isMultiLanguage.equals("on")){ %> 
+	            <li> 
+	                <span class="lt" >
+	                	<s:select name="locale"  listKey="key" listValue="value"  list="#{'zh_CN':'中文','en_US':'English'}"></s:select>
+	                </span>
+	            </li>
+           		<%} %>
+            <li>
+                <span class="lt" onmouseover="$('em').show()" onmouseout="$('em').hide()">
+                 <%
+                	if(isCheckPWD){
+                		%>
+                <input type="checkbox" name="rememberPwd" class="IsSave" id="rememberPwd" title="" checked="checked" value="true"><label for="rememberPwd" title="">记住我</label>
+                		<% 
+                	}else{
+                		%>
+                <input type="checkbox" name="rememberPwd" class="IsSave" id="rememberPwd" title="" value="true"><label for="rememberPwd" title="">记住我</label>
+                <%
+                	}
+                %>
+                </span>
+                <em style="display: none;" class="remberpass">&nbsp;请勿在公共电脑使用此选项</em>
+                <!-- <a class="forget rt" href="##" title="忘记密码">忘记密码</a> -->
+                <span class="errotip" id="ListMsg"><s:property value="loginInfo"/></span>
+            </li>
+
+            <li>
+                <a class="lo_bnt lt" href="###" onclick="dologin()" title="登录">登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录</a>
+            </li>
+            <li class="lo_copt">
+            	<a  href="" title="iPhone客户端下载"><img src="iwork_img/login/default2/ios.png" alt="" />iPhone</a>
+                <a  href="" title="android客户端下载"><img src="iwork_img/login/default2/android.png" alt="" />Android</a>
+               
+            </li>
+        </ul>
+        </div>
+    </div>
+</div>
+<p class="lo_bt">
+    <a href="http://www.ibpmsoft.com/">返回首页</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www.ibpmsoft.com/services.xhtml">帮助中心</a>
+</p>
+    </form>
+</body></html>

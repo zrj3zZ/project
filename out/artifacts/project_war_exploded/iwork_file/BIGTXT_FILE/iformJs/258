@@ -1,0 +1,26 @@
+$(function () {
+    $.post("sx_getBgZLGD.action", {
+        "jdmc": "资料归档",
+        "xmlx": "并购项目",
+        "xmbh": $("#XMBH").val()
+    }, function (data) {
+        var dataJson = eval("(" + data + ")");
+        $("#jyf").html(dataJson[0].JYF);
+        $("#jydsf").html(dataJson[0].JYDSF);
+        $("#owner").html(dataJson[0].OWNER);
+        $("#manager").html(dataJson[0].MANAGER);
+        $("#LXCONTENT").html(dataJson[0].LXCONTENT);
+        $("#LXFJZL").html(dataJson[0].LXFJZL);
+        $("#XMLXZL").val(dataJson[0].LXFJUUID);
+        $("#BSCONTENT").html(dataJson[0].BSCONTENT);
+        $("#BSFJZL").html(dataJson[0].BSFJZL);
+        $("#BSFJUUID").val(dataJson[0].BSFJUUID);
+        $("#SBCONTENT").html(dataJson[0].SBCONTENT);
+        $("#SBFJZL").html(dataJson[0].SBFJZL);
+        $("#SBFJUUID").val(dataJson[0].SBFJUUID);
+        $("#GDCONTENT").html(dataJson[0].GDCONTENT);
+        $("#GDFJZL").html(dataJson[0].GDFJZL);
+        $("#GDFJUUID").val(dataJson[0].GDFJUUID);
+        $("#COMPANYNAME").val(dataJson[0].JYF);
+    });
+});

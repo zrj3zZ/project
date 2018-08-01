@@ -1,0 +1,852 @@
+<?xml version="1.0" encoding="gb2312"?>
+<variable-config>
+
+<!--用户参数-->
+<interface-class>com.iwork.core.engine.runtime.el.ExpressionInterface</interface-class>
+
+<variable>
+	<groupname>业务变量</groupname>
+	<id>processformno</id>
+	<title>当前用户姓名</title>
+	<implements-class>com.iwork.app.expand.runtime.expression.ProcessFormNoExpressionImpl</implements-class>			
+	<label>%processformno%</label> 
+	<desc>获取流程的单据号</desc>
+	<returnType>String</returnType>
+	<returnDesc>在流程中获取当前表单中外观定义为流程编号的内容</returnDesc>
+</variable>
+
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>username</id>
+	<title>当前用户姓名</title>
+	<implements-class>com.iwork.app.expand.runtime.expression.UsernameExpressionImpl</implements-class>			
+	<label>%username%</label> 
+	<desc>获取当前操作者的真实姓名</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>uid</id>
+	<title>当前帐户</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.UidExpressionImpl</implements-class>			
+	<label>%uid%</label>
+	<desc>获取当前操作者的登录帐户名</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>userid</id>
+	<title>当前帐户ID</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.UserIdExpressionImpl</implements-class>			
+	<label>%userid%</label>
+	<desc>获取当前操作者的登录帐户ID</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>userno</id>
+	<title>用户代码</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.UsernoExpressionImpl</implements-class>			
+	<label>%userno%</label>
+	<desc>获取当前操作者代码</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>usermaster</id>
+	<title>用户是否为部门主管</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.UserMasterExpressionImpl</implements-class>			
+	<label>%usermaster%</label>
+	<desc>获取某个用户是否为部门主管</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>usertel</id>
+	<title>用户联系电话</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.UserTelExpressionImpl</implements-class>			
+	<label>%usertel%</label>
+	<desc>获取当前操作者联系电话</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>useremail</id>
+	<title>用户外部邮件</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.UserEmailExpressionImpl</implements-class>			
+	<label>%useremail%</label>
+	<desc>获取当前操作者外部邮件</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>userextend1infor</id>
+	<title>用户扩展字段1的值</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.UserExtend1InforExpressionImpl</implements-class>			
+	<label>%userextend1infor%</label>
+	<desc>获取当前操作者扩展字段1的值</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>userextend2infor</id>
+	<title>用户扩展字段2的值</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.UserExtend2InforExpressionImpl</implements-class>			
+	<label>%userextend2infor%</label>
+	<desc>获取当前操作者扩展字段1的值</desc>
+</variable> 
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>userextend3infor</id>
+	<title>用户扩展字段3的值</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.UserExtend3InforExpressionImpl</implements-class>			
+	<label>%userextend3infor%</label>
+	<desc>获取当前操作者扩展字段3的值</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>userextend4infor</id>
+	<title>用户扩展字段3的值</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.UserExtend4InforExpressionImpl</implements-class>			
+	<label>%userextend4infor%</label>
+	<desc>获取当前操作者扩展字段4的值</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>userextend5infor</id>
+	<title>用户扩展字段5的值</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.UserExtend5InforExpressionImpl</implements-class>			
+	<label>%userextend5infor%</label>
+	<desc>获取当前操作者扩展字段5的值</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>userextend6infor</id>
+	<title>用户扩展字段6的值</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.UserExtend6InforExpressionImpl</implements-class>			
+	<label>%userextend6infor%</label>
+	<desc>获取当前操作者扩展字段6的值</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>userextend7infor</id>
+	<title>用户扩展字段7的值</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.UserExtend7InforExpressionImpl</implements-class>			
+	<label>%userextend7infor%</label>
+	<desc>获取当前操作者扩展字段7的值</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>userextend8infor</id>
+	<title>用户扩展字段8的值</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.UserExtend8InforExpressionImpl</implements-class>			
+	<label>%userextend8infor%</label>
+	<desc>获取当前操作者扩展字段8的值</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>userextend9infor</id>
+	<title>用户扩展字段9的值</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.UserExtend9InforExpressionImpl</implements-class>			
+	<label>%userextend9infor%</label>
+	<desc>获取当前操作者扩展字段9的值</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>userextend10infor</id>
+	<title>用户扩展字段10的值</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.UserExtend10InforExpressionImpl</implements-class>			
+	<label>%userextend10infor%</label>
+	<desc>获取当前操作者扩展字段10的值</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>localcompanyid</id>
+	<title>单位ID</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.LocalCompanyIdExpressionImpl</implements-class>			
+	<label>%localcompanyid%</label>
+	<desc>获取当前操作者实际注册的单位ID</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>localcompany</id>
+	<title>单位名称</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.LocalCompanyNameExpressionImpl</implements-class>			
+	<label>%localcompanyname%</label>
+	<desc>获取当前操作者实际注册的单位名称</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>localcompanyno</id>
+	<title>单位代码</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.LocalCompanyNoExpressionImpl</implements-class>			
+	<label>%localcompanyno%</label>
+	<desc>获取当前操作者实际注册的单位代码</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>localdepartmentid</id>
+	<title>部门ID</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.LocalDepartmentIdExpressionImpl</implements-class>			
+	<label>%localdepartmentid%</label>
+	<desc>获取当前操作者实际注册的部门id</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>localdepartmentname</id>
+	<title>部门名称</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.LocalDepartmentNameExpressionImpl</implements-class>			
+	<label>%localdepartmentname%</label>
+	<desc>获取当前操作者实际注册的部门名称</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>localdepartmentno</id>
+	<title>部门代码</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.LocalDepartmentNoExpressionImpl</implements-class>			
+	<label>%localdepartmentno%</label>
+	<desc>获取当前操作者实际注册的部门代码</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>localdepartmentfullname</id>
+	<title>部门全路径</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.LocalDepartmentFullNameExpressionImpl</implements-class>			
+	<label>%localdepartmentfullname%</label>
+	<desc>获取当前操作者实际注册的部门全路径，格式:/部门a/部门b...</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>localdepartmentfullid</id>
+	<title>部门id全路径</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.LocalDepartmentFullIdExpressionImpl</implements-class>			
+	<label>%localdepartmentfullid%</label>
+	<desc>获取当前操作者实际注册的部门ID全路径，格式:/部门a/部门b...</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>companyname</id>
+	<title>单位名称</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.CompanyExpressionImpl</implements-class>			
+	<label>%companyname%</label>
+	<desc>获取当前操作者在流程实例中所在的单位名称</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>companyid</id>
+	<title>单位id</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.CompanyIdExpressionImpl</implements-class>			
+	<label>%companyid%</label>
+	<desc>获取当前操作者在流程实例中所在的单位id</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>companyno</id>
+	<title>单位代码</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.CompanyNoExpressionImpl</implements-class>			
+	<label>%companyno%</label>
+	<desc>获取当前操作者在流程实例中所在的单位代码</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>rolename</id>
+	<title>角色名称</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.RoleNameExpressionImpl</implements-class>			
+	<label>%rolename%</label>
+	<desc>获取当前操作者在流程实例中的角色名称</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>roleid</id>
+	<title>角色id</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.RoleIdExpressionImpl</implements-class>			
+	<label>%roleid%</label>
+	<desc>获取当前操作者在流程实例中的角色id</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>roletype</id>
+	<title>角色类型</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.RoleTypeExpressionImpl</implements-class>			
+	<label>%roletype%</label>
+	<desc>获取当前操作者在流程实例中的角色类型</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>groupid</id>
+	<title>角色组id</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.GroupIdExpressionImpl</implements-class>			
+	<label>%groupid%</label>
+	<desc>获取当前操作者在流程实例中的角色组id</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>groupname</id>
+	<title>角色组名称</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.GroupNameExpressionImpl</implements-class>			
+	<label>%groupname%</label>
+	<desc>获取当前操作者在流程实例中的角色组名称</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>departmentname</id>
+	<title>部门名称</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.DepartmentNameExpressionImpl</implements-class>			
+	<label>%departmentname%</label>
+	<desc>获取当前操作者在流程实例中的部门名称</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>departmentfullname</id>
+	<title>部门全路径</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.DepartmentFullNameExpressionImpl</implements-class>			
+	<label>%departmentfullname%</label>
+	<desc>获取当前操作者在流程实例中的部门全路径，格式:/部门a/部门b...</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>departmentfullid</id>
+	<title>部门全id</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.DepartmentFullIdExpressionImpl</implements-class>			
+	<label>%departmentfullid%</label>
+	<desc>获取当前操作者在流程实例中的部门全id，格式:/部门a/部门b...</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>departmentid</id>
+	<title>部门id</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.DepartmentIdExpressionImpl</implements-class>			
+	<label>%departmentid%</label>
+	<desc>获取当前操作者在流程实例中的部门id</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>departmentno</id>
+	<title>部门代码</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.DepartmentNoExpressionImpl</implements-class>			
+	<label>%departmentno%</label>
+	<desc>获取当前操作者在流程实例中的部门代码</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>departmentzone</id>
+	<title>部门区域</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.DepartmentZoneExpressionImpl</implements-class>			
+	<label>%departmentzone%</label>
+	<desc>获取当前操作者在流程实例中的部门区域</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>postsid</id>
+	<title>岗位编号</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.UserPostsidExpressionImpl</implements-class>			
+	<label>%postsid%</label>
+	<desc>获取当前操作者的岗位编号</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>postsname</id>
+	<title>岗位名称</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.UserPostsnameExpressionImpl</implements-class>			
+	<label>%postsname%</label>
+	<desc>获取当前操作者的岗位名称</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>usertype</id>
+	<title>用户类型</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.UserTypeExpressionImpl</implements-class>			
+	<label>%usertype%</label>
+	<desc>获取当前操作者的用户类型</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>startdate</id>
+	<title>开始期</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.UserStartDateExpressionImpl</implements-class>			
+	<label>%startdate%</label>
+	<desc>获取当前操作者的有效起始期</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>enddate</id>
+	<title>结束期</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.UserEndDateExpressionImpl</implements-class>			
+	<label>%enddate%</label>
+	<desc>获取当前操作者的有效结束期</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>logincounter</id>
+	<title>登陆次数</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.LoginCounterExpressionImpl</implements-class>			
+	<label>%logincounter%</label>
+	<desc>获取当前操作者的登录次数</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>costcenterid</id>
+	<title>成本中心id</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.CostCenterIdExpressionImpl</implements-class>			
+	<label>%costcenterid%</label>
+	<desc>获取当前操作者的成本中心id</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>costcentername</id>
+	<title>成本中心名称</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.CostCenterNameExpressionImpl</implements-class>			
+	<label>%costcentername%</label>
+	<desc>获取当前操作者的成本中心名称</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>isroving</id>
+	<title>是否为游离账户</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.UserIsRovingExpressionImpl</implements-class>			
+	<label>%isroving%</label>
+	<desc>获取当前操作者是否为游离账户</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>issinglelogin</id>
+	<title>是否控制单点登录</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.UserIsSingleLoginExpressionImpl</implements-class>			
+	<label>%issinglelogin%</label>
+	<desc>获取当前操作者是否控制单点登录</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>portalmodel</id>
+	<title>门户模版</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.PortalModelExpressionImpl</implements-class>			
+	<label>%portalmodel%</label>
+	<desc>获取当前操作者门户模版</desc>
+</variable>
+
+ <variable>
+	<groupname>组织结构变量</groupname>
+	<id>userofficetel</id>
+	<title>办公室电话</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.UserOfficeTelExpressionImpl</implements-class>			
+	<label>%userofficetel%</label>
+	<desc>获取当前用户的办公室电话</desc>
+</variable>  
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>userofficefax</id>
+	<title>办公室传真</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.UserOfficeFaxExpressionImpl</implements-class>			
+	<label>%userofficefax%</label>
+	<desc>获取当前用户的办公室传真</desc>
+</variable>  
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>userhometel</id>
+	<title>家庭电话</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.UserHomeTelExpressionImpl</implements-class>			
+	<label>%userhometel%</label>
+	<desc>获取当前用户的家庭电话</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>usermobile</id>
+	<title>手机号码</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.UserMobileExpressionImpl</implements-class>			
+	<label>%usermobile%</label>
+	<desc>获取当前用户的手机号码</desc>
+</variable> 
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>userworkstatus</id>
+	<title>工作状态</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.UserWorkStatusExpressionImpl</implements-class>			
+	<label>%userworkstatus%</label>
+	<desc>获取当前用户的工作状态</desc>
+</variable>   
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>jjlinkman</id>
+	<title>紧急联系人</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.UserJjLinkManExpressionImpl</implements-class>			
+	<label>%jjlinkman%</label>
+	<desc>获取当前用户的紧急联系人</desc>
+</variable> 
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>jjlinktel</id>
+	<title>紧急联系电话</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.UserJjLinkTelExpressionImpl</implements-class>			
+	<label>%jjlinktel%</label>
+	<desc>获取当前用户的紧急联系电话</desc>
+</variable>   
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>userbossid</id>
+	<title>上级领导账号</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.UserBossIdExpressionImpl</implements-class>			
+	<label>%userbossid%</label>
+	<desc>获取当前用户的上级领导帐号</desc>
+</variable> 
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>parentdepartmentid</id>
+	<title>上级部门id</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.ParentDepartmentIdExpressionImpl</implements-class>			
+	<label>%parentdepartmentid%</label>
+	<desc>获取当前用户的上级部门id</desc>
+</variable>  
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>departmentcompanyid</id>
+	<title>组织单位id</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.DepartmentCompanyIdExpressionImpl</implements-class>			
+	<label>%departmentcompanyid%</label>
+	<desc>获取当前用户的组织单位id</desc>
+</variable> 
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>companytype</id>
+	<title>组织类型</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.CompanyTypeExpressionImpl</implements-class>			
+	<label>%companytype%</label>
+	<desc>获取当前用户的组织类型</desc>
+</variable> 
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>companyzoneno</id>
+	<title>地区编号</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.CompanyZoneNoExpressionImpl</implements-class>			
+	<label>%companyzoneno%</label>
+	<desc>获取当前用户的组织地区编号（部门获取不到则获取组织的）</desc>
+</variable>  
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>companyzonename</id>
+	<title>地区名称</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.CompanyZoneNameExpressionImpl</implements-class>			
+	<label>%companyzonename%</label>
+	<desc>获取当前用户的组织地区名称</desc>
+</variable>  
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>companypost</id>
+	<title>组织邮编</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.CompanyPostExpressionImpl</implements-class>			
+	<label>%companypost%</label>
+	<desc>获取当前用户的组织邮编</desc>
+</variable>
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>companytel</id>
+	<title>组织电话</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.CompanyTelExpressionImpl</implements-class>			
+	<label>%companytel%</label>
+	<desc>获取当前用户的组织电话</desc>
+</variable>    
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>orgaddress</id>
+	<title>单位地址</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.OrgAddressExpressionImpl</implements-class>			
+	<label>%orgaddress%</label>
+	<desc>获取当前用户的单位地址</desc>
+</variable> 
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>orgextend1infor</id>
+	<title>组织扩展字段1的值</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.OrgExtend1InforExpressionImpl</implements-class>			
+	<label>%orgextend1infor%</label>
+	<desc>获取当前组织扩展字段1的值</desc>
+</variable>  
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>orgextend2infor</id>
+	<title>组织扩展字段2的值</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.OrgExtend2InforExpressionImpl</implements-class>			
+	<label>%orgextend2infor%</label>
+	<desc>获取当前组织扩展字段1的值</desc>
+</variable>  
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>orgextend3infor</id>
+	<title>组织扩展字段3的值</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.OrgExtend3InforExpressionImpl</implements-class>			
+	<label>%orgextend3infor%</label>
+	<desc>获取当前组织扩展字段3的值</desc>
+</variable>  
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>orgextend4infor</id>
+	<title>组织扩展字段4的值</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.OrgExtend4InforExpressionImpl</implements-class>			
+	<label>%orgextend4infor%</label>
+	<desc>获取当前组织扩展字段4的值</desc>
+</variable>  
+<variable>
+	<groupname>组织结构变量</groupname>
+	<id>orgextend5infor</id>
+	<title>组织扩展字段5的值</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.OrgExtend5InforExpressionImpl</implements-class>			
+	<label>%orgextend5infor%</label>
+	<desc>获取当前组织扩展字段5的值</desc>
+</variable>   
+
+<variable>
+	<groupname>时间变量</groupname>
+	<id>date</id>
+	<title>当前日期</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.DateExpressionImpl</implements-class>			
+	<label>%date%%</label>
+	<desc>获取当前服务器的日期，格式为YYYY-MM-DD</desc>
+</variable>
+<variable>
+	<groupname>时间变量</groupname>
+	<id>year</id>
+	<title>当前年份</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.YearExpressionImpl</implements-class>			
+	<syntax>%year%</syntax>
+	<desc>获取当前BPM应用服务器的年份，格式为YYYY</desc>
+</variable>
+<variable>
+	<groupname>时间变量</groupname>
+	<id>month</id>
+	<title>当前月份</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.MonthExpressionImpl</implements-class>			
+	<label>%month%</label>
+	<desc>获取当前BPM应用服务器的月份，格式为MM</desc>
+</variable>
+<variable>
+	<groupname>时间变量</groupname>
+	<id>week</id>
+	<title>当前第几周</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.WeekExpressionImpl</implements-class>			
+	<label>%week%</label>
+	<desc>获取当前BPM应用服务器的星期</desc>
+</variable>
+<variable>
+	<groupname>时间变量</groupname>
+	<id>day</id>
+	<title>当前日</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.DayExpressionImpl</implements-class>			
+	<label>%day%</label>
+	<desc>获取当前BPM应用服务器当天</desc>
+</variable>
+<variable>
+	<groupname>时间变量</groupname>
+	<id>quarter</id>
+	<title>当前季度</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.QuarterExpressionImpl</implements-class>			
+	<label>%quarter%</label>
+	<desc>获取当前BPM应用服务器当前季度</desc>
+</variable>
+<variable>
+	<groupname>时间变量</groupname>
+	<id>datetime</id>
+	<title>当前时间</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.DatetimeExpressionImpl</implements-class>			
+	<label>%datetime%</label>
+	<desc>获取当前系统时间,格式为YYYY-MM-DD hh:m:s</desc>
+</variable>
+<variable>
+	<groupname>获取数据集成变量</groupname>
+	<id>getConnectionVar</id>
+	<title>获取数据集成变量</title>		 
+	<implements-class>com.iwork.app.expand.runtime.expression.ConnectionGetVarExpressionImpl</implements-class>			
+	<label>%getConnectionVar(uuid,fieldname)%</label>   
+	<desc>获取数据集成平台中，指定的数据集成模型获取的参数值</desc>
+	<parameters> 
+		<parameter> 
+			<name>uuid</name> 
+			<desc>数据集成模型UUID</desc>
+			<type>String</type>
+		</parameter>
+		<parameter>
+			<name>fieldname</name>
+			<desc>获取的输出参数字段值</desc>
+			<type>String</type>
+		</parameter>
+	</parameters>
+</variable>
+
+<variable>
+	<groupname>序列变量</groupname>
+	<id>sequence:y-m-id</id>
+	<title>年月序列ID</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.SequenceYMIdExpressionImpl</implements-class>			
+	<label>%sequence:y-m-id%</label>
+	<desc>按年月产生序列编号(年+月+id)，其中id为一个自增值，格式：2005-10-999</desc>
+</variable>
+<variable>
+	<groupname>序列变量</groupname>
+	<id>sequence:y-m-no</id>
+	<title>年月序列编号</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.SequenceYMNoExpressionImpl</implements-class>			
+	<label>%sequence:y-m-no%</label>
+	<desc>按年月产生序列编号(年+月+no)，no值在流程组内自动增加，格式：2005-10-1</desc>
+</variable>
+<variable>
+	<groupname>序列变量</groupname>
+	<id>sequence:no</id>
+	<title>序列编号</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.SequenceNoExpressionImpl</implements-class>			
+	<label>%sequence:no%</label>
+	<desc>产生序列编号，no值在流程组内自动增加</desc>
+	<parameters>
+		<parameter>
+			<name>no</name>
+			<desc>请选择一个序列的键值</desc>
+			<type>String</type>
+		</parameter>
+
+	</parameters>
+</variable>
+<variable>
+	<groupname>函数</groupname>
+	<id>sequence:</id>
+	<title>自定义的序列编号</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.SequenceKeyExpressionImpl</implements-class>			
+	<label>%sequence:(#sequenceKey)%</label>
+	<desc>用户可以把sequenceKey替换成任何文字,系统会为你自动创建一个该KEY值的序列编号</desc>
+	<parameters>
+		<parameter>
+			<name>sequenceKey</name>
+			<desc>请选择一个序列的键值</desc>
+			<type>String</type>
+		</parameter>
+	</parameters>
+	
+</variable>
+<variable>
+	<groupname>函数</groupname>
+	<id>yearsequence:</id>
+	<title>每年份给出一个序列编号</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.YearSequenceKeyExpressionImpl</implements-class>			
+	<label>%yearsequence:(#sequenceKey)%</label>
+	<desc>用户可以把sequenceKey替换成任何文字,系统会为你自动创建一个当前年份的KEY值的序列编号</desc>
+</variable>
+<variable>
+	<groupname>函数</groupname>
+	<id>monthsequence:</id>
+	<title>每个月给出一个序列编号</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.MonthSequenceKeyExpressionImpl</implements-class>			
+	<label>%monthsequence:(#sequenceKey)%</label>
+	<desc>用户可以把sequenceKey替换成任何文字,系统会为你自动创建一个当前年份、月份的KEY值的序列编号</desc>
+</variable>
+<variable>
+<groupname>函数</groupname>
+	<id>sum</id>
+	<title>记录求和</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.SumExpressionImpl</implements-class>			
+	<label>%sum(tablename,fieldname)%</label>
+	<desc>获得字段值的和,函数里第一个参数代表[该数据库中的字段名],第二个参数代表[格式],1为大写数字.壹.贰,2为普通数字</desc>
+	<parameters>
+		<parameter>
+			<name>tablename</name>
+			<desc>表名</desc>
+			<type>String</type>
+		</parameter> 
+		<parameter>
+			<name>fieldname</name>
+			<desc>字段名</desc>
+			<type>String</type>
+		</parameter>
+	</parameters>
+</variable>
+<variable>
+	<groupname>函数</groupname>
+	<id>sumcn</id>
+	<title>记录求和(显示中文大写)</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.SumChineseExpressionImpl</implements-class>			
+	<label>%sumcn(tablename,fieldname)%</label>
+	<desc>获得字段值的和,函数里第一个参数代表[该数据库中的字段名]</desc>
+	<parameters>
+		<parameter>
+			<name>tablename</name>
+			<desc>表名</desc>
+			<type>String</type>
+		</parameter> 
+		<parameter>
+			<name>fieldname</name>
+			<desc>字段名</desc>
+			<type>String</type>
+		</parameter>
+	</parameters>
+</variable>
+<variable>
+<groupname>函数</groupname>
+	<id>avg</id>
+	<title>记录平均</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.AvgExpressionImpl</implements-class>			
+	<label>%avg(tablename,fieldname)%</label>
+	<desc>获得字段值的平均值,函数里第一个参数代表[该数据库中的字段名],第二个参数代表[格式],1为大写数字.壹.贰,2为普通数字</desc>
+	<parameters>
+		<parameter>
+			<name>tablename</name>
+			<desc>表名</desc>
+			<type>String</type>
+		</parameter> 
+		<parameter>
+			<name>fieldname</name>
+			<desc>字段名</desc>
+			<type>String</type>
+		</parameter>
+	</parameters>
+</variable>
+<variable>
+	<groupname>函数</groupname>
+	<id>getform</id>
+	<title>获得当前表单的字段值</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.GetFormExpressionImpl</implements-class>			
+	<label>%getform(tablename,fieldname)%</label>
+	<desc>获得当前主表单的字段值,参数代表[该数据库中的字段名]</desc>
+	<parameters>
+		<parameter> 
+			<name>tablename</name>
+			<desc>表名</desc>
+			<type>String</type>
+		</parameter>
+		<parameter> 
+			<name>fieldname</name>
+			<desc>字段名</desc>
+			<type>String</type>
+		</parameter>
+	</parameters>
+</variable>
+<variable>
+	<groupname>函数</groupname>
+	<id>getdatabasevalue</id>
+	<title>从SQL中获取记录值</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.GetDatabaseValueExpressionImpl</implements-class>			
+	<label>%getdatabasevalue(SQL)%</label>
+	<desc>获得任意表中的字段值,可以把SQL替换成标准的select语句，该函数只用来获取第1个字段的第1条记录值</desc>
+	<parameters>
+		<parameter>
+			<name>SQL</name>
+			<desc>sql语句</desc>
+			<type>String</type>
+		</parameter> 
+	</parameters>
+</variable>
+<variable>
+	<groupname>函数</groupname>
+	<id>formatzero</id>
+	<title>格式化一个串，不足补0</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.FormatZeroExpressionImpl</implements-class>			
+	<label>%formatzero(length,str)%</label>
+	<desc>length为一个阿拉伯数字</desc>
+	<parameters>
+		<parameter>
+			<name>length</name>
+			<desc>表名</desc>
+			<type>int</type>
+		</parameter> 
+		<parameter>
+			<name>str</name>
+			<desc>字段名</desc>
+			<type>String</type>
+		</parameter>
+	</parameters>
+</variable>
+<variable>
+	<groupname>函数</groupname>
+	<id>dateadd</id>
+	<title>日期计算</title>		
+	<implements-class>com.iwork.app.expand.runtime.expression.DateAddFormExpressionImpl</implements-class>			
+	<label>%dateadd(datepart,number,date)%</label>
+	<desc>将指定number时间间隔（有符号整数）与指定date的指定datepart相加后，返回该date.其中datepart可以是year|month|week|day</desc>
+</variable>
+</variable-config>

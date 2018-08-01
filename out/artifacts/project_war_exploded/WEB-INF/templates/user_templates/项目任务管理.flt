@@ -1,0 +1,79 @@
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					项目任务管理表单
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" border="0" cellpadding="0" cellspacing="0" width="100%">
+						<tbody>
+							<tr id="itemTr_1643">
+								<td id="title_PROJECTNAME" class="td_title" width="180">
+									项目名称
+								</td>
+								<td id="data_PROJECTNAME" class="td_data">
+									${PROJECTNAME}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1641">
+								<td id="title_GROUPID" class="td_title" width="180">
+									<span style="color:red;">*</span>任务阶段
+								</td>
+								<td id="data_GROUPID" class="td_data">
+									<div style="height:15px; width:100%; position:relative; z-index:1;">${GROUPID}<div style="height:15px;width:100%;position:absolute; top:0px; left:0; z-index:2;"></div></div>&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1640">
+								<td id="title_MANAGER" class="td_title" width="180">
+									<span style="color:red;">*</span>任务负责人
+								</td>
+								<td id="data_MANAGER" class="td_data">
+									${MANAGER}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1647">
+								<td id="title_SSJE" class="td_title" width="180">
+									实收金额(万元)
+								</td>
+								<td id="data_SSJE" class="td_data">
+									${SSJE}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1648">
+								<td id="title_JDZL" class="td_title" width="180">
+									资料说明
+								</td>
+								<td id="data_JDZL" class="td_data">
+									${JDZL}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1648">
+								<td colspan="2">
+									<iframe id="URL" border="0" name="URL" height="100%" width="100%">
+									</iframe>
+<br />
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${TASK_NAME}${STARTDATE}${ENDDATE}${SCALE}${HTJE}${SXZLMB}${ATTACH}${MEMO}${PROJECTNO}${ORDERINDEX}${PRIORITY}${GXSJ}${SPZT}
+</div>

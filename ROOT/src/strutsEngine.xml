@@ -1,0 +1,1308 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+"http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+	<package strict-method-invocation="false"  name="engine" extends="tiles-default">
+		  <!-- 定义一个名为 checkLogin 的拦截器 -->  
+        <interceptors>  
+            <!-- 定义权限检查拦截器 -->  
+            <interceptor name="checkLogin"  
+                class="com.iwork.core.server.root.IWorkInterceptor" />  
+            <!-- 定义一个包含权限检查的拦截器栈 -->  
+            <interceptor-stack name="myDefaultStack">  
+                <!-- 定义拦截器栈包含checkLogin拦截器 -->  
+                <interceptor-ref name="checkLogin"></interceptor-ref>  
+                <interceptor-ref name="defaultStack"></interceptor-ref>  
+            </interceptor-stack>  
+        </interceptors>  
+        <!-- 设置全局 全局默认的拦截器栈-->  
+        <default-interceptor-ref name="myDefaultStack"></default-interceptor-ref>  
+        <!-- 定义全局Result -->   
+        <global-results>  
+            <!-- 当返回login视图名时，转入/login.jsp页面 -->  
+            <result name="login">/login.jsp</result>  
+        </global-results>
+			<!-- Engine --> 
+			<action name="sysEngineGroup"  class="sysEngineGroupAction" >
+				<result name="success">app/engine/group/index.jsp</result>
+				<result name="openjson">app/engine/group/openjson.jsp</result>
+			</action>
+			<action name="sysEngineMetadata"  class="sysEngineMetadataAction" >
+				<result name="success">app/engine/metadata/index.jsp</result> 
+				<result name="openjson">app/engine/metadata/openjson.jsp</result>
+				<result name="metadatalist">app/engine/metadata/datagrid_json.jsp</result>
+				<result name="param">app/engine/metadata/param.jsp</result>
+			</action>
+			<action name="sysEngineMetadata_showList" method="showList"   class="sysEngineMetadataAction" >
+				<result name="success">app/engine/metadata/showList.jsp</result>
+				<result name="showGridList">app/engine/metadata/showGridList.jsp</result>
+			</action>
+			<action name="sysEngineMetadata_searchList" method="searchList"   class="sysEngineMetadataAction" >
+				<result name="success">app/engine/metadata/showList.jsp</result>
+				<result name="showGridList">app/engine/metadata/showGridList.jsp</result>
+			</action>
+			<action name="sysEngineMetadata_add"  method="add"  class="sysEngineMetadataAction" >
+				<result name="success">app/engine/metadata/add.jsp</result>  
+			</action> 
+			<action name="sysEngineMetadata_editshow"  method="editShow"   class="sysEngineMetadataAction" >
+				<result name="success">app/engine/metadata/edit.jsp</result> 
+			</action> 
+			<action name="sysEngineMetadata_tablename_create"  method="createTableName"   class="sysEngineMetadataAction" >
+				<result name="success">app/engine/metadata/edit.jsp</result> 
+			</action> 
+			<action name="sysEngineMetadata_Help">
+				<result>app/engine/metadata/help.jsp</result>
+			</action>
+			<action name="sysEngineIFrom_Help">
+				<result>app/engine/iform/help.jsp</result>
+			</action>
+			<action name="sysEngineDem_Help">
+				<result>app/engine/dem/help.jsp</result>
+			</action>
+			<action name="sysEngineProcess_Help">
+				<result>app/engine/process/designer/deploy/help.jsp</result>
+			</action>
+			<action name="sysEngineDbView" method="index"  class="sysEngineDbviewAction" >
+				<result name="success">app/engine/dbview/index.jsp</result> 
+			</action>  
+			<action name="sysEngineDbView_showList" method="showList"  class="sysEngineDbviewAction" >
+				<result name="success">app/engine/dbview/showList.jsp</result>  
+			</action>  
+			<action name="sysEngineDbView_add" method="add"  class="sysEngineDbviewAction" >
+				<result name="success">app/engine/dbview/edit.jsp</result>  
+			</action>  
+			<action name="sysEngineDbView_edit" method="edit"  class="sysEngineDbviewAction" >
+				<result name="success">app/engine/dbview/edit.jsp</result>  
+			</action>  
+			<action name="sysEngineDbView_save" method="save"  class="sysEngineDbviewAction" >
+			</action>   
+			<action name="sysEngineDbView_remove" method="remove"  class="sysEngineDbviewAction" >
+			</action> 
+			
+			<action name="sysEngineDbView_json" method="treeJson"  class="sysEngineDbviewAction" >
+			</action>  
+			  
+			<action name="sysEngineMetadata_remove" method="remove"   class="sysEngineMetadataAction" >
+			</action>
+			<action name="sysEngineMetadataMap_frame"  method="showframe"  class="sysEngineMetadataMapAction" >
+				<result name="success">app/engine/metadatamap/mapframe.jsp</result>
+			</action> 
+			<action name="sysEngineMetadataMap_tablist"  method="showframe"  class="sysEngineMetadataMapAction">
+				<result name="success">app/engine/metadatamap/tablist.jsp</result>
+			</action>
+			<action name="sysEngineMetadataMap" method="index"  class="sysEngineMetadataMapAction" >
+				<result name="success">app/engine/metadatamap/index.jsp</result>
+			</action>
+			<action name="sysEngineMetadataMap_fieldname_create" method="createFieldName"  class="sysEngineMetadataMapAction" >
+			</action>
+			<action name="sysEngineMetadataMap_save" method="save"  class="sysEngineMetadataMapAction" >
+				<result type="redirect">sysEngineMetadataMap!index.action?metadataid=${metadataid}</result>
+			</action>
+			<action name="sysEngineMetadataMap_remove" method="remove"  class="sysEngineMetadataMapAction" >
+				<result type="redirect">sysEngineMetadataMap!index.action?metadataid=${metadataid}</result>
+			</action>
+			<action name="sysEngineMetadataMap_edit" method="editMetaDataMap" class="sysEngineMetadataMapAction" >
+				<result name="success">app/engine/metadatamap/edit.jsp</result> 
+			</action>
+			<action name="sysEngineMetadataMap_Excel_template" method="excelTemplate" class="sysEngineMetadataMapAction"> 
+			</action>
+			<action name="sysEngineMetadataMap_doExcelImp" method="doImpExcel" class="sysEngineMetadataMapAction"> 
+			</action>
+			<action name="sysEngineMetadataMap_Excel_impPage" method="excelImpPage" class="sysEngineMetadataMapAction"> 
+			 	<result name="success">app/engine/metadatamap/excel_imp.jsp</result>  
+			</action>
+			<action name="sysEngineMetadataMap_updateinfo" method="update"  class="sysEngineMetadataMapAction" >
+			</action>
+			<action name="sysEngineMetadataMap_treejson" method="showMapTreeJson"  class="sysEngineMetadataMapAction" >
+			</action>
+			<action name="sysEngineMetadataKey_showlist" method="showlist" class="sysEngineMetadataKeyAction">
+				<result name="success">app/engine/metadatamap/keylist.jsp</result>
+			</action>
+			<action name="sysEngineMetadataKey_add" method="add" class="sysEngineMetadataKeyAction">
+				<result name="success">app/engine/metadatamap/key_add.jsp</result>
+			</action>
+			<action name="sysEngineMetadataKey_save" method="save" class="sysEngineMetadataKeyAction">
+			</action>
+			<action name="sysEngineMetadataKey_remove" method="remove" class="sysEngineMetadataKeyAction">
+			</action>
+			<action name="sysEngineIForm"  class="sysEngineIFormAction" > 
+				<result name="success">app/engine/iform/index.jsp</result>
+				<result name="save">app/engine/iform/index.jsp</result>  
+				<result name="openjson">app/engine/iform/openjson.jsp</result>
+				<result name="iformlist">app/engine/iform/datagrid_json.jsp</result>
+				<result name="iformInfo">app/engine/iform/datagrid_json.jsp</result>
+			</action>
+			<action name="sysEngineIForm_showJSON" method="openjson"  class="sysEngineIFormAction" >
+			</action> 
+			<action name="sysEngineIForm_showList" method="showList"  class="sysEngineIFormAction" >
+				<result name="success">app/engine/iform/showList.jsp</result>
+				<result name="showGridList">app/engine/iform/showGridList.jsp</result>
+			</action> 
+			<action name="sysEngineIForm_search" method="dosearch"  class="sysEngineIFormAction" >
+				<result name="success">app/engine/iform/showList.jsp</result>
+				<result name="showGridList">app/engine/iform/showGridList.jsp</result>
+			</action> 
+			<action name="sysEngineIForm_add" method="add"  class="sysEngineIFormAction" >
+				<result name="success">app/engine/iform/edit.jsp</result> 
+			</action> 
+			<action name="sysEngineIForm_edit" method="loadFormBaseInfo" class="sysEngineIFormAction" >
+				<result name="success">app/engine/iform/baseinfo.jsp</result>
+			</action> 
+			<action name="sysEngineIForm_formjs_load" method="loadFormScript"  class="sysEngineIFormAction" >
+				<result name="success">app/engine/iformmap/formscript.jsp</result>
+			</action> 
+			<action name="sysEngineIForm_formcss_load" method="loadFormStyle"  class="sysEngineIFormAction" >
+				<result name="success">app/engine/iformmap/formstyle.jsp</result>
+			</action>
+			 <action name="sysEngineIForm_formjs_save" method="saveFormScript"  class="sysEngineIFormAction" >
+				<result name="success">app/engine/iformmap/formscript.jsp</result>
+			</action>
+			<action name="sysEngineIForm_formcss_save" method="saveFormCss"  class="sysEngineIFormAction" >
+				<result name="success">app/engine/iformmap/formstyle.jsp</result>
+			</action>
+			<action name="sysEngineIFormMap" class="sysEngineIFormMapAction" >
+				<result name="success">app/engine/iformmap/mapframe.jsp</result>
+				<result name="tablist">app/engine/iformmap/tablist.jsp</result>
+				<result name="baseinfo">app/engine/iformmap/baseinfo.jsp</result>
+				<result name="index">app/engine/iformmap/index.jsp</result>
+				<result name="formgrid">app/engine/iformmap/mapgrid.jsp</result>
+			</action>
+			
+			<action name="sysEngineIFormMap_add" method="addMap" class="sysEngineIFormMapAction" >
+				<result name="success">app/engine/iformmap/add.jsp</result> 
+				<result name="error">app/public/nofind.jsp</result> 
+			</action> 
+			 
+			<action name="sysEngineIFormMap_show" method="loadMapObject" class="sysEngineIFormMapAction" >
+				<result name="success">app/engine/iformmap/mapindex.jsp</result> 
+				<result name="error">app/public/nofind.jsp</result> 
+			</action> 
+			<action name="sysEngineIFormMap_loadDisplayTypeTree" method="loadDisplayTypeTree" class="sysEngineIFormMapAction" >
+			</action>
+			<action name="sysEngineIFormMap_update" method="updateMapInfo" class="sysEngineIFormMapAction" >
+				<result name="success">app/engine/iformmap/index.jsp</result>
+				<result type="redirect">sysEngineIFormMap!index.action?formid=${formid}</result>
+			</action>
+			
+			<action name="sysEngineIFormMap_save" method="addMapInfo" class="sysEngineIFormMapAction" >
+				<result name="success">app/engine/iformmap/index.jsp</result>
+				<result type="redirect">sysEngineIFormMap!index.action?formid=${formid}</result>
+			</action>
+			<action name="sysEngineIFormMap_saveBaseInfo" method="saveBaseInfo" class="sysEngineIFormMapAction" >
+				<result name="success">app/engine/iformmap/index.jsp</result>
+				<result type="redirect">sysEngineIFormMap!index.action?formid=${formid}</result>
+			</action>
+			<action name="sysEngineIFormMap_remove" method="removeItem" class="sysEngineIFormMapAction" >
+			</action> 
+			<action name="sysEngineIFormMap_back" method="backMap" class="sysEngineIFormMapAction" >
+				<result name="success">app/engine/iformmap/mapindex.jsp</result> 
+			</action> 
+			<action name="sysEngineIFormMap_next" method="nextMap" class="sysEngineIFormMapAction" >
+				<result name="success">app/engine/iformmap/mapindex.jsp</result> 
+			</action> 
+			<action name="sysEngineIFormMap_Tree"  class="sysEngineIFormMapAction" >
+				<result name="success">app/engine/iformmap/fieldTree.jsp</result> 
+			</action>  
+			<action name="sysEngineIFormMap_Tree_Json" method="treeJson"  class="sysEngineIFormMapAction" >
+			</action>  
+			
+			<action name="ifromMap_arrow_down" method="moveDown" class="sysEngineIFormMapAction" >
+				<result name="success">app/engine/iformmap/index.jsp</result>
+				<result type="redirect">sysEngineIFormMap!index.action?formid=${formid}</result>
+			</action>
+			<action name="ifromMap_arrow_up" method="moveUp" class="sysEngineIFormMapAction" >
+				<result name="success">app/engine/iformmap/index.jsp</result>
+				<result type="redirect">sysEngineIFormMap!index.action?formid=${formid}</result>
+			</action>
+			<action name="ifromMap_arrow_first" method="moveFirst" class="sysEngineIFormMapAction" >
+				<result name="success">app/engine/iformmap/index.jsp</result>
+				<result type="redirect">sysEngineIFormMap!index.action?formid=${formid}</result>
+			</action>
+			<action name="ifromMap_arrow_last" method="moveLast" class="sysEngineIFormMapAction" >
+				<result name="success">app/engine/iformmap/index.jsp</result>
+				<result type="redirect">sysEngineIFormMap!index.action?formid=${formid}</result>
+			</action>
+			
+			<action name="sysEngineSubform_add" method="addsubform" class="sysEngineSubformAction" >
+				<result name="success">app/engine/iformmap/subform.jsp</result> 
+			</action> 
+			<action name="sysEngineSubform_loadformkey" method="showSubFormKey" class="sysEngineSubformAction" >
+			</action> 
+			<action name="sysEngineSubform_listpage" method="showListPage" class="sysEngineSubformAction" >
+				<result name="success">app/engine/iformmap/subtablelist.jsp</result>
+			</action> 
+			<action name="sysEngineSubform_showlist" method="showlist" class="sysEngineSubformAction" >
+				<result name="success">app/engine/iformmap/subgrid.jsp</result>
+			</action> 
+			<action name="sysEngineSubform_remove" method="remove" class="sysEngineSubformAction" >
+				<result type="redirect">sysEngineSubform_listpage.action?formid=${formid}</result> 
+			</action> 
+			<action name="sysEngineSubform_edit" method="editSubForm" class="sysEngineSubformAction" >
+				<result name="success">app/engine/iformmap/subform.jsp</result> 
+			</action> 
+			<action name="sysEngineSubform_save" method="save" class="sysEngineSubformAction" >
+				<result name="success">app/engine/iformmap/subform.jsp</result> 
+			</action> 
+			<action name="sysEngineSubform" class="sysEngineSubformAction" >
+				<result name="loadform">app/engine/iformmap/subform.jsp</result>
+				<result name="success">app/engine/iformmap/subgrid.jsp</result>
+				<result name="formlist">app/engine/iformmap/subformgrid.jsp</result>
+				<result type="redirect">sysEngineIFormMap!index.action?formid=${formid}</result>
+			</action> 
+			<action name="sysEngineIformDesginer_open"  method="index" class="sysEngineIFormDesginerAction">
+				<result  name="select" type="redirect">sysEngineIformTemplate_show.action?formid=${formid}&amp;metadataid=${metadataid}&amp;formType=${formType}</result>  
+				<result  name="designer" type="redirect">sysEngineIformDesginer_show.action?formid=${formid}&amp;metadataid=${metadataid}&amp;formType=${formType}</result>   
+			</action> 
+			<action name="sysEngineIformTemplate_show"  method="selectFromTemplate" class="sysEngineIFormDesginerAction">
+				<result  name="success">app/engine/layout/template_page.jsp</result>  
+			</action> 
+			<action name="sysEngineIformTemplate_create"  method="createFromTemplate" class="sysEngineIFormDesginerAction">
+				<result  name="success" type="redirect">sysEngineIformDesginer_show.action?formid=${formid}&amp;metadataid=${metadataid}&amp;formType=${formType}</result>  
+			</action> 
+			
+			<action name="sysEngineIformDesginer_show"  method="loadIndex" class="sysEngineIFormDesginerAction">
+				<result  name="success">app/engine/layout/index.jsp</result>   
+			</action>  
+			<action name="sysEngineIformDesginer_save" method="save" class="sysEngineIFormDesginerAction">
+				<result type="redirect"  name="success">sysEngineIformDesginer_show.action?formid=${formid}&amp;metadataid=${metadataid}&amp;formType=${formType}</result>
+			</action> 
+			<!-- 
+			<action name="sysEngineIformDesginer_show" method="showMax" class="sysEngineIFormDesginerAction">
+				<result  name="success">app/engine/layout/show_max.jsp</result>
+			</action>-->
+			<action name="sysIFormComp" class="sysEngineIFormComponentsAction">
+				<result  name="txtfield">app/engine/components/txtfield.jsp</result>
+			</action>
+			<action name="iform_preview"   method="preview" class="iformAction">
+				<result  name="success">app/engine/iform/iform_preview.jsp</result>
+			</action>
+			<action name="iformDataList"   method="openIformDataList" class="sysDemWorkBoxAction">
+				<result  name="success">app/engine/iform/iformDataList.jsp</result>
+				<result  name="error">app/public/nofind.jsp</result>
+			</action> 
+			<action name="ifromworkbox"   method="openJQGridDataList" class="sysDemWorkBoxAction">
+				<result  name="success">app/engine/iform/iformWorkBox.jsp</result>
+				<result  name="error">app/public/nofind.jsp</result>
+			</action> 
+			<action name="createFormInstance"  method="loadIformPage" class="iformAction">
+				<result  name="success">app/engine/iform/iformpage_top.jsp</result>
+				<result  name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="iformDataRemove"   method="remove" class="iformAction">
+				<result  name="success"   type="redirect">iformDataList.action?formid=${formid}</result>
+				<result  name="error">app/public/failure.jsp</result>
+			</action>
+			<!-- iformpage.jsp 
+			<action name="openFormPage"  method="loadIformPage" class="iformAction">
+				<result  name="success" type="freemarker">/WEB-INF/templates/theme/iformpage.ftl</result>
+				<result  name="error">app/public/nofind.jsp</result>
+			</action>
+			-->
+			<action name="menuLayoutEdit"   method="menuLayoutEdit" class="iformAction">
+				<result  name="success" >app/engine/iform/iformpage_menuLayout.jsp</result>
+			</action>
+			<action name="openFormPage"  method="loadIformPage" class="iformAction">
+				<result  name="success">app/engine/iform/iformpage_top.jsp</result>
+				<result  name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="loadVisitPage"  method="loadVisitPage" class="iformAction">
+				<result  name="success">app/engine/iform/iformpage_visit.jsp</result>
+				<result  name="error">app/public/nofind.jsp</result>
+			</action>
+			<!--action name="openFormPage"  method="loadIformPage" class="iformAction">
+				<result  name="success">app/engine/iform/iformpage.jsp</result>
+				<result  name="error">app/public/nofind.jsp</result>
+			</action-->
+			<action name="saveIform"  method="saveIform" class="iformAction">  
+				<result  type="redirect">openFormPage.action?formid=${formid}&amp;instanceId=${instanceId}</result>
+			</action> 
+			<action name="loadformData"  method="loadFormData" class="iformAction">
+				<result  name="success">app/engine/iform/form_json.jsp</result>
+			</action>
+			<action name="subformSaveItem"  method="subForm_save" class="iformAction">
+				<result  name="success">app/engine/iform/subformgrid_json.jsp</result>
+			</action>
+			<action name="subformItem_remove"  method="subForm_remove" class="iformAction">
+				<result  name="success">app/engine/iform/subformgrid_json.jsp</result>
+			</action>
+			<action name="subform_load"  method="loadSubFormData" class="sysEngineSubformAction">
+				 <result  name="success">app/engine/iform/subformgrid_json.jsp</result>
+			</action>
+			<action name="subform_ext_load"  method="loadExtSubFormData" class="sysEngineSubformAction">
+				<result  name="input">app/engine/iform/subformgrid_json.jsp</result>
+			</action>
+			<action name="subform_item_add"  method="loadSubformPage" class="iformAction"> 
+				 <result  name="success">app/engine/iform/subformpage.jsp</result>
+			</action> 
+			<action name="subform_item_load"  method="loadSubformPage" class="iformAction"> 
+				 <result  name="success">app/engine/iform/subformpage.jsp</result>
+			</action> 
+			<action name="subform_openImpPage"  method="openExcelImpPage" class="iformAction">
+				<result  name="success">app/engine/iform/excel_imp.jsp</result>
+			</action>
+			<action name="subform_excel_imp"  method="doExcelImp" class="iformAction">
+				<result  name="success">app/engine/iform/excel_imp.jsp</result>
+			</action>
+			<action name="subformExpExcelModel"  method="subForm_expExcelModel" class="iformAction"/>
+			<action name="subformExpExcelData"  method="subForm_expExcelData" class="iformAction"/>
+			<!-- 加载表单历史录入项 -->
+			<action name="loadFormInputHistoryJSON"  method="loadFormInputHistoryJSON" class="iformAction"/>
+			
+			<!-- 数据管理引擎 -->
+			<action name="sysDem_index" method="index" class="sysDemEngineAction">
+				 <result name="success">app/engine/dem/index.jsp</result> 
+			</action>  
+			<action name="sysDem_show_tree" method="treejson" class="sysDemEngineAction">
+			</action>   
+			<action name="sysDem_showList" method="showList" class="sysDemEngineAction">
+				 <result name="success">app/engine/dem/showList.jsp</result> 
+			</action> 
+			<action name="sysDem_add" method="add" class="sysDemEngineAction">
+				 <result name="success">app/engine/dem/edit.jsp</result> 
+			</action> 
+			<action name="sysDem_loadmap" method="mapIndex" class="sysDemEngineAction">
+				 <result name="success">app/engine/dem/mapframe.jsp</result> 
+			</action> 
+			<action name="sysDem_edit" method="edit" class="sysDemEngineAction">
+				 <result name="success">app/engine/dem/baseinfo.jsp</result> 
+			</action> 
+			<action name="sysDem_save" method="save" class="sysDemEngineAction">
+				 <result name="success">app/engine/dem/edit.jsp</result> 
+			</action> 
+			<action name="sysDem_remove" method="remove" class="sysDemEngineAction">
+			</action> 
+			<action name="sysDem_tablist"  class="sysDemEngineAction"> 
+			 <result name="success">app/engine/dem/tablist.jsp</result>  
+			</action> 
+			<action name="sysDem_doSearch" method="doSearch" class="sysDemEngineAction"> 
+			 <result name="success">app/engine/dem/showList.jsp</result>  
+			</action>  
+			<!-- 条件查询 -->
+			<action name="sysDem_search_load"  method="load" class="sysDemSearchAction">
+			</action>
+			<action name="sysDem_searchMap_load"  method="loadMapInfo" class="sysDemSearchAction">
+				<result  name="success">app/engine/dem/search/edit.jsp</result>
+			</action>
+			<action name="sysDem_searchMap_update"  method="updateMapInfo" class="sysDemSearchAction">
+				 <result name="success">app/engine/iformmap/index.jsp</result>
+				<result type="redirect">sysEngineIFormMap!index.action?formid=${formid}</result>
+			</action>
+			<action name="sysDem_search_add"  method="add" class="sysDemSearchAction">
+				 <result  type="redirect">sysDem_search_index.action?id=${id}</result>
+			</action>
+			<action name="sysDem_search"  class="sysDemSearchAction">
+				 <result type="redirect">sysDem_search_index.action?id=${id}</result>
+			</action>
+			<action name="sysDem_search_index"  method="index" class="sysDemSearchAction">
+				 <result  name="success">app/engine/dem/search/index.jsp</result>
+			</action>
+			<action name="sysDem_search_remove" method = "remove" class="sysDemSearchAction">
+		</action>
+		<action name="sysDem_search_moveUp" method = "moveUp" class="sysDemSearchAction">
+		</action>
+		<action name="sysDem_search_moveTop" method = "moveFirst" class="sysDemSearchAction">
+		</action> 
+		<action name="sysDem_search_moveDown" method = "moveDown" class="sysDemSearchAction">
+		</action>
+		<action name="sysDem_search_moveBottom" method = "moveLast" class="sysDemSearchAction">
+		</action>
+			<!-- END -->
+			<!-- 显示列 -->
+		<action name="sysDem_display_index"  method="index" class="sysDemDisplayAction">
+			 <result  name="success">app/engine/dem/display/showField.jsp</result>
+		</action> 		
+		<action name="sysDem_display_tableJson" method = "showJson" class="sysDemDisplayAction">
+		</action>
+		<action name="sysDem_display_edit" method = "edit" class="sysDemDisplayAction">
+		     <result name="success">app/engine/dem/display/showField_form.jsp</result> 
+		</action>
+		<action name="sysDem_display_add" method = "add" class="sysDemDisplayAction">
+		      <result name="success">app/engine/dem/display/fieldTree.jsp</result> 
+		</action> 
+		<action name="sysDem_display_fieldJson" method = "getFieldTreeJson" class="sysDemDisplayAction">
+		</action>
+		<action name="sysDem_display_quickAdd" method = "quickAdd" class="sysDemDisplayAction">
+		</action>
+		<action name="sysDem_display_save" method = "save" class="sysDemDisplayAction">
+		</action>
+		<action name="sysDem_display_moveUp" method = "moveUp" class="sysDemDisplayAction">
+		</action>
+		<action name="sysDem_display_moveTop" method = "moveTop" class="sysDemDisplayAction">
+		</action>
+		<action name="sysDem_display_moveDown" method = "moveDown" class="sysDemDisplayAction">
+		</action>
+		<action name="sysDem_display_moveBottom" method = "moveBottom" class="sysDemDisplayAction">
+		</action>
+		<action name="sysDem_display_del" method = "del" class="sysDemDisplayAction">
+		</action>
+		<!-- 触发器 -->
+		<action name="sysDem_trigger_index"  method="load" class="sysDemTriggerAction">
+			 <result  name="success">app/engine/dem/trigger/dem_trigger.jsp</result>
+		</action> 
+		<action name="sysDem_trigger_add"  method="add" class="sysDemTriggerAction">
+			 <result  name="success">app/engine/dem/trigger/dem_trigger_form.jsp</result>
+		</action> 
+		<action name="sysDem_trigger_edit"  method="edit" class="sysDemTriggerAction">
+			<result  name="success">app/engine/dem/trigger/dem_trigger_form.jsp</result>
+		</action> 
+		<action name="sysDem_trigger_save"  method="save" class="sysDemTriggerAction">
+		</action> 
+		<action name="sysDem_trigger_remove"  method="remove" class="sysDemTriggerAction">
+		</action>
+		<action name="sysDem_DataList" method = "openJQGridDataList" class="sysDemWorkBoxAction">
+			<result name="success">app/engine/dem/demdatalist.jsp</result> 
+			<result  name="error">app/public/tips_win.jsp</result>
+		</action>
+		<action name="getDataformjson"   method="getDataFormJson" class="sysDemWorkBoxAction">
+				<result  name="success">app/engine/iform/datagrid_json.jsp</result> 
+		</action>
+		<action name="sysDem_Excel_impPage" method="excelImpPage" class="sysDemWorkBoxAction"> 
+			 <result name="success">app/engine/dem/excel_imp.jsp</result>  
+		</action>
+		<action name="sysDem_Excel_DoImp" method="doExcelImp" class="sysDemWorkBoxAction"> 
+		</action> 
+		<action name="sysDem_Excel_DoExp" method="doExcelExp" class="sysDemWorkBoxAction"> 
+			<result name="success">app/engine/dem/excel_imp.jsp</result>  
+		</action>
+		<!-- 主数据管理中心 -->
+		<action name="sysDem_Mdm_index" method="index" class="sysDemWorkBoxAction"> 
+			<result name="success">app/engine/dem/mdm/index.jsp</result>  
+		</action>
+		<action name="sysDem_Mdm_json" method="mdmCenterTree" class="sysDemWorkBoxAction"> 
+		</action> 
+		<!-- 表单日志列表 -->
+		<action name="sysForm_showlog" method="showlog" class="sysIformActionLogAction"> 
+			<result name="success">app/engine/dem/showlog_list.jsp</result>  
+		</action>  
+		<action name="sysForm_showlogItem" method="showlogItem" class="sysIformActionLogAction"> 
+			<result name="success">app/engine/dem/showlog_item.jsp</result>  
+		</action>  
+		<action name="sysForm_deleteLogItem" method="dellogItem" class="sysIformActionLogAction"> 
+		</action> 
+			<!-- 数据管理引擎END -->
+			<!--  Workflow Designer David.yang-->
+			<action name="sysFlowDef_index" method="index" class="processDefAction">
+				 <result name="success">app/engine/process/designer/flow/index.jsp</result>
+				 <result name="tips">app/public/tips_win.jsp</result>
+			</action>
+			<action name="sysFlowDef_tabList" method="tabList" class="processDefAction">
+				 <result name="success">app/engine/process/designer/flow/tablist.jsp</result>
+			</action>
+			<action name="sysFlowDef_baseInfo"  class="processDefAction">
+				 <result name="load">app/engine/process/designer/flow/process_baseInfo.jsp</result>
+				 <result name="save" type="redirect">sysFlowDef_baseInfo!load.action?edittype=tab&amp;prcDefId=${prcDefId}&amp;actdefId=${actdefId}</result>
+				 <result name="saveItem">app/engine/process/designer/flow/process_baseInfo.jsp</result>
+				  <result name="tips">app/public/tips_win.jsp</result>
+			</action>
+			<action name="sysFlowDef_PropertyIndex" class="processDefMapAction">
+				 <result name="load">app/engine/process/designer/flow/process_propertyIndex.jsp</result>
+				 <result name="abstract">app/engine/process/designer/flow/process_abstract.jsp</result>
+				 <result name="help">app/engine/process/designer/flow/process_help.jsp</result>
+				  <result name="save" type="redirect">sysFlowDef_PropertyIndex!load.action?edittype=tab&amp;type=${type}&amp;prcDefId=${prcDefId}&amp;actdefId=${actdefId}</result>
+				 <result name="tips">app/public/tips_win.jsp</result>
+				 <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="sysFlowDef_param" class="processDefParamAction">
+				 <result name="load">app/engine/process/designer/flow/process_param.jsp</result>
+				 <result name="success" type="redirect">sysFlowDef_param!load.action?prcDefId=${prcDefId}&amp;actdefId=${actdefId}</result>
+				  <result name="tips">app/public/tips_win.jsp</result>
+			</action>
+			<action name="sysFlowDef_trigger"  class="processDefTriggerAction">
+				 <result name="load">app/engine/process/designer/flow/process_trigger.jsp</result>
+				 <result name="success" type="redirect">sysFlowDef_trigger!load.action?prcDefId=${prcDefId}&amp;actdefId=${actdefId}</result>
+				  <result name="tips">app/public/tips_win.jsp</result>
+			</action>
+			<!-- 流程级摘要设置 -->
+			<action name="process_summary" method="index" class="processSummaryAction" >
+			      <result name="success">app/engine/process/designer/flow/process_summary.jsp</result>
+			</action>
+			<action name="process_summary_json" method="showjson" class="processSummaryAction" >
+			      <result name="success">app/engine/process/designer/flow/process_summary_show.jsp</result>
+			</action>
+			<action name="process_summary_add" method="add" class="processSummaryAction" >
+			      <result name="success">app/engine/process/designer/flow/process_summary_form.jsp</result>
+			</action>
+			<action name="process_summary_showItem" method="showItem" class="processSummaryAction" >
+			      <result name="success">app/engine/process/designer/flow/process_summary_show.jsp</result>
+			</action>
+			<action name="process_summary_update" method="update" class="processSummaryAction" >
+			</action>
+			<action name="process_summary_save" method="save" class="processSummaryAction" >
+			</action>
+			<action name="process_summary_del" method="delete" class="processSummaryAction" >
+			</action>
+			<action name="process_summary_merge" method="doMerge" class="processSummaryAction" >
+			</action>
+			<action name="process_summary_showfieldJSON" method="showFieldJson" class="processSummaryAction" >
+			</action>
+			<action name="process_summary_moveUp" method = "moveUp" class="processSummaryAction">
+		</action>
+		<action name="process_summary_moveTop" method = "moveTop" class="processSummaryAction">
+		</action>
+		<action name="process_summary_moveDown" method = "moveDown" class="processSummaryAction">
+		</action>
+		<action name="process_summary_moveBottom" method = "moveBottom" class="processSummaryAction">
+		</action>
+		
+			<action name="sysFlowDef_stepFrame" method="main" class="processStepAction">
+				 <result>app/engine/process/designer/step/stepframe.jsp</result>
+			</action>
+			<action name="sysFlowDef_stepList" method="stepList" class="processStepAction">
+				 <result>app/engine/process/designer/step/steplist.jsp</result>
+			</action>
+			<action name="sysFlowDef_stepIndex" method="stepIndex" class="processStepAction">
+				 <result>app/engine/process/designer/step/step_baseInfo.jsp</result>
+			</action>
+			<action name="sysFlowDef_stepMap" class="processStepMapAction">
+				 <result name="load">app/engine/process/designer/step/step_baseInfo.jsp</result>
+				 <result name="abstract">app/engine/process/designer/step/step_abstract.jsp</result>
+				 <result name="help">app/engine/process/designer/step/step_help.jsp</result>
+				 <result name="save" type="redirect">sysFlowDef_stepMap!load.action?pageindex=${pageindex}&amp;actDefId=${actDefId}&amp;prcDefId=${prcDefId}&amp;actStepDefId=${actStepDefId}</result>
+				 <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="sysFlowDef_stepRoute" class="processStepRouteAction" >
+			    <result name="authority">app/engine/process/designer/step/step_route_show.jsp</result>
+				 <result name="load">app/engine/process/designer/step/step_route.jsp</result>
+				 <result name="delete" type="redirect">sysFlowDef_stepRoute!load.action?pageindex=1&amp;actDefId=${actDefId}&amp;prcDefId=${prcDefId}&amp;actStepDefId=${actStepDefId}</result>
+				 <result name="success" type="redirect">sysFlowDef_stepRoute!load.action?pageindex=1&amp;actDefId=${actDefId}&amp;prcDefId=${prcDefId}&amp;actStepDefId=${actStepDefId}</result>
+				 <result name="loadform">app/engine/process/designer/step/step_route_form.jsp</result>
+				 <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="sysFlowDef_stepFormSet" class="processStepFormAction" >
+			     <result name="authority">app/engine/process/designer/step/step_formset_show.jsp</result>
+				 <result name="load">app/engine/process/designer/step/step_formset.jsp</result>
+				 <result name="delete" type="redirect">sysFlowDef_stepFormSet!load.action?pageindex=2&amp;actDefId=${actDefId}&amp;prcDefId=${prcDefId}&amp;actStepDefId=${actStepDefId}</result>
+				 <result name="orderIndex" type="redirect">sysFlowDef_stepFormSet!load.action?pageindex=2&amp;actDefId=${actDefId}&amp;prcDefId=${prcDefId}&amp;actStepDefId=${actStepDefId}</result>
+				 <result name="loadform">app/engine/process/designer/step/step_formset_form.jsp</result>
+				 <result name="showFormMap">app/engine/process/designer/step/step_formset_formmap.jsp</result>
+				 <result name="error">app/public/nofind.jsp</result>
+			</action> 
+			<action name="sysFlowDef_stepFormTreeJson"  method="loadformTree" class="processStepFormAction" >
+			</action> 
+			<action name="sysFlowDef_stepFormMap_load" method="load" class="processStepFormMapAction" >
+				 <result name="success" >app/engine/process/designer/step/step_formset_formmap.jsp</result>
+				 <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="sysFlowDef_stepFormMap_setModify" method="setModifyStatus" class="processStepFormMapAction" >
+				 <result name="success" type="redirect">sysFlowDef_stepFormMap_load.action?formId=${formId}&amp;actDefId=${actDefId}&amp;prcDefId=${prcDefId}&amp;actStepDefId=${actStepDefId}</result>
+				 <result name="error">app/public/nofind.jsp</result> 
+			</action>
+			<action name="sysFlowDef_stepFormMap_setReadOnly" method="setReadOnlyStatus" class="processStepFormMapAction" >
+				 <result name="success" type="redirect">sysFlowDef_stepFormMap_load.action?formId=${formId}&amp;actDefId=${actDefId}&amp;prcDefId=${prcDefId}&amp;actStepDefId=${actStepDefId}</result>
+				 <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="sysFlowDef_stepFormMap_setHidden" method="setHiddenStatus" class="processStepFormMapAction" >
+				 <result name="success" type="redirect">sysFlowDef_stepFormMap_load.action?formId=${formId}&amp;actDefId=${actDefId}&amp;prcDefId=${prcDefId}&amp;actStepDefId=${actStepDefId}</result>
+				 <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="sysFlowDef_stepManualJump" class="processStepManualJumpAction" >
+				 <result name="load">app/engine/process/designer/step/step_manualjump.jsp</result>
+				 <result name="delete" type="redirect">sysFlowDef_stepManualJump!load.action?pageindex=3&amp;actDefId=${actDefId}&amp;prcDefId=${prcDefId}&amp;actStepDefId=${actStepDefId}</result>
+				 <result name="success" type="redirect">sysFlowDef_stepManualJump!load.action?pageindex=3&amp;actDefId=${actDefId}&amp;prcDefId=${prcDefId}&amp;actStepDefId=${actStepDefId}</result>
+				 <result name="loadform">app/engine/process/designer/step/step_manualjump_form.jsp</result>
+				  <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="sysFlowDef_stepOffLine_load" method="load" class="processStepOffLineAction" >
+				<result name="success">app/engine/process/designer/step/step_offline.jsp</result>
+			</action>
+			<action name="sysFlowDef_stepOffLine_add" method="add" class="processStepOffLineAction" >
+				<result name="success">app/engine/process/designer/step/step_offline_form.jsp</result>
+			</action>
+			<action name="sysFlowDef_stepOffLine_edit" method="loadform" class="processStepOffLineAction" >
+				<result name="success">app/engine/process/designer/step/step_offline_form.jsp</result>
+			</action>
+			<action name="sysFlowDef_stepOffLine_del" method="delItem" class="processStepOffLineAction" >
+			</action>
+			<action name="sysFlowDef_stepOffLine_save" method="save" class="processStepOffLineAction" >
+			</action>
+			 <action name="sysFlowDef_stepOffLine_moveUp" method="moveUp" class="processStepOffLineAction" >
+			</action>
+			<action name="sysFlowDef_stepOffLine_moveDown" method="moveDown" class="processStepOffLineAction" >
+			</action>
+			
+			<action name="sysFlowDef_stepSysJump" method="load" class="processStepSysjumpAction" >
+				 <result name="success">app/engine/process/designer/step/step_sysjump.jsp</result>
+				 <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="sysFlowDef_stepSysJump_add" method="add" class="processStepSysjumpAction" >
+				 <result name="success">app/engine/process/designer/step/step_sysjump_form.jsp</result>
+				 <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="sysFlowDef_stepSysJump_edit" method="edit" class="processStepSysjumpAction" >
+				 <result name="success">app/engine/process/designer/step/step_sysjump_form.jsp</result>
+				 <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="sysFlowDef_stepSysJump_delItem" method="delItem" class="processStepSysjumpAction" >
+			</action>
+			<action name="sysFlowDef_stepSysJump_save" method="save" class="processStepSysjumpAction" >
+			</action>
+			<action name="sysFlowDef_stepSysJump_moveUp" method="moveUp" class="processStepSysjumpAction" >
+			</action>
+			<action name="sysFlowDef_stepSysJump_moveDown" method="moveDown" class="processStepSysjumpAction" >
+			</action>
+			<action name="sysFlowDef_stepSysJump_show" method="showAuthority" class="processStepSysjumpAction" >
+			      <result name="success">app/engine/process/designer/step/step_sysjump_show.jsp</result>
+			</action>
+			<action name="process_step_summary" method="index" class="processStepSummaryAction" >
+			      <result name="success">app/engine/process/designer/step/step_summary.jsp</result>
+			</action>
+			<action name="process_step_summary_json" method="showjson" class="processStepSummaryAction" >
+			      <result name="success">app/engine/process/designer/step/step_summary_show.jsp</result>
+			</action>
+			<action name="process_step_summary_add" method="add" class="processStepSummaryAction" >
+			      <result name="success">app/engine/process/designer/step/step_summary_form.jsp</result>
+			</action>
+			<action name="process_step_summary_showItem" method="showItem" class="processStepSummaryAction" >
+			      <result name="success">app/engine/process/designer/step/step_summary_show.jsp</result>
+			</action>
+			<action name="process_step_summary_update" method="update" class="processStepSummaryAction" >
+			</action>
+			<action name="process_step_summary_save" method="save" class="processStepSummaryAction" >
+			</action>
+			<action name="process_step_summary_del" method="delete" class="processStepSummaryAction" >
+			</action>
+			<action name="process_step_summary_merge" method="doMerge" class="processStepSummaryAction" >
+			</action>
+			<action name="process_step_summary_showfieldJSON" method="showFieldJson" class="processStepSummaryAction" >
+			</action>
+			<action name="process_step_summary_moveUp" method = "moveUp" class="processStepSummaryAction">
+		</action>
+		<action name="process_step_summary_moveTop" method = "moveTop" class="processStepSummaryAction">
+		</action>
+		<action name="process_step_summary_moveDown" method = "moveDown" class="processStepSummaryAction">
+		</action>
+		<action name="process_step_summary_moveBottom" method = "moveBottom" class="processStepSummaryAction">
+		</action>
+		<action name="process_step_service_index" method="index" class="processStepServiceAction" >
+			      <result name="success">app/engine/process/designer/step/step_service.jsp</result>
+			</action>
+		<action name="process_step_service_save" method="save" class="processStepServiceAction" >
+			</action>
+			<action name="sysFlowDef_stepSupervise" class="processStepSuperviseAction" >
+				 <result name="load">app/engine/process/designer/step/step_supervise.jsp</result>
+				 <result name="authority">app/engine/process/designer/step/step_supervise_show.jsp</result>
+				 <result name="delete" type="redirect">sysFlowDef_stepSupervise!load.action?pageindex=5&amp;actDefId=${actDefId}&amp;prcDefId=${prcDefId}&amp;actStepDefId=${actStepDefId}</result>
+				 <result name="success" type="redirect">sysFlowDef_stepSupervise!load.action?pageindex=5&amp;actDefId=${actDefId}&amp;prcDefId=${prcDefId}&amp;actStepDefId=${actStepDefId}</result>
+				 <result name="loadform">app/engine/process/designer/step/step_supervise_form.jsp</result>
+				 <result name="error">app/public/nofind.jsp</result>
+			</action>
+		
+			<action name="sysFlowDef_stepTrigger" method="load" class="processStepTriggerAction" >
+				 <result name="success">app/engine/process/designer/step/step_trigger.jsp</result>
+			</action>
+			<action name="sysFlowDef_stepTrigger_add" method="add" class="processStepTriggerAction" >
+				 <result name="success">app/engine/process/designer/step/step_trigger_form.jsp</result>
+				 <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="sysFlowDef_stepTrigger_edit" method="edit" class="processStepTriggerAction" >
+				 <result name="success">app/engine/process/designer/step/step_trigger_form.jsp</result>
+				 <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="sysFlowDef_stepTrigger_save" method="save" class="processStepTriggerAction" >
+			</action>
+			<action name="sysFlowDef_stepTrigger_delItem" method="delItem" class="processStepTriggerAction" >
+			</action>
+			<!-- END -->
+			<!-- WORKFLOW RUNTIME -->
+			<!-- 打开流程表单 -->
+			<action name="processRuntimeStartInstance"  method="startProcessInstance"  class="processRuntimeExcuteAction" > 
+				  <result name="success">app/engine/process/runtime/pformpage.jsp</result>
+				  <result name="layout_left">app/engine/process/runtime/pformpage_left.jsp</result>
+				  <result name="layout_right">app/engine/process/runtime/pformpage_right.jsp</result>
+				  <result name="layout_top">app/engine/process/runtime/pformpage_top.jsp</result>
+				  <result name="layout_bottom">app/engine/process/runtime/pformpage_bottom.jsp</result>
+				  <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="loadSignsPage"  method="loadSignsPage"  class="processRuntimeExcuteAction" > 
+				  <result name="success">app/engine/process/runtime/pformpage.jsp</result>
+				  <result name="layout_left">app/engine/process/runtime/pformpage_left.jsp</result>
+				  <result name="layout_right">app/engine/process/runtime/pformpage_right.jsp</result>
+				  <result name="layout_top">app/engine/process/runtime/pformpage_top.jsp</result>
+				  <result name="layout_bottom">app/engine/process/runtime/pformpage_bottom.jsp</result>
+				  <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="processRuntimeloadSubformPage"  method="loadSubformPage"  class="processRuntimeExcuteAction" > 
+				  <result name="success">app/engine/process/runtime/psubformpage.jsp</result>
+			</action>
+			<!-- 保存流程表单 -->
+			<action name="processRuntimeFormSave"  method="processFormSave"  class="processRuntimeExcuteAction" > 
+				  <result name="success">app/engine/process/runtime/pformpage.jsp</result>
+				   <result name="layout_left">app/engine/process/runtime/pformpage_left.jsp</result>
+				  <result name="layout_right">app/engine/process/runtime/pformpage_right.jsp</result>
+				  <result name="layout_top">app/engine/process/runtime/pformpage_top.jsp</result>
+				  <result name="layout_bottom">app/engine/process/runtime/pformpage_bottom.jsp</result>
+				  <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="processRuntimePrint"  method="print"  class="processRuntimeExcuteAction" > 
+				  <result name="success">app/engine/process/runtime/pformpage_print.jsp</result>
+				  <result name="error">app/public/nofind.jsp</result> 
+			</action>
+			<!-- 流程表单处理动作 -->
+			<action name="processRuntimeHandle"  method="executeHandle"  class="processRuntimeOperateAction" > 
+				  <result name="success">app/engine/process/runtime/processSendPage.jsp</result>
+				  <result name="SERVICE">app/engine/process/runtime/processServicePage.jsp</result>
+				  <result name="PARALLELGATEWAY">app/engine/process/runtime/processParllelPage.jsp</result> 
+				  <result name="ARCHIVES">app/engine/process/runtime/processArchivePage.jsp</result>
+				  <result name="SIGNS" >app/engine/process/plugins/processSigns/dialog.jsp</result>
+				  <result name="cc">app/public/succes.jsp</result>
+				  <result name="error">app/engine/process/runtime/processSendError.jsp</result>
+			</action>
+			<action name="processRuntimeManualJump"  method="executeManualJump"  class="processRuntimeOperateAction" > 
+				  <result name="success">app/engine/process/runtime/processSendPage.jsp</result>
+				   <result name="ARCHIVES">app/engine/process/runtime/processArchivePage.jsp</result>
+				    <result name="SIGNS" >app/engine/process/plugins/processSigns/dialog.jsp</result>
+				  <result name="cc">app/public/succes.jsp</result>
+				  <result name="error">app/engine/process/runtime/processSendError.jsp</result>
+			</action>
+			<action name="processRuntimeAuditOpinion"  method="executeAuditOpinion"  class="processRuntimeOperateAction" > 
+				  <result name="success">app/engine/process/runtime/pformpage.jsp</result>
+				  <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="processRuntimeTalk"  method="executeTalk"  class="processRuntimeOperateAction" > 
+				  <result name="success">app/engine/process/runtime/pformpage.jsp</result>
+				  <result name="error">app/public/nofind.jsp</result> 
+			</action>
+			<action name="processRuntimeCC"  method="executeCC"  class="processRuntimeOperateAction" > 
+				  <result name="success">app/engine/process/runtime/processCCPage.jsp</result>
+				  <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="processRuntimeLoadCCDlg"  class="processRuntimeOperateAction" > 
+				  <result name="success">app/engine/process/runtime/processCCDlg.jsp</result>
+			</action>
+			<action name="processRuntimeLoadCCJson"  method="loadCCTreeJson"  class="processRuntimeOperateAction" > 
+				  <result name="success">app/engine/process/runtime/processCCPage.jsp</result>
+			</action>
+			<action name="processRuntimeForward"  method="executeForward"  class="processRuntimeOperateAction" > 
+				  <result name="success">app/engine/process/runtime/processForwardPage.jsp</result>
+				  <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="processRuntimeAddSign"  method="executeAddSign"  class="processRuntimeOperateAction" > 
+				  <result name="success">app/engine/process/runtime/processAddSignPage.jsp</result>
+				  <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="processRuntimeBackAddSign"  method="executeBackAddSign"  class="processRuntimeOperateAction" > 
+				  <result name="success">app/engine/process/runtime/processBackAddSignPage.jsp</result>
+				  <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<!-- 流程会签操作动作 -->
+			<action name="processRuntimedoSignDlg"  method="executeSigns"  class="processRuntimeOperateAction" > 
+				  <result name="success">app/engine/process/runtime/processSignsPage.jsp</result>
+			</action>
+			<action name="processRuntimedoSignNextDlg"  method="executeSignsNext"  class="processRuntimeOperateAction" > 
+				  <result name="success">app/engine/process/runtime/processSendPage.jsp</result>
+				  <result name="SERVICE">app/engine/process/runtime/processServicePage.jsp</result>
+				  <result name="PARALLELGATEWAY">app/engine/process/runtime/processParllelPage.jsp</result> 
+				  <result name="ARCHIVES">app/engine/process/runtime/processArchivePage.jsp</result>
+				  <result name="SIGNS" >app/engine/process/plugins/processSigns/dialog.jsp</result>
+				  <result name="cc">app/public/succes.jsp</result>
+				  <result name="error">app/engine/process/runtime/processSendError.jsp</result>
+			</action>
+			<action name="processRuntimeExecuteCC"  method="doExcuteCC"  class="processRuntimeSendAction" > 
+				   <result name="success"  type="redirect">processRuntimeSendSuccess.action?targetStepName=&amp;receiveUserName=</result>
+				  <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="processRuntimeBack"  method="executeBack"  class="processRuntimeOperateAction" > 
+				  <result name="success" >app/engine/process/runtime/processBackPage.jsp</result>
+				  <result name="nofind" >app/engine/process/runtime/tips_win.jsp</result>
+				  <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="processRuntimeBackOther"  method="executeOtherBack"  class="processRuntimeOperateAction" > 
+				  <result name="success" >app/engine/process/runtime/processBackOther.jsp</result>
+				  <result name="nofind" >app/engine/process/runtime/tips_win.jsp</result>
+				  <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="processRuntimeBackOtherfh"  method="executeOtherBack"  class="processRuntimeOperateAction" > 
+				  <result name="success" >app/engine/process/runtime/processBackOtherfh.jsp</result>
+				  <result name="nofind" >app/engine/process/runtime/tips_win.jsp</result>
+				  <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="processRuntimeRadioAddress_show"  method="showProcessRadioAddress" class="processRuntimeOperateAction"> 
+				  <result name="success">app/engine/process/runtime/single_address.jsp</result>
+			</action>
+			<action name="processRuntimegetOpinionContent"  method="showOpinionContent" class="processRuntimeOperateAction"> 
+			</action>
+			<!-- 执行操作 -->
+			<action name="processRuntimeExecuteHandle"  method="executeSend"  class="processRuntimeSendAction" > 
+				   <result name="success"  type="redirect">processRuntimeSendSuccess.action?targetStepName=${targetStepName}&amp;receiveUserName=${receiveUserName}</result>
+				  <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<!-- 执行加签操作 -->
+			<action name="processRuntimeExecuteAddSignHandle"  method="executeAddSignSend"  class="processRuntimeSendAction" > 
+				   <result name="success"  type="redirect">processRuntimeSendSuccess.action?targetStepName=${targetStepName}&amp;receiveUserName=${receiveUserName}</result>
+				  <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<!-- 执行加签操作 -->
+			<action name="processRuntimeExecuteAddSign"  method="executeAddSign" class="processRuntimeSendAction"> 
+				  <result name="success" >app/engine/process/runtime/processSendSuccess.jsp</result>
+				  <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<!-- 执行转发操作 -->
+			<action name="processRuntimeExecuteForward"  method="executeForward" class="processRuntimeSendAction"> 
+				  <result name="success" >app/engine/process/runtime/processSendSuccess.jsp</result>
+				  <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<!-- 执行添加抄送人操作
+			<action name="processRuntimeExecuteAddCC"  method="addCCList" class="processRuntimeSendAction"> 
+				  <result name="success" >app/engine/process/runtime/processSendSuccess.jsp</result>
+				  <result name="error">app/public/nofind.jsp</result>
+			</action> -->
+			<!-- 执行归档 -->
+			<action name="processRuntimeExecuteArchives"  method="executeArchive"  class="processRuntimeSendAction" > 
+				   <result name="success"  type="redirect">processRuntimeSendSuccess.action?targetStepName=&amp;receiveUserName=</result>
+				  <result name="error">app/public/nofind.jsp</result>
+			</action>
+				<action name="processRuntimeExecuteService"  method="executeService"  class="processRuntimeSendAction" > 
+				   <result name="success"  type="redirect">processRuntimeSendSuccess.action?targetStepName=&amp;receiveUserName=</result>
+				  <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<!-- 会签 -->
+			<action name="processRuntimeSigns_index"  method="index" class="processRuntimeSignsAction"> 
+				  <result name="success" >app/engine/process/plugins/processSigns/index.jsp</result>
+			</action>
+			<action name="processRuntimeShowUserJson"  method="showUserJson"  class="processRuntimeSignsAction" > 
+			</action>
+			<action name="processRuntimeSigns_dlg"  method="showDialog" class="processRuntimeSignsAction"> 
+				  <result name="success" >app/engine/process/plugins/processSigns/dialog.jsp</result>
+				  <result name="signsing" >app/engine/process/plugins/processSigns/signsing.jsp</result>
+			</action>
+			<action name="processRuntimeSigns_send"  method="sendSigns" class="processRuntimeSignsAction"> 
+			</action>
+			<action name="processRuntimeSigns_finish"  method="finish" class="processRuntimeSignsAction"> 
+			</action>
+			<action name="processRuntimedoSign"  method="doSigns"  class="processRuntimeSignsAction" > 
+			</action>
+			
+			<!-- 执行驳回操作 -->
+			<action name="processRuntimeExecuteBackUp"  method="executeBack" class="processRuntimeSendAction"> 
+				  <result name="success" >app/engine/process/runtime/processBackSucces.jsp</result>
+				  <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<!-- 发送成功页面 -->
+			<action name="processRuntimeSendSuccess"  class="processRuntimeSendAction"> 
+				  <result name="success">app/engine/process/runtime/processSendSuccess.jsp</result>
+			</action>
+			<!-- 流程任务监控 -->
+			<action name="processInstanceMornitor" method="showPrcInstanceMornitorPage" class="processRuntimeMonitorAction"> 
+				  <result name="success">app/engine/process/runtime/processMonitorPage.jsp</result>
+			</action>
+			<action name="processInstanceMornitor_showOpinion" method="showOpinionList" class="processRuntimeMonitorAction"> 
+				  <result name="grid">app/engine/process/runtime/processMonitorOpinion_grid.jsp</result>
+				  <result name="success">app/engine/process/runtime/processMonitorOpinion.jsp</result>
+			</action>
+			<action name="processInstanceMornitor_process_ru" method="showPrcRuntime" class="processRuntimeMonitorAction"> 
+				  <result name="success">app/engine/process/runtime/processMonitorRuntime.jsp</result>
+			</action>
+			<action name="processInstanceMornitor_showImg" method="showPrcRuntimeImg" class="processRuntimeMonitorAction"> 
+				  <result name="success">app/engine/process/runtime/processMonitorPage.jsp</result>
+			</action>
+			<action name="processInstanceMornitor_signs" method="monitor" class="processRuntimeSignsAction"> 
+				  <result name="success" >app/engine/process/plugins/processSigns/monitor.jsp</result>
+			</action>
+			<action name="showProcessingLog" method="showProcessingLog" class="processRuntimeMonitorAction"> 
+				  <result name="success">app/engine/process/runtime/processMonitorPage.jsp</result>
+			</action>
+			<action name="showProcessingCCLog" method="showProcessingCCLog" class="processRuntimeMonitorAction"> 
+				  <result name="success">app/engine/process/runtime/process_cc_list.jsp</result>
+			</action>
+			<action name="processInstanceManagePage" method="eaglesSearchRmMonitor" class="processRuntimeMonitorAction"> 
+				  <result name="success">app/engine/process/monitor/search.jsp</result>
+			</action>
+			<action name="processInstanceManageSearch" method="doSearchMornitorList" class="processRuntimeMonitorAction"> 
+				  <result name="success">app/engine/process/monitor/result.jsp</result>
+			</action>
+			<action name="processInstanceManageForwardPage" method="forwordPage" class="processRuntimeMonitorAction"> 
+				  <result name="success">app/engine/process/monitor/forwardPage.jsp</result>
+			</action>
+			<action name="processInstanceManageJumpPage" method="jumpPage" class="processRuntimeMonitorAction"> 
+				  <result name="success">app/engine/process/monitor/jumpPage.jsp</result>
+			</action>
+			<action name="processInstanceManageRemove" method="instanceRemove" class="processRuntimeMonitorAction"> 
+				  <result name="success">app/engine/process/monitor/jumpPage.jsp</result>
+			</action>
+			<action name="process_monitor_index" method ="index" class="processRuntimeMonitorAction">
+					 <result name="success">app/engine/process/monitor/index.jsp</result>
+			</action>
+			
+			<!-- 流程节点离线任务运行时 -->
+			<action name="processStepOL_showList" method="showList" class="processRuntimeOffLineAction"> 
+				  <result name="success">app/engine/process/runtime/process_offline_list.jsp</result>
+			</action>
+			<action name="ProcessStepOL_add" method="add" class="processRuntimeOffLineAction"> 
+				  <result name="success">app/engine/process/runtime/process_offline_edit.jsp</result>
+			</action>
+			<action name="ProcessStepOL_save" method="save" class="processRuntimeOffLineAction"> 
+			</action>
+			<action name="ProcessStepOL_showJSON" method="showJSON" class="processRuntimeOffLineAction"> 
+			</action>
+			
+			<!-- END -->
+			<!-- 自定义按钮 -->
+			<action name="sysFlowDef_stepDIYBtn_load" method="load" class="processStepDIYBtnAction">  
+				  <result name="success">app/engine/process/designer/step/step_defbutton_center.jsp</result>
+			</action>
+			<action name="sysFlowDef_stepDIYBtn_add" method="add" class="processStepDIYBtnAction"> 
+				  <result name="success">app/engine/process/designer/step/step_defbutton_edit.jsp</result>
+			</action>
+			<action name="sysFlowDef_stepDIYBtn_edit" method="edit" class="processStepDIYBtnAction"> 
+				  <result name="success">app/engine/process/designer/step/step_defbutton_edit.jsp</result>
+			</action>
+			<action name="sysFlowDef_stepDIYBtn_show" method="showAuthority" class="processStepDIYBtnAction"> 
+				  <result name="success">app/engine/process/designer/step/step_defbutton_show.jsp</result>
+			</action>			
+			<action name="sysFlowDef_stepDIYBtn_del" method="del" class="processStepDIYBtnAction">
+			</action>
+			<action name="sysFlowDef_stepDIYBtn_moveUp" method="moveUp" class="processStepDIYBtnAction">
+			</action>
+			<action name="sysFlowDef_stepDIYBtn_moveDown" method="moveDown" class="processStepDIYBtnAction"> 
+			</action>
+			<action name="sysFlowDef_stepDIYBtn_save" method="save" class="processStepDIYBtnAction"> 				 
+			</action>
+			<!-- 流程动作设置 -->
+			<action name="sysFlowDef_actionLoad" method="load" class="processDefActionAction"> 
+				  <result name="success">app/engine/process/designer/flow/process_actionset.jsp</result>
+				   <result name="tips">app/public/tips_win.jsp</result>
+			</action>
+			<action name="sysFlowDef_actionSave" method="save" class="processDefActionAction">
+			      <result name="success" type="redirect">sysFlowDef_actionLoad.action?prcDefId=${model4.prcDefId}&amp;actdefId=${model4.actDefId}</result>
+			</action>
+			<!-- 脚本触发器设置 -->
+			<action name="sysFlowDef_stepScriptTrigger_load" method="load" class="processStepScriptTriggerAction"> 
+				  <result name="success">app/engine/process/designer/step/step_jstrigger.jsp</result>
+			</action>
+			<action name="sysFlowDef_stepScriptTrigger_save" method="save" class="processStepScriptTriggerAction">
+			      <result name="success" type="redirect">sysFlowDef_stepScriptTrigger_load.action?actDefId=${model.actDefId}&amp;actStepDefId=${model.actStepId}&amp;prcDefId=${model.prcDefId}&amp;pageindex=${pageindex}</result>
+			</action>
+			<action name="sysFlowDef_stepScriptTrigger_edit" method="edit" class="processStepScriptTriggerAction">
+			      <result name="success">app/engine/process/designer/step/step_jstrigger_edit.jsp</result>
+			</action>
+			<!-- 模型传输管理 -->
+			<action name="systransfer_index" method="index" class="sysTransferAction">
+			      <result name="success">app/engine/transfer/index.jsp</result>
+			</action> 
+			<action name="systransfer_showPage" method="showTransferPage" class="sysTransferAction">
+			      <result name="success">app/engine/transfer/transferPage.jsp</result>
+			</action> 
+			<action name="systransfer_showjson" method="showTree" class="sysTransferAction">
+			</action> 
+			<action name="systransfer_module_del" method="delModule" class="sysTransferAction">
+			</action> 
+			<action name="sysImp_uploadModule" method="uploadModule" class="sysTransferAction">
+			 <result name="success">app/engine/transfer/addTransferPage.jsp</result>
+			</action> 
+			<action name="sysImp_showLog" method="showImpLog" class="sysTransferAction">
+			 <result name="success">app/engine/transfer/transferLog.jsp</result>
+			</action>  
+			<action name="sysImp_doUploadModule" method="doUploadModule" class="sysTransferAction">
+				 <result name="success">app/public/tips_win.jsp</result>
+			</action> 
+			<action name="sysImp_dialog" method="showDlg" class="sysTransferAction">
+			 	 <result name="success">app/engine/transfer/transferDlg.jsp</result>
+			</action> 
+			<action name="sysImp_doExecute" method="impModule" class="sysTransferAction">
+			</action> 
+			<action name="sysExp_index" method="index" class="sysExportModuleAction">
+			      <result name="success">app/engine/transfer/exp_index.jsp</result>
+			</action> 
+			<action name="sysExp_showJson" method="showTreeJson" class="sysExportModuleAction">
+			</action>  
+			<action name="sysExp_download" method="download" class="sysExportModuleAction">
+			</action>  
+			<action name="sysExp_doExecute" method="expModule" class="sysExportModuleAction">
+			 	<result name="success">app/engine/transfer/exp_page.jsp</result>
+			</action> 
+			<!-- 数据集成平台 -->
+			<action name="conn_design_index" method="index" class="connectionDesignAction">
+			 	<result name="success">app/engine/connection/index.jsp</result>
+			</action> 
+			<action name="conn_design_trigger_index" method="triggerIndex" class="connectionDesignAction"> 
+			 	<result name="success">app/engine/connection/trigger/triggerIndex.jsp</result>
+			</action>  
+			<action name="conn_design_showGroupJSON" method="showGroupJson" class="connectionDesignAction">
+			</action> 
+			<action name="conn_design_showJSON" method="showJson" class="connectionDesignAction">
+			</action> 
+			<action name="conn_design_showlist" method="showlist" class="connectionDesignAction">
+				<result name="success">app/engine/connection/showlist.jsp</result>
+			</action> 
+			<action name="conn_design_add" method="add" class="connectionDesignAction">
+				<result name="success">app/engine/connection/edit.jsp</result>
+			</action> 
+			<action name="conn_design_edit" method="edit" class="connectionDesignAction">
+				<result name="success">app/engine/connection/edit.jsp</result>
+			</action> 
+			<action name="conn_design_save" method="save" class="connectionDesignAction">
+			</action> 
+			<action name="conn_design_delete" method="delete" class="connectionDesignAction">
+			</action> 
+			<action name="conn_design_param_index" method="paramIndex" class="connectionDesignAction">
+			 	<result name="success">app/engine/connection/paramframe.jsp</result>
+			</action> 
+			<action name="conn_design_param_json" method="showParamsJSON" class="connectionDesignAction">
+			</action> 
+			<action name="conn_design_param_tabs"  class="connectionDesignAction">
+			 	<result name="success">app/engine/connection/tablist.jsp</result>
+			</action> 
+			<action name="conn_design_param_baseinfo" method="edit" class="connectionDesignAction">
+			 	<result name="success">app/engine/connection/baseinfo.jsp</result>
+			</action> 
+			<action name="conn_design_param_input" method="inputIndex" class="connectionDesignAction">
+			 	<result name="success">app/engine/connection/inputIndex.jsp</result> 
+			</action>  
+			<action name="conn_design_param_output" method="outputIndex" class="connectionDesignAction">
+			 	<result name="success">app/engine/connection/output.jsp</result> 
+			</action>  
+			<action name="conn_design_param_setType" method="setParamType" class="connectionDesignAction">
+			</action>  
+			
+			<action name="conn_design_param_addPage" method="addPage" class="connectionDesignAction">
+			 	<result name="success">app/engine/connection/param.jsp</result> 
+			</action>  
+			<action name="conn_design_param_editPage" method="editPage" class="connectionDesignAction">
+			 	<result name="success">app/engine/connection/param.jsp</result> 
+			</action>  
+			<action name="conn_design_param_save" method="paramSave" class="connectionDesignAction">
+			</action> 
+			<action name="conn_design_param_del" method="paramDel" class="connectionDesignAction">
+			</action> 
+			<action name="conn_design_param_moveUp" method="moveUp" class="connectionDesignAction">
+			</action> 
+			<action name="conn_design_param_moveDown" method="moveDown" class="connectionDesignAction">
+			</action>  
+			<action name="conn_runtime_doexecute" method="doExcute" class="connectionRuntimeAction">
+			</action> 
+			<action name="conn_runctime_showlog" method="showlog" class="connectionRuntimeAction">
+			 	<result name="success">app/engine/connection/runtime/loglist.jsp</result> 
+			</action>   
+			<action name="conn_runctime_showjson" method="showJSON" class="connectionRuntimeAction">
+			</action>   
+			<action name="conn_runctime_showitem" method="showItem" class="connectionRuntimeAction">
+			<result name="success">app/engine/connection/runtime/logitem.jsp</result> 
+			</action>   
+			<!-- 精确流程管理 -->
+			<action name="process_route_index" method="index" class="processRouteDesignAction">
+				<result name="success">app/engine/process/route/index.jsp</result> 
+			</action> 
+			<action name="process_route_add" method="add" class="processRouteDesignAction">
+				<result name="success">app/engine/process/route/add.jsp</result> 
+			</action> 
+			<!-- 精确流程管理End -->
+			<!-- 鹰眼检索 -->
+			<action name="eaglesSearch_manageIndex" method="manageIndex" class="eaglesSearchAction">
+			      <result name="success">app/engine/eagles/manage_index.jsp</result>
+			</action>
+			<action name="eaglesSearch_reBuildIndex" method="doReBuildIndex" class="eaglesSearchAction">
+			</action>
+			
+			<action name="eaglesSearch_Index" method="index" class="eaglesSearchAction">
+			      <result name="success">app/engine/eagles/index.jsp</result>
+			</action>
+			<action name="eaglesSearch_createIndex" method="createIndex" class="eaglesSearchAction">
+			      <result name="success">app/engine/eagles/index.jsp</result>
+			</action>
+			<action name="eaglesSearch_updateIndex" method="updateIndex" class="eaglesSearchAction">
+			      <result name="success">app/engine/eagles/index.jsp</result>
+			</action>
+			<action name="eaglesSearch_Do" method="doSearch" class="eaglesSearchAction">
+			      <result name="success">app/engine/eagles/result.jsp</result>
+			</action>
+			<!-- 管理员设置用户风格界面 -->
+			<action name="system_config_mgrIndex" method="lookandfeelIndex" class="sysEngineRootAction">
+			      <result name="success">app/engine/root/mgr_config.jsp</result>
+			</action>
+			<action name="system_config_styleset" method="doLookandFeelSetting" class="sysEngineRootAction">
+			</action>
+			<!-- 系统初始化页面 -->
+			<action name="system_data_initPage" method="dataInitPage" class="sysEngineRootAction">
+			      <result name="success">app/engine/root/init.jsp</result>
+			</action>
+			<action name="system_process_initPage" method="processInitPage" class="sysEngineRootAction">
+			      <result name="success">app/engine/root/process.jsp</result>
+			</action>
+			<action name="system_dem_initPage" method="demInitPage" class="sysEngineRootAction">
+			      <result name="success">app/engine/root/dem.jsp</result>
+			</action>
+			<action name="system_dem_doclear" method="doClearDem" class="sysEngineRootAction">
+			</action>
+			<action name="system_process_doclear" method="doClearProcess" class="sysEngineRootAction">
+			</action>
+			<!--系统文档制作 -->
+			<action name="sys_hidocmaker_index" method="index" class="hiDocMakerAction">
+			      <result name="success">app/system/docmaker/index.jsp</result>
+			</action>
+			<action name="sys_hidocmaker_domaker" method="domaker" class="hiDocMakerAction">
+			      <result type="redirect">sys_hidocmaker_download.action?info=${info}</result>
+			</action>
+			<action name="sys_hidocmaker_download" method="download" class="hiDocMakerAction">
+			      <result  name="success">app/system/docmaker/download.jsp</result>
+			</action>
+			<!--垃圾回收 -->
+			<action name="sys_gc_index" method="index" class="sysGCfreeAction"> 
+				<result name="success">app/engine/gc/index.jsp</result>
+			</action>
+			
+			<!-- zouyalei 2014-12-16 主数据copy开始 -->
+			<action name="sysDem_MonthSelect" method="monthSelect" class="demDataCopyAction"> 
+				<result name="success">app/engine/dem/monthSelect.jsp</result>
+			</action>
+			<action name="sysDem_WeekSelect" method="weekSelect" class="demDataCopyAction"> 
+				<result name="success">app/engine/dem/weekSelect.jsp</result>
+			</action>
+			<action name="sysDem_DataCopy" method="dataCopy" class="demDataCopyAction"> 
+			</action>
+			
+			<!-- zouyalei 2014-12-16 主数据copy结束 -->
+			<!-- 三员分立 -->
+			<action name="sys_security_Index" method="securityIndex" class="sysSecurityManageAction">
+			      <result  name="success">admin/security.jsp</result>
+			</action>
+			<!-- 分布式部署集成平台 -->
+			<action name="ls_process_instance_json" method="showProcessInstanceJson" class="processRuntimeExcuteAction">
+			</action>
+			
+			<!-- 连接桥开始 -->
+			
+			
+			<!-- 跳转连接首页 -->
+			<action name="conn_bridge_index" method = "index" class="connectionBridgeDesignAction">
+				<result name="success">app/bridge/showlist.jsp</result>
+			</action>
+			<!-- 跳转添加连接 -->
+			<action name="conn_bridge_add" method = "add" class="connectionBridgeDesignAction">
+				<result name="success">app/bridge/addBridge.jsp</result>
+			</action>
+			<!-- 保存添加连接 -->
+			<action name="conn_bridge_save" method = "save" class="connectionBridgeDesignAction">
+				<result name="success">app/bridge/showlist.jsp</result>
+			</action>
+			<!--跳转连接属性设置页面  -->
+			<action name="conn_bridge_param_index" method = "paramIndex" class="connectionBridgeDesignAction">
+				<result name="success">app/bridge/paramframe.jsp</result>
+			</action>
+			<!--属性设置导航栏-->
+			<action name="conn_bridge_param_tabs"  class="connectionBridgeDesignAction">
+				 	<result name="success">app/bridge/bridgetablist.jsp</result>
+			</action> 
+			<!--属性设置    输入参数主界面-->
+			<action name="conn_bridge_param_input" method="inputIndex" class="connectionBridgeDesignAction">
+				 	<result name="success">app/bridge/inputIndex.jsp</result> 
+			</action>  
+			<!--属性设置    输出参数主界面-->
+			<action name="conn_bridge_param_output" method="outputIndex" class="connectionBridgeDesignAction">
+			 	<result name="success">app/bridge/output.jsp</result> 
+			</action>  
+			<!--属性设置 center-->
+			<action name="conn_bridge_param_baseinfo" method="edit" class="connectionBridgeDesignAction">
+			 	<result name="success">app/bridge/editBridge.jsp</result>
+			</action>
+			<!--删除连接-->
+			<action name="conn_bridge_delete" method="delete" class="connectionBridgeDesignAction">
+			</action>
+			<!--属性设置    输入参数录入界面-->
+			<action name="conn_bridge_param_addPage" method="addPage" class="connectionBridgeDesignAction">
+			 	<result name="success">app/bridge/param.jsp</result> 
+			</action> 
+			<!--属性设置    输出参数录入界面-->
+			<action name="conn_bridge_param_addOutParam" method="outputPage" class="connectionBridgeDesignAction">
+			 	<result name="success">app/bridge/outparam.jsp</result> 
+			</action>  
+			<!--属性设置   编辑参数-->
+			<action name="conn_bridge_param_editPage" method="editPage" class="connectionBridgeDesignAction">
+			 	<result name="success">app/bridge/param.jsp</result> 
+			</action>
+			<action name="conn_bridge_param_editOutParam" method="editOutParam" class="connectionBridgeDesignAction">
+			 	<result name="success">app/bridge/outparam.jsp</result> 
+			</action>
+			<!--属性设置   保存参数-->
+			<action name="conn_bridge_outparam_save" method="outparamSave" class="connectionBridgeDesignAction">
+			</action> 
+			<!--属性设置   保存参数-->
+			<action name="conn_bridge_param_save" method="paramSave" class="connectionBridgeDesignAction">
+			</action> 
+			<!--属性设置   展示参数-->
+			<action name="conn_bridge_param_json" method="showParamsJSON" class="connectionBridgeDesignAction">
+			</action> 
+			
+			<!--属性设置   shuchu展示参数-->
+			<action name="conn_bridge_outparam_json" method="showOutParamsJSON" class="connectionBridgeDesignAction">
+			</action> 
+			<!--属性设置    删除参数-->
+			<action name="conn_bridge_param_del" method="paramDel" class="connectionBridgeDesignAction">
+			</action> 
+			<!--属性设置  shuchu  删除参数-->
+			<action name="conn_bridge_outparam_del" method="outparamDel" class="connectionBridgeDesignAction">
+			</action>
+			<!--属性设置   参数上移-->
+			<action name="conn_bridge_param_moveUp" method="moveUp" class="connectionBridgeDesignAction">
+			</action> 
+			<!--属性设置   参数下移-->
+			<action name="conn_bridge_param_moveDown" method="moveDown" class="connectionBridgeDesignAction">
+			</action>  
+			<!--属性设置   输出参数上移-->
+			<action name="conn_bridge_param_moveUpout" method="moveUpout" class="connectionBridgeDesignAction">
+			</action> 
+			<!--属性设置   输出参数下移-->
+			<action name="conn_bridge_param_moveDownout" method="moveDownout" class="connectionBridgeDesignAction">
+			</action>  
+			
+			
+			
+			<!--连接   启动-->
+			<action name="conn_bridge_portal_run" method="runBridge" class="connectionBridgeRunAction">
+				<!--跳转登陆也页面-->
+				<result name="success">app/bridge/portal/login.jsp</result>
+				<!--跳转自动提交页面 post-->
+				<result name="autopost">app/bridge/portal/temppost.jsp</result>
+				<!--跳转自动提交页面 post-->
+				<result name="autoget">app/bridge/portal/tempget.jsp</result>
+				<!--跳转 连接未开启-->
+				<result name="bridgenull">app/bridge/portal/bridgenull.jsp</result>
+			</action>
+			
+			<!--连接   登陆-->
+			<action name="conn_bridge_portal_login" method="loginBridge" class="connectionBridgeRunAction">
+				<!--跳转登陆也页面-->
+				<result name="login">app/bridge/portal/login.jsp</result>
+				<!--跳转自动提交页面 post-->
+				<result name="autopost">app/bridge/portal/temppost.jsp</result>
+				<!--跳转自动提交页面 post-->
+				<result name="autoget">app/bridge/portal/tempget.jsp</result>
+			</action>
+			<!--连接   test-->
+			<action name="conn_bridge_test" method="loginTest" class="connectionBridgeRunAction">
+			</action>
+			<!--连接   模拟-->
+			<action name="conn_bridge_simulation" method="simulation" class="connectionBridgeRunAction">
+				<!--跳转登陆也页面-->
+				<result name="login">app/bridge/portal/login.jsp</result>
+			</action>
+			<!-- 个人设置 我的连接桥-->
+			<action name="syspersion_loadMyBridges" method="loadMyBridges" class="connectionBridgeRunAction">
+				<!--跳转登陆也页面-->
+				<result name="success">app/bridge/portal/myBridges.jsp</result>
+			</action>
+			<!-- 个人设置 编辑我的连接桥-->
+			<action name="syspersion_editMyBridge" method="editMyBridge" class="connectionBridgeRunAction">
+				<!--跳转登陆也页面-->
+				<result name="success">app/bridge/portal/editMyBridge.jsp</result>
+			</action>
+			<!-- 个人设置 编辑我的连接桥-保存-->
+			<action name="syspersion_editMyBridge_save" method="updateMyBridge" class="connectionBridgeRunAction">
+				<!--跳转登陆也页面-->
+				<!--<result name="success">app/bridge/portal/myBridges.jsp</result>
+			--></action>
+			<!-- 个人设置 编辑我的连接桥-删除-->
+			<action name="syspersion_editMyBridge_delete" method="deleteMyBridge" class="connectionBridgeRunAction">
+				
+			</action>
+			
+			
+			<action name="bridge_dologin" method="dologin" class="connectionBridgeRunAction">
+			<!--跳转登陆也页面-->
+				<result name="error">app/bridge/portal/errorlogin.jsp</result>
+			</action>
+			<!-- 连接桥结束 -->
+	</package>
+     
+</struts>

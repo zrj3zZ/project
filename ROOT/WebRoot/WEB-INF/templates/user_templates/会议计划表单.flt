@@ -1,0 +1,116 @@
+<script type="text/javascript" src="iwork_js/jqueryjs/languages/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript">
+function saveForm(){
+	var valid = mainFormValidator.form(); //执行校验操作
+	if(!valid){
+	return false;
+	}
+	//保存富文本
+ 	try{ 
+ 		saveHtmlEditor();  
+ 	}catch(e){} 
+       var fj=document.getElementById("YAZLFJ").value;
+	if(fj==null || fj==""){
+		alert("请上传附件！");
+	}else{
+		document.getElementById("submitbtn").click();	
+	}
+} 
+</script>
+<div id="iformMaindiv">
+	<table class="ke-zeroborder" style="margin-bottom:5px;" width="100%" cellspacing="0" cellpadding="0" border="0">
+		<tbody>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" width="100%" cellspacing="0" cellpadding="0" border="0">
+						<tbody>
+							<tr id="itemTr_1230">
+								<td class="td_title" id="title_YEAR" width="180">
+									年份
+								</td>
+								<td class="td_data" id="data_YEAR">
+									${YEAR}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1179">
+								<td class="td_title" id="title_MEETTYPE" width="180">
+									<span style="color:red;"></span>会议类型
+								</td>
+								<td class="td_data" id="data_MEETTYPE">
+									${MEETTYPE}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1233">
+								<td class="td_title" id="title_ZYWYH" width="180">
+									专业委员会
+								</td>
+								<td class="td_data" id="data_ZYWYH">
+									${ZYWYH}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1231">
+								<td class="td_title" id="title_JC" width="180">
+									届次
+								</td>
+								<td class="td_data" id="data_JC">
+									${JC}&nbsp;<span id="jcinfo" style="color:red;"></span> 
+								</td>
+							</tr>
+							<tr id="itemTr_1229">
+								<td class="td_title" id="title_HYSX" width="180">
+									<span style="color:red;"></span>会议属性
+								</td>
+								<td class="td_data" id="data_HYSX">
+									${HYSX}&nbsp;<span id="huici">第${HC} 次</span> 
+								</td>
+							</tr>
+							<tr id="itemTr_1178">
+								<td class="td_title" id="title_MEETNAME" width="180">
+									<span style="color:red;"></span>会议名称
+								</td>
+								<td class="td_data" id="data_MEETNAME">
+									${MEETNAME}&nbsp;<span id="labelMEETNAME"></span> 
+								</td>
+							</tr>
+							<tr id="itemTr_1180">
+								<td class="td_title" id="title_PLANTIME" width="180">
+									<span style="color:red;"></span>计划召开时间
+								</td>
+								<td class="td_data" id="data_PLANTIME">
+									${PLANTIME}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1180">
+								<td class="td_title" style="color:red;" id="title_PLANTIME1">
+									附件上传内容：
+								</td>
+								<td class="td_data1" style="color:red;" id="title_PLANTIME1">
+									会议通知、议案、会议记录、表决票、会议决议
+								</td>
+							</tr>
+							<tr id="itemTr_1181">
+								<td class="td_title" id="title_PLANTIME" width="180">
+									<span style="color:red;"></span>议案资料上传
+								</td>
+								<td class="td_data" id="data_PLANTIME">
+									${YAZLFJ}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1182">
+								<td class="td_title" id="title_FKZLQD" width="180">
+									其他资料
+								</td>
+								<td class="td_data" id="data_FKZLQD">
+									${FJ}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${STATUS}${JHCJR}${JHCJSJ}${CUSTOMERNO}${CUSTOMERNAME}${YCL}
+</div>

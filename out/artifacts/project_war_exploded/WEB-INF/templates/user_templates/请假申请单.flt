@@ -1,0 +1,68 @@
+<div id="border">
+		<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 5px" width="100%">
+			<tbody>
+				<tr>
+					<td class="formpage_title">请假申请单</td>
+				</tr>
+				<tr>
+					<td align="right" id="help"><span id="data_DJBH">单据编号:${DJBH}</span></td>
+				</tr>
+				<tr>
+					<td align="right" class="line"></td>
+				</tr>
+				<tr>
+					<td align="left">
+						<table border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody>
+								<tr id="itemTr_0" >
+									<td class="td_title"  id="title_SQR" width="15%">申请人									</td>
+									<td class="td_data"  id="data_SQR"  width="35%">${SQR}&nbsp;　</td>
+									<td class="td_title"  id="title_SQRZH" width="15%">申请人帐号									</td>
+									<td class="td_data"  id="data_SQRZH"  width="35%">${SQRZH}&nbsp;　</td>
+								</tr>
+								<tr id="itemTr_3" >
+									<td class="td_title"  id="title_SQRQ" width="15%">申请日期									</td>
+									<td class="td_data"  id="data_SQRQ"  width="35%">${SQRQ}&nbsp;　</td>
+									<td class="td_title"  id="title_SQLX" width="15%">申请类型									</td>
+									<td class="td_data"  id="data_SQLX"  width="35%">${SQLX}&nbsp;　</td>
+								</tr>
+								<tr id="itemTr_5" >
+									<td class="td_title"  id="title_QJGJXSS" width="15%">请假共计小时数									</td>
+									<td class="td_data"  id="data_QJGJXSS"  width="35%">${QJGJXSS}&nbsp;　</td>
+									<td class="td_title"  id="title_QJQSRQ" width="15%">请假起始日期									</td>
+									<td class="td_data"  id="data_QJQSRQ"  width="35%">${QJQSRQ}&nbsp;　</td>
+								</tr>
+								<tr id="itemTr_7" >
+									<td class="td_title"  id="title_QJJSRQ" width="15%">请假结束日期									</td>
+									<td class="td_data"  id="data_QJJSRQ"  width="35%">${QJJSRQ}&nbsp;　</td>
+								</tr>
+								<tr  id="txtAreaTr_854" ><td   class="td_title" id="title_QJYY" >请假原因									</td>
+									<td id="data_QJYY"  class="td_data" colspan="3">${QJYY}&nbsp;　</td>
+								</td></tr>
+								<tr id="fjTr_857" ><td   class="td_title" id="title_FJ" >附件									</td>
+									<td id="data_FJ"  class="td_data" colspan="3">${FJ}&nbsp;　</td>
+								</td></tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<table id="HTML_MEMO_TABLE" border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tbody>
+				<tr>
+					<td class="data" style="padding:10px;padding-left:10px;padding-right:10px">
+						<fieldset class="td_memo">
+							<legend class="td_memo_title">使用说明</legend>
+							<p>1.本表适用于各类休假审批。&nbsp;<br />
+2.提示：病假请附病假证明；婚假请附结婚证复印件；女员工正常生育产假之外的产假请附医院证明；男员工陪产假请附子女《出生医学证明》复印件；工伤假请附指定医院证明及附工伤报告书。&nbsp;<br />
+3.提示：事假扣款=月工资标准/21.75*事假天数；病假扣款=月工资标准/21.75*病假天数*40%。<br />
+<div style="white-space:nowrap;">
+	<br />
+</div></p>
+						</fieldset>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+</div>

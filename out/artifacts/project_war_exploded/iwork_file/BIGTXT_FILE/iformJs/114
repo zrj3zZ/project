@@ -1,0 +1,66 @@
+document.write("<script type='text/javascript' src='iwork_js/iwork/addressClean.js'><\/script>");
+function radio_book(parentDept, currentDept, startDept, targetUserId,targetUserNo, targetUserName, targetDeptId, targetDeptName, defaultField) {	  	
+		var url = "radiobook_index.action?1=1"; 
+		if(parentDept!=''){
+			url+="&parentDept="+parentDept;
+		}
+		if(currentDept!=''){
+			url+="&currentDept="+currentDept;
+		}
+		if(startDept!=''){
+			url+="&startDept="+startDept;
+		}
+		if(targetUserId!=''){
+			url+="&targetUserId="+targetUserId;
+		}
+		if(targetUserNo!=''){
+			url+="&targetUserNo="+targetUserNo;
+		}
+		if(targetUserName!=''){
+			url+="&targetUserName="+targetUserName;
+		}
+		if(targetDeptId!=''){
+			url+="&targetDeptId="+targetDeptId;
+		}
+		if(targetDeptName!=''){
+			url+="&targetDeptName="+targetDeptName;
+		}
+		if(defaultField!=''){
+			url+="&defaultField="+defaultField;
+		}
+		//获得input内容
+		var v = document.getElementById(defaultField);
+		if(v.value!=""){
+			var val  = encodeURI(v.value);
+			url+="&input="+val+""; 
+		} 
+		art.dialog.open(url, {
+			id:"radioBookDialog",
+			title: '单选地址簿',
+			cover:true,
+			loadingText:'正在加载中,请稍后...',
+			bgcolor:'#999',
+			rang:true,
+			cache:true,
+			lock: true,
+			iconTitle:false,
+			extendDrag:true,
+			autoSize:true,
+			resize:true,
+			content: 'url:'+url,
+			pading: 0,
+			width: 350,
+			height: 550,
+                        close:function(){
+			 if(defaultField=="FHSPR"){
+                           //判断公告发布人是否已有数据，如果没有数据则进行更改
+                               var ggfbr=$("#GGFBR").val();
+                           if(ggfbr==""){
+                             var zzcxdd=$("#FHSPR").val();
+                             $("#GGFBR").val(zzcxdd);
+                           }
+                         }
+			}		
+                       });
+		$.dialog.data("paramObj",obj);
+	}

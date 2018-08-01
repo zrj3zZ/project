@@ -1,0 +1,382 @@
+/*
+// ----------------------------------------------------------------------
+//KOA表单CSS样式表(流程实施单据通用) author:David.yang
+// ----------------------------------------------------------------------
+*/
+
+/*==================外观及布局样式==============================*/
+/*最外层虚线框样式*/
+#border { 
+	width: 860px;
+	border-top: 1px solid #E1E1E1 	;
+	border-left: 1px solid #E1E1E1 	;
+	border-bottom: 1px solid #E1E1E1 	;
+	border-right: 1px solid #E1E1E1 	;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top:10px;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 5px;
+	padding:10px;
+	background-color:#FFFFFF;
+	background-image:url(../aws_img/form_head.gif);
+	background-repeat:no-repeat;
+	background-position:top right;
+}
+/*表单内框样式*/
+#border1 {
+	border-top: 1px solid #444444;
+	border-left: 1px solid #444444;
+	border-bottom: 3px solid #666666;
+	border-right: 3px solid #666666;
+	width: 100%;
+	padding:2px;
+	background-color:#FCFCFC;
+}
+#border_sub{
+	width: 700px;
+	border-top: 1px solid #E1E1E1 	;
+	border-left: 1px solid #E1E1E1 	;
+	border-bottom: 1px solid #E1E1E1 	;
+	border-right: 1px solid #E1E1E1 	;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top:10px;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 15px;
+	padding:10px;
+	background-color:#FFFFFF;
+	background-image:url(../aws_img/form_head.gif);
+	background-repeat:no-repeat;
+	background-position:top right;
+}
+#border_subContent{
+	border-top: 1px solid #444444;
+	border-left: 1px solid #444444;
+	border-bottom: 3px solid #666666;
+	border-right: 3px solid #666666;
+	width: 100%;
+	padding:2px;
+	background-color:#FCFCFC;
+	padding-bottom:20px;
+}
+/*表单标题样式*/
+.title {
+	text-align: center;
+	vertical-align:bottom;
+	height:40px;
+	font-size: 18px;
+	letter-spacing: 0.1em;
+	color:#333333;
+	font-family:黑体;
+}
+/*标题下分隔线样式*/
+.line {
+	background-color: #333333;
+	height: 1px;
+}
+.readonly {
+	vertical-align:bottom;
+	font-size: 12px;
+	line-height: 20px;
+	color: #666666;
+	padding-right:10px;
+	border-bottom:1px #999999 dotted;
+	
+}
+/*只读数据样式*/
+.readonly_data {
+	vertical-align:bottom;
+	font-size: 12px;
+	line-height: 20px;
+	color: #888888;
+	padding-right:10px;
+	border-bottom:1px #999999 dotted;
+	font-family:"宋体";
+	line-height:15px;
+}
+/*数据字段标题样式*/
+.td_title {
+color:#004080;
+	line-height: 23px;
+	font-size: 12px;
+	text-align: right;
+	letter-spacing: 0.1em;
+	padding-right:10px;
+	white-space:nowrap;
+	
+	border-bottom:1px #999999 thick;
+	vertical-align:middle;
+	font-family:"宋体";
+	
+	
+}
+/*数据字段内容样式*/
+.td_data {
+	color:#0000FF;
+	line-height: 23px;
+	text-align: left;
+	padding-left: 3px;
+	font-size: 12px;
+	font-family:"宋体";
+	border-bottom:1px #999999 dotted;
+	vertical-align:middle;
+	word-wrap:break-word;
+	word-break:break-all;
+	font-weight:500;
+	line-height:15px;
+	padding-top:5px;
+	
+}
+.td_memo{
+	text-align:left; 
+	padding-left:10px;
+	font-family:"宋体";
+	font-size:12px;
+}
+.td_memo_title{
+	color:#000066;
+	
+}
+.td_content{
+	color:#333333;
+	line-height: 23px;
+	text-align: left;
+	padding-left: 3px;
+	font-size: 11px;
+	white-space:nowrap;
+	font-family: Arial, Helvetica, sans-serif;
+	border-bottom:1px #999999 dotted;
+	vertical-align:top;
+
+}
+.td3 {
+	width: 85%;
+	background-color: #FFFFFF;
+	line-height: 23px;
+	text-align: left;
+	padding-left: 3px;
+	font-size: 11px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.td4 {
+	background-color: #FFFFFF;
+	font-size: 11px;
+	font-family: Arial, Helvetica, sans-serif;
+	height: 80px;
+	text-align: left;
+	padding-left: 10px;
+	padding-top: 5px;
+}
+.data {
+	font-size: 12px;
+	color: #666666;
+	line-height: 25px;
+	text-align: right;
+	font-family: Arial, Helvetica, sans-serif;
+}
+/*横向分组样式*/
+.column{
+	background-color:#EEEEEE;
+	background-image:url(../aws_img/form_icon.gif);
+	background-repeat:no-repeat ;
+	background-position:1% 5px;
+	width: 15%;
+	padding-top:2px;
+	padding-bottom:2px;
+	margin-top:15px;
+	font-size: 12px;
+	text-align: left;
+	height:15;
+	letter-spacing: 0.1em;
+	padding-left:23px;
+	white-space:nowrap;
+	color:#000000;
+	font-weight:500;
+		border-top:1px #D1D1D1 solid;
+		font-family:宋体;
+}
+/*表单底图样式*/
+.formbody{
+	background-image:url(../aws_img/bg.png);
+	background-repeat:repeat-x;
+	background-position:top;
+	background-color:#F9F8F7;
+	text-align:center;
+}
+.th_title{
+   background-color:#EFEFEF;
+   text-align:left;
+   padding-top:2px;
+   padding-left:10px;
+   padding-bottom:2px;
+   border-bottom:1px #999999 solid;
+   border-right:1px #FFFFFF solid;
+}
+/**========================表单页面组件样式===================================**/
+/*输入框样式*/
+.actionsoftInput {
+padding-left:2px;
+padding-top:1px;
+font-weight: normal; 
+color: #0000FF;
+font-family:"Arial", "Arial", "Helvetica", "sans-serif";
+font-size: 12px;
+border-left:1px solid #999999; 
+border-right:1px solid #999999 ;
+border-top:1px solid  #999999 ; 
+border-bottom:1px solid #999999 ;
+cursor:pointer; 
+cursor:hand;
+background-color:#FFFFFF;
+
+}
+/*输入框样式*/
+.actionsoftInputDisabled {  
+	padding-left:2px;
+	padding-top:1px;
+	font-weight: normal; 
+	font-family:"Arial", "Arial", "Helvetica", "sans-serif";
+	font-size: 11px;
+	border-left:1px solid #999999; 
+	border-right:1px solid #999999 ;
+	border-top:1px solid  #999999 ; 
+	border-bottom:1px solid #999999 ;
+	cursor:pointer; 
+	cursor:hand;
+	color: #0000FF;
+
+}
+/*多行样式*/
+textarea {
+	line-height:15px;
+	font-family:"Arial";
+	font-size:12px;
+	border:1px solid #999999;
+	color: #0000FF;
+	padding-left:2px;
+	padding-top:2px;
+}
+
+/*列表选择样式*/
+.actionsoftSelect {  
+	border-right:#E6E6E6 1px solid;
+	border-top:#E6E6E6 1px solid;
+	font-size:12px;
+	border-left:#E6E6E6 1px solid;
+	color:#0000FF;
+	border-bottom:#E6E6E6 1px solid;
+	background-color:#f4f4f4;
+	font-weight:500;
+}
+.subReportTableToolbar{
+	border-top: 0px solid #444444;
+	border-left: 0px solid #444444;
+	border-bottom: 0px solid #666666;
+	border-right: 0px solid #666666;
+	width: 100%;
+	padding:2px;
+	background-color:#FCFCFC;
+}
+.actionsoftSheetHeadColor{
+  font-size:12px;
+   color:#003366;
+   text-align:center;
+   padding-left:3px;
+   padding-right:3px; 
+   padding-top:1px;
+   padding-bottom:1px;
+   height:20;
+   white-space:nowrap;
+   border-right:1px #CCCCCC solid;
+   border-bottom:1px #CCCCCC solid;
+   background-image:url(../aws_img/report-bg-blue2.gif);
+	background-repeat:repeat-x;
+	background-position:top left;
+}
+.subReportTable{
+	border-top: 0px solid #444444;
+	border-left: 0px solid #444444;
+	border-bottom: 0px solid #666666;
+	border-right: 0px solid #666666;
+	width: 100%;
+	padding:2px;
+	background-color:#FCFCFC;
+	font-size:12px;
+	
+}
+.subFormItemData{
+	line-height:16px;
+}
+.coolBar{
+	color:red;
+	 background-image:url(../aws_img/bg.gif);
+	 border-top: 1px solid #efefef;
+	border-left: 1px solid #efefef;
+	border-bottom: 0px solid #efefef;
+	border-right: 1px solid #efefef;
+}
+.coolButton{
+	border-top: 0px solid #444444;
+	border-left: 0px solid #444444;
+	border-bottom: 0px solid #666666;
+	border-right: 0px solid #666666;
+	font-size:12px;
+	height:25px;
+	color:#666666;
+}
+.sheetTitle{
+	color:#444444;
+	 background-image:url(../aws_img/white-top-bottom.gif);
+	 border-top: 1px solid #efefef;
+	border-left: 1px solid #efefef;
+	border-bottom: 0px solid #efefef;
+	border-right: 1px solid #efefef;
+	height:20px;
+	font-size:12px;
+	font-weight:bold;
+}
+.actionsoftReportData{
+	 font-family:  "Arial", "Helvetica", "sans-serif"; 
+	 border-bottom:1px solid #efefef;
+	 border-right:1px solid #efefef;
+     font-size: 12px; 
+     line-height:18px;
+     height: 18px; 
+	  border-right:1px #CCCCCC solid;
+border-bottom:1px #CCCCCC solid;
+}
+.subsheet_title{
+	color:#0000FF;
+	text-align: left;
+	padding-left: 3px;
+	font-size: 12px;
+	font-family:"宋体";
+	border-bottom:1px #999999 dotted;
+	vertical-align:middle;
+	word-wrap:break-word;
+	word-break:break-all;
+	font-weight:500;
+	line-height:12px;
+	padding-top:5px;
+}
+.subsheet_data{
+	color:#0000FF;
+	text-align: left;
+	padding-left: 3px;
+	font-size: 12px;
+	font-family:"宋体";
+	border-bottom:1px #999999 dotted;
+	vertical-align:middle;
+	word-wrap:break-word;
+	word-break:break-all;
+	font-weight:500;
+	line-height:12px;
+	padding-top:5px;
+}
+a:link {color: #000099}     /* 未访问的链接 */
+a:visited {color: #000099}  /* 已访问的链接 */
+a:hover {color: #CC0000}    /* 当有鼠标悬停在链接上 */
+a:active {color: #CC0000}   /* 被选择的链接 */

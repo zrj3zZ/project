@@ -1,0 +1,3 @@
+--扩展字段，为外部数据源增加唯一标识
+ALTER TABLE SYS_DEM_SEARCH 
+ADD SRC_TYPE VARCHAR2(32)

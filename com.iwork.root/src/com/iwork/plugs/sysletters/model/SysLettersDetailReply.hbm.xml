@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.iwork.plugs.sysletters.model.SysLettersDetailReply" table="SYS_LETTERS_DETAIL_REPLY">
+        <id name="id" type="java.lang.Long">
+            <column name="ID" precision="30" scale="0" />
+            <generator class="increment" />
+        </id>
+        <property name="detailDataId" type="java.lang.Long">
+            <column name="DETAIL_DATA_ID" precision="30" scale="0">
+                <comment>详细信息表ID</comment>
+            </column>
+        </property>
+        <property name="letterId" type="java.lang.Long">
+            <column name="LETTER_ID" precision="30" scale="0">
+                <comment>主要内容表ID</comment>
+            </column>
+        </property>
+        <property name="replyContent" type="java.lang.String">
+            <column name="REPLY_CONTENT" length="4000">
+                <comment>回复内容</comment>
+            </column>
+        </property>
+        <property name="userId" type="java.lang.String">
+            <column name="USER_ID" length="40">
+                <comment>人员ID</comment>
+            </column>
+        </property>
+        <property name="ts" type="java.lang.String">
+            <column name="TS" length="30">
+                <comment>时间戳</comment>
+            </column>
+        </property>
+        <property name="def1" type="java.lang.String">
+            <column name="DEF1" length="100">
+                <comment>备注字段1</comment>
+            </column>
+        </property>
+        <property name="def2" type="java.lang.String">
+            <column name="DEF2" length="100" />
+        </property>
+        <property name="def3" type="java.lang.String">
+            <column name="DEF3" length="100" />
+        </property>
+        <property name="def4" type="java.lang.String">
+            <column name="DEF4" length="100" />
+        </property>
+        <property name="def5" type="java.util.Date">
+            <column name="DEF5" length="7" />
+        </property>
+        <property name="def6" type="java.lang.Long">
+            <column name="DEF6" precision="25" scale="0" />
+        </property>
+        <many-to-one name="syslettersdetailinfo"  class="com.iwork.plugs.sysletters.model.SysLettersDetailInfo"  column="DETAIL_DATA_ID"  insert="false" update="false" not-found="ignore" >
+        </many-to-one>
+    </class>
+</hibernate-mapping>

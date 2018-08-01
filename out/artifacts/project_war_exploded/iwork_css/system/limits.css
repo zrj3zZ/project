@@ -1,0 +1,87 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+	padding:0px;
+	margin:0px;
+	font-size:12px;
+}
+img {
+	border:0px;
+}
+BODY {
+	min-width:580px;
+    width:expression(document.body.clientWidth <= 580? "580px": "auto")
+}
+/*权限设置*/
+
+.limits_box {
+	background:url(../../iwork_img/engine/report_frame_bg.jpg);
+	background-repeat:repeat-x;
+	margin:0px;
+	border:1px solid #ebebeb;
+	margin-bottom:5px;
+	height:110px;
+	padding-left:10px;
+}
+.limits_box a {
+
+}
+.limits_box_selected {
+	background:url(../../iwork_img/engine/report_frame_selected_bg.jpg);
+	background-repeat:repeat-x;
+	margin:0px;
+	border:1px solid #bcdaf8;
+	margin-bottom:5px;
+	height:110px;
+	padding-left:10px;
+}
+.limits_box_selected a {
+} 
+.limits_box_title {
+	height:32px;
+	line-height:32px;
+	font-size:14px;
+	padding-left:40px;
+	background:url(../../iwork_img/shield.png) no-repeat 15px 7px;
+	color:#474444;
+	font-size:14px;
+	font-weight:bold
+}
+.limits_box_title a {
+	font-size:14px;
+	color:#474444;
+	text-decoration:none;
+}
+.limits_box_main {
+	line-height:40px;
+	font-size:12px;
+	color:#3a64b0;
+	padding:0px;
+	height:40px;
+	
+	list-style-type:none;
+	text-align:center;
+	float:right
+
+
+}
+
+.limits_box_main li{
+	display:block;
+	width:100px;
+	float:left
+}
+.limits_box_main li a {
+	display:block;
+
+	text-align:left;
+	font-size:12px;
+	padding:0px;
+	list-style-type:none;
+	
+}
+.limits_box_main a:link{ text-decoration:none; color:#3a64b0}
+.limits_box_main a:visited{ text-decoration:none;color:#3a64b0}
+.limits_box_main a:hover{ text-decoration:underline;color:#3a64b0}
+.limits_box_main a:active{ text-decoration:none;color:#3a64b0}
+

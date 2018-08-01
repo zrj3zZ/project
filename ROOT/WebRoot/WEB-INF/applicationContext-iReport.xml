@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "file:///E:/source/RMS/ROOT/WebRoot/WEB-INF/spring-beans-2.0.dtd">
+<beans>
+    <!-- 报表-->
+    <bean id="iReportDesignDAO" class="com.iwork.ireport.designer.dao.IReportDesignDAO" parent="baseDAO"></bean>
+    <bean id="iReportDesignService" class="com.iwork.ireport.designer.service.IReportDesignService" scope="prototype">
+    	<property name="iReportDesignDAO" ref="iReportDesignDAO" />    	
+    	<property name="sysEngineGroupDAO" ref="sysEngineGroupDAO" /> 
+    	<property name="connectionRuntimeService" ref="connectionRuntimeService" /> 
+    	<property name="sysEngineMetadataService" ref="sysEngineMetadataService" />   	  	
+    	<property name="sysEngineIFormMapService" ref="sysEngineIFormMapService" />   	  	
+    	<property name="sysEngineIFormService" ref="sysEngineIFormService" />   	  	
+    	<property name="sysEngineSubformService" ref="sysEngineSubformService" /> 
+    	<property name="extDBSrcService" ref="extDBSrcService" />  
+    	<property name="extDBSrcDao" ref="extDBSrcDao" /> 	  	
+    </bean>
+    <bean id="iReportDesignAction" class="com.iwork.ireport.designer.action.IReportDesignAction" scope="prototype">
+        <property name="iReportDesignService" ref="iReportDesignService" /> 
+        <property name="extDBSrcService" ref="extDBSrcService" />
+    </bean>   
+    <!-- 数据权限 -->
+     <bean id="iReportDesignScopeDAO" class="com.iwork.ireport.designer.dao.IReportDesignScopeDAO" parent="baseDAO"></bean>
+    <bean id="iReportDesignScopeService" class="com.iwork.ireport.designer.service.IReportDesignScopeService" scope="prototype">
+    	<property name="iReportDesignScopeDAO" ref="iReportDesignScopeDAO" />   	  	
+    </bean>
+    <bean id="iReportDesignScopeAction" class="com.iwork.ireport.designer.action.IReportDesignScopeAction" scope="prototype">
+        <property name="iReportDesignScopeService" ref="iReportDesignScopeService" />
+    </bean> 
+    <!-- 数据权限end -->
+    <!-- 排序字段  -->
+     <bean id="iReportDesignOrderDAO" class="com.iwork.ireport.designer.dao.IReportDesignOrderDAO" parent="baseDAO"></bean>
+    <bean id="iReportDesignOrderService" class="com.iwork.ireport.designer.service.IReportDesignOrderService" scope="prototype">
+    	<property name="iReportDesignOrderDAO" ref="iReportDesignOrderDAO" />   	  	
+    </bean>
+    <bean id="iReportDesignOrderAction" class="com.iwork.ireport.designer.action.IReportDesignOrderAction" scope="prototype">
+        <property name="iReportDesignOrderService" ref="iReportDesignOrderService" />
+    </bean> 
+    <!--  排序字段end -->
+     <!--显示字段   -->
+     <bean id="iReportDesignFormFieldDAO" class="com.iwork.ireport.designer.dao.IReportDesignFormFieldDAO" parent="baseDAO"></bean>
+    <bean id="iReportDesignFormFieldService" class="com.iwork.ireport.designer.service.IReportDesignFormFieldService" scope="prototype">
+    	<property name="iReportDesignFormFieldDAO" ref="iReportDesignFormFieldDAO" />   	  	
+    </bean>
+    <bean id="iReportDesignFormFieldAction" class="com.iwork.ireport.designer.action.IReportDesignFormFieldAction" scope="prototype">
+        <property name="iReportDesignFormFieldService" ref="iReportDesignFormFieldService" />
+    </bean> 
+    <!--显示字段 end  -->
+    <!-- 查询条件 -->
+     <bean id="iReportDesignConditionDAO" class="com.iwork.ireport.designer.dao.IReportDesignConditionDAO" parent="baseDAO"></bean>
+    <bean id="iReportDesignConditionService" class="com.iwork.ireport.designer.service.IReportDesignConditionService" scope="prototype">
+    	<property name="iReportDesignConditionDAO" ref="iReportDesignConditionDAO" />    	  	
+    	<property name="iReportDesignService" ref="iReportDesignService" />   	  	
+    	<property name="sysEngineMetadataService" ref="sysEngineMetadataService" />   	  	
+    	<property name="sysEngineIFormMapService" ref="sysEngineIFormMapService" />   	  	
+    	<property name="sysEngineIFormService" ref="sysEngineIFormService" />   	  	
+    	<property name="sysEngineSubformService" ref="sysEngineSubformService" />   	  	
+    </bean>
+    <bean id="iReportDesignConditionAction" class="com.iwork.ireport.designer.action.IReportDesignConditionAction" scope="prototype">
+        <property name="iReportDesignConditionService" ref="iReportDesignConditionService" />
+    </bean> 
+    <!-- 查询条件end -->
+    <bean id="iReportRuntimeAction" class="com.iwork.ireport.runtime.action.IReportRuntimeAction" scope="prototype">
+        <property name="iReportRuntimeService" ref="iReportRuntimeService" />
+        <property name="sysPersionService" ref="sysPersionService" />
+        <property name="iformService" ref="iformService" />
+        <property name="instanceDataDAO" ref="instanceDataDAO" />
+        <property name="processDeploymentDAO" ref="processDeploymentDAO" />
+        
+    </bean>  
+    <bean id="iReportRuntimeService" class="com.iwork.ireport.runtime.service.IReportRuntimeService" scope="prototype">
+    	<property name="sysEngineGroupDAO" ref="sysEngineGroupDAO" /> 
+    	<property name="connectionRuntimeService" ref="connectionRuntimeService" /> 
+    	<property name="iReportDesignConditionService" ref="iReportDesignConditionService" />   	  	
+    	<property name="iReportDesignService" ref="iReportDesignService" />   	  	
+    	<property name="sysEngineMetadataService" ref="sysEngineMetadataService" />   	  	
+    	<property name="sysEngineIFormMapService" ref="sysEngineIFormMapService" />   	  	
+    	<property name="sysEngineIFormService" ref="sysEngineIFormService" />   	  	
+    	<property name="sysEngineSubformService" ref="sysEngineSubformService" />  	  	
+    	<property name="iReportDesignFormFieldService" ref="iReportDesignFormFieldService" />
+    	<property name="extDBSrcDao" ref="extDBSrcDao" />   
+    	<property name="iReportDesignGroupService" ref="iReportDesignGroupService" />
+    	<property name="iReportDesignStatisticsService" ref="iReportDesignStatisticsService" />
+    	<property name="iReportDesignScopeService" ref="iReportDesignScopeService" />
+    	<property name="iReportDesignOrderService" ref="iReportDesignOrderService" />
+    	<property name="sysPurviewReportService" ref="sysPurviewReportService" />
+    	<property name="sysPersonDAO" ref="sysPersonDAO" /> 
+    </bean>
+    <!-- 分组 -->
+    <bean id="iReportDesignGroupDAO" class="com.iwork.ireport.designer.dao.IReportDesignGroupDAO" parent="baseDAO"></bean>
+    <bean id="iReportDesignGroupService" class="com.iwork.ireport.designer.service.IReportDesignGroupService" scope="prototype">
+    	<property name="iReportDesignGroupDAO" ref="iReportDesignGroupDAO" />    	  	
+    	<property name="iReportDesignService" ref="iReportDesignService" />   	  	
+    	<property name="sysEngineMetadataService" ref="sysEngineMetadataService" />   	  	
+    	<property name="sysEngineIFormMapService" ref="sysEngineIFormMapService" />   	  	
+    	<property name="sysEngineIFormService" ref="sysEngineIFormService" />   	  	
+    	<property name="sysEngineSubformService" ref="sysEngineSubformService" />   	  	
+    </bean>
+    <bean id="iReportDesignGroupAction" class="com.iwork.ireport.designer.action.IReportDesignGroupAction" scope="prototype">
+        <property name="iReportDesignGroupService" ref="iReportDesignGroupService" />
+    </bean> 
+    <!-- 分组end -->
+    <!-- 统计 -->
+    <bean id="iReportDesignStatisticsDAO" class="com.iwork.ireport.designer.dao.IReportDesignStatisticsDAO" parent="baseDAO"></bean>
+    <bean id="iReportDesignStatisticsService" class="com.iwork.ireport.designer.service.IReportDesignStatisticsService" scope="prototype">
+    	<property name="iReportDesignGroupDAO" ref="iReportDesignGroupDAO" />    	  	
+    	<property name="iReportDesignStatisticsDAO" ref="iReportDesignStatisticsDAO" />    	  	
+    	<property name="iReportDesignService" ref="iReportDesignService" />   	  	
+    	<property name="sysEngineMetadataService" ref="sysEngineMetadataService" />   	  	
+    	<property name="sysEngineIFormMapService" ref="sysEngineIFormMapService" />   	  	
+    	<property name="sysEngineIFormService" ref="sysEngineIFormService" />   	  	
+    	<property name="sysEngineSubformService" ref="sysEngineSubformService" />   	  	
+    </bean>
+    <bean id="iReportDesignStatisticsAction" class="com.iwork.ireport.designer.action.IReportDesignStatisticsAction" scope="prototype">
+        <property name="iReportDesignStatisticsService" ref="iReportDesignStatisticsService" />
+    </bean> 
+    <!-- 统计end -->
+</beans>

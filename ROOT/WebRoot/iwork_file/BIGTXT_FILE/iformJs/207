@@ -1,0 +1,41 @@
+//预加载
+$(function () {
+    if ($("#XPSXNAME").val().indexOf("其他事项") != -1||($("#XPSXNAME").val().indexOf("其他") != -1&&$("#XPSXNAME").val().indexOf("事项") != -1)) {
+        $("#XPSXNAME").removeAttr("readonly");
+    }
+    var html = "<option value=''>-请选择公司-</option>";
+    $("#COMPANY").attr("readonly", "readonly");
+    $.post("zqb_get_xpsxcompany_list.action", function (data) {
+        var values = data.split(",");
+        for (var i = 0; i < values.length; i++) {
+            if (values[i] != null && values[i] != '') {
+                var valuessub = values[i].split("$");
+                html += '<option value="' + valuessub[0] + '">' + valuessub[1] + '</option>';
+            }
+        }
+        $("#selectzqdm").html(html);
+        document.getElementById("selectzqdm").style.display = "inline-block";
+    });
+    var khbh = $("#CUSTOMERNO").val();
+    $.post("zqb_get_xpsxcompany.action", {
+        khbh: khbh
+    }, function (data) {
+        if (data != "") {
+            $("#COMPANY").val(data);
+        }
+    });
+    $.post("zqb_set_xpsxcompany.action", function (data) {
+        if (data != "") {
+            var array = data.split("$");
+            $("#COMPANY").val(array[0]);
+            $("#CUSTOMERNO").val(array[1]);
+            $("CUSTOMERNO").attr("readonly", "readonly");
+            $("#selectzqdm").remove();
+        }
+    });
+});
+
+function setzqdm() {
+    $("#CUSTOMERNO").val($("#selectzqdm").val());
+    $("#COMPANY").val($("#selectzqdm").find("option:selected").html());
+}

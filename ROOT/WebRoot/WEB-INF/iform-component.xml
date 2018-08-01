@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!--
+#############################################################
+##
+## 	IForm电子表单UI组件库配置IFormComponentOneBarcodeImpl
+## 
+##
+#############################################################
+-->
+<IForm-config>
+<version>4.0</version>
+<component>
+	<groupname>表单域组件</groupname>
+	<key>TxtBox</key>
+	<title>单行文本域</title> 
+	<icon>iwork_img/engine/component/text.png</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormComponentTextImpl</implements-class>			
+	<desc>普通TextField文本</desc>
+</component>
+<component>
+	<groupname>表单域组件</groupname>
+	<key>TxtBox_dateISO</key> 
+	<title>单行文本域-日期</title> 
+	<icon>iwork_img/engine/component/text-date.png</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormComponentDateISOImpl</implements-class>			
+	<desc>点击可弹出日期选择框</desc>
+</component>
+<component>
+	<groupname>表单域组件</groupname>
+	<key>Hidden</key>
+	<title>隐藏域</title>
+	<icon>iwork_img/engine/component/hidden.png</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormUIComponentHiddenImpl</implements-class>			
+	<desc>普通隐藏域标签</desc> 
+	<setting>true</setting>
+</component>
+<component>
+	<groupname>表单域组件</groupname>
+	<key>Readonly</key>
+	<title>只读域</title>
+	<icon>iwork_img/engine/component/readonly.png</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormUIComponentReadOnlyImpl</implements-class>			
+	<desc>永远只读</desc>
+	<setting>true</setting>
+</component>
+<component>
+	<groupname>表单域组件</groupname>
+	<key>TxtBox_Readonly</key>
+	<title>只读文本框</title>
+	<icon>iwork_img/engine/component/readonly.png</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormComponentTextReadOnlyImpl</implements-class>			
+	<desc>定义文本框只读</desc>
+	<setting>true</setting>
+</component>
+<component>
+	<groupname>表单域组件</groupname>
+	<key>TxtBox_dateTime</key> 
+	<title>单行文本域-日期时间</title> 
+	<icon>iwork_img/engine/component/text-datetime.png</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormComponentDateTimeImpl</implements-class>			
+	<desc>点击可弹出日期+时间选择框</desc>
+</component>
+<component>
+	<groupname>表单域组件</groupname>
+	<key>TxtBox_time</key>
+	<title>单行文本域-时间</title> 
+	<icon>iwork_img/engine/component/text-datetime.png</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormComponentTimeImpl</implements-class>			
+	<desc>点击可弹出时间选择框</desc>
+</component>
+<component>
+	<groupname>表单域组件</groupname>
+	<key>TxtBox_mail</key>
+	<title>单行文本域-Email</title> 
+	<icon>iwork_img/engine/component/text-time.png</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormComponentEmailImpl</implements-class>			
+	<desc>对邮件地址格式进行校验</desc>
+</component>
+<!--  
+<component>
+	<groupname>表单域组件</groupname>
+	<key>TxtBox_Money</key>
+	<title>单行文本域-货币</title> 
+	<icon>iwork_img/engine/component/money_yen.png</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormComponentTextMoneyImpl</implements-class>			
+	<desc>对货币进行校验</desc>
+</component>
+-->
+<component>
+	<groupname>表单域组件</groupname>
+	<key>TxtBox_number</key>
+	<title>单行文本域-数值</title> 
+	<icon>iwork_img/engine/component/text-num.png</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormComponentNumberImpl</implements-class>			
+	<desc>对数值进行校验</desc>
+</component>
+<component>
+	<groupname>表单域组件</groupname>
+	<key>TxtBox_url</key>
+	<title>单行文本域-URL</title> 
+	<icon>iwork_img/engine/component/text-num.png</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormComponentUrlImpl</implements-class>			
+	<desc>对URL地址进行校验</desc>
+</component>
+<component>
+	<groupname>表单域组件</groupname>
+	<key>TxtBox_radioAddress</key>
+	<title>单行文本域-联想地址簿</title> 
+	<icon>iwork_img/user_business_boss.png</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormUIComponentAdressAutocompleteImpl</implements-class>			
+	<desc>录入信息联想查询用户信息</desc>
+</component>
+<!-- 
+<component>
+	<groupname>表单域组件</groupname>
+	<key>TxtBox_radioAddress</key>
+	<title>单行文本域-HR地址簿</title> 
+	<icon>iwork_img/user_business_boss.png</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.ibpmsoft.haihang.base.component.IFormComponentHRAddressBookImpl</implements-class>			
+	<desc>录入信息联想查询HR用户信息</desc>
+</component>
+ -->
+<component>
+	<groupname>表单域组件</groupname>
+	<key>TxtArea</key>
+	<title>多行文本域</title>
+	<icon>iwork_img/engine/component/textarea.png</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormUIComponentTextAreaImpl</implements-class>			
+	<desc>支持换行的多行文本框</desc>
+</component>
+<component>
+	<groupname>表单域组件</groupname>
+	<key>simpleRichtext</key>
+	<title>简单富文本域组件</title>
+	<icon>iwork_img/engine/component/textarea.png</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormUIComponentSimpleRichHTMLImpl</implements-class>			
+	<desc>支持换行的普通HTML输入标签</desc>
+</component>
+<component>
+	<groupname>表单域组件</groupname>
+	<key>advancedRichtext</key>
+	<title>高级富文本域组件</title>
+	<icon>iwork_img/engine/component/textarea.png</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormUIComponentAdvancedRichHTMLImpl</implements-class>			
+	<desc>支持换行的普通HTML输入标签</desc>
+</component>
+<component>
+	<groupname>表单域组件</groupname>
+	<key>RadioBtn</key>
+	<title>单选按纽组</title>
+	<icon>iwork_img/engine/component/radio.png</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormUIComponentRadioImpl</implements-class>			
+	<desc>一组值，仅供单选其一</desc>
+	<setting>true</setting>
+</component>
+<component>
+	<groupname>表单域组件</groupname>
+	<key>Radio_ReadOnly</key>
+	<title>单选按纽-选择后只读</title>
+	<icon>iwork_img/engine/component/radio.png</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormUIComponentRadioReadOnlyBookImpl</implements-class>			
+	<desc>一组值，仅供单选其一</desc>
+	<setting>true</setting>
+</component>
+<component>
+	<groupname>表单域组件</groupname>
+	<key>Combox</key>
+	<title>下拉列表域</title>
+	<icon>iwork_img/engine/component/select.png</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormUIComponentComboxImpl</implements-class>			
+	<desc>一组值，仅供单选其一</desc>
+	<setting>true</setting>
+</component>
+<component>
+	<groupname>表单域组件</groupname>
+	<key>checkbox</key>
+	<title>复选框</title> 
+	<icon>iwork_img/engine/component/check-ok.gif</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormUIComponentCheckBoxImpl</implements-class>			
+	<desc>多选</desc>
+	<setting>true</setting> 
+</component>
+
+<component>
+	<groupname>表单域组件</groupname>
+	<key>upload</key>
+	<title>上传组件</title>
+	<icon>iwork_img/engine/component/upload.png</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IformUIComponentUploadImpl</implements-class>			
+	<desc>upload</desc>
+	<setting>true</setting>
+</component>
+<component>
+	<groupname>表单域组件</groupname>
+	<key>officeUpload</key>
+	<title>在线OFFICE上传组件</title>
+	<icon>iwork_img/engine/component/upload.png</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IformUIComponentOfficeAttachImpl</implements-class>			
+	<desc>office_upload</desc>
+	<setting>true</setting>
+</component>
+<component>
+	<groupname>表单域组件</groupname>
+	<key>imgUpload</key>
+	<title>图片上传组件</title>
+	<icon>iwork_img/engine/component/upload.png</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IformUIComponentIMGUploadImpl</implements-class>			
+	<desc>imgUpload</desc>
+	<setting>true</setting>
+</component>
+<!--  
+<component>
+	<groupname>表单域组件</groupname>
+	<key>UserScore</key>
+	<title>五星评价组件</title>
+	<icon>iwork_img/star_full.png</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormComponentUserScoreImpl</implements-class>			
+	<desc>upload</desc>
+	<setting>true</setting>
+</component>
+-->
+<component>
+	<groupname>在线Office编辑组件</groupname>
+	<key>gov_word</key>
+	<title>Word编辑组件</title>
+	<icon>iwork_img/file/doc.jpg</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormComponentGovWordImpl</implements-class>			
+	<desc>gov_word</desc>
+	<setting>true</setting>
+</component> 
+<component>
+	<groupname>在线Office编辑组件</groupname>
+	<key>gov_word_2015</key>
+	<title>Word2015编辑组件</title> 
+	<icon>iwork_img/file/doc.jpg</icon> 
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormComponentGovWord2015Impl</implements-class>			
+	<desc>gov_word_2015</desc>
+	<setting>true</setting>
+</component> 
+<component>
+	<groupname>在线Office编辑组件</groupname>
+	<key>gov_excel</key>
+	<title>Excel编辑组件</title>
+	<icon>iwork_img/file/excel.jpg</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormComponentGovExcelImpl</implements-class>			
+	<desc>gov_excel</desc>
+	<setting>true</setting>
+</component> 
+<component>
+	<groupname>在线Office编辑组件</groupname>
+	<key>gov_ppt</key>
+	<title>PPT编辑组件</title>
+	<icon>iwork_img/file/ppt.jpg</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormComponentGovPPTImpl</implements-class>			
+	<desc>gov_ppt</desc>
+	<setting>true</setting>
+</component> 
+<component>
+	<groupname>在线Office编辑组件</groupname>
+	<key>gov_Revision</key>
+	<title>网页签批组件</title>
+	<icon>iwork_img/sub_left_bullet_08.gif</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormComponentGovRevisionImpl</implements-class>			
+	<desc>gov_Revision</desc> 
+	<setting>true</setting>
+</component> 
+<component>
+	<groupname>行项目子表外观组件</groupname>
+	<key>calculate</key> 
+	<title>计算域</title>
+	<icon>iwork_img/engine/component/sum.png</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormComponentTextImpl</implements-class>			
+	<desc>upload</desc> 
+	<setting>true</setting>
+</component>
+<component>
+	<groupname>行项目子表外观组件</groupname>
+	<key>calculateMoney</key> 
+	<title>货币计算域</title>
+	<icon>iwork_img/engine/component/sum.png</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormComponentTextImpl</implements-class>			
+	<desc>upload</desc>
+	<setting>true</setting>
+</component>
+<!-- 
+<component>
+	<groupname>表单域组件</groupname>
+	<key>slider</key>
+	<title>滑动条</title>
+	<icon>iwork_img/engine/component/ui_slider_2.png</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormComponentUserScoreImpl</implements-class>			
+	<desc>upload</desc>
+	<setting>true</setting>
+</component>
+ -->
+<component>
+	<groupname>表单域组件</groupname>
+	<key>AuthorityChooser</key>
+	<title>权限选择器</title>
+	<icon>iwork_img/engine/component/upload.png</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormUIComponentAuthorityChooserImpl</implements-class>			
+	<desc>权限选择器</desc>
+	<setting>true</setting>
+</component>
+<component>
+	<groupname>选择器组件</groupname>
+	<key>DictionaryChooser</key>
+	<title>数据选择器</title>
+	<icon>iwork_img/engine/component/dataselect.png</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormUIComponentDictionaryImpl</implements-class>			
+	<desc>数据选择器</desc>
+	<setting>true</setting>
+</component>
+<component>
+	<groupname>选择器组件</groupname>
+	<key>RadioBook</key>
+	<title>单选地址薄</title>
+	<icon>iwork_img/engine/component/address-radio.png</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormUIComponentRadioBookImpl</implements-class>			
+	<desc>单选地址薄</desc>
+	<setting>true</setting>
+</component>
+<component>
+	<groupname>选择器组件</groupname>
+	<key>MultiBook</key>
+	<title>多选地址薄</title>
+	<icon>iwork_img/engine/component/address-mul.png</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormUIComponentMultiBookImpl</implements-class>			
+	<desc>多选地址薄</desc>
+	<setting>true</setting>
+</component>
+<component>
+	<groupname>选择器组件</groupname>
+	<key>DeptBook</key>
+	<title>部门地址薄</title>
+	<icon>iwork_img/engine/component/organisation.png</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormUIComponentDeptBookImpl</implements-class>			
+	<desc>部门地址薄</desc>
+	<setting>true</setting>
+</component>
+<component>
+	<groupname>选择器组件</groupname>
+	<key>DeptBook</key>
+	<title>部门地址薄（多选）</title>
+	<icon>iwork_img/engine/component/organisation.png</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormUIComponentMultiDeptBookImpl</implements-class>			
+	<desc>部门地址薄（多选）</desc>
+	<setting>true</setting>
+</component>
+
+<component>
+	<groupname>集成组件</groupname>
+	<key>Iframe</key>
+	<title>URL</title>
+	<icon>iwork_img/engine/component/iframe.png</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormUICoomponentIframeImpl</implements-class>			
+	<desc>Iframe</desc>
+	<setting>true</setting>
+</component>
+<component>
+	<groupname>集成组件</groupname>
+	<key>iworkReport</key>
+	<title>IWORK报表组件[开发中...]</title>
+	<icon>iwork_img/engine/component/report_magnify.png</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormUICoomponentIframeImpl</implements-class>			
+	<desc>IWORK报表组件</desc>
+	<setting>true</setting> 
+</component>
+<component>
+	<groupname>业务类组件</groupname>
+	<key>processFormNo</key>
+	<title>流程表单编号</title>
+	<icon>iwork_img/bullet2.gif</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormComponentProcessFromNoImpl</implements-class>			
+	<desc>processFormNo</desc>
+	<setting>true</setting>
+</component>
+<component>
+	<groupname>业务类组件</groupname>
+	<key>processQrCode</key>
+	<title>流程表单二维码</title>
+	<icon>iwork_img/bullet2.gif</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormComponentQrCodelImpl</implements-class>			
+	<desc>processQrCode</desc>
+	<setting>true</setting>
+</component>
+<component>
+	<groupname>业务类组件</groupname>
+	<key>processBarCode</key>
+	<title>条形码</title>
+	<icon>iwork_img/bullet2.gif</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormComponentBarCodelImpl</implements-class>			
+	<desc>processBarCode</desc>
+	<setting>true</setting>
+</component>
+<component>
+	<groupname>业务类组件</groupname>
+	<key>createUser</key>
+	<title>申请人</title>
+	<icon>iwork_img/bullet2.gif</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormUIComponentBusiniss_CreateUserImpl</implements-class>			
+	<desc>createUser</desc>
+	<setting>true</setting>
+</component>
+<component>
+	<groupname>业务类组件</groupname>
+	<key>createUserId</key>
+	<title>申请人账号</title>
+	<icon>iwork_img/bullet2.gif</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormUIComponentBusiniss_CreateUserIdImpl</implements-class>			
+	<desc>createUserId</desc>
+	<setting>true</setting>
+</component>
+<component>
+	<groupname>业务类组件</groupname>
+	<key>createDept</key>
+	<title>申请人部门</title>
+	<icon>iwork_img/bullet2.gif</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormUIComponentBusiniss_CreateDeptImpl</implements-class>			
+	<desc>createDept</desc>
+	<setting>true</setting>
+</component>
+<component>
+	<groupname>业务类组件</groupname>
+	<key>createDeptId</key>
+	<title>申请人部门ID</title>
+	<icon>iwork_img/bullet2.gif</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormUIComponentBusiniss_CreateDeptIdImpl</implements-class>			
+	<desc>createDeptId</desc>
+	<setting>true</setting>
+</component>
+<component>
+	<groupname>业务类组件</groupname>
+	<key>createDeptNo</key>
+	<title>申请人部门编号</title>
+	<icon>iwork_img/bullet2.gif</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormUIComponentBusiniss_CreateDeptNoImpl</implements-class>			
+	<desc>createDeptNo</desc>
+	<setting>true</setting>
+</component>
+<component>
+	<groupname>业务类组件</groupname>
+	<key>createDate</key>
+	<title>申请日期</title>
+	<icon>iwork_img/bullet2.gif</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormUIComponentBusiniss_CreateDateImpl</implements-class>			
+	<desc>createUser</desc>
+	<setting>true</setting>
+</component> 
+<component>
+	<groupname>业务类组件</groupname>
+	<key>businissUser</key>
+	<title>授权发起地址簿[流程专用]</title>
+	<icon>iwork_img/bullet2.gif</icon>
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormUIComponentRealUserImpl</implements-class>			
+	<desc>适用于通过委托授权后，被授权人可选择</desc>
+	<setting>true</setting>
+</component> 
+
+<component>
+	<groupname>管理组件</groupname>
+	<key>purviewInterface</key>
+	<title>权限组授权组件</title>
+	<icon>iwork_img/adds.gif</icon> 
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormUIComponentPurviewGroupImpl</implements-class>			
+	<desc>stockInterface</desc>   
+	<setting>true</setting> 
+</component>
+<component>
+	<groupname>管理组件</groupname>
+	<key>orgInterface</key>
+	<title>组织结构树组件</title>
+	<icon>iwork_img/adds.gif</icon> 
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.core.engine.plugs.component.IFormUIComponentOragnizationImpl</implements-class>			
+	<desc>orgInterface</desc>   
+	<setting>true</setting> 
+</component>
+<component>
+	<groupname>财务管理组件</groupname>
+	<key>fiPZInterface</key>
+	<title>凭证接口组件</title>
+	<icon>iwork_img/adds.gif</icon> 
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.plugs.fi.component.IFormUIComponentFiVoucherImpl</implements-class>			
+	<desc>fiPZInterface</desc> 
+	<setting>true</setting> 
+</component>
+<component>
+	<groupname>财务管理组件</groupname>
+	<key>fiRouteInterface</key>
+	<title>路由接口组件</title>
+	<icon>iwork_img/adds.gif</icon> 
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.plugs.fi.component.IFormUIComponentFiRouteImpl</implements-class>			
+	<desc>fiRouteInterface</desc> 
+	<setting>true</setting>  
+</component>
+<component>
+	<groupname>财务管理组件</groupname>
+	<key>fiCategory</key>
+	<title>费用类别组件</title>
+	<icon>iwork_img/adds.gif</icon> 
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.plugs.fi.component.IFormUIComponentFiCategoryImpl</implements-class>			
+	<desc>fiRouteInterface</desc> 
+	<setting>true</setting>  
+</component>
+<component>
+	<groupname>财务管理组件</groupname>
+	<key>fiSubject</key>
+	<title>费用科目组件</title>
+	<icon>iwork_img/adds.gif</icon> 
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.plugs.fi.component.IFormUIComponentFiSubjectImpl</implements-class>			
+	<desc>fiRouteInterface</desc> 
+	<setting>true</setting>  
+</component>
+<component>
+	<groupname>财务管理组件</groupname>
+	<key>MutilWBSTree</key>
+	<title>多项目WBS树视图组件</title>
+	<icon>iwork_img/adds.gif</icon> 
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.plugs.fi.component.IFormUIComponentMultiWBSImpl</implements-class>			
+	<desc>WBS树视图组件</desc> 
+	<setting>true</setting>  
+</component>
+<component>
+	<groupname>财务管理组件</groupname>
+	<key>fiWBSTree</key>
+	<title>财务WBS树视图组件</title>
+	<icon>iwork_img/adds.gif</icon> 
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.plugs.fi.component.IFormUIComponentFiWBSImpl</implements-class>			
+	<desc>WBS树视图组件</desc> 
+	<setting>true</setting>  
+</component>
+
+<component>
+	<groupname>财务管理组件</groupname>
+	<key>iwork_jk</key>
+	<title>借款单选择组件</title>
+	<icon>iwork_img/adds.gif</icon>  
+	<interface-class>com.iwork.core.engine.plugs.component.UIComponentInterface</interface-class>
+	<implements-class>com.iwork.plugs.fi.component.IFormUIComponentFiJieKuanImpl</implements-class>			
+	<desc>借款单选择组件</desc>
+	<setting>true</setting>  
+</component>
+</IForm-config>

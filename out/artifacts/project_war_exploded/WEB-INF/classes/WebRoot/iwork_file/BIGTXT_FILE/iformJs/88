@@ -1,0 +1,24 @@
+function savebeforeEvent() {
+    $.ajaxSetup({
+        async: false
+    });
+    var cuatomername = $("#CUSTOMERNAME").val();
+    var zqdm = $("#ZQDM").val();
+    var zqjc = $("#ZQJC").val();
+    var instanceid= $("#instanceId").val();
+    var flag = new Boolean();
+    $.post("zqb_customer_checkCFXX.action", {
+        cuatomername: cuatomername,
+        zqdm: zqdm,
+        zqjc: zqjc,
+        instanceid:instanceid
+    }, function (data) {
+        if (data != "") {
+            flag = false;
+            alert(data);
+        } else {
+            flag = true;
+        }
+    });
+    return flag;
+}

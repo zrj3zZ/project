@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+       <beans xmlns="http://www.springframework.org/schema/beans"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xmlns:cxf="http://cxf.apache.org/core"
+			xmlns:jaxws="http://cxf.apache.org/jaxws"
+			xmlns:soap="http://cxf.apache.org/bindings/soap"
+			xmlns:http-conf="http://cxf.apache.org/transports/http/configuration"
+			xsi:schemaLocation="
+			http://cxf.apache.org/core 
+			http://cxf.apache.org/schemas/core.xsd
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+			http://cxf.apache.org/bindings/soap http://cxf.apache.org/schemas/configuration/soap.xsd
+			http://cxf.apache.org/jaxws
+			http://cxf.apache.org/schemas/jaxws.xsd
+			http://cxf.apache.org/transports/http/configuration 
+			http://cxf.apache.org/schemas/configuration/http-conf.xsd">
+                <import resource="classpath:META-INF/cxf/cxf.xml" />  <!-- 这些xml文件在cxf-2.5.0.jar的META-INF目录下-->
+                <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
+                      <!--  警告提示已经废弃了cxf-extension-soap.xml文件-->
+                <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+                
+                <!-- 定义拦截器 -->
+                <bean id="loggingInInterceptor" class="org.apache.cxf.interceptor.LoggingInInterceptor"/>
+                <bean id="loggingOutInterceptor" class="org.apache.cxf.interceptor.LoggingOutInterceptor"/>
+                <bean id="ipAddressInInterceptor" class="com.iwork.webservice.interceptor.IpAddressInInterceptor"/>
+                <bean id="userPWDInInterceptor" class="com.iwork.webservice.interceptor.UserPWDInInterceptor"/>
+                <bean id="headerIpAddressInInterceptor" class="com.iwork.webservice.interceptor.HeaderIpAddressInInterceptor"/>
+                <bean id="headerUserPWDInInterceptor" class="com.iwork.webservice.interceptor.HeaderUserPWDInInterceptor"/>
+                
+                <!-- 统一配置全局拦截器 -->
+                <cxf:bus>
+			        <cxf:inInterceptors>
+			            <ref bean="loggingInInterceptor"/>
+			        </cxf:inInterceptors>
+			        <cxf:outInterceptors>
+			            <ref bean="loggingOutInterceptor"/>
+			        </cxf:outInterceptors>
+			    </cxf:bus> 
+			    
+                <!-- 发布WebService -->
+                <jaxws:endpoint id="userDaoBean" implementor="com.iwork.webservice.text.UserDaoImpl" address="/users">
+			    </jaxws:endpoint>
+                <jaxws:endpoint id="commonWebService" implementor="com.iwork.webservice.webservice.CommonWebService" address="/common">
+			    	<jaxws:inInterceptors> 　　　　
+			    		<ref bean="ipAddressInInterceptor"/>
+			    		<ref bean="userPWDInInterceptor"/>
+                  	</jaxws:inInterceptors>
+                  	
+                  	<jaxws:outInterceptors> 　　　　　　　　　　　　　　　　
+                  	</jaxws:outInterceptors>
+			    </jaxws:endpoint>
+				
+				<!-- 开启tomcat服务器 ，访问http://localhost:8080/WebExam/services/zipTest?wsdl 
+                	http://localhost:8080/WebExam是本项目的访问地址
+                	services是由于web.xml配置所得，zipTest是由于Spring配置文件中的address属性所得
+                -->
+        </beans>

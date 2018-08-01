@@ -1,0 +1,12 @@
+您好！ 您的同事在${SYSTEMNAME}中给您发送了一条流程[通知/传阅]，请您及时登录${SYSTEMNAME}进行处理。<br>
+<b><font size=2>【发 送 人】${SENDER} </font></b><br>
+<b><font size=2>【发送日期】${SENDDATE} </font></b><br>
+<b><font size=2>【所在部门】${SENDER_DEPT} </font></b><br>
+<b><font size=2>【任务标题】${TASKTITLE} </font></b><br>
+<b><a target="_blank" href="${LINKURL}"><font size=3>查看详情</font></a></b><br>
+说明： <br>
+1.单击“点击办理”链接，输入用户名及密码，系统将自动跳转至表单页面，执行流程办理，或者您可以登录${LOGINURL}【常用功能-流程处理中心-通知传阅】处理待办流程。
+2.此为系统自动发送的邮件，请不要直接回复；
+3.${SYSTEMNAME}为公司内部办公系统，包含公司保密信息，请勿将其中信息透漏给无关人员；同时请您妥善保管好自己的用户名和密码。
+
+${SOURCE} 

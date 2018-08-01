@@ -1,0 +1,49 @@
+$(function () {
+    var instanceId = $("#instanceId").val();
+    var dataid = $("#dataid").val();
+    var gzyjid = $("#GZYJID").val();
+    if (instanceId == 0) {
+        if (khbh != "") {
+            $.post("zqb_nnouncement_NsetDXYJTZRHF.action", {
+                gzyjid: gzyjid
+            }, function (data) {
+                if (data != "") {
+                    var dataarr = data.split(",");
+                    document.getElementById("DXYJTZR").value = (dataarr[0] + ",");
+                    document.getElementById("DXYJTZRDIV").innerHTML = dataarr[1];
+                }
+            });
+        }
+    } else {
+        if (gzyjid != "") {
+            $.post("zqb_nnouncement_YsetDXYJTZRHF.action", {
+                id: dataid
+            }, function (data) {
+                if (data != "") {
+                    document.getElementById("DXYJTZRDIV").innerHTML = data;
+                }
+            });
+        }
+    }
+});
+
+function AnnouncementUsermulti() {
+    var khbh = $("#KHBH").val();
+    var pageUrl = "url:zqb_nnouncement_usermulti.action?khbh=" + khbh;
+    $.dialog({
+        id: "multiBookDialog",
+        title: '∂‡—°µÿ÷∑≤æ',
+        content: pageUrl,
+        pading: 0,
+        lock: true,
+        width: 400,
+        height: 450
+    });
+}
+
+function del(obj) {
+    var divid = obj.id.substring(0, obj.id.length - 1);
+    var dxyjtzr = document.getElementById("DXYJTZR");
+    $("#" + divid).remove();
+    dxyjtzr.value = dxyjtzr.value.replace(divid + ",", "");
+}

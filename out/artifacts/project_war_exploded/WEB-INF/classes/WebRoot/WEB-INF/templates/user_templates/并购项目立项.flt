@@ -1,0 +1,177 @@
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					并购项目立项
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr>
+								<td colspan="4">
+									<br />
+									<table width="100%" style="border-collapse:collapse;">
+										<tr id="itemTr_2">
+											<td class="td_title" id="title_JYF" width="15%">
+												交易方
+											</td>
+											<td class="td_data" id="data_JYF" width="35%">
+												<span id="jyf"></span>&nbsp;　
+											</td>
+											<td class="td_title" id="title_JYDSF" width="15%">
+												交易对手方
+											</td>
+											<td class="td_data" id="data_JYDSF" width="35%">
+												<span id="jydsf"></span>&nbsp;　
+											</td>
+										</tr>
+										<tr id="itemTr_4">
+											<td class="td_title" id="title_SGFS" width="15%">
+												收购方式
+											</td>
+											<td class="td_data" id="data_SGFS" width="35%">
+												<span id="sgfs"></span>&nbsp;　
+											</td>
+											<td class="td_title" id="title_CZBM" width="15%">
+												承做部门
+											</td>
+											<td class="td_data" id="data_CZBM" width="35%">
+												<span id="czbm"></span>&nbsp;　
+											</td>
+										</tr>
+										<tr id="itemTr_2964">
+											<td class="td_title" id="title_SFGLJY" width="180">
+												是否构成关联交易
+											</td>
+											<td class="td_data" id="data_SFGLJY">
+												<span id="sfgljy"></span>&nbsp;
+											</td>
+											<td class="td_title" id="title_GDYKZRBG" width="180">
+												控股股东、实际控制是否变更
+											</td>
+											<td class="td_data" id="data_GDYKZRBG">
+												<span id="gdykzrbg"></span>&nbsp;
+											</td>
+										</tr>
+										<tr id="itemTr_2976">
+											<td class="td_title" id="title_SFCZ" width="180">
+												是否构成重大资产重组
+											</td>
+											<td class="td_data" id="data_SFCZ">
+												<span id="sfcz"></span>&nbsp;
+											</td>
+											<td class="td_title" id="title_SFWG" width="180">
+												交易对手方在最近两年是否违法违规
+											</td>
+											<td class="td_data" id="data_SFWG">
+												<span id="sfwg"></span>&nbsp;
+											</td>
+										</tr>
+										<tr id="itemTr_8">
+											<td class="td_title" id="title_OWNER" width="15%">
+												大区负责人
+											</td>
+											<td class="td_data" id="data_OWNER" width="35%">
+												<span id="owner"></span>&nbsp;　
+											</td>
+											<td class="td_title" id="title_MANAGER" width="15%">
+												项目负责人
+											</td>
+											<td class="td_data" id="data_MANAGER" width="35%">
+												<span id="manager"></span>&nbsp;　
+											</td>
+										</tr>
+										<tr id="itemTr_12">
+											<td class="td_title" id="title_KHLXR" width="15%">
+												客户联系人
+											</td>
+											<td class="td_data" id="data_KHLXR" width="35%">
+												<span id="khlxr"></span>&nbsp;　
+											</td>
+											<td class="td_title" id="title_KHLXDH" width="15%">
+												客户联系电话
+											</td>
+											<td class="td_data" id="data_KHLXDH" width="35%">
+												<span id="khlxdh"></span>&nbsp;　
+											</td>
+										</tr>
+										<tr id="itemTr_14">
+											<td class="td_title" id="title_XMFQRQ" width="15%">
+												项目发起日期
+											</td>
+											<td class="td_data" id="data_XMFQRQ" width="35%">
+												<span id="xmfqrq"></span>&nbsp;　
+											</td>
+											<td class="td_title" id="title_TPRQ" width="15%">
+												停牌日期
+											</td>
+											<td class="td_data" id="data_TPRQ" width="35%">
+												<span id="tprq"></span>&nbsp;　
+											</td>
+										</tr>
+										<tr id="fjTr_2975">
+											<td class="td_title" id="title_FJ">
+												项目风险
+											</td>
+											<td id="data_FJ" class="td_data" colspan="3">
+												<span id="xmfx"></span>&nbsp;　
+											</td>
+										</tr>
+										<tr id="txtAreaTr_2974">
+											<td class="td_title" id="title_BZ">
+												备注
+											</td>
+											<td id="data_BZ" class="td_data" colspan="3">
+												<span id="bz"></span>&nbsp;　
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr>
+								<td colspan="4">
+									<br />
+									<table width="100%" style="border-collapse:collapse;">
+										<tbody>
+											<tr>
+												<td style="border:1px solid #000;" width="50%" height="20px;">
+													需要增加的附件
+												</td>
+												<td rowspan="2" style="border:1px solid #000;">
+													${FJ}
+												</td>
+											</tr>
+											<tr>
+												<td style="border:1px solid #000;" width="50%">
+													<span id="spanjdzl"></span> 
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${INSTANCEID}${COMPANYNO}${COMPANYNAME}${TBRID}${TBSJ}${XMBH}${LCBH}${LCBS}${TASKID}${SPZT}${SCORE}${JDBH}${COMPANYNAME}${JDMC}${TJRID}${TJRXM}${TJSJ}${EXTEND1}${EXTEND2}${EXTEND3}${EXTEND4}${EXTEND5}
+</div>

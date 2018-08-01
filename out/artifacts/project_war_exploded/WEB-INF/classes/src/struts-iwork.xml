@@ -1,0 +1,906 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+"http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+   <package strict-method-invocation="false"  name="resouce" extends="tiles-default">
+		  <!-- 定义一个名为 checkLogin 的拦截器 -->  
+        <interceptors>  
+            <!-- 定义权限检查拦截器 -->  
+            <interceptor name="checkLogin"  
+                class="com.iwork.core.server.root.IWorkInterceptor" />  
+            <!-- 定义一个包含权限检查的拦截器栈 -->  
+            <interceptor-stack name="myDefaultStack">  
+                <!-- 定义拦截器栈包含checkLogin拦截器  
+                <interceptor-ref name="checkLogin"></interceptor-ref> -->  
+                <interceptor-ref name="defaultStack"></interceptor-ref>  
+            </interceptor-stack>  
+        </interceptors>  
+        <!-- 设置全局 全局默认的拦截器栈-->  
+        <default-interceptor-ref name="myDefaultStack"></default-interceptor-ref>  
+        <!-- 定义全局Result -->  
+        <global-results>  
+            <!-- 当返回login视图名时，转入/login.jsp页面 -->  
+            <result name="login">/login.jsp</result>  
+        </global-results>
+        
+		<action name="*" class="com.iwork.commons.AbstractAction">
+            <result>/{1}.jsp</result>
+        </action>
+        <!-- 资源预定 -->
+		   <action name="resbook_runtime_index" method="spaceIndex" class="resourceBookAction">
+				<result name="success">app/plugs/resoucebook/applyresouce/index.jsp</result>
+		   </action>
+		   <action name="resbook_runtime_next" method="nextCycle" class="resourceBookAction">
+				<result name="success">app/plugs/resoucebook/applyresouce/index.jsp</result>
+		   </action>
+		   <action name="resbook_runtime_previous" method="previousCycle" class="resourceBookAction">
+				<result name="success">app/plugs/resoucebook/applyresouce/index.jsp</result> 
+		   </action>
+		   <action name="resbook_runtime_add" method="showReservePage" class="resourceBookAction">
+				<result name="success">app/plugs/resoucebook/applyresouce/edit.jsp</result>
+		   </action>
+		   <action name="resbook_runtime_save" method="saveReserve" class="resourceBookAction">
+				<result name="success">app/plugs/resoucebook/applyresouce/edit.jsp</result>
+		   </action>
+		    
+		   <action name="resbook_space_index" method="index" class="spaceManageAction">
+				<result name="spacem">/app/plugs/resoucebook/space/spacem.jsp</result>
+		   </action>
+		   <action name="resbook_space_add" method="addSpace" class="spaceManageAction">
+				<result name="success">app/plugs/resoucebook/space/edit.jsp</result>
+		   </action>
+		   <action name="resbook_space_edit" method="editSpace" class="spaceManageAction">
+				<result name="success">app/plugs/resoucebook/space/edit.jsp</result>
+		   </action>
+		    <action name="resbook_space_save" method="saveSpace" class="spaceManageAction">
+				<result name="success">app/plugs/resoucebook/space/edit.jsp</result>
+		   </action>
+		   <action name="resbook_space_gridjson" method="showJson" class="spaceManageAction">
+		   </action>
+		   <action name="resbook_space_remove" method="removeSpace" class="spaceManageAction">
+		   </action>
+		   
+		   
+		   <action name="resbook_base_index" method="index" class="resourceBookBaseInfoAction">
+				<result name="success">app/plugs/resoucebook/base/basem.jsp</result>
+		   </action>
+		   <action name="resbook_base_add" method="add" class="resourceBookBaseInfoAction">
+				<result name="success">app/plugs/resoucebook/base/edit.jsp</result>
+		   </action>
+		   <action name="resbook_base_edit" method="edit" class="resourceBookBaseInfoAction">
+				<result name="success">app/plugs/resoucebook/base/edit.jsp</result>
+		   </action>
+		    <action name="resbook_base_save" method="save" class="resourceBookBaseInfoAction">
+				<result name="success">app/plugs/resoucebook/base/edit.jsp</result>
+		   </action>
+		   <action name="resbook_base_gridjson" method="showJson" class="resourceBookBaseInfoAction">
+		   </action>  
+		   <action name="resbook_base_remove" method="remove" class="resourceBookBaseInfoAction">
+		   </action>
+		    <action name="loadContentM" method="loadContentM" class="spaceManageAction">
+				<result name="contentm">/app/plugs/resoucebook/web/contentm.jsp</result>
+		   </action>
+		   <action name="qRMWeb" method="qRMWeb" class="spaceManageAction">
+				<result name="contentmjson">/app/plugs/resoucebook/web/contentmjson.jsp</result>
+		   </action>
+		   <action name="editContent" method="editContent" class="spaceManageAction">
+				<result name="spacereturn">/app/plugs/resoucebook/space/spacereturn.jsp</result>
+		   </action>
+		   <action name="updateContents" method="updateContents" class="spaceManageAction">
+				<result name="spacereturn">/app/plugs/resoucebook/space/spacereturn.jsp</result>
+		   </action>
+		    <action name="removeContents" method="removeContents" class="spaceManageAction">
+				<result name="contentm">/app/plugs/resoucebook/web/contentm.jsp</result>
+		   </action>
+		    <action name="loadBaseM" method="loadBaseM" class="spaceManageAction">
+				<result name="basem">/app/plugs/resoucebook/base/basem.jsp</result>
+		   </action>
+		   <action name="qRMBase" method="qRMBase" class="spaceManageAction">
+				<result name="basemjson">/app/plugs/resoucebook/base/basemjson.jsp</result>
+		   </action>
+		   <action name="addBase" method="addBase" class="spaceManageAction">
+				<result name="spacereturn">/app/plugs/resoucebook/space/spacereturn.jsp</result>
+		   </action>
+		  <action name="removeBases" method="removeBases" class="spaceManageAction">
+				<result name="basem">/app/plugs/resoucebook/base/basem.jsp</result>
+		   </action>
+		    <action name="editBase" method="editBase" class="spaceManageAction">
+				<result name="spacereturn">/app/plugs/resoucebook/space/spacereturn.jsp</result>
+		   </action>
+		   
+		   <action name="getCarList" method="getCarList" class="spaceManageAction">
+				<result name="carlist">/app/plugs/resoucebook/applyresouce/carlist.jsp</result>
+		   </action>
+		    <action name="addCar" method="addCar" class="spaceManageAction">
+				<result name="carlist">/app/plugs/resoucebook/applyresouce/carlist.jsp</result>
+		   </action>
+		   
+		   <action name="loadQuery" method="loadQuery" class="spaceManageAction">
+				<result name="queryweb">/app/plugs/resoucebook/query/queryWeb.jsp</result>
+		   </action>
+		   <action name="queryWeb" method="queryWeb" class="spaceManageAction">
+				<result name="querywebjson">/app/plugs/resoucebook/query/queryWebJson.jsp</result>
+		   </action>
+			<action name="queryAll" method="queryAll" class="spaceManageAction">
+		    <result name="queryweb">app/plugs/resoucebook/query/queryWeb.jsp</result>
+		   </action>
+		   <!-- 资源预定end -->
+        		<!-- ======================日程计划Start============================ -->
+		<action name="schCalendarAction" method="loadCalendar" class="schCalendarAction">
+			<result name="success">app/plugs/calendar/index.jsp</result>
+		</action>
+		<action name="schVisitorOtherCalendar" method="visitorOtherCalendar" class="schCalendarAction">
+			<result name="success">app/plugs/calendar/visitor.jsp</result>
+			<result name="error">app/public/tips_win.jsp</result>
+		</action>
+		<action name="schCalendarSettingIndex" method="settingIndex" class="schCalendarAction">
+			<result name="success">app/plugs/calendar/setting.jsp</result>
+		</action>
+		<action name="schCalendarShowVisitor" class="schCalendarAction">
+			<result name="success">app/plugs/calendar/redirect.jsp</result>
+		</action>
+		
+		<action name="schCalendarDoSetting" method="doSetting" class="schCalendarAction">
+		</action>
+		<action name="schShowJason" method="showPeriodJsonData" class="schCalendarAction">
+			<result name="success">app/plugs/calendar/jsondata.jsp</result>
+		</action>
+		<action name="schShowOtherUserJson" method="showOtherJson" class="schCalendarAction">
+		</action>
+		<action name="schShowJason_Repeate" method="showPeriodJsonData_Repeate" class="schCalendarAction">
+			<result name="success">app/plugs/calendar/jsondata_Repeate.jsp</result>
+		</action> 
+		<action name="addSchCalendar" method="addSchCalendar" class="schCalendarAction">
+			<result name="success">app/plugs/calendar/edit.jsp</result>
+		</action>
+		<action name="addSchCalendar_Advance" method="addSchCalendar_Advance" class="schCalendarAction">
+			<result name="success">app/plugs/calendar/edit_Advance.jsp</result>
+		</action>
+		<action name="addSchCalendar_Advancezs" method="addSchCalendar_Advance" class="schCalendarAction">
+			<result name="success">app/plugs/calendar/edit_AdvanceTwo.jsp</result>
+		</action>
+		<!-- 首页查看日程提醒 -->
+		<action name="open_Advance" method="open_Advance" class="schCalendarAction">
+			<result name="success">app/plugs/calendar/open_Advance.jsp</result>
+		</action>
+		
+		<action name="saveSchCalendar" method="saveSchCalendar" class="schCalendarAction">
+			<result name="success" type="redirect">schCalendarAction.action</result>
+		</action>
+	<action name="saveSchCalendars" method="saveSchCalendarzs" class="schCalendarAction">
+			
+		</action>
+		<action name="editSchCalendar" method="loadEvent" class="schCalendarAction">
+			<result name="success">app/plugs/calendar/edit.jsp</result>
+		</action>
+		<!--微信端页面-->
+		<action name="readSchCalendar" method="loadEventweixin" class="schCalendarAction">
+			<result name="success">app/plugs/calendar/rcxq.jsp</result>
+		</action>
+		<action name="readSchCalendar_Advance" method="readloadEvent_Advance" class="schCalendarAction">
+			<result name="success">app/plugs/calendar/read_Advance.jsp</result>
+		</action>
+		<!--微信端页面-->
+		<action name="rctxxg" method="loadEventzz" class="schCalendarAction"></action>
+		<action name="editSchCalendar_Advance" method="loadEvent_Advance" class="schCalendarAction">
+			<result name="success">app/plugs/calendar/edit_Advance.jsp</result>
+		</action>
+		<action name="editRepeateMode" method="editRepeateMode" class="schCalendarAction">
+			<result name="success">app/plugs/calendar/editRepeateMode.jsp</result>
+		</action>
+		<action name="addRepeateMode" method="addRepeateMode" class="schCalendarAction">
+			<result name="success">app/plugs/calendar/editRepeateMode.jsp</result>
+		</action>
+		<action name="addRepeateModezs" method="addRepeateMode" class="schCalendarAction">
+			<result name="success">app/plugs/calendar/editRepeateModezs.jsp</result>
+		</action>
+		<action name="deleteSchCalendar" method="deleteSchCalendar" class="schCalendarAction">
+			<result name="success" type="redirect">schCalendarAction.action</result>
+		</action>
+			<!-- =======================日程计划 End============================== -->
+        
+			<!-- ======================CMS管理Start============================ -->
+			<action name="cmsChannelAction"  class="cmsChannelAction" >
+				<result name="index">app/plugs/cms/channel/index.jsp</result>
+				<result name="openjson">app/plugs/cms/channel/openjson.jsp</result>
+			</action>
+			<action name="cmsChannelEdit" method="cmsChannelEdit"  class="cmsChannelAction" >
+		        <result name="index">app/plugs/cms/channel/index.jsp</result>	
+				<result type="redirect">cmsChannelAction!index.action</result>			
+		    </action>
+		    <action name="cmsPortletAction"  class="cmsPortletAction" >
+				<result name="index">app/plugs/cms/portlet/index.jsp</result>
+				<result name="add">app/plugs/cms/portlet/add.jsp</result>
+				<result name="openjson">app/plugs/cms/portlet/openjson.jsp</result>
+			</action>
+			<action name="cmsPortletEdit" method="cmsPortletEdit"  class="cmsPortletAction" >
+		        <result name="index">app/plugs/cms/portlet/index.jsp</result>	
+				<result type="redirect">cmsPortletAction!index.action?gname=encodeURI(encodeURI(${gname}))</result>			
+		    </action>
+		     <action name="cms_PortletAdd" method="cmsPortletAdd"  class="cmsPortletAction" >
+		        <result name="success">app/plugs/cms/portlet/Add.jsp</result>	
+		    </action>
+		    <action name="cmsPortletRemove" method="cmsPortletRemove"  class="cmsPortletAction" >
+		        <result name="index">app/plugs/cms/portlet/index.jsp</result>	
+				<result type="redirect">cmsPortletAction!index.action?gname=encodeURI(encodeURI(${gname}))</result>			
+		    </action>
+		    <action name="cmsKeyVal" method="cmsKeyVal"  class="cmsPortletAction" >
+		        <result name="index">app/plugs/cms/portlet/index.jsp</result>			
+		    </action>
+		    <action name="cmsInfoAction"  class="cmsInfoAction" >
+				<result name="index">app/plugs/cms/info/index.jsp</result>
+				<result name="success">app/plugs/cms/info/openjson.jsp</result>
+			</action>
+			 <action name="cmsInfoGrid" method="cmsInfoGrid" class="cmsInfoAction" >
+				<result  name="success">app/plugs/cms/info/openjson.jsp</result>
+			</action>			
+			<action name="cmsInfoRemove" method="cmsInfoRemove"  class="cmsInfoAction" >
+		        <result name="index">app/plugs/cms/info/index.jsp</result>	
+		    </action>
+		    <action name="cmsChangeTalk" method="cmsChangeTalk"  class="cmsInfoAction" >     
+				<result type="redirect">cmsInfoAction!index.action?portletid=${portletid}</result>
+		    </action>
+		    <action name="cmsChangeStatus" method="cmsChangeStatus"  class="cmsInfoAction" >
+				<result type="redirect">cmsInfoAction!index.action?portletid=${portletid}</result>
+		    </action>
+		    <action name="cmsInfoAdd" method="cmsInfoAdd"  class="cmsInfoAction" >
+		        <result name="release">app/plugs/cms/info/release.jsp</result>	
+		        <result name="script">app/plugs/cms/info/script.jsp</result>			
+		    </action>
+		     <action name="cmsInfoSave" method="cmsInfoSave"  class="cmsInfoAction" >
+		        <result name="script">app/plugs/cms/info/script.jsp</result>	
+		    </action>
+		    <action name="cmsRelease" method="cmsRelease"  class="cmsInfoAction" >
+		        <result name="release">app/plugs/cms/info/release.jsp</result>	
+		    </action>
+		    <action name="cms_content_add" method="newCmsInfoPage"  class="cmsInfoAction" >
+		        <result name="success">app/plugs/cms/info/add.jsp</result>	
+		    </action> 
+		    <action name="cms_content_deploy" method="contentDeploy" class="cmsInfoAction" > 
+		    </action>  
+		     <action name="cmsUpdate" method="cmsUpdate"  class="cmsInfoAction" >
+		        <result name="update">app/plugs/cms/info/add.jsp</result>	
+		    </action>	
+		     <action name="cms_content_list" method="showCmsInfoList"  class="cmsInfoAction" >
+		    </action>	
+		    <action name="cmsOpen" method="cmsOpen"  class="cmsInfoAction" >
+		        <result name="cmsopen">app/plugs/cms/info/cmsopen.jsp</result>	
+		        <result name="error">app/public/nofind.jsp</result>	
+		    </action>		
+		    <action name="openCmsSeenPage" method="openSeenPage"  class="cmsInfoAction" >
+		    		<result name="success">app/plugs/cms/info/seenlog.jsp</result>	
+		    </action>
+		      <action name="cms_upload_pic" method="uploadImg"  class="cmsInfoAction" >
+		    </action>
+		      <action name="cms_prepicture_upload" method="prepictureindex"  class="cmsInfoAction" >
+		        <result name="success">app/plugs/cms/info/img_upload.jsp</result>	
+		    </action>  
+		     
+		    <action name="cmsRelationAction"  class="cmsRelationAction" >
+				<result name="index">app/plugs/cms/relation/index.jsp</result>
+				<result name="openjson">app/plugs/cms/relation/openjson.jsp</result>
+			</action>
+			<action name="cmsAddPortlet" method="cmsAddPortlet"  class="cmsRelationAction" >
+		        <result name="index">app/plugs/cms/relation/index.jsp</result>	
+				<result type="redirect">cmsRelationAction!index.action?channelid=${channelid}</result>			
+		    </action>
+		    <action name="cmsRemovePortlet" method="cmsRemovePortlet"  class="cmsRelationAction" >
+		        <result name="index">app/plugs/cms/relation/index.jsp</result>	
+				<result type="redirect">cmsRelationAction!index.action?channelid=${channelid}</result>			
+		    </action>
+		    <action name="iworkMainPage" method="index"  class="cmsFrameAction" >
+		        <result name="success">app/plugs/cms/frame/index.jsp</result>
+		        <result name="opency">app/plugs/cms/frame/cyIndex.jsp</result>	
+		        <result name="opendm">app/plugs/cms/frame/dmIndex.jsp</result>	
+		    </action>
+		    <action name="showHomeDiv" method="getHomeHtml"  class="cmsHomePageAction" >
+		    </action>
+		    <!-- 初始化首页滚动信息 -->
+		      <action name="showGdtDiv" method="showGdtDiv"  class="cmsHomePageAction" >
+		    </action>
+		    
+		    <action name="showKnowDiv" method="getKnowHtml"  class="cmsHomePageAction" >
+		    </action>
+		    <action name="showDBSY" method="getDBSY"  class="cmsHomePageAction" >
+		    </action>
+		    <action name="getHomeTab" method="getHomeTab"  class="cmsHomePageAction" >
+		    </action>
+		      <action name="getHydtTab" method="getHydtTab"  class="cmsHomePageAction" >
+		    </action>
+		    
+		    <action name="getToDoHtml" method="getToDoHtml"  class="cmsHomePageAction" >
+		    </action>
+		    <action name="getAppkmHtml" method="getAppkmHtml"  class="cmsHomePageAction" >
+		    </action>
+		    <action name="getMoreAppkmHtmlStr" method="getMoreAppkmHtmlStr" class="cmsHomePageAction" >
+				<result name="success">app/plugs/cms/myDesktopPortlet/more.jsp</result>
+			</action>
+			<!-- =======================CMS管理End============================== -->
+			<action name="pt_overall_index" method="overallIndex"   class="iworkPortalAction" >
+			<result name="success">app/portal/overall/index.jsp</result>
+		</action>
+		<action name="pt_overall_add" method="overallAdd"   class="iworkPortalAction" >
+			<result name="success">app/portal/overall/edit.jsp</result>
+		</action> 
+		<action name="pt_overall_edit" method="overallEdit"   class="iworkPortalAction" >
+			<result name="success">app/portal/overall/edit.jsp</result>
+		</action>
+		<action name="pt_overall_save" method="overallSave"   class="iworkPortalAction" >
+		</action>
+		<action name="pt_overall_remove" method="overallDel"   class="iworkPortalAction" >
+		</action>
+		<action name="pt_person_index" method="personIndex"   class="iworkPortalAction" >
+			<result name="success">app/portal/person/index.jsp</result>
+		</action>
+		<action name="pt_person_showset"  method="showset"  class="iworkPortalAction" >
+			<result name="success">app/portal/person/tree.jsp</result>
+		</action>
+		<action name="pt_person_treesetJSON"  method="treesetJSON"   class="iworkPortalAction" >
+		</action>	
+		<action name="pt_person_setPortlet"  method="setPortlet"   class="iworkPortalAction" >
+		</action>	
+		<action name="pt_person_portlet_move"  method="movePortlet"   class="iworkPortalAction" >
+		</action>	
+		<action name="pt_person_portlet_update"  method="updatePortlet"   class="iworkPortalAction" >
+		</action>	
+		<action name="pt_person_portlet_remove"  method="removePortlet"   class="iworkPortalAction" >
+		</action>
+		<action name="pt_portlet_topnews" method="showTopNews"   class="iworkPortalPlugsAction" >
+			<result name="success">app/portal/portlet/topnews.jsp</result> 
+		</action> 
+		<!--  我的日程-->
+		<action name="pt_portlet_mycalendar" method="mycalendar"   class="iworkPortalPlugsAction" >
+			<result name="success">app/portal/portlet/mycalendar.jsp</result> 
+		</action> 
+		<!-- System Message Action -->
+		<action name="sysMessageAction" class="sysMessageAction">
+			<result name="success">app/message/sys/index.jsp</result>
+			<result name="openjson">app/message/sys/openjson.jsp</result>
+			<result name="groupdatalist">app/message/sys/datagrid_json.jsp</result>
+			<result name="param">app/message/sys/param.jsp</result>
+			<result name="messagePage">app/message/sys/msgPage.jsp</result>
+			<result name="messageList">app/message/sys/msgList.jsp</result> 
+		</action>
+		<action name="sysGGMessageAction" class="sysMessageAction">
+			<result name="success">app/message/sys/index.jsp</result>
+			<result name="openjson">app/message/sys/openjson.jsp</result>
+			<result name="groupdatalist">app/message/sys/datagrid_json.jsp</result>
+			<result name="param">app/message/sys/param.jsp</result>
+			<result name="messagePage">app/message/sys/msgPage.jsp</result>
+			<result name="messageList">app/message/sys/msgList.jsp</result> 
+		</action>
+		<!-- end -->	 
+		<!-- 财务管理 -->
+		<action name="iwork_fi_subject_group" method="groupIndex"   class="iWorkPlugsFiSubjectAction" >
+			<result name="success">app/plugs/fi/subject/group.jsp</result> 
+		</action>  
+		<action name="iwork_fi_subject_group_list" method="groupList"   class="iWorkPlugsFiSubjectAction" >
+			<result name="success">app/plugs/fi/subject/grouplist.jsp</result> 
+		</action>  
+		<action name="iwork_fi_subject_Json" method="showJson"   class="iWorkPlugsFiSubjectAction" >
+		</action>
+		<action name="iwork_fi_subject_list_Json" method="listJson"   class="iWorkPlugsFiSubjectAction" >
+		</action>
+		<action name="iwork_fi_subject_setlist_Json" method="getSetList"   class="iWorkPlugsFiSubjectAction" >
+		</action>
+		
+		<action name="iwork_fi_subject_list_set" method="setCategorySubject"   class="iWorkPlugsFiSubjectAction" >
+		</action>
+		<action name="iwork_fi_subject_index" method="index"   class="iWorkPlugsFiSubjectAction" >
+			<result name="success">app/plugs/fi/subject/pageindex.jsp</result> 
+		</action> 
+		<action name="iwork_fi_process" method="indexPage"   class="iWorkPlugsFiSubjectAction" >
+			<result name="success">app/plugs/fi/select.jsp</result> 
+		</action> 
+		<action name="iwork_fi_newflow_dlg" method="createDlg"   class="iWorkPlugsFiExpenseAction" >
+			<result name="success">app/plugs/fi/expense/select.jsp</result>  
+		</action> 
+		<action name="iwork_fi_subject_org" method="orgIndex"   class="iWorkPlugsFiSubjectAction" >
+			<result name="success">app/plugs/fi/subject/orgindex.jsp</result> 
+		</action> 
+		<action name="iwork_fi_subject_book" method="bookIndex"   class="iWorkPlugsFiSubjectAction" >
+			<result name="success">app/plugs/fi/subject/book.jsp</result> 
+		</action> 
+		 <action name="iwork_fi_subject_org_json" method="listJsonOrg"   class="iWorkPlugsFiSubjectAction" >
+		</action>
+		<action name="iwork_fi_subject_user" method="userIndex"   class="iWorkPlugsFiSubjectAction" >
+			<result name="success">app/plugs/fi/subject/userindex.jsp</result> 
+		</action> 
+		 <action name="iwork_fi_subject_user_json" method="listJsonUser"   class="iWorkPlugsFiSubjectAction" >
+		</action>
+		<!-- iweboffice -->
+		<action name="iwork_weboffice_index" method="index" class="iWorkPlugsWebOfficeAction">
+		</action>
+		<action name="iwork_weboffice_save" method="doSave" class="iWorkPlugsWebOfficeAction">
+		</action>
+		<action name="iwork_weboffice_online" method="officeOnline" class="iWorkPlugsWebOfficeAction">
+			<result name="success">app/plugs/weboffice/officeOnline.jsp</result>  
+		</action>
+		<action name="iwork_weboffice2015_edit" method="documentEdit" class="iWorkPlugsWebOfficeAction">
+			<result name="success">app/plugs/weboffice/DocumentEdit.jsp</result> 
+		</action>
+		<action name="iwork_weboffice2015_save" method="save" class="iWorkPlugsWebOfficeAction">
+		</action>
+		<!-- HR法人组织结构 -->
+		<action name="iwork_hr_legal_index" method="index"   class="iWorkHrLegalOrganizationAction" >
+			<result name="success">app/plugs/hr/org/index.jsp</result> 
+		</action>  
+		<action name="iwork_hr_legal_list" method="list"   class="iWorkHrLegalOrganizationAction" >
+		<result name="success">app/plugs/hr/org/list.jsp</result> 
+		</action>  
+		<action name="iwork_hr_legal_showuser" method="showuser"   class="iWorkHrLegalOrganizationAction" >
+		<result name="success">app/plugs/hr/org/usertree.jsp</result> 
+		</action>  
+		<action name="iwork_hr_legal_adduser" method="adduser"   class="iWorkHrLegalOrganizationAction" >
+		</action>  
+		<action name="iwork_hr_legal_json" method="treejson"   class="iWorkHrLegalOrganizationAction" >
+		</action>  
+		<action name="iwork_hr_legal_remove" method="removeuser"   class="iWorkHrLegalOrganizationAction" >
+		</action>  
+		<action name="iwork_hr_legal_getUserCompanyInfo" method="getUserLegalOrgInfo"   class="iWorkHrLegalOrganizationAction" >
+		</action>  
+		
+		<action name="project_doc_load" method="docLoad"   class="zqbProjectManageAction" >
+			<result name="success">app/plugs/project/doclist.jsp</result> 
+		</action>
+		<action name="project_doc_search" method="doSearch"   class="zqbProjectManageAction" >
+			<result name="success">app/plugs/project/doclist.jsp</result> 
+		</action>
+		
+		 <action name="cmsPortletXtAction"  class="cmsPortletXtAction" >
+				<result name="index">app/plugs/cms/portlet/indexXT.jsp</result>
+				<result name="add">app/plugs/cms/portlet/addXT.jsp</result>
+				<result name="openjson">app/plugs/cms/portlet/openjsonXT.jsp</result>
+		</action>
+		 <action name="cmsInfoXtAction"  class="cmsInfoXtAction" >
+				<result name="index">app/plugs/cms/info/indexXT.jsp</result>
+				<result name="success">app/plugs/cms/info/openjson.jsp</result>
+			</action>
+			 <action name="cmsChangeXtTalk" method="cmsChangeTalk"  class="cmsInfoAction" >     
+				<result type="redirect">cmsInfoXtAction!index.action?portletid=${portletid}</result>
+		    </action>
+		     <action name="cmsChangeXtStatus" method="cmsChangeStatus"  class="cmsInfoAction" >
+				<result type="redirect">cmsInfoXtAction!index.action?portletid=${portletid}</result>
+		    </action>
+		    <action name="cmsInfoXtRss" method="cmsInfoXtRss"  class="cmsInfoXtAction" >
+		        <result name="index">app/plugs/cms/info/index.jsp</result>	
+		    </action>
+		 <action name="zqb_search_event" method="eventIndex"   class="zqbSearchCenterAction" >
+			<result name="success">app/extend/info/event.jsp</result> 
+		</action>
+			<action name="zqb_project_participantBarIndex" method="showParticipantBarIndex"   class="zqbProjectManageAction" >
+			<result name="success">app/plugs/project/participantGridIndex.jsp</result>  
+		</action> 
+		<action name="participant_Excel_DoExp" method="doExcelExp" class="zqbProjectManageAction"> 
+			<result name="success">app/engine/dem/excel_imp.jsp</result>  
+		</action>
+		
+		<action name="hrDataAddressBook_index" method="index" class="hrDataAddressBookAction"> 
+			<result name="success">app/plugs/hr/address/multi.jsp</result>  
+		</action>
+		<action name="hrDataAddressBook_showjson" method="showjson"   class="hrDataAddressBookAction" >
+		</action>
+		<action name="hrDataAddressBook_searchjson" method="search"   class="hrDataAddressBookAction" >
+		</action>
+		<!-- 内部邮件 -->
+		<!-- 内部邮件 -->
+		<action name="iwork_email_index" method="index" class="iWorkMailClientAction"> 
+			<result name="success">app/plugs/email/index.jsp</result>  
+		</action>
+		
+		<action name="iwork_email_adv_search" method="search" class="iWorkMailClientAction"> 
+			<result name="success">app/plugs/email/search_index.jsp</result> 
+		</action>
+		<action name="iwork_email_search" method="doSearch" class="iWorkMailClientAction"> 
+			<result name="tasklist">app/plugs/email/receive_list.jsp</result> 
+			<result name="ownerlist">app/plugs/email/send_list.jsp</result>
+			<result name="success">app/plugs/email/search_list.jsp</result> 
+		</action>
+		
+		<!-- 收件箱列表 -->
+		<action name="iwork_email_reclist" method="receiveList" class="reciWorkMailClientAction"> 
+			<result name="success">app/plugs/email/receive_list.jsp</result>  
+		</action>
+		<!-- 写信邮件 -->
+		<action name="iwork_email_newadd" method="newadd" class="reciWorkMailClientAction"> 
+			<result name="success">app/plugs/email/addmail.jsp</result>  
+		</action>
+		<action name="iwork_email_upload" method="uploadFile" class="iWorkMailClientAction"> 
+			<result name="success">app/plugs/email/uploadify.jsp</result>  
+		</action>
+		<action name="iwork_email_doUpload" method="doUpload" class="iWorkMailClientAction"> 
+		</action>
+		<action name="iwork_email_download" method="download" class="iWorkMailClientAction"> 
+		</action>
+		<!-- 邮件发送提示成功 -->
+		<action name="iwork_email_dosend" method="sendEmail" class="iWorkMailClientAction"> 
+			<result name="success">app/plugs/email/send_tips.jsp</result>  
+			<result name="error">app/plugs/email/addmail.jsp</result>
+		</action>
+		<!-- 标星邮件 -->
+		<action name="iwork_mail_list_star" method="staeList" class="iWorkMailReceiveStarAction">
+			<result name="success">app/plugs/email/star_list.jsp</result>
+		</action>
+		<!-- 标星邮件-标星 -->
+		<action name="iwork_mail_restar_star" method="restarStar" class="iWorkMailReceiveStarAction">
+		</action>
+		<!-- 标星邮件-虚拟删除功能 -->
+		<action name="iwork_mail_receive_star_delete" method="deleteStar" class="iWorkMailReceiveStarAction">
+		</action>
+		<!-- 标星邮件-查找 -->
+		<action name="iwork_email_read_star_findid" method="findByIdStar" class="iWorkMailReceiveStarAction">
+			<result name="success">app/plugs/email/star_findid.jsp</result>
+		</action>
+		<!-- 标星邮件-取消标星 -->
+		<action name="iwork_mail_list_restar" method="cancelStar" class="iWorkMailReceiveStarAction">
+		</action>
+		<!-- 标星邮件-真的删除 -->
+		<action name="iwork_mail_star_clean" method="reallyDelete" class="iWorkMailReceiveStarAction">
+		</action>
+		<!-- 标星邮件-单击是否标星 -->
+		<action name="iwork_mail_is_read" method="clickStar" class="iWorkMailReceiveStarAction">
+		</action>
+		<!-- 已删除邮箱 -->
+		<action name="iwork_mail_del_list" method="queryMailDelListByPage" class="iWorkMailDelAction">
+			<result name="success">app/plugs/email/del_list.jsp</result>
+		</action>
+
+		<!--获取发件箱邮件
+		<action name="iwork_mail_send_index" method="getSendList" class="iWorkMailOwnerAction" >
+		<result name="success">app/plugs/email/send_list.jsp</result>
+		</action>  -->
+		
+
+       <!--显示收件箱详细信息 -->
+		<action name="iwork_email_read" method="showEmailDetail" class="iWorkMailClientAction"> 
+			<result name="success">app/plugs/email/receivemaildetail.jsp</result>  
+		</action>
+		<!-- 删除收件箱信息 -->
+		<action name="iwork_mail_receive_del" method="deleteReEmail"  class="reciWorkMailClientAction"> 
+		</action>
+		<!-- 彻底删除 -->
+		<action name="iwork_mail_receive_clean" method="deleteAllReEmail"  class="reciWorkMailClientAction"> 
+		</action>
+		<!-- 邮件标星 -->
+		<action name="iwork_mail_receive_star" method="setRecEmailStar"  class="reciWorkMailClientAction"> 
+		</action>
+		<!-- 收件箱取消标星 -->
+		<action name="iwork_mail_restar" method="cancelSetRecEmailStar"  class="reciWorkMailClientAction"> 
+		</action>
+		<!-- 保存到草稿箱 -->
+		<action name="iwork_mail_savetounsend" method="saveWriteEmail"  class="reciWorkMailClientAction"> 
+		<result name="success">app/plugs/email/save_tips.jsp</result>
+		<result name="addmail">app/plugs/email/addmail.jsp</result>
+		</action>
+		<!-- 查看发送邮件和存草稿是否有收件人和抄送人 -->
+		<action name="iwork_mail_ToAndCc" method="ToAndCc"  class="reciWorkMailClientAction"> 
+			<result name="success">app/plugs/email/save_tips.jsp</result>
+		</action>
+		<action name="iwork_mail_showaddress_json" method="showAddressJson"  class="iWorkMailClientAction"> 
+		</action>
+		<action name="iwork_mail_addressbook" method="addressIndex"  class="iWorkMailClientAction"> 
+			<result name="success">app/plugs/email/multi.jsp</result>
+		</action>
+		<action name="iwork_mail_addressTreeJson" method="addressTreeJson"  class="iWorkMailClientAction"> 
+		</action>
+		<!-- 跳转至收件箱邮件转发页面 -->
+		<action name="iwork_email_forward" method="forwardEmail"  class="reciWorkMailClientAction"> 
+		<result name="success">app/plugs/email/addmail.jsp</result>
+		</action>
+		<!-- 收件箱邮件转发 -->
+		<action name="iwork_email_forwardto" method="resendEmail"  class="reciWorkMailClientAction"> 
+		<result name="success">app/plugs/email/send_tips.jsp</result>
+		</action>
+		<!-- 收件箱邮件回复 -->
+		<action name="iwork_email_reply" method ="replyEmail"  class="reciWorkMailClientAction"> 
+		<result name="success">app/plugs/email/addmail.jsp</result>
+		</action>
+		<!-- 收件箱邮件全部回复 -->
+		<action name="iwork_email_replyall" method ="replyEmailAll"  class="reciWorkMailClientAction"> 
+		<result name="success">app/plugs/email/addmail.jsp</result>
+		</action>
+		<action name="iwork_mail_receive_index" method ="receiveListEmails"  class="reciWorkMailClientAction"> 
+			<result name="success">app/plugs/email/receive_list.jsp</result>
+		</action>
+		<!-- 通用转发时需要的ID  -->
+		<action name="iwork_email_showMailId" method="showMailId" class="iWorkMailOwnerAction">
+			
+		</action>
+		<!--查看发件箱 邮件-->
+		<action name="iwork_mail_read" method="generalSearchEmail" class="iWorkMailOwnerAction" >
+			<result name="success">app/plugs/email/search_send_mail.jsp</result>
+		</action>
+		
+
+		<!-- 删除发件箱邮件 -->
+
+		<action name="iwork_mail_send_del" method="delEamil" class="iWorkMailOwnerAction" >
+		<result name="success">app/plugs/email/send_list.jsp</result>
+		</action> 	
+		<!-- 彻底删除邮件 -->
+		<action name="iwork_mail_send_clean" method="cleanEmail" class="iWorkMailOwnerAction" >
+		<result name="success">app/plugs/email/send_list.jsp</result>
+		</action> 
+		<!-- 标星发件箱邮件 -->
+		<action name="iwork_mail_send_star" method="hasStarEmail" class="iWorkMailOwnerAction" >
+		<result name="success">app/plugs/email/send_list.jsp</result>
+		</action>
+		<!-- 取消标星发件箱邮件 -->
+		<action name="iwork_mail_send_restar" method="cancelStar" class="iWorkMailOwnerAction" >
+		<result name="success">app/plugs/email/send_list.jsp</result>
+		</action>  
+		<!-- 分页显示发件箱邮件 -->
+		<action name="iwork_mail_send_index" method="sendListEmails" class="iWorkMailOwnerAction" >
+		<result name="success">app/plugs/email/send_list.jsp</result>
+		</action>  
+   
+       <!--获取草稿箱的所有邮件 -->
+		<action name="iwork_mail_draft_index" method="getDraftListPage" class="iWorkMailOwnerAction" >
+		<result name="success">app/plugs/email/draft_box_list.jsp</result>
+		</action>
+    
+        <!--查看草稿箱的邮件 -->
+		<action name="iwork_mail_write" method="searchDraftEmail" class="iWorkMailOwnerAction" >
+			<result name="success">app/plugs/email/addmail.jsp</result>
+		</action>
+      	<!-- 删除草稿箱的邮件 -->
+		<action name="iwork_mail_write_delDraft" method="delDraft" class="iWorkMailOwnerAction" >
+			<result name="success">app/plugs/email/search_draft_mail.jsp</result>
+		</action>
+		<!-- 彻底删除草稿箱的邮件 -->
+		<action name="iwork_mail_write_cleanDraft" method="cleanDraft" class="iWorkMailOwnerAction" >
+			<result name="success">app/plugs/email/search_draft_mail.jsp</result>
+		</action>
+		<action name="iwork_email_showSendStatus" method="showSendStatus"   class="iWorkMailClientAction" >
+		</action>
+		<!-- 邮件收回的邮件 -->
+		<action name="iwork_email_undo" method="mailUndo"   class="iWorkMailClientAction" >
+		</action>
+		<!-- 通讯录 -->
+		<action name="iwork_mail_booklist" method="booklist" class="iWorkMailGroupAction" >
+			<result name="success">app/plugs/email/addressbook.jsp</result>
+		</action> 
+		<action name="iwork_mail_booklist_add" method="booklistAdd" class="iWorkMailGroupAction" >
+			<result name="success">app/plugs/email/addressbookAdd.jsp</result>
+		</action> 
+		<action name="iwork_mail_booklist_save" method="booklistSave" class="iWorkMailGroupAction" >
+		</action> 
+		<action name="iwork_mail_booklist_sub" method="showBooksublist" class="iWorkMailGroupAction" >
+		</action> 
+		<action name="iwork_mail_booklist_remove" method="removeItem" class="iWorkMailGroupAction" >
+		</action> 
+		<action name="iwork_mail_booklist_subremove" method="removeSubItem" class="iWorkMailGroupAction" >
+		</action> 
+		
+		<!--邮件后台管理  -->
+		<action name="iwork_mail_mgr_index" method="index" class="iWorkMailMgrAction" >
+			<result name="success">app/plugs/email/mgr_index.jsp</result>
+		</action>
+    	<action name="real_book_index"  method="realIndex" class="radioAddressBookAction" >
+			<result>app/addressbook/radio/realbook.jsp</result>
+		</action>
+    	<action name="real_book_json"  method="realjson" class="radioAddressBookAction" >
+		</action>
+    
+    	<action name="iwork_contract_index" method="contractindex" class="iWorkContractAction" >
+			<result  name="success">app/plugs/contract/index.jsp</result>
+		</action>
+    	<action name="iwork_contract_list" class="iWorkContractAction" >
+			<result  name="success">app/plugs/contract/list.jsp</result>
+		</action>
+		
+    	<action name="iwork_contract_showsublist"  method="showSubContractList"  class="iWorkContractAction" >
+		</action>
+		<!--跳转到item_index.jsp页面-->
+    	<action name="iwork_contract_itemIndex"  method="showItemIndex" class="iWorkContractAction" >
+			<result>app/plugs/contract/item_index.jsp</result>
+		</action>
+		<!--获取合同计划表数据1-->
+		<action name="iwork_contract_planlist" method="planlist" class="iWorkContractAction" >
+			<result  name="success">app/plugs/contract/planlist.jsp</result>
+			<result name="error">app/plugs/contract/error.jsp</result>
+		</action>
+
+		<!--获取发票计划表数据2-->
+		<action name="iwork_contract_ivoicePlanlist" method="Ivoiceplanlist" class="iWorkContractAction" >
+			<result  name="success">app/plugs/contract/ivoice_planlist.jsp</result>
+			<result name="error">app/plugs/contract/error.jsp</result>
+		</action>
+		<!--获取交货计划表数据3-->
+		<action name="iwork_contract_deliveryPlanlist" method="deliveryPlanList" class="iWorkContractAction" >
+			<result  name="success">app/plugs/contract/delivery_planlist.jsp</result>
+			<result name="error">app/plugs/contract/error.jsp</result>
+		</action>
+		<!--获取合同执行表数据4-->
+		<action name="iwork_contract_contractPerformlist" method="contractPerformList" class="iWorkContractAction" >
+			<result  name="success">app/plugs/contract/contract_performlist.jsp</result>
+			<result name="error">app/plugs/contract/error.jsp</result>
+		</action>
+		<!--获取发票执行表数据5-->
+		<action name="iwork_contract_ivoicePerformlist" method="ivoicePerformList" class="iWorkContractAction" >
+			<result  name="success">app/plugs/contract/ivoice_performlist.jsp</result>
+			<result name="error">app/plugs/contract/error.jsp</result>
+		</action>
+		<!--获取交货执行表数据6-->
+		<action name="iwork_contract_deliveryPerformlist" method="deliveryPerformList" class="iWorkContractAction" >
+			<result  name="success">app/plugs/contract/delivery_performlist.jsp</result>
+			<result name="error">app/plugs/contract/error.jsp</result>
+		</action>
+		<!--验证发票金额7-->
+		<action name="iwork_contract_ivoicePerformValidation" method="ivoicePerformValidation" class="iWorkContractAction" >
+		</action>
+        <!--删除合同记录8-->
+		<action name="iwork_contract_clean" method="cleanContract" class="iWorkContractAction" >
+		</action>
+		<!--合同显示全部主列表9-->
+		<action name="iwork_contract_queryList" method="getAllContractList" class="iWorkContractAction" >
+		    <result  name="success">app/plugs/contract/queryindex.jsp</result>
+		</action>
+		<!--合同查询10-->
+		<action name="iwork_contract_query" method="queryContract" class="iWorkContractAction" >
+		    <result  name="success">app/plugs/contract/querylist.jsp</result>
+		</action>
+		<!--获取时时的发票余额数据11-->
+		<action name="iwork_contract_ivoicePerformUpdate" method="ivoicePerformUpdate" class="iWorkContractAction" >
+		    <result  name="success">app/plugs/contract/querylist.jsp</result>
+		</action>
+		
+		<!--合同客户统计查询12-->
+		<action name="iwork_customer_queryList" method="queryCustomerList" class="iWorkContractAction" >
+		    <result  name="success">app/plugs/contract/customerQueryindex.jsp</result>
+		</action>
+		<!--合同客户统计查询13-->
+		<action name="iwork_customer_query" method="queryCustomer" class="iWorkContractAction" >
+		    <result  name="success">app/plugs/contract/customerQueryList.jsp</result>
+		</action>
+		<!--合同供应商统计查询15-->
+		<action name="iwork_supplier_queryList" method="querySpplierList" class="iWorkContractAction" >
+		    <result  name="success">app/plugs/contract/supplierQueryindex.jsp</result>
+		</action>
+		<!--合同供应商统计查询15-->
+		<action name="iwork_supplier_query" method="querySpplier" class="iWorkContractAction" >
+		    <result  name="success">app/plugs/contract/supplierQueryList.jsp</result>
+		</action>
+		<!--应收账款统计查询14-->
+		<action name="iwork_query_receivableList" method="queryRceivableList" class="iWorkContractAction" >
+		    <result  name="success">app/plugs/contract/rceivable_queryindex.jsp</result>
+		</action>
+		<!--应收账款统计查询15-->
+		<action name="iwork_query_receivable" method="queryRceivable" class="iWorkContractAction" >
+		    <result  name="success">app/plugs/contract/rceivable_querylist.jsp</result>
+		</action>
+		
+		<!--应付账款统计查询16-->
+		<action name="iwork_query_payList" method="queryPayList" class="iWorkContractAction" >
+		    <result  name="success">app/plugs/contract/pay_queryindex.jsp</result>
+		</action>
+		<!--应付账款统计查询17-->
+		<action name="iwork_query_pay" method="queryPay" class="iWorkContractAction" >
+		    <result  name="success">app/plugs/contract/pay_querylist.jsp</result>
+		</action>
+		
+		
+		<!--获取总金额、计划金额、执行金额、等-->
+		<action name="iwork_contract_getAccountsNum" method="getAccountsNum" class="iWorkContractAction" >
+		</action>
+		<!-- 显示查询功能中的基本合同信息 -->
+		<action name="iwork_contract_basecontractquery" method="getBaseContract" class="iWorkContractAction">
+			<result  name="success">app/plugs/contract/item_index.jsp</result>
+		</action>
+		<!-- 显示客户统计的基本合同信息 -->
+		<action name="iwork_contract_basecostomerquery" method="getBaseContract" class="iWorkContractAction">
+			<result  name="success">app/plugs/contract/item_index.jsp</result>
+		</action>
+		<!-- 显示收款的基本合同信息 -->
+		<action name="iwork_contract_baserceivablequery" method="getBaseContract" class="iWorkContractAction">
+			<result  name="success">app/plugs/contract/item_index.jsp</result>
+		</action>
+		<!-- 显示付款的基本合同信息 -->
+		<action name="iwork_contract_basepayquery" method="getBaseContract" class="iWorkContractAction">
+			<result  name="success">app/plugs/contract/item_index.jsp</result>
+		</action>
+		
+		<!-- 获取DemidAndFormid -->
+		<action name="iwork_contract_getdemidandformid" method="getDemidAndFormid" class="iWorkContractAction">
+		</action>
+		<!-- 金额转换成大写 -->
+		<action name="iwork_contract_getNumberRMB" method="getNumberRMB" class="iWorkContractAction">
+		</action>
+		<!-- 查询所有合同 -->
+		<action name="iwork_contract_ContractList" method="getContractList" class="iWorkContractAction">
+			<result  name="success">app/plugs/contract/list.jsp</result>
+		</action>
+		<!-- 查询基本信息 -->
+		<action name="iwork_contract_ContractInstanceid"  method="showContractInstanceid" class="iWorkContractAction" >
+			<result>app/plugs/contract/item_index.jsp</result>
+		</action>
+		<!-- 显示基本合同信息 -->
+		<action name="iwork_contract_basecontract" method="getBaseContract" class="iWorkContractAction">
+			<result  name="success">app/plugs/contract/base_contract.jsp</result>
+		</action>
+		<!-- 设置 -->
+		<action name="iwork_contract_options" method="options" class="iWorkContractAction">
+			<result name="success">app/plugs/contract/contract_options.jsp</result>
+		</action>
+		<!-- 设置 getDemidAndFormid-->
+		<action name="iwork_contract_getoptionsdemidandformid" method="getOptionsDemidAndFormid" class="iWorkContractAction">
+			<result name="success">app/plugs/contract/contract_options.jsp</result>
+		</action>
+		<!-- 获取合同执行计划审批的所有金额 -->
+		<action name="iwork_contract_getFundAmount" method="getFundAmount" class="iWorkContractAction">
+		</action>
+		<!-- 人力资源 -->
+		<action name="iwork_hr_arc_index" method="index" class="iWorkHrArchivesAction">
+			<result name="success">app/plugs/hr/archives/index.jsp</result>
+		</action>
+		<action name="iwork_hr_arc_baseinfo" method="infoTip" class="iWorkHrArchivesAction">
+			<result name="success">app/plugs/hr/archives/archives_tips.jsp</result>
+		</action> 
+		<action name="iwork_hr_self_set" method="showSet" class="iWorkHrArchivesAction">
+			<result name="success">app/plugs/hr/self/index.jsp</result>
+		</action> 
+		<action name="iwork_hr_self_json" method="showJson" class="iWorkHrArchivesAction">
+		</action> 
+		<action name="iwork_hr_self_doset" method="doSet" class="iWorkHrArchivesAction">
+		</action> 
+		<action name="iwork_hr_self_travel" method="showTravel" class="iWorkHrStaffAction">
+			<result name="success">app/plugs/hr/self/travel_list.jsp</result>
+		</action> 
+		<action name="iwork_hr_self_leave" method="showLeave" class="iWorkHrStaffAction">
+			<result name="success">app/plugs/hr/self/search_list.jsp</result>
+		</action> 
+		<action name="iwork_hr_self_backleave" method="showBackLeave" class="iWorkHrBackLeaveAction">
+			<result name="success">app/plugs/hr/self/backleave_list.jsp</result>
+		</action> 
+		<action name="iwork_hr_arc_search" method="searchIndex" class="iWorkHrStaffAction">
+			<result name="success">app/plugs/hr/archives/search_index.jsp</result>
+		</action>
+		<action name="iwork_hr_self_punch" method="showAttendance" class="iWorkHrAttendanceAction">
+			<result name="success">app/plugs/hr/self/kqmx_list.jsp</result>
+		</action> 
+		<!--<action name="iwork_hr_self_organization" method="showOrganization" class="iWorkHrOrganizationAction">
+			<result name="success">app/plugs/hr/self/organization_list.jsp</result>
+		</action> 
+		--><action name="iwork_fi_self_account" method="showAccount" class="iWorkHrAccountAction">
+			<result name="success">app/plugs/hr/self/account_list.jsp</result>
+		</action> 
+		<action name="iwork_hr_self_overtime" method="showWork" class="iWorkHrWorkAction">
+			<result name="success">app/plugs/hr/self/jiaban_list.jsp</result>
+		</action> 
+		<action name="iwork_showQrCode" method="showQrCode" class="scanCodeAction">
+			<result type="stream">
+				<param name="contentType">image/jpeg</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		<action name="iwork_showBarCode" method="showBarCode" class="scanCodeAction">
+			<result type="stream">
+				<param name="contentType">image/jpeg</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		<action name="iwork_showTreeJson" method="showTreeJson" class="scanCodeAction">
+		</action>
+		<action name="showTestFormInfo" method="showTestFormInfo" class="scanCodeAction">
+		</action>
+		<!-- IT资产管理 -->
+		<action name="eam_type_index" method="index" class="iWorkAssetTypeAction">
+			<result name="success">app/plugs/eam/type_index.jsp</result>
+		</action>
+		<action name="iwork_hr_arc_search" method="searchIndex" class="iWorkHrStaffAction">
+			<result name="success">app/plugs/hr/archives/search_index.jsp</result>
+		</action>
+		<!-- 固定资产管理==我的资产卡片列表 -->
+		<action name="iwork_assets_myCardList" method="myCardList" class="assetsAction">
+			<result name="success">app/assets/myCardList.jsp</result>
+		</action>
+		<!-- 固定资产管理==开启流程 -->
+		<action name="iwork_gdzc_showPage" method="showFlowPage"
+			class="assetsTestAction">
+			<result name="success" type="redirect">loadProcessFormPage.action?actDefId=${actDefId}&amp;instanceId=${instanceid}&amp;excutionId=${excutionId}&amp;taskId=${taskId}&amp;JDMC=${JDMC}
+			</result>
+		</action>		
+    </package>
+</struts>

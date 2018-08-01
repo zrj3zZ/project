@@ -1,0 +1,36 @@
+<div id="border">
+		<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 5px" width="100%">
+			<tbody>
+				<tr>
+					<td class="formpage_title">题库类别维护表单</td>
+				</tr>
+				<tr>
+					<td align="right" id="help"></td>
+				</tr>
+				<tr>
+					<td align="right" class="line"></td>
+				</tr>
+				<tr>
+					<td align="left">
+						<table border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody>
+								<tr>
+									<td class="td_title"  id="title_NAME" width="15%">									<font color='red'>*</font>类别名称									</td>
+									<td class="td_data"  id="data_NAME"  width="35%">${NAME}&nbsp;</td>
+									<td class="td_title"  id="title_NO" width="15%">									<font color='red'>*</font>类型序号									</td>
+									<td class="td_data"  id="data_NO"  width="35%">${NO}&nbsp;</td>
+								</tr>
+								<tr>
+									<td class="td_title"  id="title_MANAGER" width="15%">									<font color='red'>*</font>类别管理员									</td>
+									<td class="td_data"  id="data_MANAGER"  width="35%">${MANAGER}&nbsp;</td>
+								</tr>
+								<tr><td   class="td_title" id="title_MEMO" >备注									</td>
+									<td id="data_MEMO"  class="td_data" colspan="3">${MEMO}&nbsp;</td>
+								</td></tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+</div>

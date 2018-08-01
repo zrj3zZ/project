@@ -1,0 +1,93 @@
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					项目股改审核
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_0">
+								<td class="td_title" id="title_YGSMC" width="15%">
+									<span style="color:red;">*</span>公司名称由
+								</td>
+								<td class="td_data" id="data_YGSMC" width="35%">
+									${YGSMC}&nbsp;　
+								</td>
+								<td class="td_title" id="title_GSMC" width="15%">
+									<span style="color:red;">*</span>更改为
+								</td>
+								<td class="td_data" id="data_GSMC" width="35%">
+									${GSMC}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_4">
+								<td class="td_title" id="title_GSJC" width="15%">
+									<span style="color:red;">*</span>公司简称
+								</td>
+								<td class="td_data" id="data_GSJC" width="35%">
+									${GSJC}&nbsp;　
+								</td>
+								<td class="td_title" id="title_GB" width="15%">
+									<span style="color:red;">*</span>最新股本数量(万股)
+								</td>
+								<td class="td_data" id="data_GB" width="35%">
+									${GB}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_4">
+								<td class="td_title" id="title_NHZY" width="15%">
+									<span style="color:red;">*</span>内核专员
+								</td>
+								<td class="td_data" id="data_NHZY" width="35%">
+									${NHZY}&nbsp;　
+								</td>
+								<td class="td_title" id="title_" width="15%">
+								</td>
+								<td class="td_data" id="data_" width="35%">
+									&nbsp;　
+								</td>
+							</tr>
+							<tr id="fjTr_3071">
+								<td colspan="4">
+									<br />
+									<table width="100%" style="border-collapse:collapse;">
+										<tbody>
+											<tr>
+												<td style="border:1px solid #000;" width="50%" height="20px;">
+													需要增加的附件
+												</td>
+												<td rowspan="2" style="border:1px solid #000;">
+													${FJ}
+												</td>
+											</tr>
+											<tr>
+												<td style="border:1px solid #000;" width="50%">
+													<span id="spanjdzl"></span> 
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${TBRID}${TBSJ}${CUSTOMERNO}${LCBH}${LCBS}${TASKID}${SPZT}${SCORE}${TJRID}${TJRXM}${TJSJ}${EXTEND1}${EXTEND2}${EXTEND3}${EXTEND4}${EXTEND5}${JDMC}
+</div>

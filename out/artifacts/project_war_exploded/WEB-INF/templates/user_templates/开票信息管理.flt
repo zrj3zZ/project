@@ -1,0 +1,117 @@
+<script type="text/javascript">
+function saveForm(){
+	var valid = mainFormValidator.form(); //执行校验操作
+	if(!valid){
+	return false;
+	}
+	//保存富文本
+ 	try{ 
+ 		saveHtmlEditor();  
+ 	}catch(e){} 
+       var fj=document.getElementById("ATTACH").value;
+	if(fj==null || fj==""){
+		alert("请上传附件！");
+	}else{
+		document.getElementById("submitbtn").click();	
+	}
+	
+} 
+</script>
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" width="100%" cellspacing="0" cellpadding="0" border="0">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					现场检查记录
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" width="100%" cellspacing="0" cellpadding="0" border="0">
+						<tbody>
+							<tr id="itemTr_2741">
+								<td class="td_title" id="title_BANKACCOUNT" width="180">
+									<span style="color:red;">*</span>证券代码
+								</td>
+								<td class="td_data" id="data_BANKACCOUNT">
+									${BANKACCOUNT}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2735">
+								<td class="td_title" id="title_CUSTOMERNAME" width="180">
+									<span style="color:red;">*</span>证券简称
+								</td>
+								<td class="td_data" id="data_CUSTOMERNAME">
+									${CUSTOMERNAME}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2739">
+								<td class="td_title" id="title_SWDJDZ" width="180">
+									<span style="color:red;">*</span>现场检查人员
+								</td>
+								<td class="td_data" id="data_SWDJDZ">
+									${SWDJDZ}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2740">
+								<td class="td_title" id="title_BANKNAME" width="180">
+									<span style="color:red;">*</span>现场检查时间
+								</td>
+								<td class="td_data" id="data_BANKNAME">
+									${BANKNAME}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2737">
+								<td class="td_title" id="title_NSR" width="180">
+									<span style="color:red;">*</span>现场检查类型
+								</td>
+								<td class="td_data" id="data_NSR">
+									${NSR}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2738">
+								<td class="td_title" id="title_SWDJH" width="180">
+									<span style="color:red;">*</span>引发现场检查的因素
+								</td>
+								<td class="td_data" id="data_SWDJH">
+									${SWDJH}&nbsp;
+								</td>
+							</tr>
+<tr id="itemTr_1180">
+								<td  class="td_title" style="color:red;"  id="title_PLANTIME1">
+									附件上传内容：
+									
+								</td>
+								<td  class="td_data1"  style="color:red;" id="title_PLANTIME1">
+									通知、方案、工作底稿及附件、现场检查报告、给客户的整改建议（如有）
+									
+								</td>
+							</tr>
+							<tr id="itemTr_2742">
+								<td class="td_title" id="title_ATTACH" width="180">
+									上传资料
+								</td>
+								<td class="td_data" id="data_ATTACH">
+									${ATTACH}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${USERID}${CUSTOMERNO}${CJSJ}
+</div>

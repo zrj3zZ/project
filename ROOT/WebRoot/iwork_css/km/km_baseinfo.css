@@ -1,0 +1,22 @@
+.td_title {
+				color:#000;
+				letter-spacing: 0.1em;
+				padding-right:10px;
+				white-space:nowrap;
+				vertical-align:middle;
+				font-family:÷ÚÌו;
+				font-size:14px;
+				text-align:right;
+	}
+.td_data{
+			color:#0000FF; 
+			text-align:left;
+			padding-left:3px;
+			font-size: 12px;
+			vertical-align:middle;
+			word-wrap:break-word;
+			word-break:break-all;
+			font-weight:500;
+			padding-top:5px;
+			font-family:"ËÎÌו";
+		}

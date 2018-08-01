@@ -1,0 +1,107 @@
+<link rel="stylesheet" type="text/css" href="iwork_js/plugs/gantt2/jquery-ui-1.8.4.css" />
+<script type="text/javascript" src="iwork_js/jqueryjs/ui/jquery.ui.core.js"></script>
+<script type="text/javascript" src="iwork_js/plugs/gantt2/jquery-ui-1.8.4.js"></script>
+<script type="text/javascript" src="iwork_js/jqueryjs/ui/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="iwork_js/jqueryjs/ui/jquery.ui.position.js"></script>
+<script type="text/javascript" src="iwork_js/jqueryjs/ui/jquery.ui.autocomplete.js"></script>
+<script type="text/javascript">
+$(function() {
+	$.ajaxSetup({
+		async: false
+	});
+	var dataArray = [];
+	$.ajax({
+		url : "sx_getCustomerAutoData.action",
+		type : "GET",
+		dataType : "json",
+		success : function(data) {
+			if (data.success) {
+				var reslist = data.rows;
+				for (var i = 0; i < reslist.length; i++) {
+					var vo = reslist[i];
+					dataArray.push({
+						id : vo.CUSTOMERNO,
+						label : vo.CUSTOMERNAME
+					});
+				}
+			}
+		}
+	});
+	$("#CUSTOMERNAME").autocomplete({
+		source : dataArray,
+		max : 12,
+		minChars : 0,
+		width : 400,
+		scrollHeight : 300,
+		matchContains : true,
+		autoFill : true,
+		minLength : 0,
+		select: function( event, ui ) {
+	        $("#CUSTOMERNAME").val( ui.item.label );
+	        $("#CUSTOMERNO").val( ui.item.id );
+        	return false;
+		}});
+});
+</script>
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					处罚记录
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_2471">
+								<td class="td_title" id="title_CUSTOMERNAME" width="180">
+									公司名称
+								</td>
+								<td class="td_data" id="data_CUSTOMERNAME" style="width:0px;">
+									${CUSTOMERNAME}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2474">
+								<td class="td_title" id="title_FSSJ" width="180">
+									发生时间
+								</td>
+								<td class="td_data" id="data_FSSJ">
+									${FSSJ}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2473">
+								<td class="td_title" id="title_CFQKSM" width="180">
+									处罚情况说明
+								</td>
+								<td class="td_data" id="data_CFQKSM">
+									${CFQKSM}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2475">
+								<td class="td_title" id="title_XGZL_1" width="180">
+									相关资料
+								</td>
+								<td class="td_data" id="data_XGZL_1">
+									${XGZL_1}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${CREATEUSER}${CUSTOMERNO}${ZQDM},${ZQJC}
+</div>

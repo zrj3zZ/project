@@ -1,0 +1,274 @@
+<script type="text/javascript" src="iwork_js/iwork/info/validation.js"></script>
+<script>	
+	$(function(){
+		$.post('zqb_rycx.action',function(data){
+			var strs= new Array();
+			strs=data.split(",");
+			document.getElementById("data").value=strs[1];
+			if(strs[0]=='1'){
+				document.getElementById("tjtx").style.display = "none";				
+			}			
+		});
+		var instanceId= $("#instanceId").val();
+		$.post("zqb_announcement_gettentuserdateforrc.action",{instanceId:instanceId},function (data) {
+			$("#contenttd").html(data);
+		});
+		var INSTANCEID= $("#INSTANCEID").val();
+		if(INSTANCEID=="" || INSTANCEID==null){
+			document.getElementById("tjtx").style.display = "none";	
+		}	
+		var khbh = $("#KHBH").val();
+		var actDefId = $("#actDefId").val();
+		var actStepDefId = $("#actStepDefId").val();
+		var instanceId = $("#instanceId").val();
+		$.post("zqb_LCGG_check.action", {
+			"khbh": khbh,
+			"actDefId": actDefId,
+			"actStepDefId": actStepDefId,
+			"instanceId": instanceId
+		}, function (data) {
+			var dataJson = eval("(" + data + ")");
+			if (dataJson.isDel) {
+				$(".delButton").show();
+			} else {
+				$(".delButton").hide();
+			}
+		});
+		$("input[name='SXLX']").css("display", "none");
+		var str = $("in，put[name='SXLX']").val();
+		if ($("#SXLX").val() == undefined) {
+			$("#data_SXLX").hide();
+			$("#SXLXDIV").css('background', 'none');
+			$("#SXLXDIV").css('border', '0px');
+		}
+		var id = $("input[name='SXLX']").val();
+		$("#fpcontent").mouseover(function () {
+			var id = $("input[name='SXLX']").val();
+			if (id != str) {
+				$.post("zqb_xpsxt_getthisname.action?id=" + id, function (data) {
+					$("#SXLXDIV").empty();
+					$("#SXLXDIV").html(data);
+				});
+				$.post("zqb_xpsxt_gg_getbc.action?id=" + id, function (data) {
+					$("#data_SXBCDES").html(data);
+				});
+				$.post("zqb_xpsxt_gg_getbcfile.action?id=" + id, function (data) {
+					$("#DIVSXBCFILEHTML").html(data);
+				});
+				str = id;
+			}
+		});
+		$.post("zqb_xpsxt_getthisname.action?id=" + id, function (data) {
+			$("#SXLXDIV").html(data);
+		});
+	});
+	function addAdvance(){
+		var title="";
+		var startDate = $("#data").val();
+		var endDate = $("#data").val();
+		var startTime = "09:00";
+		var endTime = "17:00";
+		var allDay = 1;
+		if(startTime==endTime&&startTime=="00:00"){
+			allDay = 1;
+		}else{
+			allDay = 0;
+		}
+		var pageUrl ="addSchCalendar_Advancezs.action?startDate="+startDate+"&endDate="+endDate+"&startTime="+startTime+"&endTime="+endTime+"&allDay="+allDay+"&title=1"+encodeURI(encodeURI(title));
+			art.dialog.open(pageUrl,{
+				title:'创建事项',
+				loadingText:'正在加载中,请稍后...',
+				rang:true,
+				cache:false,
+				lock: true,
+				height:600, 
+				close:function(){
+					window.location.reload();
+				}
+			});
+		}
+	function check(type) {
+		var id = $("#SXLX").val();
+		if (id != null && id != "") {
+		    var pageUrl = "zqb_xpsxt_type_gg.action?nr=" + encodeURI(type) + "&id=" + id + "&type=" + encodeURI(type);
+		    art.dialog.open(pageUrl,{
+		    title: type,
+	            loadingText: '正在加载中,请稍后...',
+	            bgcolor: '#999',
+	            rang: true,
+	            width: 900,
+	            cache: false,
+	            lock: true,
+	            height: 500,
+	            iconTitle: false,
+	            extendDrag: true,
+	            autoSize: false,            
+	            zIndex: 3999,
+	            stack: true,
+	            modal: true,
+	            close: function () {}
+        	});
+    	}
+	}
+	function deletefile(uuid) {
+	    var url = encodeURI("zqb_xpsx_deletefile.action?uuid=" + uuid);
+	    $.post(url, function (data) {});
+	}
+	function checkXpsx(id) {
+	    var pageUrl = "zqb_xpsxt_check.action?id=" + id;
+		art.dialog.open(pageUrl,{
+			title: '信披事项表单',
+	        loadingText: '正在加载中,请稍后...',
+	        bgcolor: '#999',
+	        rang: true,
+	        width: 890,
+	        cache: false,
+	        lock: true,
+	        height: 530,
+	        iconTitle: false,
+	        extendDrag: true,
+	        autoSize: false
+    	});
+	}
+	function getGLFxx() {
+	    var khbh = $("#KHBH").val();
+	    var url = "zqb_glf_gg_getglf.action?khbh=" + khbh;
+	    var target = "_blank";
+	    var win_width = window.screen.width;
+	    var page = window.open('form/loader_frame.html', target, 'width=' + win_width + ',height=800,top=50,left=150,location=no,menubar=no,toolbar=no,status=no,directories=no,scrollbars=yes,resizable=no');
+	    page.location = url;
+	    return;
+	}
+	function ReplaceAll(str, sptr, sptr1) {
+	    while (str.indexOf(sptr) >= 0) {
+	        str = str.replace(sptr, sptr1);
+	    }
+	    return str;
+	}
+	function checkNOTICENAME() {
+	    var NOTICENAME = $("#NOTICENAME").val();
+	    $("#NOTICENAME").val(ReplaceAll(NOTICENAME, ',', ''));
+	}	
+	function downloadThisNoticeFile() {
+	    var insId = $("#instanceId").val();
+	    var noticefile = "";
+		$.post("zqb_nmsx_getnoticefilesxuuid.action", {
+			instanceId: insId
+		}, function (data) {
+			noticefile = data;
+			if (insId == 0 || noticefile == "" || noticefile == null) {
+				alert("请先上传事项附件或实体文件不存在!")
+				return;
+			}
+			var strs = new Array();
+			strs = noticefile.split(",");
+			if (strs.length > 1) {
+				var url = encodeURI("zqb_nmsx_downloadthisnoticesxfile.action?instanceId=" + insId);
+			} else {
+				var url = "uploadifyDownload.action?fileUUID=" + noticefile
+			}
+			window.location.href = url;
+		});
+	}
+
+function dels(bs,id,name){
+
+	   document.getElementById("divs"+bs).style.display = "none";
+var bzlx= document.getElementById("SXLX").value;
+
+
+var bzlx2="";
+
+
+
+var bzlx1=bzlx.split(",");
+if(bzlx1.length>1){
+	for(var i=0;i<bzlx1.length;i++){
+		
+		if(bzlx1[i]!=id){
+			if(bzlx2==""){
+				bzlx2=bzlx1[i];
+			}else{
+				bzlx2=bzlx2+","+bzlx1[i];
+			}
+		}
+			
+		
+  	}
+	
+}
+
+document.getElementById("SXLX").value=bzlx2;
+
+}
+</script>
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					日常业务呈报
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+					<input type="hidden" id="data" /> <a id="tjtx" href="javascript:void(0);" class="easyui-linkbutton" plain="true" iconcls="icon-search" onclick="addAdvance();">添加事项提醒</a> <a href="javascript:void(0);" class="easyui-linkbutton" plain="true" iconcls="icon-search" onclick="downloadThisNoticeFile();">批量下载</a> 
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_0">
+								<td class="td_title" id="title_SXMC" width="15%">
+									事项名称
+								</td>
+								<td class="td_data" id="data_SXMC" width="35%">
+									${SXMC}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_18">
+								<td class="td_title" id="title_SXLX" width="15%">
+									事项类型
+								</td>
+								<td class="td_data" colspan="5">
+									<div id="SXLXDIV" style="width:auto;float:left;">
+									</div>
+									<div id="data_SXLX" style="width:auto;">
+										${SXLX}&nbsp;
+									</div>
+								</td>
+							</tr>
+							<tr id="txtAreaTr_3072">
+								<td class="td_title" id="title_SXGY">
+									事项概要
+								</td>
+								<td id="data_SXGY" class="td_data" colspan="3">
+									${SXGY}&nbsp;　
+								</td>
+							</tr>
+							<tr id="fjTr_3073">
+								<td class="td_title" id="title_SXFJ">
+									事项附件
+								</td>
+								<td id="data_SXFJ" class="td_data" colspan="3">
+									${SXFJ}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_1793">
+								<td id="contenttd" colspan=4 class="td_data" style="border-bottom: 0px dotted #999999;color:red;"></td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${EXTEND1}${EXTEND2}${EXTEND3}${EXTEND4}${EXTEND5}${LCBS}${LCBH}${TASKID}${SPZT}${STEPID}${CREATEUSER}${CREATEDATE}${KHBH}${KHMC}${NOTICETYPE}${QCRID}${YXID}${LCID}${CREATENAME}${NOTICESQ}${COMPANYNAME}${COMPANYNO}${INSTANCEID}
+</div>

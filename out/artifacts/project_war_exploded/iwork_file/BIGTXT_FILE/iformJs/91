@@ -1,0 +1,209 @@
+document.write("<script type='text/javascript' src='iwork_js/iwork/project.js'><\/script>");
+$(function () {
+    $("#spanuserid").html("填报人:" + $("#CREATEUSER").val() + "[" + $("#CREATEUSERID").val() + "]");
+    document.getElementsByName("OWNER")[0].readOnly = true;
+    document.getElementsByName("MANAGER")[0].readOnly = true;
+    var instanceid = $("#instanceId").val();
+    var projectNo = $("#PROJECTNO").val();
+    var projectName = $("#PROJECTNAME").val();
+    var sbsj = $("#YJSBSJ").val();
+    var url = location.search;
+    if (typeof (projectName) == 'undefined') {
+        var Request = new Object();
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            strs = str.split("&");
+            for (var i = 0; i < strs.length; i++) {
+                Request[strs[i].split("=")[0]] = (strs[i].split("=")[1]);
+            }
+            projectName = Request["PROJECTNAME"];
+        }
+    }
+    if (url.indexOf("isDwPj") != -1) {
+        $("#URL").attr("src", "loadProjectNew.action?instanceId=" + instanceid + "&projectNo=" + projectNo + "&projectName=" + encodeURI(projectName));
+    } else {
+        $("#URL").attr("src", "loadProject.action?instanceId=" + instanceid + "&projectNo=" + projectNo + "&projectName=" + encodeURI(projectName));
+    }
+    $("#PJ").attr("src", "loadPj.action?instanceId=" + instanceid + "&projectNo=" + projectNo + "&projectName=" + encodeURI(projectName));
+    $("#XGWT").attr("src", "loadXgwt.action?instanceId=" + instanceid + "&projectNo=" + projectNo + "&projectName=" + encodeURI(projectName));
+    $("#data_CUSTOMERNAME font").remove();
+    $("#data_CUSTOMERNAME").append("<font color='red'>*</font>")
+    if (instanceid != 0) {
+        var ggjzr = $("#GGJZR").val();
+        var customerno = $("#CUSTOMERNO").val();
+        $.post("zqb_customer_checkXMCY_CLR_CLJG.action", {
+            customerno: customerno,
+            projectno: projectNo,
+            ggjzr: ggjzr,
+            instanceid: instanceid
+        }, function (data) {
+            if (data == "000") {
+                flag = false;
+                alert("如不填完整的分配部门和承揽人信息会影响项目组结算,分配部门分配比例不等于100%,承揽人分配比例不等于100%!");
+            } else if (data == "001") {
+                flag = false;
+                alert("如不填完整的分配部门和承揽人信息会影响项目组结算,分配部门分配比例不等于100%!");
+            } else if (data == "010") {
+                flag = false;
+                alert("如不填完整的分配部门和承揽人信息会影响项目组结算,承揽人分配比例不等于100%!");
+            } else if (data == "011") {
+                flag = false;
+                alert("如不填完整的分配部门和承揽人信息会影响项目组结算!");
+            } else if (data == "100") {
+                flag = false;
+                alert("分配部门分配比例不等于100%,承揽人分配比例不等于100%!");
+            } else if (data == "101") {
+                flag = false;
+                alert("分配部门分配比例不等于100%!");
+            } else if (data == "110") {
+                flag = false;
+                alert("承揽人分配比例不等于100%!");
+            } else {
+                flag = true;
+            }
+        });
+    }
+});
+//打开数据字典
+function openDictionary(uuid, subformkey, subformid) {
+    var pageUrl = "url:sys_dictionary_runtime_show.action?dictionaryUUID=" + uuid + "&subformkey=" + subformkey + "&subformid=" + subformid;
+    var obj = $("#iformMain").serialize();
+    var dg = $.dialog({
+        id: 'DictionaryDialog',
+        cover: true,
+        title: "数据选择",
+        width: 800,
+        height: 520,
+        loadingText: '正在加载中,请稍后...',
+        bgcolor: '#999',
+        rang: true,
+        lock: true,
+        iconTitle: false,
+        extendDrag: true,
+        autoSize: false,
+        resize: false,
+        content: pageUrl,
+        data: obj,
+        close: function () {
+            if (uuid == "8fa598dfbb084b2e92539a7f353f9ff7") {
+                //判断项目名称是否有记录
+                // var projectnanme = $("#PROJECTNAME").val();
+                // if (projectnanme == "") {
+                var customername = $("#CUSTOMERNAME").val();
+                $("#PROJECTNAME").val(customername);
+                // }
+            }
+        }
+    });
+    dg.ShowDialog();
+}
+
+function addItem() {
+    var pageUrl = "url:createFormInstance.action?formid=88&demId=21";
+    $.dialog({
+        title: '客户信息维护表单',
+        loadingText: '正在加载中,请稍后...',
+        bgcolor: '#999',
+        rang: true,
+        width: 1100,
+        cache: false,
+        lock: true,
+        height: 580,
+        iconTitle: false,
+        extendDrag: true,
+        autoSize: false,
+        content: pageUrl
+    });
+}
+
+function savebeforeEvent() {
+    $.ajaxSetup({
+        async: false
+    });
+    var customerno = $("#CUSTOMERNO").val();
+    var ggjzr = $("#GGJZR").val();
+    var flag = new Boolean();
+    $.post("zqb_customer_checkYGP.action", {
+        customerno: customerno
+    }, function (data) {
+        if (data == "是" && ggjzr == "") {
+            flag = false;
+            alert("客户已挂牌,股改基准日必填!");
+        } else {
+            flag = true;
+        }
+    });
+    return flag;
+}
+
+
+function dept_book() {
+    var pageUrl = "url:zqb_addxmcy_department_index.action";
+    $.dialog({
+        id: "deptBookDialog",
+        title: '部门地址簿',
+        content: pageUrl,
+        pading: 0,
+        lock: true,
+        width: 350,
+        height: 550
+    });
+}
+
+function dept_clbm_book() {
+    var pageUrl = "url:zqb_clbm_index.action";
+    $.dialog({
+        id: "deptBookDialog",
+        title: '部门地址簿',
+        content: pageUrl,
+        pading: 0,
+        lock: true,
+        width: 350,
+        height: 550
+    });
+}
+
+function saveAfterEvent() {
+syncData();
+    $.ajaxSetup({
+        async: false
+    });
+    var customerno = $("#CUSTOMERNO").val();
+    var instanceId = $("#instanceId").val();
+    var projectno = $("#PROJECTNO").val();
+    var ggjzr = $("#GGJZR").val();
+    var flag = new Boolean();
+    $.post("zqb_customer_checkXMCY_CLR_CLJG.action", {
+        customerno: customerno,
+        projectno: projectno,
+        ggjzr: ggjzr,
+        instanceid: instanceId
+    }, function (data) {
+        if (data == "000") {
+            flag = false;
+            alert("如不填完整的分配部门和承揽人信息会影响项目组结算,分配部门分配比例不等于100%,承揽人分配比例不等于100%!");
+        } else if (data == "001") {
+            flag = false;
+            alert("如不填完整的分配部门和承揽人信息会影响项目组结算,分配部门分配比例不等于100%!");
+        } else if (data == "010") {
+            flag = false;
+            alert("如不填完整的分配部门和承揽人信息会影响项目组结算,承揽人分配比例不等于100%!");
+        } else if (data == "011") {
+            flag = false;
+            alert("如不填完整的分配部门和承揽人信息会影响项目组结算!");
+        } else if (data == "100") {
+            flag = false;
+            alert("分配部门分配比例不等于100%,承揽人分配比例不等于100%!");
+        } else if (data == "101") {
+            flag = false;
+            alert("分配部门分配比例不等于100%!");
+        } else if (data == "110") {
+            flag = false;
+            alert("承揽人分配比例不等于100%!");
+        } else {
+            flag = true;
+        }
+    });
+if(flag){ setCommit();}
+    return flag;
+}

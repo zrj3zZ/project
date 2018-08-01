@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="web" name="Web">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/.idea/web/WEB-INF/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/ROOT/WebRoot" relative="/" />
+        </webroots>
+        <sourceRoots>
+          <root url="file://$MODULE_DIR$/ROOT/src" />
+          <root url="file://$MODULE_DIR$/com.iwork.core.organization" />
+          <root url="file://$MODULE_DIR$/com.iwork.root/src" />
+          <root url="file://$MODULE_DIR$/com.iwork.zq/src" />
+        </sourceRoots>
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager">
+    <output url="file://P:/java/ideawork/project" />
+    <output-test url="file://P:/java/ideawork/test" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/ROOT">
+      <sourceFolder url="file://$MODULE_DIR$/ROOT/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ROOT" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/com.iwork.core.organization">
+      <sourceFolder url="file://$MODULE_DIR$/com.iwork.core.organization" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/com.iwork.root">
+      <sourceFolder url="file://$MODULE_DIR$/com.iwork.root/src" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/com.iwork.zq">
+      <sourceFolder url="file://$MODULE_DIR$/com.iwork.zq/src" isTestSource="false" />
+    </content>
+    <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" exported="" name="lib" level="project" />
+    <orderEntry type="library" name="tomcat" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://P:/java/tomcat/lib/jsp-api.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://P:/java/tomcat/lib/servlet-api.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+  </component>
+</module>

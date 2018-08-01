@@ -1,0 +1,4 @@
+$(function(){
+var wlins=$("#WLINS").val();
+$("#URL").attr("src","zqb_zydd_search.action?WLINS="+wlins);
+});

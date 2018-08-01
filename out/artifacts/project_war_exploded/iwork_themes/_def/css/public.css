@@ -1,0 +1,574 @@
+
+/*滚动条设置参数*/
+body {
+	SCROLLBAR-FACE-COLOR: #e4e4e4; /*滚动条凸出部分的颜色*/
+	SCROLLBAR-HIGHLIGHT-COLOR: #cccccc;  /*滚动条空白部分的颜色 */
+	SCROLLBAR-SHADOW-COLOR: #cccccc;  /*立体滚动条阴影的颜色 */
+	SCROLLBAR-3DLIGHT-COLOR: #cccccc;  /*滚动条亮边的颜色*/
+	SCROLLBAR-ARROW-COLOR: #000000;  /*上下按钮上三角箭头的颜色 */
+	SCROLLBAR-TRACK-COLOR: #cccccc;  /*滚动条的背景颜色*/
+	SCROLLBAR-DARKSHADOW-COLOR: #cccccc;  /*滚动条强阴影的颜色 */
+	SCROLLBAR-BASE-COLOR: rgb(66,93,128)；/*滚动条的基本颜色*/
+	background-color: #ffffff;/*页面背景*/
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-right:0px;
+	margin-top: 0px;
+}
+
+body,table,td,p,font,br{font-size: 12px;color:#000000}
+ table {
+            border: 0px solid black;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+        
+   
+html{height:100%}
+body{height:100%}
+
+
+/*普通连接*/
+A:link {text-decoration: none;	color: #000000}
+A:visited {text-decoration: none;	color: #000000}
+A:Hover {text-decoration: none;color: #9c3e64;}
+
+
+/*----------------------------head页面样式区-------------------------------------*/
+
+.topbackground{width:100%;
+				height:26px;
+				background-image:url(../../../iwork_img/topbackground.jpg);/*顶部扩展背景图*/
+				border:0px;}
+
+
+.menubackground{width:100%;
+				height:61px;
+				background-image:url(../../../iwork_img/menubackground.jpg);/*功能菜单区域背景图*/
+				border:0px;}
+
+.userbackground{width:100%;
+				height:27px;
+				background-image:url(../../../iwork_img/userbackground.jpg);/*用户提示信息区域背景图*/
+				border:0px;}
+
+.logo{width:200px;
+	  background-image:url(../../../iwork_img/logo.jpg);
+	  background-repeat:no-repeat;
+	}
+
+/*当前日期行样式*/
+.daterow{width:400px;
+		font-size:12px;
+		color:#000000;
+		padding-left:20px;}
+
+
+/*退出按钮行样式*/
+.topright{text-align:right;}
+
+/*平台退出样式*/
+.logoexit{width:70px;
+			background-image:url(../../../iwork_img/logoexit.gif);/*平台退出图标*/
+			background-repeat:no-repeat;
+			padding-left:15px;
+			text-align:left;}
+
+/*平台首页样式*/
+.logohome{width:70px;
+			background-image:url(../../../iwork_img/logohome.gif);/*平台首页图标*/
+			background-repeat:no-repeat;
+			padding-left:15px;
+			text-align:left;}
+
+/*邮件提示样式*/
+.logomail{
+			background-image:url(../../../iwork_img/logomail.gif);/*邮件提示图标*/
+			background-repeat:no-repeat;
+			padding-left:15px;
+			padding-right:10px;
+			text-align:left;}
+/*信息提示样式*/
+.logomessenger{
+			background-image:url(../../../iwork_img/logomessenger.gif);/*信息提示图标*/
+			background-repeat:no-repeat;
+			padding-left:15px;
+			padding-right:10px;
+			text-align:left;}
+
+/*待办事宜样式*/
+.logotodo{
+			background-image:url(../../../iwork_img/logotodo.gif);/*待办事宜图标*/
+			background-repeat:no-repeat;
+			padding-left:15px;
+			padding-right:10px;
+			text-align:left;}
+/*日程安排样式*/
+.logodayarr{
+			background-image:url(../../../iwork_img/logodayarr.gif);/*日程安排图标*/
+			background-repeat:no-repeat;
+			padding-left:15px;
+			padding-right:10px;
+			text-align:left;}
+.userleft{padding-left:20px;
+	padding-right:10px;}
+
+.user{font-weight:bolder;}
+
+/*快捷消息提示样式*/
+.ts a:link {text-decoration: none;	color: #de0808;font-weight:bolder;}
+.ts a:visited {text-decoration: none;	color: #de0808;font-weight:bolder;}
+.ts a:Hover {text-decoration: none;color: #de0808;font-weight:bolder;}
+.ts {font-size:12px;color:#cc0000;}
+
+
+/*我要找人搜索表单样式*/
+.search_input{background-image:url(../../../iwork_img/inputbg1.jpg);/*找人表单背景图片*/
+		   height:17px;
+		   border-color: #8f8e8e;
+		   border-style: solid;
+		   border-width: 1px 1px 0px 1px;
+		   font-size:12px;
+		   color:#cc0000;
+		   }
+
+
+/*功能菜单图片*/
+.tdmenu{padding-left:5px;
+		padding-right:5px;
+		text-align:center;}
+
+/*功能菜单文字*/
+.tdmenutext {font-size:12px;
+           filter:
+           Dropshadow(offx=1,offy=0,color=#ffffff)
+           Dropshadow(offx=0,offy=1,color=#ffffff)
+           Dropshadow(offx=0,offy=-1,color=#ffffff)
+           Dropshadow(offx=-1,offy=0,color=#ffffff);
+			padding-left:10px;
+			padding-right:10px;
+			text-align:center;}
+
+
+
+
+/*------------------------------------title页面样式区---------------------------------------*/
+
+.Page-BG{
+	
+}
+.pagetitle{
+	background-image:url("../../../iwork_img/style/WORK_INDEX_BANNER.gif");
+ 	background-repeat: no-repeat;background-position:right;
+	 font-family: "黑体", "Arial", "Helvetica", "sans-serif"; 
+	 font-size: 18px; 
+	 line-height: normal;
+	 padding-left: 10px;
+	 padding-top: 5px;
+	 padding-bottom: 5px; 
+	 color: #999999;
+}
+.pagetoolbar{
+	width:100%;
+	background-image:url(../../../iwork_img/bg_bg1.gif);/*当前位置区域背景图*/
+	background-color:#E3E3E3;
+	margin-top:15px;
+	margin-bottom:15px;
+	padding-left:15px;
+ 	height:26px;
+ 	text-align:left;
+ 	border:1px #CCCCCC solid;
+}
+
+
+
+
+/*------------------------------------place页面样式区---------------------------------------*/
+.placebackground{width:100%;
+				height:27px;
+				background-image:url(../../../iwork_img/placebackground.jpg);}/*当前位置区域背景图*/
+.ingplace{background-image:url(../../../iwork_img/inguser.jpg);
+			background-repeat:no-repeat;
+			padding-left:12px;}
+
+/*-----------------------------------centrol页面样式区-------------------------------------*/
+
+.centrolbackground{background-color:#f0f0f0;}/*控制收缩树按钮页面颜色*/
+
+
+/*-----------------------------------tree页面样式区---------------------------------------*/
+
+.treebackground{background-color:#f0f0f0;}/*树页面背景颜色*/
+
+
+
+/*------------------------------------comtent页面样式区--------------------------------------*/
+
+.table1{width:98%;
+		margin-left:20px;
+		margin-right:20px;
+		border:0px;
+		margin-top:10px;
+		margin-bottom:2px;
+		}
+.comtit1ogo1{background-image:url(../../../iwork_img/comtit01.gif);/*查询标题图标*/
+			background-repeat:no-repeat;
+			width:20px;
+			height:19px;
+			}
+.comtit1ogo2{background-image:url(../../../iwork_img/comtit02.gif);/*列表标题图标*/
+			background-repeat:no-repeat;
+			width:20px;
+			height:19px;
+			}
+
+
+.comtit1ogo3{background-image:url(../../../iwork_img/comtit03.gif);/*录入标题图标*/
+			background-repeat:no-repeat;
+			width:20px;
+			height:19px;
+			}
+
+.comtitbg{background-image:url(../../../iwork_img/comtitbg.gif);/*标题背景*/
+			font-size:12px;
+			font-weight:bolder;
+			color:#000000;
+			padding-left:5px;
+			padding-top:3px;
+			}
+.comtitright{background-image:url(../../../iwork_img/comtitright.gif);/*标题右侧圆角*/
+			background-repeat:no-repeat;
+			width:20px;
+			height:19px;
+			}
+
+.td3{padding-left:10px;padding-top:10px;padding-bottom:10px;padding-right:10px;}
+.table2{width:98%;
+		margin-left:20px;
+		margin-right:20px;
+		border-left:1px;
+		border-right:1px;
+		background-color:#fbf4f3;
+}
+/*可写入表单*/
+.true_input{background-color:#ffffff;/*可写入表单颜色*/
+		   height:16px;
+		  border-top: 1px solid #8f8e8e;
+		  border-right: 1px solid #d9d9d9;
+		  border-bottom: 1px solid #d9d9d9;
+		  border-left: 1px solid #8f8e8e;
+		 font-size:12px;
+		 color:#3d3d3d;
+		   }
+/*不可写入的表单*/
+.no_input{background-color:#dedeee;/*不可写入的表单颜色*/
+		   height:16px;
+		  border-top: 1px solid #8f8e8e;
+		  border-right: 1px solid #d9d9d9;
+		  border-bottom: 1px solid #d9d9d9;
+		  border-left: 1px solid #8f8e8e;
+		 font-size:12px;
+		 color:#3d3d3d;
+		   }
+
+.textarea{background-color:#ffffff;/*可写入表单颜色*/
+		  border-top: 1px solid #8f8e8e;
+		  border-right: 1px solid #d9d9d9;
+		  border-bottom: 1px solid #d9d9d9;
+		  border-left: 1px solid #8f8e8e;
+		 font-size:12px;
+		 color:#3d3d3d;
+}
+
+.table3{
+	width:98%;
+		margin-top:10px;
+		margin-left:20px;
+		margin-right:20px;
+		border-left:1px;
+		border-right:1px;
+		background-color:#F0F0F0;
+		border:1px #CCCCCC solid;
+		}
+
+/*表格表头样式*/
+.tablehead{background-image:url(../../../iwork_img/tableheadbg.gif);/*表格表头样式背景图片*/
+			height:23px;
+			font-size:12px;
+			color:#4a4a4a;
+			font-weight:bolder;
+			text-align:center;}
+
+/*普通行样式*/
+.tr1{background-color:#ffffff;/*普通行为白色*/
+	height:18px;}
+
+/*鼠标经过行样式*/
+.tr2{background-color:#fdf7e4;/*鼠标经过行为淡黄色*/
+	height:18px;}
+
+/*翻页表格样式*/
+.pagetable{width:97%;
+		height:20px;
+		margin-left:10px;
+		margin-right:10px;
+		border:0px;
+		margin-top:0px;
+		margin-bottom:10px;
+		background-color:#f0f0f0;
+		border-top: 0px none;
+		border-right: 1px solid #d9d9d9;
+		border-bottom: 1px solid #d9d9d9;
+		border-left: 1px solid #d9d9d9;
+		
+		
+		
+		}
+
+
+/*机构页容器*/
+
+.jgtd1{width:100%;
+		
+		background-color:#d0d0d0;/*机构页灰色背景*/
+		padding-left:5px;
+		padding-top:0px;
+		padding-right:5px;
+		padding-bottom:0px;
+		}
+.jgleft{background-image:url(../../../iwork_img/jgtitleft.gif);
+		height:26px;
+		width:19px;}
+.jgbg{background-image:url(../../../iwork_img/jgtitbg.gif);
+		height:26px;
+		font-size:12px;
+		font-weight:bolder;
+		color:#000000;
+		}
+.jgright{background-image:url(../../../iwork_img/jgtitright.gif);
+		height:26px;
+		
+		}
+.jgtd2{
+		
+		width:100%;
+		border:0px;
+		padding-left:10px;
+		padding-top:10px;
+		padding-bottom:0px;
+		padding-right:0px;
+		background-color:#dbdfcc;
+		border-top: 0px none;
+		border-right: 1px solid #ffffff;
+		border-bottom: 1px solid #ffffff;
+		border-left: 1px solid #7d7d7d;}
+
+.jgtd3{background-color:#dbdfcc;}
+/*--------------------------------------bottom页面样式区---------------------------------------*/
+
+.bottombackground{width:100%;
+				height:32px;
+				background-image:url(../../../iwork_img/bottombackground.jpg);
+				}
+
+
+
+.copyright{width:300px;
+			background-image:url(../../../iwork_img/copyright_xm.gif);
+			background-repeat:no-repeat;
+			font-size:12px;
+			color:#5b5b5b;
+			padding-left:15px;}
+
+
+/*-------------------------------按钮区------------------------------------------*/
+
+
+
+/*我要找人搜索按钮样式*/
+
+.btn_search {
+	background-image: url(../../../iwork_img/search.gif);
+	width:48px;
+	height: 19px;
+	cursor: hand;
+	padding-left:0px;
+	padding-right:0px;
+	margin-left:3px;
+	margin-top:0px;
+	border-top-width: 0px;
+	border-right-width: 0px ;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+
+/*表格内浏览图标按钮样式*/
+
+.btn_browse {
+	background-image: url(../../../iwork_img/but_browse.gif);
+	width:24px;
+	height: 16px;
+	cursor: hand;
+	padding-left:0px;
+	padding-right:0px;
+	margin-left:1px;
+	margin-top:0px;
+	border-top-width: 0px ;
+	border-right-width: 0px ;
+	border-bottom-width: 0px ;
+	border-left-width: 0px ;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+
+/*表格内删除图标按钮样式*/
+.btn_delete {
+	background-image: url(../../../iwork_img/but_delete.gif);
+	width:24px;
+	height: 16px;
+	cursor: hand;
+	padding-left:0px;
+	padding-right:0px;
+	margin-left:1px;
+	margin-top:0px;
+	border-top-width: 0px;
+	border-right-width: 0px ;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+/*表格内编辑图标按钮样式*/
+.but_editor {
+	background-image: url(../../../iwork_img/but_edit.gif);
+	width:24px;
+	height: 16px;
+	cursor: hand;
+	padding-left:0px;
+	padding-right:0px;
+	margin-left:1px;
+	margin-top:0px;
+	border-top-width: 0px ;
+	border-right-width: 0px ;
+	border-bottom-width: 0px ;
+	border-left-width: 0px ;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+/*适合二至三字按钮样式*/
+.btn_2 {
+	background-image: url(../../../iwork_img/btn_2.gif);
+	width:48px;
+	height: 20px;
+	cursor: hand;
+	padding-left:0px;
+	padding-right:0px;
+	margin-left:1px;
+	padding-top:2px;
+	margin-top:0px;
+	border-top-width: 0px ;
+	border-right-width: 0px ;
+	border-bottom-width: 0px ;
+	border-left-width: 0px ;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+
+
+.btn_4 {
+	background-image: url(../../../iwork_img/btn_4.gif);
+	width:70px;
+	height: 20px;
+	cursor: hand;
+	padding-left:0px;
+	padding-right:0px;
+	margin-left:1px;
+	padding-top:2px;
+	margin-top:0px;
+	border-top-width: 0px ;
+	border-right-width: 0px ;
+	border-bottom-width: 0px ;
+	border-left-width: 0px ;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+
+.save_btn {
+	background-image: url(../../../iwork_img/btn_4.gif);
+	width:70px;
+	height: 20px;
+	cursor: hand;
+	padding-left:0px;
+	padding-right:0px;
+	margin-left:1px;
+	padding-top:2px;
+	margin-top:0px;
+	border-top-width: 0px ;
+	border-right-width: 0px ;
+	border-bottom-width: 0px ;
+	border-left-width: 0px ;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+
+/*-------------------------------提示操作区------------------------------------------*/
+.onno{width:399px;
+	height:245px;
+	background-image:url(../../../iwork_img/on_no.gif);
+	background-repeat:no-repeat;
+	margin-top:50px;
+
+}
+
+
+.onyes{width:366px;
+	height:241px;
+	background-image:url(../../../iwork_img/on_yes.gif);
+	background-repeat:no-repeat;
+	margin-top:50px;
+
+}
+
+.onyeslogo{background-image:url(../../../iwork_img/onyeslogo.gif);
+		background-repeat:no-repeat;
+		width:116px;
+		height:155px;
+		}
+
+.onyestext{font-size:24px;color:#cc0000;font-weight:bolder;text-align:center;}
+
+
+.onnologo{background-image:url(../../../iwork_img/onnologo.gif);
+		background-repeat:no-repeat;
+		width:116px;
+		height:155px;
+		}
+
+.onleft{background-image:url(../../../iwork_img/onleft.gif);
+		background-repeat:no-repeat;
+		width:17px;
+		height:264px;
+		}
+.onbg{background-image:url(../../../iwork_img/onbg.gif);
+		height:264px;
+		}
+.onright{background-image:url(../../../iwork_img/onright.gif);
+		background-repeat:no-repeat;
+		width:17px;
+		height:264px;}

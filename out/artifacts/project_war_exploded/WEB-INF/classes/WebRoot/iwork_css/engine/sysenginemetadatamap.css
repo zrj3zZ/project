@@ -1,0 +1,26 @@
+.header td{
+			font-weight:bold;
+			font-size:12px;
+			padding:3px;
+			white-space:nowrap;
+			padding-left:5px;
+			background:#fafafa url('../../iwork_css/jquerycss/default/images/datagrid_header_bg.gif') repeat-x left bottom;
+			border-bottom:1px dotted #ccc;
+			border-top:1px dotted #fff;
+			border-right:1px dotted #ccc;
+		} 
+.cell td{
+			margin:0;
+			padding:3px 4px;
+			white-space:nowrap;
+			word-wrap:normal;
+			overflow:hidden;
+			text-align:left;
+			border-bottom:1px dotted #eee;
+			border-top:1px dotted #fff;
+			border-right:1px dotted #ccc;
+		}
+.selectCheck{
+	border:0px;
+	text-align:right;
+}

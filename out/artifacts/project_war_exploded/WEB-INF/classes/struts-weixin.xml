@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+"http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+	<package strict-method-invocation="false"  name="weixin" extends="tiles-default">
+		  <!-- 定义一个名为 checkLogin 的拦截器 -->  
+        <interceptors>  
+            <!-- 定义权限检查拦截器 -->  
+            <interceptor name="checkLogin"  
+                class="com.iwork.core.server.root.IWorkWinXinInterceptor" />  
+            <!-- 定义一个包含权限检查的拦截器栈 -->  
+            <interceptor-stack name="myDefaultStack">  
+                <!-- 定义拦截器栈包含checkLogin拦截器 -->  
+                <interceptor-ref name="checkLogin"></interceptor-ref>  
+                <interceptor-ref name="defaultStack"></interceptor-ref>  
+            </interceptor-stack>  
+        </interceptors>
+        
+        
+        <!-- 设置全局 全局默认的拦截器栈-->  
+        <default-interceptor-ref name="myDefaultStack"></default-interceptor-ref>  
+        <!-- 定义全局Result -->  
+        <global-results>  
+            <!-- 当返回login视图名时，转入/login.jsp页面 -->  
+            <result name="login">/login.jsp</result>  
+        </global-results>
+        
+		<action name="*" class="com.iwork.commons.AbstractAction">
+            <result>/{1}.jsp</result>
+        </action>
+          <action name="weixin_config_index" method="index"  class="winxinConfigAction" >
+  		  	<result name="success">app/weixin/config/index.jsp</result>	
+  		 </action>
+  		   <action name="weixin_init_menu" method="initMenu"  class="winxinOrgAction" >
+  		  	<result name="success">app/weixin/org/bind_tips.jsp</result>	
+  		 </action>
+  		 <action name="weixin_org_init" method="initIndex"  class="winxinOrgAction" >
+  		 </action>
+  		 <action name="weixin_org_bind_index" method="bindIndex"  class="winxinOrgAction" >
+       		<result name="success">app/weixin/org/bind_org.jsp</result>	
+  		 </action>
+  		  <action name="weixin_org_dobind" method="doBind"  class="winxinOrgAction" >
+  		  	<result name="success">app/weixin/org/bind_tips.jsp</result>
+  		  	<result name="error"  type="redirect">weixin_org_bind_index.action?info=${info}</result>	
+  		 </action> 
+  		 <action name="weixin_identifyCode" method="showidentifyCode"
+			class="winxinOrgAction">
+			<result type="stream">
+				<param name="contentType">image/jpeg</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+		<!-- 流程DESK -->
+		<action name="weixin_processdeskIndex"  method="todolist"  class="weiXinProcessDeskAction" > 
+			  <result name="success">app/weixin/process/desk/todolist.jsp</result> 
+		</action>
+		<action name="weixin_processdeskHistory"  method="history"  class="weiXinProcessDeskAction" > 
+			  <result name="success">app/weixin/process/desk/history.jsp</result> 
+		</action>
+		<action name="weixin_processdeskHistoryHtml"  method="historyHtml"  class="weiXinProcessDeskAction" > 
+		</action>
+		<action name="weixin_processdeskNotice"  method="notice"  class="weiXinProcessDeskAction" > 
+			  <result name="success">app/weixin/process/desk/notice.jsp</result> 
+		</action>
+		<action name="weixin_processdeskNoticeHtml"  method="NoticeHtml"  class="weiXinProcessDeskAction" > 
+		</action>
+		<action name="wx_process_fbcSearch"  method="fbcSearch"  class="weiXinProcessDeskAction" > 
+		</action>
+		<action name="weixin_process_start"  method="startProcessInstance"  class="weiXinProcessRuntimeExcuteAction" > 
+			  <result name="success">app/weixin/process/runtime/pformpage_weixin.jsp</result> 
+			  <result name="error">app/public/nofind.jsp</result>  
+		</action>
+		<action name="weixin_processRuntimeFormSave"  method="processFormSave"  class="weiXinProcessRuntimeExcuteAction" > 
+		</action> 
+		<action name="weixin_processFormPage"  method="loadFormPage"  class="weiXinProcessRuntimeExcuteAction" > 
+			  <result name="success">app/weixin/process/runtime/pformpage_weixin.jsp</result> 
+			  <result name="error">app/public/nofind.jsp</result>  
+		</action>
+		<action name="weixin_loadSignsPage"  method="loadSignsPage"  class="weiXinProcessRuntimeExcuteAction" > 
+			  <result name="success">app/weixin/process/runtime/pformpage_weixin.jsp</result> 
+			  <result name="error">app/public/nofind.jsp</result>  
+		</action>
+		<action name="weixin_NoticeFormPage"  method="loadNoticeFormPage"  class="weiXinProcessRuntimeExcuteAction" > 
+			  <result name="success">app/weixin/process/runtime/pformpage_weixin.jsp</result> 
+			  <result name="error">app/public/nofind.jsp</result>  
+		</action>
+		<action name="weixin_processLaunchCenter"  method="launchCenter"  class="weiXinProcessDeskAction" > 
+			  <result name="success" >app/weixin/process/desk/launch.jsp</result>
+		</action>
+		<action name="weixin_entrust_index"  method="entrustIndex"  class="weiXinProcessDeskAction" > 
+			  <result name="success" >app/weixin/process/desk/entrust.jsp</result>
+		</action>
+		<action name="weixin_reportCenter"  method="index"  class="weiXinReportAction" > 
+			  <result name="success" >app/weixin/report/index.jsp</result>
+		</action>
+		<!-- 流程任务监控 -->
+		<action name="weixin_processInstanceMornitor" method="showPrcInstanceMornitorPage" class="weixinProcessRuntimeMonitorAction"> 
+			  <result name="success">app/weixin/process/runtime/processMonitorPage.jsp</result>
+		</action>
+		 
+		<!-- 流程处理 -->
+		<action name="weixin_processRuntimeHandle"  method="executeHandle"  class="weiXinProcessRuntimeOperateAction" > 
+				  <result name="success">app/weixin/process/runtime/processSendPage.jsp</result>
+				  <result name="PARALLELGATEWAY">app/weixin/process/runtime/processParllelPage.jsp</result> 
+				  <result name="ARCHIVES">app/weixin/process/runtime/processArchivePage.jsp</result>
+				  <result name="cc">app/public/succes.jsp</result> 
+				  <result name="error">app/weixin/process/runtime/processSendError.jsp</result>
+			</action>
+			<action name="weixin_processRuntimeManualJump"  method="executeManualJump"  class="weiXinProcessRuntimeOperateAction" > 
+				  <result name="success">app/weixin/process/runtime/processSendPage.jsp</result>
+				   <result name="ARCHIVES">app/weixin/process/runtime/processArchivePage.jsp</result>
+				  <result name="cc">app/public/succes.jsp</result>
+				  <result name="error">app/weixin/process/runtime/processSendError.jsp</result>
+			</action>
+			<action name="weixin_processRuntimeAuditOpinion"  method="executeAuditOpinion"  class="weiXinProcessRuntimeOperateAction" > 
+				  <result name="success">app/engine/process/runtime/pformpage.jsp</result>
+				  <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="weixin_processRuntimeTalk"  method="executeTalk"  class="weiXinProcessRuntimeOperateAction" > 
+				  <result name="success">app/engine/process/runtime/pformpage.jsp</result>
+				  <result name="error">app/public/nofind.jsp</result> 
+			</action>
+			<action name="weixin_processRuntimeForward"  method="executeForward"  class="weiXinProcessRuntimeOperateAction" > 
+				  <result name="success">app/weixin/process/runtime/processForwardPage.jsp</result>
+				  <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="weixin_processRuntimeAddSign"  method="executeAddSign"  class="weiXinProcessRuntimeOperateAction" > 
+				  <result name="success">app/weixin/process/runtime/processAddSignPage.jsp</result>
+				  <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="weixin_processRuntimeBackAddSign"  method="executeBackAddSign"  class="weiXinProcessRuntimeOperateAction" > 
+				  <result name="success">app/weixin/process/runtime/processBackAddSignPage.jsp</result>
+				  <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="process_mb_RuntimeSigns"  method="executeBackAddSign"  class="weiXinProcessRuntimeOperateAction" > 
+				  <result name="success">app/weixin/process/runtime/processBackAddSignPage.jsp</result>
+				  <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="weixin_processRuntimeBack"  method="executeBack"  class="weiXinProcessRuntimeOperateAction" > 
+				  <result name="success" >app/weixin/process/runtime/processBackPage.jsp</result>
+				  <result name="nofind" >app/weixin/process/runtime/tips_win.jsp</result>
+				  <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="weixin_processRuntimeBackOther"  method="executeOtherBack"  class="weiXinProcessRuntimeOperateAction" > 
+				  <result name="success" >app/weixin/process/runtime/processBackOther.jsp</result>
+				  <result name="nofind" >app/weixin/process/runtime/tips_win.jsp</result>
+				  <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="weixin_showOpinionList"  method="showOpinionList"  class="weiXinProcessRuntimeExcuteAction" > 
+				  <result name="success" >app/weixin/process/runtime/opinionList_mb.jsp</result> 
+			</action>
+			
+			<action name="weixin_subForm_showpage"  method="loadSubForm"  class="weiXinProcessRuntimeExcuteAction" > 
+				  <result name="success">app/weixin/process/subform/subformpage.jsp</result>
+			</action>  
+		<action name="weixin_process_subForm_edit"  method="editSubForm"  class="weiXinProcessRuntimeExcuteAction" > 
+				  <result name="success">app/weixin/process/subform/editSubform.jsp</result>
+			</action> 
+		<action name="weixin_process_subForm_add"  method="addsubFormItem"  class="weiXinProcessRuntimeExcuteAction" > 
+				  <result name="success">app/weixin/process/subform/addSubform.jsp</result>
+		 </action> 
+		<action name="weixin_process_subForm_remove"  method="delSubFormItem"  class="weiXinProcessRuntimeExcuteAction" > 
+			</action> 
+		<action name="wx_process_fileUpload"  method="formFileUpload"  class="weiXinProcessRuntimeExcuteAction" > 
+		</action>
+		<!-- 常用y -->
+		<action name="weixin_process_opinionTemplate"  method="showOpinionTemplate"  class="weiXinProcessRuntimeOperateAction" > 
+				  <result name="success">app/weixin/process/runtime/opinion_tpl_mb.jsp</result>
+			</action>
+		<!-- 会签 -->
+		<action name="weixin_processRuntimedoSignDlg"  method="executeSigns"  class="weiXinProcessRuntimeOperateAction" > 
+				  <result name="success">app/weixin/process/runtime/processSignsPage.jsp</result>
+			</action>
+		<!-- 信息资讯 -->
+		<action name="weixin_cms_index"  method="index"  class="weiXinCmsAction" > 
+				  <result name="success">app/weixin/cms/index.jsp</result>
+		 </action> 
+		<action name="weixin_cms_page"  method="showPage"  class="weiXinCmsAction" > 
+				  <result name="success">app/weixin/cms/page.jsp</result>
+		 </action> 
+		 
+		 <action name="weixin_km_index"  method="index"  class="weiXinKMAction" >  
+				  <result name="success">app/weixin/km/index.jsp</result>
+		 </action> 
+		 <action name="weixin_km_info"  method="showPage"  class="weiXinKMAction" >  
+				  <result name="success">app/weixin/km/page.jsp</result>
+		 </action> 
+		  <action name="weixin_mail_index"  method="index"  class="weiXinMailAction" >  
+				  <result name="success">app/weixin/mail/index.jsp</result>
+		 </action>
+		 <!-- 个人设置 -->
+		  <action name="weixin_account" method="accountIndex"  class="weiXinPersonAction" >
+       		<result name="success">app/weixin/org/account.jsp</result>	 
+  		 </action>
+  		  <action name="weixin_person_index" method="personIndex"  class="weiXinPersonAction" >
+       		<result name="success">app/weixin/person/person.jsp</result>	 
+  		 </action>
+  		 
+  		  <!-- 数据选择 -->
+  		 <action name="weixin_dictionary_runtime_show" method="index"
+			class="sysDictionaryRuntimeAction">
+			<result name="radio">app/weixin/plugs/dictionary/show_dict_radio.jsp</result>
+			<result name="multi">app/weixin/plugs/dictionary/show_dict_multi.jsp</result>
+			<result name="subgrid">app/weixin/plugs/dictionary/show_dict_radio.jsp
+			</result> 
+		</action>
+	</package>
+     
+</struts>

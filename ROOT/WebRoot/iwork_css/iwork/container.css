@@ -1,0 +1,483 @@
+@charset "utf-8";
+@import url("base.css");
+/* CSS Document */
+
+/*选项卡的样式*/
+.tab {
+	position:relative;
+	height:25px;
+	line-height:25px;
+	clear:both;
+	vertical-align:middle;
+	z-index:198;
+	padding-left:10px;
+}
+.tab li {
+	display:block;
+	float:left;
+	font-size:12px;
+	background:url(../../iwork_img/know/tab2.jpg) repeat-x;
+	border-top:1px solid #999;
+	border-left:1px solid #999;
+	border-right:1px solid #999;
+	margin-left:-1px;
+}
+.tab_selected {
+	display:block;
+	float:left;
+	font-size:12px;
+	background:url(../../iwork_img/know/tab1.jpg) repeat-x;
+	border-left:1px solid #999;
+	margin-left:-1px;
+	border-bottom:#f8f8f8;
+	color:#b20001;
+	font-weight:bold;
+	width:90px;
+}
+.tab li a {
+	display:block;
+	width:90px;
+	height:25px;
+	line-height:25px;
+	text-align:center;
+	font-weight:bold;
+}
+.tab li a:hover {
+
+	text-decoration:none;
+	
+}
+.tab_container { 
+	z-index:9999;
+	margin-top:0px;
+	*margin-top:-1px;
+}
+/*流程发起标题表格样式*/
+.title_normal {
+	width:400px;
+}
+.title_normal a:link {
+	color:#0208ff;
+	float:left;
+}
+.title_normal a:visited {
+	color:#0208ff;
+	float:left;
+}
+.title_normal a:hover {
+	color:#0208ff;
+	float:left;
+}
+.title_normal a:active {
+	color:#0208ff;
+	float:left;
+}
+.title_middle {
+	width:400px;
+}
+.title_middle a:link {
+ color:#ff9c00;
+ float:left;
+}
+.title_middle a:visited {
+	color:#ff9c00;
+	float:left;
+}
+.title_middle a:hover {
+	color:#ff9c00;
+	float:left;
+}
+.title_middle a:active {
+	color:#ff9c00;
+	float:left;
+}
+.title_urgency {
+	width:400px;
+}
+.title_urgency a:link {
+	color:#ff0000;
+	float:left;
+}
+.title_urgency a:visited {
+	color:#ff0000;
+	float:left;
+}
+.title_urgency a:hover {
+	color:#ff0000;
+	float:left;
+}
+.title_urgency a:active {
+	color:#ff0000;
+	float:left;
+}
+.title_notice {
+	width:400px;
+}
+.title_notice a:link {
+	color:#666666;
+	float:left;
+}
+.title_notice a:visited {
+	color:#666666;
+	float:left;
+}
+.title_notice a:hover {
+	color:#666666;
+	float:left;
+}
+.title_notice a:active {
+	color:#666666;
+	float:left;
+}
+/*数据表格样式*/	
+
+.data_list_container {
+	clear:both;
+	padding:5px 5px 5px 10px;
+}
+.data_list_container table {
+	background: #fff;
+	width: 100%;
+	border-collapse:collapse;
+	border-style:none;
+}
+.data_list_container table th {
+	padding: 0px;
+	background:url(../../iwork_img/know/table_th.jpg) repeat-x;
+	text-align: center;
+	font-weight: normal;
+	color: #000;
+	font-weight:bold;
+	border-collapse:collapse;
+	border-style:none;
+	cursor:pointer;
+	border:1px solid #ababab;
+	height:23px;
+	line-height:23px;
+}
+.data_list_container table td {
+	border:1px solid #ababab;
+	border-collapse:collapse;
+	padding:3px;
+}
+.data_list_container table tr:hover {
+	background-color:#f3f3f3
+}
+/*奇数�?/
+.row_odd {
+	background-color:#fff;
+	padding: 5px;
+}
+/*偶数�?/
+.row_even {
+	background-color:#fbfbfb;
+	padding: 5px;
+}
+/*新闻表格*/
+.news {
+	clear:both;
+	padding:10px 5px 5px 10px
+}
+.news table {
+	width: 100%;
+	border-collapse:collapse;
+	border-style:none;
+}
+.news table th {
+	text-align:left;
+	border-collapse:collapse;
+	padding:2px 5px 2px 5px;
+}
+.news table td {
+	text-align:left;
+	border-collapse:collapse;
+	padding:5px;
+}
+.news table a:link {
+	color:#505050;
+}
+.news table a:visited {
+	color:#505050;
+}
+.news table a:hover {
+	color:#505050;
+}
+.news table a:active {
+	color:#505050;
+}
+
+./*oa知道以及主门户OA知道*/
+.lineClean {
+	display:block;
+	line-height:1px;
+	height:1px;
+	overflow:hidden;
+	border-top:1px dashed #999999;
+	margin:2px;
+}
+.div_bgi {
+	width:160px;
+	border:1px solid #DCE0E1;
+	background:url(../../iwork_img/know/oa_titlebg.jpg) repeat-x;
+	padding:5px;
+	padding-left:15px;
+	margin-bottom:2px;
+}
+.div_tit {
+	width:160px;
+	position:relative;
+	padding:0px 0px 0px 0px;
+	text-align:left;
+	margin-bottom:5px;
+	height: 26px;
+	font-weight:bold;
+}
+.oa_main {
+	background-color:#f5f5f5;
+	margin-left:4px;
+	margin-right:4px;
+	height:auto;
+}
+.oasearch {
+	height:50px;
+	background:url(../../iwork_img/know/oasearch.jpg) no-repeat;
+	background-position:0px 9px;
+	padding-top:10px;
+	padding-left:160px;
+	
+}
+.input_oa {
+	background:transparent none!important;
+	width:280px;
+	height:24px;
+	border:0 none;
+	cursor:pointer;
+	font-size:14px;
+	margin-left:24px;
+	margin-top:8px;
+	line-height:24px;
+	_position:absolute;
+	_margin-top:7px;	
+}
+.btn_oasearch {
+	background:transparent none!important;
+	height:32px;
+	width:71px;
+	border:0 none;
+	cursor:pointer;
+	_margin-left:310px;
+	_margin-top:3px;
+	+margin-top:3px;
+	margin-top:5px !important;
+
+}
+.btn_ask {
+	
+	height:32px;
+	width:71px;
+	background:url(../../iwork_img/know/ask.jpg) no-repeat;
+	border:0 none;
+	cursor:pointer;
+	_margin-top:3px;
+	+margin-top:3px;
+	*margin-top:5px !important;
+}
+.btn_view {
+	height:32px;
+	width:71px;
+	background:url(../../iwork_img/know/view.jpg) no-repeat;
+	border:0 none;
+	cursor:pointer;
+	_margin-top:3px;
+	+margin-top:3px;
+	margin-top:5px !important;
+}
+.btn_float {
+	widows:150px;
+	float:right;
+	margin-right:10px;
+	width: 150px; 
+	margin-right: 22px;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+.btn_float {
+widows:150px;
+float:right;
+margin-right:10px;
+margin-top:-3px
+}
+.btn_oasearch {
+	background:transparent none!important;
+	height:32px;
+	width:71px;
+	border:0 none;
+	cursor:pointer;
+	_margin-left:357px;
+
+}
+.btn_ask {
+	
+	height:32px;
+	width:71px;
+	background:url(../../iwork_img/know/ask.jpg) no-repeat;
+	border:0 none;
+	cursor:pointer;
+}
+.btn_view {
+	height:32px;
+	width:71px;
+	background:url(../../iwork_img/know/view.jpg) no-repeat;
+	border:0 none;
+	cursor:pointer;
+
+
+
+}
+}
+.btn_plbl {
+	height:21px;
+	width:70px;
+	background:url(../aws_skins/_def2011/images/main_sub2.jpg) no-repeat;
+	border:0 none;
+	cursor:pointer;
+	line-height: 21px;
+}
+.btn_lcgj {
+	height:21px;
+	width:70px;
+	background:url(../aws_skins/_def2011/images/main_sub2.jpg) no-repeat;
+	border:0 none;
+	cursor:pointer;
+	line-height: 21px;
+}
+.oasearch_result {
+	border-bottom:1px dashed #999;
+	color:#999999
+}
+.oasearch_fontcolor {
+	color:#c00102
+}
+.oa_news table th{ font-weight:bold; color:#666}
+.oa_news table a:link {
+	color:#000
+}
+.oa_news table a:visited {
+	color:#000
+}
+.oa_news table a:hover {
+	color:#666
+}
+.oa_news table a:active {
+	color:#000
+}
+/*常用资料*/
+.ziliao {
+	height:42px;
+	width:141px;
+	background:url(images/zl.jpg) no-repeat;
+	clear:both
+}
+.ziliao_container {
+	height:300px;
+	clear:both;
+	margin:0 auto;
+	width:750px;
+	margin-top:10px
+}
+.ziliao_container a:link, a:visited, a:hover, a:active {
+	color:#555
+}
+.ziliao1 {
+	height:225px;
+	width:220px;
+	background:url(images/info.jpg) no-repeat;
+	float:left;
+	padding-top:75px;
+	padding-left:25px;
+	font-size:14px;
+	font-weight:bold;
+	color:#555;
+	line-height:24px;
+}
+.ziliao2 {
+	height:225px;
+	width:220px;
+	background:url(images/spec.jpg) no-repeat;
+	float:left;
+	padding-top:75px;
+	padding-left:25px;
+	font-size:14px;
+	font-weight:bold;
+	color:#555;
+	line-height:24px;
+}
+.ziliao3 {
+	height:225px;
+	width:220px;
+	background:url(images/tools.jpg) no-repeat;
+	float:left;
+	padding-top:75px;
+	padding-left:25px;
+	font-size:14px;
+	font-weight:bold;
+	color:#555;
+	line-height:24px;
+}
+/*表格中居左，居右，居中的对齐*/
+.align_left {
+
+	float:left;
+}
+.align_right {
+	text-align:right
+}
+.align_center {
+	text-align:center
+}
+/*流程发起背景�?/
+.green {
+	background:url(images/task_mytime1.gif) no-repeat;
+	overflow:hidden;
+	display:-moz-inline-box repeat-x top left;
+	display:inline-block;
+	border:0px;
+	width:73px;
+	height:18px;
+	text-align:center;
+	vertical-align:bottom;
+	padding-left:3px;
+	padding-top:2px;
+	color:#ffffff;
+	line-height:18px;
+}
+.orange {
+	background:url(images/task_mytime3.gif) no-repeat;
+	overflow:hidden;
+	display:-moz-inline-box repeat-x top left;
+	display:inline-block;
+	border:0px;
+	width:73px;
+	height:18px;
+	text-align:center;
+	vertical-align:bottom;
+	padding-left:3px;
+	padding-top:2px;
+	color:#ffffff;
+	line-height:18px;
+}
+.red {
+	background:url(images/task_mytime2.gif) no-repeat;
+	overflow:hidden;
+	display:-moz-inline-box repeat-x top left;
+	display:inline-block;
+	border:0px;
+	width:73px;
+	height:18px;
+	text-align:center;
+	vertical-align:bottom;
+	padding-left:3px;
+	padding-top:2px;
+	color:#ffffff;
+	line-height:18px;
+}
+.green,.red,.orange:hover{ text-decoration:none}

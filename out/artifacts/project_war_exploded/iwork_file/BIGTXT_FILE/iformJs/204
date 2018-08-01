@@ -1,0 +1,80 @@
+$(document).ready(function () {
+    var instanceId = $('#instanceId').val();
+    var isd = $('#isDialogDisabled').val();
+    if (instanceId == 0 || isd == null || isd == "null") {
+        $("#itemTr_2867").remove();
+        $("#itemTr_2868").remove();
+    }
+    var isDialogDisabled = $("#isDialogDisabled").val();
+    if (isDialogDisabled == 1) {
+        var px;
+        if ($("#TZNR").val().length > 20) {
+            px = $("#TZNR").val().length / 35 * 25 + "px";
+            $("#TZNR").css('height', px);
+        } else {
+            $("#TZNR").css('height', "20px");
+        }
+        $("#TZBT").attr("readonly", true);
+        $("#TZBT").css('border', '0px solid white');
+        $("#ZCHFSJ").attr("readonly", true);
+        $("#ZCHFSJ").css('border', '0px solid white');
+        $("#TZNR").attr("readonly", true);
+        $("#TZNR").css('width', "600px");
+        $("#TZNR").css('border', '0px solid white');
+        $("font").hide();
+        $("#DIVXGZL").hide();
+        $("#subTableTools154").hide();
+        $("#txtAreaTr_154").hide();
+        $("#data_XGZL div div a").hide();
+        for (i = 0; i < $("#itemTr_2866 a").length; i++) {
+            var a = $("a:eq(" + i + ")");
+            if (a.html() == "ÐÞ¸Ä") {
+                a.hide();
+            }
+        }
+        $("#itemTr_2867").remove();
+        $("#itemTr_2868").remove();
+    } else if (isDialogDisabled == 0) {
+        $("#itemTr_2867").remove();
+        $("#itemTr_2868").remove();
+        for (i = 0; i < $("a").length; i++) {
+            var a = $("a:eq(" + i + ")");
+            if (a.html() == "ÐÞ¸Ä") {
+                a.hide();
+            }
+        }
+    }
+    var isHFRandHFNRdiaplsy = $("#isHFRandHFNRdiaplsy").val();
+    if (isHFRandHFNRdiaplsy == 1) {
+        $("#itemTr_2867").hide();
+        $("#itemTr_2868").hide();
+        $("#HFR").attr("readonly", true);
+        $("#HFR").css('border', '0px solid white');
+        $("#HFR").css('height', 'auto');
+        $("#DIVSFTZHFR").hide();
+        for (i = 0; i < $("a").length; i++) {
+            var a = $("a:eq(" + i + ")");
+            if (a.html() == "ÐÞ¸Ä") {
+                a.hide();
+            }
+        }
+    }
+    if (isHFRandHFNRdiaplsy == 2) {
+        $("#itemTr_2863").hide();
+        $("#itemTr_2864").hide();
+        $("#itemTr_2865").hide();
+        $("#itemTr_2866").hide();
+        $("#txtAreaTr_154").hide();
+        $("#HFR").attr("readonly", true);
+        $("#HFR").css('border', '0px solid white');
+        var px;
+        if ($("#HFR").val().length > 20) {
+            px = $("#HFR").val().length / 50 * 34 + "px";
+            $("#HFR").css('height', px);
+        } else {
+            $("#HFR").css('height', "20px");
+        }
+        $("#DIVSFTZHFR").hide();
+        $(".tools_nav").hide();
+    }
+});

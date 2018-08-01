@@ -1,0 +1,143 @@
+<script type="text/javascript">
+$(function () {
+	$("#labelPROJECTNAME").bind("click",function(){
+		checkCustomerMsg('CUSTOMERNO');
+	});
+    $.post("dg_zqb_project_getipoprojectmsg.action", {
+        "projectno": $("#XMBH").val()
+    }, function (data) {
+        var dataJson = eval("(" + data + ")");
+        var manager = dataJson[0].MANAGER;
+        $("#manager").html(manager);
+        var customerno = dataJson[0].CUSTOMERNO;
+	$("#CUSTOMERNO").val(customerno);
+    });
+});
+function checkCustomerMsg(customerno){
+    $.post("dg_zqb_project_getcutomeurl.action", {
+        "customerno": $("#"+customerno).val()
+    }, function (data) {
+        var dataJson = eval("(" + data + ")");
+        var formid = dataJson[0].FORMID;
+        var demid = dataJson[0].DEMID;
+        var instanceid = dataJson[0].INSTANCEID;
+	var pageUrl = "openFormPage.action?formid="+formid+"&demId="+demid+"&instanceId="+instanceid;
+	art.dialog.open(pageUrl,{ 
+		id:'Category_show',
+		cover:true, 
+		title:'查看客户',
+		loadingText:'正在加载中,请稍后...',
+		bgcolor:'#999',
+		rang:true,
+		width:1200,
+		cache:false,
+		lock: true,
+		height:700, 
+		iconTitle:false,
+		extendDrag:true,
+		autoSize:false,
+		close:function(){}
+	});
+    });
+
+}
+</script>
+<style type="text/css">
+#labelPROJECTNAME{
+	color:blue;text-decoration:underline;cursor:pointer;
+}
+</style>
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					项目立项
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_0">
+								<td class="td_title" id="title_PROJECTNAME" width="15%">
+									项目名称
+								</td>
+								<td class="td_data" id="data_PROJECTNAME" width="35%">
+									${PROJECTNAME}&nbsp;　
+								</td>
+								<td class="td_title" id="title_LXRQ" width="15%">
+									项目负责人
+								</td>
+								<td class="td_data" id="data_LXRQ" width="35%">
+									<span id="manager"></span>&nbsp;　<input id="CUSTOMERNO" type="hidden" value="">
+								</td>
+							</tr>
+							<tr id="itemTr_6">
+								<td class="td_title" id="title_CJSJ" width="15%">
+									填报日期
+								</td>
+								<td class="td_data" id="data_CJSJ" width="35%">
+									${CJSJ}&nbsp;　
+								</td>
+								<td class="td_title" id="title_" width="15%">
+									
+								</td>
+								<td class="td_data" id="data_" width="35%">
+									
+								</td>
+							</tr>
+							<!--<tr id="itemTr_6">
+								<td class="td_title" id="title_PROJECTNAME" width="15%">
+									项目优势
+								</td>
+								<td class="td_data" id="data_PROJECTNAME" width="35%">
+									${LX1}&nbsp;　
+								</td>
+								<td class="td_title" id="title_PROJECTNAME" width="15%">
+									项目风险分析
+								</td>
+								<td class="td_data" id="data_PROJECTNAME" width="35%">
+									${LX2}&nbsp;　
+								</td>
+							</tr>-->
+							<!--<tr id="itemTr_6">
+								<td class="td_title" id="title_PROJECTNAME" width="15%">
+									项目立项人员意见
+								</td>
+								<td class="td_data" id="data_PROJECTNAME" width="35%">
+									${LX5}&nbsp;　
+								</td>
+								<td class="td_title" id="title_PROJECTNAME" width="15%">
+									
+								</td>
+								<td class="td_data" id="data_PROJECTNAME" width="35%">
+									&nbsp;　
+								</td>
+							</tr>-->
+							<tr id="fjTr_5180">
+								<td class="td_title" id="title_FJ">
+									附件
+								</td>
+								<td id="data_FJ" class="td_data" colspan="3">
+									${FJ}&nbsp;　
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${JDBH}${TBRID}${XMBH}${GGRQ}${GG1}${GG2}${GG3}${GG4}${GG5}${FDCY}${FD1}${FD2}${FD3}${FD4}${FD5}${SLRQ}${FK}${FKHFRQ}${SHRQ}${SHJG}${FXGFS}${FXGJ}${MJZJZE}${MJZJJE}${ZQJC}${ZQDM}${SSRQ}${XMNR}${XMSJ}${XMFJ}${ZZSJ}${JCXYYY}
+</div>

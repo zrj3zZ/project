@@ -1,0 +1,27 @@
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.left_bgImg{
+	background-image:url(iwork_img/style/bodyBg1.jpg);
+	background-repeat:repeat-x;
+	background-position:top;
+	vertical-align:top;
+}
+.right_bodyImg{
+	background-image:url(iwork_img/style/bg.png);
+	background-repeat:repeat-x;
+	background-position:top;
+	vertical-align:top;
+}
+.title{
+	font-size:20px;
+	border-bottom:2px #990033 solid;
+}
+.navBtn{
+	font-size:15px;
+	font-family:ºÚÌå;
+	border-bottom:1px #990033 solid;
+}

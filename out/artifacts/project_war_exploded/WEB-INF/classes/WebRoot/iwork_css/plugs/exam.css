@@ -1,0 +1,57 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+	padding:0px;
+	margin:0px;
+	font-family:宋体;
+	font-family:arial;
+	font-size:12px;
+	color:#666;
+}
+img {
+	border:0px;
+}
+.exam_bg1 {
+	border:1px solid #88c7fb;
+	background:#eaf5fe;
+	margin:2px;
+	padding:5px;
+}
+.exam_bg2 {
+	border:1px solid #88c7fb;
+	background:#fff;
+	margin:2px;
+}
+.exam_head {
+	height:85px;
+	background:url(/iwork_img/tv_head_bg.jpg) bottom repeat-x
+}
+.exam_main_tree_left {
+	width:180px;
+	float:left;
+}
+.exam_main_treefg {
+	background:url(/iwork_img/tree_fg.jpg);
+	width:7px;
+	height:492px;
+	float:left;
+	
+}
+.exam_main_main {
+	height:500px;
+	line-height:40px;
+	padding-left:200px;
+	color:#5a5a5a;
+	z-index: 1;
+}
+.exam_main_tree {
+	position: absolute;
+    top: 100px;
+    width: 200px;
+    z-index: 10;
+}
+.exam_main {
+		
+	
+}

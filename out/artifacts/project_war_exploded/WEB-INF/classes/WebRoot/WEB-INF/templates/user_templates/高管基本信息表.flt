@@ -1,0 +1,204 @@
+<script type="text/javascript">
+	Date.prototype.Format = function (fmt) { 
+		var o = {
+		"M+": this.getMonth() + 1, 
+		"d+": this.getDate(), 
+		"h+": this.getHours(), 
+		"m+": this.getMinutes(), 
+		"s+": this.getSeconds(), 
+		"q+": Math.floor((this.getMonth() + 3) / 3), 
+		"S": this.getMilliseconds() 
+	};
+	if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+	for (var k in o)
+		if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+	return fmt;
+}
+ </script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#gview_subformSUBFORM_BGSRZXX").hover(function(){
+			if($("select[name='RZZT']").val()=='离任' && $("input[name='LRSJ']").val() == ''){
+				var date = new Date();
+				var time = date.Format("yyyy-MM-dd");
+				//confirm("任职状态为离任，离任时间为空，系统自动设置为当前日期，请自行修改离任时间！");
+				$("input[name='LRSJ']").val(time);
+				$("input[name='RZJSRQ']").val(time);
+			}else if($("select[name='RZZT']").val()=='在职'){
+				$("input[name='LRSJ']").val("");
+			}
+		});
+	});
+
+function saveForm(){
+ 	var instanceId = $("#instanceId").val();
+
+	var filename=$("#XM").val();
+	
+	if(instanceId ==null || instanceId ==""){
+		instanceId ="0";
+	}
+	var title="董监高信息";
+	var valid = mainFormValidator.form(); //执行校验操作
+	if(!valid){
+		return false;
+	}
+	//保存富文本
+ 	try{ 
+ 		saveHtmlEditor();  
+ 	}catch(e){} 
+	$.post("addOrUpdTyff.action", { instanceId : instanceId,name :encodeURI(filename),filename:encodeURI(title)}, function (data) {
+               document.getElementById("submitbtn").click();	
+        });
+	
+} 
+</script>
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					董监高信息表
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help" style="text-align:right;">
+					<p style="margin-left:15px;float:right;">
+						填报时间:${CREATEDATE}
+					</p>
+					<p style="margin-left:15px;float:right;">
+						填报人:${CREATEUSER}[${CREATEUSERID}]
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+						<tbody>
+							<tr id="itemTr_0">
+								<td id="title_XM" class="td_title" width="15%">
+									<span style="color:red;"></span>姓名
+								</td>
+								<td id="data_XM" class="td_data" width="35%">
+									${XM}&nbsp;　
+								</td>
+								<td id="title_XB" class="td_title" width="15%">
+									<span style="color:red;"></span>性别
+								</td>
+								<td id="data_XB" class="td_data" width="35%">
+									${XB}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_2">
+								<td id="title_CSRQ" class="td_title" width="15%">
+									<span style="color:red;"></span>出生日期
+								</td>
+								<td id="data_CSRQ" class="td_data" width="35%">
+									${CSRQ}&nbsp;　
+								</td>
+								<td id="title_EMAIL" class="td_title" width="15%">
+									<span style="color:red;"></span>电子邮件
+								</td>
+								<td id="data_EMAIL" class="td_data" width="35%">
+									${EMAIL}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_6">
+								<td id="title_SJ" class="td_title" width="15%">
+									手机
+								</td>
+								<td id="data_SJ" class="td_data" width="35%">
+									${SJ}&nbsp;　
+								</td>
+								<td id="title_ZJH" class="td_title" width="15%">
+									身份证/护照
+								</td>
+								<td id="data_ZJH" class="td_data" width="35%">
+									${ZJH}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_8">
+								<td id="title_CZ" class="td_title" width="15%">
+									传真
+								</td>
+								<td id="data_CZ" class="td_data" width="35%">
+									${CZ}&nbsp;　
+								</td>
+								<td id="title_DH" class="td_title" width="15%">
+									电话
+								</td>
+								<td id="data_DH" class="td_data" width="35%">
+									${DH}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_10">
+								<td id="title_GJ" class="td_title" width="15%">
+									国籍
+								</td>
+								<td id="data_GJ" class="td_data" width="35%">
+									${GJ}&nbsp;　
+								</td>
+								<td id="title_DZ" class="td_title" width="15%">
+									地址
+								</td>
+								<td id="data_DZ" class="td_data" width="35%">
+									${DZ}&nbsp;　
+								</td>
+							</tr>
+							<tr id="fjTr_1273">
+								<td id="title_JL" class="td_title">
+									简历及附件
+								</td>
+								<td id="data_JL" class="td_data" colspan="3">
+									${JL}&nbsp;　
+								</td>
+							</tr>
+							<tr id="txtAreaTr_1272">
+								<td id="title_BZ" class="td_title">
+									备注
+								</td>
+								<td id="data_BZ" class="td_data" colspan="3">
+									${BZ}&nbsp;　
+								</td>
+							</tr>
+							<tr>
+								<td colspan="4">
+									<div style="border-bottom:0px;border-left:0px;width:840px;height:400px;border-top:0px;border-right:0px;" id="mainFrameTab" class="easyui-tabs" fit="true">
+										<div style="border-bottom:#efefef 0px solid;border-left:#efefef 0px solid;height:500px;border-top:#efefef 0px solid;border-right:#efefef 0px solid;" title="本公司任职信息" border="true" cache="false">
+											${SUBFORM_BGSRZXX}
+										</div>
+										<div style="border-bottom:#efefef 0px solid;border-left:#efefef 0px solid;height:500px;border-top:#efefef 0px solid;border-right:#efefef 0px solid;" title="股东单位任职信息" border="true" cache="false">
+											${SUBFORM_GDDWRZXX}
+										</div>
+										<div style="border-bottom:#efefef 0px solid;border-left:#efefef 0px solid;height:500px;border-top:#efefef 0px solid;border-right:#efefef 0px solid;" title="其他单位任职信息" border="true" cache="false">
+											${SUBFORM_QTDWRZXX}
+										</div>
+										<div style="border-bottom:#efefef 0px solid;border-left:#efefef 0px solid;height:500px;border-top:#efefef 0px solid;border-right:#efefef 0px solid;" title=" 亲属信息" border="true" cache="false">
+											${SUBFORM_QSXX}
+										</div>
+									</div>
+								</td>
+								<td class="td_data" width="80%" colspan="4">
+									<br />
+								</td>
+							</tr>
+							<tr id="subformTr_132">
+								<td class="td_data" width="80%" colspan="4">
+									<br />
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${KHMC}${KHBH}${CW}${GDZH}${YHFJ}
+</div>

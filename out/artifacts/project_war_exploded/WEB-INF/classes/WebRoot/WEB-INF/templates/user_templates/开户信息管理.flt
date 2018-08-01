@@ -1,0 +1,83 @@
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0"
+		style="margin-bottom: 5px" width="100%">
+		<tbody>
+			<tr>
+				<td class="formpage_title">开票信息管理</td>
+			</tr>
+			<tr>
+				<td align="right" id="help"></td>
+			</tr>
+			<tr>
+				<td align="right" class="line"></td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%">
+						<tbody>
+							<tr>
+								<td id="title_NOTICEDATE" class="td_title" width="180">
+								</td>
+								<td id="data_NOTICEDATE" class="td_data">
+									<font color="red">按照财政部、国家税务总局的规定，自2016年5月1日起，金融业由缴纳营业税改为缴纳增值税。</br>公司由营业税纳税人变更为增值税一般纳税人，请提供开发票的一般纳税人开票信息：</font>&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2746">
+								<td class="td_title" id="title_CUSTOMERNAME" width="180">
+									<font color='red'>*</font>客户名称
+								</td>
+								<td class="td_data" id="data_CUSTOMERNAME">${CUSTOMERNAME}&nbsp;</td>
+							</tr>
+							<tr id="itemTr_2750">
+								<td class="td_title" id="title_NSR" width="180">
+									<font color='red'>*</font>纳税人
+								</td>
+								<td class="td_data" id="data_NSR">${NSR}&nbsp;</td>
+							</tr>
+							<tr id="itemTr_2751">
+								<td class="td_title" id="title_SWDJH" width="180">
+									<font color='red'>*</font>税务登记号
+								</td>
+								<td class="td_data" id="data_SWDJH">${SWDJH}&nbsp;</td>
+							</tr>
+							<tr id="itemTr_2752">
+								<td class="td_title" id="title_SWDJDZ" width="180">
+									<font color='red'>*</font>税务登记地址
+								</td>
+								<td class="td_data" id="data_SWDJDZ">${SWDJDZ}&nbsp;</td>
+							</tr>
+							<tr id="itemTr_2748">
+								<td class="td_title" id="title_BANKNAME" width="180">
+									<font color='red'>*</font>开户银行名称
+								</td>
+								<td class="td_data" id="data_BANKNAME">${BANKNAME}&nbsp;</td>
+							</tr>
+							<tr id="itemTr_2749">
+								<td class="td_title" id="title_BANKACCOUNT" width="180">
+									<font color='red'>*</font>开户银行帐号
+								</td>
+								<td class="td_data" id="data_BANKACCOUNT">${BANKACCOUNT}&nbsp;</td>
+							</tr>
+							<tr>
+								<td id="title_NOTICEDATE" class="td_title" width="180">
+								</td>
+								<td id="data_NOTICEDATE" class="td_data">
+									<font>上传资料：</br>
+									1、《营业执照副本》复印件并加盖公章的扫描件。</br>
+									2、一般纳税人资格证明复印件并加盖公章的扫描件。</br>
+									3、开户许可证的扫描件
+									</font>&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2753">
+								<td class="td_title" id="title_ATTACH" width="180">上传资料</td>
+								<td class="td_data" id="data_ATTACH">${ATTACH}&nbsp;</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none">${USERID}${CUSTOMERNO}</div>

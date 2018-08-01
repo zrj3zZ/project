@@ -1,0 +1,102 @@
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					题库试题内容维护表单
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+						<tbody>
+							<tr>
+								<td id="title_TITLE" class="td_title" width="15%">
+									<span style="color:red;">*</span>试题标题
+								</td>
+								<td id="data_TITLE" class="td_data" width="35%">
+									${TITLE}&nbsp;
+								</td>
+								<td id="title_NO" class="td_title" width="15%">
+									<span style="color:red;">*</span>试题编号
+								</td>
+								<td id="data_NO" class="td_data" width="35%">
+									${NO}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td id="title_TYPENO" class="td_title" width="15%">
+									<span style="color:red;">*</span>类别编号
+								</td>
+								<td id="data_TYPENO" class="td_data" width="35%">
+									${TYPENO}&nbsp;
+								</td>
+								<td id="title_TYPENAME" class="td_title" width="15%">
+									<span style="color:red;">*</span>类别名称
+								</td>
+								<td id="data_TYPENAME" class="td_data" width="35%">
+									${TYPENAME}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td id="title_ANSWER" class="td_title" width="15%">
+									<span style="color:red;">*</span>答案
+								</td>
+								<td id="data_ANSWER" class="td_data" width="35%">
+									${ANSWER}&nbsp;
+								</td>
+								<td id="title_SCORENUM" class="td_title" width="15%">
+									<span style="color:red;">*</span>参考分数
+								</td>
+								<td id="data_SCORENUM" class="td_data" width="35%">
+									${SCORENUM}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td id="title_TOPICTYPE" class="td_title" width="15%">
+									<span style="color:red;">*</span>试题类型
+								</td>
+								<td id="data_TOPICTYPE" class="td_data" width="35%" colspan="3">
+									${TOPICTYPE}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td id="title_MEMO" class="td_title" width="15%">
+									试题补充描述
+								</td>
+								<td id="data_MEMO" class="td_data" width="35%" colspan="3">
+									${MEMO}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td id="title_ATTACHFILE" class="td_title">
+									试题附件
+								</td>
+								<td id="data_ATTACHFILE" class="td_data" colspan="3">
+									${ATTACHFILE}&nbsp;
+								</td>
+									</td>
+										</tr>
+										<tr>
+											<td class="td_title" width="20%">
+												题库试题选项表单
+											</td>
+											<td class="td_data" width="80%" colspan="3">
+												${SUBFORM_TKSTXXB}&nbsp;
+											</td>
+										</tr>
+											</tbody>
+												</table>
+													</td>
+														</tr>
+															</tbody>
+																</table>
+																	</div>

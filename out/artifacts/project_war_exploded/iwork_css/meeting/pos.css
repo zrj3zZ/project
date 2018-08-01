@@ -1,0 +1,7 @@
+#menu_pos{position:absolute;left:141px;top:0px;width:58px;padding:6px 10px 6px 10px;;background:#FFFFFF;text-align:center;z-index:1000;display:none;border:1px solid #6F6F6F;}
+#cur_pos{position:absolute;right:59px;top:0px;padding:6px 4px 6px 4px;background:#FFFFFF;text-align:center;z-index:1000;border:1px solid #6F6F6F;display:none;}
+#menu_pos p,#cur_pos p{height:20px;line-height:20px;margin:0px;padding:0px;list-style:none;}
+#menu_pos a:link,#menu_pos a:visited{color:#505050;text-decoration:none;}
+#cur_pos a:link,#cur_pos a:visited{color:#505050;text-decoration:none;}
+#menu_pos a:hover{color:#000000;}
+#cur_pos a:hover{color:#000000;}

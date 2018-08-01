@@ -1,0 +1,6 @@
+$(function(){
+$("#JLSJ").val($("#NHDATE").val());
+});
+function saveAfterEvent(){
+$("#JLSJ").val($("#NHDATE").val());
+}

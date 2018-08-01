@@ -1,0 +1,104 @@
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					股份转让情况
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" border="0" cellpadding="0" cellspacing="0" width="100%">
+						<tbody>
+							<tr id="itemTr_1493">
+								<td id="title_ZRSJ" class="td_title" width="180">
+									<span style="color:red;"></span>转让时间
+								</td>
+								<td id="data_ZRSJ" class="td_data">
+									${ZRSJ}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1494">
+								<td id="title_ZRSL" class="td_title" width="180">
+									<span style="color:red;"></span>转让数量(万股)
+								</td>
+								<td id="data_ZRSL" class="td_data">
+									${ZRSL}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1495">
+								<td id="title_ZRJG" class="td_title" width="180">
+									<span style="color:red;"></span>转让价格(元)
+								</td>
+								<td id="data_ZRJG" class="td_data">
+									${ZRJG}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1496">
+								<td id="title_ZRR" class="td_title" width="180">
+									<span style="color:red;"></span>转让人
+								</td>
+								<td id="data_ZRR" class="td_data">
+									${ZRR}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1497">
+								<td id="title_ZRQCGSL" class="td_title" width="180">
+									<span style="color:red;"></span>转让前持股数量(万股)
+								</td>
+								<td id="data_ZRQCGSL" class="td_data">
+									${ZRQCGSL}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1498">
+								<td id="title_ZRHCGSL" class="td_title" width="180">
+									<span style="color:red;"></span>转让后持股数量(万股)
+								</td>
+								<td id="data_ZRHCGSL" class="td_data">
+									${ZRHCGSL}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1499">
+								<td id="title_SRR" class="td_title" width="180">
+									受让人
+								</td>
+								<td id="data_SRR" class="td_data">
+									${SRR}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1500">
+								<td id="title_SRQCGSL" class="td_title" width="180">
+									受让前持股数量(万股)
+								</td>
+								<td id="data_SRQCGSL" class="td_data">
+									${SRQCGSL}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1501">
+								<td id="title_SRHCGSL" class="td_title" width="180">
+									受让后持股数量(万股)
+								</td>
+								<td id="data_SRHCGSL" class="td_data">
+									${SRHCGSL}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${KHBH}${KHMC}
+</div>

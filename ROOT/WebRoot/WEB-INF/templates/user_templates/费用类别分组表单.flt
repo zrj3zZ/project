@@ -1,0 +1,39 @@
+<div >
+		<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 5px" width="100%">
+			<tbody>
+				<tr>
+					<td class="dialog_formpage_title">费用类别分组表单</td>
+				</tr>
+				<tr>
+					<td align="right" id="help"></td>
+				</tr>
+				<tr>
+					<td align="right" class="line"></td>
+				</tr>
+				<tr>
+					<td align="left">
+						<table border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody>
+								<tr id="itemTr_1022">
+									<td class="td_title"  id="title_FZBH" width="180">分组编号									</td>
+									<td class="td_data"  id="data_FZBH">${FZBH}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_1023">
+									<td class="td_title"  id="title_FZMC" width="180">分组名称									</td>
+									<td class="td_data"  id="data_FZMC">${FZMC}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_1025">
+									<td class="td_title"  id="title_FJDID" width="180">父节点ID									</td>
+									<td class="td_data"  id="data_FJDID">${FJDID}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_1024">
+									<td class="td_title"  id="title_BZ" width="180">备注									</td>
+									<td class="td_data"  id="data_BZ">${BZ}&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+</div>

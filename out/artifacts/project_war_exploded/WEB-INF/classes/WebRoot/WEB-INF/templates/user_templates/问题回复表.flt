@@ -1,0 +1,70 @@
+<div>
+	<table style="margin-bottom:5px;" class="ke-zeroborder" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" border="0" cellpadding="0" cellspacing="0" width="100%">
+						<tbody>
+							<tr id="itemTr_1200">
+								<td class="td_title" id="title_PROJECTNO" width="180">
+									项目编号
+								</td>
+								<td class="td_data" id="data_PROJECTNO">
+									${PROJECTNO}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1201">
+								<td class="td_title" id="title_TASKNO" width="180">
+									任务编号
+								</td>
+								<td class="td_data" id="data_TASKNO">
+									${TASKNO}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1202">
+								<td class="td_title" id="title_CONTENT" width="180">
+									回复正文
+								</td>
+								<td class="td_data" id="data_CONTENT">
+									${CONTENT}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1206">
+								<td class="td_title" id="title_QUESTIONNO" width="180">
+									问题编号
+								</td>
+								<td class="td_data" id="data_QUESTIONNO">
+									${QUESTIONNO}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1204">
+								<td class="td_title" id="title_USERID" width="180">
+									回复人账号
+								</td>
+								<td class="td_data" id="data_USERID">
+									${USERID}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1205">
+								<td class="td_title" id="title_USERNAME" width="180">
+									回复人行吗
+								</td>
+								<td class="td_data" id="data_USERNAME">
+									${USERNAME}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1203">
+								<td class="td_title" id="title_CREATEDATE" width="180">
+									回复时间
+								</td>
+								<td class="td_data" id="data_CREATEDATE">
+									${CREATEDATE}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

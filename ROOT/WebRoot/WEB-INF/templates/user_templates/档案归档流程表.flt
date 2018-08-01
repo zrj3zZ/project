@@ -1,0 +1,138 @@
+<script type="text/javascript">
+$(function(){
+ 
+
+	var instanceId= $("#instanceId").val();
+	$.post("zqb_announcement_gettentuserdateforpro.action",{instanceId:instanceId},function (data) {
+		$("#contenttd").html(data);
+	});
+
+  $('#GDWZ').attr("placeholder","档案柜号-文件夹号");
+ 
+	if( !('placeholder' in document.createElement('input')) ){  
+   
+    $('input[placeholder],textarea[placeholder]').each(function(){   
+      var that = $(this),   
+      text= that.attr('placeholder');   
+      if(that.val()===""){   
+        that.val(text).addClass('placeholder');   
+      }   
+      that.focus(function(){   
+        if(that.val()===text){   
+          that.val("").removeClass('placeholder');   
+        }   
+      })   
+      .blur(function(){   
+        if(that.val()===""){   
+          that.val(text).addClass('placeholder');   
+        }   
+      })   
+      .closest('form').submit(function(){   
+        if(that.val() === text){   
+          that.val('');   
+        }   
+      });   
+    });   
+  }   
+	
+});
+</script>
+ <style>
+    #GDWZ::-webkit-input-placeholder{
+                color: #DBDBDB;
+                font-size: 10px;
+            }
+  
+        </style>
+<div id="border">
+	<tr< tr=""><tr< tr=""></tr<></tr<>
+	<table border="0" cellpadding="0" cellspacing="0" class="ke-zeroborder" style="margin-bottom:5.0px;" width="100%">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					档案归档流程表
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" class="ke-zeroborder" width="100%">
+						<tbody>
+							<tr id="itemTr_5357">
+								<td class="td_title" id="title_YHM" width="180">
+									用户名
+								</td>
+								<td class="td_data" id="data_YHM">
+									${YHM}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_5358">
+								<td class="td_title" id="title_SQSJ" width="180">
+									申请时间
+								</td>
+								<td class="td_data" id="data_SQSJ">
+									${SQSJ}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_5366">
+								<td class="td_title" id="title_DABH" width="180">
+									档案编号
+								</td>
+								<td class="td_data" id="data_DABH">
+									${DABH}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_5360">
+								<td class="td_title" id="title_DAMC" width="180">
+									<span style="color:red;">*</span>档案名称
+								</td>
+								<td class="td_data" id="data_DAMC">
+									${DAMC}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_5361">
+								<td class="td_title" id="title_DALX" width="180">
+									档案类型
+								</td>
+								<td class="td_data" id="data_DALX">
+									${DALX}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_5362">
+								<td class="td_title" id="title_GDWZ" width="180">
+									归档位置
+								</td>
+								<td class="td_data" id="data_GDWZ">
+									<input name="GDWZ" type="text" id="GDWZ" width="220"/>
+								</td>
+							</tr>
+							<tr id="itemTr_5363">
+								<td class="td_title" id="title_DAJS" width="180">
+									档案件数
+								</td>
+								<td class="td_data" id="data_DAJS">
+									${DAJS}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_5364">
+								<td class="td_title" id="title_DAFJ" width="180">
+									附件
+								</td>
+								<td class="td_data" id="data_DAFJ">
+									${DAFJ}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1793">
+								<td class="td_title" id="title_FJ" width="15%"></td>
+								<td id="contenttd" colspan="3" class="td_data" width="85%" style="border-bottom: 0px dotted #999999;color:red;"></td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
+</div>
+<div style="display:none;">
+	${INSTANCEID}${COMPANYNO}${COMPANYNAME}${YHID}${GDSJ}${ZT}${LCBH}${LZJD}${RWID}${BMID}${BMMC}${JSID}
+</div>

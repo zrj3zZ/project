@@ -1,0 +1,23 @@
+.bios_cell_error{
+	background-repeat:repeat-x;
+	background-position: bottom;
+	background-image:url(image/common/error.png);
+}
+
+.bios_custom_ctrl{
+	display:none;
+	_position:relative;
+	_top:-1px;
+	width:100%;
+	height:100%;
+	border:0px;
+	margin-right:1px;
+	background: url(image/common/custom_ctrl.gif) no-repeat right;
+}
+
+.bios_custom_ctrl2{
+	width:100%;
+	border:#999 1px solid;
+	height:20px;
+	background: white url(image/common/custom_ctrl.gif) no-repeat right;
+}

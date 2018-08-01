@@ -1,0 +1,2424 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+"http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+   <package strict-method-invocation="false" name="resoucezq" extends="tiles-default">
+		  <!-- 定义一个名为 checkLogin 的拦截器 -->  
+        <interceptors>  
+            <!-- 定义权限检查拦截器 -->  
+            <interceptor name="checkLogin"  
+                class="com.iwork.core.server.root.IWorkInterceptor" />  
+            <!-- 定义一个包含权限检查的拦截器栈 -->  
+            <interceptor-stack name="myDefaultStack">  
+                <!-- 定义拦截器栈包含checkLogin拦截器 -->  
+           <interceptor-ref name="checkLogin"></interceptor-ref> 
+                <interceptor-ref name="defaultStack"></interceptor-ref>  
+            </interceptor-stack>  
+        </interceptors>  
+        <!-- 设置全局 全局默认的拦截器栈-->  
+        <default-interceptor-ref name="myDefaultStack"></default-interceptor-ref>  
+        <!-- 定义全局Result -->  
+        <global-results>  
+            <!-- 当返回login视图名时，转入/login.jsp页面 -->  
+            <result name="login">/login.jsp</result>  
+        </global-results>
+        
+		<action name="*" class="com.iwork.commons.AbstractAction">
+            <result>/{1}.jsp</result>
+        </action>
+		<!-- 登录密码验证 -->
+		<action name="zqb_Verification_password" method="Verificationpassword" class="zqbChangePasswordAction">
+		</action>
+        
+		<!-- 人力资源管理==员工自助
+		<action name="iwork_staff_index" method="staffIndex" class="staffAction">
+			<result  name="success">app/assets/index.jsp</result>
+		</action> -->
+		<!-- 人力资源管理==员工自助==员工履历 
+		<action name="iwork_staff_info" method="staffInfo" class="staffAction">
+			<result  name="success">app/staff/staffInfo.jsp</result>
+		</action>-->
+		<!-- 人力资源管理==员工自助==我的资产
+		<action name="iwork_staff_assets" method="myCardList" class="assetsTestAction">
+			<result  name="success">app/staff/myAssetsInfo.jsp</result>
+		</action> -->
+		<action name="uploadifyDownload" class="uploadifyAction" method="download"></action>
+		<!-- 证券宝 -->
+		<action name="zqb_project_rz_list" method="rzList"   class="zqbProjectManageAction" >
+		<result name="success">app/plugs/project/taskIn.jsp</result> 
+		</action> 
+		<action name="zqb_project_save_rz" method="saveRz"   class="zqbProjectManageAction" >
+		</action> 
+		<action name="zqb_project_edit_rz" method="editRz"   class="zqbProjectManageAction" >
+		</action> 
+		<action name="zqb_project_rzgl" method="pjIndex"   class="zqbProjectManageAction" >
+		<result name="success">app/plugs/project/rzIndex.jsp</result> 
+		</action> 
+		<action name="zqb_project_index" method="index"   class="zqbProjectManageAction" >
+		<result name="success">app/plugs/project/index.jsp</result> 
+		</action> 
+		<action name="zqb_project_indexNew" method="indexNew"   class="zqbProjectManageAction" >
+		<result name="success">app/plugs/project/indexNew.jsp</result> 
+		</action> 
+		<!-- zqb_project_this_check东吴项目审批通过检查，用于设置表单只读 -->
+		<action name="zqb_project_this_check" method="zqbProjectThisCheck"   class="zqbProjectManageAction" >
+		</action> 
+		<!-- 自定义客户选择器 -->
+		<action name="zqb_project_costormer_set" method="zqbProjectCostormerSet"   class="zqbProjectManageAction" >
+		<result name="success">app/plugs/project/projectcostormerset.jsp</result> 
+		</action>
+		<action name="zqb_gpfxproject_costormer_set" method="zqbGpfxProjectCostormerSet"   class="zqbProjectManageAction" >
+		<result name="success">app/plugs/project/gpfxprojectcostormerset.jsp</result> 
+		</action>
+		
+			<action name="checkdate"  method="checkdate" class="zqbMeetingManageAction" >
+		</action>
+		
+		<!-- 工作总结选择器 -->
+		<action name="gzrzxzq" method="gzrzxzq"   class="zqbAnnouncementAction" >
+			<result name="success">app/engine/dem/xmxzq.jsp</result> 
+		</action>
+		<action name="gzrzxzqBM" method="gzrzxzqBM"   class="zqbAnnouncementAction" >
+			<result name="success">app/engine/dem/xmxzqBM.jsp</result> 
+		</action>
+		<!-- 在线考试试卷导入 -->
+		<action name="zxksDr" method="zxksDr" class="zqbAnnouncementAction">
+			<result name="success">app/engine/dem/excel_zxksimp.jsp</result>
+		</action>
+		<action name="zxksDrupfile" method="zxksDrupfile" class="zqbAnnouncementAction"></action>
+		<!-- 底稿归档导入 -->
+		<action name="dggdDr" method="dggdDr" class="zqbAnnouncementAction">
+			<result name="success">app/engine/dem/excel_dggdimp.jsp</result>
+		</action>
+		<action name="dggdDrupfile" method="dggdDrupfile" class="zqbAnnouncementAction"></action>
+		<!-- 通知公告自定义选择器 -->
+		<action name="zqb_tzggproject_costormer_set" method="zqbTzggProjectCostormerSet"   class="zqbMeetingManageAction" >
+		<result name="success">app/plugs/project/tzggprojectcostormerset.jsp</result> 
+		</action>
+		<action name="zqb_cxtzggproject_costormer_set" method="cxzqbTzggProjectCostormerSet"   class="zqbMeetingManageAction" >
+		<result name="success">app/plugs/project/tzggprojectcostormerset.jsp</result> 
+		</action>
+		<!-- 自定义部门选择器 -->
+		<action name="zqb_gpfx_addxmcy_department_index" method="zqbAddxmcyDepartmentSet"   class="zqbGpfxProjectManageAction" >
+		<result name="success">app/plugs/project/gpfx/projectxmcydepartmentset.jsp</result> 
+		</action>
+		<action name="zqb_gpfx_clbm_index" method="zqbCLBMSet"   class="zqbGpfxProjectManageAction" >
+		<result name="success">app/plugs/project/gpfx/projectxclbmset.jsp</result> 
+		</action>
+		<action name="zqb_addxmcy_department_index" method="zqbAddxmcyDepartmentSet"   class="zqbProjectManageAction" >
+		<result name="success">app/plugs/project/projectxmcydepartmentset.jsp</result> 
+		</action>
+		<action name="zqb_clbm_index" method="zqbCLBMSet"   class="zqbProjectManageAction" >
+		<result name="success">app/plugs/project/projectxclbmset.jsp</result> 
+		</action>
+		<action name="zqb_addxmcy_department_ztree" method="zqbAddxmcyDepartmentZtree"   class="zqbProjectManageAction" >
+		</action>
+		<action name="zqb_project_search" method="search"   class="zqbProjectManageAction" >
+		<result name="success">app/plugs/project/search.jsp</result> 
+		</action> 
+		<action name="zqb_project_search4" method="search"   class="zqbProjectManageAction" >
+		<result name="success">app/plugs/project/xmfzr.jsp</result> 
+		</action> 
+		<action name="zqb_project_updateScore" method="updateScore"   class="zqbProjectManageAction" >
+		</action>
+		<action name="zqb_project_closeitem" method="projectClose"   class="zqbProjectManageAction" >
+		</action>
+		<action name="zqb_project_item" method="itemIndex"   class="zqbProjectManageAction" >
+			<result name="success">app/plugs/project/item.jsp</result>  
+		</action> 
+		<action name="zqb_project_update_item" method="updateTaskTime"   class="zqbProjectManageAction" >
+		</action> 
+		<action name="zqb_project_finish_item" method="setProjectFinish"   class="zqbProjectManageAction" >
+		</action> 
+		<action name="zqb_project_finish_dg" method="setProjectFinishDg"   class="zqbProjectManageAction" >
+		</action> 
+		<action name="zqb_project_remove_item" method="removeItem"   class="zqbProjectManageAction" >
+		</action>  
+		<action name="zqb_project_charIndex" method="charIndex"   class="zqbProjectManageAction" >
+			<result name="success">app/plugs/project/charIndex.jsp</result>  
+		</action> 
+		<action name="zqb_project_managerBarChart" method="showManagerBarChart"   class="zqbProjectManageAction" >
+			<result name="success">app/plugs/project/barcharIndex.jsp</result>  
+		</action> 
+		<action name="zqb_project_managerBarChartInfo" method="showManagerBarChartInfo"   class="zqbProjectManageAction" >
+			<result name="success">app/plugs/project/barcharIndexInfo.jsp</result>  
+		</action> 
+		<action name="zqb_project_userChart" method="charUser"   class="zqbProjectManageAction" >
+			<result name="success">app/plugs/project/usercharIndex.jsp</result>  
+		</action>  
+		<action name="zqb_project_yszkChart" method="yszkChart"   class="zqbProjectManageAction" >
+			<result name="success">app/plugs/project/yszk.jsp</result>  
+		</action>  
+		<action name="zqb_project_yszkChartInfo" method="showYszkChartInfo"   class="zqbProjectManageAction" >
+			<result name="success">app/plugs/project/yszkInfo.jsp</result>  
+		</action>  
+		<action name="zqb_project_report" method="gridIndex"   class="zqbProjectManageAction" >
+			<result name="success">app/plugs/project/gridIndex.jsp</result>  
+		</action> 
+		<action name="zqb_project_question" method="showQuestionPage"   class="zqbProjectManageAction" >
+			<result name="success">app/plugs/project/question.jsp</result>  
+		</action> 
+		<action name="zqb_project_showquestion" method="showQuestion"   class="zqbProjectManageAction" >
+			<result name="success">app/plugs/project/question.jsp</result>  
+		</action> 
+		<action name="zqb_project_question_commit" method="commitQuestion"   class="zqbProjectManageAction" >
+		</action> 
+		<action name="zqb_project_question_remove" method="removeQuestion"   class="zqbProjectManageAction" >
+		</action>  
+		<action name="zqb_project_question_all_remove" method="removeAllQuestion"   class="zqbProjectManageAction" >
+		</action>  
+		<action name="zqb_project_exppro_index" method="expproIndex"   class="zqbProjectManageAction" >
+			<result name="success">app/plugs/project/exppro.jsp</result>
+		</action>
+		<action name="zqb_project_expprocxdd_index" method="expprocxddIndex"   class="zqbProjectManageAction" >
+			<result name="success">app/plugs/project/expprocxdd.jsp</result>
+		</action>
+		<action name="zqb_project_exppro" method="exppro"   class="zqbProjectManageAction" >
+		</action>
+		<action name="zqb_project_expprocxdd" method="expprocxdd"   class="zqbProjectManageAction" >
+		</action>
+		<action name="zqb_project_showDaily" method="showDaily"   class="zqbProjectManageAction">
+			<result name="success">app/plugs/project/projectDaily.jsp</result>
+		</action>
+		<action name="zqb_project_checkDaily" method="checkDaily"   class="zqbProjectManageAction">
+			<result name="success">app/plugs/project/projectDailyCheck.jsp</result>
+		</action>
+		<action name="zqb_project_removeDaily" method="removeDaily"   class="zqbProjectManageAction">
+		</action>
+		<action name="zqb_gpfx_project_showDaily" method="showDaily"   class="zqbGpfxProjectManageAction">
+			<result name="success">app/plugs/project/gpfx/projectDaily.jsp</result>
+		</action>
+		<action name="zqb_gpfx_project_removeDaily" method="removeDaily"   class="zqbGpfxProjectManageAction">
+		</action>
+		<action name="zqb_project_daily" method="expDaily"   class="zqbProjectManageAction">
+		</action>
+		<action name="zqb_gpfx_project_daily" method="expDaily"   class="zqbGpfxProjectManageAction">
+		</action>
+		<action  name="zqb_project_checkpjrecord"  method="checkPJRecord" class="zqbProjectManageAction">
+		</action>
+		<action  name="zqb_project_getPjSettlementSheet"  method="getPjSettlementSheet" class="zqbProjectManageAction">
+			<result name="success">app/plugs/project/pjrzIndex.jsp</result>
+		</action>
+		<action  name="zqb_project_deleteformdate"  method="zqbProjectDeleteformdate" class="zqbProjectManageAction">
+		</action>
+		<action  name="zqb_project_setmonth"  method="setMonth" class="zqbProjectManageAction">
+			<result name="success">app/plugs/project/pjrzSetMonth.jsp</result>
+		</action>
+		<action  name="zqb_project_ywhzsetmonth"  method="ywhzSetMonth" class="zqbProjectManageAction">
+			<result name="success">app/plugs/project/ywhzSetMonth.jsp</result>
+		</action>
+		<action  name="zqb_project_ydqysetmonth"  method="ydqySetMonth" class="zqbProjectManageAction">
+			<result name="success">app/plugs/project/ydqySetMonth.jsp</result>
+		</action>
+		<action  name="zqb_project_expxmjs"  method="expxmjs" class="zqbProjectManageAction">
+		</action>
+		<action  name="zqb_project_expywhz"  method="expywhz" class="zqbProjectManageAction">
+		</action>
+		<action  name="zqb_project_expydqy"  method="expydqy" class="zqbProjectManageAction">
+		</action>
+		<action  name="zqb_project_commitProject"  method="commitProject" class="zqbProjectManageAction">
+		</action>
+		<action  name="zqb_project_getZkList"  method="getZkList" class="zqbProjectManageAction">
+			<result name="success">app/plugs/project/zkIndex.jsp</result>
+		</action>
+		<action  name="zqb_project_getNhList"  method="getNhList" class="zqbProjectManageAction">
+			<result name="success">app/plugs/project/nhIndex.jsp</result>
+		</action>
+		<action  name="zqb_project_expZk"  method="expZK" class="zqbProjectManageAction">
+		</action>
+		<action  name="zqb_project_expNh"  method="expNH" class="zqbProjectManageAction">
+		</action>
+		
+		<action name="zqb_meeting_index" method="index"   class="zqbMeetingManageAction" >
+		<result name="success">app/extend/meeting/index.jsp</result> 
+		</action>
+		
+		<action name="toExcl" method="toExcl"   class="zqbMeetingManageAction" ></action>
+		
+		<action name="zqb_meeting_recently" method="recentlylist"   class="zqbMeetingManageAction" >
+		<result name="success">app/extend/meeting/list.jsp</result> 
+		</action>
+		<action name="zqb_meeting_edit" method="meetEdit"   class="zqbMeetingManageAction" >
+		<result name="success">app/extend/meeting/meetedit1.jsp</result> 
+		</action> 
+		<action name="zqb_meeting_meetRetime" method="meetRetime"   class="zqbMeetingManageAction" >
+		<result name="success">app/extend/meeting/meetedit.jsp</result> 
+		</action> 
+		<action name="zqb_meeting_commitFile" method="commitFile"   class="zqbMeetingManageAction" >
+		<result name="success">app/extend/meeting/commitFile.jsp</result> 
+		</action> 
+		<action name="zqb_meeting_doCommitFile" method="doCommitFile"   class="zqbMeetingManageAction" >
+		</action>
+		<action  name="zqb_km_savekmdoc"  method="saveKmDoc" class="zqbMeetingManageAction">
+		</action>
+		<action name="zqb_meeting_uploadPage" method="uploadPage"   class="zqbMeetingManageAction" >
+		<result name="success">app/extend/meeting/uploadify_many.jsp</result> 
+		</action> 
+		<action name="zqb_meeting_charIndex" method="charIndex"   class="zqbMeetingManageAction" >
+		<result name="success">app/extend/meeting/charIndex.jsp</result> 
+		</action> 
+		<action name="zqb_meeting_upload" method="upload"   class="zqbMeetingManageAction" >
+		</action> 
+		<action name="zqb_meeting_setStatus" method="setStatus"   class="zqbMeetingManageAction" >
+		</action> 
+		<action name="zqb_meeting_getCount" method="getMeetingCount"   class="zqbMeetingManageAction" >
+		</action>  
+		<!-- 设置届次默认次数 -->
+		<action name="zqb_meeting_session"  method="getMeetSession"  class="zqbMeetingManageAction">
+		</action>
+			<!-- 判断是否存在相同会议 -->
+		<action name="zqb_validate_number"  method="validateMeetNumber"  class="zqbMeetingManageAction">
+		</action>
+		<action name="zqb_meeting_gethc" method="getMeeting"   class="zqbMeetingManageAction" >
+		</action>
+		<action name="zqb_meeting_getJC" method="getMeetingJC"   class="zqbMeetingManageAction" >
+		</action>  
+		<action name="zqb_meeting_checkReturnList" method="checkReturnList"   class="zqbMeetingManageAction" >
+		</action>  
+		<action name="zqb_meeting_remove_item" method="removeItem"   class="zqbMeetingManageAction" >
+		</action> 
+		<action name="zqb_meeting_set" method="zqbmeetingset"   class="zqbMeetingManageAction" >
+		</action> 
+		
+		<action name="zqb_event_index" method="index"   class="zqbEventManageAction" >
+		<result name="success">app/extend/event/index.jsp</result> 
+		</action>
+		<action name="zqb_event_charIndex" method="charIndex"   class="zqbMeetingManageAction" >
+		<result name="success">app/extend/event/charIndex.jsp</result> 
+		</action> 
+		<action name="zqb_event_talk" method="talkIndex"   class="zqbEventManageAction" >
+		<result name="success">app/extend/event/talk.jsp</result> 
+		</action>
+		
+		<action name="zqb_event_talk_commit" method="talkCommit"   class="zqbEventManageAction" >
+		</action>
+		
+		
+		<action name="zqb_workflow_index" method="index"   class="zqbWorkFlowAction" >
+			<result name="success">app/extend/workflow/index.jsp</result> 
+		</action>
+		<action name="zqb_workflow_map" method="flowMap"   class="zqbWorkFlowAction" >
+			<result name="success">app/extend/workflow/visitIndex.jsp</result> 
+		</action>
+		<action name="zqb_workflow_visit" method="showVisit"   class="zqbWorkFlowAction" >
+			<result name="success">app/extend/workflow/map.jsp</result> 
+		</action>
+		<action name="zqb_workflow_showDesigner" method="showDesigner"   class="zqbWorkFlowAction" >
+			<result name="success">app/extend/workflow/designer.jsp</result> 
+		</action>
+		<action name="zqb_workflow_saveDesigner" method="saveDesigner"   class="zqbWorkFlowAction" >
+		</action>
+		<action name="zqb_workflow_remove" method="removeDesigner"   class="zqbWorkFlowAction" >
+		</action>
+		<action name="zqb_workflow_loadJson" method="showTreeJson"   class="zqbWorkFlowAction" >
+		</action>
+		<action name="zqb_search_center" method="customerIndex"   class="zqbSearchCenterAction" >
+			<result name="success">app/extend/info/index.jsp</result> 
+		</action>
+		<action name="zqb_search_company" method="companyIndex"   class="zqbSearchCenterAction" >
+			<result name="success">app/extend/info/company.jsp</result> 
+		</action>
+		<action name="zqb_search_inuser" method="inUserIndex"   class="zqbSearchCenterAction" >
+			<result name="success">app/extend/info/inuser.jsp</result> 
+		</action>
+		<action name="zqb_search_outuser" method="outUserIndex"   class="zqbSearchCenterAction" >
+			<result name="success">app/extend/info/outuser.jsp</result> 
+		</action>
+		<action name="zqb_search_stock" method="stockIndex"   class="zqbSearchCenterAction" >
+			<result name="success">app/extend/info/stock.jsp</result> 
+		</action>
+		<action name="project_doc_load" method="docLoad"   class="zqbProjectManageAction" >
+			<result name="success">app/plugs/project/doclist.jsp</result> 
+		</action>
+		<action name="project_doc_search" method="doSearch"   class="zqbProjectManageAction" >
+			<result name="success">app/plugs/project/doclist.jsp</result> 
+		</action>
+		<action name="zqb_project_participantBarChart" method="showParticipantBarChart"   class="zqbProjectManageAction" >
+			<result name="success">app/plugs/project/participantBarCharIndex.jsp</result>  
+		</action> 
+		<action name="zqb_project_participantBarChartInfo" method="showParticipantBarChartInfo"   class="zqbProjectManageAction" >
+			<result name="success">app/plugs/project/participantbarcharIndexInfo.jsp</result>  
+		</action> 
+		 <action name="cmsPortletXtAction"  class="cmsPortletXtAction" >
+				<result name="index">app/plugs/cms/portlet/indexXT.jsp</result>
+				<result name="add">app/plugs/cms/portlet/addXT.jsp</result>
+				<result name="openjson">app/plugs/cms/portlet/openjsonXT.jsp</result>
+		</action>
+		 <action name="cmsInfoXtAction"  class="cmsInfoXtAction" >
+				<result name="index">app/plugs/cms/info/indexXT.jsp</result>
+				<result name="success">app/plugs/cms/info/openjson.jsp</result>
+			</action>
+			 <action name="cmsChangeXtTalk" method="cmsChangeTalk"  class="cmsInfoAction" >     
+				<result type="redirect">cmsInfoXtAction!index.action?portletid=${portletid}</result>
+		    </action>
+		     <action name="cmsChangeXtStatus" method="cmsChangeStatus"  class="cmsInfoAction" >
+				<result type="redirect">cmsInfoXtAction!index.action?portletid=${portletid}</result>
+		    </action>
+		    <action name="cmsInfoXtRss" method="cmsInfoXtRss"  class="cmsInfoXtAction" >
+		        <result name="index">app/plugs/cms/info/index.jsp</result>	
+		    </action>
+		 <action name="zqb_search_event" method="eventIndex"   class="zqbSearchCenterAction" >
+			<result name="success">app/extend/info/event.jsp</result> 
+		</action>
+			<action name="zqb_project_participantBarIndex" method="showParticipantBarIndex"   class="zqbProjectManageAction" >
+			<result name="success">app/plugs/project/participantGridIndex.jsp</result>  
+		</action> 
+		<action name="participant_Excel_DoExp" method="doExcelExp" class="zqbProjectManageAction"> 
+			<result name="success">app/engine/dem/excel_imp.jsp</result>  
+		</action>
+		<action name="projectrisk_Excel_DoExp" method="doExcelExp1" class="zqbProjectManageAction"> 
+			<result name="success">app/engine/dem/excel_imp.jsp</result>  
+		</action>
+		<action name="projectrisk_Excel_DoExp2" method="doExcelExp2" class="zqbProjectManageAction"> 
+			<result name="success">app/engine/dem/excel_imp.jsp</result>  
+		</action>
+		<action name="projectrisk_Excel_DoExp3" method="doExcelExp3" class="zqbProjectManageAction"> 
+			<result name="success">app/engine/dem/excel_imp.jsp</result>  
+		</action>
+		<action name="zqb_event_search" method="search"   class="zqbEventManageAction" >
+		</action>
+		<!-- 工作日志相关 -->
+		<action name="logbook" method="list" class="schCalendarAction">
+			<result name="success">app/plugs/calendar/logbook.jsp</result>
+		</action>
+		<action name="logbookXx" method="logbookXx" class="schCalendarAction">
+			<result name="success">app/plugs/calendar/logbookXx.jsp</result>
+		</action>
+		
+		<action name="doExcelExp" method="doExcelExp" class="schCalendarAction"> 
+			<result name="success">app/plugs/calendar/logbook.jsp</result>  
+		</action>
+		<!-- 华龙日程总结提意见开始 -->
+		<action name="edityj" method="edityj" class="schCalendarAction"> 
+		</action>
+		<action name="edityijian" method="edityijian" class="schCalendarAction">	
+			<result name="success">app/plugs/calendar/edityj.jsp</result> 
+		</action>
+		<!--华龙日程总结提意见结束 -->
+		<!-- 会议管理已召开弹出 -->
+		<action name="loadConveneMeeting"  method="loadConveneMeeting" class="zqbMeetingManageAction" >
+		   <result name="success">app/extend/meeting/conveneMeeting.jsp</result> 
+			</action>
+		<!-- 客户管理主数据 -->
+		<action name="loadCustomer"  method="index" class="zqbCustomerManageAction" >
+		   <result name="success">app/engine/dem/customer.jsp</result> 
+			</action>
+			<action name="deleteCustomer"  method="delete" class="zqbCustomerManageAction" >
+			</action>
+       <action  name="zqb_khmc_know"  method="expkhmc" class="zqbCustomerManageAction">
+       </action>
+		<action name="sys_customer_impindex"  method="impCustomerIndex" class="zqbCustomerManageAction" >
+			<result name="success">app/engine/dem/impCustomerIndex.jsp</result>
+		</action>
+		<action name="sys_customer_imp"  method="impCustomerFile" class="zqbCustomerManageAction" >
+			<result name="success">app/engine/dem/impCustomer.jsp</result>
+		</action>
+		<action name="zqb_customer_imp"  method="impCustomer" class="zqbCustomerManageAction" >
+		</action>
+		<action name="getdm"  method="getdm" class="zqbCustomerManageAction" ></action>
+		<!-- 项目及成员信息 -->
+		<action name="zqb_project_xmcy" method="xmcy"   class="zqbProjectManageAction" >
+		<result name="success">app/plugs/project/xmcyxx.jsp</result> 
+		</action> 
+		<action name="zqb_project_xmcy_doExp" method="doExp"   class="zqbProjectManageAction" >
+		<result name="success">app/engine/dem/excel_imp.jsp</result> 
+		</action> 
+		<!-- 加载树 -->
+		<action name="zqb_event_eventJSON" method="getEventTreeJson"   class="zqbEventManageAction" >
+		</action>
+		<action name="zqb_event_index_content" method="indexEvent"   class="zqbEventManageAction" >
+		<result name="success">app/extend/event/content.jsp</result> 
+		</action>
+
+			<!-- ..........信息披露下模板管理开始.......... -->
+		  <!-- 进入模板管理首页 -->
+        <action name="zqb_template_index" method="index" class="zqbTemplateAction">
+			<result name="success">app/extend/info/template_index.jsp</result>
+		</action>
+		<action name="zqb_template_batch" method="batchTemplate" class="zqbTemplateAction">
+			<result name="success">app/extend/info/batchtemplate.jsp</result>
+		</action>
+		<action name="zqb_batch_template_save"  method="batchTemplateSave"  class="zqbTemplateAction">
+		</action>
+		<!-- 构建模板类别树 -->
+		<action name="zqb_templateJSON"  method="showTemplateJSON"  class="zqbTemplateAction">
+		</action>
+		<!-- 删除模板类别 -->
+		<action name="zqb_templatetype_delete"  method="deleteTemplateType"  class="zqbTemplateAction">
+		</action>
+		<!-- 模板列表 -->
+		<action name="zqb_template_list" method="queryTemplateList" class="zqbTemplateAction">
+			<result name="success">app/extend/info/templatePage.jsp</result>
+		</action>
+		<action name="zqb_template_list2" method="queryTemplateListByTname" class="zqbTemplateAction">
+			<result name="success">app/extend/info/templatePage.jsp</result>
+		</action>
+		<!-- 删除模板 -->
+		<action name="zqb_template_delete" method="deleteTemplate" class="zqbTemplateAction">
+		</action>
+		<!-- 进入模板树首页 -->
+        <action name="zqb_template_tree" method="tempplateTree" class="zqbTemplateAction">
+			<result name="success">app/extend/info/templateTree.jsp</result>
+		</action>
+		<!-- 构建模板类别树 -->
+		<action name="zqb_templateTreeJSON"  method="showTemplateTreeJSON"  class="zqbTemplateAction">
+		</action>
+		<!-- 判断是否存在默认模板 -->
+		<action name="zqb_validIsDef"  method="validateIsDef"  class="zqbTemplateAction">
+		</action>
+		<!-- ..........信息披露下模板管理结束.......... -->
+		<!-- 信息披露下公告呈报开始 -->
+		<action name="zqb_nmsx_index" method="nmindex" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/nmsx.jsp</result>
+		</action>
+		<action name="zqb_nmsx_namecheck" method="nmsxNamecheck" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_nmsx_eventJSON" method="getEventTreeJson" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_nmsx_list" method="nmsxList"   class="zqbAnnouncementAction" >
+			<result name="success">app/extend/info/nmsxList.jsp</result>
+		</action>
+		<action name="zqb_nmxx_remove" method="delete"   class="zqbAnnouncementAction" >
+		</action>
+		<action name="zqb_nmxx_upload" method="fileUpload"   class="zqbAnnouncementAction" >
+		</action>
+		<!-- <action name="showxXcjc" method="index" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/announcementReported.jsp</result>
+		</action>-->
+		 <action name="zqb_announcement_index" method="index" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/announcementReported.jsp</result>
+		</action>
+		<action name="zqb_nmsx_getnoticefileuuid" method="getNoticeFileUuid" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_nmsx_getnoticefilesxuuid" method="getNoticeFileSXUuid" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_nmsx_downloadthisnoticefile" method="downloadThisNoticeFile" class="zqbAnnouncementAction">
+		</action>
+		<!-- 公告模板批量下载 -->
+		<action name="batch_uploadifyDownload"  method="batchdownload" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_nmsx_downloadthisnoticesxfile" method="downloadThisNoticesxFile" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_download_ggmb" method="zqb_download_ggmb" class="zqbAnnouncementAction"></action>
+		
+		<!-- 公告评分开始 -->
+		<action name="zqb_announcement_checkIsQYNBSHR" method="zqbAnnouncementCheckIsQYNBSHR" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_announcement_setGGDF" method="zqbAnnouncementSetGGDF" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_forward_msgsend" method="forwardMsgsend" class="zqbAnnouncementAction">
+		</action>
+		<!-- 公告评分结束 -->
+		<!-- 培训通知公告开始 -->
+		<action name="openTZGG"  method="openTZGG" class="zqbAnnouncementAction">  
+				<result  type="redirect">openFormPage.action?formid=${formid}&amp;instanceId=${instanceId}&amp;demId=${demid}&amp;ggid=${ggid}</result>
+		</action> 
+		<action name="zqb_announcement_save_wgp" method="announcementSaveWGP" class="zqbAnnouncementAction">
+		</action>  
+		<action name="zqb_announcement_notice_reply_select" method="announcementNoticeReplySelect" class="zqbAnnouncementAction">
+		</action>
+		<!-- 公告发布人查看回复信息获取formid。demid -->
+		<action name="zqb_announcement_notice_read" method="announcementNoticeRead" class="zqbAnnouncementAction">
+		</action>
+		<!-- 首页获取点击的通知公告类型 -->
+		<action name="zqb_announcement_notice_tzlx" method="announcementNoticeHade" class="zqbAnnouncementAction">
+		</action>
+		<!-- 培训通知公告签到页面 -->
+		<action name="Signin" method="Signinup" class="zqbAnnouncementAction">
+			<result name="success">app/plugs/project/tzggSignin.jsp</result>
+		</action>
+		<action name="updateSignin" method="updateSigninup" class="zqbAnnouncementAction">
+		</action>
+		<action name="SigninupExp" method="SigninupExp" class="zqbAnnouncementAction">
+		</action>
+		<!-- 培训通知公告结束END -->
+		 <action name="zqb_announcement_notice_send" method="announcementNotice" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/announcementNoticeSend.jsp</result>
+		</action>
+		 <action name="zqb_download_tzgg" method="zqb_download_tzgg" class="zqbAnnouncementAction"></action>
+		<!--查询公告回复附件 数量-->
+		 <action name="zqb_cxfjsl" method="tzggbatchsl" class="zqbAnnouncementAction">
+		</action>
+		<!-- 打包下载公告回复附件 -->
+		 <action name="zqb_download_fj" method="tzggbatchdownload" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_announcement_gzsc" method="zqbAnnouncementGzsc" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/zqbannouncementgzsc.jsp</result>
+		</action>
+       <action name="showGzbcXx" method="showGzbcXx" class="zqbAnnouncementAction"> </action>
+
+		<action name="zqb_announcement_checkHF" method="zqbAnnouncementCheckHF" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/zqbannouncementcheckhf.jsp</result>
+		</action>
+		<!-- 部门通知删除 -->
+		<action name="delGZSC" method="delGZSC" class="zqbAnnouncementAction">
+			
+		</action>
+		<!-- 部门通知删除 -->
+		<action name="fsp_gzsc_sendddmail" method="fspGzscSendddMail" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_set_nbrysh" method="getConpanyDuDao" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/setqynbshry.jsp</result>
+		</action>
+		<action name="zqb_set_addUserCheckUserid" method="addUserCheckUserid" class="zqbAnnouncementAction">
+		</action>
+		<action name="updateNbshr" method="updateNbshr" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/setqynbshry.jsp</result>
+		</action>
+		 <action name="zqb_announcement_notice_reception" method="announcementNoticeReception" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/announcementNoticeReception.jsp</result>
+		</action>
+		 <action name="deleteReply" method="deleteReply" class="zqbAnnouncementAction">
+		</action>
+		 <action name="deleteReplyAll" method="deleteReplyAll" class="zqbAnnouncementAction">
+		</action>
+		 <action name="updateMemo" method="updateMemo" class="zqbAnnouncementAction">
+		</action>
+		<action name="deleteSendNotice" method="deleteSendNotice" class="zqbAnnouncementAction">
+		</action>
+		<action name="updateSendNotice" method="updateSendNotice" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_announcement_list_commitFile" method="listCommitFile" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/commitFile.jsp</result>
+		</action>
+		 <action name="loadAnnouncement" method="loadAnnouncement" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/loadAnnouncement.jsp</result>
+		</action>
+		 <action name="zqb_announcement_notice_add" method="announcementNoticeAdd" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/addAnnouncementNotice.jsp</result>
+		</action>
+		 <action name="zqb_announcement_notice_reply_add" method="announcementNoticeReplyAdd" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/addAnnouncementNoticeReply.jsp</result>
+		</action>
+		 <action name="showReply" method="showReply" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/showAnnouncementNoticeReply.jsp</result>
+		</action>
+		 <action name="zqb_announcement_notice_list" method="announcementNoticeList" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/addAnnouncementNotice.jsp</result>
+		</action>
+		<action name="zqb_announcement_count" method="count" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/announcementCount.jsp</result>
+		</action>
+		<action name="zqb_announcement_exp" method="announcementExp" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/announcementCount.jsp</result>
+		</action>
+		<action name="announcement_notice_list" method="noticeList" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/announcementReply.jsp</result>
+		</action>
+		<action name="zqbAnnounce_index" method="addIndex" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/multi.jsp</result>
+		</action>
+		<action name="zqbAnnounce_orgjson" method="orgjson" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/multi.jsp</result>
+		</action>
+		<action name="zqb_getproblems" method="getproblems" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_announcement_save" method="announcementSave" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_announcement_save_one" method="announcementSaveOne" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_announcement_save_all" method="announcementSaveAll" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_announcement_save_YXZ" method="announcementSaveYXZ" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_announcement_notice_one" method="announcementNoticeOne" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_announcement_notice_all" method="announcementNoticeAll" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_announcement_reply_save" method="announcementReplySave" class="zqbAnnouncementAction">
+		</action>
+		<!-- 通知公告已查看 -->
+		<action name="zqb_announcement_upd_ckqk" method="announcementTzggCkqk" class="zqbAnnouncementAction"></action>
+		<action name="zqb_announcement_dfyy" method="announcementTzggDfyy" class="zqbAnnouncementAction"></action>
+		
+		<action name="zqb_announcement_list" method="queryAnnouncementList" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/announcementPage.jsp</result>
+		</action>
+		<action name="zqb_announcement_delete" method="deleteAnnouncement" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/announcementPage.jsp</result>
+		</action>
+		<action name="zqb_validationAnnouncement" method="validationAnnouncement" class="zqbAnnouncementAction">
+		</action>
+		<action name="readLsbb" method="getLsbb" class="zqbAnnouncementAction"> 
+		<result name="success">app/extend/info/lsbbform.jsp</result>
+		 
+		</action>
+		<action name="ggls_docShow" method="docShow" class="zqbAnnouncementAction"> 
+		<result name="success">app/extend/info/docindex.jsp</result> 
+		</action>
+		<action name="ggls_docDownload" method="docDownload" class="zqbAnnouncementAction"> 
+		</action>
+		 <action name="loadPage" method="getGG" class="zqbAnnouncementAction"> 
+		<result name="success">app/extend/info/announcementLook.jsp</result> 
+		</action>
+		<action name="zqb_announcement_getusertime" method="getUserTime" class="zqbAnnouncementAction"> 
+		</action>
+		<action name="zqb_announcement_gettentuserdate" method="getTentUserDate" class="zqbAnnouncementAction"> 
+		</action>
+		<action name="zqb_announcement_gettentuserdateforpro" method="getTentUserDateForPro" class="zqbAnnouncementAction"> 
+		</action>
+		
+		<action name="zqb_announcement_gettentuserdateforrc" method="getTentUserDateForRc" class="zqbAnnouncementAction"> 
+		</action>
+		 <action name="isCustomer" method="isDudaoCustomer" class="zqbAnnouncementAction"> 
+		</action>
+		<!-- 信息披露下公告呈报结束 -->
+		<action name="zqb_announcement_gddhyztx" method="gddhyztx" class="zqbAnnouncementAction"> 
+		</action>
+		<!-- 员工绩效情况汇总 -->
+		<action name="zqb_company_enterprises" method="companyEnterprises" class="zqbAnnouncementAction"> 
+			<result name="success">app/extend/shanxi/enterprices/indexEnterprises.jsp</result>
+		</action>
+		<action name="zqb_YGJX_excel" method="ygjxExcel" class="zqbAnnouncementAction"></action>
+		<action name="zqb_company_getsubmsg" method="submsgEnterprises" class="zqbAnnouncementAction"> 
+			<result name="success">app/extend/shanxi/enterprices/submsgEnterprises.jsp</result>
+		</action>
+		<action name="zqb_company_expcurrentlist" method="expCompanyList" class="zqbAnnouncementAction"> 
+		</action>
+		<action name="zqb_submsg_expcurrentlist" method="expSubmsgList" class="zqbAnnouncementAction"> 
+		</action>
+		
+		<action name="zqb_cnxxgl_index" method="index" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/cnxxgl.jsp</result>
+		</action>
+		<action name="zqb_cnxxgl_checkrole" method="checkRole" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_zdqd_index" method="index" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/zdqd.jsp</result>
+		</action>		
+		<action name="zqb_meeting_indextree" method="index" class="zqbAnnouncementAction">
+			<result name="success">app/extend/meeting/meetingPage.jsp</result>
+		</action>
+		<action name="zqb_gpscgqk_indextree" method="index" class="zqbAnnouncementAction">
+			<result name="success">app/extend/gfgl/gpscgqk.jsp</result>
+		</action>
+		<action name="zqb_gdcgxz_indextree" method="index" class="zqbAnnouncementAction">
+			<result name="success">app/extend/gfgl/gdcgxz.jsp</result>
+		</action>
+		<action name="zqb_gfjxs_indextree" method="index" class="zqbAnnouncementAction">
+			<result name="success">app/extend/gfgl/gfjxs.jsp</result>
+		</action>
+		<action name="zqb_gfzrqk_indextree" method="index" class="zqbAnnouncementAction">
+			<result name="success">app/extend/gfgl/gfzrqk.jsp</result>
+		</action>
+		<action name="zqb_fzgs_indextree" method="index" class="zqbAnnouncementAction">
+			<result name="success">app/extend/sysmanager/fzgs.jsp</result>
+		</action>
+		<action name="zqb_fzgs_namecheck" method="zqbFzgsNamecheck" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_fzgs_cwbb" method="zqbFzgsCwbb" class="zqbAnnouncementAction">
+			<result name="success">app/extend/sysmanager/cwbb.jsp</result>
+		</action>
+		<action name="zqb_fzgs_updateDeleteStatus" method="zqbFzgsUpdateDeleteStatus" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_fzgs_getThisData" method="zqbFzgsGetThisData" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_glf_indextree" method="index2" class="zqbAnnouncementAction">
+			<result name="success">app/extend/sysmanager/GLF.jsp</result>
+		</action>
+		<action name="zqb_glf_checkname" method="zqbGlfCheckname" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_glf_getThisData" method="zqbGlfGetThisData" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_glf_gg_getglf" method="zqbGlfGgGlf" class="zqbAnnouncementAction">
+			<result name="success">app/extend/sysmanager/ggglf.jsp</result>
+		</action>
+		<action name="zqb_gsnbry_indextree" method="index" class="zqbAnnouncementAction">
+			<result name="success">app/extend/sysmanager/gsnbry.jsp</result>
+		</action>
+			<action name="zqb_wbyy_indextree" method="index" class="zqbAnnouncementAction">
+			<result name="success">app/extend/sysmanager/wbyy.jsp</result>
+		</action>
+		<action name="zqb_announcement_roleid" method="getRoleId" class="zqbAnnouncementAction">
+		</action>
+	   <action name="zqb_nnouncement_search" method="doSearch" class="zqbAnnouncementAction">
+	   <result name="success">app/extend/info/announcementPage.jsp</result>
+		</action>
+		 <action name="qsxwNews" method="doSearchNews" class="zqbAnnouncementAction">
+	  	 	<result name="success">app/extend/info/qsxwNewsPage.jsp</result>
+		</action>
+		<action name="qyyqNews" method="doSearchQyyqNews" class="zqbAnnouncementAction">
+		 	<result name="success">app/extend/info/qyyqNewsPage.jsp</result>
+		</action>
+		<action name="zqb_announcement_getgzid" method="getGzid" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_announcement_getsmjinsid" method="getSMJinsid" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_xpsxt_type_gg" method="XpsxTypeGg" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/xpsxtype.jsp</result>
+		</action>
+		<action name="zqb_xpsxt_gg_getbc" method="XpsxGgGetbc" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_xpsxt_gg_getbcfile" method="XpsxGgGetbcfile" class="zqbAnnouncementAction">
+		</action>
+		<!-- 顶增项目基本信息微信端显示 -->
+		<action name="zqb_wxgpfxproject_sx_mainmsg" method="wxprojectMainMsg" class="com.ibpmsoft.project.zqb.sx.gpfx.action.ZqbGpfxProjectSxAction">
+			<result name="success">app/plugs/xsdproject/gpfx/projectmainmsg.jsp</result>
+		</action>
+		
+		<action name="zqb_report_index" method="reportIndex" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/reportindex.jsp</result>
+		</action>
+		<action name="zqb_report_ofone" method="reportOfOne" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/reportofone.jsp</result>
+		</action>
+		<action name="zqb_report_del" method="reportDel" class="zqbAnnouncementAction">
+		</action>
+		
+		<!-- 信批事项开始 -->
+		<action name="zqb_LCGG_check" method="checkLcgg" class="zqbCheckAction">
+		</action>
+		<action name="zqb_yz" method="checkyz" class="zqbCheckAction">
+		</action>
+		<action name="zqb_rycx" method="checkRycx" class="zqbCheckAction">
+		</action>
+		<action name="zqb_xpsx_index" method="Xpsxindex" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/xpsxindex.jsp</result>
+		</action>
+		<action name="zqb_xpsx_deletefile" method="Xpsxdeletefile" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_xpsx_deletexpsx" method="Xpsxdeletexpsx" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_xpsx_list" method="XpsxList" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/xpsxListPage.jsp</result>
+		</action>
+		<action name="zqb_get_xpsxcompany_list" method="XpsxCompanyList" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_get_xpsxcompany" method="XpsxCompany" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_set_xpsxcompany" method="XpsxSetCompany" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_xpsxt_check" method="XpsxCheck" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/xpsxcheck.jsp</result>
+		</action>
+		<action name="zqb_glhy_check" method="glhyCheck" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/glhycheck.jsp</result>
+		</action>
+		<action name="zqb_xpsxt_type" method="XpsxType" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/xpsxtype.jsp</result>
+		</action>
+		<action name="zqb_xpsxt_save" method="XpsxtSave" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_xpsxt_getthisname" method="Xpsxtgetthisname" class="zqbAnnouncementAction"></action>
+		<action name="zqb_glhy_getthisname" method="glhytgetthisname" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_xpsxt_noticetypecheck" method="XpsxtNoticetypecheck" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_tbsj" method="updGlhy" class="zqbAnnouncementAction">
+		</action>
+		<!-- 信批事项结束 -->
+		<!-- 股转系统意见开始 -->
+		<action name="zqb_nnouncement_usermulti" method="AnnouncementUsermultiindex" class="zqbAnnouncementAction">
+	   <result name="success">app/extend/info/announcementPagemulti.jsp</result>
+		</action>
+		<action name="zqb_nnouncement_usermulti_ztree" method="AnnouncementUsermulti" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_nnouncement_NsetDXYJTZR" method="NsetDXYJTZR" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_nnouncement_YsetDXYJTZR" method="YsetDXYJTZR" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_nnouncement_dxyjtzr" method="AnnouncementDxyjtzr" class="zqbAnnouncementAction">
+	   <result name="success">app/extend/info/announcementGzxtyj.jsp</result>
+		</action>
+		<action name="zqb_nnouncement_expnotice" method="expNotice" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_nnouncement_NsetDXYJTZRHF" method="NsetDXYJTZRHF" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_nnouncement_YsetDXYJTZRHF" method="YsetDXYJTZRHF" class="zqbAnnouncementAction">
+		</action>
+		<!-- 股转系统意见结束 -->
+		<!-- 问卷调查 -->
+		<action name="zqb_vote_list" method="voteList" class="zqbAnnouncementAction">
+	  		<result name="success">app/extend/vote/voteList.jsp</result>
+		</action>
+		<action name="zqb_vote_goList" method="voteGoList" class="zqbAnnouncementAction">
+	  		<result name="success">app/extend/vote/voteGoList.jsp</result>
+		</action>
+		<action name="zqb_vote_previewpaper" method="previewPaper" class="zqbAnnouncementAction">
+	  		<result name="success">app/extend/vote/voteCustomerPaper.jsp</result>
+		</action>
+		<!-- 信披自查反馈导出excel前验证有没有回复 -->
+		<action name="zqb_downCheck_xpfj" method="downCheck" class="zqbAnnouncementAction"></action>
+		<!-- 导出 -->
+		<action name="zqb_downExcel_xpfj" method="downExcel" class="zqbAnnouncementAction"></action>
+		<!-- 查询信披自查反馈沟通附件数量 -->
+		<action name="zqb_vote_cxxpfjsl" method="voteGoxpfjsl" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_download_xpfj" method="votedownloadxpfjsl" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_download" method="votedownload" class="zqbAnnouncementAction"></action>
+		<action name="zqb_vote_unlockthis" method="zqbVoteUnlockthis" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_vote_lockmore" method="zqbVoteLockmore" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_vote_lockthis" method="zqbVoteLockthis" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_vote_updateXpzcfk" method="zqbVoteUpdateXpzcfk" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_vote_customerList" method="voteCustomerList" class="zqbAnnouncementAction">
+	  		<result name="success">app/extend/vote/voteCustomerList.jsp</result>
+		</action>
+		<action name="zqb_vote_getwjdccontent" method="getWjdcContent" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_vote_getwjdcwt" method="getWjdcWt" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_vote_gettzggdate" method="getTzggFssj" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_vote_expWord" method="expWord" class="zqbAnnouncementAction">
+		</action>
+		<action name="showCommunicate" method="showCommunicate" class="zqbAnnouncementAction">
+	  		<result name="success">app/extend/vote/voteCommunicate.jsp</result>
+		</action>
+		<action name="zqb_vote_communicate_save" method="communicateSave" class="zqbAnnouncementAction">
+		</action>
+		<action name="updateCommunicate" method="updateCommunicate" class="zqbAnnouncementAction">
+			<result name="success">app/extend/vote/voteCommunicate.jsp</result>
+		</action>
+		<action name="zqb_cxdd_index" method="cxddList" class="zqbAnnouncementAction">
+	  		<result name="success">app/extend/cxddgzfk/cxddList.jsp</result>
+		</action>
+		<action name="zqb_cxdd_updateCxddfk" method="zqbCxddUpdateCxddfk" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_cxdd_customerList" method="cxddCustomerList" class="zqbAnnouncementAction">
+	  		<result name="success">app/extend/cxddgzfk/cxddCustomerList.jsp</result>
+		</action>
+		<action name="zqb_cxdd_customerListsub" method="cxddCustomerListSub" class="zqbAnnouncementAction">
+	  		<result name="success">app/extend/cxddgzfk/cxddCustomerList.jsp</result>
+		</action>
+		<action name="zqb_cxdd_goList" method="cxddGoList" class="zqbAnnouncementAction">
+	  		<result name="success">app/extend/cxddgzfk/cxddGoList.jsp</result>
+		</action>
+		<action name="zqb_cxdd_unlockthis" method="cxddUnlockthis" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_cxdd_lockthis" method="cxddLockthis" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_vote_wjdc" method="voteWjdcList" class="zqbAnnouncementAction">
+	  		<result name="success">app/extend/cxddgzfk/wjdcList.jsp</result>
+		</action>
+		<action name="zqb_vote_impwjdc" method="impWjdc" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_vote_expwjdc" method="expWjdc" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_vote_sensmstonotreply" method="senSMSToNotReply" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_tzggxmjbr_set" method="xmjbrSet"   class="zqbAnnouncementAction" >
+		<result name="success">app/plugs/project/tzggxmjbrset.jsp</result> 
+		</action>
+		<action name="zqb_vote_updatewjdc" method="zqbVoteUpdateWjdc" class="zqbAnnouncementAction">
+		</action>
+		
+		<!--  以项目为基准统计-->
+		  <action name="zqb_project_getXM" method="getXM" class="zqbProjectManageAction">
+		    <result name="success">app/plugs/project/getxm.jsp</result>
+		</action>
+		<!-- 获取项目成员个人信息 -->
+		<action name="zqb_project_getXM_List" method="getXMList" class="zqbProjectManageAction">
+		    <result name="success">app/plugs/project/xmcygglist.jsp</result>
+		</action>
+		<action name="doXMExcelExp" method="doExcelXMExp" class="zqbProjectManageAction"> 
+			<result name="success">app/plugs/project/getxm.jsp</result>  
+		</action>
+		<!-- 以成员为基准统计 -->
+		 <action name="zqb_project_getCYR" method="getCYR" class="zqbProjectManageAction">
+		    <result name="success">app/plugs/project/getcyr.jsp</result>
+		</action>
+		<action name="doCYExcelExp" method="doExcelCYExp" class="zqbProjectManageAction"> 
+			<result name="success">app/plugs/project/getcyr.jsp</result>  
+		</action>
+		<action name="zqb_project_expproword" method="expProWord"   class="zqbProjectManageAction">
+		</action>
+		
+		<!-- 重要督导事项 -->
+		<action name="searchZyddsx" method="cxddlist" class="zqbImpEventAction"> 
+			<result name="success">app/extend/info/sxdd.jsp</result>  
+		</action>
+		<action name="zqb_zydd_fkzl" method="getFkzl" class="zqbImpEventAction"> 
+			<result name="success">app/extend/info/sxdd.jsp</result>  
+		</action>
+		<action name="sendddMail" method="sendMail" class="zqbImpEventAction"> 
+		</action>
+		<action name="zqb_zydd_search" method="getform" class="zqbImpEventAction"> 
+		<result name="success">app/extend/info/zxddform.jsp</result> 
+		</action>
+		<action name="deleteDdsj" method="deleteDdsj" class="zqbImpEventAction"> 
+		</action>
+		<!-- 删除项目 -->
+		<action name="zqb_project_removeProject" method="removeProject" class="zqbProjectManageAction"> 
+		</action>
+		<action name="zqb_project_removeCxddProject" method="removeCxddProject" class="zqbProjectManageAction"> 
+		</action>
+		<action name="zqb_customer_checkCFXX" method="checkCFXX" class="zqbCustomerManageAction"> 
+		</action>
+		<action name="zqb_customer_associate" method="Associate" class="zqbCustomerManageAction"> 
+		</action>
+		<action name="zqb_customer_userassociate" method="UserAssociate" class="zqbCustomerManageAction"> 
+		</action>
+		<action name="zqb_customer_checkYGP" method="checkYGP" class="zqbCustomerManageAction"> 
+		</action>
+		<action name="zqb_customer_checkMANAGER" method="checkMANAGER" class="zqbCustomerManageAction"> 
+		</action>
+		<action name="zqb_customer_checkXMCY_ZJJG" method="checkXMCY_ZJJG" class="zqbCustomerManageAction"> 
+		</action>
+		<action name="zqb_customer_checkXMCY_CLR_CLJG" method="checkXMCY_CLR_CLJG" class="zqbProjectManageAction"> 
+		</action>
+		<!-- 模板查看 -->
+		<action name="templateloadPage" method="loadPage" class="zqbTemplateAction"> 
+			<result name="success">app/extend/info/templatedocindex.jsp</result> 
+		</action>
+		<!-- 邮件发送 -->
+		<action name="sendMail" method="sendMail" class="mailWithAttachmentAction"> 
+			<result name="success">app/plugs/sms/frame/mailsend/mailsend.jsp</result> 
+		</action>
+		<action name="zqb_mail_mailJSON" method="getJSON" class="mailWithAttachmentAction"> 
+		</action>
+		<action name="zqb_mail_mailgroupdata" method="getGroupData" class="mailWithAttachmentAction"> 
+		</action>
+		<action name="mailsend" method="mailsend" class="mailWithAttachmentAction"> 
+		</action>
+		<action name="zqb_mail_getXX" method="getXX" class="mailWithAttachmentAction"> 
+		<result name="success">app/plugs/sms/frame/mailsend/mailsendcontent.jsp</result> 
+		</action>
+		<!-- 持续督导分派 -->
+		<action name="loadFP" method="doSearch" class="zqbCxddManagementAction"> 
+		<result name="success">app/extend/consupman/consupmanagement.jsp</result> 
+		</action>
+		<action name="deleteFP" method="doRemove" class="zqbCxddManagementAction"> 
+		</action>
+		<action  name="zqb_cxdd_search" method="getform" class="zqbCxddManagementAction">
+			<result name="success">app/extend/consupman/cxddform.jsp</result> 
+		</action>
+		<action  name="zqb_cxdd_check" method="checkCXDD" class="zqbCxddManagementAction">
+		</action>
+		<action  name="fsp_hy_index" method="getHyfsp" class="sysNavFrameAction">
+			<result name="success">iwork_layout/skins2015/frame/wspdb.jsp</result> 
+		</action>
+		<action  name="fsp_plxxgx_index" method="getDBSY" class="cmsHomePageAction">
+		</action>
+		<action  name="rctx_index" method="getRctx" class="cmsHomePageAction"></action>
+		
+		<action  name="rctx_wcsj" method="addRcwc" class="cmsHomePageAction"></action>
+		
+		<action  name="rctx_zqwcsj" method="updRcwc" class="cmsHomePageAction"></action>
+		
+		<action  name="zqb_sxzqtxgl" method="showRclb" class="sysNavFrameAction">
+			<result name="success">iwork_layout/skins2015/frame/showRclb.jsp</result> 
+		</action>
+		<action  name="rctx_del" method="delRctx" class="sysNavFrameAction"></action>
+		
+		
+		<action  name="fsp_zydd_index" method="getXpxx" class="sysNavFrameAction">
+			<result name="success">iwork_layout/skins2015/frame/zdsxwspdb.jsp</result> 
+		</action>
+		<action  name="fsp_db_index" method="getdbsl" class="sysNavFrameAction">
+		</action>
+		<action  name="fsp_gzsc_index" method="getGzscfsp" class="sysNavFrameAction">
+			<result name="success">iwork_layout/skins2015/frame/gzsc.jsp</result> 
+		</action>
+		<action  name="rx_index" method="getRxAll" class="sysNavFrameAction">
+			<result name="success">iwork_layout/skins2015/frame/rxgzsc.jsp</result> 
+		</action>
+		<action  name="updateClFlag" method="updateClFlag" class="zqbMeetingManageAction">
+		</action>
+		<action  name="updateClZdsxFlag" method="updateClZdsxFlag" class="zqbEventManageAction">
+		</action>
+		<action  name="updateGzsc" method="updateGzsc" class="zqbEventManageAction">
+		</action>
+		<action  name="shenpi" method="index" class="zqbShenPiAction">
+		</action>
+		<!-- 项目进度管控 -->
+		<action  name="loadProject" method="loadProject" class="zqbProjectManageAction">
+		 <result name="success">app/plugs/project/projectbaseinfo.jsp</result> 
+		</action>
+		<action  name="loadProjectNew" method="loadProjectNew" class="zqbProjectManageAction">
+		 <result name="success">app/plugs/project/projectbaseinfoNew.jsp</result> 
+		</action>
+		<!-- 项目评价-->
+		<action name="loadPj" method="loadPj" class="zqbProjectManageAction">
+		 <result name="success">app/plugs/project/pjbaseinfo.jsp</result> 
+		</action>
+		<!-- 项目相关问题 -->
+		<action  name="loadXgwt" method="loadXgwt" class="zqbProjectManageAction">
+		 <result name="success">app/plugs/project/xgwt.jsp</result> 
+		</action>
+		<!-- 移除评价信息-->
+		<action  name="deletePj"   method="removePj"   class="zqbProjectManageAction"></action>
+		<!-- 校验任务上一任务id是否存在-->
+		<action  name="zqb_project_checkrwid"  method="checkRwid" class="zqbProjectManageAction">
+		</action>
+		<!-- 删除项目中的相关问题 -->
+		<action  name="deleteXgwt"  method="deleteXgwt" class="zqbProjectManageAction">
+		</action>
+		<!-- 删除项目中的相关问题 -->
+		<action  name="deleteTask"  method="deleteTask" class="zqbProjectManageAction">
+		</action>
+		<!-- 加载项目任务 -->
+		<action  name="loadXmrw"  method="loadXmrw" class="zqbProjectManageAction">
+		  <result name="success">app/plugs/project/xmzl.jsp</result> 
+		</action>
+		<!-- 加载项目资料 -->
+		<action  name="zqb_project_getjdzl"  method="loadjdzl" class="zqbProjectManageAction">
+		</action>
+		<!-- 删除项目资料 -->
+		<action  name="zqb_project_deleteFile"  method="deleteFile" class="zqbProjectManageAction">
+		</action>
+		<!-- 删除项目资料 -->
+		<action  name="zqb_project_deleteXMZL"  method="deleteXMZL" class="zqbProjectManageAction">
+		</action>
+	    <!--校验项目评价 -->
+		<action  name="zqb_project_checkpj"  method="checkPJ" class="zqbProjectManageAction">
+		</action>
+		<action  name="zqb_project_checkExists"  method="checkXmjdExists" class="zqbProjectManageAction">
+		</action>
+		<!-- 获取分配比例最大输入值 -->
+		<action  name="getrestnum"  method="getrestnum" class="zqbProjectManageAction">
+		</action>
+		<action  name="getclrnum"  method="getClrRest" class="zqbProjectManageAction">
+		</action>
+		<!--相关问题回复 -->
+		<action  name="zqb_project_xgwthf"  method="xgwthf" class="zqbProjectManageAction">
+		  <result name="success">app/plugs/project/xgwthf.jsp</result> 
+		</action>
+		<action  name="zqb_execute_sql"  method="index" class="zqbExecuteSqlAction">
+		  <result name="success">app/engine/root/executeSql.jsp</result> 
+		</action>
+		<action  name="zqb_announcement_ll"  method="index" class="zqbAnnouncementTwoAction">
+		</action>
+		<action name="appointmentAdd" method="loadCalendar" class="appointmentAction">
+			<result name="success">app/extend/appointment/appointment.jsp</result>
+		</action>
+		<action name="addappointment" method="addappointment" class="appointmentAction">
+			<result name="success">app/extend/appointment/appointmentedit.jsp</result>
+		</action>
+		<action name="appointmentShowJason" method="showPeriodJsonData" class="appointmentAction">
+		</action>
+		<action name="appointmentShowJason_Repeate" method="showPeriodJsonData_Repeate" class="appointmentAction">
+		</action>
+		<action name="saveAppoinment" method="saveAppointment" class="appointmentAction">
+			<result name="success" type="redirect">appointmentAdd.action</result>
+		</action>
+		<action name="deleteAppointment" method="deleteAppointment" class="appointmentAction">
+			<result name="success" type="redirect">appointmentAdd.action</result>
+		</action>
+		<action name="editAppointment" method="loadEvent" class="appointmentAction">
+			<result name="success">app/extend/appointment/edit.jsp</result>
+		</action>
+		<action name="cxkflb" method="cxkflb" class="zqbMeetingManageAction">
+			<result name="success">app/extend/info/KFLBadd.jsp</result>
+		</action>
+		<action name="czkflb" method="czkflb" class="zqbMeetingManageAction">
+			<result name="success">app/extend/info/KFLBadd.jsp</result>
+		</action>
+		<action name="xinzengkflb" method="xinzengkflb" class="zqbMeetingManageAction">
+			<result name="success">app/extend/info/xinzengkflb.jsp</result>
+		</action>
+		<action name="cxupdatekflb" method="cxupdatekflb" class="zqbMeetingManageAction">
+			<result name="success">app/extend/info/updatekflb.jsp</result>
+		</action>
+		<action name="updatekflb" method="updatekflb" class="zqbMeetingManageAction">
+		</action>
+		<action name="Savekflb" method="Savekflb" class="zqbMeetingManageAction">
+		</action>
+		<action name="deletekflb" method="deletekflb" class="zqbMeetingManageAction">
+			<result name="success" type="redirect">cxkflb.action</result>
+		</action>
+		<!-- xlj 2015年6月11日 定期报告预约 Start-->
+		<action name="AppointInfo"  method="AppointInfo" class="zqbMeetingManageAction" >
+		   <result name="success">app/extend/info/ReportAppoint.jsp</result> 
+		</action>
+		<action name="newAppointInfo"  method="newAppointInfo" class="zqbMeetingManageAction" >
+		   <result name="success">app/extend/info/NewReportAppoint.jsp</result> 
+		</action>
+		<action name="getCanAppoint"  method="getCanAppoint" class="zqbMeetingManageAction" >
+		   <result name="success">app/extend/info/CanAppointInfo.jsp</result> 
+		</action>
+		<action name="appointmentSetNum"  method="appointmentSetNum" class="zqbMeetingManageAction" >
+		   <result name="success">app/extend/info/appointmentsetNum.jsp</result> 
+		</action>
+		<action name="selectNum"  method="selectNum" class="zqbMeetingManageAction" >
+		   <result name="success">app/extend/info/appointmentsetNumList.jsp</result> 
+		</action>
+		<action name="saveAppointmentNum"  method="saveAppointmentNum" class="zqbMeetingManageAction" >
+		</action>
+		<action  name="SaveAppoint"  method="SaveAppoint" class="zqbMeetingManageAction">
+		</action>
+		<action  name="UPDATEAppoint"  method="UPDATEAppoint" class="zqbMeetingManageAction">
+		</action>
+		<action  name="DeleteAppoint"  method="DeleteAppoint" class="zqbMeetingManageAction">
+		</action>
+		<action  name="deleteYYSX"  method="deleteYYSX" class="zqbMeetingManageAction">
+		</action>
+		<action  name="updateappointmentSetNum"  method="getAppointmentYYSX" class="zqbMeetingManageAction">
+			<result name="success">app/extend/info/appointmentsetNum.jsp</result>
+		</action>
+		<action name="getNewCanAppoint"  method="getNewCanAppoint" class="zqbMeetingManageAction" >
+		   <result name="success">app/extend/info/NewCanAppointInfo.jsp</result>
+		</action>
+		<action name="NewDeleteAppoint"  method="NewDeleteAppoint" class="zqbMeetingManageAction" >
+		</action>
+		<!-- xlj 2015年6月11日 定期报告预约 End-->
+		
+		<action  name="zqb_imp_know_index"  method="impKnowIndex" class="zqbFileCompareAction">
+			<result name="success">app/km/know/impKnow.jsp</result>
+		</action>
+		<action  name="zqb_imp_know"  method="impKnow" class="zqbFileCompareAction">
+		</action>
+		<action  name="zqb_exp_know"  method="expKnow" class="zqbFileCompareAction">
+		</action>
+
+		<action  name="zqb_ltjl_know"  method="expLTJL" class="zqbFileCompareAction">
+		</action>
+		<action  name="zqb_ltjl_delete"  method="expDelete" class="zqbFileCompareAction">
+		</action>
+		<action  name="zqb_file_compare_list"  method="fileCompareList" class="zqbFileCompareAction">
+			<result name="success">app/extend/filecompare/fileCompareList.jsp</result>
+		</action>
+		<action  name="zqb_file_compare_go"  method="fileCompareGo" class="zqbFileCompareAction">
+			<result name="success">app/extend/filecompare/fileCompareSelect.jsp</result>
+		</action>
+		<!-- <action  name="zqb_file_compare"  method="fileCompare" class="zqbFileCompareAction">
+		</action> -->
+		<action  name="zqb_file_compare"  method="fileCompareTwo" class="zqbFileCompareAction">
+		</action>
+		
+		<action name="zqb_gpfx_project_index" method="index"   class="zqbGpfxProjectManageAction" >
+		<result name="success">app/plugs/project/gpfx/index.jsp</result> 
+		</action>
+		<action name="zqb_gpfx_project_this_check" method="zqbGpfxProjectThisCheck"   class="zqbGpfxProjectManageAction" >
+		</action>
+		<action name="zqb_gpfx_project_loadGpfxProject" method="loadGpfxProject"   class="zqbGpfxProjectManageAction" >
+		<result name="success">app/plugs/project/gpfx/projectbaseinfo.jsp</result> 
+		</action>
+		<action name="zqb_gpfx_project_loadPj" method="loadPj" class="zqbGpfxProjectManageAction">
+		 <result name="success">app/plugs/project/gpfx/pjbaseinfo.jsp</result>
+		</action>
+		<action  name="zqb_gpfx_project_loadXgwt" method="loadXgwt" class="zqbGpfxProjectManageAction">
+		 <result name="success">app/plugs/project/gpfx/xgwt.jsp</result>
+		</action>
+		<action  name="zqb_gpfx_project_getjdzl"  method="loadjdzl" class="zqbGpfxProjectManageAction">
+		</action>
+		<action name="zqb_gpfx_project_question" method="showQuestionPage"   class="zqbGpfxProjectManageAction" >
+			<result name="success">app/plugs/project/gpfx/question.jsp</result>
+		</action>
+		<action  name="zqb_gpfx_project_deleteXgwt"  method="deleteXgwt" class="zqbGpfxProjectManageAction">
+		</action>
+		<action name="zqb_gpfx_project_question_commit" method="commitQuestion"   class="zqbGpfxProjectManageAction" >
+		</action>
+		<action name="zqb_gpfx_project_question_remove" method="removeQuestion"   class="zqbGpfxProjectManageAction" >
+		</action>
+		<action name="zqb_gpfx_project_question_all_remove" method="removeAllQuestion"   class="zqbGpfxProjectManageAction" >
+		</action>
+		<action  name="zqb_gpfx_project_deletePj"   method="removePj"   class="zqbGpfxProjectManageAction"></action>
+		<action name="zqb_gpfx_project_exppro_index" method="expproIndex"   class="zqbGpfxProjectManageAction" >
+			<result name="success">app/plugs/project/gpfx/exppro.jsp</result>
+		</action>
+		<action name="zqb_gpfx_project_getXM" method="getXM" class="zqbGpfxProjectManageAction">
+		    <result name="success">app/plugs/project/gpfx/getxm.jsp</result>
+		</action>
+		<action name="zqb_gpfx_project_getCYR" method="getCYR" class="zqbGpfxProjectManageAction">
+		    <result name="success">app/plugs/project/gpfx/getcyr.jsp</result>
+		</action>
+		<action name="zqb_gpfx_project_doCYExcelExp" method="doExcelCYExp" class="zqbGpfxProjectManageAction"> 
+			<result name="success">app/plugs/project/gpfx/getcyr.jsp</result>  
+		</action>
+		<action name="zqb_gpfx_project_doc_load" method="docLoad"   class="zqbGpfxProjectManageAction" >
+			<result name="success">app/plugs/project/gpfx/doclist.jsp</result> 
+		</action>
+		<action name="zqb_gpfx_project_doc_search" method="doSearch"   class="zqbGpfxProjectManageAction" >
+			<result name="success">app/plugs/project/gpfx/doclist.jsp</result> 
+		</action>
+		<action  name="zqb_gpfx_project_getjdzl_two"  method="loadjdzlTwo" class="zqbGpfxProjectManageAction">
+		</action>
+		<action name="zqb_gpfx_project_checkXMPJ" method="checkXMPJ" class="zqbGpfxProjectManageAction"> 
+		</action>
+		<action  name="zqb_gpfx_project_xgwthf"  method="xgwthf" class="zqbGpfxProjectManageAction">
+		  <result name="success">app/plugs/project/gpfx/xgwthf.jsp</result> 
+		</action>
+		<action name="zqb_gpfx_project_participantBarChart" method="showParticipantBarChart"   class="zqbGpfxProjectManageAction" >
+			<result name="success">app/plugs/project/gpfx/participantBarCharIndex.jsp</result>  
+		</action>
+		<action name="zqb_gpfx_project_participantBarChartInfo" method="showParticipantBarChartInfo"   class="zqbGpfxProjectManageAction" >
+			<result name="success">app/plugs/project/gpfx/participantbarcharIndexInfo.jsp</result>  
+		</action>
+		<action name="zqb_gpfx_project_participantBarIndex" method="showParticipantBarIndex"   class="zqbGpfxProjectManageAction" >
+			<result name="success">app/plugs/project/gpfx/participantGridIndex.jsp</result>  
+		</action>
+		<action name="zqb_gpfx_project_participant_Excel_DoExp" method="doExcelExp" class="zqbGpfxProjectManageAction"> 
+			<result name="success">app/engine/dem/excel_imp.jsp</result>  
+		</action>
+		<action name="zqb_gpfx_project_charIndex" method="charIndex"   class="zqbGpfxProjectManageAction" >
+			<result name="success">app/plugs/project/gpfx/charIndex.jsp</result>  
+		</action>
+		<action name="zqb_gpfx_project_report" method="gridIndex"   class="zqbGpfxProjectManageAction" >
+			<result name="success">app/plugs/project/gpfx/gridIndex.jsp</result>  
+		</action>
+		<action name="zqb_gpfx_project_search" method="search"   class="zqbGpfxProjectManageAction" >
+			<result name="success">app/plugs/project/gpfx/search.jsp</result> 
+		</action>
+		<action name="zqb_gpfx_project_projectrisk_Excel_DoExp" method="doExcelExp1" class="zqbGpfxProjectManageAction"> 
+			<result name="success">app/engine/dem/excel_imp.jsp</result>  
+		</action>
+		<action name="zqb_gpfx_project_projectrisk_Excel_DoExp2" method="doExcelExp2" class="zqbGpfxProjectManageAction"> 
+			<result name="success">app/engine/dem/excel_imp.jsp</result>  
+		</action>
+		<action name="zqb_gpfx_project_projectrisk_Excel_DoExp3" method="doExcelExp3" class="zqbGpfxProjectManageAction"> 
+			<result name="success">app/engine/dem/excel_imp.jsp</result>  
+		</action>
+		<action name="zqb_gpfx_project_closeitem" method="projectClose"   class="zqbGpfxProjectManageAction" >
+		</action>
+		<action name="zqb_gpfx_project_doXMExcelExp" method="doExcelXMExp" class="zqbGpfxProjectManageAction"> 
+			<result name="success">app/plugs/project/getxm.jsp</result>  
+		</action>
+		<action  name="zqb_gpfx_project_checkrwid"  method="checkRwid" class="zqbGpfxProjectManageAction">
+		</action>
+		<action  name="zqb_gpfx_project_deleteFile"  method="deleteFile" class="zqbGpfxProjectManageAction">
+		</action>
+		<action  name="zqb_file_remove"  method="removeFile" class="zqbFileUploadCommitAction">
+		</action>
+		<action name="zqb_file_list" method="index" class="zqbFileUploadCommitAction"> 
+			<result name="success">app/extend/filecommit/index.jsp</result>
+		</action>
+		<!-- 文件统计下载开始 -->
+		<action name="zqb_file_listAndDownload" method="zqbFileListAndDownload" class="zqbFileUploadCommitAction"> 
+			<result name="success">app/extend/filecommit/zqbfilelistanddownload.jsp</result>
+		</action>
+		<action name="zqb_file_download" method="zqbFileDownload" class="zqbFileUploadCommitAction"> 
+			<result name="success">app/extend/filecommit/zqbfiledownload.jsp</result>
+		</action>
+		<action name="zqb_file_downloadZip" method="zqbFileDownloadZip" class="zqbFileUploadCommitAction"> 
+		</action>
+		<action name="zqb_file_showTongJiJsonTree" method="zqbFileShowTongJiJsonTree" class="zqbFileUploadCommitAction"> 
+		</action>
+		<!-- 文件统计下载结束 -->
+		
+		<!-- 文件统计下载改开始 -->
+		<action name="zqb_file_download_change" method="zqbFileDownloadChange" class="zqbFileUploadCommitAction"> 
+			<result name="success">app/extend/filecommit/zqbfiledownload-change.jsp</result>
+		</action>
+		<action name="zqb_file_downloadZipChange" method="zqbFileDownloadZipChange" class="zqbFileUploadCommitAction"> 
+		</action>
+
+       <action name="zqb_file_yszip" method="zpbFileYsZip" class="zqbFileUploadCommitAction">
+       </action>
+       <action name="delfj" method="delfj" class="zqbFileUploadCommitAction">
+       </action>
+       <action name="zqb_downloaditem" method="zpbDownLoadItem" class="zqbFileUploadCommitAction">
+           <result name="success">app/extend/filecommit/zpbDownLoadItem.jsp</result>
+       </action>
+       <action name="zqb_filedowm" method="zqb_filedowm" class="zqbFileUploadCommitAction">
+       </action>
+
+		<action name="zqb_file_downloadList" method="zqbFileDownloadList" class="zqbFileUploadCommitAction"> 
+		</action>
+		<!-- 文件统计下载改结束 -->
+		<action name="zqb_file_getFileDetails" method="getFileDetails" class="zqbFileUploadCommitAction"> 
+			<result name="success">app/extend/filecommit/fileDetails.jsp</result>
+		</action>
+		<action name="zqb_onlinechat_index" method="index" class="zqbOnlineChatAction"> 
+			<result name="success">app/extend/onlinechat/index.jsp</result>
+		</action>
+		<action name="zqb_onlinechat_getOnlineName" method="getOnlineName" class="zqbOnlineChatAction"> 
+		</action>
+		<action name="zqb_onlinechat_getAllCompany" method="getAllCompany" class="zqbOnlineChatAction"> 
+		</action>
+		<action name="zqb_onlinechat_record" method="getOnlineRecord" class="zqbOnlineChatAction">
+			<result name="success">app/extend/onlinechat/list.jsp</result>
+		</action>
+		<action name="zqb_onlinechat_recordContent" method="getOnlineRecordContent" class="zqbOnlineChatAction">
+		</action>
+		<action name="zqb_orguser_checkCFXX" method="checkOrguser" class="zqbCheckAction">
+		</action>
+		<action name="zqb_project_check" method="checkProject" class="zqbCheckAction">
+		</action>
+		<!-- 山西项目立项模块开始 -->
+		<action name="zqb_project_sx_qusans" method="indexSxQusans" class="com.ibpmsoft.project.zqb.sx.action.ZqbProjectSxAction">
+			<result name="success">app/plugs/sxproject/indexsxqusans.jsp</result>
+		</action>
+		<action name="zqb_project_sx_qusansadd" method="qusAnsAdd" class="com.ibpmsoft.project.zqb.sx.action.ZqbProjectSxAction">
+			<result name="success">app/plugs/sxproject/qusansadd.jsp</result>
+		</action>
+		<action name="zqb_project_sx_qusansdel" method="qusAnsDel" class="com.ibpmsoft.project.zqb.sx.action.ZqbProjectSxAction">
+		</action>
+		<action name="zqb_project_sx_qusanssave" method="qusAnsSave" class="com.ibpmsoft.project.zqb.sx.action.ZqbProjectSxAction">
+		</action>
+		<action name="zqb_project_sx_savebeforeuseridusername" method="saveBeforeUseridUsername" class="com.ibpmsoft.project.zqb.sx.action.ZqbProjectSxAction">
+		</action>
+		<action name="zqb_project_sx_qusansedit" method="qusAnsEdit" class="com.ibpmsoft.project.zqb.sx.action.ZqbProjectSxAction">
+			<result name="success">app/plugs/sxproject/qusansadd.jsp</result>
+		</action>
+		<action name="zqb_project_sx_qusansupdate" method="qusAnsUpdate" class="com.ibpmsoft.project.zqb.sx.action.ZqbProjectSxAction">
+		</action>
+		<action name="zqb_project_sx_industrymsgassociate" method="industryMsgAssociate" class="com.ibpmsoft.project.zqb.sx.action.ZqbProjectSxAction">
+		</action>
+		<action name="zqb_gpfxproject_sx_index" method="indexGpfxSx" class="com.ibpmsoft.project.zqb.sx.gpfx.action.ZqbGpfxProjectSxAction">
+			<result name="success">app/plugs/sxproject/gpfx/indexgpfxsx.jsp</result>
+		</action>
+		<action name="zqb_gpfxproject_sx_closedialog" method="projectCloseDialog" class="com.ibpmsoft.project.zqb.sx.gpfx.action.ZqbGpfxProjectSxAction">
+			<result name="success">app/plugs/sxproject/gpfx/projectclosedialog.jsp</result>
+		</action>
+		<action name="zqb_gpfxproject_sx_setclosereason" method="setCloseReason" class="com.ibpmsoft.project.zqb.sx.gpfx.action.ZqbGpfxProjectSxAction">
+			<result name="success">app/plugs/sxproject/gpfx/setclosereason.jsp</result>
+		</action>
+		<action name="zqb_gpfxproject_sx_setclosereasonupdate" method="setCloseReasonUpdate" class="com.ibpmsoft.project.zqb.sx.gpfx.action.ZqbGpfxProjectSxAction">
+		</action>
+		<action name="zqb_gpfxproject_sx_expfixedreserveindex" method="expFixedReserveIndex" class="com.ibpmsoft.project.zqb.sx.gpfx.action.ZqbGpfxProjectSxAction">
+			<result name="success">app/plugs/sxproject/gpfx/expfixedreserveindex.jsp</result>
+		</action>
+		<action name="zqb_gpfxproject_sx_expfixedreserve" method="expFixedReserve" class="com.ibpmsoft.project.zqb.sx.gpfx.action.ZqbGpfxProjectSxAction">
+		</action>
+		<action name="zqb_gpfxproject_sx_expissueobject" method="expIssueObject" class="com.ibpmsoft.project.zqb.sx.gpfx.action.ZqbGpfxProjectSxAction">
+		</action>
+		<action name="zqb_gpfxproject_sx_closeitem" method="projectClose" class="com.ibpmsoft.project.zqb.sx.gpfx.action.ZqbGpfxProjectSxAction">
+		</action>
+		<action name="zqb_gpfxproject_sx_xmjd" method="projectXmjd" class="com.ibpmsoft.project.zqb.sx.gpfx.action.ZqbGpfxProjectSxAction">
+			<result name="success">app/plugs/xsdproject/gpfx/projectxmjdinfo.jsp</result>
+		</action>
+		<action name="zqb_gpfxproject_sx_mainmsg" method="projectMainMsg" class="com.ibpmsoft.project.zqb.sx.gpfx.action.ZqbGpfxProjectSxAction">
+			<result name="success">app/plugs/xsdproject/gpfx/projectmainmsg.jsp</result>
+		</action>
+		<action name="zqb_project_sx_accountedforindex" method="accountedForIndex" class="com.ibpmsoft.project.zqb.sx.gpfx.action.ZqbGpfxProjectSxAction">
+			<result name="success">app/plugs/sxproject/accountedfor.jsp</result>
+		</action>
+		<action name="zqb_project_sx_accountedfordel" method="accountedForDel" class="com.ibpmsoft.project.zqb.sx.gpfx.action.ZqbGpfxProjectSxAction">
+		</action>
+		<action name="zqb_project_sx_accountedforexp" method="accountedForExp" class="com.ibpmsoft.project.zqb.sx.gpfx.action.ZqbGpfxProjectSxAction">
+		</action>
+		<action name="zqb_project_sx_xmsrhz" method="expXmsrhz" class="com.ibpmsoft.project.zqb.sx.gpfx.action.ZqbGpfxProjectSxAction">
+		</action>
+		<action name="zqb_project_sx_cwrzexp" method="expCwrz" class="com.ibpmsoft.project.zqb.sx.gpfx.action.ZqbGpfxProjectSxAction">
+		</action>
+		<action  name="zqb_project_sx_setmonth"  method="setMonth" class="com.ibpmsoft.project.zqb.sx.gpfx.action.ZqbGpfxProjectSxAction">
+			<result name="success">app/plugs/sxproject/cwexppro.jsp</result>
+		</action>
+		<!-- 山西项目立项模块结束 -->
+		<action name="zqb_vote_check" method="checkVote" class="zqbCheckAction">
+		</action>
+		<action name="zqb_password_check" method="checkPwd" class="zqbCheckAction">
+		</action>
+		<action name="zqb_department_check" method="checkDeptName" class="zqbCheckAction">
+		</action>
+		<action name="zqb_onlinechat_count" method="onlineChatCount" class="zqbOnlineChatAction"> 
+			<result name="success">app/extend/onlinechat/ChatCountByMount.jsp</result>
+		</action>
+		<action name="zqb_gpqycfjl_index" method="zqbGpqycfjlIndex" class="zqbOnlineChatAction"> 
+			<result name="success">app/extend/companyrecord/companyrecord.jsp</result>
+		</action>
+		<action name="zqb_gpqycfjl_get_zqdmzqjclist" method="zqbGpqycfjlGetZqdmzqjclist" class="zqbOnlineChatAction"> 
+		</action>
+		<action name="zqb_gpqycfjl_add_zqdmzqjclist" method="zqbGpqycfjlAddZqdmzqjclist" class="zqbOnlineChatAction"> 
+		</action>
+		
+		<!-- 新时代项目 -->
+		<action name="xsd_zqb_project_rz_list" method="rzList"   class="xsdZqbProjectManageAction" >
+		<result name="success">app/plugs/xsdproject/taskIn.jsp</result> 
+		</action> 
+		<action name="xsd_zqb_project_save_rz" method="saveRz"   class="xsdZqbProjectManageAction" >
+		</action> 
+		<action name="xsd_zqb_project_edit_rz" method="editRz"   class="xsdZqbProjectManageAction" >
+		</action> 
+		<action name="xsd_zqb_project_rzgl" method="pjIndex"   class="xsdZqbProjectManageAction" >
+		<result name="success">app/plugs/xsdproject/rzIndex.jsp</result> 
+		</action> 
+		<action name="xsd_zqb_project_index" method="index"   class="xsdZqbProjectManageAction" >
+		<result name="success">app/plugs/xsdproject/index.jsp</result> 
+		</action> 
+		<action name="xsd_zqb_project_indexNew" method="indexNew"   class="xsdZqbProjectManageAction" >
+		<result name="success">app/plugs/xsdproject/indexNew.jsp</result> 
+		</action> 
+		<action name="xsd_zqb_project_search" method="search"   class="xsdZqbProjectManageAction" >
+		<result name="success">app/plugs/xsdproject/search.jsp</result> 
+		</action> 
+		<action name="xsd_zqb_project_search4" method="search"   class="xsdZqbProjectManageAction" >
+		<result name="success">app/plugs/xsdproject/xmfzr.jsp</result> 
+		</action> 
+		<action name="xsd_zqb_project_updateScore" method="updateScore"   class="xsdZqbProjectManageAction" >
+		</action>
+		<action name="xsd_zqb_project_closeitem" method="projectClose"   class="xsdZqbProjectManageAction" >
+		</action>
+		<action name="xsd_zqb_project_item" method="itemIndex"   class="xsdZqbProjectManageAction" >
+			<result name="success">app/plugs/project/item.jsp</result>  
+		</action> 
+		<action name="xsd_zqb_project_update_item" method="updateTaskTime"   class="xsdZqbProjectManageAction" >
+		</action> 
+		<action name="xsd_zqb_project_finish_item" method="setProjectFinish"   class="xsdZqbProjectManageAction" >
+		</action> 
+		<action name="xsd_zqb_project_finish_dg" method="setProjectFinishDg"   class="xsdZqbProjectManageAction" >
+		</action> 
+		<action name="xsd_zqb_project_remove_item" method="removeItem"   class="xsdZqbProjectManageAction" >
+		</action>  
+		<action name="xsd_zqb_project_charIndex" method="charIndex"   class="xsdZqbProjectManageAction" >
+			<result name="success">app/plugs/xsdproject/charIndex.jsp</result>  
+		</action> 
+		<action name="xsd_zqb_project_managerBarChart" method="showManagerBarChart"   class="xsdZqbProjectManageAction" >
+			<result name="success">app/plugs/xsdproject/barcharIndex.jsp</result>  
+		</action> 
+		<action name="xsd_zqb_project_managerBarChartInfo" method="showManagerBarChartInfo"   class="xsdZqbProjectManageAction" >
+			<result name="success">app/plugs/xsdproject/barcharIndexInfo.jsp</result>  
+		</action> 
+		<action name="xsd_zqb_project_userChart" method="charUser"   class="xsdZqbProjectManageAction" >
+			<result name="success">app/plugs/xsdproject/usercharIndex.jsp</result>  
+		</action>  
+		<action name="xsd_zqb_project_yszkChart" method="yszkChart"   class="xsdZqbProjectManageAction" >
+			<result name="success">app/plugs/xsdproject/yszk.jsp</result>  
+		</action>  
+		<action name="xsd_zqb_project_yszkChartInfo" method="showYszkChartInfo"   class="xsdZqbProjectManageAction" >
+			<result name="success">app/plugs/xsdproject/yszkInfo.jsp</result>  
+		</action>  
+		<action name="xsd_zqb_project_report" method="gridIndex"   class="xsdZqbProjectManageAction" >
+			<result name="success">app/plugs/xsdproject/gridIndex.jsp</result>  
+		</action> 
+		<action name="xsd_zqb_project_question" method="showQuestionPage"   class="xsdZqbProjectManageAction" >
+			<result name="success">app/plugs/xsdproject/question.jsp</result>  
+		</action> 
+		<action name="xsd_zqb_project_showquestion" method="showQuestion"   class="xsdZqbProjectManageAction" >
+			<result name="success">app/plugs/xsdproject/question.jsp</result>  
+		</action> 
+		<action name="xsd_zqb_project_question_commit" method="commitQuestion"   class="xsdZqbProjectManageAction" >
+		</action> 
+		<action name="xsd_zqb_project_question_remove" method="removeQuestion"   class="xsdZqbProjectManageAction" >
+		</action>  
+		<action name="xsd_zqb_project_question_all_remove" method="removeAllQuestion"   class="xsdZqbProjectManageAction" >
+		</action>  
+		<action name="xsd_zqb_project_exppro_index" method="expproIndex"   class="xsdZqbProjectManageAction" >
+			<result name="success">app/plugs/xsdproject/exppro.jsp</result>
+		</action>
+		<action name="xsd_zqb_project_exppro" method="exppro"   class="xsdZqbProjectManageAction" >
+		</action>
+		<action name="xsd_zqb_project_showDaily" method="showDaily"   class="xsdZqbProjectManageAction">
+			<result name="success">app/plugs/xsdproject/projectDaily.jsp</result>
+		</action>
+		<action name="xsd_zqb_project_daily" method="expDaily"   class="xsdZqbProjectManageAction">
+		</action>
+		<action name="xsd_zqb_project_doc_load" method="docLoad"   class="xsdZqbProjectManageAction" >
+			<result name="success">app/plugs/xsdproject/doclist.jsp</result> 
+		</action>
+		<action name="xsd_zqb_project_doc_search" method="doSearch"   class="xsdZqbProjectManageAction" >
+			<result name="success">app/plugs/xsdproject/doclist.jsp</result>
+		</action>
+		<action name="xsd_zqb_project_participantBarChart" method="showParticipantBarChart"   class="xsdZqbProjectManageAction" >
+			<result name="success">app/plugs/xsdproject/participantBarCharIndex.jsp</result>  
+		</action> 
+		<action name="xsd_zqb_project_participantBarChartInfo" method="showParticipantBarChartInfo"   class="xsdZqbProjectManageAction" >
+			<result name="success">app/plugs/xsdproject/participantbarcharIndexInfo.jsp</result>  
+		</action>
+		<action name="xsd_zqb_project_getCXDD" method="getCXDD"   class="xsdZqbProjectManageAction">
+		</action>
+		<!-- 协议资料 -->
+		<action name="zqb_project_showXYZL" method="showXYZL" class="xsdZqbProjectManageAction">
+			<result name="success">app/plugs/project/projectXYZL.jsp</result>
+		</action>
+		<action name="delatexmxxzl" method="deleteXYXXZL" class="xsdZqbProjectManageAction">
+			<result name="success">app/plugs/project/projectXYZL.jsp</result>
+		</action>
+		<action name="updatexmxxzl" method="updateXYXXZL" class="xsdZqbProjectManageAction">
+			<result name="success">app/plugs/project/projectXYZL.jsp</result>
+		</action>
+		<action name="delatexmzllist" method="delatexmzllist" class="xsdZqbProjectManageAction">
+			<result name="success">app/plugs/project/XMZLList.jsp</result>
+		</action>
+		<action name="savaxmzllist" method="savaxmzllist" class="xsdZqbProjectManageAction">
+			<result name="success" type="redirect">getXMZLList.action</result>
+		</action>
+		<action  name="getXMZLList"  method="getXMZLList" class="xsdZqbProjectManageAction">
+		  <result name="success">app/plugs/project/XMZLList.jsp</result> 
+		</action>
+		<!--  以项目为基准统计-->
+		  <action name="xsd_zqb_project_getXM" method="getXM" class="xsdZqbProjectManageAction">
+		    <result name="success">app/plugs/xsdproject/getxm.jsp</result>
+		</action>
+		<!-- 获取项目成员个人信息 -->
+		<action name="xsd_zqb_project_getXM_List" method="getXMList" class="xsdZqbProjectManageAction">
+		    <result name="success">app/plugs/xsdproject/xmcygglist.jsp</result>
+		</action>
+		<action name="xsd_zqb_project_doXMExcelExp" method="doExcelXMExp" class="xsdZqbProjectManageAction"> 
+			<result name="success">app/plugs/xsdproject/getxm.jsp</result>  
+		</action>
+		<!-- 以成员为基准统计 -->
+		 <action name="xsd_zqb_project_getCYR" method="getCYR" class="xsdZqbProjectManageAction">
+		    <result name="success">app/plugs/xsdproject/getcyr.jsp</result>
+		</action>
+		<action name="xsd_zqb_prject_doCYExcelExp" method="doExcelCYExp" class="xsdZqbProjectManageAction"> 
+			<result name="success">app/plugs/xsdproject/getcyr.jsp</result>  
+		</action>
+		<action name="xsd_zqb_project_participantBarIndex" method="showParticipantBarIndex"   class="xsdZqbProjectManageAction" >
+			<result name="success">app/plugs/xsdproject/participantGridIndex.jsp</result>  
+		</action> 
+		<action name="xsd_participant_Excel_DoExp" method="doExcelExp" class="xsdZqbProjectManageAction"> 
+			<result name="success">app/engine/dem/excel_imp.jsp</result>  
+		</action>
+		<action name="xsd_projectrisk_Excel_DoExp" method="doExcelExp1" class="xsdZqbProjectManageAction"> 
+			<result name="success">app/engine/dem/excel_imp.jsp</result>  
+		</action>
+		<action name="xsd_projectrisk_Excel_DoExp2" method="doExcelExp2" class="xsdZqbProjectManageAction"> 
+			<result name="success">app/engine/dem/excel_imp.jsp</result>  
+		</action>
+		<action name="xsd_projectrisk_Excel_DoExp3" method="doExcelExp3" class="xsdZqbProjectManageAction"> 
+			<result name="success">app/engine/dem/excel_imp.jsp</result>  
+		</action>
+		<!-- 项目及成员信息 -->
+		<action name="xsd_zqb_project_xmcy" method="xmcy"   class="xsdZqbProjectManageAction" >
+		<result name="success">app/plugs/xsdproject/xmcyxx.jsp</result> 
+		</action> 
+		<action name="xsd_zqb_project_xmcy_doExp" method="doExp"   class="xsdZqbProjectManageAction" >
+		<result name="success">app/engine/dem/excel_imp.jsp</result> 
+		</action> 
+		<!-- 删除项目 -->
+		<action name="xsd_zqb_project_removeProject" method="removeProject" class="xsdZqbProjectManageAction"> 
+		</action>
+		<action name="xsd_zqb_project_removeCxddProject" method="removeCxddProject" class="xsdZqbProjectManageAction"> 
+		</action>
+		<!-- 移除评价信息-->
+		<action  name="xsd_zqb_project_deletePj"   method="removePj"   class="xsdZqbProjectManageAction"></action>
+		<!-- 加载项目任务 -->
+		<action  name="xsd_zqb_project_loadXmrw"  method="loadXmrw" class="xsdZqbProjectManageAction">
+		  <result name="success">app/plugs/xsdproject/xmzl.jsp</result> 
+		</action>
+		<!-- 校验任务上一任务id是否存在-->
+		<action  name="xsd_zqb_project_checkrwid"  method="checkRwid" class="xsdZqbProjectManageAction">
+		</action>
+		<!-- 删除项目中的相关问题 -->
+		<action  name="xsd_zqb_project_deleteTask"  method="deleteTask" class="xsdZqbProjectManageAction">
+		</action>
+		<!-- 删除项目中的相关问题 -->
+		<action  name="xsd_zqb_project_deleteXgwt"  method="deleteXgwt" class="xsdZqbProjectManageAction">
+		</action>
+		<!--相关问题回复 -->
+		<action  name="xsd_zqb_project_xgwthf"  method="xgwthf" class="xsdZqbProjectManageAction">
+		  <result name="success">app/plugs/xsdproject/xgwthf.jsp</result> 
+		</action>
+		<action name="zqb_dustbin_index" method="dustbinIndex" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/dustbin/index.jsp</result>
+		</action>
+		<action name="zqb_dustbin_indexTree" method="dustbinIndexTree" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/dustbin/indexTree.jsp</result>
+		</action>
+		<action name="zqb_dustbin_delete" method="thoroughDelete" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/dustbin/index.jsp</result>
+		</action>
+		<action name="zqb_dustbin_restore" method="restore" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/dustbin/index.jsp</result>
+		</action>
+		
+		<action name="zqb_XPItemIndex" method="itemIndex" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/item/itemIndex.jsp</result>
+		</action>
+		<action name="zqb_XPItemContentIndex" method="itemContentIndex" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/item/itemContentIndex.jsp</result>
+		</action>
+		<action name="zqb_XPItemBcIndex" method="itemBcIndex" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/item/itemBcIndex.jsp</result>
+		</action>
+		<action name="zqb_XPItemStepIndex" method="itemStepIndex" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/item/itemStepIndex.jsp</result>
+		</action>
+		<action name="zqb_industrymsg_manegement" method="industrymsgManegement" class="zqbAnnouncementAction">
+			<result name="success">app/engine/metadata/industrymsgIndex.jsp</result>
+		</action>
+		<action name="zqb_industrymsg_remove" method="industrymsgRemove" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_imp_industrymsg_index" method="impIndustrymsgIndex" class="zqbAnnouncementAction">
+			<result name="success">app/engine/metadata/impIndustrymsg.jsp</result>
+		</action>
+		<action name="zqb_imp_industrymsg" method="impIndustrymsg" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_XPItemIndex_remove" method="itemRemove" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_XPItemContentIndex_remove" method="itemContentRemove" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_XPItemBcIndex_remove" method="itemBcRemove" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_XPItemStepIndex_remove" method="itemStepRemove" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_XPItemMoveUp" method="itemMoveUp" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_XPItemMoveDown" method="itemMoveDown" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_XPItemMoveTop" method="itemMoveTop" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_XPItemMoveBottom" method="itemMoveBottom" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_XPItemImpIndex" method="itemImpIndex" class="zqbAnnouncementAction">
+			<result name="success">app/extend/info/item/itemImp.jsp</result>
+		</action>
+		<action name="zqb_XPItemImp" method="itemImp" class="zqbAnnouncementAction">
+		</action>
+		<action name="zqb_XPQA_list" method="xpqaList" class="zqbAnnouncementAction">
+			<result name="success">app\extend\info\xpqa\xpqaIndex.jsp</result>
+		</action>
+		<action name="zqb_XPQA_excel" method="xpqaExcel" class="zqbAnnouncementAction"></action>
+		<action name="zqb_notice_detail" method="noticeDetails" class="zqbAnnouncementAction">
+			<result name="success">app\extend\info\xpqa\noticedetails.jsp</result>
+		</action>
+		<action name="zqb_notice_getOpinion" method="opinionList" class="zqbAnnouncementAction">
+			<result name="success">app\extend\info\xpqa\getOpinion.jsp</result>
+		</action>
+		<action name="zqb_notice_getOpinionUser" method="opinionUserList" class="zqbAnnouncementAction">
+			<result name="success">app\extend\info\xpqa\opinionUserIndex.jsp</result>
+		</action>
+		<action name="zqb_notice_getOpinionUserContent" method="opinionUserContent" class="zqbAnnouncementAction">
+			<result name="success">app\extend\info\xpqa\opinionUserContent.jsp</result>
+		</action>
+		<!-- 系统信息维护之自定义开始 -->
+		<action name="sysDem_Mdm_xmjdzl" method="sysdemMdmXmjdzl" class="zqbAnnouncementAction">
+			<result name="success">app/engine/metadata/sysdemmdmxmjdzl.jsp</result>
+		</action>
+		<action name="deletexmjdzl" method="DeleteXmjdzl" class="zqbAnnouncementAction">
+		</action>
+		<action name="downxmjdzl" method="DownXmjdzl" class="zqbAnnouncementAction">
+			<result name="success">app/engine/metadata/sysdemmdmxmjdzl.jsp</result>
+		</action>
+		<action name="upxmjdzl" method="UpXmjdzl" class="zqbAnnouncementAction">
+			<result name="success">app/engine/metadata/sysdemmdmxmjdzl.jsp</result>
+		</action>
+		<action name="uptopxmjdzl" method="UpTopXmjdzl" class="zqbAnnouncementAction">
+			<result name="success">app/engine/metadata/sysdemmdmxmjdzl.jsp</result>
+		</action>
+		<action name="downbottomxmjdzl" method="DownBottomPXmjdzl" class="zqbAnnouncementAction">
+			<result name="success">app/engine/metadata/sysdemmdmxmjdzl.jsp</result>
+		</action>
+		
+		<action name="sysDem_Mdm_xmlx" method="sysdemMdmXmlx" class="zqbAnnouncementAction">
+			<result name="success">app/engine/metadata/sysdemmdmxmlx.jsp</result>
+		</action>
+		<action name="deletexmlx" method="DeleteXmlx" class="zqbAnnouncementAction">
+		</action>
+		
+		<action name="sysDem_Mdm_tyxmjdzl" method="sysdemMdmTyxmjdzl" class="zqbAnnouncementAction">
+			<result name="success">app/engine/metadata/sysdemmdmtyxmjdzl.jsp</result>
+		</action>
+		<action name="deletetyxmjdzl" method="DeleteTyxmjdzl" class="zqbAnnouncementAction">
+		</action>
+		<action name="downtyxmjdzl" method="DownTyxmjdzl" class="zqbAnnouncementAction">
+			<result name="success">app/engine/metadata/sysdemmdmtyxmjdzl.jsp</result>
+		</action>
+		<action name="uptyxmjdzl" method="UpTyxmjdzl" class="zqbAnnouncementAction">
+			<result name="success">app/engine/metadata/sysdemmdmtyxmjdzl.jsp</result>
+		</action>
+		<action name="uptoptyxmjdzl" method="UpTopTyxmjdzl" class="zqbAnnouncementAction">
+			<result name="success">app/engine/metadata/sysdemmdmtyxmjdzl.jsp</result>
+		</action>
+		<action name="downbottomtyxmjdzl" method="DownBottomPTyxmjdzl" class="zqbAnnouncementAction">
+			<result name="success">app/engine/metadata/sysdemmdmtyxmjdzl.jsp</result>
+		</action>
+		
+		<action name="sysDem_Mdm_xpzcwt" method="sysdemMdmXpzcwt" class="zqbAnnouncementAction">
+			<result name="success">app/engine/metadata/sysdemmdmxpzcwt.jsp</result>
+		</action>
+		<action name="xxzcDr" method="xxzcDr" class="zqbAnnouncementAction">
+			<result name="success">app/engine/dem/excel_Xxzcimp.jsp</result>
+		</action>
+		<action name="xpwtcfyz" method="xpwtcfyz" class="zqbAnnouncementAction"></action>
+		<action name="xpwttjyz" method="xpwttjyz" class="zqbAnnouncementAction"></action>
+		
+		
+		<action name="xxzcMbupload" method="xxzcMbupload" class="zqbAnnouncementAction"></action>
+		<action name="xxzcDrupfile" method="xxzcDrupfile" class="zqbAnnouncementAction"></action>
+		<action name="deletexpzcwt" method="DeleteXpzcwt" class="zqbAnnouncementAction">
+		</action>
+		<action name="downxpzcwt" method="DownXpzcwt" class="zqbAnnouncementAction">
+			<result name="success">app/engine/metadata/sysdemmdmxpzcwt.jsp</result>
+		</action>
+		<action name="upxpzcwt" method="UpXpzcwt" class="zqbAnnouncementAction">
+			<result name="success">app/engine/metadata/sysdemmdmxpzcwt.jsp</result>
+		</action>
+		<!-- 信披问题增加修改的时候操作数据库 -->
+		<action name="updXpwi" method="updXpwi" class="zqbAnnouncementAction"></action>
+		
+		<action name="uptopxpzcwt" method="UpTopXpzcwt" class="zqbAnnouncementAction">
+			<result name="success">app/engine/metadata/sysdemmdmxpzcwt.jsp</result>
+		</action>
+		<action name="downbottomxpzcwt" method="DownBottomXpzcwt" class="zqbAnnouncementAction">
+			<result name="success">app/engine/metadata/sysdemmdmxpzcwt.jsp</result>
+		</action>
+		<action name="zqb_pjLogList" method="logList" class="zqbProjectManageAction">
+			<result name="success">app/plugs/project/log/index.jsp</result>
+		</action>
+		<action name="getZkAndNhDate" method="getZkAndNhDate" class="zqbProjectManageAction">
+		</action>
+		<action name="pjSetLocking" method="pjSetLocking" class="zqbProjectManageAction">
+		</action>
+		<action name="pjCleanLocking" method="pjCleanLocking" class="zqbProjectManageAction">
+		</action>
+		<action name="zqbPjSubgetContent" method="getSubSpContent" class="zqbProjectManageAction">
+		</action>
+		<action name="zqbPjLcSubgetContent" method="getSubLcSpContent" class="zqbProjectManageAction">
+		</action>
+		<action name="zqbPjSubCheck" method="checkProjectSubSP" class="zqbCheckAction">
+		</action>
+		<action name="zqbPjLcSubCheck" method="checkLcProjectSubSP" class="zqbCheckAction">
+		</action>
+		<action name="zqb_commitCheck_subData" method="commitCheckSubData" class="zqbProjectManageAction"> 
+		</action>
+		<action name="zqbProjectSyncData" method="projectSyncData" class="zqbProjectManageAction">
+		</action>
+		<!-- 项目评价-->
+		<action name="loadDz" method="loadDz" class="zqbProjectManageAction">
+			<result name="success">app/plugs/project/pjdz.jsp</result> 
+		</action>
+		<action name="setPjDz" method="setPjDz" class="zqbProjectManageAction">
+		</action>
+		<action name="cleanPjDz" method="cleanPjDz" class="zqbProjectManageAction">
+		</action>
+		<!-- 项目评价-->
+		<action name="loadLcDz" method="loadLcDz" class="zqbProjectManageAction">
+			<result name="success">app/plugs/project/lcpjdz.jsp</result> 
+		</action>
+		<action name="setLcPjDz" method="setLcPjDz" class="zqbProjectManageAction">
+		</action>
+		<action name="cleanLcPjDz" method="cleanLcPjDz" class="zqbProjectManageAction">
+		</action>
+		<action name="createZkData" method="createZkData" class="zqbProjectManageAction">
+		</action>
+		<action name="createNhData" method="createNhData" class="zqbProjectManageAction">
+		</action>
+		<!-- 系统信息维护之自定义结束 -->
+		<action name="zqb_itsArticles_index" method="index" class="itsArticlesAction">
+			<result name="success">app/extend/info/itsArticles/index.jsp</result>
+		</action>
+		<action name="zqb_xp_checkLSBB" method="zqbXpCheckLSBB" class="zqbAnnouncementAction">
+		</action>		
+		<action name="zqb_kpxx_index" method="khIndex" class="zqbInvoiceAction">
+			<result name="success">app/extend/invoice/invoiceKhIndex.jsp</result>
+		</action>
+		<action name="zqb_sqkp_index" method="kpIndex" class="zqbInvoiceAction">
+			<result name="success">app/extend/invoice/invoiceKpIndex.jsp</result>
+		</action>
+		<action name="zqb_upd_index" method="updIndex" class="zqbInvoiceAction">
+			<result name="success">app/extend/invoice/updDgdy.jsp</result>
+		</action>
+		<action name="zqb_updsave_index" method="updSave" class="zqbInvoiceAction"></action>
+		<action name="zqb_del_index" method="delDg" class="zqbInvoiceAction"></action>
+		
+		<action name="zqb_kpxx_remove" method="removekh" class="zqbInvoiceAction">
+		</action>
+		<action name="zqb_sqkp_remove" method="removekp" class="zqbInvoiceAction">
+		</action>
+		<action name="zqb_sqkp_setState" method="setKhState" class="zqbInvoiceAction">
+		</action>
+		<!-- 山西证券 -->
+		<!-- 客户部分 start -->
+		<action name="sx_loadCustomer" method="index" class="shanXiZqbCustomerManageAction">
+			<result name="success">app/extend/shanxi/customer/customer.jsp</result>
+		</action>
+		<action name="sx_deleteCustomer" method="delete" class="shanXiZqbCustomerManageAction">
+		</action>
+		<action name="sx_zqb_checkXMJD" method="checkXmjd" class="zqbCheckAction">
+		</action>
+		<action name="sx_zqb_setLxxxReadonly" method="setLxxxReadonly" class="zqbCheckAction">
+		</action>
+		<!-- 加载客户信息前判断当前登录用户角色 -->
+		<action name="sx_zqb_pdjsid" method="selectuserrole" class="zqbCheckAction">
+		</action>
+
+	   <!-- 工作底稿主页面-->
+	   <action name="sx_dgcd" method="dgcdAction" class="dongGuanZqbDgdyAction">
+		   <result name="success">app/plugs/dgproject/dgcd.jsp</result>
+	   </action>
+	   <!-- 上传文件统计部分 -->
+	   <action  name="zqb_file_uploadCommit"  method="commitFile" class="zqbFileUploadCommitAction">
+	   </action>
+	   <!-- 查询修改信息跳转界面 -->
+	   <action name="go_DGCDUpdate" method="dgcdOneAction" class="dongGuanZqbDgdyAction">
+		   <result name="success">app/plugs/dgproject/dgcdMain.jsp</result>
+	   </action>
+	   <!-- 修改底稿存档 -->
+	   <action name="sx_dgcdUpdateDGCD" method="updateDGCD" class="dongGuanZqbDgdyAction">
+		   <result name="success">app/plugs/dgproject/dgcdMain.jsp</result>
+	   </action>
+	   <!-- 添加底稿存档 -->
+	   <action name="sx_dgcdInsert" method="dgcdInsert" class="dongGuanZqbDgdyAction">
+	   </action>
+	   <!-- 添加底稿存档中选择项目 -->
+	   <action name="sx_dgcdInsert_selectPro" method="dgcdInsertSelectPro" class="dongGuanZqbDgdyAction">
+		   <result name="success">app/plugs/dgproject/DGCDSelectPro.jsp</result>
+	   </action>
+	   <!-- 锁定底稿存档 -->
+	   <action name="sx_lockDGCD" method="lockDGCD" class="dongGuanZqbDgdyAction">
+	   </action>
+	   <!-- 删除底稿存档 -->
+	   <action name="sx_deleteDGCD" method="deleteDGCD" class="dongGuanZqbDgdyAction">
+	   </action>
+	   <!-- 根据目录查询上传文件数据 -->
+	   <action name="sx_selectDGCDFile" method="selectDGCDFile" class="dongGuanZqbDgdyAction">
+		   <result name="success">app/plugs/dgproject/dgcdFile.jsp</result>
+	   </action>
+	   <!-- 删除上传文件数据 -->
+	   <action name="sx_deleteDGCDFile" method="deleteDGCDFile" class="dongGuanZqbDgdyAction">
+	   </action>
+	   <!-- 下载上传文件数据根据uuid下载单个数据或者多个数据-->
+	   <action name="downloadFileDGCD" method="downloadDGCDFile" class="dongGuanZqbDgdyAction">
+	   </action>
+	   <!-- 下载上传文件数据根据项目id下载与之对应的数据并打包-->
+	   <action name="downloadDGCDFileForDGCDID" method="downloadDGCDFileForDGCDID" class="dongGuanZqbDgdyAction">
+	   </action>
+	   <!-- 跳转到添加页面 -->
+	   <action name="sx_dgcdAdd" method="dgcdAddAction" class="dongGuanZqbDgdyAction">
+		   <result name="success">app/plugs/dgproject/dgcdMain.jsp</result>
+	   </action>
+	   <!-- 在底稿存档主页面中添加左侧树结构页面 -->
+	   <action name="add_dgcdZtree" method="add_dgcdZtree" class="dongGuanZqbDgdyAction">
+		   <result name="success">app/plugs/dgproject/dgcdTree.jsp</result>
+	   </action>
+	   <!-- 右侧iframe的路径 -->
+	   <action name="sx_dgcdIframe" method="dgcdIframeAction" class="dongGuanZqbDgdyAction">
+		   <result name="success">app/plugs/dgproject/dgcdFile.jsp</result>
+	   </action>
+	   <!-- 上传底稿存档的路径 -->
+	   <action name="upfileDGCD" method="upfileDGCD" class="dongGuanZqbDgdyAction">
+		   <result name="success">app/plugs/dgproject/dgcdMain.jsp</result>
+	   </action>
+       <!--底稿存档附件上传跳转页面-->
+       <action name="UploadifyDGCDFile" class="dongGuanZqbDgdyAction" method="uploadifyDGCDFile">
+           <result name="success">app/upload/uploadDGCD.jsp</result>
+       </action>
+	   <!-- 工作底稿部分结束-->
+
+		<!-- 客户部分 end -->
+		<!-- 项目签约部分 start -->
+		<action name="sx_loadQianYue" method="index" class="shanXiZqbContractManageAction">
+			<result name="success">app/extend/shanxi/qianyue/index.jsp</result>
+		</action>
+		<action name="sx_removeQianYue" method="remove" class="shanXiZqbContractManageAction">
+		</action>
+		<action name="sx_expQianYue" method="expQianYue"   class="shanXiZqbContractManageAction" >
+		</action>
+		<!-- 项目签约部分 end -->
+		<!-- 获取挂牌表单中的部分字段 -->
+		<action name="sx_getGuaPaiContent" method="getGuaPaiContent" class="shanXiZqbCustomerManageAction">
+		</action>
+		<action name="sx_getJdzl" method="getJdzl"   class="shanXiZqbCustomerManageAction" >
+		</action>
+		<action name="sx_getBgJdzl" method="getBgJdzl"   class="shanXiZqbCustomerManageAction" >
+		</action>
+		<action name="sx_getBgZLGD" method="getBgZLGD"   class="shanXiZqbCustomerManageAction" >
+		</action>
+		<action name="sx_getCwZLGD" method="getCwZLGD"   class="shanXiZqbCustomerManageAction" >
+		</action>
+		<action name="sx_getCwJdzl" method="getCwJdzl"   class="shanXiZqbCustomerManageAction" >
+		</action>
+		<action name="sx_getXmlxProject" method="getXmlxProject" class="shanXiZqbCustomerManageAction">
+			<result name="success">app/plugs/sxproject/getxm.jsp</result>
+		</action>
+		<action name="sx_getXmlxCyrProject" method="getXmlxCyrProject" class="shanXiZqbCustomerManageAction">
+			<result name="success">app/plugs/sxproject/getcyr.jsp</result>
+		</action>
+		<action name="sx_doXMExcelExp" method="doExcelXMExp" class="shanXiZqbCustomerManageAction"> 
+		</action>
+		<action name="sx_doCYExcelExp" method="doExcelCYExp" class="shanXiZqbCustomerManageAction"> 
+		</action>
+		<action name="sx_getCustomerAutoData" method="getCustomerAutoData" class="shanXiZqbCustomerManageAction"> 
+		</action>
+		<action name="sx_expCustomer" method="expCustomer" class="shanXiZqbCustomerManageAction"> 
+		</action>
+		<action name="sx_zqb_customer_checkCFXX" method="checkCFXX" class="shanXiZqbCustomerManageAction"> 
+		</action>
+		<!-- 山西项目流程 -->
+		<action name="sx_zqb_xmlx_commit" method="xmlxCommit" class="shanXiZqbProjectManageAction"> 
+		</action>
+		<action name="sx_zqb_setCustomerContent" method="setCustomerContent" class="shanXiZqbProjectManageAction"> 
+		</action>
+		<action name="sx_zqb_getCustomerContent" method="getCustomerContent" class="shanXiZqbProjectManageAction"> 
+		</action>
+		<action name="sx_zqb_getXmxlContent" method="getXmlxContent" class="shanXiZqbProjectManageAction"> 
+		</action>
+		<action name="sx_zqb_xmlxContent" method="xmlxContent" class="shanXiZqbProjectManageAction"> 
+		</action>
+		<!-- 提交权限控制 -->
+		<action name="sx_zqb_commitAuthority" method="commitAuthority" class="shanXiZqbProjectManageAction"> 
+		</action>
+		<!-- 验证扣分ID是否显示 -->
+		<action name="sx_zqb_checkSfkfId" method="checkSfkfId" class="zqbCheckAction">
+		</action>
+		<!-- 执行扣分操作 -->
+		<!--获取被驳回人的账号-->
+		<action name="sx_zqb_obtainUserid" method="obtainUserid" class="zqbCheckAction">
+		</action>
+		<!-- 获取被驳回人的账号END -->
+		<!-- 获取提交扣分人的账号 -->
+		<action name="sx_zqb_XSBKFR" method="XSBKFR" class="zqbCheckAction">
+		</action>
+		<action name="sx_zqb_isShowKF" method="isShowKF" class="zqbCheckAction">
+		</action>
+		<action name="sxkf_isShowKF" method="sxkf" class="zqbCheckAction">
+		</action>
+		<action name="zqb_bh_isShowKF" method="bhisShowKF" class="zqbCheckAction"></action>
+		<!-- 获取提交扣分人的账号END -->
+		<!-- 获取提交扣分类型 -->
+		<action name="sx_zqb_KFLX" method="kflx" class="zqbCheckAction">
+		</action>
+		<!-- 获取提交扣分类型END -->
+		<!--根据会签发短信邮件-->
+		<action name="sx_zqb_hqdx" method="hqdx" class="zqbCheckAction">
+		</action>
+		<!-- 根据短信发短信邮件END -->
+		<action name="zqb_sx_scoreset" method="scoreSet" class="zqbCheckAction">
+		</action>
+		<action name="zqb_sx_tjscoreset" method="tjscoreSet" class="zqbCheckAction">
+		</action>
+		<action name="sx_zqb_bgIndex" method="index" class="shanXiZqbBgProjectManageAction">
+			<result name="success">app/plugs/sxproject/bgcz/index.jsp</result>
+		</action>
+		<action name="sx_zqb_bgGetJdContent" method="getJdContent" class="shanXiZqbBgProjectManageAction">
+			<result name="success">app/plugs/sxproject/bgcz/projectbaseinfo.jsp</result>
+		</action>
+		<action name="sx_zqb_BgCheckXMJD" method="checkBgXmjd" class="zqbCheckAction">
+		</action>
+		<action name="sx_zqb_closeBgProject" method="closeBgProject"   class="shanXiZqbBgProjectManageAction" >
+		</action>
+		<action name="sx_zqb_cwGetJdContent" method="getCwJdContent" class="shanXiZqbBgProjectManageAction">
+			<result name="success">app/plugs/sxproject/cwpj/projectbaseinfo.jsp</result>
+		</action>
+		<action name="sx_zqb_CwCheckXMJD" method="checkCwXmjd" class="zqbCheckAction">
+		</action>
+		<action name="sx_zqb_cwIndex" method="cwIndex" class="shanXiZqbBgProjectManageAction">
+			<result name="success">app/plugs/sxproject/cwpj/index.jsp</result>
+		</action>
+		<action name="sx_zqb_closeCwProject" method="closeCwProject"   class="shanXiZqbBgProjectManageAction" >
+		</action>
+		<action name="hl_zqb_qtIndex" method="qtIndex" class="shanXiZqbBgProjectManageAction">
+			<result name="success">app/plugs/hlproject/qtpro/index.jsp</result>
+		</action>
+		<action name="hl_zqb_close" method="qtClosePro" class="shanXiZqbBgProjectManageAction">
+		</action>
+		<action name="hl_zqb_qtGetJdContent" method="getQtJdContent" class="shanXiZqbBgProjectManageAction">
+			<result name="success">app/plugs/hlproject/qtpro/projectbaseinfo.jsp</result>
+		</action>
+		<action name="hl_zqb_getMainContent" method="getMainContent" class="shanXiZqbBgProjectManageAction">
+		</action>
+		<!-- 定增(200以内)项目开始 -->
+		<action name="zqb_announcement_gettentuserdateforprotwo" method="getTentUserDateForProTwo" class="zqbHlProjectAction"> 
+		</action>
+		<action name="zqb_announcement_gettentuserdateforrctwo" method="getTentUserDateForRcTwo" class="zqbHlProjectAction"> 
+		</action>
+		<action name="isCcLastnode" method="isCcLastnode" class="zqbHlProjectAction">
+		</action>
+		<action name="isGpLastnode" method="isGpLastnode" class="zqbHlProjectAction">
+		</action>
+		<action name="isDzLastnode" method="isDzLastnode" class="zqbHlProjectAction">
+		</action>
+		<action name="isSgLastnode" method="isSgLastnode" class="zqbHlProjectAction">
+		</action>
+		<action name="isYbcwLastnode" method="isYbcwLastnode" class="zqbHlProjectAction">
+		</action>
+		<action name="isDzwLastnode" method="isDzwLastnode" class="zqbHlProjectAction">
+		</action>
+		<!-- 抄送部门负责人开始 -->
+		<action name="isxmcsywbm" method="isXmcsYwbm" class="zqbHlProjectAction">
+		</action>
+		<!-- 抄送部门负责人 结束-->
+		<action name="delhldz" method="delHlDz" class="zqbHlProjectAction">
+		</action>
+		<action name="delhldzw" method="delHlDzw" class="zqbHlProjectAction">
+		</action>
+		<action name="delhlbg" method="delHlBg" class="zqbHlProjectAction">
+		</action>
+		<action name="delhlsg" method="delHlSg" class="zqbHlProjectAction">
+		</action>
+		<action name="delhlgp" method="delHlGp" class="zqbHlProjectAction">
+		</action>
+		<action name="delhlybcw" method="delHlYbcw" class="zqbHlProjectAction">
+		</action>
+		<action name="delhlqt" method="delHlQt" class="zqbHlProjectAction">
+		</action>
+		<action name="hl_zqb_dzwthIndex" method="withinTwoHundredIndex" class="zqbHlProjectAction">
+			<result name="success">app/plugs/hlproject/dzprowth/index.jsp</result>
+		</action>
+		<action name="hl_zqb_dzwthclose" method="dzwthClosePro" class="zqbHlProjectAction">
+		</action>
+		<action name="hl_zqb_getdzwthMainContent" method="getMainContent" class="zqbHlProjectAction">
+		</action>
+		<action name="hl_zqb_dzwthGetJdContent" method="getDzWthJdContent" class="zqbHlProjectAction">
+			<result name="success">app/plugs/hlproject/dzprowth/projectbaseinfo.jsp</result>
+		</action>
+		<!-- 定增(200以内)项目结束 -->
+		<!-- 定增(200以上)项目开始 -->
+		<action name="hl_zqb_dzwthmoreIndex" method="withoutTwoHundredIndex" class="zqbHlProjectAction">
+			<result name="success">app/plugs/hlproject/dzprowoth/index.jsp</result>
+		</action>	
+		<action name="hl_zqb_dzwthmoreclose" method="dzwothClosePro" class="zqbHlProjectAction">
+		</action>
+		<action name="hl_zqb_getdzwothMainContent" method="getMainMoreContent" class="zqbHlProjectAction">
+		</action>
+		<action name="hl_zqb_dzwothGetJdContent" method="getDzWothJdContent" class="zqbHlProjectAction">
+			<result name="success">app/plugs/hlproject/dzprowoth/projectbaseinfo.jsp</result>
+		</action>
+		<!--定增(200以上)项目结束   -->
+		<!-- 收购项目管理项目开始 -->
+		<action name="hl_zqb_sgIndex" method="sgIndex" class="zqbHlProjectAction">
+			<result name="success">app/plugs/hlproject/sgpro/index.jsp</result>
+		</action>
+		<action name="hl_zqb_sgclose" method="sgClosePro" class="zqbHlProjectAction">
+		</action>
+		<action name="hl_zqb_getSgMainContent" method="getSgMainContent" class="zqbHlProjectAction">
+		</action>
+		<action name="hl_zqb_sgGetJdContent" method="getSgJdContent" class="zqbHlProjectAction">
+			<result name="success">app/plugs/hlproject/sgpro/projectbaseinfo.jsp</result>
+		</action>
+		<action name="checkdouble" method="checkdouble" class="zqbHlProjectAction">
+	
+		</action>
+		<action name="ztnbcb" method="index" class="zqbZtProjectAction">
+			<result name="success">app/plugs/ztproject/index.jsp</result> 
+		</action>
+		<action name="ztnbcbremove" method="removeZtNbcb" class="zqbZtProjectAction">
+			
+		</action>
+		<!-- 收购项目管理项目结束 -->
+		<!-- 重组项目管理项目开始 -->
+		<action name="hl_zqb_bgIndex" method="bgIndex" class="zqbHlProjectAction">
+			<result name="success">app/plugs/hlproject/bgpro/index.jsp</result>
+		</action>
+		<action name="hl_zqb_bgclose" method="bgClosePro" class="zqbHlProjectAction">
+		</action>
+		<action name="hl_zqb_getBgMainContent" method="getBgMainContent" class="zqbHlProjectAction">
+		</action>
+		<action name="hl_zqb_bgGetJdContent" method="getBgJdContent" class="zqbHlProjectAction">
+			<result name="success">app/plugs/hlproject/bgpro/projectbaseinfo.jsp</result>
+		</action>
+		<!-- 重组项目管理项目结束 -->
+		<!-- 一般性财务顾问项目管理项目开始 -->
+		<action name="hl_zqb_ybcwIndex" method="ybcwIndex" class="zqbHlProjectAction">
+			<result name="success">app/plugs/hlproject/ybcwpro/index.jsp</result>
+		</action>
+		<action name="hl_zqb_ybcwclose" method="ybcwClosePro" class="zqbHlProjectAction">
+		</action>
+		<action name="hl_zqb_getybcwMainContent" method="getYbcwMainContent" class="zqbHlProjectAction">
+		</action>
+		<action name="hl_zqb_ybcwGetJdContent" method="getYbcwJdContent" class="zqbHlProjectAction">
+			<result name="success">app/plugs/hlproject/ybcwpro/projectbaseinfo.jsp</result>
+		</action>
+		<!-- 一般性财务顾问项目管理项目结束 -->
+		<!--签到  -->
+		<action name="dkindex" method="dkindex" class="zqbHlProjectAction">
+			<result name="success">app/plugs/hlproject/dkindex.jsp</result>
+		</action>
+		<action name="getqxdc" method="getqxdc" class="zqbHlProjectAction">
+			
+		</action>
+		<action name="zqb_dkindex_byuserid" method="dkindexbyuserid" class="zqbHlProjectAction">
+			<result name="success">app/plugs/hlproject/dlindexByuserid.jsp</result>
+		</action>
+		<action name="zqb_exbyuserid" method="exproqd" class="zqbHlProjectAction">
+			
+		</action>
+		
+		<!--  签到结束-->
+		<!-- 挂牌项目管理项目开始 -->
+		<action name="hl_zqb_gpIndex" method="gpIndex" class="zqbHlProjectAction">
+			<result name="success">app/plugs/hlproject/gppro/index.jsp</result>
+		</action>
+		<action name="hl_zqb_validateUser" method="validateUser" class="zqbHlProjectAction">
+		</action>
+		<action name="hl_zqb_gpclose" method="closePro" class="zqbHlProjectAction">
+		</action>
+		<action name="hl_zqb_getGpMainContent" method="getGpMainContent" class="zqbHlProjectAction">
+		</action>
+		<action name="hl_zqb_gpGetJdContent" method="getGpJdContent" class="zqbHlProjectAction">
+			<result name="success">app/plugs/hlproject/gppro/projectbaseinfo.jsp</result>
+		</action>
+		<!-- 挂牌项目管理项目结束 -->
+		<!-- 其他事项流程开始 -->
+		<action name="hl_zqb_othermatters_index" method="omIndex" class="zqbHlProjectAction">
+			<result name="success">app/plugs/hlproject/qtsx/index.jsp</result>
+		</action>
+		<!-- 其他事项流程结束 -->
+		
+		<!-- 日常业务呈报 start-->
+		<action name="zqb_operation_index" method="index"   class="zqbOperationManageAction" >
+		<result name="success">app/extend/operation/index.jsp</result> 
+		</action>
+		<!-- 加载树 -->
+		<action name="zqb_operation_eventJSON" method="getEventTreeJson"   class="zqbOperationManageAction" >
+		</action>
+		<action name="zqb_operation_index_content" method="indexEvent"   class="zqbOperationManageAction" >
+		<result name="success">app/extend/operation/content.jsp</result>
+		</action> 
+		<!-- 加载明细 -->
+		<action name="zqb_JZMX_content" method="getYWCBMX"   class="zqbOperationManageAction" >
+		<result name="success">app/extend/operation/RcywcbLook.jsp</result>
+		</action> 
+		<!-- 日常业务呈报 end-->
+		
+		<!-- 密码初始化  -->
+		<action name="zqb_XPPasswordReset" method="index" class="zqbChangePasswordAction">
+			<result name="success">app/plugs/PasswordRest/PasswordRest.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+		<action name="zqb_change_password" method="excutePwdUpdate" class="zqbChangePasswordAction">
+			<result name="success">app/plugs/PasswordRest/PasswordRest.jsp</result>
+		</action>
+		<!-- 东莞项目 -->
+		<action name="dg_zqb_project_index" method="index" class="dongGuanZqbProjectManageAction">
+			<result name="success">app/plugs/dgproject/index.jsp</result>
+		</action>
+		<action name="dg_zqb_project_close" method="projectClose" class="dongGuanZqbProjectManageAction">
+		</action>
+		<action name="dg_zqb_project_xgzt" method="projectUpd" class="dongGuanZqbProjectManageAction"></action>
+		<action name="dg_zqb_project_jdxx" method="jdxx" class="dongGuanZqbProjectManageAction">
+			<result name="success">app/plugs/dgproject/jdxx.jsp</result>
+		</action>
+		<action name="dg_zqb_project_pj" method="loadPj" class="dongGuanZqbProjectManageAction">
+			<result name="success">app/plugs/dgproject/pjbaseinfo.jsp</result> 
+		</action>
+		<action name="dg_zqb_project_deletepj" method="deletePj" class="dongGuanZqbProjectManageAction">
+		</action>
+		<action name="zqb_peoject_checkProName" method="checkProName" class="dongGuanZqbProjectManageAction">
+		</action>
+		<action name="dg_zqb_project_expindex" method="expPjIndex" class="dongGuanZqbProjectManageAction">
+			<result name="success">app/plugs/dgproject/exppro.jsp</result>
+		</action>
+		<action name="dg_zqb_project_exppj" method="expPj" class="dongGuanZqbProjectManageAction">
+		</action>
+		<action name="dg_zqb_project_getcutomermsg" method="getCutomermsg" class="dongGuanZqbProjectManageAction">
+		</action>
+		<action name="dg_zqb_project_getCusMsgByProno" method="getCusMsgByProno" class="dongGuanZqbProjectManageAction">
+		</action>
+		<action name="dg_zqb_project_getcutomeurl" method="getCutomeUrl" class="dongGuanZqbProjectManageAction">
+		</action>
+		<action name="dg_zqb_project_getprojectmsg" method="getProjectmsg" class="dongGuanZqbProjectManageAction">
+		</action>
+		<action name="dg_zqb_project_getipoprojectmsg" method="getIPOProjectmsg" class="dongGuanZqbProjectManageAction">
+		</action>
+		<action name="dg_zqb_gpfxproject_xmjd" method="projectXmjd" class="dongGuanZqbProjectManageAction">
+			<result name="success">app/plugs/dgproject/projectxmjdinfo.jsp</result>
+		</action>
+		
+		<action name="dg_zqb_bgczproject_xmjd" method="bgczXmjd" class="dongGuanZqbProjectManageAction">
+			<result name="success">app/plugs/dgproject/projectbaseinfo.jsp</result>
+		</action>
+		
+		<action name="dg_zqb_ipoproject_xmjd" method="ipoXmjd" class="dongGuanZqbProjectManageAction">
+			<result name="success">app/plugs/dgproject/projectipoinfo.jsp</result>
+		</action>
+		<action name="dg_zqb_process_addlog" method="processAddlog" class="com.iwork.plugs.calender.action.SchCalendarAction">
+		</action>
+		<!-- 投行项目流程 -->
+		<action name="zqb_leave_indexbyuserid" method="indexLeaveByUserid" class="dongGuanZqbProjectManageAction">
+			<result name="success">app/plugs/dgproject/indexLeaveByUserid.jsp</result>
+		</action>
+		<action name="zqb_leave_index" method="indexLeave" class="dongGuanZqbProjectManageAction">
+			<result name="success">app/plugs/dgproject/indexLeave.jsp</result>
+		</action>
+		<action name="zqb_sickleave_dialog" method="sickLeaveDia" class="dongGuanZqbProjectManageAction">
+			<result name="success">app/plugs/dgproject/sickleavedia.jsp</result>
+		</action>
+		<action name="zqb_sick_leave" method="sickLeave" class="dongGuanZqbProjectManageAction">
+		</action>
+		<action name="zqb_leave_del" method="sickDel" class="dongGuanZqbProjectManageAction">
+		</action>
+		<!-- 委托流程查询 -->
+		<action name="getentrust" method="getEntrust" class="dongGuanZqbProjectManageAction">
+		</action>
+		<!-- 打开投行项目列表 -->
+		<action name="openthxm" method="openthxm" class="shanXiZqbBgProjectManageAction">
+			<result name="success">app/extend/operation/Investmentbankproject.jsp</result>
+		</action>
+		
+		<!-- 获取项目经办人 -->
+		<action name="sx_zqb_hqthxmjbr" method="hqthxmjbr" class="shanXiZqbBgProjectManageAction">
+		</action>
+		<!-- 投行项目流程根据流程名称判断是否重复 -->
+		<action name="thxmBeforsave" method="thxmBeforsave" class="shanXiZqbBgProjectManageAction">
+		</action>
+		<!-- 导出投行数据 -->
+		<action name="exportexcl" method="thxmexportexcl" class="shanXiZqbBgProjectManageAction">
+		</action>
+		<!-- 删除投行数据 -->
+		<action name="removeexport" method="removeexport" class="shanXiZqbBgProjectManageAction">
+		</action>
+		<!-- 判断是否存在抄送人员 -->
+		<action name="isFirstnode" method="isFirstnode" class="shanXiZqbBgProjectManageAction">
+		</action>
+		<!-- 判断是否存在抄送人员 -->
+		<!-- 投行项目流程 END-->
+		
+		<!-- 东莞工作底稿调阅 -->
+		<!-- 查询底稿调阅数据列表 -->
+		<action name="dg_gzdgdy" method="getDgdyList" class="dongGuanZqbDgdyAction">
+			<result name="success">app/extend/operation/dgDgdyIndex.jsp</result>
+		</action>
+		
+			 <action name="dggdToExcl" method="dggdToExcl" class="zqbInvoiceAction"></action>
+			 <action name="dgdyToExcl" method="dgdyToExcl" class="dongGuanZqbDgdyAction"></action>
+			 <!-- 东莞处罚记录导出 -->
+			 <action name="dgcfjlToExcl" method="dgcfjlToExcl" class="zqbOnlineChatAction"></action>
+		
+		
+	   <!-- 底稿存档左侧tree的路径 -->
+	   <action name="dg_dgcdLeftIframe" method="dgcdLeftIframe" class="dongGuanZqbDgdyAction">
+		   <result name="success">app/plugs/dgproject/dgcdFile.jsp</result>
+	   </action>
+	   <!-- 底稿存档左侧tree改名操作 -->
+	   <action name="dg_dgcdZreeRename" method="dgcdZreeRename" class="dongGuanZqbDgdyAction">
+	   </action>
+	   <!-- 底稿存档左侧tree删除操作 -->
+	   <action name="dg_dgcdZreeDelete" method="dgcdZreeDelete" class="dongGuanZqbDgdyAction"></action>
+	   <!-- 底稿存档tree excel导入 -->
+	   <action name="dg_dgcdZreeExcelImp" method="dgcdZreeExcelImp" class="dongGuanZqbDgdyAction">
+	  	 <result name="success">app/plugs/dgproject/dgcdTreeExcel_imp.jsp</result>
+	   </action>
+	   <!-- 底稿存档左侧tree新增操作 -->
+	   <action name="dg_dgcdZreeAdd" method="dgcdZreeAdd" class="dongGuanZqbDgdyAction"></action>
+	   <!-- 底稿存档左侧tree显示目录操作 -->
+	   <action name="dg_dgcdZreeInsert" method="dgcdZreeInsert" class="dongGuanZqbDgdyAction"></action>
+	   <!-- 底稿存档左侧tree excel导入操作 -->
+	   <action name="dg_UploadFile" method="uploadFile" class="dongGuanZqbDgdyAction">
+	   	<interceptor-ref name="defaultStack"></interceptor-ref>
+	   </action>
+	   <!-- 项目修改左侧tree显示目录操作 -->
+	   <action name="dg_dgcdShowProject" method="showProject" class="dongGuanZqbDgdyAction">
+	   		<result name="success" >app/plugs/dgproject/dgcdTreeProject.jsp</result>
+	   </action>
+	   <!-- 项目修改左侧tree 数据查询 -->
+	   <action name="dg_dgcdShowProjectTree" method="showProjectTree" class="dongGuanZqbDgdyAction">
+	   </action>
+	   
+	   <!-- 项目修改左侧tree 节点重命名 -->
+	   <action name="dg_dgcdZreeProjectRename" method="dgcdZreeProjectRename" class="dongGuanZqbDgdyAction">
+	   </action>
+	   
+	   <!-- 项目修改左侧tree 节点删除 -->
+	   <action name="dg_dgcdZreeProjectDelete" method="dgcdZreeProjectDelete" class="dongGuanZqbDgdyAction">
+	   </action>
+	   
+	   <!-- 项目修改左侧tree 节点上方插入 -->
+	   <action name="dg_dgcdZreeProjectInsert" method="dgcdZreeProjectInsert" class="dongGuanZqbDgdyAction">
+	   </action>
+	   
+	   <!-- 项目修改左侧tree 节点添加-->
+	   <action name="dg_dgcdZreeProjectAdd" method="dgcdZreeProjectAdd" class="dongGuanZqbDgdyAction">
+	   </action>
+	   
+		
+		
+		<!--  东莞工作底稿调阅END-->
+		<!-- 现场检查记录 begin -->
+		 <action name="showxXcjc" method="index" class="xcjclvAction">
+			<result name="success">app/extend/operation/xcjclvIndex.jsp</result>
+		</action>
+		 <action name="xcjclv_search" method="doSearch" class="xcjclvAction">
+			<result name="success">app/extend/operation/xcjclvShow.jsp</result>
+		</action>
+		<action name="xcjcjlToExcl" method="xcjcjlToExcl" class="xcjclvAction"></action>
+		<action name="xcjclv_del" method="delXcjclv" class="xcjclvAction">
+		</action>
+		<!-- 现场检查记录 end -->
+		<!-- 培训记录 begin -->
+		 <action name="showPxju" method="pxjuindex" class="xcjclvAction">
+			<result name="success">app/extend/operation/pxjlIndex.jsp</result>
+		</action>
+		 <action name="pxjl_search" method="doSearchPxjl" class="xcjclvAction">
+			<result name="success">app/extend/operation/pxjlShow.jsp</result>
+		</action>
+		<action name="pxjllToExcl" method="pxjllToExcl" class="xcjclvAction"></action>
+		<!-- 培训记录 end -->
+		 <!-- 常见业务流程指引  -->
+		<action name="cjywlczy" method="showList" class="cjywlczyAction">
+			<result name="success">app/extend/info/xpsxindex.jsp</result>
+		</action>
+		 <!-- 常见业务流程指引  -->
+		 <!-- 企业违规风险记录  -->
+		 <action name="qywgfxjl_index" method="qywgfxjlIndex" class="qywgfxjlAction">
+			<result name="success">app/extend/operation/indexQywgfxj.jsp</result>
+		</action>
+		 <action name="qywgfxjl" method="showList" class="qywgfxjlAction">
+			<result name="success">app/extend/operation/qywgfxjIndex.jsp</result>
+		</action>
+		<action name="getDmJcData" method="getDmJcData" class="qywgfxjlAction"> </action>
+		<action name="getQysj" method="getQysj" class="qywgfxjlAction"> </action>
+		<action name="qyToExcl" method="qyToExcl"   class="qywgfxjlAction" ></action>
+		 <!-- 督导签约  -->
+		  <action name="ddListShow" method="ddListShow" class="ddqyAction">
+			<result name="success">app/extend/operation/ddqyIndex.jsp</result>
+		</action>
+		 <action name="ddZbRzList" method="ddZbRzList" class="ddqyAction">
+			<result name="success">app/extend/operation/ddqyRzList.jsp</result>
+		</action>
+		<action name="getDdqy" method="getDdqy" class="ddqyAction"> </action>
+		<action name="getZbkh" method="getZbkh" class="ddqyAction"> </action>
+		 <action name="toJy" method="toJy" class="ddqyAction">
+			<result name="success">app/extend/operation/ddqyJy.jsp</result>
+		</action>
+		<action name="jySave" method="jySave" class="ddqyAction"> </action>
+		<action name="ddToExcl" method="ddToExcl" class="ddqyAction"> </action>
+		<action name="ddqyMbupload" method="ddqyMbupload" class="ddqyAction"> </action>
+		<action name="ddqyDr" method="ddqyDr" class="ddqyAction">
+			<result name="success">app/engine/dem/excel_ddqyimp.jsp</result>
+		</action>
+		<action name="ddqyDrupfile" method="ddqyDrupfile" class="ddqyAction"></action>
+		
+		<action name="cwbbmb" method="cwbbmb" class="zqbAnnouncementAction"> </action>
+		<!--档案归档  -->
+		<!-- 在线考试模板下载 -->
+		<action name="zxksMbupload" method="zxksMbupload" class="zqbAnnouncementAction"> </action>
+		<!-- 公告选择摘牌时间，修改客户信息表 -->
+		<action name="updateZpsj" method="updateZpsj" class="zqbAnnouncementAction"> </action>
+		<!-- 底稿归档 -->
+		<action name="dggdMbupload" method="dggdMbupload" class="zqbAnnouncementAction"> </action>
+		
+		<action name="hldagd" method="index" class="hualongZqbCdAction">
+			<result name="success">app/extend/operation/daglcd.jsp</result>
+		</action>
+		<action name="damx" method="damx" class="hualongZqbCdAction">
+			<result name="success">app/extend/operation/damx.jsp</result>
+		</action>
+		<action name="delDa" method="delDa" class="hualongZqbCdAction">
+		</action>
+		<action name="gdOut" method="gdOut" class="hualongZqbCdAction">
+		</action>
+		<action name="getDgdyOut" method="getDgdyList" class="hualongZqbCdAction">
+		</action> 
+		<!-- 出差与外出 -->
+		<action name="ccywc" method="index" class="zqbCcywcAction">
+			<result name="success">app/plugs/hlproject/ccywc.jsp</result>
+		</action>
+		<action name="getccywcbyuserid" method="getccywcbyuserid" class="zqbCcywcAction">
+			<result name="success">app/plugs/hlproject/ccywcbyuserid.jsp</result>
+		</action>
+		<action name="delCc" method="delCc" class="zqbCcywcAction"></action>
+		
+		<!-- 知识与培训 -->
+		<action name="zq_purview_orgjson" method="showOrgPurviewJson" class="zKMPurViewAction">
+			
+		</action>
+		<action name="testIndex" method="index" class="zhuoZhengAction">
+			<result name="success">app/zhuozheng/editfile.jsp</result>
+		</action> 
+		
+		<action name="pagesave" method="savepage" class="zhuoZhengAction">
+			
+		</action>
+		<action name="testbingfa" method="testbingfa" class="zhuoZhengAction">
+			
+		</action>
+		
+		<action name="getlsbb" method="getlsbb" class="zhuoZhengAction">
+			<result name="success">app/zhuozheng/editfilels.jsp</result>
+		</action>
+		<action name="cjIndex" method="getCjIndex" class="zhuoZhengAction">
+			<result name="success">app/zhuozheng/cjym.jsp</result>
+		</action>
+		
+		<action name="zhuozhengpass" method="zhuoZhengPass" class="zhuoZhengAction">
+			<result name="success">app/zhuozheng/editfilet.jsp</result>
+		</action>
+		<action name="getLsZz" method="getZhuoZLsbb" class="zhuoZhengAction">
+			<result name="success">app/zhuozheng/editfileread.jsp</result>
+		</action>
+		<!-- 文件名验证 -->
+		<action name="webUploadyz" method="webUploadyzfs" class="zqbGsjcxxwhAction"></action> 
+		<!-- 公司基础信息维护 -->
+		<!-- 公司章程（制度） -->
+		<action name="addOrUpdTyff" method="addOrUpdTyff" class="zqbGsjcxxwhAction"></action>
+		<action name="addOrUpdGszc" method="addOrUpdGszc" class="zqbGsjcxxwhAction"></action>
+		<action name="delJcxxwh" method="delJcxxwh" class="zqbGsjcxxwhAction"></action> 
+		<action name="delNmzqr" method="delNmzqr" class="zqbGsjcxxwhAction"></action> 
+		<action name="zbtyff" method="zbtyff" class="zqbGsjcxxwhAction"></action> 
+		<action name="cwbbTyff" method="cwbbTyff" class="zqbGsjcxxwhAction"></action> 
+		<action name="delCubb" method="delCubb" class="zqbGsjcxxwhAction"></action> 
+		<!-- 客户信息管理只读 -->
+		<action name="khxxglRsx" method="khxxglRsx" class="zqbAnnouncementAction"> </action>
+		<action name="zqb_process_priority" method="getProcessPriority" class="zqbCheckAction"> </action>
+    </package>  
+</struts>

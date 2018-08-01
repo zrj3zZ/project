@@ -1,0 +1,63 @@
+<!--
+#header { background:#6cf;}
+			#title { height:20px; background:#EFEFEF; border-bottom:1px solid #990000; font:12px; font-family:宋体; padding-left:5px; padding-top:5px;}
+			#baseframe { margin:0px;background:#FFFFFF;}
+			#baseinfo {background:#FFFFFF; padding:5px;font:12px; font-family:宋体;}
+			.toobar{
+				 border-bottom:1px solid #990000; 
+				 padding-bottom:5px; 
+			}
+			/*只读数据样式*/
+			.readonly_data {
+				vertical-align:bottom;
+				font-size: 12px;
+				line-height: 20px;
+				color: #888888;
+				padding-right:10px;
+				border-bottom:1px #999999 dotted;
+				font-family:"宋体";
+				line-height:15px;
+			}
+			.table_form{
+				font-family:"宋体";
+				font-size: 12px;
+			}
+			/*数据字段标题样式*/
+			.td_title {
+			color:#004080;
+				line-height: 23px;
+				font-size: 12px;
+				text-align: right;
+				letter-spacing: 0.1em;
+				padding-right:10px;
+				padding-left:10px;
+				white-space:nowrap;
+				border-bottom:1px #999999 thick;
+				vertical-align:middle;
+				font-family:"宋体";
+			}
+			
+			/*数据字段内容样式*/
+			.td_data {
+				color:#0000FF;
+				line-height: 23px;
+				text-align: left;
+				padding-left: 3px;
+				font-size: 12px;
+				font-family:"宋体";
+				border-bottom:1px #999999 dotted;
+				vertical-align:middle;
+				word-wrap:break-word;
+				word-break:break-all;
+				font-weight:500;
+				line-height:15px;
+				padding-top:5px;
+			}
+			.searchArea{
+				padding:0px;border:1px solid #ccc;margin-bottom:5px;
+				padding-top:5px;
+				padding-bottom:5px;
+				padding-right:5px;
+				background:#FFFFEE;
+			}
+-->

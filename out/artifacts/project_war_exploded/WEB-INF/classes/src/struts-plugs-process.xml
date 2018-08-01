@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+"http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+   <package strict-method-invocation="false"  name="process" extends="tiles-default">
+		  <!-- 定义一个名为 checkLogin 的拦截器 -->  
+        <interceptors>  
+            <!-- 定义权限检查拦截器 -->  
+            <interceptor name="checkLogin"  
+                class="com.iwork.core.server.root.IWorkInterceptor" />  
+            <!-- 定义一个包含权限检查的拦截器栈 -->  
+            <interceptor-stack name="myDefaultStack">  
+                <!-- 定义拦截器栈包含checkLogin拦截器 -->  
+                <interceptor-ref name="checkLogin"></interceptor-ref>  
+                <interceptor-ref name="defaultStack"></interceptor-ref>  
+            </interceptor-stack>  
+        </interceptors>  
+        <!-- 设置全局 全局默认的拦截器栈-->  
+        <default-interceptor-ref name="myDefaultStack"></default-interceptor-ref>  
+  
+        <!-- 定义全局Result -->  
+        <global-results>  
+            <!-- 当返回login视图名时，转入/login.jsp页面 -->  
+            <result name="login">/login.jsp</result>  
+        </global-results>
+        
+		<action name="*" class="com.iwork.commons.AbstractAction">
+            <result>/{1}.jsp</result>
+	    </action>
+	    <!-- 流程发布管理 -->
+	    <action name="processDeploy_index" method="showIndex" class="processDeploymentAction">
+			<result>app/engine/process/designer/deploy/index.jsp</result>
+		</action>
+		<!-- 加载流程版本列表 -->
+	    <action name="processDeploy_showList" method="showList" class="processDeploymentAction">
+			<result name="success">app/engine/process/designer/deploy/showList.jsp</result>
+		</action> 
+	    <action name="processDeploy_search" method="doSearch" class="processDeploymentAction">
+			<result name="success">app/engine/process/designer/deploy/showList.jsp</result>
+		</action> 
+		<!-- 加载流程版本详细列表 -->
+	    <action name="processDeploy_showVersionList" method="showVersionList" class="processDeploymentAction">
+			<result name="success">app/engine/process/designer/deploy/showVersionList.jsp</result>
+		</action>  
+		<!-- 加载流程树视图 -->
+	    <action name="processDeploy_showtree" method="showProDefTree" class="processDeploymentAction">
+		</action>  
+		<!-- 添加流程模型 -->
+	    <action name="processDeploy_process_add" method="addProcess" class="processDeploymentAction">
+	   		 <result name="success">app/engine/process/designer/deploy/addprocess.jsp</result>
+		</action>   
+	    <action name="processDeploy_processkey_load" method="loadProcessKey" class="processDeploymentAction">
+		</action>   
+		<!-- 保存流程模型 -->
+	    <action name="processDeploy_process_save" method="saveProcess" class="processDeploymentAction">
+		</action>  
+		<!-- 复制流程模型 -->
+	    <action name="processDeploy_process_copy" method="copyProcess" class="processDeploymentAction">
+		</action>  
+		<!-- 修改流程运行状态 --> 
+		<action name="processDeploy_change_status" method="changeStatus" class="processDeploymentAction">
+		</action> 
+		<!-- 加载流程设计器 --> 
+		 <action name="processDeploy_show_designer" method="showDesigner" class="processDeploymentAction">
+	   		 <result name="success">app/engine/process/designer/deploy/designer_page.jsp</result>
+	   		 <result name="test">app/engine/process/designer/deploy/processDesigner.jsp</result>
+	   		 <result name="error">app/engine/process/designer/deploy/processDesigner.jsp</result>  
+		</action>   
+		 <action name="processDeploy_deployProcessXML" method="deployProcessXML" class="processDesignerAction">
+		</action>    
+		 <action name="processDeploy_saveProcessXML" method="saveProcessXML" class="processDesignerAction">
+		</action>    
+		 <action name="processDeploy_showProcessXML" method="showProcessXML" class="processDesignerAction">
+		</action>
+		<!-- 打开流程图 -->
+		 <action name="processDeploy_openProcessImage" method="openProcessImage" class="processDeploymentAction">
+		 	<result name="success">app/engine/process/designer/deploy/process_pic.jsp</result>
+		</action>
+		<!-- 加载流程图片 -->
+		 <action name="processDeploy_showProcessPic" method="showProcessImage" class="processDeploymentAction">
+		</action>
+		 <action name="processDeploy_remove" method="removeProcess" class="processDeploymentAction">
+		</action>
+	    <!-- END -->
+		<!-- 流程部署-->
+		<action name="sysProcessDefinition" class="sysProcessDefinitionAction">
+			<result name="index">app/engine/process/designer/deployment/deployframe.jsp</result>
+			<result name="indexlist">app/engine/process/designer/deployment/indexlist.jsp</result>
+			<result name="success">app/engine/process/designer/deployment/index.jsp</result>
+			<result name="processList">app/engine/process/designer/deployment/processListIndex.jsp</result>
+			<result name="showFlowPic">app/engine/process/designer/deployment/process_pic.jsp</result>
+			<result name="showDesigner">app/engine/process/designer/deployment/processDesigner.jsp</result>
+		</action>
+		
+		<action name="sysProcessDefinition_loadtree" method="openjson"  class="sysProcessDefinitionAction">
+			<result>app/engine/process/designer/deployment/index.jsp</result>
+		</action>
+		<!-- end --> 
+		
+		<!-- 流程发起中心 start -->
+		<action name="process_launch_center_index" method="index" class="processLaunchCenterAction">
+			<result name="success">app/engine/process/desk/launchcenter/index.jsp</result>
+		</action> 
+		
+		<action name="processLaunchCenter" class="processLaunchCenterAction">
+			<result name="success">app/engine/process/desk/launchcenter/index.jsp</result>
+			<result name="recent">app/engine/process/desk/launchcenter/recentIndex.jsp</result>
+			<result name="OPENROCESS" type="redirect">processManagement!openProcess.action?taskId=${taskId}</result>
+		</action> 		 
+		<!-- 流程分组发起中心 -->
+		<action name="process_desk_group_center" method="showGroupCenter"  class="processLaunchCenterAction">
+			<result name="success">app/engine/process/desk/processdesk/groupcenter.jsp</result>
+		</action> 
+		 
+		<!-- 流程发起中心 end -->
+		<!-- 流程处理中心 start -->
+		<action name="processManagementCenter" class="processDeskManagementAction">
+			<result name="todo">app/engine/process/desk/processdesk/index.jsp</result>
+			<result name="history">app/engine/process/desk/processdesk/history.jsp</result>
+			<result name="prcessing">app/engine/process/desk/processdesk/processing.jsp</result>
+			<result name="create">app/engine/process/desk/processdesk/createProcess.jsp</result>
+			<result name="notice">app/engine/process/desk/processdesk/notice.jsp</result>
+		</action>
+		<action name="processManagement_showTaskNoticeJson"  method="showTaskCount" class="processDeskManagementAction">
+		</action>
+		<action name="processManagement_LoadCandidateUserJson"  method="getCandidateUserJson" class="processDeskManagementAction">
+			<result name="success">app/engine/process/desk/processdesk/openjson.jsp</result>
+		</action>
+		<action name="processManagement_LoadTodoJson"  method="loadTodoJson" class="processDeskManagementAction">
+			<result name="success">app/engine/process/desk/processdesk/openjson.jsp</result>
+		</action>
+		<action name="processManagement_loadNoticeJson"  method="loadTodoJson" class="processDeskManagementAction">
+			<result name="success">app/engine/process/desk/processdesk/openjson.jsp</result> 
+		</action>
+		<action name="processManagement_claimTask"  method="claimTask" class="processDeskManagementAction">
+			<result name="success">app/engine/process/desk/processdesk/openjson.jsp</result>
+		</action> 
+		<action name="processManagement_showSleepPage" class="processDeskManagementAction">
+			<result name="success">app/engine/process/desk/processdesk/sleep.jsp</result>
+		</action> 
+		<action name="processManagement_sleepTask"  method="sleepTask" class="processDeskManagementAction">
+			<result name="success">app/engine/process/desk/processdesk/openjson.jsp</result>
+			<result name="input">app/engine/process/desk/processdesk/openjson.jsp</result>
+		</action> 
+		<action name="processManagement_activeTask"  method="activeTask" class="processDeskManagementAction">
+			<result name="success">app/engine/process/desk/processdesk/openjson.jsp</result>
+			<result name="input">app/engine/process/desk/processdesk/openjson.jsp</result>
+		</action> 
+		<action name="processManagement_deleteTask"  method="deleteTask" class="processDeskManagementAction">
+		</action> 
+		<action name="processManagement_HistoryIndex" method ="taskHistory" class="processDeskManagementAction">
+			<result name="success">app/engine/process/desk/processdesk/history.jsp</result>
+		</action>
+		<action name="processManagement_LoadHistoryData"  method="loadHistoryJson" class="processDeskManagementAction">
+			<result name="history">app/engine/process/desk/processdesk/history.jsp</result>
+		</action> 
+		<action name="processManagement_showReback"  method="showReback" class="processDeskManagementAction">
+			<result name="success">app/engine/process/desk/processdesk/reback.jsp</result>
+			<result name="error">app/engine/process/desk/processdesk/reback.jsp</result>
+		</action>
+		<action name="processManagement_doReback"  method="doReback" class="processDeskManagementAction">
+		</action>
+		<action name="processManagement_showStepReback"  method="showStepReback" class="processDeskManagementAction">
+			<result name="success">app/engine/process/desk/processdesk/stepReback.jsp</result>
+		</action>
+		<action name="processManagement_doStepReback"  method="doStepReback" class="processDeskManagementAction">
+		</action> 
+		<action name="processManagement_closeTask"  method="closeTask" class="processDeskManagementAction">
+		</action> 
+		  <!-- 加载流程表单 -->
+		<action name="loadProcessFormPage"  method="loadFormPage"  class="processRuntimeExcuteAction" > 
+			  <result name="success">app/engine/process/runtime/pformpage.jsp</result>
+			   <result name="layout_left">app/engine/process/runtime/pformpage_left.jsp</result>
+			  <result name="layout_right">app/engine/process/runtime/pformpage_right.jsp</result>
+			  <result name="layout_top">app/engine/process/runtime/pformpage_top.jsp</result>
+			  <result name="layout_bottom">app/engine/process/runtime/pformpage_bottom.jsp</result>
+			  <result name="task_over">app/engine/process/runtime/task_over.jsp</result>
+			  <result name="error">app/public/nofind.jsp</result>
+		</action>
+		<!-- 加载传阅表单 -->
+		<action name="loadNoticeFormPage"  method="loadNoticeFormPage"  class="processRuntimeExcuteAction" > 
+			  <result name="success">app/engine/process/runtime/pformpage.jsp</result>
+			   <result name="layout_left">app/engine/process/runtime/pformpage_left.jsp</result>
+			  <result name="layout_right">app/engine/process/runtime/pformpage_right.jsp</result>
+			  <result name="layout_top">app/engine/process/runtime/pformpage_top.jsp</result>
+			  <result name="layout_bottom">app/engine/process/runtime/pformpage_bottom.jsp</result>
+			  <result name="task_over">app/engine/process/runtime/task_over.jsp</result>
+			  <result name="error">app/public/nofind.jsp</result>
+		</action>
+		<!-- 流程处理中心 end -->		
+        <!-- 流程批量处理操作 -->
+        <action name="processManagement_batch_index" method ="index" class="processDeskBatchHandleAction">
+			<result name="success">app/engine/process/desk/batch/index.jsp</result>
+		</action>
+        
+        <action name="processManagement_batch_expand" method ="expandList" class="processDeskBatchHandleAction">
+		</action>
+		
+		 <action name="processManagement_batch_execute" method ="batchOperate" class="processDeskBatchHandleAction">
+			<result name="success">app/engine/process/desk/batch/dobatch.jsp</result>  
+		</action> 
+		 <action name="processBatchHandleOperate" method ="bacthHandle" class="processDeskBatchHandleAction">
+			<result name="success">app/engine/process/desk/batch/processSendPage.jsp</result>  
+			<result name="ARCHIVES">app/engine/process/desk/batch/processArchivePage.jsp</result>  
+			<result name="error">app/engine/process/runtime/processSendError.jsp</result>
+		</action> 
+		 <action name="processBatchManualJumpOperate" method ="bacthManualJump" class="processDeskBatchHandleAction">
+			<result name="success">app/engine/process/desk/batch/processSendPage.jsp</result>  
+			<result name="ARCHIVES">app/engine/process/desk/batch/processArchivePage.jsp</result>  
+			<result name="error">app/engine/process/runtime/processSendError.jsp</result>
+		</action>  
+		 <action name="processBatchBackOperate" method ="batchBack" class="processDeskBatchHandleAction">
+			<result name="success">app/engine/process/desk/batch/processBackPage.jsp</result>   
+			<result name="nofind" >app/engine/process/runtime/tips_win.jsp</result>
+			<result name="error">app/public/nofind.jsp</result>
+		</action>  
+		 <action name="processBatchShowOpinionList" method ="showOpinionList" class="processDeskBatchHandleAction">
+			<result name="success">app/engine/process/desk/batch/opinionlist.jsp</result>   
+		</action>  
+		 <action name="processBatchHandleSend" method ="executeHandle" class="processDeskBatchHandleAction">
+		</action>    
+		 <action name="processBatchBackSend" method ="executeBack" class="processDeskBatchHandleAction">
+		</action>    
+		 <action name="processBatchArchiveSend" method ="executeArchive" class="processDeskBatchHandleAction">
+		</action>    
+		
+        <!-- END -->
+        <!-- 流程处理，打开、处理等操作 -->    
+        <action name="processManagement" class="processManagementAction">
+			<result name="OPENPROCESS">app/engine/process/desk/frame/template.jsp</result>
+			<result name="param">app/engine/process/desk/frame/param.jsp</result>
+		</action>
+        <!-- end -->
+        <action name="process_desk_todolist" method ="todolist" class="processDeskAction">
+			<result name="success">app/engine/process/desk/todolist.jsp</result>
+		</action> 
+        <action name="process_desk_index" method ="index" class="processDeskAction">
+			<result name="success">app/engine/process/desk/index.jsp</result>
+		</action>
+		 <action name="process_desk_showlist" method ="showlist" class="processDeskAction">
+		</action>
+		  <action name="process_desk_processing" method ="processing" class="processDeskAction">
+			<result name="success">app/engine/process/desk/processing.jsp</result>
+		</action>
+        <action name="process_desk_history" method ="history" class="processDeskAction">
+			<result name="success">app/engine/process/desk/history.jsp</result>
+		</action>
+        <action name="process_desk_createlog" method ="createlog" class="processDeskAction">
+			<result name="success">app/engine/process/desk/create.jsp</result>
+		</action>
+       <action name="process_desk_finish" method ="historyMonitor" class="processDeskAction">
+			<result name="success">app/engine/process/desk/his_mornitor.jsp</result>
+		</action>
+		<action name="process_desk_finish_json" method ="loadTodoJson" class="processDeskAction">
+		</action>
+		  <action name="process_desk_notice" method ="notice" class="processDeskAction">
+			<result name="success">app/engine/process/desk/notice.jsp</result>
+		</action>
+        <action name="process_desk_notice_read" method ="setNoticeStatsu" class="processDeskAction">
+		</action>
+        <action name="process_desk_getsummary" method ="showSummary" class="processDeskAction">
+		</action>
+		 <action name="process_desk_transferinit" method ="transferInit" class="processDeskAction">
+		    	<result name="success" type="redirect">loadProcessFormPage.action?actDefId=GZJJLC:1:114404&amp;instanceId=${instanceid}&amp;excutionId=${excutionId}&amp;taskId=${taskId}</result>
+		</action>
+		<!-- 流程归档查询 -->
+        <action name="process_archives_index" method ="index" class="processDeskArchivesAction">
+			<result name="success">app/engine/process/desk/archives/search.jsp</result>
+		</action>
+        <action name="process_archives_doSearch" method ="doSearch" class="processDeskArchivesAction">
+			<result name="success">app/engine/process/desk/archives/result.jsp</result>
+		</action>
+		<!-- 流程清理 -->
+		<action name="process_clear_index" method ="index" class="processDeskClearAction">
+			<result name="success">app/engine/process/desk/clear/index.jsp</result>
+		</action>
+		<action name="process_re_activation" method ="reActivation" class="processRuntimeSendAction">
+		</action>
+		
+		<!-- 流程工作箱 -->
+		 <action name="process_desk_box" method ="processBox" class="processDeskAction">
+			<result name="todo">app/engine/process/box/todo.jsp</result>
+			<result name="history">app/engine/process/box/his_mornitor.jsp</result>
+			<result name="notice">app/engine/process/box/notice.jsp</result>
+			<result name="loglist">app/engine/process/box/history.jsp</result>
+		</action>
+    </package>   
+</struts>

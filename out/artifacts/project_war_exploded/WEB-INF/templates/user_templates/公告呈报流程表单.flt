@@ -1,0 +1,78 @@
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					公告呈报流程表单
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_1658">
+								<td class="td_title" id="title_NOTICENO" width="180">
+									<span style="color:red;">*</span>公告编号
+								</td>
+								<td class="td_data" id="data_NOTICENO">
+									${NOTICENO}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1659">
+								<td class="td_title" id="title_NOTICENAME" width="180">
+									<span style="color:red;">*</span>公告名称
+								</td>
+								<td class="td_data" id="data_NOTICENAME">
+									${NOTICENAME}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1661">
+								<td class="td_title" id="title_NOTICETYPE" width="180">
+									<span style="color:red;">*</span>公告类型
+								</td>
+								<td class="td_data" id="data_NOTICETYPE">
+									${NOTICETYPE}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1662">
+								<td class="td_title" id="title_NOTICEDATE" width="180">
+									<span style="color:red;">*</span>披露日期
+								</td>
+								<td class="td_data" id="data_NOTICEDATE">
+									${NOTICEDATE}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1664">
+								<td class="td_title" id="title_NOTICEFILE" width="180">
+									公告附件
+								</td>
+								<td class="td_data" id="data_NOTICEFILE">
+									${NOTICEFILE}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1665">
+								<td class="td_title" id="title_NOTICETEXT" width="180">
+									公告正文
+								</td>
+								<td class="td_data" id="data_NOTICETEXT">
+									${NOTICETEXT}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${MTYDKJ}${INSTANCEID}${COMPANYNO}${COMPANYNAME}${CREATENAME}${CREATEDATE}${NOTICEFLAG}${PAPERFILENO}${MEETID}${MEETNAME}${CREATERID}${BZLX}${KHMC}${KHBH}
+</div>

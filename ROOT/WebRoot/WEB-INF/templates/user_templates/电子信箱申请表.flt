@@ -1,0 +1,49 @@
+<div id="border">
+		<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 5px" width="100%">
+			<tbody>
+				<tr>
+					<td class="formpage_title">电子信箱申请表</td>
+				</tr>
+				<tr>
+					<td align="right" id="help"><span id="data_SQDJH">申请单据号:${SQDJH}</span></td>
+				</tr>
+				<tr>
+					<td align="right" class="line"></td>
+				</tr>
+				<tr>
+					<td align="left">
+						<table border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody>
+								<tr>
+									<td class="td_title"  id="title_SQRZH" width="15%">申请人帐号									</td>
+									<td class="td_data"  id="data_SQRZH"  width="35%">${SQRZH}&nbsp;</td>
+									<td class="td_title"  id="title_SQRXM" width="15%">申请人姓名									</td>
+									<td class="td_data"  id="data_SQRXM"  width="35%">${SQRXM}&nbsp;</td>
+								</tr>
+								<tr>
+									<td class="td_title"  id="title_SQRQ" width="15%">申请日期									</td>
+									<td class="td_data"  id="data_SQRQ"  width="35%">${SQRQ}&nbsp;</td>
+									<td class="td_title"  id="title_SQLX" width="15%">									<font color='red'>*</font>申请类型									</td>
+									<td class="td_data"  id="data_SQLX"  width="35%">${SQLX}&nbsp;</td>
+								</tr>
+								<tr>
+									<td class="td_title"  id="title_SQBM" width="15%">申请部门									</td>
+									<td class="td_data"  id="data_SQBM"  width="35%">${SQBM}&nbsp;</td>
+									<td class="td_title"  id="title_YXDZ" width="15%">邮箱地址									</td>
+									<td class="td_data"  id="data_YXDZ"  width="35%">${YXDZ}&nbsp;</td>
+								</tr>
+								<tr>
+								</tr>
+								<tr><td   class="td_title" id="title_SQYY" >申请原因									</td>
+									<td id="data_SQYY"  class="td_data" colspan="3">${SQYY}&nbsp;</td>
+								</td></tr>
+								<tr><td   class="td_title" id="title_XGFJ" >相关附件									</td>
+									<td id="data_XGFJ"  class="td_data" colspan="3">${XGFJ}&nbsp;</td>
+								</td></tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+</div>

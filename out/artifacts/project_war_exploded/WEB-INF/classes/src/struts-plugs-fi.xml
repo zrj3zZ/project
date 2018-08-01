@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+"http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+   <package strict-method-invocation="false"  name="plugsFi" extends="tiles-default">
+		  <!-- 定义一个名为 checkLogin 的拦截器 -->  
+        <interceptors>  
+            <!-- 定义权限检查拦截器 -->  
+            <interceptor name="checkLogin"  
+                class="com.iwork.core.server.root.IWorkInterceptor" />  
+            <!-- 定义一个包含权限检查的拦截器栈 -->  
+            <interceptor-stack name="myDefaultStack">  
+                <!-- 定义拦截器栈包含checkLogin拦截器 -->  
+                <interceptor-ref name="checkLogin"></interceptor-ref> 
+                <interceptor-ref name="defaultStack"></interceptor-ref>  
+            </interceptor-stack>  
+        </interceptors>  
+        <!-- 设置全局 全局默认的拦截器栈-->  
+        <default-interceptor-ref name="myDefaultStack"></default-interceptor-ref>  
+  
+        <!-- 定义全局Result -->  
+        <global-results>  
+            <!-- 当返回login视图名时，转入/login.jsp页面 -->  
+            <result name="login">/login.jsp</result>  
+        </global-results>
+        
+		<action name="*" class="com.iwork.commons.AbstractAction">
+            <result>/{1}.jsp</result>
+	    </action>
+	   <!-- 财务管理 -->
+		<action name="iwork_fi_subject_group" method="groupIndex"   class="iWorkPlugsFiSubjectAction" >
+			<result name="success">app/plugs/fi/subject/group.jsp</result> 
+		</action>  
+		<action name="iwork_fi_subject_group_list" method="groupList"   class="iWorkPlugsFiSubjectAction" >
+			<result name="success">app/plugs/fi/subject/grouplist.jsp</result> 
+		</action>  
+		<action name="iwork_fi_subject_business" method="businessIndex"   class="iWorkPlugsFiSubjectAction" >
+			<result name="success">app/plugs/fi/subject/businesslist.jsp</result> 
+		</action>  
+		<action name="iwork_fi_subject_businessJson" method="businessJson"   class="iWorkPlugsFiSubjectAction" >
+		</action>  
+		<action name="iwork_fi_subject_businessDoSet" method="businessDoSet"   class="iWorkPlugsFiSubjectAction" >
+		</action>  
+		<action name="iwork_fi_subject_Json" method="showJson"   class="iWorkPlugsFiSubjectAction" >
+		</action>
+		<action name="iwork_fi_subject_Json2" method="showToSubjectJson"   class="iWorkPlugsFiSubjectAction" >
+		</action>
+		<action name="iwork_fi_subject_list_Json" method="listJson"   class="iWorkPlugsFiSubjectAction" >
+		</action>
+		
+		<action name="iwork_fi_subject_setlist_Json" method="getSetList"   class="iWorkPlugsFiSubjectAction" >
+		</action>
+		<action name="iwork_fi_subject_remove" method="remove"   class="iWorkPlugsFiSubjectAction" >
+		</action>
+		
+		<action name="iwork_fi_subject_list_set" method="setCategorySubject"   class="iWorkPlugsFiSubjectAction" >
+		</action>
+		<action name="iwork_fi_subject_index" method="index"   class="iWorkPlugsFiSubjectAction" >
+			<result name="success">app/plugs/fi/subject/pageindex.jsp</result> 
+		</action> 
+		<action name="iwork_fi_process" method="indexPage"   class="iWorkPlugsFiSubjectAction" >
+			<result name="success">app/plugs/fi/select.jsp</result> 
+		</action> 
+		<action name="iwork_fi_newflow_dlg" method="createDlg"   class="iWorkPlugsFiExpenseAction" >
+			<result name="success">app/plugs/fi/expense/select.jsp</result>  
+		</action> 
+		<action name="iwork_fi_subject_org" method="orgIndex"   class="iWorkPlugsFiSubjectAction" >
+			<result name="success">app/plugs/fi/subject/orgindex.jsp</result> 
+		</action> 
+		<action name="iwork_fi_subject_book" method="bookIndex"   class="iWorkPlugsFiSubjectAction" >
+			<result name="success">app/plugs/fi/subject/book.jsp</result> 
+		</action> 
+		<action name="iwork_fi_subject_book2" method="bookIndex"   class="iWorkPlugsFiSubjectAction" >
+			<result name="success">app/plugs/fi/subject/book2.jsp</result> 
+		</action> 
+		 <action name="iwork_fi_subject_org_json" method="listJsonOrg"   class="iWorkPlugsFiSubjectAction" >
+		</action>
+		<action name="iwork_fi_subject_user" method="userIndex"   class="iWorkPlugsFiSubjectAction" >
+			<result name="success">app/plugs/fi/subject/userindex.jsp</result> 
+		</action> 
+		 <action name="iwork_fi_subject_user_json" method="listJsonUser"   class="iWorkPlugsFiSubjectAction" >
+		</action>
+		<!-- 科目列表 -->
+		<action name="iwork_fi_subject_list" method="subjectList"   class="iWorkPlugsFiSubjectAction" >
+			<result name="success">app/plugs/fi/subject/subject.jsp</result> 
+		</action> 
+		<action name="iwork_fi_subject_listJson" method="subjectListJson"   class="iWorkPlugsFiSubjectAction" >
+		</action>  
+		<action name="iwork_fi_subject_loadTreejson" method="loadTreejson"   class="iWorkPlugsFiSubjectAction" >
+		</action>  
+		<!-- 凭证管理 -->
+		<action name="iwork_fi_voucher" method="index"   class="iWorkPlugsFiVoucherAction" >
+			<result name="success">app/plugs/fi/voucher/index.jsp</result> 
+		</action> 
+		<action name="iwork_fi_voucherList" method="list"   class="iWorkPlugsFiVoucherAction" >
+			<result name="success">app/plugs/fi/voucher/list.jsp</result> 
+		</action> 
+		
+		<action name="iwork_fi_voucherInfo" method="voucherInfo"   class="iWorkPlugsFiVoucherAction" >
+		</action> 
+    </package>   
+</struts>

@@ -1,0 +1,256 @@
+/*
+ * 加载后
+ */
+function onLoad() {
+    document.getElementById("tr_YXCZLX").style.display = "none";
+    document.getElementById("tr_YJZCZLX").style.display = "none";
+    document.getElementById("tr_SYQX").style.display = "none";
+    document.getElementById("tr_YJZMC").style.display = "none";
+    //document.getElementById("tr_SQYY").style.display = "none";
+    //document.getElementById("tr_TZXGR").style.display = "none";
+    document.getElementById("tr_ZJDCYZH").style.display = "none";
+    document.getElementById("tr_SCDCYZH").style.display = "none";
+    document.getElementById("tr_SCDCYZH_des").style.display = "none";
+    document.getElementById("tr_FSQX").style.display = "none";
+    document.getElementById("tr_ZJDFSQXZH").style.display = "none";
+    document.getElementById("tr_SCDFSQXZH").style.display = "none";
+    document.getElementById("tr_SCDFSQXZH_des").style.display = "none";
+    document.getElementById("tr_FJ").style.display = "none";
+    document.getElementById("tr_CZRZH").style.display = "none";
+    document.getElementById("tr_CYNBZH").style.display = "none";
+    document.getElementById("tr_CYNBZH_des").style.display = "none";
+    document.getElementById("tr_FSQXZH").style.display = "none";
+    document.getElementById("tr_FSQXZH_des").style.display = "none";
+    document.getElementById("tr_CYNBZHZHH").style.display = "none";
+    document.getElementById("tr_YXMM").style.display = "none";
+    //document.getElementById("tr_CZSJ").style.display = "none";
+    changeSQLX();
+}
+/*
+ * 点击申请类型
+ */
+function changeSQLX() {
+    var sqlx;
+    $('input[name="SQLX"]').each(function () {
+        if (this.checked == true) {
+            sqlx = this.value;
+        }
+    });
+    if (sqlx != undefined) {
+        if (sqlx == '邮箱申请') {
+            document.getElementById("tr_YXCZLX").style.display = "";
+            document.getElementById("tr_YJZCZLX").style.display = "none";
+            document.getElementById("tr_SYQX").style.display = "";
+            document.getElementById("tr_YJZMC").style.display = "none";
+            //document.getElementById("tr_SQYY").style.display = "none";
+            //document.getElementById("tr_TZXGR").style.display = "none";
+            document.getElementById("tr_ZJDCYZH").style.display = "none";
+            document.getElementById("tr_SCDCYZH").style.display = "none";
+            document.getElementById("tr_FSQX").style.display = "none";
+            document.getElementById("tr_ZJDFSQXZH").style.display = "none";
+            document.getElementById("tr_SCDFSQXZH").style.display = "none";
+            document.getElementById("tr_SCDFSQXZH_des").style.display = "none";
+            document.getElementById("tr_FJ").style.display = "none";
+            document.getElementById("tr_CZRZH").style.display = "none";
+            document.getElementById("tr_CYNBZH").style.display = "none";
+            document.getElementById("tr_CYNBZH_des").style.display = "none";
+            document.getElementById("tr_FSQXZH").style.display = "none";
+            document.getElementById("tr_CYNBZHZHH").style.display = "none";
+            document.getElementById("tr_YXMM").style.display = "";
+            //document.getElementById("tr_CZSJ").style.display = "none";
+            changeYXCZLX();
+        } else if (sqlx == '邮件组申请') {
+            document.getElementById("tr_YXCZLX").style.display = "none";
+            document.getElementById("tr_YJZCZLX").style.display = "";
+            document.getElementById("tr_SYQX").style.display = "none";
+            document.getElementById("tr_YJZMC").style.display = "none";
+            //document.getElementById("tr_SQYY").style.display = "none";
+            //document.getElementById("tr_TZXGR").style.display = "none";
+            document.getElementById("tr_ZJDCYZH").style.display = "none";
+            document.getElementById("tr_SCDCYZH").style.display = "none";
+            document.getElementById("tr_FSQX").style.display = "none";
+            document.getElementById("tr_ZJDFSQXZH").style.display = "none";
+            document.getElementById("tr_SCDFSQXZH").style.display = "none";
+            document.getElementById("tr_SCDFSQXZH_des").style.display = "none";
+            document.getElementById("tr_FJ").style.display = "none";
+            document.getElementById("tr_CZRZH").style.display = "none";
+            document.getElementById("tr_CYNBZH").style.display = "none";
+            document.getElementById("tr_CYNBZH_des").style.display = "none";
+            document.getElementById("tr_FSQXZH").style.display = "none";
+            document.getElementById("tr_CYNBZHZHH").style.display = "none";
+            document.getElementById("tr_YXMM").style.display = "none";
+            //document.getElementById("tr_CZSJ").style.display = "none";
+            changeYJZCZLX();
+        } else {}
+    }
+}
+/*
+ * 点击"邮箱操作类型"
+ */
+function changeYXCZLX() {
+    var type;
+    $('input[name="YXCZLX"]').each(function () {
+        if (this.checked == true) {
+            type = this.value;
+        }
+    });
+    if (type != undefined) {
+        if (type == '申请业务邮箱' | type == '申请个人邮箱') {
+            document.getElementById("tr_YXCZLX").style.display = "";
+            document.getElementById("tr_YJZCZLX").style.display = "none";
+            document.getElementById("tr_SYQX").style.display = "";
+            document.getElementById("tr_YJZMC").style.display = "none";
+            //document.getElementById("tr_SQYY").style.display = "none";
+            //document.getElementById("tr_TZXGR").style.display = "none";
+            document.getElementById("tr_ZJDCYZH").style.display = "none";
+            document.getElementById("tr_SCDCYZH").style.display = "none";
+            document.getElementById("tr_FSQX").style.display = "none";
+            document.getElementById("tr_ZJDFSQXZH").style.display = "none";
+            document.getElementById("tr_SCDFSQXZH").style.display = "none";
+            document.getElementById("tr_SCDFSQXZH_des").style.display = "none";
+            document.getElementById("tr_FJ").style.display = "none";
+            document.getElementById("tr_CZRZH").style.display = "none";
+            document.getElementById("tr_CYNBZH").style.display = "none";
+            document.getElementById("tr_CYNBZH_des").style.display = "none";
+            document.getElementById("tr_FSQXZH").style.display = "none";
+            document.getElementById("tr_CYNBZHZHH").style.display = "none";
+            document.getElementById("tr_YXMM").style.display = "";
+            //document.getElementById("tr_CZSJ").style.display = "none";
+        } else if (type == '账户注销') {
+            document.getElementById("tr_YXCZLX").style.display = "";
+            document.getElementById("tr_YJZCZLX").style.display = "none";
+            document.getElementById("tr_SYQX").style.display = "none";
+            document.getElementById("tr_YJZMC").style.display = "none";
+            //document.getElementById("tr_SQYY").style.display = "none";
+            //document.getElementById("tr_TZXGR").style.display = "none";
+            document.getElementById("tr_ZJDCYZH").style.display = "none";
+            document.getElementById("tr_SCDCYZH").style.display = "none";
+            document.getElementById("tr_FSQX").style.display = "none";
+            document.getElementById("tr_ZJDFSQXZH").style.display = "none";
+            document.getElementById("tr_SCDFSQXZH").style.display = "none";
+            document.getElementById("tr_SCDFSQXZH_des").style.display = "none";
+            document.getElementById("tr_FJ").style.display = "none";
+            document.getElementById("tr_CZRZH").style.display = "none";
+            document.getElementById("tr_CYNBZH").style.display = "none";
+            document.getElementById("tr_CYNBZH_des").style.display = "none";
+            document.getElementById("tr_FSQXZH").style.display = "none";
+            document.getElementById("tr_CYNBZHZHH").style.display = "none";
+            document.getElementById("tr_YXMM").style.display = "none";
+            //document.getElementById("tr_CZSJ").style.display = "none";
+        } else {}
+    }
+}
+/*
+ * 点击"邮件组操作类型"
+ */
+function changeYJZCZLX() {
+    var type;
+    $('input[name="YJZCZLX"]').each(function () {
+        if (this.checked == true) {
+            type = this.value;
+        }
+    });
+    if (type != undefined) {
+        if (type == '账户申请') {
+            // 账户申请
+            document.getElementById("tr_YJZMC").style.display = ""; // 中文名称
+            document.getElementById("tr_CYNBZH").style.display = ""; // 成员内部账号
+            document.getElementById("tr_CYNBZH_des").style.display = "";
+            document.getElementById("tr_FSQX").style.display = ""; // 发送权限
+            document.getElementById("tr_FJ").style.display = ""; // 附件
+            document.getElementById("tr_ZJDCYZH").style.display = "none"; // 增加的成员账号
+            document.getElementById("tr_SCDCYZH").style.display = "none"; // 删除的成员账号
+            document.getElementById("tr_SCDCYZH_des").style.display = "none"; // 删除的成员账号
+            document.getElementById("tr_ZJDFSQXZH").style.display = "none"; // 增加的发送权限修改
+            document.getElementById("tr_SCDFSQXZH").style.display = "none"; // 删除的发送权限修改
+            document.getElementById("tr_SCDFSQXZH_des").style.display = "none";
+        } else if (type == '成员调整') {
+            // 账户申请
+            document.getElementById("tr_YJZMC").style.display = "none"; // 中文名称
+            document.getElementById("tr_CYNBZH").style.display = "none"; // 成员内部账号
+            document.getElementById("tr_CYNBZH_des").style.display = "none";
+            document.getElementById("tr_FSQX").style.display = "none"; // 发送权限
+            document.getElementById("tr_FJ").style.display = ""; // 附件
+            document.getElementById("tr_ZJDCYZH").style.display = ""; // 增加的成员账号
+            document.getElementById("tr_SCDCYZH").style.display = ""; // 删除的成员账号
+            document.getElementById("tr_SCDCYZH_des").style.display = ""; // 删除的成员账号
+            document.getElementById("tr_FSQXZH").style.display = "none"; // 发送权限账号
+            document.getElementById("tr_FSQXZH_des").style.display = "none";
+            document.getElementById("tr_ZJDFSQXZH").style.display = "none"; // 增加的发送权限修改
+            document.getElementById("tr_SCDFSQXZH").style.display = "none"; // 删除的发送权限修改
+            document.getElementById("tr_SCDFSQXZH_des").style.display = "none";
+        } else if (type == '发送权限修改') {
+            // 账户申请
+            document.getElementById("tr_YJZMC").style.display = "none"; // 中文名称
+            document.getElementById("tr_CYNBZH").style.display = "none"; // 成员内部账号
+            document.getElementById("tr_CYNBZH_des").style.display = "nine";
+            document.getElementById("tr_FSQX").style.display = ""; // 发送权限
+            document.getElementById("tr_FJ").style.display = ""; // 附件
+            document.getElementById("tr_ZJDCYZH").style.display = "none"; // 增加的成员账号
+            document.getElementById("tr_SCDCYZH").style.display = "none"; // 删除的成员账号
+            document.getElementById("tr_SCDCYZH_des").style.display = "none"; // 删除的成员账号
+            // 发送权限修改
+            document.getElementById("tr_ZJDFSQXZH").style.display = "";
+            document.getElementById("tr_SCDFSQXZH").style.display = "";
+            document.getElementById("tr_SCDFSQXZH_des").style.display = "";
+        } else if (type == '账户注销') {
+            // 账户申请
+            document.getElementById("tr_YJZMC").style.display = "none"; // 中文名称
+            document.getElementById("tr_CYNBZH").style.display = "none"; // 成员内部账号
+            document.getElementById("tr_CYNBZH_des").style.display = "none";
+            document.getElementById("tr_FSQX").style.display = "none"; // 发送权限
+            document.getElementById("tr_FJ").style.display = "none"; // 附件
+            document.getElementById("tr_ZJDCYZH").style.display = "none"; // 增加的成员账号
+            document.getElementById("tr_SCDCYZH").style.display = "none"; // 删除的成员账号
+            document.getElementById("tr_SCDCYZH_des").style.display = "none"; // 删除的成员账号
+            document.getElementById("tr_ZJDFSQXZH").style.display = "none"; // 增加的发送权限修改
+            document.getElementById("tr_SCDFSQXZH").style.display = "none"; // 删除的发送权限修改
+            document.getElementById("tr_SCDFSQXZH_des").style.display = "none";
+        } else {}
+        changeFSQX();
+    }
+}
+/*
+ * 点击"发送权限"
+ */
+function changeFSQX() {
+    var type;
+    $('input[name="FSQX"]').each(function () {
+        if (this.checked == true) {
+            type = this.value;
+        }
+    });
+    if (type != undefined) {
+        if (type == '无限制' | type == '全员可发送' | type == '邮件组成员可发送') {
+            document.getElementById("tr_FSQXZH").style.display = "none"; // 发送权限账号
+            document.getElementById("tr_FSQXZH_des").style.display = "none";
+            document.getElementById("tr_ZJDFSQXZH").style.display = "none"; // 增加的发送权限修改
+            document.getElementById("tr_SCDFSQXZH").style.display = "none"; // 删除的发送权限修改
+            document.getElementById("tr_SCDFSQXZH_des").style.display = "none";
+        } else if (type == '指定账号可发送') {
+            // 判断邮件组操作类型
+            var typeYJZCZLX;
+            $('input[name="YJZCZLX"]').each(function () {
+                if (this.checked == true) {
+                    typeYJZCZLX = this.value;
+                }
+            });
+            if (typeYJZCZLX == '账户申请') {
+                document.getElementById("tr_FSQXZH").style.display = ""; // 发送权限账号
+                document.getElementById("tr_FSQXZH_des").style.display = "";
+                document.getElementById("tr_ZJDFSQXZH").style.display = "none"; // 增加的发送权限修改
+                document.getElementById("tr_SCDFSQXZH").style.display = "none"; // 删除的发送权限修改
+            } else if (typeYJZCZLX == '发送权限修改') {
+                document.getElementById("tr_FSQXZH").style.display = "none"; // 发送权限账号
+                document.getElementById("tr_FSQXZH_des").style.display = "none";
+                document.getElementById("tr_ZJDFSQXZH").style.display = ""; // 增加的发送权限修改
+                document.getElementById("tr_SCDFSQXZH").style.display = ""; // 删除的发送权限修改
+                document.getElementById("tr_SCDFSQXZH_des").style.display = "";
+            }
+        }
+    }
+}
+
+$().ready(function(){
+    onLoad();
+});

@@ -1,0 +1,168 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+	margin:0px;
+	padding:0px;
+	border:0px;
+}
+body {
+	background-color:#2d7fce
+}
+.loginText{
+			outline: none;
+			font-size:14px;
+			border:none;
+			background:none;
+			position:relative;
+			left:0px;width:138px;top:-1px !important;top:5px;font-weight:bold;
+}
+.BackGround {
+	background:url(../iwork_img/login/login_bg.jpg) repeat-x #2d7fce;
+	width:100%;
+	height:593px;
+}
+.left_bg {
+	z-index:999;
+	width:430px;
+	height:350px;
+	background:url(../iwork_img/login/left_bg.png);
+	position:absolute;
+	bottom:0;
+	left:0px;
+	_background:none;
+_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../iwork_img/login/left_bg.png", sizingMethod="crop");
+}
+.right_bg {
+	z-index:998;
+	width:566px;
+	height:295px;
+	background:url(../iwork_img/login/right_bg.png);
+	position:absolute;
+	bottom:0;
+	right:0px;
+	_background:none;
+_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../iwork_img/login/right_bg.png", sizingMethod="crop")
+}
+.logo {
+	z-index:99999;
+	width:190px;
+	height:45px;
+	background:url(../iwork_img/login/logo.png);
+	position:absolute;
+	left:80px;
+	top:60px;
+	_background:none;
+_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../iwork_img/login/logo.png", sizingMethod="crop")
+}
+.login_frame {
+	width:723px;
+	height:429px;
+	background:url(../iwork_img/login/login_frame_bg.jpg);
+	position:absolute;
+	top:75px;
+	left:50%;
+	margin-left:-400px;
+}
+.login_box {
+	width:723px;
+	height:444px;
+	position:absolute;
+	top:60px;
+	left:50%;
+	margin-left:-400px;
+}
+.input1 {
+	z-index:9996;
+	position:relative;
+	top:105px;
+	left:370px;
+	font-family:"Arial";
+	font-size:14px; 
+ *top:99px;
+	
+}
+.input2 {
+	z-index:9997;
+	position:relative;
+	top:125px;
+	left:370px;
+	font-family:"Arial";
+	font-size:14px;
+	_top:122px;
+ +top:115px; 
+	
+}
+.input3 {
+	z-index:9998;
+	position:relative;
+	top:145px;
+	font-family:"Arial";
+	left:346px;
+	font-size:14px; 
+	_top:140px;
+ 	+top:134px;
+}
+.btn_sumit {
+	z-index:9999;
+	position:relative;
+	top:310px;
+	left:386px;
+	height: 33px;
+	cursor: pointer;
+	width: 75px;
+	background-image: url(../iwork_img/login/sumit.jpg);
+	background-repeat: no-repeat;
+}
+.btn_reset {
+	z-index:9998;
+	position:relative;
+	top:277px;
+	left:473px;
+	height: 33px;
+	cursor: pointer;
+	width: 75px;
+	background-image: url(../iwork_img/login/reset.jpg);
+	background-repeat: no-repeat;
+}
+.validate_div {
+	font-size:12px;
+	position:relative;
+	top:143px;
+	left:364px;
+	font-size:14px;
+	_top:142px;
+ +top:142px;
+	width:150px;
+}
+.checkbox_div {
+	z-index:9995;
+	font-size:12px;
+	position:relative;
+	top:200px;
+	left:299px;
+	height: 24px;
+	width: 200px;
+}
+.error_div {
+	font-size:12px;
+	position:relative;
+	top:160px;
+	left:200px;
+	height: 20px;
+	width: 360px;
+	text-align:center;
+	color:#F00;
+}
+.genghuan {
+	font-size:12px;
+	position:relative;
+	top:125px;
+	left:430px;
+	_top:122px;
+ +top:122px;
+	width:80px;
+}
+.checkbox {
+	height:14px;
+	vertical-align:top;
+}

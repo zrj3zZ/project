@@ -1,0 +1,127 @@
+<div id="border">
+		<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 5px" width="100%">
+			<tbody>
+				<tr>
+					<td class="formpage_title">VPN使用申请</td>
+				</tr>
+				<tr>
+				<td align="right" id="help">
+						<span id="data_DJBH">单据编号:${DJBH}</span> 
+					</td>
+				</tr>
+				<tr>
+					<td align="right" class="line">
+					</td>
+				</tr>
+				<tr>
+					<td align="right" class="line"></td>
+				</tr>
+				<tr>
+					<td align="left">
+						<table border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody>
+								<tr>
+									<td class="td_title" id="title_SQRBMID" width="15%">
+										申请人：
+									</td>
+									<td class="td_data" id="data_SQRBMID" width="85%" colspan="3">
+										${SQRXM}【${SQRZH},${SQRGW},${SQRDH}&nbsp;】【${SQRBMMC} 】
+									</td>
+								</tr>
+								
+								<tr>
+									<td class="td_title"  id="title_SQLB" width="180">申请类别									</td>
+									<td class="td_data"  id="data_SQLB">${SQLB}&nbsp;</td>
+								</tr>
+								
+								<tr>
+									<td class="td_title"  id="title_SQLB_des" width="180"> </td>
+									<td class="td_data"  id="data_SQLB_des">【KSVPN】和【ZHVPN】是两套独立的系统，申请【KSVPN】将由北京信息部办理，申请【ZHVPN】将由珠海信息部办理。</td>
+								</tr>
+								
+								<tr>
+									<td class="td_title"  id="title_SQLX" width="180">申请类型									</td>
+									<td class="td_data"  id="data_SQLX">${SQLX}&nbsp;</td>
+								</tr>
+								
+								<tr>
+									<td class="td_title"  id="title_SYR" width="180">使用人									</td>
+									<td class="td_data"  id="data_SYR">${SYR}&nbsp;</td>
+								</tr>
+								
+								<tr>
+									<td>
+										<br />
+									</td>
+									<td class="td_data" colspan="3">
+										【${SYRZH}&nbsp;】【${SYRBMID}/${SYRBM}】<br />
+									</td>
+								</tr>
+								
+								<tr id="tr_SYFW">
+									<td class="td_title"  id="title_SYFW" width="180">使用范围									</td>
+									<td class="td_data"  id="data_SYFW">${SYFW}</td>
+								</tr>
+								
+								<tr id="tr_MACDZ">
+									<td class="td_title"  id="title_MACDZ" width="300">MAC地址									</td>
+									<td class="td_data"  id="data_MACDZ">${MACDZ}&nbsp;</td>
+								</tr>
+								
+								<tr id="tr_SQYY">
+									<td class="td_title"  id="title_SQYY" width="180">申请原因									</td>
+									<td class="td_data"  id="data_SQYY">${SQYY}&nbsp;</td>
+								</tr>
+								
+								<tr id="tr_XFWNWZY">
+									<td class="td_title"  id="title_XFWNWZY" width="180">需访问内网资源									</td>
+									<td class="td_data"  id="data_XFWNWZY">${XFWNWZY}&nbsp;</td>
+								</tr>
+								
+								<tr id="tr_XFWNWZY_des">
+									<td class="td_title"  id="title_XFWNWZY_des" width="180">									</td>
+									<td class="td_data"  id="data_XFWNWZY_des">请在此处填写需要访问的“web站点”和“服务器IP和端口号”</td>
+								</tr>
+								
+								<tr id="tr_LPXLH">
+									<td class="td_title"  id="title_LPXLH" width="180">令牌序列号									</td>
+									<td class="td_data"  id="data_LPXLH">${LPXLH}&nbsp;</td>
+								</tr>
+								
+								<tr id="tr_KTRQ">
+									<td class="td_title"  id="title_KTRQ" width="180">开通日期									</td>
+									<td class="td_data"  id="data_KTRQ">${KTRQ}&nbsp;</td>
+								</tr>
+								<tr id="tr_SYQX">
+									<td class="td_title"  id="title_SYQX" width="180">使用期限									</td>
+									<td class="td_data"  id="data_SYQX">${SYQX}&nbsp;</td>
+								</tr>
+								<tr id="tr_VPNSYSM">
+									<td class="td_title"  id="title_VPNSYSM" width="180">VPN使用说明									</td>
+									<td class="td_data"  id="data_VPNSYSM">${VPNSYSM}&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tbody>
+				<tr>
+					<td class="data" style="padding:10px;padding-left:10px;padding-right:10px">
+						<fieldset class="td_memo">
+							<legend class="td_memo_title">使用说明</legend>
+							<p>1、VPN帐号涉及公司内部网络安全，请妥善保管好自己的帐号和密码，并遵照相关网络安全规定，如有违反，撤消帐号并追究全部责任。<br />
+<br />
+2、由于VPN账号使用与MAC地址绑定，请您填写使用VPN的主机MAC地址；需要输入多个MAC地址的，请用分号“；”分隔。<br />
+<br />
+3、开通时间：因涉及系统设置，网络管理员一般在申请当天的下班时间进行开通和权限配置，次日可用。</p>
+						</fieldset>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+</div>
+<div style="display:none">
+${FWWEBZD}${FWRYCZM}${SAP}${TSYY}${LYRXM}${LYRQ}${SYRBMID}</div>

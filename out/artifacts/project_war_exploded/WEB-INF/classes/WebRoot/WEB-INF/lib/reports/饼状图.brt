@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<report version="5.0">
+	<head>
+		<property name="type">0</property>
+		<name><![CDATA[饼状图]]></name>
+		<dataSets>
+			<dataSet name="ds" type="DB_SQL" >
+				<property name="dataSource">BIOS_DS</property>
+				<property name="desc"><![CDATA[]]></property>
+				<property name="query"><![CDATA[SELECT 客户.地区,客户.城市,订单明细.数量,订单明细.折扣,订单明细.单价,订单.雇员ID,订单.订购日期,订单明细.产品ID FROM 订单明细,订单,客户 WHERE 客户.客户ID = 订单.客户ID AND 订单.订单ID = 订单明细.订单ID and 订单.订购日期 is not null and 客户.城市 in ('北京','重庆','深圳','海口') and year(订单.订购日期) between 1996 and 1997]]></property>
+				<property name="beginRow">0</property>
+				<property name="endRow">0</property>
+			</dataSet>
+		</dataSets>
+		<parameters/>
+		<variables/>
+		<query-form>
+			<formProps />
+			<query-grid row="1" col="2">
+				<rows>
+				<rc idx="1"  size="25" />
+				</rows>
+				<cols>
+				<rc idx="1"  size="150" />
+				<rc idx="2"  size="150" />
+				</cols>
+				<cells>
+					<cell r="1" c="1" af="0" >
+					</cell>
+					<cell r="1" c="2" >
+						<btn action="0" text="查  询">
+						</btn>
+					</cell>
+				</cells>
+			</query-grid>
+		</query-form>
+	</head>
+	<body>
+		<sheet id="sheet1">
+			<page>
+				<property name="pageDirection">0</property>
+			</page>
+			<grid row="4" col="2">
+				<properties>
+				</properties>
+				<rows>
+					<row id="1">
+						<property name="type">1</property>
+						<property name="height">37</property>
+					</row>
+					<row id="2">
+						<property name="height">38</property>
+					</row>
+					<row id="3">
+						<property name="height">30</property>
+					</row>
+					<row id="4">
+						<property name="height">224</property>
+					</row>
+				</rows>
+				<columns>
+					<column id="1">
+						<property name="width">94</property>
+					</column>
+					<column id="2">
+						<property name="width">348</property>
+					</column>
+				</columns>
+				<cells>
+					<cell id="1,1" type="0" colspan="2" >
+						<property name="value"><![CDATA[主要城市销售额统计]]></property>
+						<property name="font-size">12</property>
+						<border type="1">1:0,0,0:1;1:0,0,0:1</border>
+					</cell>
+					<cell id="2,1" type="2" >
+						<property name="value"><![CDATA[地区,销售额,时间]]></property>
+						<property name="background"><![CDATA[192,192,192]]></property>
+						<property name="bias-type">1</property>
+						<border type="1">1:0,0,0:1</border>
+						<border type="2">1:0,0,0:1</border>
+						<border type="3">1:0,0,0:1</border>
+					</cell>
+					<cell id="2,2" type="0" >
+						<property name="value"><![CDATA[=ds.group(year(订购日期),false)+年]]></property>
+						<property name="ext-direction">2</property>
+						<property name="background"><![CDATA[192,192,192]]></property>
+						<border type="1">1:0,0,0:1</border>
+						<border type="3">1:0,0,0:1</border>
+					</cell>
+					<cell id="3,1" type="0" >
+						<property name="value"><![CDATA[=ds.group(城市)]]></property>
+						<property name="ext-direction">3</property>
+						<property name="background"><![CDATA[179,217,255]]></property>
+						<border type="1">1:0,0,0:1</border>
+						<border type="2">1:0,0,0:1</border>
+						<border type="3">1:0,0,0:1</border>
+					</cell>
+					<cell id="3,2" type="0" >
+						<property name="value"><![CDATA[=ds.sum(数量*单价)]]></property>
+						<property name="view-format">2|￥#,##0.00;￥-#,##0.00</property>
+						<property name="align">2</property>
+						<property name="background"><![CDATA[179,217,255]]></property>
+						<border type="1">1:0,0,0:1</border>
+						<border type="3">1:0,0,0:1</border>
+					</cell>
+					<cell id="4,1" type="0" >
+						<property name="value"><![CDATA[饼状分布图]]></property>
+						<property name="background"><![CDATA[255,255,153]]></property>
+						<border type="1">1:0,0,0:1</border>
+						<border type="2">1:0,0,0:1</border>
+						<border type="3">1:0,0,0:1</border>
+					</cell>
+					<cell id="4,2" type="1" >
+						<property name="value"><![CDATA[<chart><param name="insidelabelfont" value="Arial,plain,11" /><param name="outsidelabelfont" value="宋体,plain,11" /><param name="serieslabelson" value="true" /><param name="serieslabels_0" value=" " /><param name="titlefont" value="宋体,plain,14" /><param name="legendon" value="false" /><param name="3dmodeon" value="true" /><param name="pointinglabelfont" value="宋体,plain,12" /><param name="rangelabelfont" value="宋体,plain,11" /><param name="legendfont" value="宋体,plain,11" /><param name="percentlabelstyle" value="pointing" /><param name="rangelabelson" value="true" /><param name="startangle" value="90" /><param name="valuelabelstyle" value="inside" /><param name="pielabelfont" value="宋体,plain,14" /><param name="chart" value="pie" /><param name="background" value="255,255,255" /><param name="serieslabels" value=" " /><param name="pielabelson" value="true" /><param name="samplelabels" value="=A3{}" /><param name="samplevalues_0" value="=B3{}" /><param name="seriescount" value="1" /><param name="percentlabelson" value="true" /><param name="rangeaxislabelfont" value="宋体,plain,11" /><param name="samplehighlightstyle" value="circle_filled" /><param name="endangle" value="270" /><param name="sampleaxislabelfont" value="宋体,plain,11" /></chart>]]></property>
+						<border type="1">1:0,0,0:1</border>
+						<border type="3">1:0,0,0:1</border>
+					</cell>
+				</cells>
+			</grid>
+		</sheet>
+	</body>
+</report>

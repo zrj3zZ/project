@@ -1,0 +1,38 @@
+.main {
+	width: 760px;
+	margin-right: auto;
+	margin-left: auto;
+	border: 1px solid #ACBCC9;
+	font-size: 12px;
+	line-height: 23px;
+	padding: 10px;
+}
+.pic {
+	padding: 2px;
+	height: 110px;
+	width: 150px;
+	border: 1px solid #CCCCCC;
+}
+.border_bottom {
+	border-bottom-width: 1px;
+	border-bottom-style: dashed;
+	border-bottom-color: #CCCCCC;
+}
+.border_right {
+	border-right-width: 1px;
+	border-right-style: dashed;
+	border-right-color: #CCCCCC;
+}
+.STYLE1 {
+	font-size: 12px;
+	color: #0000FF;
+}
+.STYLE2 {
+	font-size: 12px;
+	font-weight:bold;
+
+}
+.font {
+	font-size: 12px;
+
+}

@@ -1,0 +1,119 @@
+<script type="text/javascript">
+$(function () {
+    var xmbh = $("#PROJECTNO").val();
+    $.post("hl_zqb_getGpMainContent.action", {
+        xmbh: xmbh
+    }, function (data) {
+        var dataJson = eval("(" + data + ")");
+        $("#projectname").html(dataJson[0].PROJECTNAME);
+        $("#xmbz").html(dataJson[0].XMBZ);
+        $("#xmys").html(dataJson[0].XMYS);
+        $("#zclr").html(dataJson[0].ZCLR);
+        $("#htje").html(dataJson[0].HTJE);
+        $("#sfxzcl").html(dataJson[0].SFXZCL);
+        $("#customerinfo").html(dataJson[0].CUSTOMERINFO);
+        $("#gsgk").html(dataJson[0].GSGK);
+        $("#owner").html(dataJson[0].OWNER);
+        $("#manager").html(dataJson[0].MANAGER);
+         $("#CUSTOMERNAME").val(dataJson[0].CUSTOMERNO);
+    });
+	  var instanceId= $("#instanceId").val();
+    $.post("zqb_announcement_gettentuserdateforpro.action",{instanceId:instanceId},function (data) {
+	$("#contenttd").html(data);
+    });
+     var jdmc = document.getElementById("XMJD").value;
+     $.post("zqb_announcement_gettentuserdateforprotwo.action",{jdmc:jdmc},function (data) {
+	$("#contentted").html(data);
+    });
+});
+</script>
+<div id="border">
+	<table width="100%" class="ke-zeroborder" style="margin-bottom:5px;" border="0" cellspacing="0" cellpadding="0">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					挂牌归档
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table width="100%" class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0">
+						<tbody>
+							<tr id="itemTr_2">
+								<td width="15%" class="td_title" id="title_PROJECTNAME">
+									项目名称
+								</td>
+								<td width="35%" class="td_data" id="data_PROJECTNAME">
+									<span id="projectname"></span> 
+								</td>
+								<td width="15%" class="td_title" id="title_XMBZ">
+									所属行业
+								</td>
+								<td width="35%" class="td_data" id="data_XMBZ">
+									<span id="xmbz"></span> 
+								</td>
+							</tr>
+							<tr id="itemTr_4">
+								<td width="15%" class="td_title" id="title_ZCLR">
+									项目承揽人
+								</td>
+								<td width="35%" class="td_data" id="data_ZCLR">
+									<span id="zclr"></span> 
+								</td>
+							</tr>
+							<tr id="itemTr_8">
+								<td width="15%" class="td_title" id="title_OWNER">
+									业务部门负责人
+								</td>
+								<td width="35%" class="td_data" id="data_OWNER">
+									<span id="owner"></span> 
+								</td>
+								<td width="15%" class="td_title" id="title_MANAGER">
+									项目负责人
+								</td>
+								<td width="35%" class="td_data" id="data_MANAGER">
+									<span id="manager"></span> 
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<table width="100%" class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0">
+						<tbody>
+							<tr id="itemTr_2">
+								<td width="15%" class="td_title" id="title_FJ">
+									附件
+								</td>
+								<td width="85%" class="td_data" id="data_FJ" colspan="3">
+									${XMCY}
+								</td>
+							</tr>
+							<tr id="itemTr_1795">
+								<td width="15%" class="td_title" id="title_FJ">
+								</td>
+								<td width="85%" class="td_data" id="contentted" style="color:red;border-bottom-color:#999999;border-bottom-width:0px;border-bottom-style:dotted;" colspan="3">
+								</td>
+							</tr>
+							<tr id="itemTr_1793">
+								<td width="15%" class="td_title" id="title_FJ">
+								</td>
+								<td width="85%" class="td_data" id="contenttd" style="color:red;border-bottom-color:#999999;border-bottom-width:0px;border-bottom-style:dotted;" colspan="3">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${CREATEUSER}${CREATEDATE}${PROJECTNAME}${PROJECTNO}${OWNER}${MANAGER}${STARTDATE}${ENDDATE}${ATTACH}${CUSTOMERNAME}${CUSTOMERNO}${TYPENO}${MEMO}${CUSTOMERINFO}${XMJD}${STATUS}${KHLXR}${KHLXDH}${GSGK}${CZWT}${LSYG}${CZHGQ}${GSZYYW}${GSZYCP}${GSJZYS}${A01}${A02}${A03}${A04}${A05}${A06}${A07}${A08}${YJZXYNJLR}${FXPGFS}${YLQK}${XMZTPD}${XMYS}${WTJJJCS}${HTJE}${SFXZCL}${ZCLR}${ZCLRDH}${FZJGMC}${FZJGLXR}${WBCLRY}${XMBZ}${GGJZR}${SBJZR}${QRDG}${SPZT}${SFTXCL}${SSSYB}${XMZRY}${CLSLR}${SHTGR}${CREATEUSERID}
+</div>

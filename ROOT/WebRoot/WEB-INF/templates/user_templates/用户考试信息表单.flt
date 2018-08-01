@@ -1,0 +1,55 @@
+<div id="border">
+		<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 5px" width="100%">
+			<tbody>
+				<tr>
+					<td class="formpage_title">用户考试信息表单</td>
+				</tr>
+				<tr>
+					<td align="right" id="help"></td>
+				</tr>
+				<tr>
+					<td align="right" class="line"></td>
+				</tr>
+				<tr>
+					<td align="left">
+						<table border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody>
+								<tr>
+									<td class="td_title"  id="title_DEPTID" width="15%">部门编号									</td>
+									<td class="td_data"  id="data_DEPTID"  width="35%">${DEPTID}&nbsp;</td>
+									<td class="td_title"  id="title_STATUS" width="15%">									<font color='red'>*</font>考试状态									</td>
+									<td class="td_data"  id="data_STATUS"  width="35%">${STATUS}&nbsp;</td>
+								</tr>
+								<tr>
+									<td class="td_title"  id="title_PAPERNAME" width="15%">									<font color='red'>*</font>试卷模板名称									</td>
+									<td class="td_data"  id="data_PAPERNAME"  width="35%">${PAPERNAME}&nbsp;</td>
+									<td class="td_title"  id="title_EXAMTIME" width="15%">									<font color='red'>*</font>规定考试时间（分钟）									</td>
+									<td class="td_data"  id="data_EXAMTIME"  width="35%">${EXAMTIME}&nbsp;</td>
+								</tr>
+								<tr>
+									<td class="td_title"  id="title_USERID" width="15%">									<font color='red'>*</font>用户ID									</td>
+									<td class="td_data"  id="data_USERID"  width="35%">${USERID}&nbsp;</td>
+									<td class="td_title"  id="title_DEPTFULLNAME" width="15%">									<font color='red'>*</font>部门全路径									</td>
+									<td class="td_data"  id="data_DEPTFULLNAME"  width="35%">${DEPTFULLNAME}&nbsp;</td>
+								</tr>
+								<tr>
+									<td class="td_title"  id="title_DATETIME" width="15%">									<font color='red'>*</font>开始考试时间									</td>
+									<td class="td_data"  id="data_DATETIME"  width="35%">${DATETIME}&nbsp;</td>
+									<td class="td_title"  id="title_SUMSCORE" width="15%">考试分数									</td>
+									<td class="td_data"  id="data_SUMSCORE"  width="35%">${SUMSCORE}&nbsp;</td>
+								</tr>
+								<tr>
+									<td class="td_title"  id="title_PAPERNO" width="15%">									<font color='red'>*</font>试卷模板编号									</td>
+									<td class="td_data"  id="data_PAPERNO"  width="35%">${PAPERNO}&nbsp;</td>
+								</tr>
+								<tr>
+									<td class="td_title" width="20%">用户答题内容记录表									</td>
+									<td class="td_data"  colspan="3"  width="80%">${SUBFORM_YHDTNRJLB}&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+</div>

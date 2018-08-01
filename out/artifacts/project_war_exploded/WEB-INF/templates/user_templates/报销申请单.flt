@@ -1,0 +1,314 @@
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					报销申请单
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+					<span id="data_DJBH">单据编号:${DJBH}</span> 
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left" style="vertical-align:top;">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_0">
+								<td class="td_title" id="title_SQR" width="12%">
+									申请人
+								</td>
+								<td class="td_data" id="data_SQR" width="44%">
+									${SQR}&nbsp;　
+							  ${SQRZH}&nbsp;${SQRBMMC}&nbsp;　　
+								</td>
+								<td class="td_title" id="title_SQRZH" width="12%">
+									申请日期
+								</td>
+								<td class="td_data" id="data_SQRZH" width="32%">
+									${SQRQ}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_5">
+								<td class="td_title" id="title_BXRZH" width="12%">
+									报销人账号
+								</td>
+								<td class="td_data" id="data_BXRZH" width="44%">
+									${BXRZH}&nbsp;　
+								</td>
+								<td class="td_title" id="title_SSGSMC" width="12%">
+									所属公司名称
+								</td>
+								<td class="td_data" id="data_SSGSMC" width="32%">
+									${SSGSMC}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_9">
+								<td class="td_title" id="title_FYLBMC" width="12%">
+									费用类别名称
+								</td>
+								<td class="td_data" id="data_FYLBMC" width="44%">
+									${FYLBMC}&nbsp;　
+								</td>
+								<td class="td_title" id="title_JSFSBM" width="12%">
+									报销部门
+								</td>
+								<td class="td_data" id="data_JSFSBM" width="32%">
+									${BXBM}&nbsp;　
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_FYLBMC2">
+									预算类型
+								</td>
+								<td class="td_data" id="data_FYLBMC2">
+									${YSLX}&nbsp;　
+								</td>
+								<td class="td_title" id="title_JSFSBM2">
+									成本中心
+								</td>
+								<td class="td_data" id="data_JSFSBM2">
+									${CBZXMC}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_FYLBMC3">
+									结算方式
+								</td>
+								<td class="td_data" id="data_FYLBMC3">
+									${JSFSBM}&nbsp;　
+								</td>
+								<td class="td_title" id="title_JSFSBM3">
+									&nbsp;
+								</td>
+								<td class="td_data" id="data_JSFSBM3">
+									&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_FYLBMC4">
+									收款方
+								</td>
+								<td class="td_data" id="data_FYLBMC4">
+									${JSF}&nbsp;　
+								</td>
+								<td class="td_title" id="title_JSFSBM4">
+									附单张数
+								</td>
+								<td class="td_data" id="data_JSFSBM4">
+									${DJZS}&nbsp;　
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_FYLBMC5">
+									收款单位
+								</td>
+								<td colspan="3" class="td_data" id="data_FYLBMC5">
+									<table width="100%" border="0" cellpadding="0" cellspacing="0" class="ke-zeroborder">
+										<tbody>
+											<tr>
+												<td width="21%" class="td_data">
+													${SKDW}&nbsp;
+												</td>
+												<td width="16%" class="td_title">
+													开户行
+												</td>
+												<td width="25%" class="td_data">
+													${KHX}&nbsp;
+												</td>
+												<td width="10%" class="td_title">
+													账号
+												</td>
+												<td width="28%" class="td_data">
+													${YXZH}&nbsp;&nbsp;
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+							<tr id="txtAreaTr_924">
+								<td class="td_title" id="title_BXSY">
+									报销事由
+								</td>
+								<td id="data_BXSY" class="td_data" colspan="3">
+									${BXSY}&nbsp;　
+								</td>
+							</tr>
+							<tr id="txtAreaTr_925">
+								<td class="td_title" id="title_BXSY" colspan="4">
+									金额相关
+								</td>
+							</tr>
+							<tr id="txtAreaTr_925">
+								<td class="td_title" id="title_BXSY" colspan="4">
+									<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+										<tbody>
+											<tr id="jexstr1">
+												<td class="td_title">
+													申请报销金额：
+												</td>
+												<td class="td_data">
+													${SQBXJE}&nbsp;　
+												</td>
+												<td class="td_title">
+													实际报销金额：
+												</td>
+												<td class="td_data" colspan="3">
+													${SJBXJE}&nbsp;　
+												</td>
+											</tr>
+											<tr id="jexstr2">
+												<td class="td_title" width="15%">
+													借款余额：
+												</td>
+												<td class="td_data" width="18%">
+													${JKYE} 元
+												</td>
+												<td class="td_title" width="15%">
+													本次冲销金额：
+												</td>
+												<td class="td_data" width="18%">
+													${BCCXJE}&nbsp;　
+												</td>
+												<td class="td_title" width="15%">
+													实际支付金额：
+												</td>
+												<td class="td_data" width="18%">
+													${SJZFJE}&nbsp;　
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+							<tr id="txtAreaTr_925">
+								<td class="td_title" id="title_BXSY" colspan="4">
+									财务相关
+								</td>
+							</tr>
+							<tr id="txtAreaTr_925">
+								<td class="td_title" id="title_BXSY" colspan="4">
+									<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+										<tbody>
+											<tr id="jzStyle">
+												<td class="td_title" width="15%">
+													记账日期：
+												</td>
+												<td class="td_data" width="18%">
+													${JZRQ}&nbsp;　
+												</td>
+												<td class="td_title" width="15%">
+													会计复核人：
+												</td>
+												<td class="td_data" width="18%">
+													${KJ}&nbsp;　
+												</td>
+												<td class="td_title" width="15%">
+													出纳：
+												</td>
+												<td class="td_data" width="18%">
+													${CN}&nbsp;　
+												</td>
+											</tr>
+											<tr id="dzfStyle" style="display:none;">
+												<td class="td_title" width="15%">
+													代支付公司：
+												</td>
+												<td class="td_data" width="18%">
+													${WLGSDMHMC}&nbsp;　
+												</td>
+												<td class="td_title" width="15%">
+													代支付会计：
+												</td>
+												<td class="td_data" width="18%">
+													${WLHJ}&nbsp;　
+												</td>
+												<td class="td_title" width="15%">
+													代支付出纳：
+												</td>
+												<td class="td_data" width="18%">
+													${WLCN}&nbsp;　
+												</td>
+											</tr>
+											<tr id="pzttStyle" style="display:none;">
+												<td class="td_title">
+													税率
+												</td>
+												<td class="td_data" colspan="1">
+													${TAXRATE}&nbsp;　
+												</td>
+												<td class="td_title">
+													凭证抬头
+												</td>
+												<td class="td_data" colspan="3">
+													${PZTT}&nbsp;　
+												</td>
+											</tr>
+											<tr id="ystsStyle" style="display:none;">
+												<td class="td_title">
+													预算提示：
+												</td>
+												<td class="td_data" colspan="5">
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+							<tr id="subformTr_120">
+								<td class="td_data" colspan="4">
+									${SUBFORM_FYMX_CP}&nbsp;　
+								</td>
+							</tr>
+							<tr id="subformTr_123">
+								<td class="td_data" colspan="4">
+									${SUBFORM_ZDFBXMXB}&nbsp;　
+								</td>
+							</tr>
+							<tr id="subformTr_121">
+								<td class="td_data" colspan="4">
+									${SUBFORM_FYMX_CBZX}&nbsp;　
+								</td>
+							</tr>
+							<tr id="subformTr_122">
+								<td class="td_data" colspan="4">
+									${SUBFORM_JTFBXMX}&nbsp;　
+								</td>
+							</tr>
+							<tr id="fjTr_908">
+								<td class="td_title" id="title_FJ">
+									附件
+								</td>
+								<td id="data_FJ" class="td_data" colspan="3">
+									${FJ}&nbsp;　
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<table id="HTML_MEMO_TABLE" border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="data" style="padding:10px;padding-left:10px;padding-right:10px;">
+					<fieldset class="td_memo">
+						<legend class="td_memo_title">使用说明</legend>
+						<p>
+							<br />
+						</p>
+					</fieldset>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+</div>

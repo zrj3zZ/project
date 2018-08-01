@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="gb2312"?>
+<scancode-config>
+	<scancode-item>
+		<id>1</id>
+		<type>fbc</type> 
+		<title>表单信息二维码</title> 
+		<implements-class>com.iwork.app.scancode.impl.WeiXinProcessFormpageeScanCodeImpl</implements-class>
+		<memo>用于表单扫描后显示表单正文信息，实现扫描后快速办理</memo>
+	</scancode-item>
+</scancode-config>

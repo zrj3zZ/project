@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!-- 消息服务总线 -->
+<mq-config>
+	<mq-schema>
+		<mq-key>Email</mq-key>
+		<mq-title>Email消息服务</mq-title>
+		<mq-interface>com.iwork.core.mq.SysMQInterface</mq-interface>
+		<implements-class>com.iwork.core.engine.iform.cache.SysEngineIFormCache</implements-class>
+		<desc>调用发送邮件服务</desc>
+	</mq-schema>
+	
+	<mq-schema>
+		<mq-key>SysMsg</mq-key> 
+		<mq-title>系统消息服务</mq-title>
+		<mq-interface>com.iwork.core.mq.SysMQInterface</mq-interface>
+		<implements-class>com.iwork.core.engine.iform.cache.SysEngineIFormCache</implements-class>
+		<desc>调用发送邮件服务</desc>
+	</mq-schema> 
+</mq-config>

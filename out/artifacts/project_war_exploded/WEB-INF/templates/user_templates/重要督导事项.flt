@@ -1,0 +1,352 @@
+<style type="text/css">
+		#border {
+    width: 1000px;
+    border-top: 1px solid #E1E1E1;
+    border-left: 1px solid #E1E1E1;
+    border-bottom: 1px solid #E1E1E1;
+    border-right: 1px solid #E1E1E1;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding: 10px;
+    background-color: #FFFFFF;
+    background-repeat: no-repeat;
+    background-position: top right;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    background: #FFF;
+    border: 1px solid #E1E1E1;
+    border-radius: 5px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, .3);
+    -moz-transition: -moz-box-shadow linear .2s;
+    -webkit-transition: -webkit-box-shadow linear .2s;
+    transition: -webkit-box-shadow linear .2s;
+}
+</style>
+<script type="text/javascript">
+ 
+
+
+
+	$(function(){
+                document.getElementById("EXTEND1").onfocus=function(){
+			WdatePicker({ dateFmt: 'MM-dd', isShowToday: false, isShowClear: false });  
+                }
+		var dx=document.getElementById("SXZL").value;
+		if(dx==""){
+			document.getElementById("SXZL").value="尊敬的客户，您好！根据《推荐挂牌并持续督导协议书》之规定，贵司尚存欠付的督导费。请在10个工作日之内，根据协议支付相应款项。诚挚感谢您对持续督导工作的支持！如有疑问，请联系督导员！";
+		}
+		
+		$('#FKDZL').attr("placeholder","与xxxx公司签订的督导协议，已到付款期，请跟进处理。");
+		var a=mGetDate(0);
+		var obj=document.getElementById("EXTEND3");
+                for(var i=1;i<=a;i++){
+			obj.options.add(new Option(i,i)); 
+                }
+		document.getElementById("EXTEND2").onchange=function(){
+                       var objs=document.getElementById("EXTEND3");
+		       $("#EXTEND3").find("option").remove();
+		        var s=mGetDate(this.value);
+			obj.options.add(new Option("-空-","")); 
+                        for(var i=1;i<=s;i++){
+				objs.options.add(new Option(i,i)); 
+               	        }
+                };
+		var divY=document.getElementById("div_yue");
+		var divT=document.getElementById("div_tian");
+		divY.style.display="none";
+		divT.style.display="none";
+	  	$(":radio").click(function(){
+			if($(this).val()=='按年'){
+				
+				divY.style.display="inline-block";
+				divT.style.display="inline-block";
+			}else{
+				divY.style.display="none";
+				divT.style.display="inline-block";
+			}
+  		});
+
+		var pd=$('input[name="SXMC"]:checked').val();	
+		if(typeof(pd)!="undefined"){
+			if(pd=='按年'){
+				
+				divY.style.display="inline-block";
+				divT.style.display="inline-block";
+			}else{
+				divY.style.display="none";
+				divT.style.display="inline-block";
+			}
+		}
+		showList(); 
+		var rzid=document.getElementById("dataid").value;
+		
+		var flag=document.getElementById("EXTEND4").value;
+		
+		if(flag=='1'){
+			document.getElementById("savebtn").style.display="none";
+			if(rzid!=0 && rzid!="" && rzid!=null){
+				document.getElementById("iframes").src="ddZbRzList.action?rzid="+rzid+"&flags="+flag;
+			}
+		}else if(flag=='0'){
+			document.getElementById("jyyy").style.display="none";
+			if(rzid!=0 && rzid!="" && rzid!=null){
+				document.getElementById("iframes").src="ddZbRzList.action?rzid="+rzid+"&flags="+flag;
+			}
+		}else{
+			document.getElementById("jyyy").style.display="none";
+			document.getElementById("itemTr_1923").style.display="none";
+			document.getElementById("EXTEND4").value="";
+			
+		}
+		var jy=document.getElementById("LCBS").value;
+		if(jy!=null && jy!=""){
+			//$('#jy').html(jy);
+			document.getElementById("jy").value=jy;
+		}else{
+			document.getElementById("jyyy").style.display="none";
+		}
+		
+	});
+
+
+function mGetDate(mouth){
+    var ts=0;
+    var date = new Date();
+    if (mouth == "0" || mouth == "" || mouth == null ) {
+	mouth=date.getMonth()+1;
+    }
+    var year = date.getFullYear();
+    var sj=panduan(year);
+    var d = new Date(year, mouth, 0);
+    ts=d.getDate();
+    if(mouth==2){
+      ts=d.getDate()+sj;
+    }
+    return ts;
+}
+function panduan(year){
+	var sj=0;
+	if( (year % 400 == 0) || (year % 4 == 0 && year % 100 != 0) ){
+  		sj=1;
+ 	}
+	return sj;
+}
+function showList(){
+	var id=document.getElementById("dataid").value;
+	if(id!=0 && id!="" && id!=null){
+		$.ajax({
+				url : "getDdqy.action",
+				type : "GET",
+				data: {"id":id},  
+				dataType : "json",
+				success : function(data) {
+					document.getElementById("CJR").value=data[0].username;
+					document.getElementById("USERID").value=data[0].userid;
+					document.getElementById("GXSJ").value=data[0].time;
+					var ts=data[0].extend3;
+					if(ts !=null && ts !=""){
+						$("select[name='EXTEND3']").val(ts); 
+					}
+				}
+		});
+	}
+}
+
+window.onbeforeunload = function() {
+if(is_form_changed()) {
+return "您的修改内容还没有保存，您确定离开吗？";
+}
+}
+function is_form_changed() {
+var t_save = jQuery("#savebtn"); //检测页面是否要保存按钮
+
+if(t_save.length>0) { //检测到保存按钮,继续检测元素是否修改
+var is_changed = false;
+jQuery("#border input, #border textarea, #border select").each(function() {
+var _v = jQuery(this).attr('_value');
+if(typeof(_v) == 'undefined') _v = '';
+if(_v != jQuery(this).val()) is_changed = true;
+});
+return is_changed;
+}
+return false;
+}
+jQuery(document).ready(function(){
+jQuery("#border input, #border textarea, #border select").each(function() {
+jQuery(this).attr('_value', jQuery(this).val());
+});
+}); 
+</script>
+<style>
+#FKDZL::-webkit-input-placeholder{
+                color: #DBDBDB;
+                font-size: 12px;
+            }
+</style>
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" width="100%" cellspacing="0" cellpadding="0" border="0">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					督导签约
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" width="100%" cellspacing="0" cellpadding="0" border="0">
+						<tbody>
+							<tr id="itemTr_0">
+								<td class="td_title" id="title_USERID" colspan="6">
+									填写人：
+									${CJR}[${USERID}]&nbsp;&nbsp;&nbsp;&nbsp;
+									最后更新时间：
+									${GXSJ}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_3">
+								<td class="td_title" id="title_COMPANYNAME" width="10%">
+									客户名称
+								</td>
+								<td class="td_data" id="data_COMPANYNAME" width="20%">
+									${COMPANYNAME}&nbsp;
+								</td>
+								<td class="td_title" id="title_ZCFKSJ" width="10%">
+									签约日期
+								</td>
+								<td class="td_data" id="data_ZCFKSJ" width="15%">
+									${ZCFKSJ}&nbsp;
+								</td>
+								<td class="td_title" id="title_NAME" width="10%">
+									签约人
+								</td>
+								<td class="td_data" id="data_NAME" width="15%">
+									${NAME}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_7">
+								<td class="td_title" id="title_SPZT" width="10%">
+									首次应收
+								</td>
+								<td class="td_data1" id="data_SPZT1" colspan="5" style="text-align:left;" width="15%">
+									${SPZT}&nbsp;万&nbsp;元&nbsp;，&nbsp;后&nbsp;续&nbsp;每&nbsp;年&nbsp;${EXTEND1}&nbsp;日&nbsp;前&nbsp;应&nbsp;收${PRCID}&nbsp;万&nbsp;元
+								</td>
+							</tr>
+							<tr id="itemTr_10">
+								<td class="td_title" id="title_SPR" width="10%">
+									券商跟进人姓名
+								</td>
+								<td class="td_data" id="data_SPR" colspan="2" width="15%">
+									${SPR}&nbsp;
+								</td>
+								<td class="td_title" id="title_TEL" width="10%">
+									券商跟进人手机
+								</td>
+								<td class="td_data" id="data_TEL" colspan="2" width="15%">
+									${TEL}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_13">
+								<td class="td_title" id="title_GSDH" width="10%">
+									企业提示人姓名
+								</td>
+								<td class="td_data" id="data_GSDH" colspan="2" width="15%">
+									${GSDH}&nbsp;
+								</td>
+								<td class="td_title" id="title_GSMC" width="10%">
+									企业提示人手机
+								</td>
+								<td class="td_data" id="data_GSMC" colspan="2" width="15%">
+									${GSMC}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_16">
+								<td class="td_title" id="title_SXMC" width="10%">
+									提醒周期设置
+								</td>
+								<td class="td_data" id="data_SXMC" width="15%">
+									${SXMC}&nbsp;
+								</td>
+								<td class="td_title" id="title_EXTEND2" colspan="4" width="10%" style="text-align:left;">
+									<span id="div_yue">每年第${EXTEND2}月</span>&nbsp;&nbsp;<span id="div_tian">每月第${EXTEND3}天</span>
+								</td>
+							</tr>
+							<tr id="itemTr_19">
+								<td class="td_title" id="title_POSITION" width="10%">
+									提醒开始日期
+								</td>
+								<td class="td_data" id="data_POSITION" width="15%">
+									${POSITION}&nbsp;
+								</td>
+								<td class="td_title" id="title_STEPID" width="10%">
+									提醒截止日期
+								</td>
+								<td class="td_data" id="data_STEPID" width="15%">
+									${STEPID}&nbsp;
+								</td>
+							</tr>
+							<tr id="txtAreaTr_5516">
+								<td class="td_title" id="title_SXZL" width="10%">
+									企业收到的<br />
+短信提醒内容
+								</td>
+								<td id="data_SXZL" class="td_data" colspan="2">
+									${SXZL}&nbsp;
+								</td>
+								<td class="td_title" id="title_FKDZL" width="10%">
+									券商收到的<br />
+短信提醒内容
+								</td>
+								<td id="data_FKDZL" class="td_data" colspan="2">
+									${FKDZL}&nbsp;
+								</td>
+							</tr>
+							<tr id="txtAreaTr_5517">
+							</tr>
+							<tr id="tjTr_5510">
+								<td class="td_title" id="title_SXGS">
+									协议资料
+								</td>
+								<td id="data_SXGS" class="td_data" colspan="5">
+									${SXGS}&nbsp;
+								</td>
+							</tr>
+							<tr id="jyyy" >
+								<td class="td_title" id="title_SXGS" style="color:red">
+									解约原因
+								</td>
+								<td id="data_jy" class="jy" colspan="5">
+								
+									<textarea style="width:450px;height:120px;border-style:none;background-color:transparent;color:red;" id='jy' ></textarea>
+								</td>
+							</tr>
+							<tr id="itemTr_1923">
+								<td colspan="6" style="border:1px solid #eee; height: 520px;">
+									<iframe id="iframes" name="iframes" width="100%" height="98%"  frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${COMPANYNO}${LCBH}${RWID}${LCBS}${YXID}${SXBH}${FKZT}${EMAIL}${EXTEND4}${EXTEND5}${INSTANCEID}
+</div>

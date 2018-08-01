@@ -1,0 +1,46 @@
+#container {margin:0 auto; width:100%;}
+#iforminfo { width:200px; height:120px; background:#EDF7FE;}
+#infotitle{ background:#FEFDEF; padding:3px;border-bottom:1px solid #666;}
+.iformContent {background:#EDF7FE;padding:5px;overflow:auto;display:table;border-collapse:separate;}
+.info_row{display:table-row;}
+.info_row div {display:table-cell;border-bottom:1px dotted #666}
+.info_row .info_name {width:60px;font-size:12px;}
+.info_row .info_value {width:120px;font-size:12px;color:#E8A300;}
+.iformContent ul {margin:0 0 0 2px;padding:0;list-style:inside left;color:#E8A300;}
+.iformContent li {font-size:12px;display:block; margin:0 0 0 3px; LIST-STYLE-TYPE:disc}
+		
+#iformMain label.error, #commentForm input.submit { margin-left: 253px; }
+#iformMain label.error {
+			margin-left: 2px;
+			width: auto;
+			display: none;
+			color:red;
+		}
+#newsletter_topics label.error {
+			display: none;
+			margin-left: 103px;
+		}
+.block { display: block; }
+form.iformMain label.error {display: none;}	
+.black_overlay{ 
+            display: none; 
+            position: absolute; 
+            top: 0%; 
+            left: 0%; 
+            width: 100%; 
+            height: 100%; 
+            background-color:#EEEEEE;
+            z-index:1001; 
+            -moz-opacity: 0.8; 
+            opacity:.80; 
+            filter: alpha(opacity=80); 
+        } 
+.ui-jqgrid tr.jqgrow td {
+ white-space: normal !important;
+ height:28px;
+ font-size:12px;
+ vertical-align:text-middle;
+ padding-top:2px;
+ border-right:1px solid #efefef;
+ padding-left:5px;
+}

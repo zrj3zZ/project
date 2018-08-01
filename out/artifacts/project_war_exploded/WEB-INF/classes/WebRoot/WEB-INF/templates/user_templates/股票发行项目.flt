@@ -1,0 +1,213 @@
+<script type="text/javascript">
+	$(document).ready(function(){
+		var projectno = $("#PROJECTNO").val();
+		$.post("zqb_gpfx_project_this_check.action", {projectno : projectno}, function(data) {
+			//alert(data);
+			if(data == '审批通过'){
+				$('input').attr('readonly','readonly');
+				$('textarea').attr('readonly','readonly');
+				$('input').attr('onfocus','');
+				$('#data_OWNER a').hide();
+				$('#data_CUSTOMERNAME a').hide();
+				$('#data_MANAGER a').hide();
+				$('#DIVATTACH').hide();
+				$('a').attr('href','javascript:void(0)');
+				$('#GPFXJZ').attr('disabled','disabled');
+				$('#title_RSSFCG input').attr('disabled','disabled');
+				$('#title_SFZYXS input').attr('disabled','disabled');
+			}
+		});
+	});
+	function Dictionary(){
+		var pageUrl = "zqb_gpfxproject_costormer_set.action";
+		art.dialog.open(pageUrl,{ 
+			title:'数据选择',
+			loadingText:'正在加载中,请稍后...',
+			bgcolor:'#999',
+			rang:true,
+			width:800,
+			cache:false,
+			lock: false,
+			stack:true,
+			zIndex:10,
+			top:100,
+			height:550,
+			iconTitle:false,
+			extendDrag:true,
+			autoSize:true,
+			close:function(){
+				//window.location.reload();
+			}
+		});
+	}
+	$(document).ready(function() {
+		if(($("#CUSTOMERNO").val())!=""){
+			$("#selfdefinedic").remove();
+			$("#selfdefinebook1").remove();
+			$("#selfdefinebook2").remove();
+		}
+	}); 
+</script>
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					股票发行项目
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_100">								
+								<td colspan="4" class="td_title"><span id="spanuserid"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>		
+							</tr>	
+							<tr id="itemTr_0">
+								<td class="td_title" id="title_PROJECTNAME" width="15%">
+									项目名称
+								</td>
+								<td class="td_data" id="data_PROJECTNAME" width="35%">
+									${PROJECTNAME}&nbsp;　
+								</td>
+								<td class="td_title" id="title_CUSTOMERNAME" width="15%">
+									客户名称
+								</td>
+								<td class="td_data" id="data_CUSTOMERNAME" width="35%">
+									${CUSTOMERNAME}<a id="selfdefinedic" class="easyui-linkbutton l-btn l-btn-plain" iconcls="icon-dictionary" plain="true" style="margin-left:5px;" href="javascript:Dictionary();"></a> 
+								</td>
+							</tr>
+							<tr id="itemTr_5">
+								<td class="td_title" id="title_OWNER" width="15%">
+									项目负责人
+								</td>
+								<td class="td_data" id="data_OWNER" width="35%">
+									${OWNER}&nbsp;　
+								</td>
+								<td class="td_title" id="title_MANAGER" width="15%">
+									项目现场负责人
+								</td>
+								<td class="td_data" id="data_MANAGER" width="35%">
+									${MANAGER}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_9">
+								<td class="td_title" id="title_KHLXR" width="15%">
+									客户联系人
+								</td>
+								<td class="td_data" id="data_KHLXR" width="35%">
+									${KHLXR}&nbsp;　
+								</td>
+								<td class="td_title" id="title_KHLXDH" width="15%">
+									客户联系电话
+								</td>
+								<td class="td_data" id="data_KHLXDH" width="35%">
+									${KHLXDH}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_20">
+								<td class="td_title" id="title_CZBM" width="15%">
+									承做部门
+								</td>
+								<td class="td_data" id="data_CZBM" width="35%">
+									${CZBM}&nbsp;<a id="selfdefinebook1" href="###" onclick="dept_book();" title="部门地址薄" class="easyui-linkbutton" plain="true" iconcls="icon-deptbook"></a>　
+								</td>
+								<td class="td_title" id="title_CLBM" width="15%">
+									承揽部门
+								</td>
+								<td class="td_data" id="data_CLBM" width="35%">
+									${CLBM}&nbsp;<a id="selfdefinebook2" href="###" onclick="dept_clbm_book();" title="部门地址薄" class="easyui-linkbutton" plain="true" iconcls="icon-deptbook"></a>　
+								</td>
+							</tr>
+							<tr id="itemTr_14">
+								<td class="td_title" id="title_GPFXSL" width="15%">
+									股票发行数量不超过
+								</td>
+								<td class="td_data" id="data_GPFXSL" width="35%">
+									${GPFXSL} 万股&nbsp;　
+								</td>
+								<td class="td_title" id="title_GPFXJZ" width="15%">
+									股票发行进展
+								</td>
+								<td class="td_data" id="data_GPFXJZ" width="35%">
+									${GPFXJZ}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_17">
+								<td class="td_title" id="title_FXGPJG" width="15%">
+									发行股票的发行价格为人民币
+								</td>
+								<td class="td_data" id="data_FXGPJG" width="35%">
+									${FXGPJG} 元/股&nbsp;　
+								</td>
+								<td class="td_title" id="title_RSSFCG" width="50%" colspan="2" style="text-align:left;">
+									&nbsp;&nbsp;&nbsp;&nbsp;${RSSFCG}
+								</td>
+							</tr>
+							<tr id="itemTr_18">
+								<td class="td_title" id="title_MJZJZE" width="15%">
+									募集资金总额不超过人民币
+								</td>
+								<td class="td_data" id="data_MJZJZE" width="35%">
+									${MJZJZE} 万元&nbsp;　
+								</td>
+								<td class="td_title" id="title_SFZYXS" width="15%" colspan="2" style="text-align:left;">
+									&nbsp;&nbsp;&nbsp;&nbsp;${SFZYXS}
+								</td>
+							</tr>
+							<tr id="txtAreaTr_2318">
+								<td class="td_title" id="title_FXMDCS">
+									发行目的阐述
+								</td>
+								<td id="data_FXMDCS" class="td_data" colspan="3">
+									${FXMDCS}&nbsp;　
+								</td>
+							</tr>
+							<tr id="fjTr_2319">
+								<td class="td_title" id="title_ATTACH">
+									相关资料
+								</td>
+								<td id="data_ATTACH" class="td_data" colspan="3">
+									${ATTACH}&nbsp;　
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div style="border-right-width:0px;width:840px;border-top-width:0px;border-bottom-width:0px;height:800px;border-left-width:0px;border-image:none;" id="mainFrameTab" class="easyui-tabs" fit="true">
+		<div style="border-bottom:#efefef 0px solid;border-left:#efefef 0px solid;height:800px;border-top:#efefef 0px solid;border-right:#efefef 0px solid;border-image:none;image:none;" title="项目阶段信息" border="true" cache="false">
+			<iframe id="URL" border="0" name="URL" height="100%" width="100%">
+			</iframe>
+		</div>
+		<div style="border-bottom:#efefef 0px solid;border-left:#efefef 0px solid;height:500px;border-top:#efefef 0px solid;border-right:#efefef 0px solid;border-image:none;" title="项目成员列表" border="true" cache="false">
+			${SUBFORM_XMCYLB}&nbsp;
+		</div>
+		<div style="border-bottom:#efefef 0px solid;border-left:#efefef 0px solid;height:500px;border-top:#efefef 0px solid;border-right:#efefef 0px solid;border-image:none;" title="项目中介机构" border="true" cache="false">
+			${SUBFORM_XMZJJG}&nbsp;
+		</div>
+		<div style="border-bottom:#efefef 0px solid;border-left:#efefef 0px solid;height:800px;border-top:#efefef 0px solid;border-right:#efefef 0px solid;border-image:none;" title="相关问题" border="true" cache="false">
+			<iframe id="XGWT" border="0" name="XGWT" height="100%" width="100%">
+			</iframe>
+		</div>
+		<div style="border-bottom:#efefef 0px solid;border-left:#efefef 0px solid;height:800px;border-top:#efefef 0px solid;border-right:#efefef 0px solid;border-image:none;" title="评价" border="true" cache="false">
+			<iframe id="PJ" border="0" name="PJ" height="100%" width="100%">
+			</iframe>
+		</div>
+	</div>
+<br />
+</div>
+<div style="display:none;">
+${CREATEUSER}${CREATEDATE}${PROJECTNO}${STARTDATE}${ENDDATE}${CUSTOMERNO}${XMJD}${STATUS}${CREATEUSERID}
+
+</div>

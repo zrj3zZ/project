@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!--
+#############################################################
+##
+## 财务相关扩展接口配置
+## voucher 凭证
+##
+#############################################################
+-->
+<FI-config>
+<version>4.0</version>
+<voucher>
+	<voucher-interface>
+		<key>default</key> 
+		<title>报销凭证接口方案</title> 
+		<interface-class>com.iwork.plugs.fi.subject.IWorkPlugsFiVoucherInterface</interface-class>
+		<implements-class>com.iwork.plugs.fi.subject.impl.IWorkPlugsFiVoucherDefaultImpl</implements-class>			
+		<desc>实现关联成本中心的凭证接口</desc>
+	</voucher-interface>
+	<voucher-interface>
+		<key>jiekuan</key> 
+		<title>借款凭证接口方案</title> 
+		<interface-class>com.iwork.plugs.fi.subject.IWorkPlugsFiVoucherInterface</interface-class>
+		<implements-class>com.iwork.plugs.fi.subject.impl.IWorkPlugsFiVoucherHtJieKuanImpl</implements-class>			
+		<desc>借款凭证生成方案</desc>
+	</voucher-interface>
+</voucher>
+<route> 
+	<route-interface>
+		<key>default</key>
+		<title>默认接口方案</title> 
+		<interface-class>com.iwork.plugs.fi.route.IWorkPlugsFiRouteInterface</interface-class>
+		<implements-class>com.iwork.plugs.fi.route.impl.IWorkPlugsFiRouteDefaultImpl</implements-class>			
+		<desc>实现科目类别实现路由方案</desc> 
+	</route-interface>
+</route>
+</FI-config>

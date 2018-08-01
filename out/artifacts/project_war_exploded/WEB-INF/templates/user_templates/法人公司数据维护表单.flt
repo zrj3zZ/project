@@ -1,0 +1,43 @@
+<div >
+		<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 5px" width="100%">
+			<tbody>
+				<tr>
+					<td class="dialog_formpage_title">法人公司数据维护表单</td>
+				</tr>
+				<tr>
+					<td align="right" id="help"></td>
+				</tr>
+				<tr>
+					<td align="right" class="line"></td>
+				</tr>
+				<tr>
+					<td align="left">
+						<table border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody>
+								<tr id="itemTr_1035">
+									<td class="td_title"  id="title_CODE" width="180">公司编码									</td>
+									<td class="td_data"  id="data_CODE">${CODE}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_1036">
+									<td class="td_title"  id="title_NAME" width="180">公司名称									</td>
+									<td class="td_data"  id="data_NAME">${NAME}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_1038">
+									<td class="td_title"  id="title_STARTDATE" width="180">有效期开始									</td>
+									<td class="td_data"  id="data_STARTDATE">${STARTDATE}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_1039">
+									<td class="td_title"  id="title_ENDDATE" width="180">有效期结束									</td>
+									<td class="td_data"  id="data_ENDDATE">${ENDDATE}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_1037">
+									<td class="td_title"  id="title_STATUS" width="180">状态									</td>
+									<td class="td_data"  id="data_STATUS">${STATUS}&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+</div>

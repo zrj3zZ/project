@@ -1,0 +1,42 @@
+var s1 = setInterval("loading.innerText+='.'", 500);
+    var s2 = setInterval("loading.innerText = ''", 8000);
+	function window.onload(){ 
+	  clearInterval(s1); 
+	  clearInterval(s2);
+	  loadingDiv.removeNode(true);
+	}	
+document.writeln("<div id=\"loadingDiv\" style=\"z-index:50000;position:absolute;left:expression((this.parentElement.offsetWidth-this.offsetWidth)\/2);top:expression((document.body.clientHeight-this.style.pixelHeight)\/3+document.body.scrollTop);\">");
+document.writeln(" <table border=\"1\" width=\"260\" cellspacing=\"0\" cellpadding=\"4\" style=\"border-collapse: collapse;FILTER: Alpha(opacity=95)\" bgcolor=\"#ffffff\">");
+document.writeln(" <tr>");
+document.writeln("   <td bgcolor=\"#2D2D2D\">");
+document.writeln("    <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">");
+document.writeln(" <tr>");
+document.writeln("   <td style=\"font-size:12px;color:#ffffff\">");
+document.writeln("    『lossr.net』★页面正在加载...<\/td>");
+document.writeln("   <td width=\"1\">");
+document.writeln(" <span title=关闭 style=\"CURSOR: hand;color:white;font-size:12px;font-weight:bold;margin-right:4px;\" onClick=\"document.all.loadingDiv.style.display=\'none\'\">×<\/span>   <\/td>");
+document.writeln(" <\/tr>");
+document.writeln("    <\/table>");
+document.writeln("   <\/td>");
+document.writeln(" <\/tr>");
+document.writeln(" <tr>");
+document.writeln("   <td>");
+document.writeln("    <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">");
+document.writeln("     <tr>");
+document.writeln("   <td width=\"35\" align=\"center\">");
+document.writeln("    <img src=\"/js\/loadding.gif\" width=\"32\"> <\/td>");
+document.writeln("   <td style=\"font-size:12px;color:#000000\">站点正在加载图片,请您耐心等待....<span id=\"loading\"><\/span>");
+document.writeln("   <\/td>");
+document.writeln("     <\/tr>");
+document.writeln("   <\/table><\/td>");
+document.writeln("   <\/tr>");
+document.writeln(" <\/table>");
+document.writeln("<\/div>")
+document.writeln("<SCRIPT LANGUAGE=\"javascript\"> ");
+document.writeln("<!-- Hide ");
+document.writeln("function killErrors() { ");
+document.writeln("return true; ");
+document.writeln("} ");
+document.writeln("window.onerror = killErrors; ");
+document.writeln("\/\/ --> ");
+document.writeln("<\/SCRIPT>");

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.iwork.plugs.sms.bean">
+	
+	
+	<class table="IWORK_SMS_PHONEBOOKGROUP" name="PhonebookgroupMst">
+		<!--  <id name="cid" column="cid" type="integer">
+			<generator class="increment"></generator>
+		</id>-->
+		<id name="groupid" column="groupid" type="integer">
+			<generator class="increment"></generator>
+		</id>
+            <property name="userid" type="java.lang.String" column="USERID">
+            </property>
+           <!--  <property name="groupid" type="integer" column="GROUPID">
+            </property> -->
+            <property name="groupname" type="java.lang.String" column="GROUPNAME">
+            </property>
+            
+ 
+    </class>
+</hibernate-mapping>

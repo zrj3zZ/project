@@ -1,0 +1,134 @@
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					商务车使用申请单
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+					<span id="data_DJBH">单据编号:${DJBH}</span>
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr>
+								<td class="td_title" id="title_SQR" width="15%">
+									申请人
+								</td>
+								<td class="td_data" id="data_SQR" width="35%">
+									${SQR}&nbsp;
+								</td>
+								<td class="td_title" id="title_SQRZH" width="15%">
+									申请人帐号
+								</td>
+								<td class="td_data" id="data_SQRZH" width="35%">
+									${SQRZH}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_SQRBMBH" width="15%">
+									申请人部门编号
+								</td>
+								<td class="td_data" id="data_SQRBMBH" width="35%">
+									${SQRBMBH}&nbsp;
+								</td>
+								<td class="td_title" id="title_SQRBM" width="15%">
+									申请人部门
+								</td>
+								<td class="td_data" id="data_SQRBM" width="35%">
+									${SQRBM}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_RESOURCEID" width="15%">
+									申请车辆编号
+								</td>
+								<td class="td_data" id="data_RESOURCEID" width="35%">
+									${RESOURCEID}&nbsp;
+								</td>
+								<td class="td_title" id="title_RESOURCENAME" width="15%">
+									申请车辆名称
+								</td>
+								<td class="td_data" id="data_RESOURCENAME" width="35%">
+									${RESOURCENAME}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_SQRLXFS" width="15%">
+									<span style="color:red;">*</span>申请人联系方式
+								</td>
+								<td class="td_data" id="data_SQRLXFS" width="35%">
+									${SQRLXFS}&nbsp;
+								</td>
+								<td class="td_title" id="title_SFZJ" width="15%">
+									是否自驾
+								</td>
+								<td class="td_data" id="data_SFZJ" width="35%">
+									${SFZJ}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_YCSJ" width="15%">
+									用车时间
+								</td>
+								<td class="td_data" id="data_YCSJ" width="35%">
+									${YCSJ}&nbsp;
+								</td>
+								<td class="td_title" id="title_YJYCSJ" width="15%">
+									预计用车时间
+								</td>
+								<td class="td_data" id="data_YJYCSJ" width="35%">
+									${YJYCSJ}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_SQSJ" width="15%">
+									申请时间
+								</td>
+								<td class="td_data" id="data_SQSJ" width="35%">
+									${SQSJ}&nbsp;
+								</td>
+								<td class="td_title" id="title_ZJRXM" width="15%">
+									自驾人姓名
+								</td>
+								<td class="td_data" id="data_ZJRXM" width="35%">
+									${ZJRXM}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_ZJRLXFS" width="15%">
+									自驾人联系方式
+								</td>
+								<td class="td_data" id="data_ZJRLXFS" width="35%">
+									${ZJRLXFS}&nbsp;
+								</td>
+								<td class="td_title" id="title_XSLCS" width="15%">
+									行驶里程数
+								</td>
+								<td class="td_data" id="data_XSLCS" width="35%">
+									${XSLCS}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_SQSY">
+									申请事由
+								</td>
+								<td id="data_SQSY" class="td_data" colspan="3">
+									${SQSY}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

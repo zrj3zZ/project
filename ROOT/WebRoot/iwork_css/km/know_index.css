@@ -1,0 +1,257 @@
+@charset "utf-8";
+@import url("know_base.css");
+/* CSS Document */
+
+/*奇数�?/
+.row_odd {
+	background-color:#fff;
+	padding: 5px;
+}
+/*偶数�?/
+.row_even {
+	background-color:#fbfbfb;
+	padding: 5px;
+}
+/*新闻表格*/
+.news {
+	clear:both;
+	padding:10px 5px 5px 10px
+}
+.news table {	
+	border-collapse:collapse;
+	border-style:none;
+}
+.news table th {
+	text-align:left;
+	border-collapse:collapse;
+	padding:2px 5px 2px 5px;
+}
+.news table td {
+	text-align:left;
+	border-collapse:collapse;	
+}
+.news table a:link {
+	color:#505050;
+}
+.news table a:visited {
+	color:#505050;
+}
+.news table a:hover {
+	color:#505050;
+}
+.news table a:active {
+	color:#505050;
+}
+
+/*oa知道以及主门户OA知道*/
+.lineClean {
+	display:block;
+	line-height:1px;
+	height:1px;
+	overflow:hidden;
+	border-top:1px dashed #999999;
+	margin:2px;
+}
+.div_bgi {
+	width:180px;
+	border:1px solid #DCE0E1;
+	background:url(../../iwork_img/know/oa_titlebg.jpg) repeat-x;	
+	padding-left:5px;
+	margin-bottom:2px;
+}
+.div_tit {
+	width:180px;
+	position:relative;
+	padding:0px 0px 0px 0px;
+	text-align:left;
+	margin-bottom:5px;
+	height: 26px;
+	font-weight:bold;
+}
+.div_span_tit_left{
+	color:#282828;
+	font-size:12px;
+	font-weight:bold;
+	position:relative;
+	top:1px;
+	}
+.oa_main {
+	background-color:#f5f5f5;
+	padding-left:3px;
+	margin-right:4px;
+	height:auto;
+}
+.oasearch {
+	height:50px;
+	padding-top:10px;
+	margin-top:auto;
+	margin-bottom:auto;
+}
+.input_oa {
+	width:280px;
+	height:28px;
+	border:2px solid red;
+	border-radius:3px 0px 0px 3px;
+	margin-top:5px;
+	margin-bottom:13px;
+	background-color:#F5F5F5;
+	padding-left:10px;
+}
+.btn_oasearch {
+	width:71px;
+	height:32px;
+	line-height:28px;
+	border:0px;
+	border-radius:0px 3px 3px 0px;
+	margin-top:5px;
+	margin-bottom:13px;
+	margin-left:-2px;
+	background-color:#FF0000;
+	color:white;
+	cursor:pointer;
+	font-weight:700;
+	text-align:center;
+}
+.btn_ask {
+	height:32px;
+	width:71px;
+	background:url(../../iwork_img/know/ask.jpg) no-repeat;
+	border:0 none;
+	cursor:pointer;
+	margin-top:5px;
+	margin-bottom:13px;
+	_margin-top:3px;
+	+margin-top:3px;
+	*margin-top:5px !important;
+}
+.btn_imp {
+	height:32px;
+	width:71px;
+	background:url(../../iwork_img/know/Import.jpg) no-repeat;
+	border:0 none;
+	cursor:pointer;
+	margin-top:5px;
+	margin-bottom:13px;
+	_margin-top:3px;
+	+margin-top:3px;
+	*margin-top:5px !important;
+}
+.btn_exp {
+	height:32px;
+	width:71px;
+	background:url(../../iwork_img/know/Output.jpg) no-repeat;
+	border:0 none;
+	cursor:pointer;
+	margin-top:5px;
+	margin-bottom:13px;
+	_margin-top:3px;
+	+margin-top:3px;
+	*margin-top:5px !important;
+}
+.btn_view {
+	height:32px;
+	width:71px;
+	background:url(../../iwork_img/know/view.jpg) no-repeat;
+	border:0 none;
+	cursor:pointer;
+	margin-top:5px;
+	margin-bottom:13px;
+	_margin-top:3px;
+	+margin-top:3px;
+	margin-top:5px !important;
+}
+.btn_float {
+	widows:150px;
+	float:right;
+	margin-right:10px;
+	width: 150px; 
+	margin-right: 22px;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+.btn_float {
+widows:150px;
+float:right;
+margin-right:10px;
+margin-top:-3px
+}
+.btn_ask {
+	
+	height:32px;
+	width:71px;
+	background:url(../../iwork_img/know/ask.jpg) no-repeat;
+	border:0 none;
+	cursor:pointer;
+}
+.btn_view {
+	height:32px;
+	width:71px;
+	background:url(../../iwork_img/know/view.jpg) no-repeat;
+	border:0 none;
+	cursor:pointer;
+
+
+
+}
+}
+.btn_plbl {
+	height:21px;
+	width:70px;
+	background:url(../aws_skins/_def2011/images/main_sub2.jpg) no-repeat;
+	border:0 none;
+	cursor:pointer;
+	line-height: 21px;
+}
+.btn_lcgj {
+	height:21px;
+	width:70px;
+	background:url(../aws_skins/_def2011/images/main_sub2.jpg) no-repeat;
+	border:0 none;
+	cursor:pointer;
+	line-height: 21px;
+}
+.oasearch_result {
+	border-bottom:1px dashed #999;
+	color:#999999
+}
+.oasearch_fontcolor {
+	color:#c00102
+}
+.oa_news table th{ font-weight:bold; color:#666}
+.oa_news table a:link {
+	color:#000
+}
+.oa_news table a:visited {
+	color:#000
+}
+.oa_news table a:hover {
+	color:#666
+}
+.oa_news table a:active {
+	color:#000
+}
+.span_con{
+	display:block;
+	white-space:nowrap;
+	overflow:hidden;
+	line-height:20px;
+	height:20px;
+    -o-text-overflow: ellipsis;    /**//* for Opera */
+    text-overflow:ellipsis;        /**//* for IE */
+}
+.tr_bg1{
+	background-color: #F0F0F0;
+}
+.tr_bg2{
+	background-color:#ffffff;
+}
+/*表格中居左，居右，居中的对齐*/
+.align_left {
+
+	float:left;
+}
+.align_right {
+	text-align:right
+}
+.align_center {
+	text-align:center
+}

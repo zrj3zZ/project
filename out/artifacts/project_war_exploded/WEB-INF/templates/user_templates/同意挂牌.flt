@@ -1,0 +1,79 @@
+<script type="text/javascript">
+$(function () {
+    $.post("dg_zqb_project_getprojectmsg.action", {
+        "projectno": $("#EXTEND2").val()
+    }, function (data) {
+        var dataJson = eval("(" + data + ")");
+        var projectName = dataJson[0].PROJECTNAME;
+        $("#projectName").html(projectName);
+        var manager = dataJson[0].MANAGER;
+        $("#manager").html(manager);
+    });
+});
+</script>
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					同意挂牌
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+			<table class="ke-zeroborder" width="100%" cellspacing="0" cellpadding="0" border="0">
+				<tbody>
+					<tr id="itemTr_0">
+								<td class="td_title" id="title_" width="15%">
+									项目名称
+								</td>
+								<td class="td_data" id="data_" width="35%">
+									<span id="projectName"></span>&nbsp;
+								</td>
+								<td class="td_title" id="title_GFGSRQ" width="15%">
+									项目负责人
+								</td>
+								<td class="td_data" id="data_GFGSRQ" width="35%">
+									<span id="manager"></span>${GFGSRQ}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_0">
+								<td class="td_title" id="title_" width="15%">
+									同意挂牌日期
+								</td>
+								<td class="td_data" id="data_" width="35%">
+									${TJSJ}&nbsp;
+								</td>
+								<td class="td_title" id="title_GFGSRQ" width="15%">
+									填报日期
+								</td>
+								<td class="td_data" id="data_GFGSRQ" width="35%">
+									${TBSJ}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_0">
+								<td class="td_title" id="title_" width="15%">
+									附件
+								</td>
+								<td class="td_data" id="data_" width="35%" colspan="3">
+									${FJ}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${INSTANCEID}${COMPANYNO}${COMPANYNAME}${TBRID}${SPZT}${CUSTOMERNO}${LCBH}${LCBS}${TASKID}${CUSTOMERNAME}${SCORE}${JDMC}${TJRID}${TJRXM}${EXTEND1}${EXTEND2}${EXTEND3}${EXTEND4}${EXTEND5}
+</div>

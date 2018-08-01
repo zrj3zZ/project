@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "file:///E:/source/RMS/ROOT/WebRoot/WEB-INF/spring-beans-2.0.dtd">
+<beans> 
+<bean id="mobileConsoleAction" class="com.iwork.wechat.console.action.MobileConsoleAction" scope="prototype">
+    	<property name="mobileConsoleService" ref="mobileConsoleService" />
+    </bean>
+    <bean id="mobileConsoleService" class="com.iwork.wechat.console.service.MobileConsoleService" scope="prototype">
+    </bean> 
+
+	<!-- 首页 -->
+    <bean id="iWorkWeChatBaseAction" class="com.iwork.wechat.app.base.action.IWorkWeChatBaseAction" scope="prototype">
+    	<property name="iWorkWeChatBaseService" ref="iWorkWeChatBaseService" />
+    </bean>
+    <bean id="iWorkWeChatBaseService" class="com.iwork.wechat.app.base.service.IWorkWeChatBaseService" scope="prototype">
+        	<property name="processDeskManagementService" ref="processDeskManagementService" />
+        	<property name="processRuntimeCcDAO" ref="processRuntimeCcDAO" />
+        	
+    </bean> 
+    <!--流程处理中心 -->
+      <bean id="iWorkWeChatProcessDeskAction" class="com.iwork.wechat.app.process.action.IWorkWeChatProcessDeskAction" scope="prototype">
+    	<property name="iWorkWeChatProcessDeskService" ref="iWorkWeChatProcessDeskService" />
+    	<property name="processDeskManagementService" ref="processDeskManagementService" />
+        	<property name="processRuntimeCcDAO" ref="processRuntimeCcDAO" />
+        	<property name="processDeskService" ref="processDeskService" />
+    </bean>
+    <bean id="iWorkWeChatProcessDeskService" class="com.iwork.wechat.app.process.service.IWorkWeChatProcessDeskService" scope="prototype">
+    	<property name="processDeskService" ref="processDeskService" />
+ 		<property name="processEngine" ref="processEngine" />
+    	<property name="taskService" ref="taskService" />
+    	<property name="historyService" ref="historyService" />
+    	<property name="runtimeService" ref="runtimeService" />
+    	<property name="processRuntimeCcDAO" ref="processRuntimeCcDAO" />
+    	<property name="processRuntimeExcuteService" ref="processRuntimeExcuteService" />
+    	<property name="processRuntimeSendService" ref="processRuntimeSendService" />
+    	<property name="processDeploymentService" ref="processDeploymentService" />
+    	<property name="processOpinionService" ref="processOpinionService" />
+    	<property name="processDefTriggerService" ref="processDefTriggerService" />
+    	<property name="processStepSummaryService" ref="processStepSummaryService" />
+    	<property name="sysPurviewProcessService" ref="sysPurviewProcessService" />
+    	<property name="sysEngineGroupDAO" ref="sysEngineGroupDAO" /> 
+    	<property name="processDefMapDAO" ref="processDefMapDAO" />
+    	<property name="processEntrustPersonService" ref="processEntrustPersonService" />
+    </bean>
+    <!-- 流程处理 -->
+     <!-- 流程任务执行 -->
+    <bean id="iWorkWeChatProcessRuntimeExcuteAction" class="com.iwork.wechat.app.process.action.IWorkWeChatProcessRuntimeExcuteAction" scope="prototype">
+    	<property name="iWorkWeChatProcessRuntimeExcuteService" ref="iWorkWeChatProcessRuntimeExcuteService" />
+        <property name="processRuntimeExcuteService" ref="processRuntimeExcuteService" />
+    	<property name="processStepTriggerService" ref="processStepTriggerService" />
+    	<property name="processDeploymentService" ref="processDeploymentService" /> 
+    	<property name="iformService" ref="iformService" /> 
+    	<property name="sysEngineSubformService" ref="sysEngineSubformService" />
+    	<property name="sysEngineIFormService" ref="sysEngineIFormService" />
+    	<property name="processOpinionService" ref="processOpinionService" />
+    	<property name="processStepFormService" ref="processStepFormService" />
+    	<property name="processStepFormMapService" ref="processStepFormMapService" />
+    	<property name="processRuntimeSignsService" ref="processRuntimeSignsService" />
+    </bean>  
+    <bean id="iWorkWeChatProcessRuntimeExcuteService" class="com.iwork.wechat.app.process.service.IWorkWeChatProcessRuntimeExcuteService" scope="prototype">
+    	<property name="processDeploymentService" ref="processDeploymentService" />
+    	<property name="processEngine" ref="processEngine" />
+    	<property name="taskService" ref="taskService" />
+    	<property name="runtimeService" ref="runtimeService" />
+    	<property name="repositoryService" ref="repositoryService" />
+    	<property name="processStepFormDAO" ref="processStepFormDAO" />
+		<property name="sysEngineIFormDAO" ref="sysEngineIFormDAO" />    	
+		<property name="iformService" ref="iformService" /> 
+		<property name="processRuntimeCcDAO" ref="processRuntimeCcDAO" />    
+		<property name="processDefActionService" ref="processDefActionService" />	
+    	<property name="processDefMapService" ref="processDefMapService" />
+		<property name="processDefParamService" ref="processDefParamService" />
+		<property name="processDefTriggerService" ref="processDefTriggerService" />
+		<property name="processStepFormService" ref="processStepFormService" />
+		<property name="processStepFormMapService" ref="processStepFormMapService" />
+		<property name="processStepManualJumpService" ref="processStepManualJumpService" /> 
+		<property name="processStepMapService" ref="processStepMapService" />
+		<property name="processStepSysjumpService" ref="processStepSysjumpService" />
+		<property name="processStepTriggerService" ref="processStepTriggerService" />
+		<property name="processStepDIYBtnService" ref="processStepDIYBtnService" />
+		<property name="processStepScriptTriggerService" ref="processStepScriptTriggerService" />
+		<property name="processRuntimeSignsService" ref="processRuntimeSignsService" />
+		<property name="processOpinionService" ref="processOpinionService" />
+    </bean>
+   <bean id="iWorkWeChatDictionaryAction" class="com.iwork.wechat.app.dict.action.IWorkWeChatDictionaryAction" scope="prototype">
+    	<property name="sysDictionaryRuntimeService" ref="sysDictionaryRuntimeService" /> 
+    </bean>
+   <bean id="iworkWeChatProcessAction" class="com.ibpmsoft.project.wechat.action.iworkWeChatProcessAction" scope="prototype">
+    	<property name="iworkWeChatProcessService" ref="iworkWeChatProcessService" /> 
+    </bean>
+   <bean id="iworkWeChatProcessService" class="com.ibpmsoft.project.wechat.service.iworkWeChatProcessService" scope="prototype">
+    </bean>
+     <!-- 流程任务监控 -->
+    <bean id="iWorkWeChatProcessRuntimeMonitorAction" class="com.iwork.wechat.app.process.action.IWorkWeChatProcessRuntimeMonitorAction" scope="prototype">
+    	<property name="iWorkWeChatProcessRuntimeMonitorService" ref="iWorkWeChatProcessRuntimeMonitorService" /> 
+    	<property name="processOpinionService" ref="processOpinionService" /> 
+    	<property name="processStepMapService" ref="processStepMapService" />
+    </bean>
+     <bean id="iWorkWeChatProcessRuntimeMonitorService" class="com.iwork.wechat.app.process.service.IWorkWeChatProcessRuntimeMonitorService" scope="prototype">
+    	<property name="processEngine" ref="processEngine" />
+    	<property name="taskService" ref="taskService" />
+    	<property name="runtimeService" ref="runtimeService" />
+    	<property name="iformService" ref="iformService" />
+    	<property name="repositoryService" ref="repositoryService" />
+    	<property name="historyService" ref="historyService" />
+    	<property name="processStepMapService" ref="processStepMapService" />
+    	<property name="processRuntimeCcDAO" ref="processRuntimeCcDAO" />   
+    	<property name="weixinProcessRuntimeOffLineService" ref="weixinProcessRuntimeOffLineService" />
+    </bean>
+    <bean id="weixinProcessRuntimeOffLineService" class="com.iwork.wechat.app.process.service.WeiXinProcessRuntimeOffLineService">
+    	<property name="processRuntimeOffLineDAO" ref="processRuntimeOffLineDAO"></property>
+    	<property name="processStepOffLineDAO" ref="processStepOffLineDAO"></property>
+    	<property name="processStepMapService" ref="processStepMapService" />
+    	<property name="historyService" ref="historyService" /> 
+    </bean>
+   <!-- 
+    <bean id="iWorkWeChatProcessRuntimeOperateAction" class="com.iwork.wechat.app.process.action.IWorkWeChatProcessRuntimeOperateAction" scope="prototype">
+    	<property name="processRuntimeOperateService" ref="processRuntimeOperateService" />
+    	<property name="multiAddressBookService" ref="multiAddressBookService" />
+    	<property name="processStepTriggerService" ref="processStepTriggerService" />
+    </bean> 
+    <bean id="iWorkWeChatProcessRuntimeSendAction" class="com.iwork.wechat.app.process.action.IWorkWeChatProcessRuntimeSendAction" scope="prototype">
+    	<property name="processOpinionService" ref="processOpinionService" /> 
+    	<property name="processStepTriggerService" ref="processStepTriggerService" />
+    	<property name="processRuntimeSendService" ref="processRuntimeSendService" />
+    	<property name="iformService" ref="iformService" />
+    	<property name="sysEngineIFormService" ref="sysEngineIFormService" />
+    </bean>
+    <bean id="iWorkWeChatProcessMonitorAction" class="com.iwork.wechat.app.process.action.IWorkWeChatProcessMonitorAction" scope="prototype">
+    	<property name="processRuntimeMonitorService" ref="processRuntimeMonitorService" /> 
+    	<property name="processOpinionService" ref="processOpinionService" /> 
+    	<property name="processStepMapService" ref="processStepMapService" />
+    </bean>
+    
+    <bean id="iWorkWeChatProcessRuntimeOffLineAction" class="com.iwork.wechat.app.process.action.IWorkWeChatProcessRuntimeOffLineAction" scope="prototype">
+    	<property name="processRuntimeOffLineService" ref="processRuntimeOffLineService" /> 
+    </bean> 
+    
+    
+    <bean id="iWorkWeChatProcessRuntimeOperateService" class="com.iwork.wechat.app.process.service.IWorkWeChatProcessRuntimeOperateService" scope="prototype">
+    	<property name="processEngine" ref="processEngine" />
+    	<property name="taskService" ref="taskService" />
+    	<property name="runtimeService" ref="runtimeService" />
+    	<property name="repositoryService" ref="repositoryService" />
+    	<property name="processStepFormDAO" ref="processStepFormDAO" />
+		<property name="sysEngineIFormDAO" ref="sysEngineIFormDAO" />
+		<property name="processRuntimeCcDAO" ref="processRuntimeCcDAO" />    
+		<property name="processOpinionDAO" ref="processOpinionDAO" />    
+    	<property name="iformService" ref="iformService" />
+    	<property name="processDefActionService" ref="processDefActionService" />
+    	<property name="processDefMapService" ref="processDefMapService" />
+		<property name="processDefParamService" ref="processDefParamService" />
+		<property name="processDefTriggerService" ref="processDefTriggerService" />
+		<property name="processStepFormService" ref="processStepFormService" />
+		<property name="processStepFormMapService" ref="processStepFormMapService" />
+		<property name="processStepManualJumpService" ref="processStepManualJumpService" />
+		<property name="processStepMapService" ref="processStepMapService" />
+		<property name="processStepSysjumpService" ref="processStepSysjumpService" />
+		<property name="processStepTriggerService" ref="processStepTriggerService" />
+		<property name="processRuntimeSignsService" ref="processRuntimeSignsService" />
+    </bean>
+    <bean id="iWorkWeChatProcessRuntimeSendService" class="com.iwork.wechat.app.process.service.IWorkWeChatProcessRuntimeSendService" scope="prototype">
+    	<property name="processEngine" ref="processEngine" />
+    	<property name="taskService" ref="taskService" />
+    	<property name="runtimeService" ref="runtimeService" />
+    	<property name="repositoryService" ref="repositoryService" />
+    	<property name="processStepFormDAO" ref="processStepFormDAO" />
+		<property name="sysEngineIFormDAO" ref="sysEngineIFormDAO" />    	
+		<property name="processRuntimeCcDAO" ref="processRuntimeCcDAO" />    	
+		<property name="processRuntimeForwardDAO" ref="processRuntimeForwardDAO" />    	
+    	<property name="processDefMapService" ref="processDefMapService" />
+		<property name="processDefParamService" ref="processDefParamService" />
+		<property name="processDefTriggerService" ref="processDefTriggerService" />
+		<property name="processStepFormService" ref="processStepFormService" />
+		<property name="processStepFormMapService" ref="processStepFormMapService" />
+		<property name="processStepManualJumpService" ref="processStepManualJumpService" />
+		<property name="processStepMapService" ref="processStepMapService" />
+		<property name="processStepSysjumpService" ref="processStepSysjumpService" />
+		<property name="processStepTriggerService" ref="processStepTriggerService" />
+		<property name="processRemindUtil" ref="processRemindUtil" />
+		<property name="processRuntimeSignsService" ref="processRuntimeSignsService" />
+    </bean>
+    <bean id="iWorkWeChatProcessRuntimeMonitorService" class="com.iwork.wechat.app.process.service.IWorkWeChatProcessRuntimeMonitorService" scope="prototype">
+    	<property name="processEngine" ref="processEngine" />
+    	<property name="taskService" ref="taskService" />
+    	<property name="runtimeService" ref="runtimeService" />
+    	<property name="iformService" ref="iformService" />
+    	<property name="repositoryService" ref="repositoryService" />
+    	<property name="historyService" ref="historyService" />
+    	<property name="processStepMapService" ref="processStepMapService" />
+    	<property name="processRuntimeCcDAO" ref="processRuntimeCcDAO" />   
+    	<property name="processRuntimeOffLineService" ref="processRuntimeOffLineService" />
+    </bean> -->
+</beans>
+ 

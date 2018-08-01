@@ -1,0 +1,157 @@
+<script type="text/javascript">
+$(function () {
+    var xmbh = $("#PROJECTNO").val();
+    $.post("hl_zqb_getGpMainContent.action", {
+        xmbh: xmbh
+    }, function (data) {
+        var dataJson = eval("(" + data + ")");
+        $("#projectname").html(dataJson[0].PROJECTNAME);
+        $("#xmbz").html(dataJson[0].XMBZ);
+       
+        $("#zclr").html(dataJson[0].ZCLR);
+       
+        $("#owner").html(dataJson[0].OWNER);
+        $("#manager").html(dataJson[0].MANAGER);
+        $("#A02").val(dataJson[0].A02);
+        $("#A03").val(dataJson[0].A03);
+    });
+     var instanceId= $("#instanceId").val();
+    $.post("zqb_announcement_gettentuserdateforpro.action",{instanceId:instanceId},function (data) {
+	$("#contenttd").html(data);
+    });
+    var jdmc = document.getElementById("XMJD").value;
+    $.post("zqb_announcement_gettentuserdateforprotwo.action",{jdmc:jdmc},function (data) {
+	$("#contentted").html(data);
+    });
+});
+</script>
+<style type="text/css">
+.formpage_title {
+	text-align: center;
+	vertical-align:bottom;
+	height:50px;
+	font-size: 22px;
+	color:#000;
+	margin-bottom:20px;
+}
+.line {
+	background-color: #ccc;
+	height:15px;
+	margin-bottom:20px;
+}
+td {
+	line-height: 30px;
+	padding-left: 3px;
+	font-size: 12px;
+	border-bottom:1px #efefef dotted;
+	vertical-align:middle;
+	word-wrap:break-word;
+	word-break:break-all;
+	font-weight:100;
+	line-height:15px;
+	padding-top:5px;
+	text-align:left;
+}
+legend {
+	font-size: 16px;
+}
+</style>
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					挂牌股转反馈及回复
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<fieldset style="margin-top:15px;color:#004080;width:100%;border:1px dashed #CCCCCC;">
+						<legend algin="right" style="color:#004080;">项目信息</legend>
+						<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+							<tbody>
+								<tr id="itemTr_2">
+									<td class="td_title" id="title_PROJECTNAME" width="45%">
+										项目名称
+									</td>
+									<td class="td_data" id="data_PROJECTNAME" width="55%">
+										<span id="projectname"></span> 
+									</td>
+								</tr>
+								<tr>
+									<td class="td_title" id="title_XMBZ" width="15%">
+										所属行业
+									</td>
+									<td class="td_data" id="data_XMBZ" width="35%">
+										<span id="xmbz"></span> 
+									</td>
+								</tr>
+								
+								<tr>
+									<td class="td_title" id="title_ZCLR" width="15%">
+										项目承揽人
+									</td>
+									<td class="td_data" id="data_ZCLR" width="35%">
+										<span id="zclr"></span> 
+									</td>
+								</tr>
+								
+								<tr id="itemTr_8">
+									<td class="td_title" id="title_OWNER" width="15%">
+										业务部负责人
+									</td>
+									<td class="td_data" id="data_OWNER" width="35%">
+										<span id="owner"></span> 
+									</td>
+								</tr>
+								<tr>
+									<td class="td_title" id="title_MANAGER" width="15%">
+										项目负责人
+									</td>
+									<td class="td_data" id="data_MANAGER" width="35%">
+										<span id="manager"></span> 
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</fieldset>
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_2">
+								<td class="td_title" id="title_FJ" width="15%">
+									附件
+								</td>
+								<td class="td_data" id="data_FJ" width="85%" colspan="3">
+									${XMCY}
+								</td>
+							</tr>
+							<tr id="itemTr_1793">
+								<td width="15%" class="td_title" id="title_FJ">
+								</td>
+								<td width="85%" class="td_data" id="contentted" style="color:red;border-bottom-color:#999999;border-bottom-width:0px;border-bottom-style:dotted;" colspan="3">
+								</td>
+							</tr>
+							<tr id="itemTr_1793">
+								<td width="15%" class="td_title" id="title_FJ">
+								</td>
+								<td width="85%" class="td_data" id="contenttd" style="color:red;border-bottom-color:#999999;border-bottom-width:0px;border-bottom-style:dotted;" colspan="3">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${CREATEUSER}${CREATEDATE}${PROJECTNAME}${PROJECTNO}${OWNER}${MANAGER}${STARTDATE}${ENDDATE}${ATTACH}${CUSTOMERNAME}${CUSTOMERNO}${TYPENO}${MEMO}${CUSTOMERINFO}${XMJD}${STATUS}${KHLXR}${KHLXDH}${GSGK}${CZWT}${LSYG}${CZHGQ}${GSZYYW}${GSZYCP}${GSJZYS}${A01}${A02}${A03}${A04}${A05}${A06}${A07}${A08}${YJZXYNJLR}${FXPGFS}${YLQK}${XMZTPD}${XMYS}${WTJJJCS}${HTJE}${SFXZCL}${ZCLR}${ZCLRDH}${FZJGMC}${FZJGLXR}${WBCLRY}${XMBZ}${GGJZR}${SBJZR}${QRDG}${SPZT}${SFTXCL}${SSSYB}${XMZRY}${CLSLR}${SHTGR}${CREATEUSERID}
+</div>

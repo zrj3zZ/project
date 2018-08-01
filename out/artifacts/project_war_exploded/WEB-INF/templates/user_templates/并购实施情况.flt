@@ -1,0 +1,58 @@
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					并购实施情况
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_0">
+								<td class="td_title" id="title_COMPANYNAME" width="15%">
+									公司名称
+								</td>
+								<td class="td_data" id="data_COMPANYNAME" width="35%">
+									${COMPANYNAME}&nbsp;　
+								</td>
+								<td class="td_title" id="title_TBSJ" width="15%">
+									填报日期
+								</td>
+								<td class="td_data" id="data_TBSJ" width="35%">
+									${TBSJ}&nbsp;　
+								</td>
+							</tr>
+							<tr id="fjTr_5047">
+								<td class="td_title" id="title_FJ">
+									附件
+								</td>
+								<td id="data_FJ" class="td_data" colspan="3">
+									${FJ}&nbsp;　
+								</td>
+							</tr>
+
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div style="border-right-width:0px;width:840px;border-top-width:0px;border-bottom-width:0px;height:800px;border-left-width:0px;border-image:none;" id="mainFrameTab" class="easyui-tabs" fit="true">
+		<div style="border-bottom:#efefef 0px solid;border-left:#efefef 0px solid;height:500px;border-top:#efefef 0px solid;border-right:#efefef 0px solid;border-image:none;" title="实施信息" border="true" cache="false">
+			${SUBFORM_SSSXXX}&nbsp;
+		</div>
+	</div>
+</div>
+<div style="display:none;">
+	${INSTANCEID}${COMPANYNO}${TBRID}${XMBH}${JDBH}${JDMC}${EXTEND1}${EXTEND2}${EXTEND3}${EXTEND4}${EXTEND5}
+</div>

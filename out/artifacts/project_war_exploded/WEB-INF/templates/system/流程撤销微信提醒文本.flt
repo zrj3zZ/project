@@ -1,0 +1,6 @@
+
+${USERNAME},您好！ 
+您办理的流程标题为【${TASKTITLE}】的流程，已被流程发起人${SENDER}撤销。
+【撤销原因】${OPINION}
+【发送日期】${SENDDATE}
+【任务标题】${TASKTITLE} 

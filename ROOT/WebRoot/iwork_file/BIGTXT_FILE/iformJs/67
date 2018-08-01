@@ -1,0 +1,56 @@
+/*
+ * 加载后
+ */
+function onLoad() {
+    changeSQLX();
+}
+/*
+ * 点击申请类型
+ */
+function changeSQLX() {
+    var sqlx;
+    $('input[name="SQLX"]').each(function () {
+        if (this.checked == true) {
+            sqlx = this.value;
+        }
+    });
+    //alert(sqlx);
+    //alert(document.getElementById("subformSUBFORM_YMGLSQZCXFZB").style.display);
+    //document.getElementById("subformSUBFORM_YMGLSQZCXFZB").style.display = "none";
+    if (sqlx != undefined) {
+        if (sqlx == '账户申请') {
+            document.getElementById("tr_SYFW").style.display = "";
+            document.getElementById("tr_MACDZ").style.display = "";
+            document.getElementById("tr_SQYY").style.display = "";
+            document.getElementById("tr_XFWNWZY").style.display = "";
+            document.getElementById("tr_XFWNWZY_des").style.display = "";
+            document.getElementById("tr_LPXLH").style.display = "";
+            document.getElementById("tr_KTRQ").style.display = "";
+            document.getElementById("tr_SYQX").style.display = "";
+            document.getElementById("tr_VPNSYSM").style.display = "";
+        } else if (sqlx == '账户变更') {
+            document.getElementById("tr_SYFW").style.display = "";
+            document.getElementById("tr_MACDZ").style.display = "none";
+            document.getElementById("tr_SQYY").style.display = "";
+            document.getElementById("tr_XFWNWZY").style.display = "";
+            document.getElementById("tr_XFWNWZY_des").style.display = "";
+            document.getElementById("tr_LPXLH").style.display = "";
+            document.getElementById("tr_KTRQ").style.display = "";
+            document.getElementById("tr_SYQX").style.display = "";
+            document.getElementById("tr_VPNSYSM").style.display = "";
+        } else if (sqlx == '账户注销') {
+            document.getElementById("tr_SYFW").style.display = "none";
+            document.getElementById("tr_MACDZ").style.display = "none";
+            document.getElementById("tr_SQYY").style.display = "";
+            document.getElementById("tr_XFWNWZY").style.display = "";
+            document.getElementById("tr_XFWNWZY_des").style.display = "";
+            document.getElementById("tr_LPXLH").style.display = "";
+            document.getElementById("tr_KTRQ").style.display = "none";
+            document.getElementById("tr_SYQX").style.display = "none";
+            document.getElementById("tr_VPNSYSM").style.display = "none";
+        }
+    }
+}
+$().ready(function(){
+    onLoad();
+});

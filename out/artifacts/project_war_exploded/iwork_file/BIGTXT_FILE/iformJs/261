@@ -1,0 +1,23 @@
+$(function () {
+    $.post("sx_getCwZLGD.action", {
+        "jdmc": "资料归档",
+        "xmlx": "一般性财务顾问项目",
+        "xmbh": $("#XMBH").val()
+    }, function (data) {
+        var dataJson = eval("(" + data + ")");
+        $("#customername").html(dataJson[0].CUSTOMERNAME);
+        $("#xmfqrq").html(dataJson[0].XMFQRQ);
+        $("#owner").html(dataJson[0].OWNER);
+        $("#manager").html(dataJson[0].MANAGER);
+        $("#LXCONTENT").html(dataJson[0].LXCONTENT);
+        $("#LXFJZL").html(dataJson[0].LXFJZL);
+        $("#XMLXZL").val(dataJson[0].LXFJUUID);
+        $("#HBCONTENT").html(dataJson[0].HBCONTENT);
+        $("#HBFJZL").html(dataJson[0].HBFJZL);
+        $("#HBFJUUID").val(dataJson[0].HBFJUUID);
+        $("#GDCONTENT").html(dataJson[0].GDCONTENT);
+        $("#GDFJZL").html(dataJson[0].GDFJZL);
+        $("#GDFJUUID").val(dataJson[0].GDFJUUID);
+        $("#COMPANYNAME").val(dataJson[0].CUSTOMERNAME);
+    });
+});

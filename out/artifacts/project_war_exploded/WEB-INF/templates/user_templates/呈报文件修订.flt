@@ -1,0 +1,4 @@
+${NOTICETEXT}&nbsp;
+<div style="display:none;">
+	${NOTICEFILE}${USERID}${FILENAME}
+</div>

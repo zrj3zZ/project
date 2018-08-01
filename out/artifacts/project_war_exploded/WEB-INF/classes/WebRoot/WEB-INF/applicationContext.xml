@@ -1,0 +1,2347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "file:///E:/source/IWORK/ROOT/WebRoot/WEB-INF/spring-beans-2.0.dtd">
+<beans>
+  <bean id="propertyConfigurer" class="com.iwork.core.factory.config.EncryptablePropertyPlaceholderConfigurer">
+    <property name="locations">
+            <list>
+                <value>classpath:jdbc.properties</value>
+            </list>
+        </property> 
+  </bean><!-- 
+  <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"   destroy-method="close">
+         <property name="driverClass"><value>${jdbc.driverClassName}</value></property>
+         <property name="jdbcUrl"><value>${jdbc.url}</value></property>                
+         <property name="user"><value>${jdbc.username}</value></property>
+         <property name="password"><value>${jdbc.password}</value></property>
+         <property name="minPoolSize"><value>30</value></property>
+         <property name="maxPoolSize"><value>${jdbc.maxSession}</value></property>
+         <property name="maxIdleTime"><value>120</value></property>
+         <property name="acquireIncrement"><value>2</value></property> 
+         <property name="maxStatements"><value>100</value></property>
+         <property name="initialPoolSize"><value>${jdbc.pool.init}</value></property> 
+         <property name="idleConnectionTestPeriod"><value>60</value></property>
+         <property name="acquireRetryAttempts"><value>30</value></property>
+         <property name="acquireRetryDelay"><value>1000</value></property>
+         <property name="breakAfterAcquireFailure"><value>false</value></property>
+         <property name="testConnectionOnCheckout"><value>false</value></property> 
+          
+            <property name="properties"> 
+          <props>              
+              <prop key="c3p0.minPoolSize">1</prop> 
+              <prop key="c3p0.maxPoolSize">10</prop> 
+              <prop key="c3p0.maxIdleTime">1800</prop>              
+              <prop key="c3p0.acquireIncrement">2</prop> 
+              <prop key="c3p0.maxStatements">0</prop> 
+                    <prop key="c3p0.initialPoolSize">2</prop>
+              <prop key="c3p0.idleConnectionTestPeriod">1800</prop>
+              <prop key="c3p0.acquireRetryAttempts">30</prop>
+              <prop key="c3p0.breakAfterAcquireFailure">true</prop>
+              <prop key="c3p0.testConnectionOnCheckout">true</prop>
+              <prop key="user">root</prop>
+              <prop key="password">999999</prop>
+              
+          </props>
+         </property>
+              
+</bean>-->
+<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close"> 
+      <property name="url"><value>${jdbc.url}</value></property>
+     <property name="filters"><value>stat</value></property>
+     <property name="username"><value>${jdbc.username}</value></property>
+     <property name="password"><value>${jdbc.password}</value></property>
+     <property name="maxActive"><value>${jdbc.maxSession}</value></property>
+     <property name="initialSize"><value>${jdbc.pool.init}</value></property>
+     <property name="maxWait"><value>60000</value></property>
+     <property name="minIdle"><value>5</value></property>
+     <property name="timeBetweenEvictionRunsMillis"><value>60000</value></property>
+     <property name="minEvictableIdleTimeMillis"><value>300000</value></property>
+     <property name="validationQuery"><value>SELECT name from sys_ge_property</value></property>
+     <property name="testWhileIdle"><value>true</value></property>
+     <property name="testOnBorrow"><value>false</value></property>
+     <property name="testOnReturn"><value>false</value></property>
+     <property name="poolPreparedStatements"><value>true</value></property>
+     <property name="maxOpenPreparedStatements"><value>100</value></property>
+     <property name="removeAbandoned" value="true" /> <!-- 打开removeAbandoned功能 -->  
+     <property name="removeAbandonedTimeout" value="1800" /> <!-- 1800秒，也就是30分钟 -->  
+     <property name="logAbandoned" value="true" /> <!-- 关闭abanded连接时输出错误日志 -->  
+ </bean>
+  <!-- 
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+    <property name="driverClassName" value="${jdbc.driverClassName}" />
+    <property name="url" value="${jdbc.url}" />
+    <property name="username" value="${jdbc.username}" />
+    <property name="password" value="${jdbc.password}" />
+    <property name="initialSize" value="10" />
+    <property name="maxActive" value="50" />
+  </bean> -->
+  <!-- activiti设置 -->
+ 	<bean id="processEngineConfiguration" class="org.activiti.spring.SpringProcessEngineConfiguration">
+    	<property name="dataSource">
+            <ref bean="dataSource" />
+        </property>
+        <property name="transactionManager" >
+       		<ref bean="transactionManager" />
+        </property>
+    		<property name="databaseSchemaUpdate" value="true" />
+    		<property name="jobExecutorActivate" value="false" />
+    		<property name="history" value="audit"></property>
+	</bean>
+	<bean id="processEngine" class="org.activiti.spring.ProcessEngineFactoryBean">
+	  <property name="processEngineConfiguration" ref="processEngineConfiguration" />
+	</bean>
+	<bean id="repositoryService" factory-bean="processEngine" factory-method="getRepositoryService" />
+  	<bean id="runtimeService" factory-bean="processEngine" factory-method="getRuntimeService" />
+  	<bean id="taskService" factory-bean="processEngine" factory-method="getTaskService" />
+  	<bean id="historyService" factory-bean="processEngine" factory-method="getHistoryService" />
+  	<bean id="managementService" factory-bean="processEngine" factory-method="getManagementService" />
+	 <!-- activiti设置END -->
+    <bean id="sessionFactory"
+        class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource">
+            <ref bean="dataSource" />
+        </property> 
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${jdbc.dialect}</prop>
+                <prop key="hibernate.show_sql">false</prop>
+                <prop key="hibernate.default_schema">${jdbc.default_schema}</prop>
+                <prop key="hibernate.generate_statistics">true</prop>
+                <prop key="hibernate.connection.release_mode">auto</prop>
+                <prop key="hibernate.autoReconnect">true</prop>
+                <prop key="hibernate.cglib.use_reflection_optimizer">true</prop>
+                 <!-- 
+    			<prop key="hibernate.useUnicode"></prop> 
+    			<prop key="hibernate.characterEncoding"></prop>
+    			<prop key="hibernate.default-lazy-init"></prop>
+                <prop key="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</prop>     
+    -->
+     <!--
+                <prop key="hibernate.c3p0.acquire_increment">2</prop>
+                <prop key="hibernate.c3p0.idle_test_period">1800</prop>
+                <prop key="hibernate.c3p0.timeout">1800</prop>
+                <prop key="hibernate.c3p0.max_size">30</prop>
+                <prop key="hibernate.c3p0.min_size">2</prop>
+                <prop key="hibernate.c3p0.max_statements">50</prop>
+    -->        
+            </props>
+        </property>  
+        <property name="mappingResources"> 
+        <list>
+            <value>com/iwork/app/navigation/sys/model/SysNavSystem.hbm.xml</value>
+			<value>com/iwork/app/navigation/node/model/SysNavNode.hbm.xml</value>
+            <value>com/iwork/app/navigation/directory/model/SysNavDirectory.hbm.xml</value>
+            <value>com/iwork/app/navigation/function/model/Sysnavfunction.hbm.xml</value>
+            <value>com/iwork/app/navigation/operation/model/SysNavOperation.hbm.xml</value>
+            <value>com/iwork/app/navigation/favorite/sysfav/bean/Sysfavsystem.hbm.xml</value>
+            <value>com/iwork/app/navigation/favorite/myfav/bean/Sysfavfunction.hbm.xml</value>
+            <value>com/iwork/app/message/sysmsg/model/SysMessage.hbm.xml</value>
+            <value>com/iwork/app/message/sysmsg/model/SysMessageLog.hbm.xml</value>
+            <value>com/iwork/core/organization/model/OrgCompany.hbm.xml</value>
+            <value>com/iwork/core/organization/model/OrgDepartment.hbm.xml</value>
+            <value>com/iwork/core/organization/model/OrgRole.hbm.xml</value>
+            <value>com/iwork/core/organization/model/OrgRoleGroup.hbm.xml</value>
+            <value>com/iwork/core/organization/model/OrgUser.hbm.xml</value>
+            <value>com/iwork/core/organization/model/OrgUserMap.hbm.xml</value>
+            <value>com/iwork/core/organization/model/OrgGroup.hbm.xml</value>
+            <value>com/iwork/core/organization/model/OrgGroupSub.hbm.xml</value>
+            <value>com/iwork/core/organization/model/OrgStation.hbm.xml</value>
+            <value>com/iwork/core/organization/model/OrgStationIns.hbm.xml</value>
+            <value>com/iwork/core/organization/model/OrgStationInsItem.hbm.xml</value>
+            <value>com/iwork/core/server/servicemanager/model/Sysservice.hbm.xml</value>
+            <value>com/iwork/core/server/ge/model/SysGeProperty.hbm.xml</value> 
+            <value>com/iwork/core/security/purview/model/SysPurGroup.hbm.xml</value>
+            <value>com/iwork/core/security/purview/model/Syspurviewschema.hbm.xml</value>
+            <value>com/iwork/core/security/purview/model/SysPurviewOrg.hbm.xml</value>
+            <value>com/iwork/core/security/purview/model/SysPurviewProcess.hbm.xml</value> 
+            <value>com/iwork/core/security/purview/model/SysPurviewDem.hbm.xml</value> 
+            <value>com/iwork/core/security/purview/model/SysPurviewReport.hbm.xml</value>  
+            <value>com/iwork/core/server/sequence/model/SysSequence.hbm.xml</value>
+            <value>com/iwork/core/upload/model/FileUpload.hbm.xml</value>
+            <value>com/iwork/km/document/model/IworkKmDirectory.hbm.xml</value>
+            <value>com/iwork/km/document/model/IworkKmDoc.hbm.xml</value>
+            <value>com/iwork/km/document/model/IworkKmDocHistory.hbm.xml</value> 
+            <value>com/iwork/km/document/model/IworkKmPushLog.hbm.xml</value>
+            <value>com/iwork/km/document/model/IworkKmReadLog.hbm.xml</value>
+            <value>com/iwork/km/document/model/IworkKmTalk.hbm.xml</value>
+            <value>com/iwork/km/document/model/IworkKmFav.hbm.xml</value>
+            <value>com/iwork/km/document/model/IworkKmPurview.hbm.xml</value>
+            <value>com/iwork/km/document/model/IworkKmPurviewItem.hbm.xml</value>
+            <value>com/iwork/core/engine/group/model/SysEngineGroup.hbm.xml</value>
+            <value>com/iwork/core/engine/dbview/model/SysEngineDbview.hbm.xml</value>
+            <value>com/iwork/core/engine/metadata/model/SysEngineMetadata.hbm.xml</value>
+            <value>com/iwork/core/engine/metadata/model/SysEngineMetadataMap.hbm.xml</value>
+            <value>com/iwork/core/engine/metadata/model/SysEngineMetadataKey.hbm.xml</value>
+            <value>com/iwork/core/engine/iform/model/SysEngineIform.hbm.xml</value>
+            <value>com/iwork/core/engine/iform/model/SysEngineIformMap.hbm.xml</value>
+            <value>com/iwork/core/engine/iform/model/SysEngineIformDep.hbm.xml</value>
+            <value>com/iwork/core/engine/iform/model/SysEngineSubform.hbm.xml</value>
+            <value>com/iwork/core/engine/iform/model/SysEngineFormBind.hbm.xml</value>
+            <value>com/iwork/core/engine/iform/model/SysInstanceData.hbm.xml</value> 
+            <!-- 系统集成平台 -->
+            <value>com/iwork/connection/model/SysConnBaseinfo.hbm.xml</value> 
+            <value>com/iwork/connection/model/SysConnParams.hbm.xml</value> 
+            <value>com/iwork/connection/model/SysConnRuLog.hbm.xml</value> 
+            <value>com/iwork/connection/model/SysConnRuParams.hbm.xml</value> 
+            
+            <!--数据管理引擎-->
+            <value>com/iwork/core/engine/dem/model/SysDemEngine.hbm.xml</value>
+            <value>com/iwork/core/engine/dem/model/SysDemSearch.hbm.xml</value> 
+            <value>com/iwork/core/engine/dem/model/SysDemDisplay.hbm.xml</value> 
+            <value>com/iwork/core/engine/dem/model/SysDemTrigger.hbm.xml</value>  
+            <!-- 日程计划 -->
+            <value>com/iwork/plugs/calender/model/IworkSchCalendar.hbm.xml</value>
+			<!-- 个人设置 -->
+            <value>com/iwork/app/persion/model/SysPersonConfig.hbm.xml</value>
+            <!-- 委托流程管理 -->
+            <value>com/iwork/process/entrust/model/ProcessEntrustLog.hbm.xml</value>
+            <value>com/iwork/process/entrust/model/ProcessEntrustPerson.hbm.xml</value>
+            <value>com/iwork/process/entrust/model/ProcessEntrustPersonS.hbm.xml</value>
+            <!-- CMS管理 -->
+            <value>com/iwork/plugs/cms/model/IworkCmsChannel.hbm.xml</value>
+            <value>com/iwork/plugs/cms/model/IworkCmsPortlet.hbm.xml</value>
+            <value>com/iwork/plugs/cms/model/IworkCmsRelation.hbm.xml</value>
+            <value>com/iwork/plugs/cms/model/IworkCmsContent.hbm.xml</value>
+            <value>com/iwork/plugs/cms/model/IworkCmsVideo.hbm.xml</value>
+            <value>com/iwork/plugs/cms/model/IworkCmsAppkm.hbm.xml</value>
+            
+            <!-- 短信平台 -->               
+             <value>com/iwork/plugs/sms/bean/MsgMst.hbm.xml</value>  
+             <value>com/iwork/plugs/sms/bean/PhonebookMst.hbm.xml</value>
+             <value>com/iwork/plugs/sms/bean/PhonebookgroupMst.hbm.xml</value>
+             <value>com/iwork/plugs/sms/bean/LogMst.hbm.xml</value>
+             <value>com/iwork/plugs/sms/bean/TempMst.hbm.xml</value>
+             <value>com/iwork/plugs/sms/bean/ConfigMst.hbm.xml</value>
+             <value>com/iwork/plugs/sms/bean/LimitMst.hbm.xml</value>
+             <value>com/iwork/plugs/sms/bean/ChannelMst.hbm.xml</value>
+             <value>com/iwork/plugs/sms/bean/SpMst.hbm.xml</value>
+             <value>com/iwork/plugs/sms/bean/MailLog.hbm.xml</value>
+             <!-- 资源预定 -->
+             <value>com/iwork/plugs/resoucebook/model/IworkRmBase.hbm.xml</value>  
+             <value>com/iwork/plugs/resoucebook/model/IworkRmWeb.hbm.xml</value>
+             <value>com/iwork/plugs/resoucebook/model/IworkRmSpace.hbm.xml</value>
+             
+             <!--鹰眼检索 -->
+             <value>com/iwork/eaglesearch/model/SysEaglesSearchLog.hbm.xml</value>
+             <!-- 计划任务 -->
+             <value>com/iwork/app/schedule/model/SysSchedule.hbm.xml</value>
+             <value>com/iwork/app/schedule/log/model/SysScheduleLog.hbm.xml</value>
+             <!-- 系统触发器执行日志 -->
+             <value>com/iwork/core/engine/trigger/model/SysTriggerLog.hbm.xml</value>
+             <!-- 用户表单修改日志 -->
+              <value>com/iwork/core/engine/log/model/SysIformActionLog.hbm.xml</value>
+              <value>com/iwork/core/engine/log/model/SysIformActionLogItem.hbm.xml</value>
+              
+             <!-- 系统日志 -->
+             <value>com/iwork/app/log/model/SysLogRecord.hbm.xml</value>
+             <value>com/iwork/app/log/model/SysUserLoginLog.hbm.xml</value>
+			 <!-- 用户操作日志 -->
+             <value>com/iwork/app/log/operationlog/model/SysOperateLog.hbm.xml</value>
+             <!-- 数据选择器 -->
+             <value>com/iwork/plugs/dictionary/model/SysDictionaryBaseinfo.hbm.xml</value>
+             <value>com/iwork/plugs/dictionary/model/SysDictionaryCondition.hbm.xml</value>
+             <value>com/iwork/plugs/dictionary/model/SysDictionaryShowfield.hbm.xml</value>
+             <!-- 门户管理 -->
+             <value>com/iwork/portal/model/IworkPortalOverall.hbm.xml</value>
+             <value>com/iwork/portal/model/IworkPortalUser.hbm.xml</value>
+             <value>com/iwork/portal/model/IworkPortalUserItem.hbm.xml</value>
+             
+           	<!-- Process definition -->  
+           	<value>com/iwork/process/deployment/model/SysProcessDefinition.hbm.xml</value> 
+           	<value>com/iwork/process/deployment/model/SysActProcMap.hbm.xml</value> 
+           	<value>com/iwork/process/definition/deployment/model/ProcessDefDeploy.hbm.xml</value> 
+           	
+           	
+           	<value>com/iwork/process/definition/flow/model/ProcessDefMap.hbm.xml</value> 
+           	<value>com/iwork/process/definition/flow/model/ProcessDefParam.hbm.xml</value> 
+           	<value>com/iwork/process/definition/flow/model/ProcessDefTrigger.hbm.xml</value> 
+           	<value>com/iwork/process/definition/step/model/ProcessStepForm.hbm.xml</value> 
+           	<value>com/iwork/process/definition/step/model/ProcessStepFormMap.hbm.xml</value> 
+           	<value>com/iwork/process/definition/step/model/ProcessStepManualJump.hbm.xml</value> 
+           	<value>com/iwork/process/definition/step/model/ProcessStepOffline.hbm.xml</value> 
+           	<value>com/iwork/process/definition/step/model/ProcessStepMap.hbm.xml</value> 
+           	<value>com/iwork/process/definition/step/model/ProcessStepRoute.hbm.xml</value> 
+           	<value>com/iwork/process/definition/step/model/ProcessStepSupervise.hbm.xml</value> 
+           	<value>com/iwork/process/definition/step/model/ProcessStepSummary.hbm.xml</value> 
+           	<value>com/iwork/process/definition/step/model/ProcessStepSysjump.hbm.xml</value> 
+           	<value>com/iwork/process/definition/step/model/ProcessStepTrigger.hbm.xml</value> 
+           	<value>com/iwork/process/definition/step/model/ProcessStepService.hbm.xml</value> 
+           	<value>com/iwork/process/runtime/model/ProcessRuCc.hbm.xml</value> 
+           	<value>com/iwork/process/runtime/model/ProcessRuForward.hbm.xml</value> 
+           	<value>com/iwork/process/runtime/model/ProcessRuOffline.hbm.xml</value> 
+           	<value>com/iwork/process/runtime/model/ProcessRuSigns.hbm.xml</value> 
+           	
+           	<!-- 意见审批 -->
+           	<value>com/iwork/process/tools/processopinion/model/ProcessToolsOpinion.hbm.xml</value> 
+           	<value>com/iwork/process/tools/processopinion/model/ProcessRuOpinion.hbm.xml</value>
+           	<!-- 流程讨论 -->
+           	<value>com/iwork/process/tools/processTalk/model/ProcessRuTalkspace.hbm.xml</value> 
+           	<value>com/iwork/process/tools/processTalk/model/ProcessRuRetalk.hbm.xml</value>
+           	<!-- 外部数据源管理 -->
+           	<value>com/iwork/plugs/extdbsrc/model/SysExdbsrcCenter.hbm.xml</value>
+           	<!-- 自定义按钮 -->
+           	<value>com/iwork/process/definition/step/model/ProcessStepDefbutton.hbm.xml</value>
+           	<!-- 流程动作设置 -->
+           	<value>com/iwork/process/definition/flow/model/ProcessDefActionset.hbm.xml</value>
+           	<!-- 脚本触发器 -->
+           	<value>com/iwork/process/definition/step/model/ProcessStepJstrigger.hbm.xml</value>
+           	<!-- 系统报表引擎 -->
+           	<value>com/iwork/ireport/designer/model/IreportFormShowfield.hbm.xml</value>
+           	<value>com/iwork/ireport/designer/model/IreportGeBaseinfo.hbm.xml</value>
+           	<value>com/iwork/ireport/designer/model/IreportGeCondition.hbm.xml</value>
+           	<value>com/iwork/ireport/designer/model/IreportGeDataScope.hbm.xml</value>
+           	<value>com/iwork/ireport/designer/model/IreportGeOrderby.hbm.xml</value>
+           	<value>com/iwork/ireport/designer/model/IreportGeGroup.hbm.xml</value>
+           	<value>com/iwork/ireport/designer/model/IreportGeStatistics.hbm.xml</value>
+           		<!-- 传输管理 -->
+           	<value>com/iwork/core/engine/transfer/model/SysTransferSpace.hbm.xml</value>	
+           	<value>com/iwork/core/engine/transfer/model/SysTransferModule.hbm.xml</value>	
+           	<value>com/iwork/core/engine/transfer/model/SysTransferLog.hbm.xml</value>	
+           	<!-- OA知道 -->
+           	<value>com/iwork/km/know/model/IworkKnowAnswer.hbm.xml</value>
+           	<value>com/iwork/km/know/model/IworkKnowClasses.hbm.xml</value>
+           	<value>com/iwork/km/know/model/IworkKnowClassesLet.hbm.xml</value>
+           	<value>com/iwork/km/know/model/IworkKnowHoldoutLog.hbm.xml</value> 
+           	<value>com/iwork/km/know/model/IworkKnowKeywordLog.hbm.xml</value>
+           	<value>com/iwork/km/know/model/IworkKnowQuestion.hbm.xml</value>
+           	<value>com/iwork/km/know/model/IworkKnowTagLog.hbm.xml</value>
+           	<value>com/iwork/km/know/model/IworkKnowTalk.hbm.xml</value>
+           	<value>com/iwork/km/know/model/IworkKnowUser.hbm.xml</value>
+           	<!-- 会议室预订 -->
+          	<value>com/iwork/plugs/meeting/model/BdMeetingRoom.hbm.xml</value>
+          	<value>com/iwork/plugs/meeting/model/BdMeetingRoomArea.hbm.xml</value>
+          	<value>com/iwork/plugs/meeting/model/IworkMeetingRoomOrder.hbm.xml</value>
+			<value>com/iwork/plugs/rss/model/BdInfRssdyjlb.hbm.xml</value>
+			<!-- 天气预报 -->
+			<value>com/iwork/plugs/weather/model/WeatherModel.hbm.xml</value>
+			<!-- CMS评论 -->
+			<value>com/iwork/plugs/cms/model/IworkCmsComment.hbm.xml</value>			
+			<!-- 移动登陆权限 --> 
+			<value>com/iwork/app/mobile/accessControl/model/SysMobileVisitset.hbm.xml</value>
+			
+			<!-- WebService管理 --> 
+			<value>com/iwork/webservice/model/SysWsBaseinfo.hbm.xml</value>
+			<value>com/iwork/webservice/model/SysWsParams.hbm.xml</value>
+			<value>com/iwork/webservice/model/SysWsRuLog.hbm.xml</value>
+			<value>com/iwork/webservice/model/SysWsRuParams.hbm.xml</value>
+				<!--系统日历管理 -->
+			<value>com/iwork/plugs/syscalendar/model/SysCalendarBaseInfo.hbm.xml</value>
+			<value>com/iwork/plugs/syscalendar/model/SysCalendarDetailInfo.hbm.xml</value>
+        	
+        	<!-- 系统站内信 -->
+        	<value>com/iwork/plugs/sysletters/model/SysLettersDetailInfo.hbm.xml</value>
+			<value>com/iwork/plugs/sysletters/model/SysLettersContent.hbm.xml</value>
+        	<value>com/iwork/plugs/sysletters/model/SysLettersDetailReply.hbm.xml</value>
+        	<!-- 预约 -->
+        	<value>com/iwork/plugs/appointment/model/Appointment.hbm.xml</value>
+        	<value>com/iwork/plugs/appointment/model/AppointmentNum.hbm.xml</value>
+        	<value>com/iwork/plugs/appointment/model/AppointmentYYSX.hbm.xml</value>
+        	<!-- 在线互动-->
+        	<value>com/iwork/plugs/onchat/model/OnlineChat.hbm.xml</value>
+        	<!-- 制度清单 -->
+        	<value>com/iwork/plugs/itsArticles/model/ItsArticles.hbm.xml</value>
+        	<!-- 错误日志 -->
+        	<!-- <value>com/iwork/app/log/operationlog/model/SysOperateErrLog.hbm.xml</value> -->
+        	<!--系统邮件 -->
+        	<value>com/iwork/plugs/email/model/MailModel.hbm.xml</value>
+        	<value>com/iwork/plugs/email/model/MailOwnerModel.hbm.xml</value>
+        	<value>com/iwork/plugs/email/model/MailTaskModel.hbm.xml</value>
+        	<value>com/iwork/plugs/email/model/MailDelModel.hbm.xml</value>
+        	<value>com/iwork/plugs/email/model/IworkMailGroupItem.hbm.xml</value>
+        	<value>com/iwork/plugs/email/model/IworkMailGrouplist.hbm.xml</value>
+        	<!--连接桥 -->
+        	<value>com/iwork/connection/bridge/model/BridgeBaseinfo.hbm.xml</value>
+        	<value>com/iwork/connection/bridge/model/BridgeParams.hbm.xml</value>
+        	<value>com/iwork/connection/bridge/model/BridgeUser.hbm.xml</value>
+        	<value>com/iwork/connection/bridge/model/BridgeOutParams.hbm.xml</value>
+        </list>
+        </property> 
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+          <property name="sessionFactory">
+              <ref bean="sessionFactory"/>
+          </property>
+    </bean>
+
+    <bean id="transactionInterceptor" class="org.springframework.transaction.interceptor.TransactionInterceptor">
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="transactionAttributes">
+            <props>
+           		<prop key="updateData*">PROPAGATION_REQUIRED</prop>
+               <!--  <prop key="add*">PROPAGATION_REQUIRED</prop>
+                <prop key="list*">PROPAGATION_REQUIRED,readOnly</prop> 
+                <prop key="add*">PROPAGATION_REQUIRED</prop>
+              <prop key="*">PROPAGATION_REQUIRED</prop>-->
+            </props>
+        </property>
+    </bean>
+   	<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+        <property name="beanNames">
+            <value>*Service</value>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>transactionInterceptor</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean class="org.springframework.transaction.interceptor.TransactionAttributeSourceAdvisor">
+          <property name="transactionInterceptor" ref="transactionInterceptor"/>
+    </bean>
+    <!-- Util -->
+    <bean id = "SpringBeanUtil" class="com.iwork.core.util.SpringBeanUtil"></bean>
+    <bean id="baseDAO" class="com.iwork.core.db.BaseDAO" abstract="true">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/> 
+        </property>
+    </bean>
+     <bean id="loginDAO"
+        class="com.iwork.app.login.dao.LoginDAO" parent="baseDAO">
+    </bean>
+    
+    <bean id="loginService" class="com.iwork.app.login.service.LoginService" scope="prototype">
+		    	<property name="orgCompanyDAO" ref="orgCompanyDAO" />
+		    	<property name="orgDepartmentDAO" ref="orgDepartmentDAO" />
+		    	<property name="orgUserDAO" ref="orgUserDAO" />
+		    	<property name="orgRoleDAO" ref="orgRoleDAO" />
+		    	<property name="orgUserMapDAO" ref="orgUserMapDAO" />
+		    	<property name="loginDAO" ref="loginDAO" />
+		    	<property name="sysUserLoginLogDAO" ref="sysUserLoginLogDAO" />
+    </bean>
+    <bean id="loginAction" class="com.iwork.app.login.action.LoginAction" scope="prototype">
+		<property name="loginService" ref="loginService" />
+    </bean>
+    <bean id="sysAdminIndexService" class="com.iwork.admin.framework.service.SysAdminIndexService" scope="prototype">
+	    <property name="sysNavDirectoryService" ref="sysNavDirectoryService" />
+	    <property name="sysNavFunctionService" ref="sysNavFunctionService" />
+    </bean>
+    <bean id="sysAdminIndexAction" class="com.iwork.admin.framework.action.SysAdminIndexAction" scope="prototype">
+    <property name="sysAdminIndexService" ref="sysAdminIndexService" />
+    </bean>
+    <bean id="sysDashboardAction" class="com.iwork.admin.dashboard.action.SysDashboardAction" scope="prototype">
+ 	   <property name="sysDashboardService" ref="sysDashboardService" />
+    </bean>
+    <bean id="sysDashboardService" class="com.iwork.admin.dashboard.service.SysDashboardService" scope="prototype">
+    </bean>
+    <!--底稿存档的service和dao-->
+    <bean id="dgcdService" class="com.ibpmsoft.project.zqb.service.DGCDService" scope="prototype">
+        <property name="zqbDGCDManageDAO" ref="zqbDGCDManageDAO" />
+    </bean>
+    <bean id="zqbDGCDManageDAO" class="com.ibpmsoft.project.zqb.dao.ZqbDGCDManageDAO" scope="prototype">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <!-- 上传组件 -->
+	<bean id="fileUploadUtil" class="com.iwork.core.upload.util.FileUploadUtil" scope="prototype">
+    </bean>
+    
+	<bean id="ioUtil" class="com.ibpmsoft.project.zqb.upload.IoUtil" scope="prototype">
+		<property name="uploadifyService" ref="uploadifyService" />
+		<property name="uploadifyDAO" ref="uploadifyDAO" />
+		<property name="fileUploadUtil" ref="fileUploadUtil" />
+    </bean>
+
+    <!-- 富文本 -->
+	<bean id="richTextUtil" class="com.iwork.core.upload.util.RichTextUtil" scope="prototype">
+		<property name="uploadifyDAO" ref="uploadifyDAO" />
+    </bean>
+	<bean id="uploadifyDAO" class="com.iwork.core.upload.dao.imp.FileUploadDAOImp" scope="prototype">
+		
+		<property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    <bean id="uploadifyService" class="com.iwork.core.upload.service.imp.FileUploadServiceImpl" scope="prototype">
+		<property name="uploadifyDAO" ref="uploadifyDAO" />
+		<property name="fileUploadUtil" ref="fileUploadUtil" />
+    </bean>
+    <bean id="knowUploadifyService" class="com.iwork.core.upload.service.imp.KnowUploadServiceImpl" scope="prototype">
+		<property name="uploadifyDAO" ref="uploadifyDAO" />
+		<property name="fileUploadUtil" ref="fileUploadUtil" />
+    </bean>
+    <bean id="documentUploadifyService" class="com.iwork.core.upload.service.imp.DocumentUploadServiceImpl" scope="prototype">
+		<property name="uploadifyDAO" ref="uploadifyDAO" />
+		<property name="fileUploadUtil" ref="fileUploadUtil" />
+    </bean>
+    <bean id="emailUploadifyService" class="com.iwork.core.upload.service.imp.EmailUploadServiceImpl" scope="prototype">
+		<property name="uploadifyDAO" ref="uploadifyDAO" />
+		<property name="fileUploadUtil" ref="fileUploadUtil" />
+    </bean>
+    
+	<bean id="uploadifyAction" class="com.iwork.core.upload.action.UploadifyAction" scope="prototype">
+		<property name="uploadifyService" ref="uploadifyService" />
+    </bean>
+     <!-- 序列管理 -->
+    <bean id="sysSequenceDAO" class="com.iwork.core.server.sequence.dao.SysSequenceDAO" parent="baseDAO">
+    </bean>
+    <bean id="sysSequenceService" class="com.iwork.core.server.sequence.service.SysSequenceService" scope="prototype">
+    	<property name="sysSequenceDAO" ref="sysSequenceDAO" />
+    </bean>
+	<!-- 系统级变量管理维护 -->
+     <bean id="sysGePropertyDAO" class="com.iwork.core.server.ge.dao.SysGePropertyDAO" parent="baseDAO">
+    </bean> 
+    <bean id="sysSequenceAction" class="com.iwork.core.server.sequence.action.SysSequenceAction" scope="prototype">
+         <property name="sysSequenceService" ref="sysSequenceService" />
+        <property name="pagerService"> 
+			<ref bean="pagerService"/> 
+		</property>
+    </bean>
+    <!-- 缓存管理 -->
+    <bean id="cacheManagementAction" class="com.iwork.core.cache.action.CacheManagementAction" scope="prototype">
+         <property name="cacheManagementService" ref="cacheManagementService" />
+    </bean>
+    <bean id="cacheManagementService" class="com.iwork.core.cache.service.CacheManagementService" scope="prototype">
+    </bean>
+    
+    <!-- 分级保护 -->
+    <bean id="sysSecurityManageAction" class="com.iwork.app.security.action.SysSecurityManageAction" scope="prototype">
+         <property name="sysSecurityManageService" ref="sysSecurityManageService" />
+    </bean>
+    <bean id="sysSecurityManageService" class="com.iwork.app.security.service.SysSecurityManageService" scope="prototype">
+    </bean>
+    
+    <!--系统首级目录管理 -->
+	<bean id="sysNavSystemDAO"
+        class="com.iwork.app.navigation.sys.dao.SysNavSystemDAO" parent="baseDAO">
+    </bean>
+    <bean id="sysNavSystemService" class="com.iwork.app.navigation.sys.service.SysNavSystemService"  scope="prototype">
+    	<property name="sysNavSystemDAO" ref="sysNavSystemDAO" />
+    	<property name="sysNavDirectoryDAO" ref="sysNavDirectoryDAO" />
+    </bean>
+    <bean id="pagerService" class="com.iwork.commons.PagerService"/>
+    <bean id="sysNavSystemAction" class="com.iwork.app.navigation.sys.action.SysNavSystemAction" scope="prototype">
+        <property name="sysNavSystemService" ref="sysNavSystemService" />
+        <property name="sysServiceManagerService" ref="sysServiceManagerService" />
+        <property name="sysSequenceService" ref="sysSequenceService" />
+        <property name="pagerService">
+			<ref bean="pagerService"/>
+		</property>
+    </bean>
+	<!--系统子节点目录管理 -->
+	<bean id="sysNavNodeDAO" class="com.iwork.app.navigation.node.dao.SysNavNodeDAO" parent="baseDAO">
+    </bean>
+    <bean id="sysNavNodeService" class="com.iwork.app.navigation.node.service.SysNavNodeService"  scope="prototype">
+    	<property name="sysNavNodeDAO" ref="sysNavNodeDAO" />
+    	<property name="sysNavSystemDAO" ref="sysNavSystemDAO" />
+    </bean>
+    <bean id="sysNavNodeAction" class="com.iwork.app.navigation.node.action.SysNavNodeAction" scope="prototype">
+        <property name="sysNavNodeService" ref="sysNavNodeService" />
+        <property name="sysNavSystemService" ref="sysNavSystemService" />
+    </bean>
+    	<!-- 目录管理 -->
+    <bean id="sysNavDirectoryDAO"
+        class="com.iwork.app.navigation.directory.dao.SysNavDirectoryDAO" parent="baseDAO">
+    </bean>
+    <bean id="sysNavDirectoryService" class="com.iwork.app.navigation.directory.service.SysNavDirectoryService"  scope="prototype">
+    	<property name="sysNavDirectoryDAO" ref="sysNavDirectoryDAO" />
+    </bean>
+
+    <bean id="sysNavDirectoryAction" class="com.iwork.app.navigation.directory.action.SysNavDirectoryAction" scope="prototype">
+        <property name="sysNavDirectoryService" ref="sysNavDirectoryService" />
+         <property name="sysSequenceService" ref="sysSequenceService" />
+        <property name="pagerService"> 
+			<ref bean="pagerService"/>
+		</property>
+    </bean>
+    <!-- 模块管理 -->
+    <bean id="sysNavFunctionDAO"
+        class="com.iwork.app.navigation.function.dao.SysNavFunctionDAO" parent="baseDAO">
+    </bean>
+    <bean id="sysNavFunctionService" class="com.iwork.app.navigation.function.service.SysNavFunctionService" scope="prototype">
+    	<property name="sysNavFunctionDAO" ref="sysNavFunctionDAO" />
+    	<property name="sysNavDirectoryDAO" ref="sysNavDirectoryDAO" />
+    	<property name="sysNavSystemDAO" ref="sysNavSystemDAO" />
+    </bean>
+
+    <bean id="sysNavFunctionAction" class="com.iwork.app.navigation.function.action.SysNavFunctionAction" scope="prototype">
+        <property name="sysNavFunctionService" ref="sysNavFunctionService" />
+         <property name="sysNavDirectoryService" ref="sysNavDirectoryService" />
+        <property name="pagerService"> 
+			<ref bean="pagerService"/>
+		</property>
+    </bean>
+    
+    <!--收藏夹管理 -->
+	<bean id="sysFavSystemDAO"
+        class="com.iwork.app.navigation.favorite.sysfav.dao.SysFavSystemDAO" parent="baseDAO">
+    </bean>
+    <bean id="sysFavFunctionDAO"
+        class="com.iwork.app.navigation.favorite.myfav.dao.SysFavFunctionDAO" parent="baseDAO">
+    </bean>
+    <bean id="sysFavFrameService" class="com.iwork.app.navigation.favorite.web.service.SysFavFrameService"  scope="prototype">
+    	<property name="sysFavSystemDAO" ref="sysFavSystemDAO" />
+    	<property name="sysFavFunctionDAO" ref="sysFavFunctionDAO" />
+    	<property name="sysNavSystemDAO" ref="sysNavSystemDAO" />
+    	<property name="sysNavNodeDAO" ref="sysNavNodeDAO" />
+    </bean>
+    <bean id="sysFavFrameAction" class="com.iwork.app.navigation.favorite.web.action.SysFavFrameAction" scope="prototype">
+        <property name="sysFavFrameService" ref="sysFavFrameService" />        
+    </bean>
+    <!-- 罗钏添加开始 -->
+    <!-- 计划任务开始 -->
+    <bean id="sysScheduleDAO" class="com.iwork.app.schedule.dao.SysScheduleDAO" parent="baseDAO">
+    </bean>
+    <bean id="sysScheduleLogDAO" class="com.iwork.app.schedule.dao.SysScheduleLogDAO" parent="baseDAO">
+    </bean>
+    <bean id="sysScheduleService" class="com.iwork.app.schedule.service.SysScheduleService"  scope="prototype">
+    	<property name="sysScheduleDAO" ref="sysScheduleDAO" />
+    	<property name="sysScheduleLogDAO" ref="sysScheduleLogDAO" />
+    </bean>
+    <bean id="sysScheduleAction" class="com.iwork.app.schedule.action.SysScheduleAction" scope="prototype">
+        <property name="sysScheduleService" ref="sysScheduleService" />        
+    </bean>
+    <!-- 计划任务结束 -->
+    <!-- 系统日志开始 -->
+    <bean id="sysLogAction" class="com.iwork.app.log.action.SysLogAction" scope="prototype">
+        <property name="sysLogService" ref="sysLogService" />        
+    </bean>
+    <bean id="sysLogService" class="com.iwork.app.log.service.SysLogService"  scope="prototype">
+    	<property name="sysLogDAO" ref="sysLogDAO" />
+    </bean>
+    <bean id="sysLogDAO" class="com.iwork.app.log.dao.SysLogDAO" parent="baseDAO">
+    </bean>
+    <!-- 系统日志结束 -->
+    <!-- 登录日志开始 -->
+    <bean id="sysUserLoginLogDAO" class="com.iwork.app.log.dao.SysUserLoginLogDAO" parent="baseDAO">
+    </bean>
+      <!-- 登录日志结束 -->
+    <!-- 罗钏添加结束 -->
+    
+    <!--操作管理 -->
+    <bean id="sysNavOperationDAO"
+        class="com.iwork.app.navigation.operation.dao.SysNavOperationDAO" parent="baseDAO">
+    </bean>
+    <bean id="sysNavOperationService" class="com.iwork.app.navigation.operation.service.SysNavOperationService" scope="prototype">
+    	<property name="sysNavOperationDAO" ref="sysNavOperationDAO" />
+    	<property name="sysNavFunctionDAO" ref="sysNavFunctionDAO" />
+    	<property name="sysNavDirectoryDAO" ref="sysNavDirectoryDAO" />
+    	<property name="sysNavSystemDAO" ref="sysNavSystemDAO" />
+    </bean>
+
+    <bean id="sysNavOperationAction" class="com.iwork.app.navigation.operation.action.SysNavOperationAction" scope="prototype">
+        <property name="sysNavOperationService" ref="sysNavOperationService" />
+        <property name="sysNavFunctionService" ref="sysNavFunctionService" />
+        <property name="sysNavSystemService" ref="sysNavSystemService" />
+         <property name="sysNavDirectoryService" ref="sysNavDirectoryService" />
+        <property name="pagerService"> 
+			<ref bean="pagerService"/>
+		</property>
+    </bean>
+    
+      <!--frame框架管理-->
+       <bean id="sysNavFrameDAO"
+        class="com.iwork.app.navigation.web.dao.SysNavFrameDAO" parent="baseDAO">
+    </bean>
+      <bean id="sysNavFrameService" class="com.iwork.app.navigation.web.service.SysNavFrameService" scope="prototype">
+    	<property name="sysNavFunctionDAO" ref="sysNavFunctionDAO" />
+    	<property name="sysNavDirectoryDAO" ref="sysNavDirectoryDAO" />
+    	<property name="sysNavSystemDAO" ref="sysNavSystemDAO" /> 
+    	<property name="sysNavNodeDAO" ref="sysNavNodeDAO" /> 
+    	<property name="sysMessageDAO" ref="sysMessageDAO" />
+    	<property name="sysMessageService" ref="sysMessageService" />
+        <property name="processDeskManagementService" ref="processDeskManagementService" />
+        <property name="reciWorkMailClientService" ref="reciWorkMailClientService" />
+    </bean>
+    <bean id="sysNavFrameAction" class="com.iwork.app.navigation.web.action.SysNavFrameAction" scope="prototype">
+        <property name="sysNavSystemService" ref="sysNavSystemService" />
+        <property name="sysNavFrameService" ref="sysNavFrameService" />
+    </bean>
+    
+    <!-- 组织管理 -->
+    <bean id="orgCompanyDAO"
+        class="com.iwork.core.organization.dao.OrgCompanyDAO" parent="baseDAO">
+    </bean>
+    <bean id="orgCompanyService" class="com.iwork.core.organization.service.OrgCompanyService" scope="prototype">
+    	<property name="orgCompanyDAO" ref="orgCompanyDAO" />
+    	<property name="orgDepartmentDAO" ref="orgDepartmentDAO" />
+    </bean>
+
+    <bean id="orgCompanyAction" class="com.iwork.core.organization.action.OrgCompanyAction" scope="prototype">
+         <property name="orgCompanyService" ref="orgCompanyService" />
+        <property name="pagerService"> 
+			<ref bean="pagerService"/>
+		</property>
+    </bean>
+     <!-- 角色管理 -->
+    <bean id="orgRoleDAO"
+        class="com.iwork.core.organization.dao.OrgRoleDAO" parent="baseDAO">
+    </bean>
+    <bean id="orgRoleService" class="com.iwork.core.organization.service.OrgRoleService" scope="prototype">
+    	<property name="orgRoleDAO" ref="orgRoleDAO" />
+    </bean>
+
+    <bean id="orgRoleAction" class="com.iwork.core.organization.action.OrgRoleAction" scope="prototype">
+         <property name="orgRoleService" ref="orgRoleService" />
+        <property name="pagerService"> 
+			<ref bean="pagerService"/>
+		</property>
+    </bean>
+    <!-- 部门管理 -->
+    <bean id="orgDepartmentDAO" class="com.iwork.core.organization.dao.OrgDepartmentDAO" parent="baseDAO">
+    </bean>
+    <bean id="orgDepartmentService" class="com.iwork.core.organization.service.OrgDepartmentService" scope="prototype">
+    	<property name="orgDepartmentDAO" ref="orgDepartmentDAO" />
+    	<property name="orgCompanyDAO" ref="orgCompanyDAO" />
+    	<property name="orgUserDAO" ref="orgUserDAO" />
+    	<property name="winxinOrgService" ref="winxinOrgService" />
+    </bean>
+
+    <bean id="orgDepartmentAction" class="com.iwork.core.organization.action.OrgDepartmentAction" scope="prototype">
+         <property name="orgCompanyService" ref="orgCompanyService" />
+         <property name="orgDepartmentService" ref="orgDepartmentService" />
+        <property name="pagerService"> 
+			<ref bean="pagerService"/>
+		</property>
+    </bean>
+    <!-- 岗位管理 -->
+     <bean id="orgStationDAO" class="com.iwork.core.organization.dao.OrgStationDAO" parent="baseDAO">
+    </bean> 
+    <bean id="orgStationService" class="com.iwork.core.organization.service.OrgStationService" scope="prototype">
+    	<property name="orgStationDAO" ref="orgStationDAO" />
+    	<property name="orgDepartmentDAO" ref="orgDepartmentDAO" />
+    	<property name="orgCompanyDAO" ref="orgCompanyDAO" />
+    	<property name="orgUserDAO" ref="orgUserDAO" />
+    </bean>
+	
+    <bean id="orgStationAction" class="com.iwork.core.organization.action.OrgStationAction" scope="prototype">
+         <property name="orgStationService" ref="orgStationService" />  
+         <property name="orgStationTreeService" ref="orgStationTreeService" />  
+    </bean>
+    <bean id="orgStationTreeService" class="com.iwork.core.organization.service.OrgStationTreeService" scope="prototype">
+    	<property name="orgGroupDAO" ref="orgGroupDAO" />
+    	<property name="orgGroupSubDAO" ref="orgGroupSubDAO" />
+    	<property name="orgRoleDAO" ref="orgRoleDAO" /> 
+    	<property name="orgCompanyDAO" ref="orgCompanyDAO" />
+    	<property name="orgDepartmentDAO" ref="orgDepartmentDAO" />
+    	<property name="orgUserDAO" ref="orgUserDAO" />    	
+    	<property name="orgUserMapDAO" ref="orgUserMapDAO" />    	
+    	<property name="orgStationDAO" ref="orgStationDAO" />    	
+    </bean> 
+    
+    
+    <!-- 用户管理 -->
+   <bean id="orgUserDAO" class="com.iwork.core.organization.dao.OrgUserDAO" parent="baseDAO">
+    </bean>
+    <bean id="orgUserService" class="com.iwork.core.organization.service.OrgUserService" scope="prototype">
+    	<property name="orgUserDAO" ref="orgUserDAO" />
+    	<property name="orgDepartmentDAO" ref="orgDepartmentDAO" />
+    	<property name="orgCompanyDAO" ref="orgCompanyDAO" />
+    	<property name="orgUserMapDAO" ref="orgUserMapDAO" />
+    	<property name="winxinOrgService" ref="winxinOrgService" />
+    </bean>
+	
+    <bean id="orgUserAction" class="com.iwork.core.organization.action.OrgUserAction" scope="prototype">
+         <property name="orgCompanyService" ref="orgCompanyService" /> 
+         <property name="orgDepartmentService" ref="orgDepartmentService" />
+         <property name="orgUserService" ref="orgUserService" />
+          <property name="orgRoleService" ref="orgRoleService" />
+    </bean>
+    <bean id="orgSynchronizeAction" class="com.iwork.core.organization.action.OrgSynchronizeAction" scope="prototype">
+         
+          <property name="orgSynchronizeService" ref="orgSynchronizeService" /> 
+    </bean>
+     <bean id="orgSynchronizeService" class="com.iwork.core.organization.service.OrgSynchronizeService" scope="prototype">
+    	  <property name="orgDepartmentService" ref="orgDepartmentService" />
+          <property name="orgUserService" ref="orgUserService" />
+          <property name="orgUserMapService" ref="orgUserMapService" />
+          <property name="orgRoleService" ref="orgRoleService" />
+    	  <property name="orgSynchronizeDAO" ref="orgSynchronizeDAO" />
+    </bean>
+     <bean id="orgSynchronizeDAO" class="com.iwork.core.organization.dao.OrgSynchronizeDAO" parent="baseDAO">
+    </bean>
+  
+    <!-- 兼职管理 -->
+    <bean id="orgUserMapDAO" class="com.iwork.core.organization.dao.OrgUserMapDAO" parent="baseDAO">
+    </bean>
+    <bean id="orgUserMapService" class="com.iwork.core.organization.service.OrgUserMapService" scope="prototype">
+    	<property name="orgUserMapDAO" ref="orgUserMapDAO" />
+    </bean>
+
+    <bean id="orgUserMapAction" class="com.iwork.core.organization.action.OrgUserMapAction" scope="prototype">
+         <property name="orgUserMapService" ref="orgUserMapService" />
+          <property name="orgRoleService" ref="orgRoleService" />
+        <property name="pagerService"> 
+			<ref bean="pagerService"/> 
+		</property>
+    </bean>
+    
+    <!-- 团队管理 -->
+    <bean id="orgGroupDAO" class="com.iwork.core.organization.dao.OrgGroupDAO" parent="baseDAO">
+    </bean>
+    <bean id="orgGroupSubDAO" class="com.iwork.core.organization.dao.OrgGroupSubDAO" parent="baseDAO">
+    </bean>
+    <bean id="orgGroupService" class="com.iwork.core.organization.service.OrgGroupService" scope="prototype">
+    	<property name="orgGroupDAO" ref="orgGroupDAO" />
+    	<property name="orgGroupSubDAO" ref="orgGroupSubDAO" />
+    	<property name="orgCompanyDAO" ref="orgCompanyDAO" />
+    	<property name="orgDepartmentDAO" ref="orgDepartmentDAO" />
+    	<property name="orgUserDAO" ref="orgUserDAO" />
+    	<property name="orgRoleDAO" ref="orgRoleDAO" />
+    </bean>
+    <bean id="orgGroupAction" class="com.iwork.core.organization.action.OrgGroupAction" scope="prototype">  
+         <property name="orgGroupService" ref="orgGroupService" />
+    </bean>
+    
+    <!-- 日程计划 -->
+    <bean id="schCalendarDAO" class="com.iwork.plugs.calender.dao.SchCalendarDAO" parent="baseDAO">
+    </bean>
+    <bean id ="schCalendarService" class="com.iwork.plugs.calender.service.SchCalendarService" scope="prototype">
+    	<property name="schCalendarDAO" ref="schCalendarDAO" />
+    </bean>
+    <bean id="schCalendarAction" class="com.iwork.plugs.calender.action.SchCalendarAction" scope="prototype">
+		<property name="schCalendarService" ref="schCalendarService" />
+    </bean>
+    <!-- ProcessRemindUtil通知 -->
+    
+    <bean id="processRemindUtil" class="com.iwork.process.runtime.util.ProcessRemindUtil"  scope="prototype">
+    	 <property name="mailfreemarderConfig" ref="mailfreemarderConfig" />
+    	 <property name="sysPersionService" ref="sysPersionService" />
+    </bean> 
+    <!-- 委托流程管理 -->
+    <bean id="processEntrustLogDAO" class="com.iwork.process.entrust.dao.ProcessEntrustLogDAO" parent="baseDAO">
+    </bean>
+    <bean id ="processEntrustLogService" class="com.iwork.process.entrust.service.ProcessEntrustLogService" scope="prototype">
+    	<property name="processEntrustLogDAO" ref="processEntrustLogDAO" />
+    </bean>
+    <bean id="processEntrustLogAction" class="com.iwork.process.entrust.action.ProcessEntrustLogAction" scope="prototype">
+		<property name="processEntrustLogService" ref="processEntrustLogService" />
+    </bean>
+    
+    <bean id="processEntrustPersonDAO" class="com.iwork.process.entrust.dao.ProcessEntrustPersonDAO" parent="baseDAO">
+    </bean>
+    <bean id ="processEntrustPersonService" class="com.iwork.process.entrust.service.ProcessEntrustPersonService" scope="prototype">
+    	<property name="processEntrustPersonDAO" ref="processEntrustPersonDAO" />
+    	<property name="processEntrustPersonSDAO" ref="processEntrustPersonSDAO" />
+    	<property name="sysEngineGroupDAO" ref="sysEngineGroupDAO" />
+    	<property name="processDeploymentDAO" ref="processDeploymentDAO" />
+    	<property name="processDefMapDAO" ref="processDefMapDAO" />
+    </bean>
+    <bean id="processEntrustPersonAction" class="com.iwork.process.entrust.action.ProcessEntrustPersonAction" scope="prototype">
+		<property name="processEntrustPersonService" ref="processEntrustPersonService" />
+		<property name="processEntrustPersonSService" ref="processEntrustPersonSService" />
+		<property name="sysPurviewProcessService" ref="sysPurviewProcessService" />
+    </bean>
+    
+    <bean id="processEntrustPersonSDAO" class="com.iwork.process.entrust.dao.ProcessEntrustPersonSDAO" parent="baseDAO">
+    </bean>
+    <bean id ="processEntrustPersonSService" class="com.iwork.process.entrust.service.ProcessEntrustPersonSService" scope="prototype">
+    	<property name="processEntrustPersonSDAO" ref="processEntrustPersonSDAO" />
+    </bean>
+    <bean id="processEntrustPersonSAction" class="com.iwork.process.entrust.action.ProcessEntrustPersonSAction" scope="prototype">
+		<property name="processEntrustPersonSService" ref="processEntrustPersonSService" />
+    </bean>
+    <!-- CMS管理 -->
+    <bean id="cmsChannelDAO" 
+          class="com.iwork.plugs.cms.dao.CmsChannelDAO" parent="baseDAO">
+    </bean>
+    <bean id="cmsPortletDAO"  
+          class="com.iwork.plugs.cms.dao.CmsPortletDAO" parent="baseDAO">
+    </bean>
+    <bean id="cmsRelationDAO" 
+          class="com.iwork.plugs.cms.dao.CmsRelationDAO" parent="baseDAO">
+    </bean>
+    <bean id="cmsAppkmDAO" 
+          class="com.iwork.plugs.cms.dao.CmsAppkmDAO" parent="baseDAO">
+    </bean>
+    <bean id="cmsVideoDAO" 
+          class="com.iwork.plugs.cms.dao.CmsVideoDAO" parent="baseDAO">
+    </bean>
+    <bean id="cmsInfoDAO" 
+          class="com.iwork.plugs.cms.dao.CmsInfoDAO" parent="baseDAO">
+    </bean>
+    <bean id="cmsChannelService" class="com.iwork.plugs.cms.service.CmsChannelService" scope="prototype">
+    	<property name="cmsChannelDAO" ref="cmsChannelDAO" /> 	
+    	<property name="cmsRelationDAO" ref="cmsRelationDAO" />
+    </bean>
+    <bean id="cmsChannelAction" class="com.iwork.plugs.cms.action.CmsChannelAction" scope="prototype">  
+         <property name="cmsChannelService" ref="cmsChannelService" />
+    </bean>
+    <bean id="cmsPortletService" class="com.iwork.plugs.cms.service.CmsPortletService" scope="prototype">
+    	<property name="cmsPortletDAO" ref="cmsPortletDAO" /> 
+    	<property name="cmsInfoDAO" ref="cmsInfoDAO" />	
+    </bean>
+    <bean id="cmsPortletAction" class="com.iwork.plugs.cms.action.CmsPortletAction" scope="prototype">  
+         <property name="cmsPortletService" ref="cmsPortletService" />
+    </bean>  
+     <bean id="cmsRelationService" class="com.iwork.plugs.cms.service.CmsRelationService" scope="prototype">
+    	<property name="cmsRelationDAO" ref="cmsRelationDAO" />
+    	<property name="cmsPortletDAO" ref="cmsPortletDAO" /> 
+    	<property name="cmsChannelDAO" ref="cmsChannelDAO" />  	
+    </bean>
+    <bean id="cmsRelationAction" class="com.iwork.plugs.cms.action.CmsRelationAction" scope="prototype">  
+         <property name="cmsRelationService" ref="cmsRelationService" />
+    </bean>   
+    <bean id="cmsInfoService" class="com.iwork.plugs.cms.service.CmsInfoService" scope="prototype">
+    	<property name="cmsInfoDAO" ref="cmsInfoDAO" /> 	
+    	<property name="cmsPortletDAO" ref="cmsPortletDAO" /> 	
+    </bean>
+    <bean id="cmsInfoAction" class="com.iwork.plugs.cms.action.CmsInfoAction" scope="prototype">  
+         <property name="cmsInfoService" ref="cmsInfoService" />
+          <property name="cmsChannelService" ref="cmsChannelService" />
+          <property name="cmsPortletService" ref="cmsPortletService" />
+    </bean>
+     <bean id="cmsFrameService" class="com.iwork.plugs.cms.service.CmsFrameService" scope="prototype">
+    	<property name="cmsInfoDAO" ref="cmsInfoDAO" /> 	
+    	<property name="cmsPortletDAO" ref="cmsPortletDAO" /> 	
+    	<property name="cmsRelationDAO" ref="cmsRelationDAO" />
+    	<property name="cmsChannelDAO" ref="cmsChannelDAO" />  	
+    </bean>
+    <bean id="cmsFrameAction" class="com.iwork.plugs.cms.action.CmsFrameAction" scope="prototype">  
+         <property name="cmsFrameService" ref="cmsFrameService" />
+    </bean>
+	<bean id="cmsVideoService" class="com.iwork.plugs.cms.service.CmsVideoService" scope="prototype">
+    	<property name="cmsVideoDAO" ref="cmsVideoDAO" /> 	
+    </bean>
+    <bean id="cmsVideoAction" class="com.iwork.plugs.cms.action.CmsVideoAction" scope="prototype">  
+         <property name="cmsVideoService" ref="cmsVideoService" />
+    </bean>
+	<bean id="cmsAppkmService" class="com.iwork.plugs.cms.service.CmsAppkmService" scope="prototype">
+    	<property name="cmsAppkmDAO" ref="cmsAppkmDAO" /> 	
+    </bean> 
+    <bean id="cmsAppkmAction" class="com.iwork.plugs.cms.action.CmsAppkmAction" scope="prototype">  
+         <property name="cmsAppkmService" ref="cmsAppkmService" />
+    </bean>
+    <bean id="cmsHomePageAction" class="com.iwork.plugs.cms.action.CmsHomePageAction" scope="prototype">  
+         <property name="cmsHomePageService" ref="cmsHomePageService" />
+    </bean>
+    <bean id="cmsHomePageService" class="com.iwork.plugs.cms.service.CmsHomePageService" scope="prototype">
+    	 <property name="sysNavFrameService" ref="sysNavFrameService" />
+    </bean>
+    <!-- portal门户 -->
+    <bean id="iworkPortalDAO" class="com.iwork.portal.dao.IWorkPortalDAO" parent="baseDAO"></bean>
+    <bean id="iworkPortalService" class="com.iwork.portal.service.IWorkPortalService" scope="prototype">
+    	<property name="iworkPortalDAO" ref="iworkPortalDAO" />
+    </bean> 
+    <bean id="iworkPortalAction" class="com.iwork.portal.action.IWorkPortalAction" scope="prototype">
+  		 <property name="iworkPortalService" ref="iworkPortalService" />
+    </bean>
+    <bean id="iworkPortalPlugsService" class="com.iwork.portal.service.IWorkPortalPlugsService" scope="prototype">
+    	<property name="cmsPortletDAO" ref="cmsPortletDAO" />
+    </bean> 
+    <bean id="iworkPortalPlugsAction" class="com.iwork.portal.action.IWorkPortaPlugsAction" scope="prototype">
+  		 <property name="iworkPortalPlugsService" ref="iworkPortalPlugsService" />
+    </bean> 
+    <!-- 服务管理 -->
+    <bean id="sysServiceManagerDAO" class="com.iwork.core.server.servicemanager.dao.SysServiceManagerDAO" parent="baseDAO">
+    </bean>
+    <bean id="sysServiceManagerService" class="com.iwork.core.server.servicemanager.service.SysServiceManagerService" scope="prototype">
+    	<property name="sysServiceManagerDAO" ref="sysServiceManagerDAO" />
+    </bean>
+
+    <bean id="sysServiceManagerAction" class="com.iwork.core.server.servicemanager.action.SysServiceManagerAction" scope="prototype">
+         <property name="sysServiceManagerService" ref="sysServiceManagerService" />
+        <property name="pagerService"> 
+			<ref bean="pagerService"/> 
+		</property>
+    </bean>
+    <!-- 权限组管理 -->
+    <bean id="sysPurviewOrgDAO" class="com.iwork.core.security.purview.dao.SysPurviewOrgDAO" parent="baseDAO"></bean>
+    <bean id="sysPurGroupDAO" class="com.iwork.core.security.purview.dao.SysPurGroupDAO" parent="baseDAO"></bean>
+    <bean id="sysPurviewSchemaDAO" class="com.iwork.core.security.purview.dao.SysPurviewSchemaDAO" parent="baseDAO"></bean>
+    <bean id="sysPurGroupService" class="com.iwork.core.security.purview.service.SysPurGroupService" scope="prototype">
+    	<property name="sysPurGroupDAO" ref="sysPurGroupDAO" />
+    	<property name="sysNavOperationDAO" ref="sysNavOperationDAO" />
+    	<property name="sysNavSystemDAO" ref="sysNavSystemDAO" />
+    	<property name="sysPurviewSchemaDAO" ref="sysPurviewSchemaDAO" />
+    	<property name="sysNavNodeDAO" ref="sysNavNodeDAO" />
+    	<property name="orgRoleDAO" ref="orgRoleDAO" />
+    	<property name="orgUserDAO" ref="orgUserDAO" />
+    	<property name="orgDepartmentDAO" ref="orgDepartmentDAO" />
+    	<property name="orgCompanyDAO" ref="orgCompanyDAO" />
+    	<property name="sysServiceManagerDAO" ref="sysServiceManagerDAO" />
+    	<property name="sysPurviewProcessDAO" ref="sysPurviewProcessDAO" />
+    	<property name="sysPurviewDemDAO" ref="sysPurviewDemDAO" />
+    	<property name="sysPurviewReportDAO" ref="sysPurviewReportDAO" />
+    	<property name="sysPurviewOrgDAO" ref="sysPurviewOrgDAO" /> 
+    </bean>
+    <bean id="sysPurGroupAction" class="com.iwork.core.security.purview.action.SysPurGroupAction" scope="prototype">
+         <property name="sysPurGroupService" ref="sysPurGroupService" />
+         <property name="sysNavOperationService" ref="sysNavOperationService" />
+        <property name="sysNavFunctionService" ref="sysNavFunctionService" />
+        <property name="sysNavSystemService" ref="sysNavSystemService" />
+         <property name="sysNavDirectoryService" ref="sysNavDirectoryService" />
+        <property name="pagerService"> 
+			<ref bean="pagerService"/> 
+		</property>
+    </bean>
+    <bean id="sysPurviewProcessDAO" class="com.iwork.core.security.purview.dao.SysPurviewProcessDAO" parent="baseDAO">
+    </bean>
+     <bean id="sysPurviewProcessService" class="com.iwork.core.security.purview.service.SysPurviewProcessService" scope="prototype">
+    	<property name="sysPurviewProcessDAO" ref="sysPurviewProcessDAO" />
+    	<property name="sysPurGroupDAO" ref="sysPurGroupDAO" /> 
+    	<property name="sysEngineGroupDAO" ref="sysEngineGroupDAO" /> 
+    	<property name="processDeploymentDAO" ref="processDeploymentDAO" />
+    </bean>  
+     <bean id="sysPurviewProcessAction" class="com.iwork.core.security.purview.action.SysPurviewProcessAction" scope="prototype">
+    	<property name="sysPurviewProcessService" ref="sysPurviewProcessService" />
+    </bean> 
+    <!-- 数据维护权限授权 -->
+    <bean id="sysPurviewDemDAO" class="com.iwork.core.security.purview.dao.SysPurviewDemDAO" parent="baseDAO">
+    </bean>
+     <bean id="sysPurviewDemService" class="com.iwork.core.security.purview.service.SysPurviewDemService" scope="prototype">
+    	<property name="sysPurviewDemDAO" ref="sysPurviewDemDAO" />
+    	<property name="sysPurGroupDAO" ref="sysPurGroupDAO" /> 
+    	<property name="sysEngineGroupDAO" ref="sysEngineGroupDAO" /> 
+    	<property name="sysDemEngineDAO" ref="sysDemEngineDAO" />
+    </bean>  
+     <bean id="sysPurviewDemAction" class="com.iwork.core.security.purview.action.SysPurviewDemAction" scope="prototype">
+    	<property name="sysPurviewDemService" ref="sysPurviewDemService" />
+    </bean> 
+    <!-- 报表权限授权 -->
+    <bean id="sysPurviewReportDAO" class="com.iwork.core.security.purview.dao.SysPurviewReportDAO" parent="baseDAO">
+    </bean>
+     <bean id="sysPurviewReportService" class="com.iwork.core.security.purview.service.SysPurviewReportService" scope="prototype">
+    	<property name="sysPurviewReportDAO" ref="sysPurviewReportDAO" />
+    	<property name="sysPurGroupDAO" ref="sysPurGroupDAO" /> 
+    	<property name="sysEngineGroupDAO" ref="sysEngineGroupDAO" /> 
+    	<property name="iReportDesignDAO" ref="iReportDesignDAO" />
+    </bean>  
+     <bean id="sysPurviewReportAction" class="com.iwork.core.security.purview.action.SysPurviewReportAction" scope="prototype">
+    	<property name="sysPurviewReportService" ref="sysPurviewReportService" />
+    </bean> 
+    <!-- 授权用户 --> 
+     <bean id="sysPurviewUserService" class="com.iwork.core.security.purview.service.SysPurviewUserService" scope="prototype">
+    	<property name="sysPurGroupDAO" ref="sysPurGroupDAO" />
+    	<property name="sysPurviewSchemaDAO" ref="sysPurviewSchemaDAO" />
+    	<property name="orgRoleDAO" ref="orgRoleDAO" /> 
+    	<property name="sysPurviewOrgDAO" ref="sysPurviewOrgDAO" /> 
+    	<property name="orgUserDAO" ref="orgUserDAO" />
+    	<property name="orgUserMapDAO" ref="orgUserMapDAO" />
+    	<property name="orgDepartmentDAO" ref="orgDepartmentDAO" />
+    	<property name="orgCompanyDAO" ref="orgCompanyDAO" /> 
+    </bean> 
+     <bean id="sysPurviewUserAction" class="com.iwork.core.security.purview.action.SysPurviewUserAction" scope="prototype">
+    	<property name="sysPurviewUserService" ref="sysPurviewUserService" />
+    </bean> 
+    <!-- 授权部门 --> 
+     <bean id="sysPurviewDeptService" class="com.iwork.core.security.purview.service.SysPurviewDeptService" scope="prototype">
+    	<property name="sysPurGroupDAO" ref="sysPurGroupDAO" />
+    	<property name="sysPurviewSchemaDAO" ref="sysPurviewSchemaDAO" />
+    	<property name="orgRoleDAO" ref="orgRoleDAO" /> 
+    	<property name="sysPurviewOrgDAO" ref="sysPurviewOrgDAO" /> 
+    	<property name="orgUserDAO" ref="orgUserDAO" />
+    	<property name="orgUserMapDAO" ref="orgUserMapDAO" />
+    	<property name="orgDepartmentDAO" ref="orgDepartmentDAO" />
+    	<property name="orgCompanyDAO" ref="orgCompanyDAO" /> 
+    </bean> 
+     <bean id="sysPurviewDeptAction" class="com.iwork.core.security.purview.action.SysPurviewDeptAction" scope="prototype">
+    	<property name="sysPurviewDeptService" ref="sysPurviewDeptService" />
+    </bean> 
+    <!-- 授权 --> 
+     <bean id="sysPurviewRoleService" class="com.iwork.core.security.purview.service.SysPurviewRoleService" scope="prototype">
+    	<property name="sysPurGroupDAO" ref="sysPurGroupDAO" />
+    	<property name="orgRoleDAO" ref="orgRoleDAO" /> 
+    </bean> 
+     <bean id="sysPurviewRoleAction" class="com.iwork.core.security.purview.action.SysPurviewRoleAction" scope="prototype">
+    	<property name="sysPurviewRoleService" ref="sysPurviewRoleService" />
+    </bean> 
+    <!-- 授权导航菜单 -->
+    <bean id="sysPurviewNavService" class="com.iwork.core.security.purview.service.SysPurviewNavService" scope="prototype">
+    	<property name="sysPurGroupDAO" ref="sysPurGroupDAO" />
+    	<property name="sysPurviewSchemaDAO" ref="sysPurviewSchemaDAO" />
+    </bean> 
+     <bean id="sysPurviewNavAction" class="com.iwork.core.security.purview.action.SysPurviewNavAction" scope="prototype">
+    	<property name="sysPurviewNavService" ref="sysPurviewNavService" />
+    </bean> 
+     <!-- 系统消息 -->
+    <bean id="sysMessageDAO" class="com.iwork.app.message.sysmsg.dao.SysMessageDAO" parent="baseDAO">
+    </bean>
+    <bean id="sysMessageLogDAO" class="com.iwork.app.message.sysmsg.dao.SysMessageLogDAO" parent="baseDAO">
+    </bean>
+    <bean id="sysMessageService" class="com.iwork.app.message.sysmsg.service.SysMessageService" scope="prototype">
+    	<property name="sysMessageDAO" ref="sysMessageDAO" />
+    </bean>
+    <bean id="sysMessageLogService" class="com.iwork.app.message.sysmsg.service.SysMessageLogService" scope="prototype">
+    	<property name="sysMessageLogDAO" ref="sysMessageLogDAO" />
+    </bean>
+    <bean id="sysMessageAction" class="com.iwork.app.message.sysmsg.action.SysMessageAction" scope="prototype">
+        <property name="sysMessageService" ref="sysMessageService" />
+        <property name="sysMessageLogService" ref="sysMessageLogService" />
+        <property name="pagerService"> 
+			<ref bean="pagerService"/> 
+		</property>
+    </bean>
+    
+     <!-- 系统触发器日志 -->
+    <bean id="sysTriggerLogDAO" class="com.iwork.core.engine.trigger.dao.SysTriggerLogDAO" parent="baseDAO">
+    </bean>
+    <bean id="sysTriggerLogService" class="com.iwork.core.engine.trigger.service.SysTriggerLogService" scope="prototype">
+    	<property name="sysTriggerLogDAO" ref="sysTriggerLogDAO" />
+    </bean>
+     <!-- 个人信息 -->
+    <bean id="sysPersonDAO" class="com.iwork.app.persion.dao.SysPersonDAO" parent="baseDAO">
+    </bean>
+    <bean id="sysPersionService" class="com.iwork.app.persion.service.SysPersionService" scope="prototype">
+    	<property name="orgUserDAO" ref="orgUserDAO" />
+    	<property name="orgDepartmentDAO" ref="orgDepartmentDAO" />
+    	<property name="orgCompanyDAO" ref="orgCompanyDAO" />
+    	<property name="orgRoleDAO" ref="orgRoleDAO" />
+    	<property name="sysPersonDAO" ref="sysPersonDAO" />  
+    </bean>
+    <bean id="sysPersionAction" class="com.iwork.app.persion.action.SysPersionAction" scope="prototype">
+         <property name="sysPersionService" ref="sysPersionService" />
+		 <property name="processEntrustPersonService" ref="processEntrustPersonService" />
+         <property name="orgUserDAO" ref="orgUserDAO" />
+    </bean>
+    <bean id="sysPersionUploadPhotoAction" class="com.iwork.app.persion.action.SysPersionUploadPhotoAction" scope="prototype">
+         <property name="sysPersionService" ref="sysPersionService" />
+    </bean>
+    <!--================================= 地址簿==============================================-->
+    
+    <bean id="iworkToolsAddressAction" class="com.iwork.app.tools.addressbook.action.SysAdreesBookAction" scope="prototype">
+    	 <property name="sysAddressBookService" ref="sysAddressBookService" />
+    	
+         
+    </bean>
+    <bean id="sysAddressBookService" class="com.iwork.app.tools.addressbook.service.SysAddressBookService" scope="prototype">
+    	<property name="orgUserDAO" ref="orgUserDAO" />
+    	<property name="orgDepartmentDAO" ref="orgDepartmentDAO" />
+    	<property name="orgCompanyDAO" ref="orgCompanyDAO" />
+    </bean>
+    
+    <!-- END -->
+   <!-- /////////////////////知识管理////////////////////////////////////////////////////////-->
+    <bean id="kmDocumentFrameAction" class="com.iwork.km.document.action.KMDocumentFrameAction" scope="prototype">
+    	 <property name="kmDocumentFrameService" ref="kmDocumentFrameService" />
+    	 <property name="kmDirectoryService" ref="kmDirectoryService" />
+    	 <property name="kmDocService" ref="kmDocService" />
+    </bean>
+    <bean id="kmDocumentFrameService" class="com.iwork.km.document.service.KMDocumentFrameService" scope="prototype">
+    	<property name="kmDirectoryDAO" ref="kmDirectoryDAO" />
+    	<property name="kmDocDAO" ref="kmDocDAO" />
+    	<property name="uploadifyDAO" ref="uploadifyDAO" /> 
+    	<property name="fileUploadUtil" ref="fileUploadUtil" /> 
+    	<property name="kmPurViewService" ref="kmPurViewService" />
+    </bean>
+     <!-- 知识授权管理 -->
+    <bean id="kmDirectoryDAO" class="com.iwork.km.document.dao.KMDirectoryDAO" parent="baseDAO">
+    </bean>
+    <bean id="kmUploadAction" class="com.iwork.km.document.action.KMUploadAction" scope="prototype">
+    	<property name="kmUploadService" ref="kmUploadService" />
+    </bean>
+    <bean id="kmUploadService" class="com.iwork.km.document.service.KMUploadService" scope="prototype">
+    	<property name="uploadifyDAO" ref="uploadifyDAO" /> 
+    	<property name="kmDocDAO" ref="kmDocDAO" /> 
+    	<property name="fileUploadUtil" ref="fileUploadUtil" /> 
+    </bean>
+    <!-- 知识文档目录管理 -->
+    <bean id="kmPurViewDAO" class="com.iwork.km.document.dao.KMPurViewDAO" parent="baseDAO">
+    </bean>
+        <bean id="zKMPurViewService" class="com.iwork.core.server.ZKMPurViewService" scope="prototype">
+    	<property name="kmDocDAO" ref="kmDocDAO" />
+    	<property name="kmDirectoryDAO" ref="kmDirectoryDAO" />
+    	<property name="uploadifyService" ref="documentUploadifyService" />
+    	<property name="kmFavService" ref="kmFavService" />
+    	<property name="orgCompanyDAO" ref="orgCompanyDAO" />
+    	<property name="orgDepartmentDAO" ref="orgDepartmentDAO" />
+    	<property name="orgUserDAO" ref="orgUserDAO" />  
+    	<property name="orgUserMapDAO" ref="orgUserMapDAO" />
+    	<property name="kmPurViewDAO" ref="kmPurViewDAO" />
+    </bean>
+     <bean id="zKMPurViewAction" class="com.iwork.core.action.ZKMPurViewAction" scope="prototype">
+         <property name="zKMPurViewService" ref="zKMPurViewService" />       
+    </bean>
+    <bean id="kmPurViewService" class="com.iwork.km.document.service.KMPurViewService" scope="prototype">
+    	<property name="kmDocDAO" ref="kmDocDAO" />
+    	<property name="kmDirectoryDAO" ref="kmDirectoryDAO" />
+    	<property name="uploadifyService" ref="documentUploadifyService" />
+    	<property name="kmFavService" ref="kmFavService" />
+    	<property name="orgCompanyDAO" ref="orgCompanyDAO" />
+    	<property name="orgDepartmentDAO" ref="orgDepartmentDAO" />
+    	<property name="orgUserDAO" ref="orgUserDAO" />  
+    	<property name="orgUserMapDAO" ref="orgUserMapDAO" />
+    	<property name="kmPurViewDAO" ref="kmPurViewDAO" />
+    	
+    </bean>
+    <bean id="kmPurViewAction" class="com.iwork.km.document.action.KMPurViewAction" scope="prototype">
+         <property name="kmPurViewService" ref="kmPurViewService" />       
+    </bean>
+    <bean id="kmDirectoryService" class="com.iwork.km.document.service.KMDirectoryService" scope="prototype">
+        <property name="uploadifyService" ref="documentUploadifyService" />
+    	<property name="kmDirectoryDAO" ref="kmDirectoryDAO" />
+    	<property name="kmDocDAO" ref="kmDocDAO" />
+    	<property name="kmFavService" ref="kmFavService" />
+    	<property name="kmPurViewService" ref="kmPurViewService" /> 
+    </bean>
+    <bean id="kmDirectoryAction" class="com.iwork.km.document.action.KMDirectoryAction" scope="prototype">
+         <property name="kmDirectoryService" ref="kmDirectoryService" />       
+    </bean>
+    <bean id="kmDocDAO" class="com.iwork.km.document.dao.KMDocDAO" parent="baseDAO">
+    </bean>
+    <bean id="kmDocService" class="com.iwork.km.document.service.KMDocService" scope="prototype">
+    	<property name="kmDocDAO" ref="kmDocDAO" />
+    	<property name="kmDirectoryDAO" ref="kmDirectoryDAO" />
+    	<property name="uploadifyService" ref="documentUploadifyService" />
+    	<property name="kmFavService" ref="kmFavService" />
+    	<property name="kmPurViewService" ref="kmPurViewService" />
+    	<property name="kmDirectoryService" ref="kmDirectoryService"></property>     
+    </bean>
+    <bean id="kmDocAction" class="com.iwork.km.document.action.KMDocAction" scope="prototype">
+         <property name="kmDocService" ref="kmDocService" />
+         <property name="uploadifyService" ref="documentUploadifyService" />
+         <property name="kmReadLogService" ref="kmReadLogService" />
+    </bean>
+    <bean id="kmTalkDAO" class="com.iwork.km.document.dao.KMTalkDAO" parent="baseDAO">
+    </bean>
+    <bean id="kmTalkService" class="com.iwork.km.document.service.KMTalkService" scope="prototype">
+    	<property name="kmTalkDAO" ref="kmTalkDAO" />
+    </bean>
+    <bean id="kmTalkAction" class="com.iwork.km.document.action.KMTalkAction" scope="prototype">
+         <property name="kmTalkService" ref="kmTalkService" />
+    </bean>
+        <bean id="kmReadLogDAO" class="com.iwork.km.document.dao.KMReadLogDAO" parent="baseDAO">
+    </bean>
+    <bean id="kmReadLogService" class="com.iwork.km.document.service.KMReadLogService" scope="prototype">
+    	<property name="kmDocService" ref="kmDocService" />
+    	<property name="kmReadLogDAO" ref="kmReadLogDAO" />
+    </bean>
+    <bean id="kmReadLogAction" class="com.iwork.km.document.action.KMReadLogAction" scope="prototype">
+         <property name="kmReadLogService" ref="kmReadLogService" />
+    </bean>
+    <bean id="kmFavDAO" class="com.iwork.km.document.dao.KMFavDAO" parent="baseDAO">
+    </bean>
+    <bean id="kmFavService" class="com.iwork.km.document.service.KMFavService" scope="prototype">
+    	<property name="kmFavDAO" ref="kmFavDAO" />
+    	<property name="kmDocDAO" ref="kmDocDAO" />
+    	<property name="kmDirectoryDAO" ref="kmDirectoryDAO" />
+    </bean>
+    <bean id="kmFavAction" class="com.iwork.km.document.action.KMFavAction" scope="prototype">
+         <property name="kmFavService" ref="kmFavService" />
+    </bean>
+    <!-- END -->
+     <!-- DATAEngine -->
+      <bean id="sysEngineRootService" class="com.iwork.core.engine.root.service.SysEngineRootService" scope="prototype">
+      <property name="sysDemWorkBoxService" ref="sysDemWorkBoxService" />
+      <property name="processDeskService" ref="processDeskService" />
+      <property name="sysDemEngineDAO" ref="sysDemEngineDAO" />
+      <property name="sysPersionService" ref="sysPersionService" />
+     </bean> 
+     <bean id="sysEngineRootAction" class="com.iwork.core.engine.root.action.SysEngineRootAction" scope="prototype">
+     	 <property name="sysEngineRootService" ref="sysEngineRootService" />
+     </bean>
+     <bean id="sysEngineGroupDAO" class="com.iwork.core.engine.group.dao.SysEngineGroupDAO" parent="baseDAO"></bean>
+    <bean id="sysEngineGroupService" class="com.iwork.core.engine.group.service.SysEngineGroupService" scope="prototype">
+    	<property name="sysEngineGroupDAO" ref="sysEngineGroupDAO" />
+    	<property name="sysEngineMetadataDAO" ref="sysEngineMetadataDAO" />
+    	<property name="sysEngineIFormDAO" ref="sysEngineIFormDAO" />
+    	<property name="processDeploymentDAO" ref="processDeploymentDAO" /> 
+    </bean>
+     <bean id="sysEngineGroupAction" class="com.iwork.core.engine.group.action.SysEngineGroupAction" scope="prototype">
+         <property name="sysEngineGroupService" ref="sysEngineGroupService" />
+    </bean>
+    <!-- dbview -->
+        <bean id="sysEngineDBViewDAO" class="com.iwork.core.engine.dbview.dao.SysEngineDbviewDAO" parent="baseDAO"></bean>
+    <bean id="sysEngineDbviewService" class="com.iwork.core.engine.dbview.service.SysEngineDbviewService" scope="prototype">
+    	<property name="sysEngineDBViewDAO" ref="sysEngineDBViewDAO" />
+    	<property name="sysEngineGroupDAO" ref="sysEngineGroupDAO" />
+    </bean>
+    <bean id="sysEngineDbviewAction" class="com.iwork.core.engine.dbview.action.SysEngineDbviewAction" scope="prototype">
+         <property name="sysEngineDbviewService" ref="sysEngineDbviewService" />
+         <property name="sysEngineGroupService" ref="sysEngineGroupService" />
+    </bean>
+    
+    
+    <!-- metadata -->
+     <bean id="sysEngineMetadataDAO" class="com.iwork.core.engine.metadata.dao.SysEngineMetadataDAO" parent="baseDAO"></bean>
+    <bean id="sysEngineMetadataService" class="com.iwork.core.engine.metadata.service.SysEngineMetadataService" scope="prototype">
+    	<property name="sysEngineMetadataDAO" ref="sysEngineMetadataDAO" />
+    	<property name="sysEngineMetadataMapDAO" ref="sysEngineMetadataMapDAO" />
+    	<property name="sysEngineMetadataKeyDAO" ref="sysEngineMetadataKeyDAO" />
+    	<property name="sysEngineGroupDAO" ref="sysEngineGroupDAO" />
+    </bean>
+     <bean id="sysEngineMetadataAction" class="com.iwork.core.engine.metadata.action.SysEngineMetadataAction" scope="prototype">
+         <property name="sysEngineMetadataService" ref="sysEngineMetadataService" />
+         <property name="sysEngineGroupService" ref="sysEngineGroupService" />
+         <property name="sysEngineMetadataMapService" ref="sysEngineMetadataMapService" />
+    </bean>
+    <!-- MetadataMap -->
+    <bean id="sysEngineMetadataMapDAO" class="com.iwork.core.engine.metadata.dao.SysEngineMetadataMapDAO" parent="baseDAO"></bean>
+    <bean id="sysEngineMetadataMapService" class="com.iwork.core.engine.metadata.service.SysEngineMetadataMapService" scope="prototype">
+    	<property name="sysEngineMetadataMapDAO" ref="sysEngineMetadataMapDAO" />
+    	<property name="sysEngineMetadataDAO" ref="sysEngineMetadataDAO" />
+    	 <property name="sysEngineGroupDAO" ref="sysEngineGroupDAO" />
+    </bean>
+     <bean id="sysEngineMetadataMapAction" class="com.iwork.core.engine.metadata.action.SysEngineMetadataMapAction" scope="prototype">
+         <property name="sysEngineMetadataMapService" ref="sysEngineMetadataMapService" />
+         <property name="sysEngineMetadataService" ref="sysEngineMetadataService" />
+    </bean>
+    <!-- 主外键管理 -->
+    <bean id="sysEngineMetadataKeyDAO" class="com.iwork.core.engine.metadata.dao.SysEngineMetadataKeyDAO" parent="baseDAO"></bean>
+    <bean id="sysEngineMetadataKeyService" class="com.iwork.core.engine.metadata.service.SysEngineMetadataKeyService" scope="prototype">
+    	<property name="sysEngineMetadataMapDAO" ref="sysEngineMetadataMapDAO" />
+    	<property name="sysEngineMetadataDAO" ref="sysEngineMetadataDAO" />
+    	<property name="sysEngineMetadataKeyDAO" ref="sysEngineMetadataKeyDAO" />
+    </bean>
+     <bean id="sysEngineMetadataKeyAction" class="com.iwork.core.engine.metadata.action.SysEngineMetadataKeyAction" scope="prototype">
+         <property name="sysEngineMetadataMapService" ref="sysEngineMetadataMapService" />
+         <property name="sysEngineMetadataService" ref="sysEngineMetadataService" />
+         <property name="sysEngineMetadataKeyService" ref="sysEngineMetadataKeyService" />
+    </bean>
+    <!-- 表单引擎start -->
+    <bean id="sysEngineIFormDAO" class="com.iwork.core.engine.iform.dao.SysEngineIFormDAO" parent="baseDAO"></bean>
+    <bean id="sysEngineIFormService" class="com.iwork.core.engine.iform.service.SysEngineIFormService" scope="prototype">
+    	<property name="sysEngineIFormDAO" ref="sysEngineIFormDAO" /> 
+    	<property name="sysEngineGroupDAO" ref="sysEngineGroupDAO" /> 
+    	<property name="sysEngineSubformDAO" ref="sysEngineSubformDAO" />
+    	<property name="sysEngineIFormMapService" ref="sysEngineIFormMapService" />
+    	<property name="sysDictionaryDesignService" ref="sysDictionaryDesignService" />
+    </bean>
+    <bean id="sysEngineIFormAction" class="com.iwork.core.engine.iform.action.SysEngineIFormAction" scope="prototype">
+         <property name="sysEngineIFormService" ref="sysEngineIFormService" />
+         <property name="sysEngineMetadataService" ref="sysEngineMetadataService" />
+    </bean>
+    <!-- SUBFORM子表 -->
+     <bean id="sysEngineSubformDAO" class="com.iwork.core.engine.iform.dao.SysEngineSubformDAO" parent="baseDAO"></bean>
+     <bean id="sysEngineSubformService" class="com.iwork.core.engine.iform.service.SysEngineSubformService" scope="prototype">
+      	<property name="iformService" ref="iformService" />
+      	<property name="taskService" ref="taskService" />
+      	<property name="sysEngineSubformDAO" ref="sysEngineSubformDAO" />
+      	<property name="sysEngineIFormDAO" ref="sysEngineIFormDAO" />
+      	<property name="sysEngineMetadataDAO" ref="sysEngineMetadataDAO" />
+      	<property name="sysEngineIFormMapDAO" ref="sysEngineIFormMapDAO" />
+      	<property name="sysEngineMetadataMapDAO" ref="sysEngineMetadataMapDAO" />
+      	<property name="sysDictionaryBaseInfoDAO" ref="sysDictionaryBaseInfoDAO" />
+      	
+     </bean> 
+     <bean id="sysEngineSubformAction" class="com.iwork.core.engine.iform.action.SysEngineSubformAction" scope="prototype">
+      	<property name="sysEngineSubformService" ref="sysEngineSubformService" />
+      	<property name="sysEngineIFormService" ref="sysEngineIFormService" />
+     </bean>
+     
+    <!-- MAP管理 -->
+    <bean id="sysEngineIFormMapDAO" class="com.iwork.core.engine.iform.dao.SysEngineIFormMapDAO" parent="baseDAO"></bean>
+    <bean id="sysEngineIFormMapService" class="com.iwork.core.engine.iform.service.SysEngineIFormMapService" scope="prototype">
+    	<property name="sysEngineIFormDAO" ref="sysEngineIFormDAO" />
+    	<property name="sysEngineMetadataMapDAO" ref="sysEngineMetadataMapDAO" />
+    	<property name="sysEngineMetadataDAO" ref="sysEngineMetadataDAO" />
+    	<property name="sysEngineIFormMapDAO" ref="sysEngineIFormMapDAO" />
+    </bean>
+    <bean id="sysEngineIFormMapAction" class="com.iwork.core.engine.iform.action.SysEngineIFormMapAction" scope="prototype">
+    	 <property name="sysEngineIFormService" ref="sysEngineIFormService" />
+         <property name="sysEngineIFormMapService" ref="sysEngineIFormMapService" />
+    </bean>
+    <!-- 表单模版设计 -->
+    <bean id="sysEngineIFormDesginerDAO" class="com.iwork.core.engine.iform.dao.SysEngineIFormDesginerDAO" parent="baseDAO"></bean>
+    
+    <bean id="sysEngineIFormDesginerService" class="com.iwork.core.engine.iform.service.SysEngineIFormDesginerService" scope="prototype">
+    	<property name="sysEngineIFormDesginerDAO" ref="sysEngineIFormDesginerDAO" />
+    	<property name="sysEngineIFormDAO" ref="sysEngineIFormDAO" />
+    	<property name="sysEngineIFormMapDAO" ref="sysEngineIFormMapDAO" />
+    	<property name="sysEngineSubformDAO" ref="sysEngineSubformDAO" />
+    </bean>
+    <bean id="sysEngineIFormDesginerAction" class="com.iwork.core.engine.iform.action.SysEngineIFormDesginerAction" scope="prototype">
+    	 <property name="sysEngineIFormService" ref="sysEngineIFormService" />
+         <property name="sysEngineIFormDesginerService" ref="sysEngineIFormDesginerService" />
+    </bean>
+     <bean id="sysEngineIFormComponentsService" class="com.iwork.core.engine.iform.service.SysEngineIFormComponentsService" scope="prototype">
+    	<property name="sysEngineIFormDesginerDAO" ref="sysEngineIFormDesginerDAO" />
+    	<property name="sysEngineIFormDAO" ref="sysEngineIFormDAO" />
+    </bean>
+    <bean id="sysEngineIFormComponentsAction" class="com.iwork.core.engine.iform.action.SysEngineIFormComponentsAction" scope="prototype">
+    	 <property name="sysEngineIFormComponentsService" ref="sysEngineIFormComponentsService" />
+    	 <property name="sysEngineIFormService" ref="sysEngineIFormService" />
+         <property name="sysEngineIFormDesginerService" ref="sysEngineIFormDesginerService" />
+    </bean>
+     <bean id="iformDataDAO" class="com.iwork.core.engine.iform.dao.IFormDataDAO" parent="baseDAO"></bean>
+     <bean id="iformAction" class="com.iwork.core.engine.iform.action.IFormAction" scope="prototype">
+    	 <property name="iformService" ref="iformService" />
+    	 <property name="sysEngineIFormComponentsService" ref="sysEngineIFormComponentsService" />
+    	 <property name="sysEngineIFormService" ref="sysEngineIFormService" />
+         <property name="sysEngineSubformService" ref="sysEngineSubformService" />
+         <property name="orgUserDAO" ref="orgUserDAO" />
+         <property name="sysDemWorkBoxService" ref="sysDemWorkBoxService" />
+         <property name="sysDemTriggerService" ref="sysDemTriggerService" />
+         <property name="processStepTriggerService" ref="processStepTriggerService" />
+    	 <property name="sysDemEngineDAO" ref="sysDemEngineDAO" />
+         <property name="freemarderConfig" ref="freemarderConfig" />
+    </bean>
+     <bean id="iformService" class="com.iwork.core.engine.iform.service.IFormService" scope="prototype">
+     	<property name="taskService" ref="taskService" />
+     	<property name="sysEngineSubformDAO" ref="sysEngineSubformDAO" />
+      	<property name="sysEngineIFormDAO" ref="sysEngineIFormDAO" />
+      	<property name="sysEngineMetadataMapDAO" ref="sysEngineMetadataMapDAO" />
+    	<property name="sysEngineMetadataDAO" ref="sysEngineMetadataDAO" />
+    	<property name="sysEngineIFormMapDAO" ref="sysEngineIFormMapDAO" />
+    	<property name="sysDemTriggerService" ref="sysDemTriggerService" />
+    	<property name="iformBindDAO" ref="iformBindDAO" />
+    	<property name="iformDataDAO" ref="iformDataDAO" />
+    	<property name="instanceDataDAO" ref="instanceDataDAO" />
+    	<property name="sysDictionaryRuntimeService" ref="sysDictionaryRuntimeService" />
+    	<property name="sysIformActionLogService" ref="sysIformActionLogService" />
+         <property name="freemarderConfig" ref="freemarderConfig" />
+         <property name="mobilefreemarderConfig" ref="mobilefreemarderConfig" />
+        <property name="richTextUtil" ref="richTextUtil" />
+    </bean> 
+     <bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape"/>
+    <bean id="freemarderConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer" scope="prototype">
+   		<property name="templateLoaderPath" value="/WEB-INF/templates/user_templates/"/> 
+   		<property name="freemarkerVariables">
+   			<map>
+	         	<entry key="xml_escape" value-ref="fmXmlEscape"/>
+	      </map>
+   		</property>
+   		<property name="freemarkerSettings">
+	   		<props>
+	       		<prop key="defaultEncoding">GBK</prop>
+	       		<prop key="template_update_delay">3600</prop>
+	     	</props>
+  		</property>
+	</bean>
+	<bean id="mobilefreemarderConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer" scope="prototype">
+   		<property name="templateLoaderPath" value="/WEB-INF/templates/user_templates/mobile"/> 
+   		<property name="freemarkerVariables">  
+            <map>  
+                <entry key="xml_escape" value-ref="fmXmlEscape" />  
+            </map>  
+        </property>
+   		<property name="freemarkerSettings">  
+            <props>  
+                <prop key="template_update_delay">3600</prop>  
+                <prop key="tag_syntax">auto_detect</prop><!-- 设置标签类型 两种：[] 和 <> 。[] 这种标记解析要快些 -->  
+                <prop key="default_encoding">UTF-8</prop>  
+                <prop key="output_encoding">UTF-8</prop>  
+                <prop key="locale">zh_CN</prop>  
+                <prop key="date_format">yyyy-MM-dd</prop>  
+                <prop key="time_format">HH:mm:ss</prop>  
+                <prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>  
+                <prop key="number_format">#</prop><!-- 设置数字格式 以免出现 000.00 -->  
+                <prop key="classic_compatible">true</prop><!-- 可以满足一般需要。默认情况变量为null则替换为空字符串，如果需要自定义，写上${empty!"EmptyValue of fbysss"}的形式即可  -->  
+                <prop key="template_exception_handler">html_debug</prop><!-- ignore,debug,html_debug,rethrow -->  
+            </props>  
+        </property>  
+	</bean>
+    <bean id="mailfreemarderConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer" scope="prototype">
+   		<property name="templateLoaderPath" value="/WEB-INF/templates/system/"/> 
+   		<property name="freemarkerVariables">
+   			<map>
+	         	<entry key="xml_escape" value-ref="fmXmlEscape"/>
+	      </map>
+   		</property>
+   		<property name="freemarkerSettings">
+	   		<props>
+	       		<prop key="defaultEncoding">GBK</prop>
+	       		<prop key="template_update_delay">3600</prop>
+	     	</props>
+  		</property>
+	</bean>
+	<!-- 表单关系数据管理 -->
+	<bean id="iformBindDAO" class="com.iwork.core.engine.iform.dao.SysEngineFormBindDAO" parent="baseDAO"></bean>
+	<bean id="instanceDataDAO" class="com.iwork.core.engine.iform.dao.SysInstanceDataDAO" parent="baseDAO"></bean>
+	
+    <!-- 表单引擎End -->
+    
+    <!-- 数据管理引擎 -->
+    	<bean id="sysDemEngineDAO" class="com.iwork.core.engine.dem.dao.SysDemEngineDAO" parent="baseDAO"></bean>
+    	<bean id="sysDemEngineService" class="com.iwork.core.engine.dem.service.SysDemEngineService" scope="prototype">
+    		<property name="sysDemEngineDAO" ref="sysDemEngineDAO" />
+    		<property name="sysEngineGroupDAO" ref="sysEngineGroupDAO" />
+    		<property name="iformService" ref="iformService" />
+    		
+    	</bean> 
+    	<bean id="sysDemEngineAction" class="com.iwork.core.engine.dem.action.SysDemEngineAction"  scope="prototype">
+    		<property name="sysDemEngineService" ref="sysDemEngineService" />
+    	</bean>
+    	<bean id="sysDemSearchDAO" class="com.iwork.core.engine.dem.dao.SysDemSearchDAO" parent="baseDAO"></bean>
+    <bean id="sysDemSearchService" class="com.iwork.core.engine.dem.service.SysDemSearchService" scope="prototype">
+      	<property name="sysDemSearchDAO" ref="sysDemSearchDAO" /> 
+      	<property name="sysDemEngineDAO" ref="sysDemEngineDAO" /> 
+      	<property name="sysEngineIFormDAO" ref="sysEngineIFormDAO" />
+      	<property name="sysEngineMetadataMapDAO" ref="sysEngineMetadataMapDAO" />
+    	<property name="sysEngineMetadataDAO" ref="sysEngineMetadataDAO" />
+    	<property name="sysEngineIFormMapDAO" ref="sysEngineIFormMapDAO" />
+    	<property name="sysEngineSubformDAO" ref="sysEngineSubformDAO" />
+    </bean> 
+    <bean id="sysDemSearchAction" class="com.iwork.core.engine.dem.action.SysDemSearchAction" scope="prototype">
+    	 <property name="sysDemSearchService" ref="sysDemSearchService" /> 
+    </bean>
+    <bean id="sysDemDisplayDAO" class="com.iwork.core.engine.dem.dao.SysDemDisplayDAO" parent="baseDAO"></bean>
+    <bean id="sysDemDisplayService" class="com.iwork.core.engine.dem.service.SysDemDisplayService" scope="prototype">
+      	<property name="sysDemDisplayDAO" ref="sysDemDisplayDAO" /> 
+      	<property name="sysDemEngineDAO" ref="sysDemEngineDAO" /> 
+      	<property name="sysEngineIFormDAO" ref="sysEngineIFormDAO" />
+      	<property name="sysEngineMetadataMapDAO" ref="sysEngineMetadataMapDAO" />
+    	<property name="sysEngineMetadataDAO" ref="sysEngineMetadataDAO" />
+    	<property name="sysEngineIFormMapDAO" ref="sysEngineIFormMapDAO" />
+    	<property name="sysEngineSubformDAO" ref="sysEngineSubformDAO" />
+    </bean>
+     <bean id="sysDemDisplayAction" class="com.iwork.core.engine.dem.action.SysDemDisplayAction" scope="prototype">
+    	 <property name="sysDemDisplayService" ref="sysDemDisplayService" /> 
+    </bean> 
+    <bean id="sysDemTriggerDAO" class="com.iwork.core.engine.dem.dao.SysDemTriggerDAO" parent="baseDAO"></bean>
+    <bean id="sysDemTriggerService" class="com.iwork.core.engine.dem.service.SysDemTriggerService" scope="prototype">
+      	<property name="sysDemTriggerDAO" ref="sysDemTriggerDAO" /> 
+    </bean>
+    <bean id="sysDemTriggerAction" class="com.iwork.core.engine.dem.action.SysDemTriggerAction" scope="prototype">
+    	 <property name="sysDemTriggerService" ref="sysDemTriggerService" /> 
+    </bean> 
+    <bean id="sysDemWorkBoxAction" class="com.iwork.core.engine.dem.action.SysDemWorkBoxAction" scope="prototype">
+    	 <property name="sysDemWorkBoxService" ref="sysDemWorkBoxService" />
+    	 <property name="sysDemEngineService" ref="sysDemEngineService" />
+    	 <property name="sysIformActionLogService" ref="sysIformActionLogService" />
+    	 <property name="pagerService">
+			<ref bean="pagerService"/>
+		</property>
+    </bean> 
+     <bean id="sysDemWorkBoxService" class="com.iwork.core.engine.dem.service.SysDemWorkBoxService" scope="prototype">
+     	<property name="sysEngineSubformDAO" ref="sysEngineSubformDAO" />
+      	<property name="sysEngineIFormDAO" ref="sysEngineIFormDAO" />
+      	<property name="sysEngineMetadataMapDAO" ref="sysEngineMetadataMapDAO" />
+    	<property name="sysEngineMetadataDAO" ref="sysEngineMetadataDAO" />
+    	<property name="sysEngineIFormMapDAO" ref="sysEngineIFormMapDAO" />
+    	<property name="iformBindDAO" ref="iformBindDAO" />
+    	<property name="iformDataDAO" ref="iformDataDAO" />
+    	<property name="sysEngineGroupDAO" ref="sysEngineGroupDAO" /> 
+    	<property name="instanceDataDAO" ref="instanceDataDAO" />
+    	<property name="sysDemSearchDAO" ref="sysDemSearchDAO" />
+    	<property name="sysDemEngineDAO" ref="sysDemEngineDAO" />
+    	<property name="sysDemDisplayDAO" ref="sysDemDisplayDAO" />
+    	<property name="sysPurviewDemDAO" ref="sysPurviewDemDAO" /> 
+    	<property name="sysDemTriggerService" ref="sysDemTriggerService" /> 
+    </bean>
+    <!-- 数据管理引擎END -->
+    <!-- 表单操作日志管理 -->
+     <bean id="sysIformActionLogDAO" class="com.iwork.core.engine.log.dao.SysIformActionLogDAO" parent="baseDAO"></bean>
+    <bean id="sysIformActionLogService" class="com.iwork.core.engine.log.service.SysIformActionLogService" scope="prototype">
+     	<property name="sysIformActionLogDAO" ref="sysIformActionLogDAO" />
+     	<property name="sysEngineSubformDAO" ref="sysEngineSubformDAO" />
+      	<property name="sysEngineIFormDAO" ref="sysEngineIFormDAO" />
+      	<property name="sysEngineMetadataMapDAO" ref="sysEngineMetadataMapDAO" />
+    	<property name="sysEngineMetadataDAO" ref="sysEngineMetadataDAO" />
+    	<property name="sysEngineIFormMapDAO" ref="sysEngineIFormMapDAO" />
+    	<property name="iformBindDAO" ref="iformBindDAO" />
+    	<property name="iformDataDAO" ref="iformDataDAO" />
+    </bean>
+     <bean id="sysIformActionLogAction" class="com.iwork.core.engine.log.action.SysIformActionLogAction" scope="prototype">
+    	 <property name="sysIformActionLogService" ref="sysIformActionLogService" />
+    	 <property name="pagerService">
+			<ref bean="pagerService"/>
+		</property>
+    </bean> 
+     <!-- 模型传输管理 -->
+    <bean id="sysTransferLogDAO" class="com.iwork.core.engine.transfer.dao.SysTransferLogDAO" parent="baseDAO"></bean>
+    <bean id="sysTransferModuleDAO" class="com.iwork.core.engine.transfer.dao.SysTransferModuleDAO" parent="baseDAO"></bean>
+    <bean id="sysTransferSpaceDAO" class="com.iwork.core.engine.transfer.dao.SysTransferSpaceDAO" parent="baseDAO"></bean>
+    <bean id="sysTransferService" class="com.iwork.core.engine.transfer.service.SysTransferService" scope="prototype">
+		<property name="sysTransferLogDAO" ref="sysTransferLogDAO" />
+		<property name="sysTransferModuleDAO" ref="sysTransferModuleDAO" />
+		<property name="sysTransferSpaceDAO" ref="sysTransferSpaceDAO" />
+		<property name="sysEngineSubformDAO" ref="sysEngineSubformDAO" />
+      	<property name="sysEngineIFormService" ref="sysEngineIFormService" />
+      	<property name="sysEngineIFormDAO" ref="sysEngineIFormDAO" />
+      	<property name="sysEngineMetadataKeyService" ref="sysEngineMetadataKeyService" />
+      	<property name="sysEngineMetadataMapDAO" ref="sysEngineMetadataMapDAO" />
+    	<property name="sysEngineMetadataDAO" ref="sysEngineMetadataDAO" />
+    	<property name="sysEngineIFormMapDAO" ref="sysEngineIFormMapDAO" />
+    	<property name="sysDictionaryRuntimeService" ref="sysDictionaryRuntimeService" />
+    	<property name="sysDemSearchDAO" ref="sysDemSearchDAO" />
+    	<property name="sysDemEngineDAO" ref="sysDemEngineDAO" />
+    	<property name="sysDemDisplayDAO" ref="sysDemDisplayDAO" />
+    	<property name="sysDemTriggerService" ref="sysDemTriggerService" /> 
+    	<property name="processDeploymentService" ref="processDeploymentService" /> 
+    	<property name="iReportDesignService" ref="iReportDesignService" /> 
+    	<property name="iReportDesignConditionService" ref="iReportDesignConditionService" />
+    	<property name="iReportDesignGroupService" ref="iReportDesignGroupService" />
+    	<property name="iReportDesignStatisticsService" ref="iReportDesignStatisticsService" />
+    	<property name="iReportDesignScopeService" ref="iReportDesignScopeService" />
+    	<property name="iReportDesignOrderService" ref="iReportDesignOrderService" />
+    	<property name="iReportDesignFormFieldService" ref="iReportDesignFormFieldService" />
+    </bean>
+    <bean id="sysTransferAction" class="com.iwork.core.engine.transfer.action.SysTransferAction" scope="prototype">
+		<property name="sysTransferService" ref="sysTransferService" />
+    </bean>
+     <bean id="sysExportModuleService" class="com.iwork.core.engine.transfer.service.SysExportModuleService" scope="prototype">
+		<property name="sysEngineGroupDAO" ref="sysEngineGroupDAO" />
+		<property name="sysTransferLogDAO" ref="sysTransferLogDAO" />
+		<property name="sysEngineSubformDAO" ref="sysEngineSubformDAO" />
+      	<property name="sysEngineIFormDAO" ref="sysEngineIFormDAO" />
+      	<property name="sysEngineMetadataKeyDAO" ref="sysEngineMetadataKeyDAO" />
+      	<property name="sysEngineMetadataMapDAO" ref="sysEngineMetadataMapDAO" />
+    	<property name="sysEngineMetadataDAO" ref="sysEngineMetadataDAO" />
+    	<property name="sysEngineIFormMapDAO" ref="sysEngineIFormMapDAO" />
+    	<property name="sysDictionaryRuntimeService" ref="sysDictionaryRuntimeService" />
+    	<property name="sysDemSearchDAO" ref="sysDemSearchDAO" />
+    	<property name="sysDemEngineService" ref="sysDemEngineService" />
+    	<property name="sysDemDisplayDAO" ref="sysDemDisplayDAO" />
+    	<property name="sysDemTriggerService" ref="sysDemTriggerService" /> 
+    	<property name="processRuntimeExcuteService" ref="processRuntimeExcuteService" /> 
+    	<property name="processDeploymentService" ref="processDeploymentService" /> 
+    	<property name="iReportDesignService" ref="iReportDesignService" /> 
+    	<property name="iReportDesignConditionService" ref="iReportDesignConditionService" />
+    	<property name="iReportDesignGroupService" ref="iReportDesignGroupService" />
+    	<property name="iReportDesignStatisticsService" ref="iReportDesignStatisticsService" />
+    	<property name="iReportDesignScopeService" ref="iReportDesignScopeService" />
+    	<property name="iReportDesignOrderService" ref="iReportDesignOrderService" />
+    	<property name="iReportDesignFormFieldService" ref="iReportDesignFormFieldService" />
+    	<property name="processEngine" ref="processEngine" /> 
+    	 <property name="cacheManagementService" ref="cacheManagementService" />
+    </bean>
+    <bean id="sysExportModuleAction" class="com.iwork.core.engine.transfer.action.SysExportModuleAction" scope="prototype">
+		<property name="sysExportModuleService" ref="sysExportModuleService" />
+    </bean>
+      <!-- 模型传输管理  -->
+      <!-- 数据集成管理平台 -->
+      <bean id="connectionDesignDAO"
+        class="com.iwork.connection.dao.ConnectionDesignDAO" parent="baseDAO">
+    </bean>
+    <bean id="connectionDesignService" class="com.iwork.connection.service.ConnectionDesignService" scope="prototype">
+     <property name="connectionDesignDAO" ref="connectionDesignDAO" />
+     <property name="sysEngineGroupDAO" ref="sysEngineGroupDAO" />
+    </bean>
+    <bean id="connectionDesignAction" class="com.iwork.connection.action.ConnectionDesignAction" scope="prototype">
+     <property name="connectionDesignService" ref="connectionDesignService" />
+    </bean>
+     <bean id="connectionRuntimeDAO"
+        class="com.iwork.connection.dao.ConnectionRuntimeDAO" parent="baseDAO">
+    </bean>
+    <bean id="connectionRuntimeService" class="com.iwork.connection.service.ConnectionRuntimeService" scope="prototype">
+    	 <property name="connectionRuntimeDAO" ref="connectionRuntimeDAO" />
+    	 <property name="connectionDesignService" ref="connectionDesignService" />
+    </bean>
+    <bean id="connectionRuntimeAction" class="com.iwork.connection.action.ConnectionRuntimeAction" scope="prototype">
+     <property name="connectionRuntimeService" ref="connectionRuntimeService" />
+    </bean>
+      <!-- 数据集成管理平台END -->
+      
+    <!-- 系统监控管理 -->
+     <bean id="systemServerMonitorAction" class="com.iwork.core.server.monitor.SystemServerMonitorAction" scope="prototype">
+     <property name="dataSource" ref="dataSource" />
+     <property name="systemServerMonitorService" ref="systemServerMonitorService" />
+    </bean>
+    <bean id="systemServerMonitorService" class="com.iwork.core.server.monitor.service.SystemServerMonitorService" scope="prototype">
+    	<property name="loginService" ref="loginService" />
+    	<property name="sysEngineIFormDAO" ref="sysEngineIFormDAO" />
+    	<property name="sysEngineMetadataDAO" ref="sysEngineMetadataDAO" />
+    	<property name="sysDemEngineDAO" ref="sysDemEngineDAO" />
+    	<property name="processDeploymentService" ref="processDeploymentService" />
+    </bean>
+    <!-- 短信平台 -->
+     <!--短信发送 -->
+    <bean id="msgDao"
+        class="com.iwork.plugs.sms.dao.MsgDao" parent="baseDAO">
+    </bean>
+
+    <bean id="msgService" class="com.iwork.plugs.sms.service.MsgService" scope="prototype">
+		<property name="msgDao" ref="msgDao" />
+		<property name="zqbMeetingManageService" ref="zqbMeetingManageService" />
+		<property name="orgDepartmentService" ref="orgDepartmentService" />
+		<property name="orgUserService" ref="orgUserService" />
+    </bean>
+    <bean id="messagesendAction" class="com.iwork.plugs.sms.action.MessageSendAction" scope="prototype">
+		<property name="msgService" ref="msgService" />
+		
+    </bean>
+     
+    <!-- 号码簿 -->
+    <bean id="phonebookDao"
+        class="com.iwork.plugs.sms.dao.PhonebookDao" parent="baseDAO">
+    </bean>
+
+    <bean id="phonebookService" class="com.iwork.plugs.sms.service.PhonebookService" scope="prototype">
+		<property name="phonebookDao" ref="phonebookDao" />
+    </bean>
+    <bean id="phonebookAction" class="com.iwork.plugs.sms.action.PhonebookAction" scope="prototype">
+		<property name="phonebookService" ref="phonebookService" />
+    </bean>
+    <!-- 日志 -->
+    <bean id="logDao"
+        class="com.iwork.plugs.sms.dao.LogDao" parent="baseDAO">
+    </bean>
+
+    <bean id="logService" class="com.iwork.plugs.sms.service.LogService" scope="prototype">
+		<property name="logDao" ref="logDao" />
+    </bean>
+    <bean id="logAction" class="com.iwork.plugs.sms.action.LogAction" scope="prototype">
+		<property name="logService" ref="logService" />
+		<property name="pagerService"> 
+			<ref bean="pagerService"/> 
+		</property> 
+    </bean>
+    <!-- 临时短信 -->
+    <bean id="tempDao"
+        class="com.iwork.plugs.sms.dao.TempDao" parent="baseDAO">
+    </bean>
+
+    <bean id="tempService" class="com.iwork.plugs.sms.service.TempService" scope="prototype">
+		<property name="tempDao" ref="tempDao" />
+    </bean>
+    <bean id="tempAction" class="com.iwork.plugs.sms.action.TempAction" scope="prototype">
+		<property name="tempService" ref="tempService" />
+    </bean>
+    <!-- 个人短信查询 -->
+    <bean id="privateMsgDao"
+        class="com.iwork.plugs.sms.dao.PrivateMsgDao" parent="baseDAO">
+    </bean>
+
+    <bean id="privateMsgService" class="com.iwork.plugs.sms.service.PrivateMsgService" scope="prototype">
+		<property name="privateMsgDao" ref="privateMsgDao" />
+    </bean>
+    <bean id="privateMsgAction" class="com.iwork.plugs.sms.action.PrivateMsgAction" scope="prototype">
+		<property name="privateMsgService" ref="privateMsgService" />
+		<property name="pagerService"> 
+			<ref bean="pagerService"/> 
+		</property> 
+    </bean>
+     <!-- 系统设置 -->
+    <bean id="configDao"
+        class="com.iwork.plugs.sms.dao.ConfigDao" parent="baseDAO">
+    </bean>
+
+    <bean id="configService" class="com.iwork.plugs.sms.service.ConfigService" scope="prototype">
+		<property name="configDao" ref="configDao" />
+    </bean>
+    <bean id="configAction" class="com.iwork.plugs.sms.action.ConfigAction" scope="prototype">
+		<property name="configService" ref="configService" />
+    </bean>
+    
+     <!-- 写入日志 -->
+    <bean id="addlogDao"
+        class="com.iwork.plugs.sms.dao.AddlogDao" parent="baseDAO">
+    </bean>
+
+    <bean id="addlogService" class="com.iwork.plugs.sms.service.AddlogService" scope="prototype">
+		<property name="addlogDao" ref="addlogDao" />
+    </bean>
+    <bean id="addlogAction" class="com.iwork.plugs.sms.action.AddlogAction" scope="prototype">
+		<property name="addlogService" ref="addlogService" />
+    </bean>
+   
+    <!-- 短信管理 -->
+    <bean id="msgmanageDao"
+        class="com.iwork.plugs.sms.dao.MsgmanageDao" parent="baseDAO">
+    </bean>
+
+    <bean id="msgmanageService" class="com.iwork.plugs.sms.service.MsgmanageService" scope="prototype">
+		<property name="msgmanageDao" ref="msgmanageDao" />
+    </bean>
+    <bean id="msgmanageAction" class="com.iwork.plugs.sms.action.MsgmanageAction" scope="prototype">
+		<property name="msgmanageService" ref="msgmanageService" />
+		<property name="pagerService"> 
+			<ref bean="pagerService"/> 
+		</property> 
+    </bean> 
+    <!-- 用户管理 -->
+     <bean id="smsUser1Dao"
+        class="com.iwork.plugs.sms.dao.SmsUser1Dao" parent="baseDAO">
+    </bean>
+    <bean id="smsUser1Service" class="com.iwork.plugs.sms.service.SmsUser1Service" scope="prototype">
+		<property name="smsUser1Dao" ref="smsUser1Dao" />
+    </bean>
+    <bean id="smsUser1Action" class="com.iwork.plugs.sms.action.SmsUser1Action" scope="prototype">
+		<property name="smsUser1Service" ref="smsUser1Service" />		
+    </bean>    
+    <!-- END -->
+    
+    <!-- 资源预定 -->
+    
+    <bean id="spaceManageDao"
+        class="com.iwork.plugs.resoucebook.dao.SpaceManageDao" parent="baseDAO">
+    </bean>
+    <bean id="spaceManageService" class="com.iwork.plugs.resoucebook.service.SpaceManageService" scope="prototype">
+		<property name="spaceManageDao" ref="spaceManageDao" />
+    </bean>
+    <bean id="spaceManageAction" class="com.iwork.plugs.resoucebook.action.SpaceManageAction" scope="prototype">
+		<property name="spaceManageService" ref="spaceManageService" />		
+    </bean>
+    
+    <bean id="resourceBookService" class="com.iwork.plugs.resoucebook.service.ResourceBookService" scope="prototype">
+		<property name="spaceManageDao" ref="spaceManageDao" />
+    </bean>
+    <bean id="resourceBookAction" class="com.iwork.plugs.resoucebook.action.ResourceBookAction" scope="prototype">
+		<property name="resourceBookService" ref="resourceBookService" />		
+    </bean>
+     <bean id="resourceBookBaseInfoService" class="com.iwork.plugs.resoucebook.service.ResourceBookBaseInfoService" scope="prototype">
+		<property name="spaceManageDao" ref="spaceManageDao" />
+    </bean>
+      <bean id="resourceBookBaseInfoAction" class="com.iwork.plugs.resoucebook.action.ResourceBookBaseInfoAction" scope="prototype">
+		<property name="resourceBookBaseInfoService" ref="resourceBookBaseInfoService" />		
+    </bean>
+    
+    <!-- 资源预定end -->
+    <!-- Process Definition start 
+    <bean id="sysProcessDefinitionDAO" class="com.iwork.process.deployment.dao.SysProcessDefinitionDAO" parent="baseDAO"></bean>
+    <bean id="sysActProcMapDAO" class="com.iwork.process.deployment.dao.SysActProcMapDAO" parent="baseDAO"></bean>
+    <bean id="sysActProcMapService" class="com.iwork.process.deployment.service.SysActProcMapService" scope="prototype">
+    	<property name="sysActProcMapDAO" ref="sysActProcMapDAO" />    	
+    </bean>
+    <bean id="sysProcessDefinitionService" class="com.iwork.process.deployment.service.SysProcessDefinitionService" scope="prototype">
+    	<property name="sysProcessDefinitionDAO" ref="sysProcessDefinitionDAO" />
+    	<property name="sysEngineGroupDAO" ref="sysEngineGroupDAO" />
+    	<property name="taskService" ref="taskService" />
+        <property name="repositoryService" ref="repositoryService" />
+        <property name="runtimeService" ref="runtimeService" />
+        <property name="historyService" ref="historyService" />
+        <property name="managementService" ref="managementService" />
+        <property name="sysActProcMapDAO" ref="sysActProcMapDAO" /> 
+    </bean>
+    <bean id="sysProcessDefinitionAction" class="com.iwork.process.deployment.action.SysProcessDefinitionAction" scope="prototype">
+        <property name="sysProcessDefinitionService" ref="sysProcessDefinitionService" />
+        <property name="sysEngineGroupService" ref="sysEngineGroupService" />
+        <property name="taskService" ref="taskService" />
+        <property name="repositoryService" ref="repositoryService" />
+        <property name="runtimeService" ref="runtimeService" />
+        <property name="historyService" ref="historyService" />
+        <property name="managementService" ref="managementService" />
+        <property name="sysActProcMapService" ref="sysActProcMapService" />
+    </bean>--> 
+    <!-- Process Definition end-->
+    <!-- Process Launch Center start -->
+    <bean id="processLaunchCenterAction" class="com.iwork.process.launchcenter.action.LaunchCenterAction" scope="prototype">
+    	<property name="sysEngineGroupService" ref="sysEngineGroupService" />
+    	<property name="sysProcDefService" ref="sysProcessDefinitionService" />
+    	<property name="runtimeService" ref="runtimeService" />
+    	<property name="repositoryService" ref="repositoryService" />
+    	<property name="taskService" ref="taskService" />
+    </bean>
+    <!-- Process Management start -->
+    <bean id="processManagementAction" class="com.iwork.process.management.action.ManagementAction" scope="prototype">
+    	<property name="taskService" ref="taskService" />
+    	<property name="runtimeService" ref="runtimeService" />
+    	<property name="repositoryService" ref="repositoryService" />
+    </bean>
+    <!-- Process Management Center end -->
+    <!-- AddressBook start -->
+    <bean id="authorityAddressBookService" class="com.iwork.plugs.addressbook.service.AuthorityAddressBookService" scope="prototype">
+    	<property name="orgGroupDAO" ref="orgGroupDAO" />
+    	<property name="orgGroupSubDAO" ref="orgGroupSubDAO" />
+    	<property name="orgRoleDAO" ref="orgRoleDAO" /> 
+    	<property name="orgCompanyDAO" ref="orgCompanyDAO" />
+    	<property name="orgDepartmentDAO" ref="orgDepartmentDAO" />
+    	<property name="orgUserDAO" ref="orgUserDAO" />    	
+    </bean>
+    <bean id="authorityAddressBookAction" class="com.iwork.plugs.addressbook.action.AuthorityAddressBookAction" scope="prototype">
+    	<property name="authorityAddressBookService" ref="authorityAddressBookService" />
+    </bean>
+    <bean id="radioAddressBookService" class="com.iwork.plugs.addressbook.service.RadioAddressBookService" scope="prototype">
+    	<property name="orgGroupDAO" ref="orgGroupDAO" />
+    	<property name="orgGroupSubDAO" ref="orgGroupSubDAO" />
+    	<property name="orgRoleDAO" ref="orgRoleDAO" /> 
+    	<property name="orgCompanyDAO" ref="orgCompanyDAO" />
+    	<property name="orgDepartmentDAO" ref="orgDepartmentDAO" />
+    	<property name="orgUserDAO" ref="orgUserDAO" />    	
+    	<property name="orgUserMapDAO" ref="orgUserMapDAO" />    	
+    </bean>
+    <bean id="radioAddressBookAction" class="com.iwork.plugs.addressbook.action.RadioAddressBookAction" scope="prototype">
+    	<property name="radioAddressBookService" ref="radioAddressBookService" />
+    </bean>
+    <bean id="multiAddressBookService" class="com.iwork.plugs.addressbook.service.MultiAddressBookService" scope="prototype">
+    	<property name="orgGroupDAO" ref="orgGroupDAO" />
+    	<property name="orgGroupSubDAO" ref="orgGroupSubDAO" />
+    	<property name="orgRoleDAO" ref="orgRoleDAO" /> 
+    	<property name="orgCompanyDAO" ref="orgCompanyDAO" />
+    	<property name="orgDepartmentDAO" ref="orgDepartmentDAO" />
+    	<property name="orgUserDAO" ref="orgUserDAO" />  
+    	<property name="orgUserMapDAO" ref="orgUserMapDAO" />       	
+    </bean> 
+    <bean id="multiAddressBookAction" class="com.iwork.plugs.addressbook.action.MultiAddressBookAction" scope="prototype">
+    	<property name="multiAddressBookService" ref="multiAddressBookService" />
+    </bean>
+     <bean id="deptAddressBookService" class="com.iwork.plugs.addressbook.service.DeptAddressBookService" scope="prototype">
+    	<property name="orgGroupDAO" ref="orgGroupDAO" />
+    	<property name="orgGroupSubDAO" ref="orgGroupSubDAO" />
+    	<property name="orgRoleDAO" ref="orgRoleDAO" /> 
+    	<property name="orgCompanyDAO" ref="orgCompanyDAO" />
+    	<property name="orgDepartmentDAO" ref="orgDepartmentDAO" />
+    </bean> 
+    <bean id="deptAddressBookAction" class="com.iwork.plugs.addressbook.action.DeptAddressBookAction" scope="prototype">
+    	<property name="deptAddressBookService" ref="deptAddressBookService" />
+    </bean>
+    
+      <!-- AddressBook end -->  
+      <!-- 流程讨论 -->
+    <bean id="processTalkDAO" class="com.iwork.process.tools.processTalk.dao.ProcessTalkDAO" parent="baseDAO">
+    </bean>
+    <bean id="processTalkService" class="com.iwork.process.tools.processTalk.service.ProcessTalkService" scope="prototype">
+    	<property name="sysMessageService" ref="sysMessageService" />
+        <property name="sysMessageLogService" ref="sysMessageLogService" /> 
+    	<property name="processTalkDAO" ref="processTalkDAO" />    	
+    	<property name="weixinTalkService" ref="weixinTalkService" />
+    </bean> 
+    <bean id="processTalkAction" class="com.iwork.process.tools.processTalk.action.ProcessTalkAction" scope="prototype">
+    	<property name="processTalkService" ref="processTalkService" />
+    </bean>
+      <!-- 外部数据源管理 -->
+    <bean id="extDBSrcDao" class="com.iwork.plugs.extdbsrc.dao.ExtDBSrcDao" parent="baseDAO">
+    </bean>
+    <bean id="extDBSrcService" class="com.iwork.plugs.extdbsrc.service.ExtDBSrcService" scope="prototype">
+    	<property name="extDBSrcDao" ref="extDBSrcDao" /> 	
+    </bean> 
+    <bean id="extDBSrcAction" class="com.iwork.plugs.extdbsrc.action.ExtDBSrcAction" scope="prototype">
+    	<property name="extDBSrcService" ref="extDBSrcService" />
+    </bean>
+    <!-- 自定义按钮管理设置 -->    
+     <bean id="processStepDIYBtnDao" class="com.iwork.process.definition.step.dao.ProcessStepDIYBtnDao" parent="baseDAO">
+    </bean>
+    <bean id="processStepDIYBtnService" class="com.iwork.process.definition.step.service.ProcessStepDIYBtnService" scope="prototype">
+    	<property name="processStepDIYBtnDao" ref="processStepDIYBtnDao" /> 	
+    </bean> 
+    <bean id="processStepDIYBtnAction" class="com.iwork.process.definition.step.action.ProcessStepDIYBtnAction" scope="prototype">
+    	<property name="processStepDIYBtnService" ref="processStepDIYBtnService" />
+    	<property name="processStepService" ref="processStepService" />
+    </bean>
+    <!-- 鹰眼检索 -->
+    <bean id="eaglesSearchDAO" class="com.iwork.eaglesearch.dao.EaglesSearchDAO" parent="baseDAO">
+    </bean>
+     <bean id="eaglesSearchService" class="com.iwork.eaglesearch.service.EaglesSearchService" scope="prototype">
+     	<property name="eaglesSearchDAO" ref="eaglesSearchDAO" /> 
+    </bean> 
+    <bean id="eaglesSearchAction" class="com.iwork.eaglesearch.action.EaglesSearchAction" scope="prototype">
+    	<property name="eaglesSearchService" ref="eaglesSearchService" /> 
+    </bean>
+     <!-- 数据选择器组件 -->
+     <bean id="sysDictionaryBaseInfoDAO" class="com.iwork.plugs.dictionary.dao.SysDictionaryBaseInfoDAO" parent="baseDAO">
+    </bean>
+     <bean id="sysDictionaryConditionDAO" class="com.iwork.plugs.dictionary.dao.SysDictionaryConditionDAO" parent="baseDAO">
+    </bean>
+     <bean id="sysDictionaryShowfieldDAO" class="com.iwork.plugs.dictionary.dao.SysDictionaryShowfieldDAO" parent="baseDAO">
+    </bean>
+     <bean id="sysDictionaryDesignService" class="com.iwork.plugs.dictionary.service.SysDictionaryDesignService" scope="prototype">
+        <property name="sysEngineGroupDAO" ref="sysEngineGroupDAO" />  
+        <property name="connectionRuntimeService" ref="connectionRuntimeService" /> 
+     	<property name="sysDictionaryBaseInfoDAO" ref="sysDictionaryBaseInfoDAO" />
+     	<property name="sysDictionaryConditionDAO" ref="sysDictionaryConditionDAO" />
+     	<property name="sysDictionaryShowfieldDAO" ref="sysDictionaryShowfieldDAO" />
+     	<property name="extDBSrcDao" ref="extDBSrcDao" />  
+     	<property name="extDBSrcService" ref="extDBSrcService" />   	
+    </bean> 
+     <bean id="sysDictionaryConditionService" class="com.iwork.plugs.dictionary.service.SysDictionaryConditionService" scope="prototype"> 
+     	<property name="sysDictionaryConditionDAO" ref="sysDictionaryConditionDAO" />
+    </bean>
+     <bean id="sysDictionaryShowfieldService" class="com.iwork.plugs.dictionary.service.SysDictionaryShowfieldService" scope="prototype"> 
+     	<property name="sysDictionaryShowfieldDAO" ref="sysDictionaryShowfieldDAO" />
+    </bean>
+     <bean id="sysDictionaryRuntimeService" class="com.iwork.plugs.dictionary.service.SysDictionaryRuntimeService" scope="prototype">
+     	<property name="connectionRuntimeService" ref="connectionRuntimeService" />  
+     	<property name="sysDictionaryConditionDAO" ref="sysDictionaryConditionDAO" />  
+     	<property name="sysDictionaryShowfieldDAO" ref="sysDictionaryShowfieldDAO" />
+     	<property name="sysDictionaryBaseInfoDAO" ref="sysDictionaryBaseInfoDAO" />
+     	<property name="extDBSrcDao" ref="extDBSrcDao" />  
+     	 <property name="sysDemWorkBoxService" ref="sysDemWorkBoxService" />  
+    </bean>
+    <bean id="sysDictionaryDesignAction" class="com.iwork.plugs.dictionary.action.SysDictionaryDesignAction" scope="prototype">
+    	<property name="sysDictionaryDesignService" ref="sysDictionaryDesignService" /> 
+    	<property name="extDBSrcService" ref="extDBSrcService" /> 
+    </bean>
+    <bean id="sysDictionaryConditionAction" class="com.iwork.plugs.dictionary.action.SysDictionaryConditionAction" scope="prototype">
+    	<property name="sysDictionaryConditionService" ref="sysDictionaryConditionService" /> 
+    </bean>
+    <bean id="sysDictionaryShowfieldAction" class="com.iwork.plugs.dictionary.action.SysDictionaryShowfieldAction" scope="prototype">
+    	<property name="sysDictionaryShowfieldService" ref="sysDictionaryShowfieldService" /> 
+    </bean>
+    <bean id="sysDictionaryRuntimeAction" class="com.iwork.plugs.dictionary.action.SysDictionaryRuntimeAction" scope="prototype">
+    	<property name="sysDictionaryRuntimeService" ref="sysDictionaryRuntimeService" /> 
+    </bean>
+    
+    <!-- OA知道 -->
+    <bean id="knowAction" class="com.iwork.km.know.action.KnowAction" scope="prototype">   
+    	<property name="uploadifyService" ref="documentUploadifyService" /> 
+    	<property name="knowService" ref="knowService" /> 
+    	<property name="pagerService"> 
+			<ref bean="pagerService"/>
+		</property>
+    </bean>
+    <bean id="knowService" class="com.iwork.km.know.service.KnowService" scope="prototype">
+        <property name="sysMessageService" ref="sysMessageService" />  
+        <property name="uploadifyService" ref="documentUploadifyService" />
+     	<property name="knowDAO" ref="knowDAO" />
+    </bean>
+      <bean id="knowDAO" class="com.iwork.km.know.dao.KnowDAO" parent="baseDAO">
+    </bean>
+    <!-- 移动终端 -->
+    <bean id="SyncCalendarAction" class="com.iwork.app.mobile.calendar.SyncCalendarAction" scope="prototype">
+    	<property name="schCalendarService" ref="schCalendarService" />
+    </bean>
+    <bean id="SyncOrganizationAction" class="com.iwork.app.mobile.organization.action.SyncOrganizationAction" scope="prototype">
+		<property name="syncOrganizationService" ref="syncOrganizationService" />
+    </bean>
+    <bean id ="syncOrganizationService" class="com.iwork.app.mobile.organization.service.SyncOrganizationService" scope="prototype">
+    	<property name="orgCompanyDAO" ref="orgCompanyDAO" />
+    	<property name="orgDepartmentDAO" ref="orgDepartmentDAO" />
+    	<property name="orgUserDAO" ref="orgUserDAO" />
+    	<property name="orgUserService" ref="orgUserService" />
+    </bean>
+    <bean id="GetMobileSysTopList" class="com.iwork.app.mobile.systoplist.GetMobileSysTopList" scope="prototype">
+    	<property name="sysNavFrameService" ref="sysNavFrameService" />
+    </bean>
+    <bean id="SyncMobileProcessManagementAction" class="com.iwork.app.mobile.process.management.action.SyncMobileProcessManagementAction" scope="prototype">
+    	<property name="syncMobileProcessManagementService" ref="syncMobileProcessManagementService" />
+    </bean>
+    <bean id="syncMobileProcessManagementService" class="com.iwork.app.mobile.process.management.service.SyncMobileProcessManagementService" scope="prototype">
+    	<property name="taskService" ref="taskService" />
+    	<property name="historyService" ref="historyService" />
+    	<property name="runtimeService" ref="runtimeService" />
+    	<property name="processDeskService" ref="processDeskService" />
+    	<property name="processRuntimeCcDAO" ref="processRuntimeCcDAO" />
+    </bean>
+    <bean id="SyncMobileSysMsgAction" class="com.iwork.app.mobile.sysMsg.action.SyncMobileSysMsgAction" scope="prototype">
+    	<property name="syncMobileSysMsgService" ref="syncMobileSysMsgService" />
+    </bean>
+     <bean id="syncMobileSysMsgService" class="com.iwork.app.mobile.sysMsg.service.SyncMobileSysMsgService" scope="prototype">
+    	<property name="sysMessageDAO" ref="sysMessageDAO" />
+    	<property name="sysMessageService" ref="sysMessageService" />
+    </bean>
+    <bean id="SyncMobileProcessLaunchCenterAction" class="com.iwork.app.mobile.process.create.action.SyncMobileProcessLaunchCenterAction" scope="prototype">
+    	<property name="syncMobileProcessLaunchCenterService" ref="syncMobileProcessLaunchCenterService" />
+    </bean>
+    <bean id="syncMobileProcessLaunchCenterService" class="com.iwork.app.mobile.process.create.service.SyncMobileProcessLaunchCenterService" scope="prototype">
+    	<property name="sysEngineGroupDAO" ref="sysEngineGroupDAO" />
+    	<property name="processDeploymentDAO" ref="processDeploymentDAO" />
+    </bean> 
+	<!-- 用户操作日志  -->
+    <bean id="sysOperateLogAction" class="com.iwork.app.log.operationlog.action.SysOperateLogAction" scope="prototype">   
+    	<property name="sysOperateLogService" ref="sysOperateLogService" /> 
+    </bean>
+    <bean id="sysOperateLogService" class="com.iwork.app.log.operationlog.service.SysOperateLogService" scope="prototype">
+     	<property name="sysOperateLogDAO" ref="sysOperateLogDAO" />
+    </bean>
+      <bean id="sysOperateLogDAO" class="com.iwork.app.log.operationlog.dao.SysOperateLogDAO" parent="baseDAO">
+    </bean>
+    
+    
+    <!-- 公式规则编辑器 -->
+    <bean id="expressionService" class="com.iwork.plugs.expression.service.ExpressionService" scope="prototype" />
+	<bean id="expressionAction" class="com.iwork.plugs.expression.action.ExpressionAction" scope="prototype">
+		<property name="expressionService" ref="expressionService" />
+	</bean>
+    <!-- 公式规则编辑器END -->
+    
+    <!-- 天气预报 -->
+    <bean id="weatherDao" class="com.iwork.plugs.weather.dao.WeatherDao" parent="baseDAO" />
+    <bean id="weatherService" class="com.iwork.plugs.weather.service.WeatherService" scope="prototype" >
+    	<property name="weatherDao" ref="weatherDao" />
+    </bean>
+	<bean id="weatherAction" class="com.iwork.plugs.weather.action.WeatherAction" scope="prototype">
+		<property name="weatherService" ref="weatherService" />
+	</bean>
+    
+    <!-- 天气预报end -->
+    <!-- 首页桌面 -->
+    <bean id="cmsMyDesktopPortletAction" class="com.iwork.plugs.cms.action.CmsMyDesktopPortletAction" scope="prototype">
+		 <property name="cmsPortletService" ref="cmsPortletService" />
+	</bean>	
+    <!-- 首页桌面END -->
+	<!-- 图片上传 -->
+    <bean id="cmsFileUploadAction" class="com.iwork.plugs.cms.action.CmsFileUploadAction" scope="prototype">   
+    	<property name="uploadifyService" ref="uploadifyService" /> 
+    </bean>
+    <!-- 图片上传END -->
+    <!-- CMS评论 -->
+	<bean id="cmsCommentDao" class="com.iwork.plugs.cms.dao.CmsCommentDao" parent="baseDAO" />
+	<!-- CMS评论END -->
+	  <!-- 新闻资讯-mobile -->
+	<bean id="syncInformactionService" class="com.iwork.app.mobile.information.service.SyncInformactionService" scope="prototype">
+		<property name="cmsInfoDAO" ref="cmsInfoDAO" />
+		<property name="cmsPortletDAO" ref="cmsPortletDAO" />
+	</bean>
+	<bean id="syncInformactionAction" class="com.iwork.app.mobile.information.action.SyncInformactionAction" scope="prototype">
+		<property name="syncInformactionService" ref="syncInformactionService" />
+	</bean>
+	<!-- end -->
+	<!-- 移动端登陆权限控制 -->
+
+	<bean id="sysMobileVisitsetDao" class="com.iwork.app.mobile.accessControl.dao.SysMobileVisitsetDao" parent="baseDAO" />
+
+	<bean id="mobileLoginAccessControlService" class="com.iwork.app.mobile.accessControl.service.MobileLoginAccessControlService" scope="prototype" >
+    	<property name="orgCompanyDAO" ref="orgCompanyDAO" />
+    	<property name="orgDepartmentDAO" ref="orgDepartmentDAO" />
+    	<property name="orgUserService" ref="orgUserService" />
+    	<property name="sysMobileVisitsetDao" ref="sysMobileVisitsetDao" />
+    	<property name="sysUserLoginLogDAO" ref="sysUserLoginLogDAO" />
+    </bean>
+    
+	<bean id="mobileLoginAccessControlAction" class="com.iwork.app.mobile.accessControl.action.MobileLoginAccessControlAction" scope="prototype">
+		<property name="mobileLoginAccessControlService" ref="mobileLoginAccessControlService" />
+	</bean>
+	
+	<!-- 移动端登陆权限控制END -->
+	
+	<!-- 知识 -->
+	<bean id="kmDocMobileService" class="com.iwork.km.document.service.KMDocMobileService" scope="prototype"></bean>
+	<bean id="kmDocMobileAction" class="com.iwork.km.document.action.KMDocMobileAction" scope="prototype">
+		<property name="kmDocMobileService" ref="kmDocMobileService" />
+	</bean>
+	 <!-- WebService管理 -->
+    <bean id="webServiceDAO" class="com.iwork.webservice.dao.WebServiceDAO" parent="baseDAO">
+    </bean>
+    
+    <bean id="webServiceService" class="com.iwork.webservice.service.WebServiceService" scope="prototype">   
+    	<property name="webServiceDAO" ref="webServiceDAO" />
+     	<property name="sysEngineGroupDAO" ref="sysEngineGroupDAO" />
+    </bean>
+    
+    <bean id="webServiceAction" class="com.iwork.webservice.action.WebServiceAction" scope="prototype">   
+    	<property name="webServiceService" ref="webServiceService" />
+    </bean>
+    
+    <bean id="webServiceRuntimeDAO" class="com.iwork.webservice.dao.WebServiceRuntimeDAO" parent="baseDAO">
+    </bean>
+    
+    <bean id="webServiceRuntimeService" class="com.iwork.webservice.service.WebServiceRuntimeService" scope="prototype">   
+    	<property name="webServiceRuntimeDAO" ref="webServiceRuntimeDAO" />
+     	<property name="webServiceService" ref="webServiceService" />
+    </bean>
+    
+    <bean id="webServiceRuntimeAction" class="com.iwork.webservice.action.WebServiceRuntimeAction" scope="prototype">   
+    	<property name="webServiceRuntimeService" ref="webServiceRuntimeService" />
+    </bean>
+        <!-- 系统日历 -->
+    <bean id="syscalendardao" class="com.iwork.plugs.syscalendar.dao.SysCalendarDao" parent="baseDAO">
+    </bean>
+    <bean id="sysworkcalendarservice" class="com.iwork.plugs.syscalendar.service.SysWorkCalendarService" scope="prototype">
+    	<property name="syscalendardao" ref="syscalendardao"></property>
+    </bean>
+    <bean id="sysworkcalendaraction" class="com.iwork.plugs.syscalendar.action.SysWorkCalendarAction" scope="prototype">   
+    <property name="sysworkcalendarservice" ref="sysworkcalendarservice"></property>
+    </bean>
+    <!-- 系统站内信 -->
+    <bean id="sysletterscontrolsdao" class="com.iwork.plugs.sysletters.dao.SysLettersControlsDao" parent="baseDAO">
+    </bean>
+    <bean id="sysletterscontrolsservice" class="com.iwork.plugs.sysletters.service.SysLettersControlsService" scope="prototype">
+    	<property name="sysletterscontrolsdao" ref="sysletterscontrolsdao"></property>
+    </bean>
+    <bean id="sysletterscontrolsaction" class="com.iwork.plugs.sysletters.action.SysLettersControlsAction" scope="prototype">   
+    <property name="sysletterscontrolsservice" ref="sysletterscontrolsservice"></property>
+    </bean>
+    <!-- 文档制作 -->
+    <bean id="hiDocMakerService" class="com.iwork.core.engine.docmaker.service.HiDocMakerService" scope="prototype">
+     <property name="sysEngineGroupDAO" ref="sysEngineGroupDAO"></property>
+     <property name="sysDemWorkBoxService" ref="sysDemWorkBoxService"></property>
+     <property name="processStepRouteService" ref="processStepRouteService"></property>
+     <property name="processRuntimeExcuteService" ref="processRuntimeExcuteService"></property>
+     <property name="sysDemSearchDAO" ref="sysDemSearchDAO" />
+    	<property name="sysDemEngineDAO" ref="sysDemEngineDAO" />
+    	<property name="sysDemDisplayDAO" ref="sysDemDisplayDAO" />
+    </bean>
+    <bean id="hiDocMakerAction" class="com.iwork.core.engine.docmaker.action.HiDocMakerAction" scope="prototype">   
+    <property name="hiDocMakerService" ref="hiDocMakerService"></property>
+    </bean>
+    <!-- 文档制作End -->
+    
+  <!-- 合同管理 -->
+    <bean id="iworkContractService" class="com.iwork.plugs.contract.service.IWorkContractService" scope="prototype">
+    
+    </bean>
+    <bean id="iWorkContractAction" class="com.iwork.plugs.contract.action.IWorkContractAction" scope="prototype">   
+    	<property name="iworkContractService" ref="iworkContractService"></property>
+    </bean>
+    <!-- 扫码处理 -->
+     <bean id="scanCodeService" class="com.iwork.app.scancode.service.ScanCodeService" scope="prototype">
+    
+    </bean>
+    <bean id="scanCodeAction" class="com.iwork.app.scancode.action.ScanCodeAction" scope="prototype">   
+    	<property name="scanCodeService" ref="scanCodeService"></property>
+    </bean>
+      <bean id="zqbCustomerManageAction" class="com.ibpmsoft.project.zqb.action.ZqbCustomerManageAction" scope="prototype">  
+     	 <property name="zqbCustomerManageService" ref="zqbCustomerManageService" />
+    </bean>     
+     <bean id="zqbCustomerManageService" class="com.ibpmsoft.project.zqb.service.ZqbCustomerManageService" scope="prototype">  
+     	 <property name="zqbCustomerManageDAO" ref="zqbCustomerManageDAO" />
+    </bean>
+    <bean id="zqbCustomerManageDAO" class="com.ibpmsoft.project.zqb.dao.ZqbCustomerManageDAO" parent="baseDAO">
+    </bean>
+      <!-- 模板管理 -->
+    <bean id="zqbTemplateAction" class="com.ibpmsoft.project.zqb.action.ZqbTemplateAction" scope="prototype">  
+     	 <property name="zqbTemplateService" ref="zqbTemplateService" />
+    </bean>
+    <bean id="zqbTemplateService" class="com.ibpmsoft.project.zqb.service.ZqbTemplateService" scope="prototype">
+    	<property name="orgCompanyDAO" ref="orgCompanyDAO" />
+    </bean>
+    <!-- 公告呈报 --><!-- zhege -->
+     <bean id="zqbAnnouncementAction" class="com.ibpmsoft.project.zqb.action.ZqbAnnouncementAction" scope="prototype">  
+     	 <property name="zqbAnnouncementService" ref="zqbAnnouncementService" />
+     	 <property name="multiAddressBookService" ref="multiAddressBookService" />
+    </bean>
+    <bean id="zqbAnnouncementService" class="com.ibpmsoft.project.zqb.service.ZqbAnnouncementService" scope="prototype">
+     <property name="uploadifyService" ref="uploadifyService" />
+    	<property name="processOpinionService" ref="processOpinionService" />
+    	<property name="zqbAnnouncementDAO" ref="zqbAnnouncementDAO" />
+    	<property name="sysEngineMetadataDAO" ref="sysEngineMetadataDAO" />
+    	<property name="sysEngineIFormDAO" ref="sysEngineIFormDAO" />
+    </bean>
+    
+    <bean id="zqbAnnouncementDAO" class="com.ibpmsoft.project.zqb.dao.ZqbAnnouncementDAO" parent="baseDAO">  </bean>
+    
+ 	 <!--  	 公司基础信息维护 -->
+    <bean id="zqbGsjcxxwhAction" class="com.ibpmsoft.project.zqb.action.ZqbGsjcxxwhAction" scope="prototype">  
+     	 <property name="zqbGsjcxxwhService" ref="zqbGsjcxxwhService" />
+    </bean>
+    <bean id="zqbGsjcxxwhService" class="com.ibpmsoft.project.zqb.service.ZqbGsjcxxwhService" scope="prototype">
+    
+    </bean>
+  
+    
+    
+    <!-- 重要督导事项 -->
+      <bean id="zqbImpEventAction" class="com.ibpmsoft.project.zqb.action.ZqbImpEventAction" scope="prototype">  
+       <property name="zqbImpEventService" ref="zqbImpEventService" />
+    </bean>
+     <bean id="zqbImpEventService" class="com.ibpmsoft.project.zqb.service.ZqbImpEventService" scope="prototype">
+     <property name="zqbImpEventDAO" ref="zqbImpEventDAO" />
+    </bean>
+     <bean id="zqbImpEventDAO" class="com.ibpmsoft.project.zqb.dao.ZqbImpEventDAO" parent="baseDAO">  
+    </bean>
+     <bean id="mailWithAttachmentAction" class="com.ibpmsoft.project.zqb.action.MailWithAttachmentAction" scope="prototype">  
+      <property name="mailWithAttachmentService" ref="mailWithAttachmentService" />
+    </bean>
+     <bean id="mailWithAttachmentService" class="com.ibpmsoft.project.zqb.service.MailWithAttachmentService" scope="prototype">
+     <property name="orgUserDAO" ref="orgUserDAO" />
+    	<property name="orgUserMapDAO" ref="orgUserMapDAO" />
+    	<property name="orgDepartmentDAO" ref="orgDepartmentDAO" />
+    	<property name="orgCompanyDAO" ref="orgCompanyDAO" /> 
+    	<property name="fileUploadService" ref="uploadifyService"></property>
+    	<property name="mailWithAttachmentDAO" ref="mailWithAttachmentDAO"></property>
+    </bean>
+    <bean id="mailWithAttachmentDAO" class="com.ibpmsoft.project.zqb.dao.MailWithAttachmentDAO" parent="baseDAO">
+    </bean>
+    <bean  id="zqbCxddManagementAction" class="com.ibpmsoft.project.zqb.action.ZqbCxddManagementAction" scope="prototype">
+       <property name="zqbCxddManagementService" ref="zqbCxddManagementService" />
+    </bean>
+       <bean id="zqbCxddManagementService" class="com.ibpmsoft.project.zqb.service.ZqbCxddManagementService" scope="prototype">
+    </bean>
+    
+    <bean id="appointmentDAO" class="com.iwork.plugs.appointment.dao.AppointmentDAO" parent="baseDAO">
+    </bean>
+    <bean id ="appointmentService" class="com.iwork.plugs.appointment.service.AppointmentService" scope="prototype">
+    	<property name="appointmentDAO" ref="appointmentDAO" />
+    </bean>
+    <bean id="appointmentAction" class="com.iwork.plugs.appointment.action.AppointmentAction" scope="prototype">
+		<property name="appointmentService" ref="appointmentService" />
+    </bean>
+    <bean id="zqbFileCompareAction" class="com.ibpmsoft.project.zqb.action.ZqbFileCompareAction" scope="prototype">
+    	<property name="zqbFileCompareService" ref="zqbFileCompareService" />
+    </bean>
+    <bean id="zqbFileCompareService" class="com.ibpmsoft.project.zqb.service.ZqbFileCompareService" scope="prototype">
+    	<property name="zqbFileCompareDAO" ref="zqbFileCompareDAO" />
+    	<property name="knowService" ref="knowService" />    	
+    </bean>
+    <bean id="zqbFileCompareDAO" class="com.ibpmsoft.project.zqb.dao.ZqbFileCompareDAO" parent="baseDAO">
+    </bean>
+    
+    <bean id="onlineChatDAO" class="com.iwork.plugs.onchat.dao.OnlineChatDAO" parent="baseDAO">
+    </bean>
+    <bean id ="onlineChatService" class="com.iwork.plugs.onchat.service.OnlineChatService" scope="prototype">
+    	<property name="onlineChatDAO" ref="onlineChatDAO" />
+    </bean>
+    <bean id="iworkKnowAnswer" class="com.iwork.km.know.model.IworkKnowAnswer"></bean>
+    <bean id="iworkKnowQuestion" class="com.iwork.km.know.model.IworkKnowQuestion"></bean>
+    <bean id="iworkKnowClasses" class="com.iwork.km.know.model.IworkKnowClasses"></bean>
+    
+    <!-- 山西证券 -->
+	<bean id="shanXiZqbCustomerManageAction" class="com.ibpmsoft.project.zqb.action.ShanXiZqbCustomerManageAction" scope="prototype">  
+		<property name="shanXiZqbCustomerManageService" ref="shanXiZqbCustomerManageService" />
+    </bean>
+     <bean id="shanXiZqbCustomerManageService" class="com.ibpmsoft.project.zqb.service.ShanXiZqbCustomerManageService" scope="prototype">  
+     	 <property name="shanXiZqbCustomerManageDAO" ref="shanXiZqbCustomerManageDAO" />
+    </bean>
+    <bean id="shanXiZqbCustomerManageDAO" class="com.ibpmsoft.project.zqb.dao.ShanXiZqbCustomerManageDAO" parent="baseDAO">  
+    </bean>
+    
+    <bean id="shanXiZqbContractManageAction" class="com.ibpmsoft.project.zqb.action.ShanXiZqbContractManageAction" scope="prototype">  
+		<property name="shanXiZqbContractManageService" ref="shanXiZqbContractManageService" />
+    </bean>
+     <bean id="shanXiZqbContractManageService" class="com.ibpmsoft.project.zqb.service.ShanXiZqbContractManageService" scope="prototype">  
+     	 <property name="shanXiZqbContractManageDAO" ref="shanXiZqbContractManageDAO" />
+     	 <property name="sysEngineIFormDAO" ref="sysEngineIFormDAO" />
+    </bean>
+    <bean id="shanXiZqbContractManageDAO" class="com.ibpmsoft.project.zqb.dao.ShanXiZqbContractManageDAO" parent="baseDAO">  
+    </bean>
+    
+    <bean id="shanXiZqbProjectManageAction" class="com.ibpmsoft.project.zqb.action.ShanXiZqbProjectManageAction" scope="prototype">  
+		<property name="shanXiZqbProjectManageService" ref="shanXiZqbProjectManageService" />
+    </bean>
+     <bean id="shanXiZqbProjectManageService" class="com.ibpmsoft.project.zqb.service.ShanXiZqbProjectManageService" scope="prototype">  
+     	 <property name="shanXiZqbProjectManageDAO" ref="shanXiZqbProjectManageDAO" />
+    </bean>
+    <bean id="shanXiZqbProjectManageDAO" class="com.ibpmsoft.project.zqb.dao.ShanXiZqbProjectManageDAO" parent="baseDAO">  
+    </bean>
+    
+    <bean id="shanXiZqbBgProjectManageAction" class="com.ibpmsoft.project.zqb.action.ShanXiZqbBgProjectManageAction" scope="prototype">  
+		<property name="shanXiZqbBgProjectManageService" ref="shanXiZqbBgProjectManageService" />
+    </bean>
+     <bean id="shanXiZqbBgProjectManageService" class="com.ibpmsoft.project.zqb.service.ShanXiZqbBgProjectManageService" scope="prototype">  
+     	 <property name="shanXiZqbBgProjectManageDAO" ref="shanXiZqbBgProjectManageDAO" />
+    </bean>
+    <bean id="shanXiZqbBgProjectManageDAO" class="com.ibpmsoft.project.zqb.dao.ShanXiZqbBgProjectManageDAO" parent="baseDAO">  
+    </bean>
+    
+    <!-- 东莞底稿调阅 -->
+     <bean id="dongGuanZqbDgdyAction" class="com.ibpmsoft.project.zqb.action.DongGuanZqbDgdyAction" scope="prototype">  
+		<property name="dongGuanZqbDgdyService" ref="dongGuanZqbDgdyService" />
+        <property name="dgcdService" ref="dgcdService" />
+    </bean>
+     <bean id="dongGuanZqbDgdyService" class="com.ibpmsoft.project.zqb.service.DongGuanZqbDgdyService" scope="prototype">  
+     	 <property name="dongGuanZqbDgdyDao" ref="dongGuanZqbDgdyDao" />
+    </bean>
+    <bean id="dongGuanZqbDgdyDao" class="com.ibpmsoft.project.zqb.dao.DongGuanZqbDgdyDao" parent="baseDAO">  
+    </bean>
+    
+      <!--现场检查记录 -->
+     <bean id="xcjclvAction" class="com.ibpmsoft.project.zqb.action.XcjclvAction" scope="prototype">  
+		<property name="xcjclvService" ref="xcjclvService" />
+    </bean>
+    <bean id="xcjclvService" class="com.ibpmsoft.project.zqb.service.XcjclvService" scope="prototype">  
+		<property name="xcjclvDao" ref="xcjclvDao" />
+    </bean>
+    <bean id="xcjclvDao" class="com.ibpmsoft.project.zqb.dao.XcjclvDao" parent="baseDAO">  
+    </bean>
+    <!-- 常见业务流程指引  -->
+     <bean id="cjywlczyAction" class="com.ibpmsoft.project.zqb.action.CjywlczyAction" scope="prototype">  
+		<property name="cjywlczyService" ref="cjywlczyService" />
+    </bean>
+      <bean id="cjywlczyService" class="com.ibpmsoft.project.zqb.service.CjywlczyService" scope="prototype">  
+      	<property name="cjywlczyDao" ref="cjywlczyDao" />
+    </bean>
+    <bean id="cjywlczyDao" class="com.ibpmsoft.project.zqb.dao.CjywlczyDao" parent="baseDAO">  
+    </bean>
+     <!-- 企业违规风险记录  -->
+     <bean id="qywgfxjlAction" class="com.ibpmsoft.project.zqb.action.QywgfxjlAction" scope="prototype">  
+		<property name="qywgfxjlService" ref="qywgfxjlService" />
+    </bean>
+      <bean id="qywgfxjlService" class="com.ibpmsoft.project.zqb.service.QywgfxjlService" scope="prototype">  
+      	<property name="qywgfxjlDao" ref="qywgfxjlDao" />
+    </bean>
+    <bean id="qywgfxjlDao" class="com.ibpmsoft.project.zqb.dao.QywgfxjlDao" parent="baseDAO">  
+    </bean>
+    <!-- 档案归档 -->
+    <bean id="hualongZqbCdAction" class="com.ibpmsoft.project.zqb.action.HualongZqbCdAction" scope="prototype">  
+		<property name="hualongZqbCdService" ref="hualongZqbCdService" />
+    </bean>
+    <bean id="hualongZqbCdService" class="com.ibpmsoft.project.zqb.service.HualongZqbCdService" scope="prototype">  
+      	<property name="hualongZqbCdDAO" ref="hualongZqbCdDAO" />
+    </bean>
+    <bean id="hualongZqbCdDAO" class="com.ibpmsoft.project.zqb.dao.HualongZqbCdDAO" parent="baseDAO">  
+    </bean>
+    <!--出差与外出  -->
+     <bean id="zqbCcywcAction" class="com.ibpmsoft.project.zqb.action.ZqbCcywcAction" scope="prototype">  
+		<property name="zqbCcywcService" ref="zqbCcywcService" />
+    </bean>
+    <bean id="zqbCcywcService" class="com.ibpmsoft.project.zqb.service.ZqbCcywcService" scope="prototype">  
+      	<property name="zqbCcywcDao" ref="zqbCcywcDao" />
+    </bean>
+    <bean id="zqbCcywcDao" class="com.ibpmsoft.project.zqb.dao.ZqbCcywcDao" parent="baseDAO">  
+    </bean>
+    <!-- 督导签约  -->
+    <bean id="ddqyAction" class="com.ibpmsoft.project.zqb.action.DdqyAction" scope="prototype">  
+		<property name="ddqyService" ref="ddqyService" />
+    </bean>
+      <bean id="ddqyService" class="com.ibpmsoft.project.zqb.service.DdqyService" scope="prototype">  
+      	<property name="ddqyDao" ref="ddqyDao" />
+    </bean>
+    <bean id="ddqyDao" class="com.ibpmsoft.project.zqb.dao.DdqylDao" parent="baseDAO">  
+    </bean>
+    <!-- 日常业务呈报 -->
+     <bean id="zqbOperationManageAction" class="com.ibpmsoft.project.zqb.action.ZqbOperationManageAction" scope="prototype">
+    	<property name="zqbOperationManageService" ref="zqbOperationManageService" />
+    </bean>
+    <bean id="zqbOperationManageService" class="com.ibpmsoft.project.zqb.service.ZqbOperationManageService" scope="prototype">
+    	<property name="zqbOperationManageDAO" ref="zqbOperationManageDAO" />
+    </bean>
+    <bean id="zqbOperationManageDAO" class="com.ibpmsoft.project.zqb.dao.ZqbOperationManageDAO" parent="baseDAO">
+    </bean>
+     <!-- 日常业务呈报END -->
+    <bean id="zqbChangePasswordAction" class="com.ibpmsoft.project.zqb.action.ZqbChangePasswordAction" scope="prototype">
+    <property name="sysPersionService" ref="sysPersionService" />
+    </bean>
+     <bean id="zqbChangeTEXT" class="com.ibpmsoft.project.zqb.action.ZqbChangeTEXT" scope="prototype">
+    </bean>
+    <bean id="zhuoZhengAction" class="com.ibpmsoft.project.zqb.zhz.zhuozhengAction" scope="prototype">
+    
+    </bean>
+</beans>

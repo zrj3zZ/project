@@ -1,0 +1,121 @@
+<script type="text/javascript">
+	$(function () {
+		$("#iformMain").hover(function (){
+			$.post("getdm.action",{dm:$("#QYNBRYSH").val(),khbh:$("#KHBH").val()},function(data){
+				if(data == "error"){
+					alert("温馨提示：不能选择自己作为内核人员,系统将为你重置内核人员！");
+					$("#QYNBRYSH").val("");
+				}
+			});
+		});
+	});
+</script>
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					企业内部审核人员表单
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_1357">
+								<td class="td_title" id="title_KHMC" width="180">
+									客户名称
+								</td>
+								<td class="td_data" id="data_KHMC">
+									${KHMC}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2218">
+								<td class="td_title" id="title_QYNBRYSH" width="180">
+									企业内部审核人员分派
+								</td>
+								<td class="td_data" id="data_QYNBRYSH">
+									${QYNBRYSH}&nbsp;<a href="javascript:clean('QYNBRYSH');" class="easyui-linkbutton" plain="true" iconcls="icon-remove">清空</a> 
+								</td>
+							</tr>
+							<tr id="itemTr_1358" style="display:none;">
+								<td class="td_title" id="title_KHFZR" width="180">
+								</td>
+								<td class="td_data" id="data_KHFZR">
+									${KHFZR}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1535" style="display:none;">
+								<td class="td_title" id="title_ZZCXDD" width="180">
+								</td>
+								<td class="td_data" id="data_ZZCXDD">
+									${ZZCXDD}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1536" style="display:none;">
+								<td class="td_title" id="title_FHSPR" width="180">
+								</td>
+								<td class="td_data" id="data_FHSPR">
+									${FHSPR}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1602" style="display:none;">
+								<td class="td_title" id="title_ZZSPR" width="180">
+								</td>
+								<td class="td_data" id="data_ZZSPR">
+									${ZZSPR}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1824" style="display:none;">
+								<td class="td_title" id="title_CWSCBFZR2" width="180">
+								</td>
+								<td class="td_data" id="data_CWSCBFZR2">
+									${CWSCBFZR2}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1825" style="display:none;">
+								<td class="td_title" id="title_CWSCBFZR3" width="180">
+								</td>
+								<td class="td_data" id="data_CWSCBFZR3">
+									${CWSCBFZR3}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1812" style="display:none;">
+								<td class="td_title" id="title_GGFBR" width="180">
+								</td>
+								<td class="td_data" id="data_GGFBR">
+									${GGFBR}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1802" style="display:none;">
+								<td class="td_title" id="title_BZ" width="180">
+								</td>
+								<td class="td_data" id="data_BZ">
+									${BZ}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1805" style="display:none;">
+								<td class="td_title" id="title_TXDF" width="180">
+								</td>
+								<td class="td_data" id="data_TXDF">
+									${TXDF}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${KHBH}${SFFP}${KHMC}${CJSJ}${ZZSPRDQ}${GGFBRDQ}${CWSCBFZR2DQ}${CWSCBFZR3DQ}${ZZCXDDDQ}${KHFZRDQ}${FHSPRDQ}
+</div>

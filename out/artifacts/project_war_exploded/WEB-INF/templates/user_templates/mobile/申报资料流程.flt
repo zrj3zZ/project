@@ -1,0 +1,84 @@
+<script type="text/javascript">
+	$(document).ready(function(){
+		var projectno = parent.document.getElementById("PROJECTNO").value;
+		$("#GPFXXMXX").attr("src","zqb_wxgpfxproject_sx_mainmsg.action?projectno="+projectno);
+	});
+</script>
+<style type="text/css">
+.formpage_title {
+	text-align: center;
+	vertical-align:bottom;
+	height:50px;
+	font-size: 22px;
+	color:#000;
+	margin-bottom:20px;
+}
+.line {
+	background-color: #ccc;
+	height:15px;
+	margin-bottom:20px;
+}
+td {
+	line-height: 30px;
+	padding-left: 3px;
+	font-size: 12px;
+	border-bottom:1px #efefef dotted;
+	vertical-align:middle;
+	word-wrap:break-word;
+	word-break:break-all;
+	font-weight:100;
+	line-height:15px;
+	padding-top:5px;
+	text-align:left;
+	
+}
+legend {
+	font-size: 16px;
+}
+</style>
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					申报资料流程
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<script language="javascript" type="text/javascript">
+		function iFrameHeighta() {
+			var ifm= document.getElementById("GPFXXMXX");
+			var subWeb = document.frames ? document.frames["GPFXXMXX"].document : ifm.contentDocument;
+			if(ifm != null && subWeb != null) {
+				ifm.height = subWeb.body.scrollHeight;
+			}
+		}			
+	</script>
+	<iframe id="GPFXXMXX" height="200%" style="min-height:500px" width="100%" border="0" onload="iFrameHeighta()" name="GPFXXMXX"></iframe>
+	<fieldset style="margin-top:15px;color:#004080;width:100%;border:1px dashed #CCCCCC">
+		<legend algin="right" style="color:#004080;">申报资料</legend>
+		<table width="100%">
+		<tr id="itemTr_8">
+			<td width="50%">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;申报资料
+			</td>
+			<td width="50%">
+				${SBZL}
+			</td>
+		</tr>
+		</table>
+	</fieldset>
+</div>
+<div style="display:none;">
+	${GROUPID}${PROJECTNO}${PROJECTNAME}${CJSJ}${CREATEUSER}${CREATEUSERID}${SCORE}${TZZT}${JDMC}${TJRID}${TJRXM}${TJSJ}${EXTEND1}${EXTEND2}${EXTEND3}${EXTEND4}${EXTEND5}
+</div>

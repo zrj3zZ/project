@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+"http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+	<package strict-method-invocation="false"  name="weixin2" extends="tiles-default">
+		  <!-- 定义一个名为 checkLogin 的拦截器 -->  
+        <interceptors>  
+            <!-- 定义权限检查拦截器 -->  
+            <interceptor name="checkWeixinLogin" class="com.iwork.core.server.root.IWorkWinXinInterceptor" />  
+            <!-- 定义一个包含权限检查的拦截器栈 -->  
+            <interceptor-stack name="myDefaultStack">  
+                <!-- 定义拦截器栈包含checkLogin拦截器 -->  
+                <interceptor-ref name="checkWeixinLogin"></interceptor-ref>  
+                <interceptor-ref name="defaultStack"></interceptor-ref>  
+            </interceptor-stack>  
+        </interceptors>  
+        <!-- 设置全局 全局默认的拦截器栈-->  
+        <default-interceptor-ref name="myDefaultStack"></default-interceptor-ref>  
+        <!-- 定义全局Result -->  
+        <global-results>  
+            <!-- 当返回login视图名时，转入/login.jsp页面 -->  
+            <result name="login"  type="redirect" >wechat_session_error.action</result>  
+            <result name="nouser">/mobile/wechat/base/nofind.jsp</result>  
+            <result name="error"  type="redirect" >wechat_session_error.action</result>  
+        </global-results>
+		<action name="*" class="com.iwork.commons.AbstractAction">
+            <result>/{1}.jsp</result>
+        </action>
+         <action name="wechat_index1"   method="index"  class="iWorkWeChatBaseAction" > 
+			  <result name="success">mobile/wechat/base/index.jsp</result>  
+		</action>
+		<action name="wechat_process_todo"  method="todo"  class="iWorkWeChatProcessDeskAction" > 
+			  <result name="success">mobile/wechat/process/desk/todo.jsp</result> 
+		</action>
+		<action name="wechat_process_taskHtml"   method="showTodoTaskHtml"  class="iWorkWeChatProcessDeskAction" > 
+		</action>
+		
+		<action name="wechat_process_finish"  method="finish"  class="iWorkWeChatProcessDeskAction" > 
+			  <result name="success">mobile/wechat/process/desk/finish.jsp</result> 
+		</action>
+		<action name="wechat_process_finishHtml"  method="showFinishTaskHtml"  class="iWorkWeChatProcessDeskAction" > 
+		</action>
+		<action name="wechat_process_notice"  method="notice"  class="iWorkWeChatProcessDeskAction" > 
+			  <result name="success">mobile/wechat/process/desk/notice.jsp</result> 
+		</action>
+		<action name="wechat_process_noticeHtml"  method="showNoticeTaskHtml"  class="iWorkWeChatProcessDeskAction" > 
+		</action>
+		<action name="wechat_process_launch"  method="launch"  class="iWorkWeChatProcessDeskAction" > 
+			  <result name="success">mobile/wechat/process/desk/launch.jsp</result> 
+		</action>
+		<action name="wechat_pr_instace"  method="startProcessInstance" class="iWorkWeChatProcessRuntimeExcuteAction" > 
+				  <result name="success">mobile/wechat/process/runtime/wechat_formpage.jsp</result>
+			</action>
+			
+			<action name="wechat_pr_formsave"  method="processFormSave"  class="iWorkWeChatProcessRuntimeExcuteAction" > 
+		</action> 
+		<action name="wechat_pr_formpage"  method="loadFormPage"  class="iWorkWeChatProcessRuntimeExcuteAction" > 
+			  <result name="success">mobile/wechat/process/runtime/wechat_formpage.jsp</result> 
+			  <result name="error">app/public/nofind.jsp</result>  
+		</action>
+		<action name="wechat_pr_subform"  method="loadSubForm"  class="iWorkWeChatProcessRuntimeExcuteAction" > 
+				  <result name="success">mobile/wechat/process/subform/subformpage.jsp</result>
+			</action>  
+		<action name="wechat_pr_subform_edit"  method="editSubForm"  class="iWorkWeChatProcessRuntimeExcuteAction" > 
+				  <result name="success">mobile/wechat/process/subform/editSubform.jsp</result>
+			</action> 
+		<action name="wechat_pr_subform_add"  method="addsubFormItem"  class="iWorkWeChatProcessRuntimeExcuteAction" > 
+				  <result name="success">mobile/wechat/process/subform/addSubform.jsp</result>
+		 </action> 
+		<action name="wechat_pr_subform_remove"  method="delSubFormItem"  class="iWorkWeChatProcessRuntimeExcuteAction" > 
+			</action> 
+		<action name="wechat_pr_subform_upload"  method="formFileUpload"  class="iWorkWeChatProcessRuntimeExcuteAction" > 
+		</action>
+		<action name="wechat_pr_opinlist"  method="showOpinionList"  class="iWorkWeChatProcessRuntimeExcuteAction" > 
+				  <result name="success" >mobile/wechat/process/opinion/opinionlist.jsp</result> 
+			</action>
+			<!-- 流程任务监控 -->
+		<action name="wechat_pr_mornitor" method="showPrcInstanceMornitorPage" class="iWorkWeChatProcessRuntimeMonitorAction"> 
+			  <result name="success">mobile/wechat/process/runtime/processMonitorPage.jsp</result>
+		</action>
+			<action name="wechat_loadSignsPage"  method="loadSignsPage"  class="iWorkWeChatProcessRuntimeExcuteAction" > 
+				  <result name="success">app/engine/process/runtime/pformpage.jsp</result>
+				  <result name="layout_left">app/engine/process/runtime/pformpage_left.jsp</result>
+				  <result name="layout_right">app/engine/process/runtime/pformpage_right.jsp</result>
+				  <result name="layout_top">app/engine/process/runtime/pformpage_top.jsp</result>
+				  <result name="layout_bottom">app/engine/process/runtime/pformpage_bottom.jsp</result>
+				  <result name="error">app/public/nofind.jsp</result>
+			</action>
+			
+			
+  		  <!-- 数据选择 -->
+  		 <action name="wechat_dic_show" method="index" class="iWorkWeChatDictionaryAction">
+			<result name="radio">mobile/wechat/dict/show_dict_radio.jsp</result>
+			<result name="multi">mobile/wechat/dict/show_dict_multi.jsp</result>
+			<result name="subgrid">mobile/wechat/dict/show_dict_radio.jsp
+			</result> 
+		</action>
+		<!-- 日程提醒  -->
+			 <!-- 默认今天 -->
+			 <action name="weixin_opricheng_account" >
+	       		<result name="success">mobile/wechat/process/schedule/schedule.jsp</result>	 
+	  		 </action>
+			 <action name="weixin_richeng_account" method="todoRC"  class="iworkWeChatProcessAction" >
+	  		 </action>
+			<!-- 明天-->
+			<action name="weixin_optomRC_account" >
+	       		<result name="success">mobile/wechat/process/schedule/tomorrowschedule.jsp</result>	 
+	  		 </action>
+			 <action name="wechat_tomRC_finish" method="todotomRC"  class="iworkWeChatProcessAction" >
+	  		 </action>
+			<!-- 后天 -->
+			<action name="weixin_opDaytomRC_account" >
+	       		<result name="success">mobile/wechat/process/schedule/dayschedule.jsp</result>	 
+	  		 </action>
+			 <action name="wechat_DaytomRC_notice" method="tododaytomRC"  class="iworkWeChatProcessAction" >
+	  		 </action>
+			<!-- 新建日程 -->
+	  		 <action name="wechat_new_notice" method="loadCalendar" class="schCalendarAction">
+			<result name="success">mobile/wechat/process/schedule/newschedule.jsp</result>
+		</action>
+	  		 <!-- 日程明细  （待用）-->
+			 <action name="weixin_richengmx_account" method="showRiChengHtml"  class="iworkWeChatProcessAction" >
+	       		<result name="success">mobile/wechat/process/schedule/schedule.jsp</result>	 
+	  		 </action>
+  		 <!-- 日程提醒 END-->
+  		 
+  		 <!-- 知道/问答 -->
+	  		 <!-- 已解决问题 -->
+	  		 <action name="weixin_opquesion_account" >
+	       		<result name="success">mobile/wechat/process/quesion/resproblem.jsp</result>	 
+	  		 </action>
+	  		  <action name="weixin_quesion_account" method="getKnowHtml"  class="iworkWeChatProcessAction" >
+	  		 </action>	
+	  		 <!-- 详细已解决问题 -->
+	  		  <action name="weixin_xxquesion_account" method="getXXKnowHtml"  class="iworkWeChatProcessAction" >
+	  		 </action>	
+	  	<!-- 知道/问答 END-->
+  		 <!-- 信息资讯 -->
+	  		 <!-- 通知公告-->
+	  		  <action name="weixin_TZGG_account" method="showTZGG"  class="iworkWeChatProcessAction" >
+	  		 </action>	
+	  		 <!-- 市场新闻 -->
+	  		 <action name="weixin_opscxw_account" >
+	       		<result name="success">app/weixin/cms/scxw.jsp</result>	 
+	  		 </action>
+	  		  <action name="weixin_SCXW_account" method="showSCXW"  class="iworkWeChatProcessAction" >
+	  		 </action>	
+	  		 <!-- 企业舆情-->
+	  		 <action name="weixin_opqyyq_account" >
+	       		<result name="success">app/weixin/cms/qyyq.jsp</result>	 
+	  		 </action>
+	  		  <action name="weixin_QYYQ_account" method="showQYYQ"  class="iworkWeChatProcessAction" >
+	  		 </action>	
+	  		 <!-- 详细已解决问题 -->
+	  		  <action name="weixin_xxquesion_account" method="getXXKnowHtml"  class="iworkWeChatProcessAction" >
+	  		 </action>	
+	  	<!-- 知道/问答 END-->
+	</package>
+     
+</struts>

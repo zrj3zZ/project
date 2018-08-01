@@ -1,0 +1,468 @@
+<link rel='stylesheet' type='text/css' href='iwork_js/plugs/gantt2/jquery-ui-1.8.4.css'>
+<script type="text/javascript" src="iwork_js/jqueryjs/ui/jquery.ui.core.js"></script>
+<script type="text/javascript" src="iwork_js/plugs/gantt2/jquery-ui-1.8.4.js"></script>
+<script type="text/javascript" src="iwork_js/jqueryjs/ui/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="iwork_js/jqueryjs/ui/jquery.ui.position.js"></script>
+<script type="text/javascript" src="iwork_js/jqueryjs/ui/jquery.ui.autocomplete.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#MEMO").css("border","0");
+
+	var projectno = $("#PROJECTNO").val();
+	var projectname = $("#PROJECTNAME").val();
+	$("#iframepage").attr("src","zqb_project_sx_qusans.action?projectno="+projectno);
+
+	var now = Format(new Date(),'yyyy-MM-dd HH:mm:ss');
+	var instanceid = $("#instanceId").val();
+	if(instanceid==0){
+		$("#ZHXGRID").val($("#CREATEUSERID").val());
+		$("#ZHXGR").val($("#CREATEUSER").val());
+		$("#ZHXGSJ").val(now);
+	}else{
+		$("#labelZHXGSJ").html($("#ZHXGSJ").val())
+	}
+	$("#XMBZ").autocomplete({
+		source:function(request,response) {
+			$.ajax({
+				url:"zqb_project_sx_industrymsgassociate.action",
+				dataType:"json",
+				data:{
+					xmbz:request.term
+				},
+				success: function(data) {
+					response($.map(data, function(item) {
+						return {
+							label:item.ZIHY,
+							value:item.ZHUHY+"-"+item.ZIHY,
+						}
+					}));
+				}
+			});
+		},
+		minLength:1,
+		select:function(event,ui){}
+	});
+    var customerno = $("#CUSTOMERNO").val();
+    $.ajax({
+        url: 'sx_zqb_getCustomerContent.action',
+        async: false,
+        type: "POST",
+        data: {
+            customerNo: customerno
+        },
+        dataType: "json",
+        success: function (data) {
+            if (data != null) {
+                $("#GSGK").val(data.ZCQX);
+                $("#XMBZ").val(data.SSHY);
+                $("#CUSTOMERINFO").val(data.ZWMC);
+                $("#XMYS").val(data.JLNJLR);
+            }
+        }
+    });
+    //审批通过不可编辑控制
+    $.ajax({
+        url: 'sx_zqb_setLxxxReadonly.action',
+        async: false,
+        type: "POST",
+        data: {
+            projectno: $("#PROJECTNO").val()
+        },
+        dataType: "json",
+        success: function (data) {
+            if (data != null) {
+                var readonly = data.readonly;
+                if(readonly==true){
+                    $(".tools_nav").css('display','none');
+                    $("#PROJECTNAME").attr('readonly','readonly');
+                    $("#XMBZ").attr('readonly','readonly');
+                    $("#STATUS1").attr('disabled','disabled');
+                    $("#STATUS0").attr('disabled','disabled');
+                    $("#XMYS").attr('readonly','readonly');
+                    $("#ZCLR").attr('readonly','readonly');
+                    $("#title_ZCLR a").css('display','none');
+                    $("#HTJE").attr('readonly','readonly');
+                    $("#SFXZCL").attr('disabled','disabled');
+                    $("#CUSTOMERINFO").attr('readonly','readonly');
+                    $("#title_GSGK a").css('display','none');
+                    $("#title_FZJGMC a").css('display','none');
+                    $("#A01").attr('readonly','readonly');
+                    $("#title_OWNER a").css('display','none');
+                    $("#title_MANAGER a").css('display','none');
+                    $("#title_DDAP a").css('display','none');
+                    $("#XMZH").attr('readonly','readonly');
+                    $("#XMXY").attr('readonly','readonly');
+                    $("#XMLS").attr('readonly','readonly');
+                    $("#HJSSWS").attr('readonly','readonly');
+                    $("#XZYJK").attr('readonly','readonly');
+                    $("#LSSWS").attr('readonly','readonly');
+                    $("#XZYJL").attr('readonly','readonly');
+                    $("#PGJG").attr('readonly','readonly');
+                    $("#XZYJP").attr('readonly','readonly');
+                    $("#GGJZR").attr('disabled','disabled');
+                    $("#SBJZR").attr('disabled','disabled');
+                    $("#A03").attr('readonly','readonly');
+                    $("#A04").attr('readonly','readonly');
+                    $("#A05").attr('readonly','readonly');
+                    $("#A06").attr('readonly','readonly');
+                    $("#A07").attr('readonly','readonly');
+                    $("#A08").attr('readonly','readonly');
+                    $("#YJZXYNJLR").attr('readonly','readonly');
+                    $("#FXPGFS").attr('readonly','readonly');
+                    $("#MEMO").attr('readonly','readonly');
+                    $("#title_XMZH a").css('display','none');
+                    $("#title_XMXY a").css('display','none');
+                    $("#title_XMLS a").css('display','none');
+                }
+                
+            }
+        }
+    });
+
+});
+
+function savebeforeEvent() {
+    $.ajaxSetup({
+        async: false
+    });
+    $.post("zqb_project_sx_savebeforeuseridusername.action", function (user) {
+        var userid = user.split("&")[0];
+        var username = user.split("&")[1];
+        $("#ZHXGRID").val(userid);
+        $("#ZHXGR").val(username);
+    });
+    var now = Format(new Date(), 'yyyy-MM-dd HH:mm:ss');
+    $("#ZHXGSJ").val(now);
+    return true;
+}
+
+function Format(now,mask){
+	var d = now;
+	var zeroize = function (value, length){
+		if (!length) length = 2;
+			value = String(value);
+		for (var i = 0, zeros = ''; i < (length - value.length); i++){
+			zeros += '0';
+		}
+		return zeros + value;
+	};
+	return mask.replace(/"[^"]*"|'[^']*'|\b(?:d{1,4}|m{1,4}|yy(?:yy)?|([hHMstT])\1?|[lLZ])\b/g, function ($0){
+		switch ($0){
+			case 'd': return d.getDate();
+			case 'dd': return zeroize(d.getDate());
+			case 'ddd': return ['Sun', 'Mon', 'Tue', 'Wed', 'Thr', 'Fri', 'Sat'][d.getDay()];
+			case 'dddd': return ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][d.getDay()];
+			case 'M': return d.getMonth() + 1;
+			case 'MM': return zeroize(d.getMonth() + 1);
+			case 'MMM': return ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][d.getMonth()];
+			case 'MMMM': return ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][d.getMonth()];
+			case 'yy': return String(d.getFullYear()).substr(2);
+			case 'yyyy': return d.getFullYear();
+			case 'h': return d.getHours() % 12 || 12;
+			case 'hh': return zeroize(d.getHours() % 12 || 12);
+			case 'H': return d.getHours();
+			case 'HH': return zeroize(d.getHours());
+			case 'm': return d.getMinutes();
+			case 'mm': return zeroize(d.getMinutes());
+			case 's': return d.getSeconds();
+			case 'ss': return zeroize(d.getSeconds());
+			case 'l': return zeroize(d.getMilliseconds(), 3);
+			case 'L': var m = d.getMilliseconds();
+			if (m > 99) m = Math.round(m / 10);
+				return zeroize(m);
+			case 'tt': return d.getHours() < 12 ? 'am' : 'pm';
+			case 'TT': return d.getHours() < 12 ? 'AM' : 'PM';
+			case 'Z': return d.toUTCString().match(/[A-Z]+$/);
+			// Return quoted strings with the surrounding quotes removed
+			default: return $0.substr(1, $0.length - 2);
+		}
+	});
+}
+
+//打开数据字典
+
+function openDictionarySelfDefine(uuid,subformkey,subformid){
+
+	var pageUrl = "url:sys_dictionary_runtime_show.action?dictionaryUUID="+uuid+"&subformkey="+subformkey+"&subformid="+subformid;
+
+	var obj = $("#iformMain").serialize();
+	var dg =$.dialog({
+
+		id:'DictionaryDialog',
+		cover:true,
+		title:"数据选择",
+
+		width:800,
+		height:520,
+		loadingText:'正在加载中,请稍后...',
+
+		bgcolor:'#999',
+
+		rang:true,
+		lock: true,
+		iconTitle:false,
+		extendDrag:true,
+		autoSize:false,
+		resize:false,
+
+		content:pageUrl,
+
+		data:obj
+
+	});
+	dg.ShowDialog();
+}
+
+function setTypeNO(obj){
+	var status = obj.value;
+	if(status=='已关闭'){
+		$("#TYPENO").val("")
+	}
+}
+function saveAfterEvent() {
+    $.ajaxSetup({
+        async: false
+    });
+    var instanceId = $("#instanceId").val();
+    var flag = new Boolean();
+    $.post("sx_zqb_setCustomerContent.action", {
+        instanceId: instanceId
+    }, function (data) {
+    });
+    return true;
+}
+</script>
+<style type="text/css">
+.formpage_title {
+	text-align: center;
+	vertical-align:bottom;
+	height:50px;
+	font-size: 22px;
+	color:#000;
+	margin-bottom:20px;
+}
+.line {
+	background-color: #ccc;
+	height:15px;
+	margin-bottom:20px;
+}
+td {
+	line-height: 30px;
+	padding-left: 3px;
+	font-size: 12px;
+	border-bottom:1px #efefef dotted;
+	vertical-align:middle;
+	word-wrap:break-word;
+	word-break:break-all;
+	font-weight:100;
+	line-height:15px;
+	padding-top:5px;
+	text-align:left;
+	
+}
+legend {
+	font-size: 16px;
+}
+</style>
+
+<div id="border">
+	<table style="margin-bottom:5px;"width="100%">
+		<tr>
+			<td class="formpage_title">
+				项目立项表单
+			</td>
+		</tr>
+		<tr>
+			<td align="right" id="help" style="text-align:right;">
+				<p style="float:left;">${STATUS}</p>
+				<p style="margin-left:15px;float:right;">最后修改时间:${ZHXGSJ}</p>
+				<p style="margin-left:15px;float:right;">最后修改人:${ZHXGR}[${ZHXGRID}]</p>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" class="line"></td>
+		</tr>
+	</table>
+	<fieldset style="margin-top:15px;color:#004080;width:100%;border:1px dashed #CCCCCC">
+		<legend algin="right" style="color:#004080;">项目基本情况</legend>
+		<table width="100%">
+		<tr id="itemTr_0" colspan="4">
+			<td id="title_PROJECTNAME" width="25%" colspan="2">
+				项目名称${PROJECTNAME}
+			</td>
+</tr>
+ 			<tr>
+			<td id="title_XMBZ" width="25%" colspan="2">
+				<div class="ui-widget">
+				所属行业${XMBZ}
+				</div">
+			</td>
+		</tr>
+		<tr id="itemTr_1" colspan="4">
+			<td id="title_XMYS" width="25%">
+				2年累计净利润（万元）${XMYS}
+			</td>
+			<td id="title_ZCLR" width="25%">
+				项目承揽人${ZCLR}
+			</td>
+			<td id="title_HTJE" width="25%">
+				总收费（万元）${HTJE}
+			</td>
+			<td id="title_SFXZCL" width="25%">
+				是否需要协同${SFXZCL}
+			</td>
+		</tr>
+		<tr id="itemTr_2" colspan="4">
+			<td id="title_CUSTOMERINFO" width="25%">
+				住所地${CUSTOMERINFO}
+			</td>
+			<td id="title_GSGK" width="25%">
+				所属大区${GSGK}
+			</td>
+			<td id="title_FZJGMC" width="25%">
+				交叉销售部门${FZJGMC}
+			</td>
+			<td id="title_A01" width="25%">
+				交叉分配比例${A01}(%)
+			</td>
+		</tr>
+		</table>
+	</fieldset>
+
+
+	<fieldset style="margin-top:15px;color:#004080;width:100%;border:1px dashed #CCCCCC">
+		<legend algin="right" style="color:#004080;">项目人员安排</legend>
+		<table width="100%">
+		<tr id="itemTr_3">
+			<td id="title_OWNER" width="33%">
+				大区负责人${OWNER}
+			</td>
+			<td id="title_MANAGER" width="33%">
+				项目负责人${MANAGER}
+			</td>
+			<td id="title_DDAP" width="33%">
+				督导安排${DDAP}
+			</td>
+		</tr>
+		<tr id="itemTr_4">
+			<td id="title_XMZH" width="33%">
+				&nbsp;&nbsp;&nbsp;&nbsp;项目注会${XMZH}
+			</td>
+			<td id="title_XMXY" width="33%">
+				&nbsp;&nbsp;&nbsp;&nbsp;项目行研${XMXY}
+			</td>
+			<td id="title_XMLS" width="33%">
+				项目律师${XMLS}
+			</td>
+		</tr>
+		</table>
+	</fieldset>
+
+	<fieldset style="margin-top:15px;color:#004080;width:100%;border:1px dashed #CCCCCC">
+		<legend algin="right" style="color:#004080;">其他中介机构安排</legend>
+		<table width="100%">
+		<tr>
+			<td id="title_HJSSWS" width="66%">
+				会计师事务所${HJSSWS}
+			</td>
+			<td id="title_XZYJK" width="33%">
+				选择依据${XZYJK}
+			</td>
+		</tr>
+		<tr>
+			<td id="title_LSSWS" width="66%">
+				&nbsp;&nbsp;&nbsp;&nbsp;律师事务所${LSSWS}
+			</td>
+			<td id="title_XZYJL" width="33%">
+				选择依据${XZYJL}
+			</td>
+		</tr>
+		<tr>
+			<td id="title_PGJG" width="66%">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;评估机构${PGJG}
+			</td>
+			<td id="title_XZYJP" width="33%">
+				选择依据${XZYJP}
+			</td>
+		</tr>
+		</table>
+	</fieldset>
+
+
+	<fieldset style="margin-top:15px;color:#004080;width:100%;border:1px dashed #CCCCCC">
+		<legend algin="right" style="color:#004080;">项目预计进度情况</legend>
+		<table width="100%">
+		<tr id="itemTr_5">
+			<td id="title_GGJZR" width="25%">
+				股改基准日${GGJZR}
+			</td>
+			<td id="title_SBJZR" width="25%">
+				申报时间${SBJZR}
+			</td>
+		</tr>
+		</table>
+	</fieldset>
+
+
+	<fieldset style="margin-top:15px;color:#004080;width:100%;border:1px dashed #CCCCCC">
+		<legend algin="right" style="color:#004080;">项目预计收费情况</legend>
+		<table width="100%" cellspacing="0px">
+		<tr>
+			<td width="12%" style="border-top:1px dashed #CCCCCC;text-align:right;">
+				改制、挂牌费用
+			</td>
+			<td width="88%" style="border-left:1px dashed #CCCCCC;border-top:1px dashed #CCCCCC;">
+				首付${A03}万元，股改完成${A04}万元，内核完成${A05}万元，挂牌完成${A06}万元
+			</td>
+		</tr>
+		<tr>
+			<td width="12%" style="border-top:1px dashed #CCCCCC;text-align:right;">
+				持续督导费用
+			</td>
+			<td width="88%" style="border-left:1px dashed #CCCCCC;border-top:1px dashed #CCCCCC;">
+				挂牌当年${A07}万元，后续${A08}万元/年
+			</td>
+		</tr>
+		<tr>
+			<td width="12%" style="border-top:1px dashed #CCCCCC;text-align:right;">
+				融资顾问费用
+			</td>
+			<td width="88%" style="border-left:1px dashed #CCCCCC;border-top:1px dashed #CCCCCC;">
+				股权${YJZXYNJLR}%,债权${FXPGFS}%。(如有)
+			</td>
+		</tr>
+		</table>
+	</fieldset>
+
+	<fieldset style="margin-top:15px;color:#004080;width:100%;border:1px dashed #CCCCCC">
+		<legend algin="right" style="color:#004080;">目前发现公司存在的主要问题及初步解决方案</legend>
+		<script type="text/javascript" language="javascript">
+		function iFrameHeight() {
+			var ifm= document.getElementById("iframepage");
+			var subWeb = document.frames ? document.frames["iframepage"].document : ifm.contentDocument;
+			if(ifm != null && subWeb != null) {
+				ifm.height = subWeb.body.scrollHeight;
+			}
+		}
+		</script>
+		<iframe src="" id="iframepage" name="iframepage" frameBorder=0 scrolling=no width="100%" height="62" onLoad="iFrameHeight()"></iframe>
+	</fieldset>
+
+
+	<fieldset style="margin-top:15px;color:#004080;width:100%;border:1px dashed #CCCCCC">
+		<legend algin="right" style="color:#004080;">关于拟立项项目的基本结论意见及推荐立项理由</legend>
+		<table width="100%">
+		<tr id="txtAreaTr_2888">
+			<td id="title_MEMO">
+				${MEMO}
+			</td>
+		</tr>
+		</table>
+	</fieldset>
+</div>
+<div style="display:none;">
+${CUSTOMERNO}${PROJECTNO}${STARTDATE}${ENDDATE}${ATTACH}${CUSTOMERNAME}${TYPENO}${XMJD}${CREATEDATE}${CREATEUSER}
+${KHLXR}${KHLXDH}${CZWT}${LSYG}${A02}${ZCLRDH}${CZHGQ}${GSJZYS}${GSZYCP}${YLQK}${GSZYYW}${WTJJJCS}${SFTXCL}
+${WBCLRJG}${SPZT}${LCBH}${LCBS}${STEPID}${TASKID}${QRDG}${SSSYB}${XMZRY}${CLSLR}${SHTGR}${GZLXR}${GZLXDH}${XMZTPD}
+${YJSBSJ}${XMCY}${SFBMFZRSP}${ZBSPZT}${ZBLCBH}${ZBLCBS}${ZBSTEPID}${ZBTASKID}${CREATEUSERID}${GZYJDZ}${FZJGLXR}
+</div>

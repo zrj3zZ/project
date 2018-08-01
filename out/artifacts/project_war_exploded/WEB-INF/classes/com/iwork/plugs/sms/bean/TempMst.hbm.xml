@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.iwork.plugs.sms.bean">
+	
+	
+	<class table="IWORK_SMS_TEMP" name="TempMst">
+		<id name="cid" column="cid" type="integer">
+			<generator class="increment"></generator>
+		</id>
+		
+            <property name="userid" type="string" column="USERID" >
+            </property>
+            <property name="mobilenum" type="string" column="MOBILENUM">
+            </property>
+            <property name="content" type="string" column="CONTENT" >
+            </property>
+            <property name="status" type="integer" column="STATUS" >
+            </property>
+            <property name="channelid" type="integer" column="CHANNELID" >
+            </property>
+            <property name="sign"  type="string" column="SIGN" >
+            </property>
+            <property name="billinglen" type="integer">
+              
+            </property>
+            <property name="price" type="double" column="PRICE" >
+            </property>
+            <property name="msgsp" type="integer" column="MSGSP">
+            </property>
+            <property name="submittime" type="java.util.Date" column="SUBMITTIME">
+            </property>
+            <property name="pathname" type="string" column="PATHNAME">
+            </property>
+            <property name="batchnum" type="string" column="BATCHNUM" >
+            </property>
+            <property name="msgcount" type="integer" column="MSGCOUNT">
+            </property>
+       
+    </class>
+</hibernate-mapping>

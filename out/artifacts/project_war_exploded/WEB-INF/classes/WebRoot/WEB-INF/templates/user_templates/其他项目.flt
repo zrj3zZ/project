@@ -1,0 +1,169 @@
+<script type="text/javascript">
+$(document).ready(function() {
+	if(($("#CUSTOMERNO").val())!=""){
+		$("#selfdefinedic").remove();
+	}
+	var projectname=$("#CUSTOMERNAME").val();
+	var xmbh = $("#PROJECTNO").val();
+	var owner = $("#OWNER").val();
+	$("#URL").attr("src", encodeURI("hl_zqb_qtGetJdContent.action?xmbh=" + xmbh+"&owner="+owner));
+	$("#rzURL").attr("src", "zqb_project_showDaily.action?projectNo=" +xmbh+ "&projectname="+encodeURI(projectname));
+});
+function dept_book(targetname,targetid) {
+    var pageUrl = "zqb_gpfx_addxmcy_department_index.action?targetname="+targetname;
+    art.dialog.open(pageUrl,{
+        id: "deptBookDialog",
+        title: '部门地址簿',
+        content: pageUrl,
+        pading: 0,
+        lock: true,
+        width: 350,
+        height: 550
+    });
+}
+</script>
+<style type="text/css">
+/*.subsheet_title_light {
+	display: none;
+}*/
+</style>
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					其他项目表单
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+						<tbody>
+							<tr id="itemTr_0">
+								<td id="title_CUSTOMERNAME" class="td_title" width="15%">
+									客户名称
+								</td>
+								<td id="data_CUSTOMERNAME" class="td_data" width="35%">
+									${CUSTOMERNAME}&nbsp;
+								</td>
+								<td id="title_STARTDATE" class="td_title" width="15%">
+									项目立项时间
+								</td>
+								<td id="data_STARTDATE" class="td_data" width="35%">
+									${STARTDATE}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2">
+								<td id="title_MANAGER" class="td_title" width="15%">
+									项目负责人
+								</td>
+								<td id="data_MANAGER" class="td_data" width="35%">
+									${MANAGER}&nbsp;
+								</td>
+								<td id="title_OWNER" class="td_title" width="15%">
+									部门负责人
+								</td>
+								<td id="data_OWNER" class="td_data" width="35%">
+									${OWNER}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_3">
+								<td id="title_FZJGMC" class="td_title" width="15%">
+									承揽部门
+								</td>
+								<td id="data_FZJGMC" class="td_data" width="35%">
+									${FZJGMC}<a id="selfdefinebook1" href="###" onclick="dept_book('FZJGMC','');" title="部门地址簿" class="easyui-linkbutton" plain="true" iconcls="icon-deptbook"></a>
+								</td>
+								<td id="title_SSSYB" class="td_title" width="15%">
+									承做部门
+								</td>
+								<td id="data_SSSYB" class="td_data" width="35%">
+									${SSSYB}<a id="selfdefinebook2" href="###" onclick="dept_book('SSSYB','');" title="部门地址簿" class="easyui-linkbutton" plain="true" iconcls="icon-deptbook"></a>
+								</td>
+							</tr>
+							<tr id="itemTr_6">
+								<td id="title_A08" class="td_title" width="15%">
+									项目类型
+								</td>
+								<td id="data_A08" class="td_data" width="35%">
+									${A08}&nbsp;
+								</td>
+								<td id="title_KHLXDH" class="td_title" width="15%">
+									客户联系人
+								</td>
+								<td id="data_KHLXDH" class="td_data" width="35%">
+									${KHLXR}&nbsp;<span style="color: #333;font-weight: 500;">客户联系电话</span>${KHLXDH}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_8">
+								<td id="title_HTJE" class="td_title" width="15%">
+									合同金额(万元)
+								</td>
+								<td id="data_HTJE" class="td_data" width="35%">
+									${HTJE}<span id="htjespan" style="font-style:italic;color:red;"></span> 
+								</td>
+								<td id="title_A01" class="td_title" width="15%">
+									协议支出比例(%)
+								</td>
+								<td id="data_A01" class="td_data" width="35%">
+									${A01}&nbsp;
+								</td>
+							</tr>
+							<tr id="txtAreaTr_1126">
+								<td id="title_XMBZ" class="td_title" width="15%">
+									项目备注
+								</td>
+								<td id="data_XMBZ" class="td_data" colspan="3" width="85%">
+									${XMBZ}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div style="border-right-width:0px;width:840px;border-top-width:0px;border-bottom-width:0px;height:800px;border-left-width:0px;border-image:none;" id="mainFrameTab" class="easyui-tabs" fit="true">
+		<div style="border-bottom:#efefef 0px solid;border-left:#efefef 0px solid;height:800px;border-top:#efefef 0px solid;border-right:#efefef 0px solid;border-image:none;image:none;" title="项目阶段信息" border="true" cache="false">
+			<iframe id="URL" height="100%" border="0" width="100%" name="URL" qbiframeattached="true">
+			</iframe>
+		</div>
+		<div style="border-bottom:#efefef 0px solid;border-left:#efefef 0px solid;height:800px;border-top:#efefef 0px solid;border-right:#efefef 0px solid;border-image:none;image:none;" title="项目日志" border="true" cache="false">
+			<iframe id="rzURL" height="100%" border="0" width="100%" name="rzURL" qbiframeattached="true">
+			</iframe>
+		</div>
+		<div style="border-bottom:#efefef 0px solid;border-left:#efefef 0px solid;height:500px;border-top:#efefef 0px solid;border-right:#efefef 0px solid;border-image:none;" title="项目参与人" border="true" cache="false">
+			${SUBFORM_XMCYR}&nbsp;
+		</div>
+		<div style="border-bottom:#efefef 0px solid;border-left:#efefef 0px solid;height:500px;border-top:#efefef 0px solid;border-right:#efefef 0px solid;border-image:none;" title="中介机构" border="true" cache="false">
+			${SUBFORM_ZJJG}&nbsp;
+		</div>
+		<div title="尽调报告" style="border:0px solid #EFEFEF;border-image:none;" border="true" cache="false">
+			${SUBFORM_JDBG}&nbsp;
+		</div>
+		<div title="备忘录" style="border:0px solid #EFEFEF;border-image:none;" border="true" cache="false">
+			${SUBFORM_XMBWL}&nbsp;
+		</div>
+		
+		<div title="项目通讯录" style="border:0px solid #EFEFEF;border-image:none;" border="true" cache="false">
+			${SUBFORM_XMTXL}&nbsp;
+		</div>
+	</div>
+<br />
+</div>
+<div style="display:none;">
+	${XMJD}${CREATEUSERID}${CREATEUSER}${CREATEDATE}${PROJECTNO}${ATTACH}${CUSTOMERNO}${TYPENO}${MEMO}${CUSTOMERINFO}
+	${STATUS}${GSGK}${CZWT}${LSYG}${CZHGQ}${GSZYYW}${GSZYCP}${GSJZYS}${A01}${A02}${A03}${A04}${A05}${A06}${A07}
+	${YJZXYNJLR}${FXPGFS}${YLQK}${XMZTPD}${XMYS}${WTJJJCS}${SPZT}${SFBMFZRSP}${ZBSPZT}${ZBLCBH}${ZBLCBS}${ZBSTEPID}
+	${ZBTASKID}${LCBS}${LCBH}${STEPID}${TASKID}${PROJECTNAME}${XMJD}${ENDDATE}${CLSLR}${GGJZR}${SHTGR}${SBJZR}
+</div>

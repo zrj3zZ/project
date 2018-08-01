@@ -1,0 +1,54 @@
+<div id="border">
+		<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 5px" width="100%">
+			<tbody>
+				<tr>
+					<td class="formpage_title">实际发行信息</td>
+				</tr>
+				<tr>
+					<td align="right" id="help"></td>
+				</tr>
+				<tr>
+					<td align="right" class="line"></td>
+				</tr>
+				<tr>
+					<td align="left">
+						<table border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody>
+								<tr id="itemTr_0" >
+									<td class="td_title"  id="title_SJGPFXSL" width="15%">股票发行数量（万股）									</td>
+									<td class="td_data"  id="data_SJGPFXSL"  width="35%">${SJGPFXSL}&nbsp;　</td>
+									<td class="td_title"  id="title_FXRQ" width="15%">发行日期									</td>
+									<td class="td_data"  id="data_FXRQ"  width="35%">${FXRQ}&nbsp;　</td>
+								</tr>
+								<tr id="itemTr_2" >
+									<td class="td_title"  id="title_SYL" width="15%">市盈率									</td>
+									<td class="td_data"  id="data_SYL"  width="35%">${SYL}&nbsp;　</td>
+									<td class="td_title"  id="title_SJFXZE" width="15%">发行总额人民币（元）									</td>
+									<td class="td_data"  id="data_SJFXZE"  width="35%">${SJFXZE}&nbsp;　</td>
+								</tr>
+								<tr id="itemTr_4" >
+									<td class="td_title"  id="title_SJFXGPJG" width="15%">发行股票的价格为人民币（元/股）									</td>
+									<td class="td_data"  id="data_SJFXGPJG"  width="35%">${SJFXGPJG}&nbsp;　</td>
+									<td class="td_title"  id="title_RSSFCG" width="15%">公司股东人数是否超过200人									</td>
+									<td class="td_data"  id="data_RSSFCG"  width="35%">${RSSFCG}&nbsp;　</td>
+								</tr>
+								<tr id="itemTr_6" >
+									<td class="td_title"  id="title_SFZYXS" width="15%">是否自愿限售									</td>
+									<td class="td_data"  id="data_SFZYXS"  width="35%">${SFZYXS}&nbsp;　</td>
+									<td class="td_title"  id="title_FXZT" width="15%">发行状态									</td>
+									<td class="td_data"  id="data_FXZT"  width="35%">${FXZT}&nbsp;　</td>
+								</tr>
+								<tr id="itemTr_8" >
+								</tr>
+								<tr id="fjTr_3526" ><td   class="td_title" id="title_NFXFILE" >需增加的附件									</td>
+									<td id="data_NFXFILE"  class="td_data" colspan="3">${NFXFILE}&nbsp;　</td>
+								</td></tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+</div>
+<div style="display:none">
+${PROJECTNAME}${PROJECTNO}${LCBS}${LCBH}${GROUPID}${SPZT}${STEPID}${INSTANCEID}${CJSJ}${CREATEUSER}${CREATEUSERID}${TASKID}${EXCUTIONID}${SCORE}${EXTEND1}${EXTEND2}${EXTEND3}${EXTEND4}${EXTEND5}</div>

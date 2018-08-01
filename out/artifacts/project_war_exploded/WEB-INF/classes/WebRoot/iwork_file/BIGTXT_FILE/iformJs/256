@@ -1,0 +1,16 @@
+ $(function(){
+$.post("sx_getBgJdzl.action", {
+"jdmc": "申报资料",
+"xmlx":"并购项目",
+"xmbh":$("#XMBH").val()
+}, function (data) {
+var dataJson = eval("(" + data + ")");
+var content = dataJson[0].CONTENT;
+$("#spanjdzl").html(content);
+$("#jyf").html(dataJson[0].JYF);
+$("#jydsf").html(dataJson[0].JYDSF);
+$("#owner").html(dataJson[0].OWNER);
+$("#manager").html(dataJson[0].MANAGER);
+$("#COMPANYNAME").val(dataJson[0].JYF);
+});
+}); 

@@ -1,0 +1,26 @@
+function savebeforeEvent() {
+    $.ajaxSetup({
+        async: false
+    });
+    var groupid = $("#GROUPID").val();
+    var pjsm = $("#PJSM").val();
+    var projectno = $("#PROJECTNO").val();
+    var instanceid = $("#instanceId").val();
+    var pjr = $("#PJR").val();
+    var flag = new Boolean();
+    $.post("zqb_gpfx_project_checkXMPJ.action", {
+        groupid: groupid,
+        pjsm: pjsm,
+        projectno: projectno,
+        pjr: pjr,
+        instanceid: instanceid
+    }, function (data) {
+        if (data != "") {
+            flag = false;
+            alert(data);
+        } else {
+            flag = true;
+        }
+    });
+    return flag;
+}

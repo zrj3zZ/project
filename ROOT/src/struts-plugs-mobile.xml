@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+"http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+   <package strict-method-invocation="false"  name="mobile" extends="tiles-default">
+		  <!-- 定义一个名为 checkLogin 的拦截器 -->  
+        <interceptors>  
+            <!-- 定义权限检查拦截器 -->  
+            <interceptor name="checkLogin"  
+                class="com.iwork.core.server.root.IWorkInterceptor" />  
+            <!-- 定义一个包含权限检查的拦截器栈 -->  
+            <interceptor-stack name="myDefaultStack">  
+                <!-- 定义拦截器栈包含checkLogin拦截器 -->  
+                <interceptor-ref name="checkLogin"></interceptor-ref>  
+                <interceptor-ref name="defaultStack"></interceptor-ref>  
+            </interceptor-stack>  
+        </interceptors>  
+        <!-- 设置全局 全局默认的拦截器栈-->  
+        <default-interceptor-ref name="myDefaultStack"></default-interceptor-ref>  
+  
+        <!-- 定义全局Result -->  
+        <global-results>  
+            <!-- 当返回login视图名时，转入/login.jsp页面 -->  
+            <result name="login">app/mobile/plugs/unlogin.jsp</result>  
+        </global-results>
+        
+		<action name="*" class="com.iwork.commons.AbstractAction">
+            <result>/{1}.jsp</result>
+	    </action>
+	   
+	<!-- 移动终端-->
+		 <action name="getMobileSchCalendar" method="getMobileSchCalendar" 	class="SyncCalendarAction"> </action> 
+		 <action name="getMobileOrganization" method="getMobileOrganization" class="SyncOrganizationAction"> </action> 
+		 <action name="getMobileUserImg" method="getMobileUserImg" class="SyncOrganizationAction"> </action> 
+		 <action name="getMobileSysTopList" method="getMobileSysTopList" class="GetMobileSysTopList"> </action> 
+		 <action name="getMobileProcessJson" method="getMobileProcessJson" class="syncMobileProcessLaunchCenterAction"> </action>
+		 <action name="getMobileProcessLaunchCenterJson" method="getMobileProcessLaunchCenterJson" class="syncMobileProcessLaunchCenterAction"> </action> 
+		 <action name="getMobileSysMsgJson" method="getMobileSysMsgJson" class="SyncMobileSysMsgAction"> </action> 
+		 <action name="getMobileSysMsgItem" method="getMobileSyMsgItem" class="SyncMobileSysMsgAction"> 
+		 	<result name="success">app/message/runtime/sysmsg_mb.jsp</result> 
+		 </action>  
+		 <!-- 流程发起中心 -->
+		 <action name="process_mb_launch_index" method="index" class="syncMobileProcessLaunchCenterAction"> 
+			<result name="success">app/mobile/process/launch.jsp</result> 
+		</action> 
+	<!-- 流程处理action -->
+		<action name="process_mb_instance_create" method="startProcessInstance" class="syncMobileProcessExcuteAction"> 
+			<result name="success">app/engine/process/mobile/pformpage_mb.jsp</result> 
+		</action> 
+		<action name="process_mb_todo_page" method="loadFormPage" class="syncMobileProcessExcuteAction"> 
+			<result name="success">app/engine/process/mobile/pformpage_mb.jsp</result>
+			<result name="task_over">app/engine/process/mobile/pformpage_mb.jsp</result>
+		</action>  
+		<action name="process_mb_visit_page" method="loadVisitPage" class="syncMobileProcessExcuteAction"> 
+			<result name="success">app/engine/process/mobile/pformpage_mb.jsp</result>
+			<result name="task_over">app/engine/process/mobile/pformpage_mb.jsp</result>
+		</action>  
+		<!-- 移动终端--> 
+		<action name="process_mb_subForm_showpage"  method="loadSubForm"  class="syncMobileProcessExcuteAction" > 
+				  <result name="success">app/engine/process/mobile/subformpage.jsp</result>
+			</action> 
+		<action name="process_mb_subForm_edit"  method="editSubForm"  class="syncMobileProcessExcuteAction" > 
+				  <result name="success">app/engine/process/mobile/editSubform.jsp</result>
+			</action> 
+		<action name="process_mb_subForm_add"  method="addsubFormItem"  class="syncMobileProcessExcuteAction" > 
+				  <result name="success">app/engine/process/mobile/addSubform.jsp</result>
+		 </action> 
+		<action name="process_mb_subForm_remove"  method="delSubFormItem"  class="syncMobileProcessExcuteAction" > 
+			</action> 
+			
+			<!-- 流程处理动作 -->
+			
+			<action name="process_mb_RuntimeHandle"  method="executeHandle"  class="syncMobileProcessOperateAction" > 
+				  <result name="success">app/engine/process/mobile/processSendPage.jsp</result>
+				  <result name="ARCHIVES">app/engine/process/mobile/processArchivePage.jsp</result>
+				  <result name="cc">app/public/succes.jsp</result>
+				  <result name="error">app/engine/process/mobile/processSendError.jsp</result>
+			</action>
+			<action name="process_mb_RuntimeManualJump"  method="executeManualJump"  class="syncMobileProcessOperateAction" > 
+				  <result name="success">app/engine/process/mobile/processSendPage.jsp</result>
+				  <result name="cc">app/public/succes.jsp</result>
+				  <result name="error">app/engine/process/mobile/processSendError.jsp</result>
+				  <result name="ARCHIVES">app/engine/process/mobile/processArchivePage.jsp</result>
+			</action>
+			<action name="process_mb_RuntimeAuditOpinion"  method="executeAuditOpinion"  class="syncMobileProcessOperateAction" > 
+				  <result name="success">app/engine/process/mobile/pformpage.jsp</result>
+				  <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="process_mb_opinion_list"  method="executeAuditOpinion"  class="syncMobileProcessOperateAction" > 
+				  <result name="success">app/engine/process/mobile/opinion_list.jsp</result>
+			</action>
+			
+			<action name="process_mb_RuntimeTalk"  method="executeTalk"  class="syncMobileProcessOperateAction" > 
+				  <result name="success">app/engine/process/mobile/pformpage.jsp</result>
+				  <result name="error">app/public/nofind.jsp</result> 
+			</action>
+			
+			<action name="process_mb_RuntimeCC"  method="executeCC"  class="syncMobileProcessOperateAction" > 
+				  <result name="success">app/engine/process/mobile/processCCPage.jsp</result>
+				  <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="process_mb_RuntimeLoadCCJson"  method="loadCCTreeJson"  class="syncMobileProcessOperateAction" > 
+				  <result name="success">app/engine/process/mobile/processCCPage.jsp</result>
+			</action>
+			<action name="process_mb_RuntimeForward"  method="executeForward"  class="syncMobileProcessOperateAction" > 
+				  <result name="success">app/engine/process/mobile/processForwardPage.jsp</result>
+				  <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="process_mb_RuntimeAddSign"  method="executeAddSign"  class="syncMobileProcessOperateAction" > 
+				  <result name="success">app/engine/process/mobile/processAddSignPage.jsp</result>
+				  <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="process_mb_RuntimeBackAddSign"  method="executeBackAddSign"  class="syncMobileProcessOperateAction" > 
+				  <result name="success">app/engine/process/mobile/processBackAddSignPage.jsp</result>
+				  <result name="error">app/public/nofind.jsp</result>
+			</action>
+			
+			<action name="process_mb_RuntimeBack"  method="executeBack"  class="syncMobileProcessOperateAction" > 
+				  <result name="success" >app/engine/process/mobile/processBackPage.jsp</result>
+				  <result name="nofind" >app/engine/process/mobile/tips_win.jsp</result>
+				  <result name="error">app/public/nofind.jsp</result>
+			</action>
+			<action name="process_mb_addopinion"  method="addOpinion"  class="syncMobileProcessExcuteAction" > 
+				  <result name="success" >app/engine/process/mobile/AddOpinion.jsp</result>
+			</action>
+			<!-- 获得办理按钮列表 -->
+			<action name="process_mb_showTransBtn"  method="showTransBtn"  class="syncMobileProcessExcuteAction" > 
+			</action>
+			<!-- 表单组件-->
+			<!-- 单选地址簿-->
+			<action name="ifrom_mb_radio_address_show"  method="showRadioAddressPage"  class="syncIFormPlugsAction" >
+			 <result name="success" >app/mobile/plugs/radio_address.jsp</result> 
+			</action>
+			<action name="ifrom_mb_radio_address_search"  method="searchUserList"  class="syncIFormPlugsAction" >
+			</action>
+			<!-- 多选地址簿 -->
+			<action name="ifrom_mb_multi_address_show"  method="showMultiAddressPage"  class="syncIFormPlugsAction" >
+			 <result name="success" >app/mobile/plugs/multi_address.jsp</result> 
+			</action>
+			<action name="ifrom_mb_multi_address_search"   method="searchMultiUserList"  class="syncIFormPlugsAction" >
+			</action>
+			<!-- 新闻资讯 -->
+			<action name="information_news_list" method="getList" class="syncInformactionAction"></action>
+			<action name="information_more_list" method="getMoreList" class="syncInformactionAction">
+				<result name="success">app/plugs/cms/mobile/information_news.jsp</result>
+			</action>
+			<action name="information_content_list" method="getContentList" class="syncInformactionAction">
+				<result name="success">app/plugs/cms/mobile/information_content.jsp</result>
+			</action>
+			<!-- 知识文档 -->
+			<action name="kmDocuments_list" method="getList" class="kmDocMobileAction"></action>
+			
+   </package>  
+</struts>

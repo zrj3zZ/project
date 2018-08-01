@@ -1,0 +1,139 @@
+<script type="text/javascript">
+function saveForm(){
+ 	var instanceId = $("#instanceId").val();
+
+	var filename=$("#GSMC").val();
+	
+	if(instanceId ==null || instanceId ==""){
+		instanceId ="0";
+	}
+	var title="关联方信息";
+	var valid = mainFormValidator.form(); //执行校验操作
+	if(!valid){
+		return false;
+	}
+	//保存富文本
+ 	try{ 
+ 		saveHtmlEditor();  
+ 	}catch(e){} 
+	$.post("addOrUpdTyff.action", { instanceId : instanceId,name :encodeURI(filename),filename:encodeURI(title)}, function (data) {
+               document.getElementById("submitbtn").click();	
+        });
+	
+} 
+</script>
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					关联方管理
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help" style="text-align:right;">
+					<p style="margin-left:15px;float:right;">
+						填报时间:${CREATEDATE}
+					</p>
+					<p style="margin-left:15px;float:right;">
+						填报人:${CREATEUSER}[${CREATEUSERID}]
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_0">
+								<td class="td_title" id="title_GSMC" width="15%">
+									<span style="color:red;">*</span>公司名称
+								</td>
+								<td class="td_data" id="data_GSMC" width="35%">
+									${GSMC}&nbsp;　
+								</td>
+								<td class="td_title" id="title_GSLX" width="15%">
+									<span style="color:red;">*</span>公司类型
+								</td>
+								<td class="td_data" id="data_GSLX" width="35%">
+									${GSLX}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_2">
+								<td class="td_title" id="title_ZCH" width="15%">
+									注册号
+								</td>
+								<td class="td_data" id="data_ZCH" width="35%">
+									${ZCH}&nbsp;　
+								</td>
+								<td class="td_title" id="title_ZCZB" width="15%">
+									注册资本（万元）
+								</td>
+								<td class="td_data" id="data_ZCZB" width="35%">
+									${ZCZB}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_4">
+								<td class="td_title" id="title_ZCDZ" width="15%">
+									注册地址
+								</td>
+								<td class="td_data" id="data_ZCDZ" width="35%">
+									${ZCDZ}&nbsp;　
+								</td>
+								<td class="td_title" id="title_FRDB" width="15%">
+									法人代表
+								</td>
+								<td class="td_data" id="data_FRDB" width="35%">
+									${FRDB}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_7">
+								<td class="td_title" id="title_JJXZ" width="15%">
+									经济性质
+								</td>
+								<td class="td_data" id="data_JJXZ" width="35%">
+									${JJXZ}&nbsp;　
+								</td>
+								<td class="td_title" id="title_GLGX" width="15%">
+									关联关系
+								</td>
+								<td class="td_data" id="data_GLGX" width="35%">
+									${GLGX}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_9">
+								<td class="td_title" id="title_CGBL" width="15%">
+									公司持股比例(%)
+								</td>
+								<td class="td_data" id="data_CGBL" width="35%">
+									${CGBL}&nbsp;　
+								</td>
+							</tr>
+							<tr id="txtAreaTr_2481">
+								<td class="td_title" id="title_SCJYFW">
+									生产经营范围
+								</td>
+								<td id="data_SCJYFW" class="td_data" colspan="3">
+									${SCJYFW}&nbsp;　
+								</td>
+							</tr>
+							<tr id="txtAreaTr_2486">
+								<td class="td_title" id="title_BZXX">
+									备注信息
+								</td>
+								<td id="data_BZXX" class="td_data" colspan="3">
+									${BZXX}&nbsp;　
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${KHBH}${KHMC}${FZGSID}
+</div>

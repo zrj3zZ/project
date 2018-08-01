@@ -1,0 +1,190 @@
+@charset "utf-8";
+/* CSS Document */
+.org_txt_onfocus {
+	position: absolute;
+	color: #ccc;
+	font-size: 14px;
+	top: 139px;
+	*top: 143px;
+	left: 113px;
+}
+.org_txt_onblur {
+	position: absolute;
+	color: #ababab;
+	font-size: 14px;
+	top: 139px;
+	*top: 143px;
+	left: 113px;
+}
+.user_txt_onfocus {
+	position: absolute;
+	color: #ccc;
+	font-size: 14px;
+	top: 97px;
+	*top: 99px;
+	left: 113px;
+}
+.user_txt_onblur {
+	position: absolute;
+	color: #ababab;
+	font-size: 14px;
+	top: 97px;
+	*top: 99px;
+	left: 113px;
+}
+.password_txt_onfocus {
+	position: absolute;
+	color: #ccc;
+	font-size: 14px;
+	top: 185px;
+	*top: 189px;
+	left: 113px;
+}
+.password_txt_onblur {
+	position: absolute;
+	color: #ababab;
+	font-size: 14px;
+	top: 185px;
+	*top: 189px;
+	left: 113px;
+}
+.quser_txt_onfocus {
+	position: absolute;
+	color: #ccc;
+	font-size: 12px;
+	top: 124px;
+	left: 111px;
+}
+.quser_txt_onblur {
+	position: absolute;
+	color: #ababab;
+	font-size: 12px;
+	top: 124px;
+	left: 111px;
+}
+.qpassword_txt_onfocus {
+	position: absolute;
+	color: #ccc;
+	font-size: 12px;
+	top: 171px;
+	left: 111px;
+}
+.qpassword_txt_onblur {
+	position: absolute;
+	color: #ababab;
+	font-size: 12px;
+	top: 171px;
+	left: 111px;
+}
+.username_txt_onfocus {
+	position: absolute;
+	color: #ababab;
+	font-size: 12px;
+	top: 118px;
+	left: 111px;
+}
+.username_txt_onblur {
+	position: absolute;
+	color: #ccc;
+	font-size: 12px;
+	top: 118px;
+	left: 111px;
+}
+
+.login_box {
+	position:absolute;
+	top:80px;
+	left:50%;
+	width:1060px;
+	margin-left:-430px;
+	font-size:14px;
+}
+.login_left {
+	float:left;
+	height:450px;
+	width:414px;
+	
+}
+.tab {
+	width:414px;
+	height:345px;
+
+	background:url(../images/log_bg.png)
+}
+
+.tab_menu {
+	clear:both;
+	margin-bottom:-2px;
+}
+
+.tab_box {
+	clear:both;
+	padding:68px 0px 0px 0px;
+  
+	line-height:14px;
+}
+.hide {
+	display:none;
+}
+.text_box {
+	font-size:12px;
+	line-height:50px;
+	height:50px;
+}
+.login_right {
+		background:url(../images/log_bg2.png);
+	width:503px;
+	height:378px;
+	float:left;
+	color:#838383;
+}
+.login_right_text {
+	font-size:12px;
+	text-align:right;
+
+}
+.login_right_images {
+	font-size:12px;
+	line-height:20px;
+	padding-top:46px;
+	padding-left:40px;
+	float:left
+}
+.hack {
+	font-size:12px;
+	vertical-align:text-bottom;
+	margin-bottom:2px;
+	margin-bottom:-2px\9;
+	float:left;
+	width:50px;
+	margin-top:2px;
+	margin-left:151px;
+ *margin-left:215px;
+ *margin-top:-14px;
+}
+
+/*��¼ҳ ������֯�����б�*/
+#loginOrgSearch_div{
+	position:absolute;
+	padding:1px;
+	color:#333;
+	display:none;
+	width:250px;
+	z-index:9999
+}
+.bd_search_input {
+	white-space:nowrap;
+	border:1px solid #817f82;
+	width:200px;
+	overflow:auto;
+	color:#434343;
+	background-color:#FFF;
+	font-size:12px;
+	max-height: 190px;
+ height: expression_r( this.scrollHeight > 190 ? "190px" : "auto" );
+}
+.bd_content {
+	line-height:16px;
+	height:16px;
+	padding:3px 5px 3px 5px;/**font-weight:bold;*/
+}

@@ -1,0 +1,33 @@
+@charset "utf-8";
+*{
+	margin:0px;
+	padding:0px;}
+img {
+	border:0px;
+}
+body {
+	font-size:12px;
+	font-family:宋体;
+	font-family:Arial;
+	min-height:400px;
+	min-width:996px;
+	max-height:1000px;
+	max-height:2048px;
+}
+a:link {
+	text-decoration:none;
+	color:#0e91dd;
+}
+a:visited {
+	text-decoration:none;
+	color:#0e91dd;
+}
+a:hover {
+	text-decoration:none;
+	color:#0e91dd;
+}
+a:active {
+	text-decoration:none;
+	color:#0e91dd;
+}
+a {blr:expression(this.onFocus=this.blur())} 

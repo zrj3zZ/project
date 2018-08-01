@@ -1,0 +1,48 @@
+/*以下与公共知识库相关的图标*/
+.icon-clock{
+	background:url('../../iwork_img/km/icon-clock.png') no-repeat;
+} 
+.icon-nav{
+	background:url('../../iwork_img/km/icon-nav.png') no-repeat;
+}
+.icon-star{
+	background:url('../../iwork_img/km/icon-star.png') no-repeat;
+}
+.icon-dir-add{
+	background:url('../../iwork_img/km/newFolder.gif') no-repeat;
+}
+.icon-dir-del{
+	background:url('../../iwork_img/km/delFolder.gif') no-repeat;
+} 
+.icon-dir-edit{
+	background:url('../../iwork_img/km/icon-dir-edit.png') no-repeat;
+}
+.icon-file-download{
+	background:url('../../iwork_img/km/download.gif') no-repeat;
+}
+.icon-file-search{
+	background:url('../../iwork_img/km/icon-file-search.png') no-repeat;
+}
+.icon-lock{
+	background:url('../../iwork_img/km/icon-lock.png') no-repeat;
+}
+.icon-unlock{
+	background:url('../../iwork_img/km/icon-unlock.png') no-repeat;
+}
+.icon-doc-add{
+	background:url('../../iwork_img/page_add.png') no-repeat;
+}
+.icon-doc-del{
+	background:url('../../iwork_img/know/delete2.gif') no-repeat;
+	background-position: 4px 4px; 
+}
+.icon-doc-edit{
+	background:url('../../iwork_img/page_edit.png') no-repeat;
+}
+.icon-file-upload{
+	background:url('../../iwork_img/km/icon-file-upload.png') no-repeat;
+}
+.icon-version-update{
+	background:url('../../iwork_img/km/icon-version-update.png') no-repeat;
+}
+/*以上与公共知识库相关的图标*/

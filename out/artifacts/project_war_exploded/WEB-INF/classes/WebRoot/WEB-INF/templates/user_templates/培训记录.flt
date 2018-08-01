@@ -1,0 +1,95 @@
+<script type="text/javascript">
+$(function(){
+
+	document.getElementById("CJSJ").value=document.getElementById("CJSJ").value.substring(0,10); 
+});
+</script>
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" width="100%" cellspacing="0" cellpadding="0" border="0">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					培训记录
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" width="100%" cellspacing="0" cellpadding="0" border="0">
+						<tbody>
+							
+							<tr id="itemTr_6678">
+								<td class="td_title" id="title_BANKACCOUNT" width="180">
+									证券代码
+								</td>
+								<td class="td_data" id="data_BANKACCOUNT">
+									${BANKACCOUNT}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_6672">
+								<td class="td_title" id="title_CUSTOMERNAME" width="180">
+									证券简称
+								</td>
+								<td class="td_data" id="data_CUSTOMERNAME">
+									${CUSTOMERNAME}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_6671">
+								<td class="td_title" id="title_USERID" width="180">
+									培训人员
+								</td>
+								<td class="td_data" id="data_USERID">
+									${USERID}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_6674">
+								<td class="td_title" id="title_NSR" width="180">
+									参训人员
+								</td>
+								<td class="td_data" id="data_NSR">
+									${NSR}&nbsp;
+								</td>
+							</tr>
+<tr id="itemTr_6680">
+								<td class="td_title" id="title_CJSJ" width="180">
+									培训时间
+								</td>
+								<td class="td_data" id="data_CJSJ">
+									${CJSJ}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_6675">
+								<td class="td_title" id="title_SWDJH" width="180">
+									培训方式
+								</td>
+								<td class="td_data" id="data_SWDJH">
+									${SWDJH}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_6679">
+								<td class="td_title" id="title_ATTACH" width="180">
+									上传资料
+								</td>
+								<td class="td_data" id="data_ATTACH">
+									${ATTACH}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${CUSTOMERNO}${SWDJDZ}${BANKNAME}
+</div>

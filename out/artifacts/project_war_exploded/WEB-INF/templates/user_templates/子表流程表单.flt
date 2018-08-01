@@ -1,0 +1,66 @@
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					部门负责人审批
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_0">
+								<td class="td_title" id="title_PROJECTNAME" width="15%">
+									项目名称
+								</td>
+								<td class="td_data" id="data_PROJECTNAME" width="35%">
+									${PROJECTNAME}&nbsp;　
+								</td>
+								<td class="td_title" id="title_CUSTOMERNAME" width="15%">
+									客户名称
+								</td>
+								<td class="td_data" id="data_CUSTOMERNAME" width="35%">
+									${CUSTOMERNAME}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_2">
+								<td class="td_title" id="title_OWNER" width="15%">
+									项目负责人
+								</td>
+								<td class="td_data" id="data_OWNER" width="35%">
+									${OWNER}&nbsp;　
+								</td>
+								<td class="td_title" id="title_A01" width="15%">
+									协议支出比例(%)
+								</td>
+								<td class="td_data" id="data_A01" width="35%">
+									${A01}&nbsp;　
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div style="border-right-width:0px;width:840px;border-top-width:0px;border-bottom-width:0px;height:340px;border-left-width:0px;border-image:none;" id="mainFrameTab" class="easyui-tabs" fit="true">
+		<div id="cljgdiv" style="border-bottom:#efefef 0px solid;border-left:#efefef 0px solid;min-height:340px;border-top:#efefef 0px solid;border-right:#efefef 0px solid;border-image:none;image:none;" title="<font color='red'>分配部门</font>" border="true" cache="false">
+			${SUBFORM_CLJG}&nbsp;
+		</div>
+		<div id="clrdiv" style="border-bottom:#efefef 0px solid;border-left:#efefef 0px solid;height:340px;border-top:#efefef 0px solid;border-right:#efefef 0px solid;border-image:none;image:none;" title="<font color='red'>承揽个人</font>" border="true" cache="false">
+			${SUBFORM_CLR}&nbsp;
+		</div>
+	</div>
+</div>
+<div style="display:none;">
+	${CREATEUSERID}${CREATEDATE}${CREATEUSER}${PROJECTNO}${MANAGER}${ATTACH}${CUSTOMERNO}${TYPENO}${MEMO}${CUSTOMERINFO}${XMJD}${STATUS}${KHLXR}${KHLXDH}${GSGK}${CZWT}${LSYG}${CZHGQ}${GSZYYW}${GSZYCP}${GSJZYS}${A03}${A04}${A05}${A06}${A07}${A08}${YJZXYNJLR}${FXPGFS}${YLQK}${XMZTPD}${XMYS}${WTJJJCS}${HTJE}${SFXZCL}${ZCLR}${ZCLRDH}${FZJGMC}${FZJGLXR}${WBCLRJG}${XMBZ}${GGJZR}${SBJZR}${SPZT}${LCBH}${LCBS}${STEPID}${TASKID}${QRDG}${SFTXCL}${SSSYB}${XMZRY}${CLSLR}${SHTGR}${GZLXR}${GZLXDH}${GZYJDZ}${YJSBSJ}${XMCY}
+</div>

@@ -1,0 +1,97 @@
+<script>
+$(function(){ 
+	/*document.getElementById('GHSJ').onfocus= function(){
+		WdatePicker({minDate:'#F{$dp.$D(\'SQSJ\')}',maxDate: '%y-%M-%d' });
+	};
+
+	if(document.getElementById('GHSJ').type=="hidden"){
+		document.getElementById('GHSJ').className ='';
+	}*/
+	document.getElementById('YJGHSJ').onfocus= function(){
+		WdatePicker({minDate:'#F{$dp.$D(\'SQSJ\')}'});
+	};
+});
+</script>
+
+
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" width="100%" cellspacing="0" cellpadding="0" border="0">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					底稿调阅流程表
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" width="100%" cellspacing="0" cellpadding="0" border="0">
+						<tbody>
+							<tr id="itemTr_6380">
+								<td class="td_title" id="title_DYZLNR" width="180">
+									<span style="color:red;">*</span>调阅资料内容
+								</td>
+								<td class="td_data" id="data_DYZLNR">
+									${DYZLNR}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_6330">
+								<td class="td_title" id="title_SQSJ" width="180">
+									<span style="color:red;">*</span>申请时间
+								</td>
+								<td class="td_data" id="data_SQSJ">
+									${SQSJ}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_6331">
+								<td class="td_title" id="title_YJGHSJ" width="180">
+									<span style="color:red;">*</span>预计归还时间
+								</td>
+								<td class="td_data" id="data_YJGHSJ">
+									${YJGHSJ}&nbsp;
+								</td>
+							</tr>
+<tr id="itemTr_6329">
+								<td class="td_title" id="title_SY" width="180">
+									<span style="color:red;">*</span>事由
+								</td>
+								<td class="td_data" id="data_SY">
+									${SY}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_6340">
+								<td class="td_title" id="title_GHSJ" width="180">
+									归还时间
+								</td>
+								<td class="td_data" id="data_GHSJ">
+									${GHSJ}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_6332">
+								<td class="td_title" id="title_DGFJ" width="180">
+									附件
+								</td>
+								<td class="td_data" id="data_DGFJ">
+									${DGFJ}&nbsp;
+								</td>
+							</tr>
+							
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${INSTANCEID}${RWID}${COMPANYNAME}${DYRID}${DYRXM}${TBSJ}${SPZT}${LCBS}${LZWZ}${LZJD}${EXTEND1}${EXTEND2}${EXTEND3}${EXTEND4}${EXTEND5}${LCBH}${COMPANYNO}
+</div>

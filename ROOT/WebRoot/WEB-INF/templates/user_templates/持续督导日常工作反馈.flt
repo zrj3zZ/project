@@ -1,0 +1,736 @@
+<script type="text/javascript">
+$(function(){
+	for(var i=1;i<=36;i++){
+		var o1 = "#WT"+i;
+		var oa = "#itemTr_W"+i+"a";
+		var ob = "#itemTr_W"+i+"b";
+		var oc = "#itemTr_W"+i+"c";
+		if($(o1).val()==null||$(o1).val()==""){
+			$(oa).remove();
+			$(ob).remove();
+			$(oc).remove();
+		}
+	}
+});
+</script>
+<style type="text/css">
+.breakword{
+	word-break:break-all;
+}
+</style>
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					持续督导日常工作反馈
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" border="0" cellpadding="0" cellspacing="0" width="100%">
+						<tbody>
+							<tr id="itemTr_W1a">
+								<td id="title_WT1" colspan="2" width="180" class="breakword">
+									<br />
+1、${WT1}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W1b">
+								<td id="data_AS1" colspan="2">
+									是否发生:${AS1}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL1}
+								</td>
+							</tr>
+							<tr id="itemTr_W1c">
+								<td class="td_title" id="title_BZ1" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ1" class="td_data">
+									${BZ1}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W2a">
+								<td id="title_WT2" colspan="2" width="180" class="breakword">
+									<br />
+2、${WT2}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W2b">
+								<td id="data_AS2" colspan="2">
+									是否发生:${AS2}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL2}
+								</td>
+							</tr>
+							<tr id="itemTr_W2c">
+								<td class="td_title" id="title_BZ2" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ2" class="td_data">
+									${BZ2}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W3a">
+								<td id="title_WT3" colspan="2" width="180" class="breakword">
+									<br />
+3、${WT3}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W3b">
+								<td id="data_AS3" colspan="2">
+									是否发生:${AS3}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL3}
+								</td>
+							</tr>
+							<tr id="itemTr_W3c">
+								<td class="td_title" id="title_BZ3" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ3" class="td_data">
+									${BZ3}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W4a">
+								<td id="title_WT4" colspan="2" width="180" class="breakword">
+									<br />
+4、${WT4}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W4b">
+								<td id="data_AS4" colspan="2">
+									是否发生:${AS4}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL4}
+								</td>
+							</tr>
+							<tr id="itemTr_W4c">
+								<td class="td_title" id="title_BZ4" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ4" class="td_data">
+									${BZ4}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W5a">
+								<td id="title_WT5" colspan="2" width="180" class="breakword">
+									<br />
+5、${WT5}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W5b">
+								<td id="data_AS5" colspan="2">
+									是否发生:${AS5}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL5}
+								</td>
+							</tr>
+							<tr id="itemTr_W5c">
+								<td class="td_title" id="title_BZ5" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ5" class="td_data">
+									${BZ5}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W6a">
+								<td id="title_WT6" colspan="2" width="180" class="breakword">
+									<br />
+6、${WT6}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W6b">
+								<td id="data_AS6" colspan="2">
+									是否发生:${AS6}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL6}
+								</td>
+							</tr>
+							<tr id="itemTr_W6c">
+								<td class="td_title" id="title_BZ6" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ6" class="td_data">
+									${BZ6}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W7a">
+								<td id="title_WT7" colspan="2" width="180" class="breakword">
+									<br />
+7、${WT7}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W7b">
+								<td id="data_AS7" colspan="2">
+									是否发生:${AS7}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL7}
+								</td>
+							</tr>
+							<tr id="itemTr_W7c">
+								<td class="td_title" id="title_BZ7" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ7" class="td_data">
+									${BZ7}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W8a">
+								<td id="title_WT8" colspan="2" width="180" class="breakword">
+									<br />
+8、${WT8}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W8b">
+								<td id="data_AS8" colspan="2">
+									是否发生:${AS8}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL8}
+								</td>
+							</tr>
+							<tr id="itemTr_W8c">
+								<td class="td_title" id="title_BZ8" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ8" class="td_data">
+									${BZ8}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W9a">
+								<td id="title_WT9" colspan="2" width="180" class="breakword">
+									<br />
+9、${WT9}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W9b">
+								<td id="data_AS9" colspan="2">
+									是否发生:${AS9}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL9}
+								</td>
+							</tr>
+							<tr id="itemTr_W9c">
+								<td class="td_title" id="title_BZ9" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ9" class="td_data">
+									${BZ9}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W10a">
+								<td id="title_WT10" colspan="2" width="180" class="breakword">
+									<br />
+10、${WT10}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W10b">
+								<td id="data_AS10" colspan="2">
+									是否发生:${AS10}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL10}
+								</td>
+							</tr>
+							<tr id="itemTr_W10c">
+								<td class="td_title" id="title_BZ10" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ10" class="td_data">
+									${BZ10}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W11a">
+								<td id="title_WT11" colspan="2" width="180" class="breakword">
+									<br />
+11、${WT11}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W11b">
+								<td id="data_AS11" colspan="2">
+									是否发生:${AS11}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL11}
+								</td>
+							</tr>
+							<tr id="itemTr_W11c">
+								<td class="td_title" id="title_BZ11" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ11" class="td_data">
+									${BZ11}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W12a">
+								<td id="title_WT12" colspan="2" width="180" class="breakword">
+									<br />
+12、${WT12}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W12b">
+								<td id="data_AS12" colspan="2">
+									是否发生:${AS12}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL12}
+								</td>
+							</tr>
+							<tr id="itemTr_W12c">
+								<td class="td_title" id="title_BZ12" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ12" class="td_data">
+									${BZ12}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W13a">
+								<td id="title_WT13" colspan="2" width="180" class="breakword">
+									<br />
+13、${WT13}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W13b">
+								<td id="data_AS13" colspan="2">
+									是否发生:${AS13}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL13}
+								</td>
+							</tr>
+							<tr id="itemTr_W13c">
+								<td class="td_title" id="title_BZ13" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ13" class="td_data">
+									${BZ13}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W14a">
+								<td id="title_WT14" colspan="2" width="180" class="breakword">
+									<br />
+14、${WT14}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W14b">
+								<td id="data_AS14" colspan="2">
+									是否发生:${AS14}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL14}
+								</td>
+							</tr>
+							<tr id="itemTr_W14c">
+								<td class="td_title" id="title_BZ14" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ14" class="td_data">
+									${BZ14}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W15a">
+								<td id="title_WT15" colspan="2" width="180" class="breakword">
+									<br />
+15、${WT15}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W15b">
+								<td id="data_AS15" colspan="2">
+									是否发生:${AS15}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL15}
+								</td>
+							</tr>
+							<tr id="itemTr_W15c">
+								<td class="td_title" id="title_BZ15" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ15" class="td_data">
+									${BZ15}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W16a">
+								<td id="title_WT16" colspan="2" width="180" class="breakword">
+									<br />
+16、${WT16}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W16b">
+								<td id="data_AS16" colspan="2">
+									是否发生:${AS16}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL16}
+								</td>
+							</tr>
+							<tr id="itemTr_W16c">
+								<td class="td_title" id="title_BZ16" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ16" class="td_data">
+									${BZ16}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W17a">
+								<td id="title_WT17" colspan="2" width="180" class="breakword">
+									<br />
+17、${WT17}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W17b">
+								<td id="data_AS17" colspan="2">
+									是否发生:${AS17}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL17}
+								</td>
+							</tr>
+							<tr id="itemTr_W17c">
+								<td class="td_title" id="title_BZ17" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ17" class="td_data">
+									${BZ17}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W18a">
+								<td id="title_WT18" colspan="2" width="180" class="breakword">
+									<br />
+18、${WT18}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W18b">
+								<td id="data_AS18" colspan="2">
+									是否发生:${AS18}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL18}
+								</td>
+							</tr>
+							<tr id="itemTr_W18c">
+								<td class="td_title" id="title_BZ18" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ18" class="td_data">
+									${BZ18}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W19a">
+								<td id="title_WT19" colspan="2" width="180" class="breakword">
+									<br />
+19、${WT19}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W19b">
+								<td id="data_AS19" colspan="2">
+									是否发生:${AS19}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL19}
+								</td>
+							</tr>
+							<tr id="itemTr_W19c">
+								<td class="td_title" id="title_BZ19" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ19" class="td_data">
+									${BZ19}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W20a">
+								<td id="title_WT20" colspan="2" width="180" class="breakword">
+									<br />
+20、${WT20}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W20b">
+								<td id="data_AS20" colspan="2">
+									是否发生:${AS20}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL20}
+								</td>
+							</tr>
+							<tr id="itemTr_W20c">
+								<td class="td_title" id="title_BZ20" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ20" class="td_data">
+									${BZ20}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W21a">
+								<td id="title_WT21" colspan="2" width="180" class="breakword">
+									<br />
+21、${WT21}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W21b">
+								<td id="data_AS21" colspan="2">
+									是否发生:${AS21}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL21}
+								</td>
+							</tr>
+							<tr id="itemTr_W21c">
+								<td class="td_title" id="title_BZ21" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ21" class="td_data">
+									${BZ21}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W22a">
+								<td id="title_WT22" colspan="2" width="180" class="breakword">
+									<br />
+22、${WT22}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W22b">
+								<td id="data_AS22" colspan="2">
+									是否发生:${AS22}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL22}
+								</td>
+							</tr>
+							<tr id="itemTr_W22c">
+								<td class="td_title" id="title_BZ22" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ22" class="td_data">
+									${BZ22}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W23a">
+								<td id="title_WT23" colspan="2" width="180" class="breakword">
+									<br />
+23、${WT23}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W23b">
+								<td id="data_AS23" colspan="2">
+									是否发生:${AS23}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL23}
+								</td>
+							</tr>
+							<tr id="itemTr_W23c">
+								<td class="td_title" id="title_BZ23" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ23" class="td_data">
+									${BZ23}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W24a">
+								<td id="title_WT24" colspan="2" width="180" class="breakword">
+									<br />
+24、${WT24}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W24b">
+								<td id="data_AS24" colspan="2">
+									是否发生:${AS24}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL24}
+								</td>
+							</tr>
+							<tr id="itemTr_W24c">
+								<td class="td_title" id="title_BZ24" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ24" class="td_data">
+									${BZ24}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W25a">
+								<td id="title_WT25" colspan="2" width="180" class="breakword">
+									<br />
+25、${WT25}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W25b">
+								<td id="data_AS25" colspan="2">
+									是否发生:${AS25}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL25}
+								</td>
+							</tr>
+							<tr id="itemTr_W25c">
+								<td class="td_title" id="title_BZ25" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ25" class="td_data">
+									${BZ25}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W26a">
+								<td id="title_WT26" colspan="2" width="180" class="breakword">
+									<br />
+26、${WT26}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W26b">
+								<td id="data_AS26" colspan="2">
+									是否发生:${AS26}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL26}
+								</td>
+							</tr>
+							<tr id="itemTr_W26c">
+								<td class="td_title" id="title_BZ26" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ26" class="td_data">
+									${BZ26}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W27a">
+								<td id="title_WT27" colspan="2" width="180" class="breakword">
+									<br />
+27、${WT27}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W27b">
+								<td id="data_AS27" colspan="2">
+									是否发生:${AS27}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL27}
+								</td>
+							</tr>
+							<tr id="itemTr_W27c">
+								<td class="td_title" id="title_BZ27" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ27" class="td_data">
+									${BZ27}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W28a">
+								<td id="title_WT28" colspan="2" width="180" class="breakword">
+									<br />
+28、${WT28}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W28b">
+								<td id="data_AS28" colspan="2">
+									是否发生:${AS28}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL28}
+								</td>
+							</tr>
+							<tr id="itemTr_W28c">
+								<td class="td_title" id="title_BZ28" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ28" class="td_data">
+									${BZ28}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W29a">
+								<td id="title_WT29" colspan="2" width="180" class="breakword">
+									<br />
+29、${WT29}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W29b">
+								<td id="data_AS29" colspan="2">
+									是否发生:${AS29}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL29}
+								</td>
+							</tr>
+							<tr id="itemTr_W29c">
+								<td class="td_title" id="title_BZ29" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ29" class="td_data">
+									${BZ29}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W30a">
+								<td id="title_WT30" colspan="2" width="180" class="breakword">
+									<br />
+30、${WT30}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W30b">
+								<td id="data_AS30" colspan="2">
+									是否发生:${AS30}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL30}
+								</td>
+							</tr>
+							<tr id="itemTr_W30c">
+								<td class="td_title" id="title_BZ30" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ30" class="td_data">
+									${BZ30}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W31a">
+								<td id="title_WT31" colspan="2" width="180" class="breakword">
+									<br />
+31、${WT31}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W31b">
+								<td id="data_AS31" colspan="2">
+									是否发生:${AS31}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL31}
+								</td>
+							</tr>
+							<tr id="itemTr_W31c">
+								<td class="td_title" id="title_BZ31" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ31" class="td_data">
+									${BZ31}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W32a">
+								<td id="title_WT32" colspan="2" width="180" class="breakword">
+									<br />
+32、${WT32}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W32b">
+								<td id="data_AS32" colspan="2">
+									是否发生:${AS32}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL32}
+								</td>
+							</tr>
+							<tr id="itemTr_W32c">
+								<td class="td_title" id="title_BZ32" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ32" class="td_data">
+									${BZ32}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W33a">
+								<td id="title_WT33" colspan="2" width="180" class="breakword">
+									<br />
+33、${WT33}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W33b">
+								<td id="data_AS33" colspan="2">
+									是否发生:${AS33}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL33}
+								</td>
+							</tr>
+							<tr id="itemTr_W33c">
+								<td class="td_title" id="title_BZ33" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ33" class="td_data">
+									${BZ33}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W34a">
+								<td id="title_WT34" colspan="2" width="180" class="breakword">
+									<br />
+34、${WT34}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W34b">
+								<td id="data_AS34" colspan="2">
+									是否发生:${AS34}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL34}
+								</td>
+							</tr>
+							<tr id="itemTr_W34c">
+								<td class="td_title" id="title_BZ34" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ34" class="td_data">
+									${BZ34}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W35a">
+								<td id="title_WT35" colspan="2" width="180" class="breakword">
+									<br />
+35、${WT35}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W35b">
+								<td id="data_AS35" colspan="2">
+									是否发生:${AS35}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL35}
+								</td>
+							</tr>
+							<tr id="itemTr_W35c">
+								<td class="td_title" id="title_BZ35" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ35" class="td_data">
+									${BZ35}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W36a">
+								<td id="title_WT36" colspan="2" width="180" class="breakword">
+									<br />
+36、${WT36}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_W36b">
+								<td id="data_AS36" colspan="2">
+									是否发生:${AS36}&nbsp;&nbsp;&nbsp;&nbsp;是否执行:${PL36}
+								</td>
+							</tr>
+							<tr id="itemTr_W36c">
+								<td class="td_title" id="title_BZ36" style="text-align:left;width:5%;">
+									情况说明：
+								</td>
+								<td id="data_BZ36" class="td_data">
+									${BZ36}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${CUSTOMERNAME}${CUSTOMERNO}${USERNAME}${USERID}${TZGGID}${LOCKSTATUS}
+</div>

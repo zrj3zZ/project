@@ -1,0 +1,91 @@
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					办公用品申请单
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+					<span id="data_DJBH">单据编号:${DJBH}</span> 
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr>
+								<td class="td_title" id="title_SQRBMID" width="15%">
+									申请人
+								</td>
+								<td class="td_data" id="data_SQRBMID" width="35%" colspan="3">
+									${SQRXM}【${SQRZH},${SQRGW},${SQRDH}&nbsp;】【${SQRBMID}&nbsp;${SQRBMMC} 】
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_SYRXM" width="15%">
+									使用人
+								</td>
+								<td class="td_data" id="data_SYRXM" width="35%">
+									${SYRXM}
+								</td>
+								<td class="td_title" id="title_SYRZH" width="15%">
+									申请日期
+								</td>
+								<td class="td_data" id="data_SYRZH" width="35%">
+									${SQRQ}&nbsp;<br />
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<br />
+								</td>
+								<td class="td_data" colspan="3">
+									【${SYRZH}&nbsp;】【${SYRBMID}/${SYRBM}】<br />
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_ZJ" width="15%">
+									总价
+								</td>
+								<td class="td_data" id="data_ZJ" width="35%">
+									${ZJ}&nbsp;
+								</td>
+								<td class="td_title" id="title_SLZJ" width="15%">
+									数量总计
+								</td>
+								<td class="td_data" id="data_SLZJ" width="35%">
+									${SLZJ}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_SQSM">
+									申请说明
+								</td>
+								<td id="data_SQSM" class="td_data" colspan="3">
+									${SQSM}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" width="20%">
+									办公用品申请单子表
+								</td>
+								<td class="td_data" colspan="3" width="80%">
+									${SUBFORM_BGYPSQDZB}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${ZT}
+</div>

@@ -1,0 +1,66 @@
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					辅导
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_0">
+								<td class="td_title" id="title_PROJECTNAME" width="15%">
+									项目名称
+								</td>
+								<td class="td_data" id="data_PROJECTNAME" width="35%">
+									${PROJECTNAME}&nbsp;　
+								</td>
+								<td class="td_title" id="title_FDCY" width="15%">
+									辅导成员
+								</td>
+								<td class="td_data" id="data_FDCY" width="35%">
+									${FDCY}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_18">
+								<td class="td_title" id="title_CJSJ" width="15%">
+									填报日期
+								</td>
+								<td class="td_data" id="data_CJSJ" width="35%">
+									${CJSJ}&nbsp;　
+								</td>
+								<td class="td_title" id="title_" width="15%">
+									
+								</td>
+								<td class="td_data" id="data_" width="35%">
+									
+								</td>
+							</tr>
+							<tr id="fjTr_5264">
+								<td class="td_title" id="title_FJ">
+									附加
+								</td>
+								<td id="data_FJ" class="td_data" colspan="3">
+									${FJ}&nbsp;　
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${TBRID}${XMBH}${LXRQ}${LX1}${LX2}${LX3}${LX4}${LX5}${GGRQ}${GG1}${GG2}${GG3}${GG4}${GG5}${FD1}${FD2}${FD3}${FD4}${FD5}${SLRQ}${FK}${FKHFRQ}${SHRQ}${SHJG}${FXGFS}${FXGJ}${MJZJZE}${MJZJJE}${ZQJC}${ZQDM}${SSRQ}${XMNR}${XMSJ}${XMFJ}${ZZSJ}${JCXYYY}${JDBH}
+</div>

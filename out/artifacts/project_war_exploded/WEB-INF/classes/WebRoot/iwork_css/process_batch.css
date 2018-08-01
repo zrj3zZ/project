@@ -1,0 +1,282 @@
+/* #Reset & Basics (Inspired by E. Meyers)
+================================================== */
+	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		font-family:微软雅黑;
+		font-size:12px;
+
+		 }
+	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+		display: block; }
+	body {
+		line-height: 1; }
+	ol, ul {
+		list-style: none; }
+	blockquote, q {
+		quotes: none; }
+	blockquote:before, blockquote:after,
+	q:before, q:after {
+		content: '';
+		content: none; }
+	table {
+		border-collapse: collapse;
+		border-spacing: 0; }
+
+
+/* #ICON FONT
+================================================== */
+
+
+@font-face {
+	font-family:"Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+	src: url('../fonts/websymbols-regular-webfont.eot');
+	src: url('../fonts/websymbols-regular-webfont.eot@#iefix') format('embedded-opentype'), url('../fonts/websymbols-regular-webfont.woff') format('woff'), url('../fonts/websymbols-regular-webfont.ttf') format('truetype'), url('../fonts/websymbols-regular-webfont.svg#WebSymbolsRegular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.icon {
+	font-family:"Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+	font-size: 12px;
+	line-height: 1px;
+}
+
+/* #Basic Styles
+================================================== */
+	body {
+		background:#f4f4f4;
+		-webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+		-webkit-text-size-adjust: 100%;
+		font-family:"Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+ }
+
+
+
+
+/* #Misc
+================================================== */
+	.remove-bottom { margin-bottom: 0 !important; }
+	.half-bottom { margin-bottom: 10px !important; }
+	.add-bottom { margin-bottom: 20px !important; }
+
+/*fa7a20*/
+* {
+	padding:0px;
+	margin:0px;
+	border:0px;
+}
+/* 表单顶部 */
+.header {
+	background: #fff;
+	border-bottom: 1px solid #e0e0e0;
+	border-top: 5px solid #3e3e3e;
+	height:50px;
+}
+.header .logo {
+	padding: 25px 0px 25px 0px;
+}
+/*表单流程部分*/
+
+.logo_bg {
+	font-family:"Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+	font-weight:bold;
+	font-size:18px;
+	line-height:18px;
+	padding-left:10px;
+	color:#525252;
+	width:400px;
+	float:left
+}
+/*审批表格样式*/
+.wr_table table {
+	border:1px solid #ebebeb;
+	color:#727272;
+	margin:10px 10px;
+	word-wrap:break-word;
+	word-break:break-all;
+	width:98.5%;
+
+}
+.wr_table_header {
+	background: url(../iwork_img/table_head_bg.jpg) #fafafa repeat-x;
+	background-repeat:repeat-x;
+	background-position:top;
+	border-bottom:1px solid #ebebeb;
+}
+.wr-table-hd-inner {
+	text-align:center;
+	overflow:hidden;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	color:#727272;
+	-moz-box-shadow:1px 1px 1px #fff;
+	text-align:center;
+	cursor:pointer;
+	padding:1px 2px 1px 2px;
+	line-height:32px;
+	height:31px;
+	font-weight:bold;
+	font-family:"Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+	background: url(../iwork_img/table_head_bg.jpg) #fafafa repeat-x;
+}
+.wr-table-hd-inner td {
+	border-left:1px solid;
+	border-right:1px solid;
+	border:1px solid #ebebeb;
+	padding:0px 6px 0px 6px;
+	line-height:14px;
+}
+.wr-table-td-inner {
+	padding:1px 2px 1px 2px;
+	word-break: break-all;
+	word-wrap: break-word;
+	text-align:left;
+	overflow:hidden;
+	background-color:#fafafa;
+	line-height:18px;
+	border:1px solid #ebebeb;
+	color:#434343;
+	background:#fff;
+}
+.wr-table-td-inner:hover {
+	background:#efefef;
+}
+.wr-table-td-inner td {
+	padding:5px 6px 5px 6px;
+	border-bottom:1px solid #ebebeb;
+	font-size:12px;
+	table-layout:fixed;
+	word-break: break-all;
+	word-wrap: break-word;
+}
+.wr-table-td-inner a {
+	text-decoration:none;
+		outline:none;
+		color:#322e39;
+}
+.wr-table-td-inner a:hover {
+		outline:none;
+		color:#666;
+}
+.wr-table-tr-row {
+	padding:1px 2px 1px 2px;
+	word-break: break-all;
+	word-wrap: break-word;
+	text-align:left;
+	overflow:hidden;
+	background-color:#fafafa;
+	line-height:18px;
+	border:1px solid #ebebeb;
+	background:#fff;
+	font-weight:900;
+}
+.wr-table-tr-row:hover {
+	background:#efefef;
+}
+.wr-table-tr-row td {
+	padding:5px 6px 5px 6px;
+	border-bottom:1px solid #ebebeb;
+	font-size:12px;
+	table-layout:fixed;
+	word-break: break-all;
+	word-wrap: break-word;
+}
+.wr-table-tr-row td a {
+	text-decoration:none;
+	color:#333;
+}
+.wr-table-tr-row a:hover {
+		color:#666;
+}
+
+.wr-table-td-selected td {
+	background-color: #fef9e0;
+	background-image: none;
+	padding:5px 6px 5px 6px;
+}
+.process_title{
+	padding-left:15px; font-size:14px;
+	color:#666;
+	text-align:left;
+}
+.input_focus{ 	outline: 0;
+	word-wrap: break-word;
+	overflow-x: hidden;
+	overflow-y: auto;
+	_overflow-y: visible;
+	width:97%;
+	padding:2px 5px 1px 5px;
+	border:1px solid #59b3ff;
+	background-color:#fff;
+	background-image:url(../images/text-bg.gif);
+	background-repeat:repeat-x;
+	height:24px;
+	min-height: 24px; }
+	
+.input_blur{ 	outline: 0;
+	word-wrap: break-word;
+	overflow-x: hidden;
+	overflow-y: auto;
+	_overflow-y: visible;
+	width:97%;
+	padding:2px 5px 1px 5px;
+	border:1px solid #fff;
+	background-color:#fff;
+	background-image:url(../images/text-bg.gif);
+	background-repeat:repeat-x;
+	height:24px;
+	min-height: 24px;  }	
+	
+.input_radio{  float:left; padding:0px 10px; }
+
+.subDataTitle{
+	text-align:center;
+	overflow:hidden;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	color:#727272;
+	-moz-box-shadow:1px 1px 1px #fff;
+	text-align:center;
+	cursor:pointer;
+	padding:1px 2px 1px 2px;
+	line-height:32px;
+	height:31px;
+	font-weight:bold;
+	font-family:"Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+	background-color:#FFFFEE;
+}
+.subDataItem td{
+	padding-left:5px;
+	border-right:1px solid #ebebeb;
+}
+.subDataItem {
+	padding:1px 2px 1px 2px;
+	word-break: break-all;
+	word-wrap: break-word;
+	text-align:left;
+	overflow:hidden;
+	background-color:#fafafa;
+	line-height:25px;
+	border:1px solid #ebebeb;
+	background:#fff;
+}
+.subDataItem td{
+	padding-left:5px;
+	border-right:1px solid #ebebeb;
+}
+.task_title{
+	padding:5px;
+	font-size:14px;
+	color:blue;
+}
+@media Print    
+{
+.noPrint {
+DISPLAY: none
+}

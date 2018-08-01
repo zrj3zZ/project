@@ -1,0 +1,36 @@
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.txtInput{
+	width:130px;	
+	color:#2456EA;
+}
+.td_title {
+				color:#004080;
+				font-size: 12px;
+				text-align: right;
+				letter-spacing: 0.1em;
+				padding-right:10px;
+				white-space:nowrap;
+				vertical-align:middle;
+				font-family:"Î¢ÈíÑÅºÚ";
+				height:15px;			
+			}
+.td_data{
+			color:#0000FF;
+			text-align:left;
+			padding-left:3px;
+			font-size: 12px;
+			vertical-align:middle;
+			word-wrap:break-word;
+			word-break:break-all;
+			font-weight:500;
+			line-height:12px;
+			padding-top:5px;
+			font-family:"Î¢ÈíÑÅºÚ";
+			height:15px;
+		}
+ ul.ztree {margin-top: 10px;border: 1px solid #617775;background: #f0f6e4;width:220px;height:220px;overflow-y:scroll;overflow-x:auto;}		

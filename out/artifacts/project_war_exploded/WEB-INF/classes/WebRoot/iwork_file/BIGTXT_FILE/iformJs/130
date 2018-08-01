@@ -1,0 +1,6 @@
+$(function () {
+    if ($("#ZDFJ").val() != '') {
+        $("button[onclick='showUploadifyPageZDFJ();return false;']").hide();
+    }
+    $("#ZDMC").attr("readonly", "readonly");
+});

@@ -1,0 +1,130 @@
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#XMBH").val($("#PROJECTNO").val());
+	});
+</script>
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					协议资料信息表单
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_0">
+								<td class="td_title" id="title_XMBH" width="15%" style="display:none;">
+									项目编号
+								</td>
+								<td class="td_data" id="data_XMBH" width="35%" style="display:none;">
+									${XMBH}&nbsp;　
+								</td>
+								<td class="td_title" id="title_XYZLMC" width="15%" style="display:none;">
+									协议资料名称
+								</td>
+								<td class="td_data" id="data_XYZLMC" width="35%" style="display:none;">
+									${XYZLMC}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_2">
+								<td class="td_title" id="title_HTQDRQ" width="15%">
+									合同签订日期
+								</td>
+								<td class="td_data" id="data_HTQDRQ" width="35%">
+									${HTQDRQ}&nbsp;　
+								</td>
+								<td class="td_title" id="title_HTZZRQ" width="15%">
+									合同终止日期
+								</td>
+								<td class="td_data" id="data_HTZZRQ" width="35%">
+									${HTZZRQ}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_4">
+								<td class="td_title" id="title_HTFZR" width="15%">
+									合同负责人
+								</td>
+								<td class="td_data" id="data_HTFZR" width="35%">
+									${HTFZR}&nbsp;　
+								</td>
+								<td class="td_title" id="title_ZLFS" width="15%">
+									资料份数
+								</td>
+								<td class="td_data" id="data_ZLFS" width="35%">
+									${ZLFS}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_6">
+								<td class="td_title" id="title_SJR" width="15%">
+									收件人
+								</td>
+								<td class="td_data" id="data_SJR" width="35%">
+									${SJR}&nbsp;　
+								</td>
+								<td class="td_title" id="title_ZZHTSFYGD" width="15%">
+									纸质合同是否已归档
+								</td>
+								<td class="td_data" id="data_ZZHTSFYGD" width="35%">
+									${ZZHTSFYGD}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_8">
+								<td class="td_title" id="title_YJDZ" width="15%">
+									邮寄地址
+								</td>
+								<td class="td_data" id="data_YJDZ" width="35%">
+									${YJDZ}&nbsp;　
+								</td>
+								<td class="td_title" id="title_KDDH" width="15%">
+									快递单号
+								</td>
+								<td class="td_data" id="data_KDDH" width="35%">
+									${KDDH}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_10">
+								<td class="td_title" id="title_SJRDH" width="15%">
+									收件人电话
+								</td>
+								<td class="td_data" id="data_SJRDH" width="35%">
+									${SJRDH}&nbsp;　
+								</td>
+								<td class="td_title" id="title_YB" width="15%">
+									邮编
+								</td>
+								<td class="td_data" id="data_YB" width="35%">
+									${YB}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_12">
+								<td class="td_title" id="title_HTWJ" width="15%">
+									合同文件
+								</td>
+								<td class="td_data" id="data_HTWJ" width="35%">
+									${HTWJ}&nbsp;　
+								</td>
+								<td class="td_title" id="title_ZT" width="15%" style="display:none;">
+									状态
+								</td>
+								<td class="td_data" id="data_ZT" width="35%" style="display:none;">
+									${ZT}&nbsp;　
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

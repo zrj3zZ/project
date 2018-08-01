@@ -1,0 +1,73 @@
+
+
+.tools_nav {
+			background:url(../iwork_img/engine/tools_nav_bg.jpg) repeat-x;
+			height:34px;
+			line-height:30px;
+			padding-left:20px;
+			vertical-align:middle;
+			padding-top:2px;
+			text-align:left;
+			border-left: 1px solid #efefef 	;
+			border-right: 1px solid #efefef 	;
+		}
+/*数据字段标题样式*/
+			.td_title {
+				letter-spacing: 0.1em;
+				white-space:nowrap;
+				border-bottom:1px #999999 thick;
+				vertical-align:middle;
+				font-family:"黑体";
+				font-size:14px;
+				text-align:right;
+			}
+			/*数据字段内容样式*/
+			.td_data {
+				color:#0000FF;
+				line-height: 23px;
+				text-align: left;
+				padding-left: 3px;
+				font-size: 12px;
+				font-family:"宋体";
+				border-bottom:1px #999999 dotted;
+				vertical-align:middle;
+				word-wrap:break-word;
+				word-break:break-all;
+				font-weight:500;
+				line-height:15px;
+				padding-top:5px;
+				color:0000FF; 
+			}
+		.form_title{  
+			font-family:微软雅黑;
+			font-size:14px;
+			text-align:right; 
+		}
+		.form_data{
+			font-family:宋体;
+			font-size:12px;
+			text-align:left;
+			color:0000FF; 
+		}
+		.attachItem{
+			vertical-align:middle;
+			border-top: 1px dotted #E5E5E5;
+			border-left: 1px dotted #E5E5E5;
+			border-right: 1px dotted #E5E5E5;
+			font: 11px Verdana, Geneva, sans-serif;
+			padding: 5px;
+		}
+		.attachItem:hover{
+			background-color:#ffffee;
+		}
+		.winBackground{
+		 background-image:url(../iwork_img/background/bgr.jpg);
+		 background-position:top;
+		 background-repeat:repeat-x;
+		  border:0px solid #ccc;
+		}
+@media Print    
+{
+.noPrint {
+	DISPLAY: none
+}

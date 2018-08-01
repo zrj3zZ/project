@@ -1,0 +1,25 @@
+ body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+ }
+ 
+ .td_title{
+	     word-break:break-all;
+		 font-family:ËÎÌו;
+		 font-size:12px;
+		 color:#000066;
+		 padding-top:3px;
+		 padding-bottom:3px;
+		 text-align:center;
+		 white-space:nowrap;
+	 }
+
+A:LINK, A:VISITED, A:ACTIVE, A:HOVER
+    {
+	color:#006699;
+      font-size: 12px;
+      padding-left: 3px;
+      TEXT-DECORATION: NONE;
+    }

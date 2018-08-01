@@ -1,0 +1,37 @@
+<div >
+		<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 5px" width="100%">
+			<tbody>
+				<tr>
+					<td class="dialog_formpage_title">会议反馈资料清单</td>
+				</tr>
+				<tr>
+					<td align="right" id="help"></td>
+				</tr>
+				<tr>
+					<td align="right" class="line"></td>
+				</tr>
+				<tr>
+					<td align="left">
+						<table border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody>
+								<tr id="itemTr_1401">
+									<td class="td_title"  id="title_FKZLQD" width="180">反馈资料清单									</td>
+									<td class="td_data"  id="data_FKZLQD">${FKZLQD}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_1402">
+									<td class="td_title"  id="title_QTZLQD" width="180">其他资料清单									</td>
+									<td class="td_data"  id="data_QTZLQD">${QTZLQD}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_1403">
+									<td class="td_title"  id="title_FKZL" width="180">反馈资料									</td>
+									<td class="td_data"  id="data_FKZL">${FKZL}&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+</div>
+<div style="display:none">
+${KHBH}${KHMC}${HYBH}</div>

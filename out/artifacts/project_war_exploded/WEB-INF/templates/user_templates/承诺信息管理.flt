@@ -1,0 +1,116 @@
+<script>
+	function saveForm(){
+
+	for (var int = 0; int < subReportSaveFunction.length; int++) {
+		document.getElementById("saveSubReportData"+subReportSaveFunction[int]).click();
+	}
+	var valid = mainFormValidator.form(); //执行校验操作
+	if(!valid){
+	return false;
+	}
+	var ksrq=$("#CNSJ").val().substring(0,10) ;
+	var jzrq=$("#CNDQRQ").val();
+	$.post("checkdate.action", { startdate: ksrq,enddate:jzrq }, function (data) {
+		if(data=='error'){
+			//保存富文本
+ 			try{ 
+ 				saveHtmlEditor();  
+ 			}catch(e){} 
+			document.getElementById("submitbtn").click();
+		}else if(data=='error1'){
+			alert("承诺时间不能大于承诺到期日期！")
+		}else{
+			try{ 
+ 				saveHtmlEditor();  
+ 			}catch(e){} 
+			document.getElementById("submitbtn").click();
+		}
+	});
+		
+} 
+</script>
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					承诺信息管理
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help" style="text-align:right;">
+					<p style="margin-left:15px;float:right;">
+						填报时间:${CREATEDATE}
+					</p>
+					<p style="margin-left:15px;float:right;">
+						填报人:${CREATEUSER}[${CREATEUSERID}]
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+						<tbody>
+							
+							<tr id="itemTr_1567">
+								<td id="title_CNZT" class="td_title" width="180">
+									<span style="color:red;">*</span>承诺主体
+								</td>
+								<td id="data_CNZT" class="td_data">
+									${CNZT}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1568">
+								<td id="title_CNR" class="td_title" width="180">
+									<span style="color:red;">*</span>承诺人
+								</td>
+								<td id="data_CNR" class="td_data">
+									${CNR}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1569">
+								<td id="title_CNSJ" class="td_title" width="180">
+									<span style="color:red;">*</span>承诺时间
+								</td>
+								<td id="data_CNSJ" class="td_data">
+									${CNSJ}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1570">
+								<td id="title_CNDQRQ" class="td_title" width="180">
+									承诺到期日期
+								</td>
+								<td id="data_CNDQRQ" class="td_data">
+									${CNDQRQ}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1571">
+								<td id="title_CNLXQK" class="td_title" width="180">
+									<span style="color:red;">*</span>承诺履行情况
+								</td>
+								<td id="data_CNLXQK" class="td_data">
+									${CNLXQK}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1572">
+								<td id="title_CNNR" class="td_title" width="180">
+									<span style="color:red;">*</span>承诺内容
+								</td>
+								<td id="data_CNNR" class="td_data">
+									${CNNR}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${INSTANCEID}${COMPANYNO}${COMPANYNAME}${CREATENO}${KHBH}${KHMC}
+</div>

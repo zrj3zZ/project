@@ -1,0 +1,98 @@
+<script type="text/javascript">
+$(function(){
+
+
+  $('#NSRLX').attr("placeholder","由项目管理部人员填写");
+ 
+
+});
+</script>
+ <style>
+    #NSRLX::-webkit-input-placeholder{
+                color: #DBDBDB;
+                font-size: 10px;
+            }
+  
+            
+        </style>
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" width="100%" cellspacing="0" cellpadding="0" border="0">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					工作底稿归档1
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" width="100%" cellspacing="0" cellpadding="0" border="0">
+						<tbody>
+							<tr id="itemTr_2745">
+								<td class="td_title" id="title_CUSTOMERNAME" width="180">
+									<span style="color:red;"></span>项目名称
+								</td>
+								<td class="td_data" id="data_CUSTOMERNAME">
+									${CUSTOMERNAME}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2746">
+								<td class="td_title" id="title_CUSTOMERNO" width="180">
+									归档人员
+								</td>
+								<td class="td_data" id="data_CUSTOMERNO">
+									${CUSTOMERNO}&nbsp;
+								</td>
+							</tr>
+							
+							<tr id="itemTr_2752">
+								<td class="td_title" id="title_STATE" width="180">
+									<span style="color:red;"></span>归档状态
+								</td>
+								<td class="td_data" id="data_STATE">
+									${STATE}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2750">
+								<td class="td_title" id="title_SQRQ" width="180">
+									<span style="color:red;"></span>归档时间
+								</td>
+								<td class="td_data" id="data_SQRQ">
+									${SQRQ}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2775">
+								<td class="td_title" id="title_NSRLX" width="180">
+									<span style="color:red;"></span>归档位置
+								</td>
+								<td class="td_data" id="data_NSRLX">
+									${NSRLX}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2751">
+								<td class="td_title" id="title_MEMO" width="180">
+									归档内容
+								</td>
+								<td class="td_data" id="data_MEMO">
+									${MEMO}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${CJSJ}${FPLX}${USERID}${FPFWMC}${KPJE}${USERNAME}
+</div>

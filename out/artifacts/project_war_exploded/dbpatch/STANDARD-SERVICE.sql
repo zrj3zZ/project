@@ -1,0 +1,16 @@
+create table PROCESS_STEP_SERVICE
+(
+  ID          NUMBER not null,
+  PRC_DEF_ID  NUMBER,        --流程模型ID
+  ACT_DEF_ID  VARCHAR2(100), --流程图模型ID
+  ACT_STEP_ID VARCHAR2(100), --流程节点ID
+  STEP_TYPE  NUMBER,         --节点类型
+  NEXT_STEP_ID VARCHAR2(100),
+  NEXT_USER VARCHAR2(1024),
+  TRIGGER_EVENT VARCHAR2(1024),
+  ORDER_INDEX NUMBER
+)
+
+alter table PROCESS_STEP_SERVICE
+  add constraint PK_PROCESS_STEP_SERVICE primary key (ID)
+  

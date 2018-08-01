@@ -1,0 +1,48 @@
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 5px" width="100%">
+		<tbody>
+			<tr>
+				<td class="formpage_title">内核反馈</td>
+			</tr>
+			<tr>
+				<td align="right" id="help"></td>
+			</tr>
+			<tr>
+				<td align="right" class="line"></td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%">
+						<tbody>
+							<tr id="itemTr_3166">
+								<td colspan="4">
+									<br />
+									<table width="100%" style="border-collapse:collapse;">
+										<tbody>
+											<tr>
+												<td style="border:1px solid #000;" width="50%">
+													需要增加的附件
+												</td>
+												<td rowspan="2" style="border:1px solid #000;">
+													${FJ}
+												</td>
+											</tr>
+											<tr>
+												<td style="border:1px solid #000;" width="50%">
+													<span id="spanjdzl"></span>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none">
+	${TBRID}${TBSJ}${CUSTOMERNAME}${CUSTOMERNO}${SPZT}${LCBH}${LCBS}${TASKID}
+</div>

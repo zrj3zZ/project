@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="default" template="/iwork_layout/default/frame/index2.jsp" >
+		<put-attribute name="north" value="iwork_layout/default/layout/northPanel.jsp" />
+		<put-attribute name="south" value="iwork_layout/default/layout/southPanel.jsp" />
+		<put-attribute name="east" value="iwork_layout/default/layout/eastPanel.jsp" />
+		<put-attribute name="west" value="iwork_layout/default/layout/westPanel.jsp" />
+	    <put-attribute name="center" value="iwork_layout/default/layout/centerPanel.jsp" />
+		<put-list-attribute name="cssFileList">
+			<add-attribute type="string" value="/iwork_css/jquerycss/icon.css"></add-attribute>
+			<add-attribute type="string" value="/iwork_css/jquerycss/default/easyui.css"></add-attribute>
+		</put-list-attribute>
+		<put-list-attribute name="jsFileList">
+			<add-attribute type="string" value="/iwork_js/jqueryjs/jquery-1.4.2.min.js"></add-attribute>
+			<add-attribute type="string" value="/iwork_js/jqueryjs/jquery.easyui.min.js"></add-attribute>
+			<add-attribute type="string" value="/iwork_js/jqueryjs/easyui-lang-zh_CN.js"></add-attribute>
+		</put-list-attribute>
+	</definition>
+	  
+	<definition name="bpm2013" template="/iwork_layout/bpm2013/frame/index2.jsp" >
+		<put-attribute name="north" value="/iwork_layout/bpm2013/layout/top.jsp" />
+		<put-attribute name="south" value="/iwork_layout/bpm2013/layout/bottom.jsp" />
+		<put-attribute name="west" value="/iwork_layout/bpm2013/layout/left.jsp" />
+	    <put-attribute name="center" value="/iwork_layout/bpm2013/layout/center.jsp" />
+		<put-list-attribute name="cssFileList">  
+			<add-attribute type="string" value="/iwork_css/jquerycss/icon.css"></add-attribute>
+			<add-attribute type="string" value="/iwork_css/jquerycss/default/easyui.css"></add-attribute>
+		</put-list-attribute>
+		<put-list-attribute name="jsFileList">
+			<add-attribute type="string" value="/iwork_js/jqueryjs/jquery-1.4.2.min.js"></add-attribute>
+			<add-attribute type="string" value="/iwork_js/jqueryjs/jquery.easyui.min.js"></add-attribute>
+			<add-attribute type="string" value="/iwork_js/jqueryjs/easyui-lang-zh_CN.js"></add-attribute>
+		</put-list-attribute> 
+	</definition>
+	<definition name="ecom" template="/iwork_layout/ecom/frame/index2.jsp" >
+		<put-attribute name="north" value="/iwork_layout/ecom/layout/top.jsp" />
+		<put-attribute name="south" value="/iwork_layout/ecom/layout/southPanel.jsp" />
+		<put-attribute name="east" value="/iwork_layout/ecom/layout/eastPanel.jsp" />
+		<put-attribute name="west" value="/iwork_layout/ecom/layout/left.jsp" />
+	    <put-attribute name="center" value="/iwork_layout/ecom/layout/center.jsp" />
+	</definition>
+	<definition name="outlook" template="/iwork_layout/outlook/frame/index2.jsp" >
+		<put-attribute name="north" value="/iwork_layout/outlook/layout/top.jsp" />
+		<put-attribute name="west" value="/iwork_layout/outlook/layout/left.jsp" />
+	    <put-attribute name="center" value="/iwork_layout/outlook/layout/center.jsp" />
+	</definition>
+	<definition name="skins2014" template="/iwork_layout/skins2014/frame/index.jsp" >
+	</definition> 
+	<definition name="boss" template="/iwork_layout/boss/frame/index2.jsp" >
+	</definition>
+</tiles-definitions>

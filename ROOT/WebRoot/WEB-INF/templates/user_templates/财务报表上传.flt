@@ -1,0 +1,70 @@
+
+<script type="text/javascript">
+	
+
+function saveForm(){
+ 	
+
+	var filename=$("#FZGSMC").val();
+	
+	
+	
+	var valid = mainFormValidator.form(); //执行校验操作
+	if(!valid){
+		return false;
+	}
+	//保存富文本
+ 	try{ 
+ 		saveHtmlEditor();  
+ 	}catch(e){} 
+	$.post("cwbbTyff.action", { name :encodeURI(filename)}, function (data) {
+               document.getElementById("submitbtn").click();	
+        });
+	
+} 
+</script>
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					财务报表表单
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_2489">
+								<td class="td_title" id="title_CZ" width="180">
+									财务报表
+								</td>
+								<td class="td_data" id="data_CZ">
+									${CZ}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${KHBH}
+	${FZGSMC}
+	${FZGSID}
+	${SCSJ}
+	${SCR}
+	${SFHB}
+	${BBMC}
+	${DELETESTATUS}
+</div>

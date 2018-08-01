@@ -1,0 +1,374 @@
+/*
+// ----------------------------------------------------------------------
+// AWS CSS样式表(通用业务)
+// 本样式表适用于AWS 3.9以上版本
+// ----------------------------------------------------------------------
+*/
+
+/*默认的页面样式*/
+body{  
+margin-left: 0px;
+margin-top: 0px;
+margin-right: 0px;
+margin-bottom: 0px;
+overflow: auto; 
+scrollbar-arrow-color:D2D2D2;
+font-size: 12px; 
+font-family:"Arial", "Helvetica", "sans-serif"; 
+}
+
+/*默认的表格样式*/
+table,tr,td{
+font-size: 12px; 
+font-family:"Arial", "Helvetica", "sans-serif";
+}
+
+/*默认的链接样式*/
+A:LINK{color:53709A}
+A:VISITED{color:53709A; TEXT-DECORATION: none;}
+A:HOVER{color:53709A}
+
+/*Portlet窗口样式*/
+.aws-portal-window{
+    margin: 0px 0px 1px 0px;
+    padding: 0px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: gray;
+    background-color: #ffffff;
+}
+
+/*Portlet标题样式*/
+.aws-portal-window-titlebar-title{
+    background-image:url("../../../aws_skins/_defP4/img/PORTLET-BG.gif"); 
+    padding: 0px;
+    margin: 0px;
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+    border-color: 97AEBE;
+    font-size: 12px;
+    height:22px;
+    color:#FFFFFF;
+    padding-top: 1px;
+    padding-left: 10px;
+    text-valign: center;
+    font-weight: bold; 
+}
+
+/*Portlet内容样式*/
+.aws-portal-window-content{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+/*顶部有背景图的模块样式*/
+.actionsoftPage-BG {  
+ background-image:url("../../../aws_skins/_defP4/img/WORK_INDEX_BANNER.gif");
+ background-repeat: no-repeat;background-position:right;
+}
+
+/*窗口正标题样式*/
+.actionsoftTitle { 
+ font-family: "黑体", "Arial", "Helvetica", "sans-serif"; 
+ font-size: 18px; 
+ line-height: normal;
+ padding-left: 10px;
+ padding-top: 5px;
+ padding-bottom: 5px; 
+ color: #999999;
+}
+
+/*
+// ----------------------------------------------------------------------
+// 部分Web组件
+// ----------------------------------------------------------------------
+*/
+/*按钮样式*/
+.actionsoftButton {  
+font-family:  "Arial", "Helvetica", "sans-serif"; 
+background-image:url("../../../aws_skins/_defP4/img/button-background.gif"); 
+font-size: 12px; 
+text-align: center; 
+border-color: #FFFFFF #FFFFFF #8FBCBF; 
+background-position: middle; 
+cursor:pointer;
+cursor:hand;
+height:20px;
+padding:2px 0 0 18px;
+margin:0;
+border:1px solid #335799;
+cursor: hand; 
+color:#000;
+}
+
+/*输入框样式*/
+.actionsoftInput {  
+font-weight: normal; 
+color: #000000; 
+background-color: #FFFFFF; 
+font-family: "Arial", "Helvetica", "sans-serif";
+font-size: 12px;
+border-left:1px solid  gray ; 
+border-right:1px solid gray ;
+border-top:1px solid  gray ; 
+border-bottom:1px solid gray; 
+}
+
+/*多行样式*/
+textarea {
+line-height:25px;
+font-family:"宋体";
+font-size:14px;
+border:1px solid gray;
+}
+
+/*列表选择样式*/
+.actionsoftSelect {  
+font-weight: normal; 
+color: #000000; 
+background-color: #E2E0E0; 
+font-family: "Arial", "Helvetica", "sans-serif";
+font-size: 12px;
+border-left:0px solid  gray ; 
+border-right:0px solid gray ;
+border-top:0px solid  gray ; 
+border-bottom:1px solid  gray ;
+z-index:10;
+}
+
+/*表格头样式*/
+td.actionsoftReportTitle{ 
+ color: #000000; 
+ font-family:  "Arial", "Helvetica", "sans-serif"; 
+ background-image:url("../../../aws_skins/_defP4/img/head-background.gif"); 
+ font-size: 12px; 
+ line-height: normal;
+ height: 20px; 
+ padding-left: 5px;
+ text-align: center;
+ white-space:nowrap ;
+  border-right:1px #CCCCCC solid;
+border-bottom:1px #CCCCCC solid;
+}
+
+/*表格数据行样式*/
+td.actionsoftReportData{ 
+ font-family:  "Arial", "Helvetica", "sans-serif"; 
+ background-image:url("../../../aws_skins/_defP4/img/row-background.gif"); 
+ font-size: 12px; 
+ line-height: normal;
+ height: 18px; 
+  border-right:1px #CCCCCC solid;
+border-bottom:1px #CCCCCC solid;
+}
+
+/*表格数据行样式2*/
+td.actionsoftReportData2{ 
+ background-color: #609A9E;
+ font-family:  "Arial", "Helvetica", "sans-serif"; 
+ font-size: 12px; 
+ line-height: normal;
+ height: 18px; 
+ padding-left: 10px;
+  border-right:1px #CCCCCC solid;
+border-bottom:1px #CCCCCC solid;
+}
+
+/*工具条样式*/
+td.actionsoftToolbar { 
+ background-color: #CBD9E2;
+ background-image:url("../../../aws_skins/_defP4/img/toolbar-background.gif"); 
+ font-family:  "Arial", "Helvetica", "sans-serif"; 
+ font-size: 12px; 
+ line-height: normal;
+ height: 34px; padding-right: 10px;
+ text-align: right ; 
+}
+
+/*分页工具条样式*/
+td.actionsoftPageIndex { 
+ background-image:url("../../../aws_skins/_defP4/img/pageindex-background.gif"); 
+ font-family:  "Arial", "Helvetica", "sans-serif"; 
+ font-size: 14px; 
+ line-height: normal;
+ height: 24px; padding-right: 10px;
+ text-align: right ; 
+}
+
+
+/*选项卡按钮样式*/
+.actionsoftPageButton {  
+font-family:  "Arial", "Helvetica", "sans-serif"; 
+font-size: 12px; 
+text-align: center; 
+cursor:pointer;
+cursor:hand;
+color:#FFFFFF;
+font-weight: bold;
+vertical-align: bottom;
+
+}
+
+/*收缩菜单样式*/
+tr.actionsoftRowMenu { 
+ background-image:url("../../../aws_skins/_defP4/img/rowMenu-background.gif"); 
+ font-family:  "Arial", "Helvetica", "sans-serif"; 
+ font-size: 9px; 
+ line-height: normal;
+ height: 18px; padding-right: 10px;
+ text-align: left ; 
+ height: 16px; 
+}
+
+/*迷你窗口相关样式*/
+.actionsoftPopupWinCSS {
+POSITION:absolute;
+VISIBILITY:hidden;
+Z-INDEX:200;
+}
+.actionsoftTopic{
+	font-size: 14px;
+	font-weight: bold;
+	background-color: #8FBCBF;
+	color:red;
+}
+.actionsoftPopupTitle {
+	font-size: 10px;
+	font-weight: bold;
+	color:red;
+ 	font-family: "Arial", "Helvetica", "sans-serif"; 	
+}
+.actionsoftPopupTitle1 {
+	font-size: 12px;
+	color:gray;	
+}
+.actionsoftPopupTitle2 {
+	font-size: 12px;
+}
+.actionsoftPopupTitle {
+	font-size: 10px;
+	font-weight: bold;
+	color=red;
+ 	font-family: "Arial", "Helvetica", "sans-serif"; 	
+}
+.actionsoftPopupTitle1 {
+	font-size: 11px;
+	color=gray;	
+}
+.actionsoftPopupTitle2 {
+	font-size: 11px;
+}
+
+.actionsoftSheetHeadColor{
+	background-color: #DDDCDC;
+}
+
+/*--EXTJS*/
+/*XML字典组件样式*/
+.x-form-field-wrap .x-form-dictionary-trigger {
+  background: transparent url(../aws_js/extjs2/images/default/form/search-trigger.gif) no-repeat 0 0;
+  cursor: pointer;
+  right: 0px;
+}
+/*Ext.Grid样式定义*/
+.icon-grid {background-image:url(../aws_img/grid.png) !important;}
+.add {background-image:url(../aws_img/add.gif) !important;}
+.addRef {background-image:url(../aws_img/adds.gif) !important;}
+.importExcel {background-image:url(../aws_img/file/excel.jpg) !important;}
+.exportExcel {background-image:url(../aws_img/file/excel.jpg) !important;}
+.exportExcelModel {background-image:url(../aws_img/file/excel.jpg) !important;}
+.option {background-image:url(../aws_img/check.gif) !important;}
+.remove {background-image:url(../aws_img/Delete.gif) !important;}
+.save {background-image:url(../aws_img/save.gif) !important;}
+.refresh {background-image:url(../aws_img/refresh2.gif) !important;}
+.undo {background-image:url(../aws_img/redo.gif) !important;}
+.yellowrow {background-color:yellow;}
+.gray {background-color:gray;}
+/*************************金山扩展CSS********/
+.KingsoftReporttitle{
+	white-space: nowrap;
+	text-align:center;
+	background-image: url(../aws_img/report-bg-blue2.gif);	
+}
+.KingsoftReportdata{
+	padding:5px;
+	text-align:left;
+}
+/**审核菜单，table样式*/
+.MessageAuditTable{
+	width:100%;
+	border-left:1px #CCCCCC dashed;
+	border-top:1px #CCCCCC dashed;
+	border-right:1px #999999 dashed;
+	border-bottom:1px #999999 dashed;
+}
+/**审核菜单，TR样式*/
+.MessageAuditTR{
+
+}
+/**审核菜单，TD样式*/
+.MessageAuditTD{
+	background-color:#F8F8F8;
+	background-image:url(../aws_img/form_icon.gif);
+	background-repeat:no-repeat ;
+	background-position:1% 5px;
+	width: 15%;
+	padding-top:5px;
+	font-size: 12px;
+	text-align: left;
+	vertical-align:middle;
+	height:20;
+	letter-spacing: 0.1em;
+	padding-left:20px;
+	white-space:nowrap;
+	color:#000066;
+	border-top:1px #F2F2F2 solid;
+	border-right:1px #F2F2F2 solid;
+	border-bottom:1px #D3D3D3 solid;	
+}
+/**审核菜单，TD2样式*/
+.MessageAuditTD2{
+	background-color:#F8F8F8;
+	background-image:url(../aws_img/form_icon.gif);
+	background-repeat:no-repeat ;
+	background-position:1% 5px;
+	width: 15%;
+	padding-top:5px;
+	font-size: 12px;
+	text-align: left;
+	height:20;
+	letter-spacing: 0.1em;
+	padding-left:20px;
+	white-space:nowrap;
+	color:#000066;
+	border-bottom:1px #D1D1D1 solid;	
+}
+.messageAuditAreaTD{
+text-align:left;
+padding-left:120px;
+border:1px  #999999;
+border-spacing:inherit;
+}
+.messageAuditArea{
+	width:700px;
+	font-size:14px;
+	border-bottom:1px #CACACA solid;
+	border-left:1px #CACACA solid;
+	border-right:1px #CACACA solid;
+	border-top:1px #CACACA solid; 
+}
+.messageOptionTitle{
+	border-right:1px #e1e1e1 solid;
+	border-bottom:1px #999999 solid;
+	border-top:1px #e1e1e1 solid;
+	border-left:1px #e1e1e1 solid;
+}
+.messageOption{
+background-color:#F3F3F3;
+width:100%;
+padding-right:10px;
+padding-bottom:20px;
+
+
+}

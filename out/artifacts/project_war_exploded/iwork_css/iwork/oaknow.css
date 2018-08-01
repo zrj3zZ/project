@@ -1,0 +1,222 @@
+body,td,th,span,a,div {
+	font-family: "Arial","Helvetica","sans-serif";
+}
+main_all{margin:0;padding:0;font-size:12px;color:#666666;min-width:829px;width:expression(documentElement.clientWidth<829?"829px":"100%");}
+.all_table{margin:5px auto;min-width:829px;width:expression(documentElement.clientWidth<829?"829px":"100%");}
+/*通用样式--容器宽度值*/
+.cn_left{min-width:674px;width:100%;float:left;border:1px solid #DCE0E1;background:url(../aws_skins/_def2011/images/lft_tit_bg.jpg) repeat-x top left;padding-bottom:5px; margin-bottom:5px;}
+
+.span_con{display:block;white-space:nowrap;overflow:hidden;line-height:20px;height:20px;
+    -o-text-overflow: ellipsis;    /**//* for Opera */
+    text-overflow:ellipsis;        /**//* for IE */
+}
+.sharp{margin-bottom:20px;}
+h3{height:25px;line-height:25px;font-size:13px;text-indent:10px; color:#333333;}
+
+
+
+.Btn{
+ 	font-family:'宋体'; 
+	background-image:url("../aws_img/formbutton.gif"); 
+	font-size: 12px;
+	color:#000000;
+	background-color:#EFEFEF; 
+	border-color: #FFFFFF #FFFFFF #8FBCBF; 
+	background-position: middle; 
+	cursor:pointer;
+	padding-top:2px;
+	padding-left:10px;
+	padding-right:6px;
+	border-left:1px #999999 solid;
+	border-right:1px #999999 solid;
+	border-top:1px #999999 solid;
+	border-bottom:1px #999999 solid;
+	width:70px;
+}
+.Btn_1{
+ 	font-family:'宋体';
+	background-image:url("../aws_img/formbutton.gif"); 
+	font-size: 12px;
+	color:#000000;
+	background-color:#EFEFEF; 
+	border-color: #FFFFFF #FFFFFF #8FBCBF; 
+	background-position: middle; 
+	cursor:pointer;
+	padding-top:2px;
+	padding-left:10px;
+	padding-right:6px;
+	border-left:1px #999999 solid;
+	border-right:1px #999999 solid;
+	border-top:1px #999999 solid;
+	border-bottom:1px #999999 solid;
+	width:50px;
+}
+.Btn_ask{
+ 	font-family:'宋体';
+	background-image:url("../../iwork_img/know/ask.jpg"); 
+	font-size: 12px;
+	color:#000000;
+	background-color:#EFEFEF; 
+	border-color: #FFFFFF #FFFFFF #8FBCBF; 
+	background-position: middle; 
+	cursor:pointer;
+	border:0px solid #ffffff;
+	padding-top:2px;
+	padding-left:25px;
+	padding-right:6px;
+	width:93px;
+	height:21px;
+}
+.Btn_s{
+ 	font-family:'宋体';
+	background-image:url("../../iwork_img/know/search.jpg"); 
+	font-size: 12px;
+	color:#be0201;
+	background-color:#EFEFEF; 
+	border-color: #FFFFFF #FFFFFF #8FBCBF; 
+	background-position: middle; 
+	cursor:pointer;
+	border:0px solid #ffffff;
+	padding-top:2px;
+	padding-left:25px;
+	padding-right:6px;
+	width:93px;
+	height:21px;
+}
+.Btn_s_a{
+ 	font-family:'宋体';
+	background-image:url("../../iwork_img/know/search_all.jpg"); 
+	font-size: 12px;
+	color:#000000;
+	background-color:#EFEFEF; 
+	border-color: #FFFFFF #FFFFFF #8FBCBF; 
+	background-position: middle; 
+	cursor:pointer;
+	border:0px solid #ffffff;
+	padding-top:2px;
+	padding-left:6px;
+	padding-right:6px;
+	width:62px;
+	height:21px;
+}
+.Btn_s_a_r{
+ 	font-family:'宋体'; 
+	background-image:url("../../iwork_img/know/search_all.jpg"); 
+	font-size: 12px;
+	color:#be0201;
+	background-color:#EFEFEF; 
+	border-color: #FFFFFF #FFFFFF #8FBCBF; 
+	background-position:middle; 
+	cursor:pointer;
+	border:0px solid #ffffff;
+	padding-top:2px;
+	padding-left:6px;
+	padding-right:6px;
+	width:62px;
+	height:21px;
+}
+.tags_all_2{
+	float:left;
+}
+.tags_content_1{
+	font-size:12px; 
+	font-weight:bold;
+	color:#333333;
+	margin-left:3px;
+	margin-right:3px;
+}
+.tags_left_1{
+	height:1px; font-size:1px; overflow:hidden; display:block; margin:0 1px; background-color:#b6c8c8;
+} 
+.tags_center_1{
+	background-color:#fff;
+	height:26px; 
+	line-height:26px; 
+	overflow:hidden; 
+	text-align:center;	
+	border-right:1px solid;
+	border-left:1px solid;
+	border-color:#b6c8c8;	
+}
+.tags_right_1{
+	height:1px; font-size:1px; overflow:hidden; display:block; background-color:#fff;
+}
+.tags_left_2{
+	height:1px; font-size:1px; overflow:hidden; display:block;
+}
+.tags_center_2{
+	height:26px; 
+	line-height:26px; 
+	overflow:hidden; 
+	text-align:center;
+}
+.tags_right_2{
+	height:1px; font-size:1px; overflow:hidden; display:block; background-color:#b6c8c8;
+}
+.left_d{
+	width:44%; 
+	float:left; 
+	margin-left:4%; 
+	margin-right:2%;
+}
+.right_d{
+	width:44%; 
+	float:right; 
+	margin-right:4%;
+}
+.title_con{
+	text-align:center; 
+	height:26px; 
+	line-height:26px; 
+	overflow:hidden; 
+	color:#333333; 
+	width:100%; 
+	font-size:14px;
+}
+.classes_tags{
+	width:5%; float:left;
+}
+.lineClean{
+	display:block;line-height:1px; height:1px; overflow:hidden; border-top:1px dashed #999999; margin:5px;
+}
+.massageInfo{
+	margin-top:5px; padding-left:15px;
+}
+.select_1{cursor:auto;font-size:12px; font-weight:bold;	color:#C00102;}
+.select_2{cursor:pointer;font-size:12px; font-weight:bold;color:#333333;}
+.AWS_AJAX_HTML_DIALOG {z-index:10001; width:600px; height:360px; position:absolute; left:33%; top:40%; font-size:12px; margin-left:-225px; display:none;}
+.AWS_AJAX_HTML_DIALOG_wei {z-index:10001; width:600px; height:360px; position:absolute; left:41%; top:33%; font-size:12px; margin-left:-225px; display:none;}
+.AWS_AJAX_HTML_DIALOG_1 {z-index:10001; width:600px; height:360px; position:absolute; left:40%; top:40%; font-size:12px; margin-left:-225px; display:none;}
+.AWS_AJAX_HTML_DIALOG_A {z-index:10001; width:600px; height:360px; position:absolute; left:40%; top:40%; font-size:12px; margin-left:-225px; display:none;}
+.AWS_AJAX_HTML_DIALOG_L {z-index:10001; width:400px; height:300px; position:absolute; left:50%; top:40%; font-size:12px; margin-left:-225px; display:none;}
+#bgDiv {display:none; position:absolute; top:0px; left:0px; right:0px; background-color:#777; filter:progid:DXImageTransform.Microsoft.Alpha(style=3,opacity=25,finishOpacity=75); opacity: 0.6; z-index: 999;}
+.div_bgi{width:100%;border:1px solid #DCE0E1;background:url(../../iwork_img/rss_titlebg.jpg) repeat-x top left;padding-bottom:5px; margin-bottom:5px;}
+.div_tit{position:relative;height:26px;padding:8px 10px 0px 0px;text-align:right; margin-bottom:5px;}
+
+.div_span_tit_left{color:#282828;font-size:12px;font-weight:bold;position:relative;top:1px;}
+.div_span_tit_right{color:#990000;font-size:12px;position:relative;top:1px; text-decoration:underline;}
+.aws-portal-window-titlebar-title1{
+    background-image:url("../../iwork_img/know/PORTLET-BG.jpg"); 
+    padding: 0px;
+    margin: 0px;
+    border-style: solid;
+    border-width: 0px 0px 0px 0px;
+    border-color: #97AEBE;
+    font-size: 12px;
+    height:22px;
+    color:#FFFFFF;
+    padding-top: 1px;
+    padding-left: 10px;
+    text-valign: center;
+    font-weight: bold; 
+}
+.tr_bg1{
+	background-color: #F0F0F0;
+}
+.tr_bg2{
+	background-color:#F5F5F5;
+}
+a:link {color: #333333}     /* 未访问的链接 */
+a:visited {color: #333333}  /* 已访问的链接 */
+a:hover {color: #333333}    /* 当有鼠标悬停在链接上 */
+a:active {color: #333333}   /* 被选择的链接 */

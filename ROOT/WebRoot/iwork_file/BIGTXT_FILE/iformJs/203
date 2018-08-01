@@ -1,0 +1,30 @@
+$(function () {
+    if ($("#CUSTOMERNO") != null && $("#CUSTOMERNO").val() != "") {
+        $("#CUSTOMERNAME").attr("readonly", "readonly");
+    }
+});
+
+function savebeforeEvent() {
+    $.ajaxSetup({
+        async: false
+    });
+    var khbh = $("#CUSTOMERNO").val();
+    var khmc = $("#CUSTOMERNAME").val();
+    var flag = new Boolean();
+    if (khbh != "") {
+        flag = true;
+    } else {
+        $.post("zqb_customer_checkCFXX.action", {
+            khmc: khmc,
+            instanceid: 0
+        }, function (data) {
+            if (data != "") {
+                flag = false;
+                alert(data);
+            } else {
+                flag = true;
+            }
+        });
+    }
+    return flag;
+}

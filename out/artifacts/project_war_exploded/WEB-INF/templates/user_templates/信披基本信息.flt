@@ -1,0 +1,406 @@
+<link rel="stylesheet" type="text/css" href="iwork_js/plugs/gantt2/jquery-ui-1.8.4.css" />
+<script type="text/javascript" src="iwork_js/jqueryjs/ui/jquery.ui.core.js"></script>
+<script type="text/javascript" src="iwork_js/plugs/gantt2/jquery-ui-1.8.4.js"></script>
+<script type="text/javascript" src="iwork_js/jqueryjs/ui/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="iwork_js/jqueryjs/ui/jquery.ui.position.js"></script>
+<script type="text/javascript" src="iwork_js/jqueryjs/ui/jquery.ui.autocomplete.js"></script>
+<script type="text/javascript">
+	$(function(){
+		addObj();
+		document.getElementById("SXLX").onchange=function(){
+			var obj=document.getElementById("SXGY_1");
+			if(this.value=='违规占用'){
+				$("#SXGY_1").find("option").remove();
+				obj.options.add(new Option("控股股东、实际控制人或其关联方违规占用①","控股股东、实际控制人或其关联方违规占用①")); 
+				obj.options.add(new Option("董监高违规占用②","董监高违规占用②"));
+				obj.options.add(new Option("其他主体违规占用","其他主体违规占用"));
+			}else if(this.value=='股票发行违规行为'){
+				$("#SXGY_1").find("option").remove();
+				obj.options.add(new Option("提前使用","提前使用")); 
+				obj.options.add(new Option("用于负面清单","用于负面清单"));
+				obj.options.add(new Option("违规改变用途","违规改变用途"));
+			}else if(this.value=='违规对外担保'){
+				$("#SXGY_1").find("option").remove();
+				obj.options.add(new Option("违规为股东、实际控制人及其关联方提供担保","违规为股东、实际控制人及其关联方提供担保")); 
+				obj.options.add(new Option("违规为其他主体提供担保","违规为其他主体提供担保"));
+			}else if(this.value=='违规对外投资及购买/出售资产'){
+				$("#SXGY_1").find("option").remove();
+				obj.options.add(new Option("未及时履行审议程序购买各类理财产品","未及时履行审议程序购买各类理财产品")); 
+				obj.options.add(new Option("未及时履行审议程序对外设立企业等","未及时履行审议程序对外设立企业等"));
+				obj.options.add(new Option("未及时履行审议程序购买资产","未及时履行审议程序购买资产"));
+				obj.options.add(new Option("未及时履行审议程序出售资产","未及时履行审议程序出售资产"));
+			}else if(this.value=='关联交易违规行为③'){
+				$("#SXGY_1").find("option").remove();
+				obj.options.add(new Option("日常性关联交易超出预计未及时履行审议程序","日常性关联交易超出预计未及时履行审议程序")); 
+				obj.options.add(new Option("偶发性关联交易未及时履行审议程序","偶发性关联交易未及时履行审议程序"));
+			}else if(this.value=='信息披露违规行为'){
+				$("#SXGY_1").find("option").remove();
+				obj.options.add(new Option("漏披公告（含已补披）","漏披公告（含已补披）")); 
+				obj.options.add(new Option("更正公开转让说明书","更正公开转让说明书"));
+				obj.options.add(new Option("更正定期报告","更正定期报告"));
+			}else if(this.value=='挂牌公司相关业务开展情况'){
+				$("#SXGY_1").find("option").remove();
+				obj.options.add(new Option("主营业务变化情况","主营业务变化情况")); 
+				obj.options.add(new Option("涉及类金融业务情况","涉及类金融业务情况"));
+				obj.options.add(new Option("涉及房地产业务情况","涉及房地产业务情况"));
+			}else{
+				$("#SXGY_1").find("option").remove();
+				obj.options.add(new Option(this.value,this.value)); 
+			}
+		};
+		$.ajaxSetup({
+			async: false
+		});
+		var dataArray = [];
+		$.ajax({
+			url : "getDmJcData.action",
+			type : "GET",
+			dataType : "json",
+			success : function(data) {
+				if (data.success) {
+					var reslist = data.rows;
+					for (var i = 0; i < reslist.length; i++) {
+						var vo = reslist[i];
+						dataArray.push({
+							id : vo.zqjc,
+							value:vo.zqdm,
+							label : vo.zqdm+"--"+vo.zqjc
+						});
+					}
+				}
+			}
+		});
+		var dataArrays = [];
+		$.ajax({
+			url : "getDmJcData.action",
+			type : "GET",
+			dataType : "json",
+			success : function(data) {
+				if (data.success) {
+					var reslist = data.rows;
+					for (var i = 0; i < reslist.length; i++) {
+						var vo = reslist[i];
+						dataArrays .push({
+							id : vo.zqjc,
+							value:vo.zqdm,
+							label : vo.zqjc+"--"+vo.zqdm
+						});
+					}
+				}
+			}
+		});
+		$("#YCL").autocomplete({
+			source : dataArray,
+			max : 12,
+			minChars : 0,
+			width : 400,
+			scrollHeight : 300,
+			matchContains : true,
+			autoFill : true,
+			minLength : 0,
+			
+			select: function( event, ui ) {
+	       		$("#TJDSH").val( ui.item.id );
+	       	 	$("#YCL").val( ui.item.value );
+        		return false;
+		}});
+		$("#TJDSH").autocomplete({
+			source : dataArrays,
+			max : 12,
+			minChars : 0,
+			width : 400,
+			scrollHeight : 300,
+			matchContains : true,
+			autoFill : true,
+			minLength : 0,
+			
+			select: function( event, ui ) {
+	       		$("#TJDSH").val( ui.item.id );
+	       	 	$("#YCL").val( ui.item.value );
+        		return false;
+		}});
+		showList();
+
+	}); 
+	function addObj(){
+		var obj=document.getElementById("SXLX");
+		obj.options.add(new Option("违规占用","违规占用")); 
+		obj.options.add(new Option("股票发行违规行为","股票发行违规行为"));
+		obj.options.add(new Option("违规对外担保","违规对外担保"));
+		obj.options.add(new Option("违规拆出资金","违规拆出资金"));
+		obj.options.add(new Option("违规对外投资及购买/出售资产","违规对外投资及购买/出售资产"));
+		obj.options.add(new Option("关联交易违规行为③","关联交易违规行为③"));
+		obj.options.add(new Option("信息披露违规行为","信息披露违规行为"));
+		obj.options.add(new Option("重大资产重组违规行为","重大资产重组违规行为"));
+		obj.options.add(new Option("权益变动违规行为","权益变动违规行为"));
+		obj.options.add(new Option("承诺未能及时履行情况","承诺未能及时履行情况"));
+		obj.options.add(new Option("会计估计更正","会计估计更正"));
+		obj.options.add(new Option("会计政策变更","会计政策变更"));
+		obj.options.add(new Option("前期差错更正","前期差错更正"));
+		obj.options.add(new Option("合并范围调整事项及影响","合并范围调整事项及影响"));
+		obj.options.add(new Option("盈利预测等事项及其实现情况④","盈利预测等事项及其实现情况④"));
+		obj.options.add(new Option("挂牌公司相关业务开展情况","挂牌公司相关业务开展情况"));
+		obj.options.add(new Option("控股股东、实际控制人失联","控股股东、实际控制人失联"));
+		obj.options.add(new Option("持续经营能力存在不确定性事项","持续经营能力存在不确定性事项"));
+		obj.options.add(new Option("涉及重大诉讼情况","涉及重大诉讼情况"));
+		obj.options.add(new Option("司法冻结事项","司法冻结事项"));
+		obj.options.add(new Option("重大舆情事项（媒体质疑）","重大舆情事项（媒体质疑）"));
+		obj.options.add(new Option("大额股权质押事项","大额股权质押事项"));
+		obj.options.add(new Option("控股股东、实际控制人变动情况","控股股东、实际控制人变动情况"));
+		obj.options.add(new Option("法定代表人、董事长、总经理、董事会秘书、财务总监更换情况","法定代表人、董事长、总经理、董事会秘书、财务总监更换情况"));
+		obj.options.add(new Option("券商风险提示公告事项","券商风险提示公告事项"));
+		obj.options.add(new Option("公告事项","公告事项"));
+		obj.options.add(new Option("会计师出具非标审计意见情况","会计师出具非标审计意见情况"));
+		obj.options.add(new Option("被中国证监会及证监局采取的行政处罚、监管措施或其他措施","被中国证监会及证监局采取的行政处罚、监管措施或其他措施"));
+		obj.options.add(new Option("被全国股转公司采取的纪律处分或自律监管措施","被全国股转公司采取的纪律处分或自律监管措施"));
+		obj.options.add(new Option("受到刑事处罚情况","受到刑事处罚情况"));
+		obj.options.add(new Option("被其他部门采取行政处罚情况","被其他部门采取行政处罚情况"));
+		obj.options.add(new Option("被中国证监会立案调查","被中国证监会立案调查"));
+		obj.options.add(new Option("被全国股转公司公开问询或被证监局发函问询事项","被全国股转公司公开问询或被证监局发函问询事项"));
+		obj.options.add(new Option("中国证监会及证监局或全国股转公司要求核查的信访举报事项","中国证监会及证监局或全国股转公司要求核查的信访举报事项"));
+		obj.options.add(new Option("其他事项","其他事项"));
+		obj.options.add(new Option("挂牌承办人员所在业务部门⑤","挂牌承办人员所在业务部门⑤"));
+		obj.options.add(new Option("拖欠持续督导费用情况","拖欠持续督导费用情况"));
+		obj.options.add(new Option("静默期买卖股票","静默期买卖股票"));
+		obj.options.add(new Option("提前使用募集资金","提前使用募集资金"));
+		obj.options.add(new Option("变更资金用途未审议","变更资金用途未审议"));
+	}
+	function showList(){
+		var id=document.getElementById("dataid").value;
+		if(id!=0 && id!="" && id!=null){
+			$.ajax({
+				url : "getQysj.action",
+				type : "GET",
+				data: {"id":id},  
+				dataType : "json",
+				success : function(data) {
+					var all_options = document.getElementById("SXLX").options;
+ 					for (i=0; i<all_options.length; i++){
+    				        	if (all_options[i].value == data[0].sxlx){
+        						all_options[i].selected = true;
+     						}
+  					}
+					var obj=document.getElementById("SXGY_1");
+					if(data[0].sxlx=='违规占用'){
+						$("#SXGY_1").find("option").remove();
+						obj.options.add(new Option("控股股东、实际控制人或其关联方违规占用①","控股股东、实际控制人或其关联方违规占用①")); 
+						obj.options.add(new Option("董监高违规占用②","董监高违规占用②"));
+						obj.options.add(new Option("其他主体违规占用","其他主体违规占用"));
+					}else if(data[0].sxlx=='股票发行违规行为'){
+						$("#SXGY_1").find("option").remove();
+						obj.options.add(new Option("提前使用","提前使用")); 
+						obj.options.add(new Option("用于负面清单","用于负面清单"));
+						obj.options.add(new Option("违规改变用途","违规改变用途"));
+					}else if(data[0].sxlx=='违规对外担保'){
+						$("#SXGY_1").find("option").remove();
+						obj.options.add(new Option("违规为股东、实际控制人及其关联方提供担保","违规为股东、实际控制人及其关联方提供担保")); 
+						obj.options.add(new Option("违规为其他主体提供担保","违规为其他主体提供担保"));
+					}else if(data[0].sxlx=='违规对外投资及购买/出售资产'){
+						$("#SXGY_1").find("option").remove();
+						obj.options.add(new Option("未及时履行审议程序购买各类理财产品","未及时履行审议程序购买各类理财产品")); 
+						obj.options.add(new Option("未及时履行审议程序对外设立企业等","未及时履行审议程序对外设立企业等"));
+						obj.options.add(new Option("未及时履行审议程序购买资产","未及时履行审议程序购买资产"));
+						obj.options.add(new Option("未及时履行审议程序出售资产","未及时履行审议程序出售资产"));
+					}else if(data[0].sxlx=='关联交易违规行为③'){
+						$("#SXGY_1").find("option").remove();
+						obj.options.add(new Option("日常性关联交易超出预计未及时履行审议程序","日常性关联交易超出预计未及时履行审议程序")); 
+						obj.options.add(new Option("偶发性关联交易未及时履行审议程序","偶发性关联交易未及时履行审议程序"));
+					}else if(data[0].sxlx=='信息披露违规行为'){
+						$("#SXGY_1").find("option").remove();
+						obj.options.add(new Option("漏披公告（含已补披）","漏披公告（含已补披）")); 
+						obj.options.add(new Option("更正公开转让说明书","更正公开转让说明书"));
+						obj.options.add(new Option("更正定期报告","更正定期报告"));
+					}else if(data[0].sxlx=='挂牌公司相关业务开展情况'){
+						$("#SXGY_1").find("option").remove();
+						obj.options.add(new Option("主营业务变化情况","主营业务变化情况")); 
+						obj.options.add(new Option("涉及类金融业务情况","涉及类金融业务情况"));
+						obj.options.add(new Option("涉及房地产业务情况","涉及房地产业务情况"));
+					}else{
+						$("#SXGY_1").find("option").remove();
+						obj.options.add(new Option(data[0].sxlx,data[0].sxlx)); 
+					}
+					var x_options = document.getElementById("SXGY_1").options;
+ 					for (i=0; i<x_options.length; i++){
+    				        	if (x_options[i].value == data[0].sxgy_1){
+							x_options[i].selected = true;
+     						}
+  					}
+					document.getElementById("SXMC").value=data[0].username;
+					document.getElementById("TJJSH").value=data[0].userid;
+					document.getElementById("TJGDDH").value=data[0].time;
+				}
+			});
+		}
+	}
+	function getNowFormatDate() {
+   		var date = new Date();
+ 		var seperator1 = "-";
+        	var seperator2 = ":";
+        	var month = date.getMonth() + 1;
+       	        var strDate = date.getDate();
+       	 	if (month >= 1 && month <= 9) {
+        		month = "0" + month;
+        	}
+       		if (strDate >= 0 && strDate <= 9) {
+       	 		strDate = "0" + strDate;
+        	}
+        	var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate + " " + date.getHours() + seperator2 + date.getMinutes()  + seperator2 + date.getSeconds();
+        	return currentdate;
+        } 
+</script>
+<style type="text/css">
+		#border {
+    width: 1000px;
+    border-top: 1px solid #E1E1E1;
+    border-left: 1px solid #E1E1E1;
+    border-bottom: 1px solid #E1E1E1;
+    border-right: 1px solid #E1E1E1;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding: 10px;
+    background-color: #FFFFFF;
+    background-repeat: no-repeat;
+    background-position: top right;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    background: #FFF;
+    border: 1px solid #E1E1E1;
+    border-radius: 5px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, .3);
+    -moz-transition: -moz-box-shadow linear .2s;
+    -webkit-transition: -webkit-box-shadow linear .2s;
+    transition: -webkit-box-shadow linear .2s;
+}
+		
+	</style>
+
+
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" width="100%" cellspacing="0" cellpadding="0" border="0">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					企业违规风险记录
+				</td>
+			</tr>
+			<td align="right" id="help" style="text-align:right;font-size:10px;">
+					
+					<p style="margin-left:15px;float:right;">
+						最后修改时间:${TJGDDH}
+					</p>
+					<p style="margin-left:15px;float:right;">
+						最后修改人:${TJJSH}[${SXMC}]
+					</p>
+				</td>
+			<tr>
+				<td class="line" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" width="100%" cellspacing="0" cellpadding="0" border="0">
+						<tbody>
+							
+							<tr id="itemTr_0">
+								<td class="td_title" id="title_YCL" width="10%">
+									公司代码
+								</td>
+								<td class="td_data" id="data_YCL" width="15%">
+									${YCL}&nbsp;
+								</td>
+								<td class="td_title" id="title_TJDSH" width="10%">
+									公司简称
+								</td>
+								<td class="td_data" id="data_TJDSH" width="15%">
+									${TJDSH}&nbsp;
+								</td>
+								<td class="td_title" id="title_SBRQ" width="10%">
+									<span style="color:red;">*</span>发现日期
+								</td>
+								<td class="td_data" id="data_SBRQ" width="15%">
+									${SBRQ}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_7">
+								<td class="td_title" id="title_SXLX" width="10%">
+									违规类型
+								</td>
+								<td class="td_data" colspan="3" id="data_SXLX" width="15%">
+									${SXLX}
+								</td>
+								<td id="data_SXGY_1" colspan="2" class="td_data" width="15%">
+									${SXGY_1}
+								</td>
+							</tr>
+							<tr id="txtAreaTr_1742">
+								<td id="data_SXGY1" class="td_data1" colspan="6" style="color:blue;padding-left:60px">
+
+									填写说明：
+									<p style="text-indent:2em;">
+										①认定范围参考《信披细则》第四十八条（十三），附属企业一般指相关主体可控制的企业
+									</p>
+									<p style="text-indent:2em;">
+										②占用主体涉及多重身份，且已填列①的，无需重复填列；正常的备用金一般不视为违规占用
+									</p>
+									<p style="text-indent:2em;">
+										③关联方为挂牌公司提供财务资助且不收取利息的，关联方为挂牌公司银行贷款提供担保的且不附加义务的，无需填列
+									</p>
+									<p style="text-indent:2em;">
+										④含挂牌公司发布的业绩快报、业绩预告、发行中所涉对赌业绩等的实现情况，及购买资产中标的资产所涉盈利预测报告或评估报告(重点关注收益法)中相关预测的实现情况
+									</p>
+									<p style="text-indent:2em;">
+										⑤应列示清楚：一级部门—二级部门，或地方营业部。
+									</p>
+									<p style="text-indent:2em;">
+										⑥主办券商项目组评价填写
+									</p>
+									<p style="text-indent:2em;">
+										⑦持续督导部门评价填写
+									</p>
+									<p style="text-indent:2em;">
+										⑧本表统计周期自2016年1月1日至2017年4月30日
+									</p>
+									<p style="text-indent:2em;">
+										⑨如挂牌公司无相关事项，填写“不适用”
+									</p>
+									<p style="text-indent:2em;">
+										⑩如挂牌公司涉及相关违规事项的，原则上应在300字内概述基本事实、违规情况、责任认定、补救措施、核查情况、信披情况等。
+									</p>
+									<p style="text-indent:2em;">
+										⑾其他填列事项，应言简意赅的说明相关情况，如时间、地点、人物、起因、经过、结果等
+									</p>
+								</td>
+							</tr>
+							<tr id="txtAreaTr_1374">
+								<td class="td_title" id="title_SXGY">
+									描述内容
+								</td>
+								<td id="data_SXGY" class="td_data" colspan="5">
+									${SXGY}&nbsp;
+								</td>
+							</tr>
+							<tr id="tjTr_6659">
+								<td class="td_title" id="title_FXZL">
+									上传资料
+								</td>
+								<td id="data_FXZL" class="td_data" colspan="5">
+									${FXZL}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${KHBH}${KHMC}${GLGSBH}${GLGSMC}
+</div>

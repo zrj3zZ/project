@@ -1,0 +1,315 @@
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					邮箱和邮件组管理
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+			<td align="right" id="help">
+					<span id="data_DJBH">单据编号:${DJBH}</span> 
+				</td>
+			</tr>
+			
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr>
+								<td id="title_SQRQ" class="td_title" width="15%">
+									申请日期
+								</td>
+								<td id="data_SQRQ" class="td_data" width="85%" colspan="3">
+									${SQRQ}&nbsp;
+								</td>
+							</tr>
+							
+							<tr>
+								<td id="title_SQR" class="td_title" width="15%">
+									申请人
+								</td>
+								<td class="td_data" id="data_SQRBMID" width="85%" colspan="3">
+										${SQR}【${SQRZH},${SQRGW},${SQRDH}&nbsp;】【${SQRBMMC} 】
+									</td>
+							</tr>
+							
+							
+							<tr id="tr_SQLX">
+								<td class="td_title" id="title_SQLX" width="15%">
+									申请类型
+								</td>
+								<td class="td_data" id="data_SQLX" width="85%" colspan="3">
+									${SQLX}&nbsp;
+								</td>
+							</tr>
+							<tr id="tr_YXCZLX">
+								<td class="td_title" id="title_YXCZLX" width="15%">
+									操作类型
+								</td>
+								<td class="td_data" id="data_YXCZLX" width="85%" colspan="3">
+									${YXCZLX}&nbsp;
+								</td>
+							</tr>
+							<tr id="tr_YJZCZLX">
+								<td class="td_title" id="title_YJZCZLX" width="15%">
+									操作类型
+								</td>
+								<td class="td_data" id="data_YJZCZLX" width="85%" colspan="3">
+									${YJZCZLX}&nbsp;
+								</td>
+							</tr>
+							
+							<tr id="tr_SYR">
+								<td id="title_SYR" class="td_title" width="15%">
+									使用人/负责人
+								</td>
+								<td id="data_SYR" class="td_data" width="85%" colspan="3">
+									${SYR}
+								</td>
+							</tr>
+							
+							<tr id="tr_SYRZH">
+								<td>
+									<br />
+								</td>
+								<td class="td_data" colspan="3">
+									【${SYRZH}&nbsp;】【${SYRBMID}/${SYRBM}】<br />
+								</td>
+							</tr>
+							
+							<tr id="tr_SYQX">
+								<td class="td_title" id="title_SYQX" width="15%">
+									使用期限
+								</td>
+								<td class="td_data" id="data_SYQX" width="85%" colspan="3">
+									${SYQX}&nbsp;${SYQXC}--${SYQXD}&nbsp;
+								</td>
+							</tr>
+							
+							<tr id="tr_YXDZ">
+								<td class="td_title" id="title_YXDZ" width="15%">
+									邮箱/邮件组地址
+								</td>
+								<td class="td_data" id="data_YXDZ" width="85%" colspan="3">
+									${YXDZ}&nbsp;
+								</td>
+							</tr>
+							<tr id="tr_YJZMC">
+								<td class="td_title" id="title_YJZMC" width="15%">
+									邮件组中文简称
+								</td>
+								<td class="td_data" id="data_YJZMC" width="85%" colspan="3">
+									${YJZMC}&nbsp;
+								</td>
+							</tr>
+							
+							<tr id="tr_SQYY">
+								<td class="td_title" id="title_SQYY" width="15%">
+									申请说明
+								</td>
+								<td class="td_data" id="data_SQYY" width="85%" colspan="3">
+									${SQYY}&nbsp;
+								</td>
+							</tr>
+							
+							<tr id="tr_TZXGR">
+								<td class="td_title" id="title_TZXGR" width="15%">
+									通知相关人
+								</td>
+								<td class="td_data" id="data_TZXGR" width="85%" colspan="3">
+									${TZXGR}&nbsp;
+								</td>
+							</tr>
+							
+							<tr id="tr_ZJDCYZH">
+								<td class="td_title" id="title_ZJDCYZH" width="15%">
+									增加的成员账号
+								</td>
+								<td class="td_data" id="data_ZJDCYZH" width="85%" colspan="3">
+									${ZJDCYZH}&nbsp;
+								</td>
+							</tr>
+							<tr id="tr_SCDCYZH">
+								<td class="td_title" id="title_SCDCYZH" width="15%">
+									删除的成员账号
+								</td>
+								<td class="td_data" id="data_SCDCYZH" width="85%" colspan="3">
+									${SCDCYZH}&nbsp;
+								</td>
+							</tr>
+							
+							<tr id="tr_SCDCYZH_des">
+								<td class="td_title" id="title_SCDFSQXZH_des" width="15%">
+									
+								</td>
+								<td class="td_data" id="data_SCDFSQXZH_des" width="85%" colspan="3">
+									需要输入多个账号，请用空格或分号分隔；系统中不存在的账号或邮件组成员超过200人，请通过附件上传，并在附件中列出完整的邮箱地址。
+								</td>
+							</tr>
+							
+							<tr id="tr_CYNBZH">
+								<td class="td_title" id="title_CYNBZH" width="15%">
+									成员内部账号
+								</td>
+								<td class="td_data" id="data_CYNBZH" width="85%" colspan="3">
+									${CYNBZH}&nbsp;
+								</td>
+							</tr>
+							
+							
+							
+							<tr id="tr_CYNBZH_des">
+								<td class="td_title" id="title_CYNBZH_des" width="15%">
+									
+								</td>
+								<td class="td_data" id="data_CYNBZH_des" width="85%" colspan="3">
+									需要输入多个账号，请用空格或分号分隔；系统中不存在的账号或邮件组成员超过200人，请通过附件上传，并在附件中列出完整的邮箱地址。
+								</td>
+							</tr>
+							
+							<tr id="tr_FSQX">
+								<td class="td_title" id="title_FSQX" width="15%">
+									发送权限
+								</td>
+								<td class="td_data" id="data_FSQX" width="85%" colspan="3">
+									${FSQX}&nbsp;
+								</td>
+							</tr>
+							<tr id="tr_ZJDFSQXZH">
+								<td class="td_title" id="title_ZJDFSQXZH" width="15%">
+									增加的发送权限账号
+								</td>
+								<td class="td_data" id="data_ZJDFSQXZH" width="85%" colspan="3">
+									${ZJDFSQXZH}&nbsp;
+								</td>
+							</tr>
+							<tr id="tr_SCDFSQXZH">
+								<td class="td_title" id="title_SCDFSQXZH" width="15%">
+									删除的发送权限账号
+								</td>
+								<td class="td_data" id="data_SCDFSQXZH"  width="85%" colspan="3">
+									${SCDFSQXZH}&nbsp;
+								</td>
+							</tr>
+							<tr id="tr_SCDFSQXZH_des">
+								<td class="td_title" id="title_SCDFSQXZH" width="15%">
+									
+								</td>
+								<td class="td_data" id="data_FSQXZH" width="85%" colspan="3">
+									需要输入多个账号，请用空格或分号分隔；系统中不存在的账号或邮件组成员超过200人，请通过附件上传，并在附件中列出完整的邮箱地址。
+								</td>
+							</tr>
+							
+							<tr id="tr_CZRZH">
+								<td class="td_title" id="title_CZRZH" width="15%">
+									操作人账号
+								</td>
+								<td class="td_data" id="data_CZRZH" width="85%" colspan="3">
+									${CZRZH}&nbsp;
+								</td>
+							</tr>
+							
+							<tr id="tr_FSQXZH">
+								<td class="td_title" id="title_FSQXZH" width="15%">
+									发送权限账号
+								</td>
+								<td class="td_data" id="data_FSQXZH" width="85%" colspan="3">
+									${FSQXZH}&nbsp;
+								</td>
+							</tr>
+							
+							<tr id="tr_FSQXZH_des">
+								<td class="td_title" id="title_FSQXZH" width="15%">
+									
+								</td>
+								<td class="td_data" id="data_FSQXZH" width="85%" colspan="3">
+									需要输入多个账号，请用空格或分号分隔；系统中不存在的账号或邮件组成员超过200人，请通过附件上传，并在附件中列出完整的邮箱地址。
+								</td>
+							</tr>
+							
+							<tr id="tr_CYNBZHZHH">
+								<td class="td_title" id="title_CYNBZHZHH" width="15%">
+									成员内部账号转换后
+								</td>
+								<td class="td_data" id="data_CYNBZHZHH" width="85%" colspan="3">
+									${CYNBZHZHH}&nbsp;
+								</td>
+							</tr>
+							
+							<tr id="tr_FJ">
+								<td class="td_title" id="title_FJ" width="15%">
+									附件
+								</td>
+								<td class="td_data" id="data_FJ" width="85%" colspan="3">
+									${FJ}
+								</td>
+							</tr>
+							
+							<tr id="tr_YXMM">
+								<td class="td_title" id="title_YXMM" width="15%">
+									邮箱密码
+								</td>
+								<td class="td_data" id="data_YXMM" width="35%">
+									${YXMM}&nbsp;
+								</td>
+								<td class="td_title" id="title_YX" width="15%">
+									邮箱
+								</td>
+								<td class="td_data" id="data_YX"  width="35%">
+									${YX}&nbsp;
+								</td>
+							</tr>
+							
+							<tr id="tr_CZSJ">
+								<td class="td_title" id="title_CZSJ" width="15%">
+									操作时间
+								</td>
+								<td class="td_data" id="data_CZSJ"  width="35%">
+									${CZSJ}&nbsp;
+								</td>
+								
+								<td class="td_title" id="title_CZR" width="15%">
+									操作人
+								</td>
+								<td class="td_data" id="data_CZR"  width="35%">
+									${CZR}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tbody>
+				<tr>
+					<td class="data" style="padding:10px;padding-left:10px;padding-right:10px">
+						<fieldset class="td_memo">
+							<legend class="td_memo_title">使用说明</legend>
+							<p>1、如果是阶段性使用的个人邮箱，请在邮箱账号前加前缀【W_】。 <br />
+2、邮箱账号使用到期后，信息管理部有权收回账号。<br />
+3、默认邮箱空间大小为2GB。
+</p>
+						</fieldset>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+</div>
+<div style="display:none;">
+	${SYRXM}${SYRBH}${SYRGW}${SYRDH}${FSQXZHZHH}${ZJDCYZHZHH}${SCDCYZHZHH}${ZJDFSQXZHZHH}${SCDFSQXZHZHH}
+</div>

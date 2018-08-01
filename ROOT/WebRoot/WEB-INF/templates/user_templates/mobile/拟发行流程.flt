@@ -1,0 +1,109 @@
+<script type="text/javascript">
+	$(document).ready(function(){
+		var projectno = parent.document.getElementById("PROJECTNO").value;
+		$("#GPFXXMXX").attr("src","zqb_wxgpfxproject_sx_mainmsg.action?projectno="+projectno);
+		$("#DIVNFXFILE").children().eq(1).children().eq(0).html("立项资料上传");
+	});
+</script>
+<style type="text/css">
+.formpage_title {
+	text-align: center;
+	vertical-align:bottom;
+	height:50px;
+	font-size: 22px;
+	color:#000;
+	margin-bottom:20px;
+}
+.line {
+	background-color: #ccc;
+	height:15px;
+	margin-bottom:20px;
+}
+td {
+	line-height: 30px;
+	padding-left: 3px;
+	font-size: 12px;
+	border-bottom:1px #efefef dotted;
+	vertical-align:middle;
+	word-wrap:break-word;
+	word-break:break-all;
+	font-weight:100;
+	line-height:15px;
+	padding-top:5px;
+	text-align:left;
+	
+}
+legend {
+	font-size: 16px;
+}
+</style>
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					定增项目立项申请
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+					<br />
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<script language="javascript" type="text/javascript">
+		function iFrameHeighta() {
+			var ifm= document.getElementById("GPFXXMXX");
+			var subWeb = document.frames ? document.frames["GPFXXMXX"].document : ifm.contentDocument;
+			if(ifm != null && subWeb != null) {
+				ifm.height = subWeb.body.scrollHeight;
+			}
+		}			
+	</script>
+	<iframe id="GPFXXMXX" height="200%" style="min-height:500px;" width="100%" border="0" onload="iFrameHeighta()" name="GPFXXMXX"></iframe>
+	<fieldset style="margin-top:15px;color:#004080;width:100%;border:1px dashed #CCCCCC">
+		<legend algin="right" style="color:#004080;">拟发行情况</legend>
+		<table width="100%">
+		<tr id="itemTr_5">
+			<td width="50%">
+				拟股票发行数量不超过（万股）${GPFXSL}
+			</td>
+		</tr>
+		<tr id="itemTr_4">
+			<td width="100%">
+				拟发行日期${NFXRQ}
+			</td>
+		</tr>
+		<tr id="itemTr_6">
+			<td width="100%">
+				拟募集资金总额不超过人民币（万元）${MJZJZE}
+			</td>
+		</tr>
+		<tr id="itemTr_3">
+			<td width="100%" >
+				发行目的阐述${FXMDCS}
+			</td>
+		</tr>
+		<tr id="itemTr_7">
+			<td width="100%">
+				拟发行股票的价格为人民币（元/股）${FXGPJG}
+			</td>
+		</tr>
+		<tr id="itemTr_8">
+			<td width="100%">
+				${NFXFILE}
+			</td>
+			
+		</tr>
+		</table>
+	</fieldset>
+</div>
+<div style="display:none;">
+	${GROUPID}${PROJECTNO}${PROJECTNAME}${CJSJ}${CREATEUSER}${CREATEUSERID}${SCORE}${JDMC}${TJRID}${TJRXM}${TJSJ}${EXTEND1}${EXTEND2}${EXTEND3}${EXTEND4}${EXTEND5}
+</div>

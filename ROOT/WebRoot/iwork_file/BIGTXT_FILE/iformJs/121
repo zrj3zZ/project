@@ -1,0 +1,25 @@
+$(document).ready(function () {
+    $("#EMAIL").focus(function () {
+        $("#spanemail").html("");
+    });
+    $("#EMAIL").keyup(function () {
+        if ($("#EMAIL").val() != null && $("#EMAIL").val() != "" && $("#EMAIL").val().indexOf(" ") != -1) {
+            $("#EMAIL").val($("#EMAIL").val().replace(/[ ]/g, ""));
+        }
+    });
+    $("#TEL").focus(function () {
+        $("#spanphone").html("");
+    });
+    $("#TEL").blur(function () {
+        var reg = /^(13[0-9]|14[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$/i;
+        if ($("#TEL").val() != null && $("#TEL").val() != "" && !reg.test($("#TEL").val())) {
+            $("#TEL").val("");
+            $("#spanphone").html("手机格式错误!");
+        }
+    });
+    $("#TEL").keyup(function () {
+        if ($("#TEL").val() != null && $("#TEL").val() != "" && $("#TEL").val().indexOf(" ") != -1) {
+            $("#TEL").val($("#TEL").val().replace(/[ ]/g, ""));
+        }
+    });
+});

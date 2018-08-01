@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+"http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+   <package strict-method-invocation="false"  name="cms" namespace="/cms" extends="tiles-default">
+        <!-- 定义全局Result -->  
+        <default-action-ref name="index"></default-action-ref>   
+			<!-- ======================CMS管理Start============================ -->
+		    <action name="cmsOpen" method="cmsOpen"  class="cmsInfoAction" >
+		        <result name="cmsopen">../app/plugs/cms/unlogin/cmsopen.jsp</result>	
+		        <result name="error">../app/public/nofind.jsp</result>	
+		    </action>
+		   
+		    <action name="index" method="index"  class="cmsFrameAction" >
+		        <result name="success">../app/plugs/cms/unlogin/index.jsp</result>	
+		    </action>
+		    <action name="getMoreCommonTypeHtmlStr" method="getMoreCommonTypeHtmlStr" class="cmsMyDesktopPortletAction" >
+				<result name="success">app/plugs/cms/myDesktopPortlet/more.jsp</result>
+			</action>
+		    <action name="getPicHtmlDivStr" method="getPicHtmlDivStr" class="cmsMyDesktopPortletAction" /> 
+			<action name="getMoreTitleStr" method="getMoreTitleStr" class="cmsMyDesktopPortletAction" /> 
+			<action name="getSearchTypeHtml" method="getSearchTypeHtml" class="cmsMyDesktopPortletAction" />
+			<!-- =======================CMS管理End============================== -->
+    </package>  
+</struts>

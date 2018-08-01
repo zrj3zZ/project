@@ -1,0 +1,52 @@
+function setData() {
+    var gsmc = $("#GSMC").val();
+    var khbh = $("#KHBH").val();
+    $.post('zqb_glf_getThisData.action?gsmc=' + gsmc + '&khbh=' + khbh, function (data) {
+        var subdata = data.split(",");
+        for (var i = 0; i < subdata.length; i++) {
+            var ssubdata = subdata[i].split("-");
+            if (ssubdata[1] != null && ssubdata != '') {
+                if (ssubdata[0] == 'GSLX') {
+                    if ($("#GSLX0").val() == ssubdata[1]) {
+                        $("#GSLX0").attr("checked", "checked")
+                    }
+                    if ($("#GSLX1").val() == ssubdata[1]) {
+                        $("#GSLX1").attr("checked", "checked")
+                    }
+                    if ($("#GSLX2").val() == ssubdata[1]) {
+                        $("#GSLX2").attr("checked", "checked")
+                    }
+                    if ($("#GSLX3").val() == ssubdata[1]) {
+                        $("#GSLX3").attr("checked", "checked")
+                    }
+                } else {
+                    $("#" + ssubdata[0]).val(ssubdata[1]);
+                }
+            }
+        }
+    });
+}
+function savebeforeEvent() {
+    $.ajaxSetup({
+        async: false
+    });
+    var gsmc= $("#GSMC").val();
+    var khmc= $("#KHMC").val();
+    var khbh= $("#KHBH").val();
+    var instanceId= $("#instanceId").val();
+    var flag = new Boolean();
+    $.post("zqb_glf_checkname.action", {
+        gsmc:gsmc,
+        khmc:khmc,
+        khbh:khbh,
+        instanceId:instanceId
+    }, function (data) {
+        if (data == '1') {
+            flag = false;
+            alert("¹«Ë¾´æÔÚ!");
+        } else {
+            flag = true;
+        }
+    });
+    return flag;
+}

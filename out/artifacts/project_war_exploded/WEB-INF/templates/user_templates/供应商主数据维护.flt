@@ -1,0 +1,203 @@
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					供应商主数据维护
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" border="0" cellpadding="0" cellspacing="0" width="100%">
+						<tbody>
+							<tr>
+								<td class="td_title" id="title_NAME" width="15%">
+									<span style="color:red;"></span>供应商名称
+								</td>
+								<td class="td_data" id="data_NAME" width="35%">
+									${NAME}&nbsp;　
+								</td>
+								<td class="td_title" id="title_SHORT_NAME" width="15%">
+									<span style="color:red;"></span>供应商简称
+								</td>
+								<td class="td_data" id="data_SHORT_NAME" width="35%">
+									${SHORT_NAME}&nbsp;　
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_VENDOR_NO" width="15%">
+									<span style="color:red;"></span>供应商编号
+								</td>
+								<td class="td_data" id="data_VENDOR_NO" width="35%">
+									${VENDOR_NO}&nbsp;　
+								</td>
+								<td class="td_title" id="title_CATEGORY_NO" width="15%">
+									<span style="color:red;"></span>供应商分类编号
+								</td>
+								<td class="td_data" id="data_CATEGORY_NO" width="35%">
+									${CATEGORY_NO}&nbsp;　
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_CATEGORY_NAME" width="15%">
+									<span style="color:red;"></span>供应商分类名称
+								</td>
+								<td class="td_data" id="data_CATEGORY_NAME" width="35%">
+									${CATEGORY_NAME}&nbsp;　
+								</td>
+								<td class="td_title" id="title_GROUP_NO" width="15%">
+									<span style="color:red;"></span>分类次级编号
+								</td>
+								<td class="td_data" id="data_GROUP_NO" width="35%">
+									${GROUP_NO}&nbsp;　
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_GROUP_NAME" width="15%">
+									<span style="color:red;"></span>分类次级名称
+								</td>
+								<td class="td_data" id="data_GROUP_NAME" width="35%">
+									${GROUP_NAME}&nbsp;　
+								</td>
+								<td class="td_title" id="title_PARENT_CMPNO" width="15%">
+									<span style="color:red;"></span>上级公司编号
+								</td>
+								<td class="td_data" id="data_PARENT_CMPNO" width="35%">
+									${PARENT_CMPNO}&nbsp;　
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_ZONE_NO" width="15%">
+									<span style="color:red;"></span>地区编号
+								</td>
+								<td class="td_data" id="data_ZONE_NO" width="35%">
+									${ZONE_NO}&nbsp;　
+								</td>
+								<td class="td_title" id="title_ZONE_NAME" width="15%">
+									<span style="color:red;"></span>地区名称
+								</td>
+								<td class="td_data" id="data_ZONE_NAME" width="35%">
+									${ZONE_NAME}&nbsp;　
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_COUNTRY_CODE" width="15%">
+									国家代码
+								</td>
+								<td class="td_data" id="data_COUNTRY_CODE" width="35%">
+									${COUNTRY_CODE}&nbsp;　
+								</td>
+								<td class="td_title" id="title_ADDRESS" width="15%">
+									地址
+								</td>
+								<td class="td_data" id="data_ADDRESS" width="35%">
+									${ADDRESS}&nbsp;　
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_ADDRESS2" width="15%">
+									地址2
+								</td>
+								<td class="td_data" id="data_ADDRESS2" width="35%">
+									${ADDRESS2}&nbsp;　
+								</td>
+								<td class="td_title" id="title_ZIP_CODE" width="15%">
+									邮编
+								</td>
+								<td class="td_data" id="data_ZIP_CODE" width="35%">
+									${ZIP_CODE}&nbsp;　
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_TEL" width="15%">
+									联系电话
+								</td>
+								<td class="td_data" id="data_TEL" width="35%">
+									${TEL}&nbsp;　
+								</td>
+								<td class="td_title" id="title_FAX" width="15%">
+									传真
+								</td>
+								<td class="td_data" id="data_FAX" width="35%">
+									${FAX}&nbsp;　
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_CONTACT_USER" width="15%">
+									联系人
+								</td>
+								<td class="td_data" id="data_CONTACT_USER" width="35%">
+									${CONTACT_USER}&nbsp;　
+								</td>
+								<td class="td_title" id="title_WEBSITE" width="15%">
+									网址
+								</td>
+								<td class="td_data" id="data_WEBSITE" width="35%">
+									${WEBSITE}&nbsp;　
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_TAX_CODE" width="15%">
+									税号
+								</td>
+								<td class="td_data" id="data_TAX_CODE" width="35%">
+									${TAX_CODE}&nbsp;　
+								</td>
+								<td class="td_title" id="title_EMAIL" width="15%">
+									电子邮箱
+								</td>
+								<td class="td_data" id="data_EMAIL" width="35%">
+									${EMAIL}&nbsp;　
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_GRADE" width="15%">
+									<span style="color:red;"></span>供应商级别
+								</td>
+								<td class="td_data" id="data_GRADE" width="35%">
+									${GRADE}&nbsp;　
+								</td>
+								<td class="td_title" id="title_STATUS" width="15%">
+									状态
+								</td>
+								<td class="td_data" id="data_STATUS" width="35%">
+									${STATUS}&nbsp;　
+								</td>
+							</tr>
+							<tr>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_PRODUCT">
+									经营项目
+								</td>
+								<td id="data_PRODUCT" class="td_data" colspan="3">
+									${PRODUCT}&nbsp;　
+								</td>
+							</tr>
+							<tr>
+								<td class="td_data" colspan="4" width="80%">
+									${SUBFORM_GYSLXRMX}&nbsp;　
+								</td>
+							</tr>
+							<tr>
+								<td class="td_data" colspan="4" width="80%">
+									${SUBFORM_GYSBZXXMX}&nbsp;　
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

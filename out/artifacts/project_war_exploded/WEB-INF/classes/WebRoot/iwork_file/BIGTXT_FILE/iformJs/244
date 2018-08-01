@@ -1,0 +1,40 @@
+$(function(){ 
+var customerno = $("#CUSTOMERNO").val();
+$.post("sx_getGuaPaiContent.action", { "customerno": customerno },
+function (data) { 
+var dataJson = eval("(" + data + ")");
+$("#GSMC").val(dataJson[0].CUSTOMERNAME);
+$("#ZQJC").val(dataJson[0].ZQJC);
+$("#ZQDM").val(dataJson[0].ZQDM);
+$("#KHLXR").val(dataJson[0].USERNAME);
+$("#KHLXDH").val(dataJson[0].TEL); 
+$("#EMAIL").val(dataJson[0].EMAIL);
+$("#XMCLR").val(dataJson[0].ZCLR); 
+$("#DQFZR").val(dataJson[0].OWNER);
+$("#XMFZR").val(dataJson[0].MANAGER); 
+$("#DDAP").val(dataJson[0].DDAP);
+$("#XMZK").val(dataJson[0].XMZH); 
+$("#XMHY").val(dataJson[0].XMXY);
+$("#XMLS").val(dataJson[0].XMLS);
+$("#COMPANYNAME").val(dataJson[0].CUSTOMERNAME);
+
+$("#xmggcontent").html(dataJson[0].GGCONTENT);
+$("#xmggfilecontent").html(dataJson[0].XMGGFILEZL);
+$("#XMGGZL").val(dataJson[0].XMGGZLUUID);
+
+$("#sbshcontent").html(dataJson[0].SBSHCONTENT);
+$("#sbshfilecontent").html(dataJson[0].SBSHFILEZL);
+$("#SBSHZL").val(dataJson[0].SBSHZLUUID);
+
+$("#nhfkcontent").html(dataJson[0].NHFKCONTENT);
+$("#nhfkfilecontent").html(dataJson[0].NHFKFILEZL);
+$("#NHFKZL").val(dataJson[0].NHFKZLUUID);
+
+$("#gzfkcontent").html(dataJson[0].GZFKCONTENT);
+$("#gzfkfilecontent").html(dataJson[0].GZFKFILEZL);
+$("#GZFKZL").val(dataJson[0].GZFKZLUUID);
+
+$("#gpcontent").html(dataJson[0].GPCONTENT);
+$("#gpfilecontent").html(dataJson[0].GPFILEZL);
+});
+});

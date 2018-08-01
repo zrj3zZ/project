@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "file:///E:/source/RMS/ROOT/WebRoot/WEB-INF/spring-beans-2.0.dtd">
+<beans>
+<!-- 流程部署操作 -->
+ 	<bean id="processDeploymentAction" class="com.iwork.process.definition.deployment.action.ProcessDeploymentAction" scope="prototype">
+        <property name="processDeploymentService" ref="processDeploymentService" />
+    </bean> 
+ 	<bean id="processDesignerAction" class="com.iwork.process.definition.deployment.action.ProcessDesignerAction" scope="prototype">
+        <property name="processDeploymentService" ref="processDeploymentService" />
+    </bean>
+    
+    <bean id="processDesigner2Action" class="com.iwork.process.definition.designer.action.ProcessDesignerAction" scope="prototype">   
+    	<property name="processDesignerService" ref="processDesignerService" /> 
+    </bean>
+    <bean id="processDesignerService" class="com.iwork.process.definition.designer.service.ProcessDesignerService" scope="prototype">
+   		 <property name="processDesignerDAO" ref="processDesignerDAO" /> 
+    </bean>
+    <bean id="processDesignerDAO" class="com.iwork.process.definition.designer.dao.ProcessDesignerDAO" scope="prototype">   
+    </bean>
+    
+    <bean id="processDeploymentService" class="com.iwork.process.definition.deployment.service.ProcessDeploymentService">
+    	<property name="processDeploymentDAO" ref="processDeploymentDAO" />
+    	<property name="sysEngineGroupDAO" ref="sysEngineGroupDAO" />
+    	<property name="taskService" ref="taskService" />
+        <property name="repositoryService" ref="repositoryService" />
+        <property name="runtimeService" ref="runtimeService" />
+        <property name="historyService" ref="historyService" />
+        <property name="managementService" ref="managementService" />
+        <property name="sysActProcMapDAO" ref="sysActProcMapDAO" />
+        <property name="processDefMapService" ref="processDefMapService" />
+        <property name="processStepRouteService" ref="processStepRouteService" />
+        <property name="processDefActionService" ref="processDefActionService" />
+		<property name="processDefParamService" ref="processDefParamService" /> 
+		<property name="processDefTriggerService" ref="processDefTriggerService" /> 
+		<property name="processStepFormService" ref="processStepFormService" />
+		<property name="processStepFormMapService" ref="processStepFormMapService" />
+		<property name="processStepOffLineService" ref="processStepOffLineService" />
+		<property name="processStepManualJumpService" ref="processStepManualJumpService" /> 
+		<property name="processStepMapService" ref="processStepMapService" />
+		<property name="processStepSysjumpService" ref="processStepSysjumpService" />
+		<property name="processStepTriggerService" ref="processStepTriggerService" /> 
+		<property name="processStepDIYBtnService" ref="processStepDIYBtnService" />
+		<property name="processStepScriptTriggerService" ref="processStepScriptTriggerService" /> 
+		<property name="processStepSummaryService" ref="processStepSummaryService" /> 
+		<property name="processStepSuperviseService" ref="processStepSuperviseService" /> 
+    </bean>
+    <bean id="processDeploymentDAO" class="com.iwork.process.definition.deployment.dao.ProcessDeploymentDAO" parent="baseDAO"></bean>
+    
+    <!-- Process Definition start -->
+    <bean id="sysProcessDefinitionDAO" class="com.iwork.process.deployment.dao.SysProcessDefinitionDAO" parent="baseDAO"></bean>
+    <bean id="sysActProcMapDAO" class="com.iwork.process.deployment.dao.SysActProcMapDAO" parent="baseDAO"></bean>
+    <bean id="sysActProcMapService" class="com.iwork.process.deployment.service.SysActProcMapService" scope="prototype">
+    	<property name="sysActProcMapDAO" ref="sysActProcMapDAO" />    	
+    </bean>
+    <bean id="sysProcessDefinitionService" class="com.iwork.process.deployment.service.SysProcessDefinitionService" scope="prototype">
+    	<property name="sysProcessDefinitionDAO" ref="sysProcessDefinitionDAO" />
+    	<property name="sysEngineGroupDAO" ref="sysEngineGroupDAO" />
+    	<property name="taskService" ref="taskService" />
+        <property name="repositoryService" ref="repositoryService" />
+        <property name="runtimeService" ref="runtimeService" />
+        <property name="historyService" ref="historyService" />
+        <property name="managementService" ref="managementService" />
+        <property name="sysActProcMapDAO" ref="sysActProcMapDAO" />
+        
+        <property name="processDefMapService" ref="processDefMapService" />
+        <property name="processStepRouteService" ref="processStepRouteService" />
+        <property name="processDefActionService" ref="processDefActionService" />
+		<property name="processDefParamService" ref="processDefParamService" />
+		<property name="processDefTriggerService" ref="processDefTriggerService" /> 
+		<property name="processStepFormService" ref="processStepFormService" />
+		<property name="processStepFormMapService" ref="processStepFormMapService" />
+		<property name="processStepManualJumpService" ref="processStepManualJumpService" /> 
+		<property name="processStepMapService" ref="processStepMapService" />
+		<property name="processStepSysjumpService" ref="processStepSysjumpService" />
+		<property name="processStepTriggerService" ref="processStepTriggerService" />
+		<property name="processStepDIYBtnService" ref="processStepDIYBtnService" />
+		<property name="processStepScriptTriggerService" ref="processStepScriptTriggerService" />
+        
+    </bean>
+    <bean id="sysProcessDefinitionAction" class="com.iwork.process.deployment.action.SysProcessDefinitionAction" scope="prototype">
+        <property name="sysProcessDefinitionService" ref="sysProcessDefinitionService" />
+        <property name="sysEngineGroupService" ref="sysEngineGroupService" />
+        <property name="taskService" ref="taskService" />
+        <property name="repositoryService" ref="repositoryService" />
+        <property name="runtimeService" ref="runtimeService" />
+        <property name="historyService" ref="historyService" />
+        <property name="managementService" ref="managementService" />
+        <property name="sysActProcMapService" ref="sysActProcMapService" />
+    </bean>
+    <!-- Process Definition end-->
+    <!-- Process Launch Center start -->
+    <bean id="processLaunchCenterAction" class="com.iwork.process.desk.create.ProcessDeskLaunchCenterAction" scope="prototype">
+    	<property name="processDescLaunchCenterService" ref="processDescLaunchCenterService" />
+    	<property name="sysPurviewProcessService" ref="sysPurviewProcessService" />
+    	<property name="runtimeService" ref="runtimeService" />
+    	<property name="sysEngineGroupDAO" ref="sysEngineGroupDAO" />
+    	<property name="processDeploymentDAO" ref="processDeploymentDAO" />
+		<property name="sysPersionService" ref="sysPersionService" />
+    </bean>
+    <bean id="processDescLaunchCenterService" class="com.iwork.process.desk.create.service.ProcessDescLaunchCenterService" scope="prototype">
+    	<property name="sysEngineGroupService" ref="sysEngineGroupService" />
+    	<property name="repositoryService" ref="repositoryService" />
+    	<property name="taskService" ref="taskService" />
+    	<property name="sysEngineGroupDAO" ref="sysEngineGroupDAO" />
+    	<property name="processDeploymentDAO" ref="processDeploymentDAO" />
+		<property name="sysPersionService" ref="sysPersionService" />
+		<property name="historyService" ref="historyService" />
+		<property name="processDefMapDAO" ref="processDefMapDAO" />
+    </bean>
+    
+    <!-- Process Management Center start -->
+    <bean id="processDeskBatchHandleAction" class="com.iwork.process.desk.batch.action.ProcessDeskBatchHandleAction" scope="prototype">
+    	<property name="processDeskBatchHandleService" ref="processDeskBatchHandleService" />
+    	<property name="processRuntimeOperateService" ref="processRuntimeOperateService" />
+    </bean>
+    <bean id="processDeskBatchHandleService" class="com.iwork.process.desk.batch.service.ProcessDeskBatchHandleService" scope="prototype">
+    	<property name="processEngine" ref="processEngine" />
+    	<property name="taskService" ref="taskService" />
+    	<property name="historyService" ref="historyService" />
+    	<property name="runtimeService" ref="runtimeService" />
+    	<property name="processRuntimeCcDAO" ref="processRuntimeCcDAO" />
+    	<property name="processRuntimeExcuteService" ref="processRuntimeExcuteService" />
+    	<property name="processRuntimeOperateService" ref="processRuntimeOperateService" />
+    	<property name="processRuntimeSendService" ref="processRuntimeSendService" />
+    	<property name="processStepSummaryService" ref="processStepSummaryService" /> 
+    	<property name="processDeploymentService" ref="processDeploymentService" />
+    	<property name="processOpinionService" ref="processOpinionService" />
+    	<property name="processDefTriggerService" ref="processDefTriggerService" />
+    	<property name="sysEngineSubformService" ref="sysEngineSubformService" />
+    	<property name="processStepTriggerService" ref="processStepTriggerService" />
+    	<property name="processRemindUtil" ref="processRemindUtil" />
+    	<property name="processStepManualJumpService" ref="processStepManualJumpService" />
+    	<property name="processStepMapService" ref="processStepMapService" />
+    </bean>
+    
+    <bean id="processDeskArchivesAction" class="com.iwork.process.desk.archives.action.ProcessDeskArchivesAction" scope="prototype">
+    	<property name="processDeskArchivesService" ref="processDeskArchivesService" />
+    </bean>
+    <bean id="processDeskArchivesService" class="com.iwork.process.desk.archives.service.ProcessDeskArchivesService" scope="prototype">
+    	<property name="processEngine" ref="processEngine" />
+    	<property name="taskService" ref="taskService" />
+    	<property name="historyService" ref="historyService" />
+    	<property name="runtimeService" ref="runtimeService" />
+    	<property name="processRuntimeCcDAO" ref="processRuntimeCcDAO" />
+    	<property name="processRuntimeExcuteService" ref="processRuntimeExcuteService" />
+    	<property name="processRuntimeSendService" ref="processRuntimeSendService" />
+    	<property name="processDeploymentService" ref="processDeploymentService" />
+    	<property name="processOpinionService" ref="processOpinionService" />
+    	<property name="processDefTriggerService" ref="processDefTriggerService" />
+    </bean>
+    
+    <bean id="processDeskClearAction" class="com.iwork.process.desk.clear.action.ProcessDeskClearAction" scope="prototype">
+    	<property name="processDeskClearService" ref="processDeskClearService" />
+    </bean>
+    <bean id="processDeskClearService" class="com.iwork.process.desk.clear.service.ProcessDeskClearService" scope="prototype">
+    	<property name="processEngine" ref="processEngine" />
+    	<property name="taskService" ref="taskService" />
+    	<property name="historyService" ref="historyService" />
+    	<property name="runtimeService" ref="runtimeService" />
+    	<property name="processRuntimeCcDAO" ref="processRuntimeCcDAO" />
+    	<property name="processRuntimeExcuteService" ref="processRuntimeExcuteService" />
+    	<property name="processRuntimeSendService" ref="processRuntimeSendService" />
+    	<property name="processDeploymentService" ref="processDeploymentService" />
+    	<property name="processOpinionService" ref="processOpinionService" />
+    	<property name="processDefTriggerService" ref="processDefTriggerService" />
+    </bean> 
+    
+    <bean id="processDeskAction" class="com.iwork.process.desk.handle.action.ProcessDeskAction" scope="prototype">
+    	<property name="processDeskService" ref="processDeskService" />
+    </bean>
+    <bean id="processDeskService" class="com.iwork.process.desk.handle.service.ProcessDeskService" scope="prototype">
+    	<property name="processEngine" ref="processEngine" />
+    	<property name="taskService" ref="taskService" />
+    	<property name="historyService" ref="historyService" />
+    	<property name="runtimeService" ref="runtimeService" />
+    	<property name="processRuntimeCcDAO" ref="processRuntimeCcDAO" />
+    	<property name="processRuntimeExcuteService" ref="processRuntimeExcuteService" />
+    	<property name="processRuntimeSendService" ref="processRuntimeSendService" />
+    	<property name="processDeploymentService" ref="processDeploymentService" />
+    	<property name="processOpinionService" ref="processOpinionService" />
+    	<property name="processDefTriggerService" ref="processDefTriggerService" />
+    	<property name="processStepSummaryService" ref="processStepSummaryService" />
+    	<property name="processRuntimeSignsService" ref="processRuntimeSignsService" />
+    </bean>
+    
+    <bean id="processDeskManagementAction" class="com.iwork.process.desk.handle.action.ProcessDeskManagementAction" scope="prototype">
+    	<property name="processDeskManagementService" ref="processDeskManagementService" />
+    </bean>
+    <bean id="processDeskManagementService" class="com.iwork.process.desk.handle.service.ProcessDeskManagementService" scope="prototype">
+    	<property name="processEngine" ref="processEngine" />
+    	<property name="taskService" ref="taskService" />
+    	<property name="historyService" ref="historyService" />
+    	<property name="runtimeService" ref="runtimeService" />
+    	<property name="processRuntimeCcDAO" ref="processRuntimeCcDAO" />
+    	<property name="processOpinionDAO" ref="processOpinionDAO" />  
+    	<property name="processRuntimeExcuteService" ref="processRuntimeExcuteService" />
+    	<property name="processRuntimeOperateService" ref="processRuntimeOperateService" />
+    	<property name="processRuntimeSendService" ref="processRuntimeSendService" />
+    	<property name="processDeploymentService" ref="processDeploymentService" />
+    	<property name="processOpinionService" ref="processOpinionService" />
+    	<property name="processDefTriggerService" ref="processDefTriggerService" />
+    	<property name="processRemindUtil" ref="processRemindUtil" />
+    </bean>
+    <!-- Process Management Center end -->
+    <!-- Process Management start -->
+    <bean id="processManagementAction" class="com.iwork.process.management.action.ManagementAction" scope="prototype">
+    	<property name="taskService" ref="taskService" />
+    	<property name="runtimeService" ref="runtimeService" />
+    	<property name="repositoryService" ref="repositoryService" />
+    </bean>
+    <!-- Process Management Center end -->    
+    <!-- 流程描述定义 -->
+    <bean id="processDefMapDAO" class="com.iwork.process.definition.flow.dao.ProcessDefMapDAO" parent="baseDAO"></bean>
+    <bean id="processDefParamDAO" class="com.iwork.process.definition.flow.dao.ProcessDefParamDAO" parent="baseDAO"></bean>
+    <bean id="processDefTriggerDAO" class="com.iwork.process.definition.flow.dao.ProcessDefTriggerDAO" parent="baseDAO"></bean>
+    
+    <bean id="processStepFormDAO" class="com.iwork.process.definition.step.dao.ProcessStepFormDAO" parent="baseDAO"></bean>
+    <bean id="processStepFormMapDAO" class="com.iwork.process.definition.step.dao.ProcessStepFormMapDAO" parent="baseDAO"></bean>
+    <bean id="processStepManualJumpDAO" class="com.iwork.process.definition.step.dao.ProcessStepManualJumpDAO" parent="baseDAO"></bean>
+    <bean id="processStepOffLineDAO" class="com.iwork.process.definition.step.dao.ProcessStepOffLineDAO" parent="baseDAO"></bean>
+    <bean id="processStepMapDAO" class="com.iwork.process.definition.step.dao.ProcessStepMapDAO" parent="baseDAO"></bean>
+    <bean id="processStepRouteDAO" class="com.iwork.process.definition.step.dao.ProcessStepRouteDAO" parent="baseDAO"></bean>
+    <bean id="processStepSuperviseDAO" class="com.iwork.process.definition.step.dao.ProcessStepSuperviseDAO" parent="baseDAO"></bean>
+    <bean id="processStepSummaryDAO" class="com.iwork.process.definition.step.dao.ProcessStepSummaryDAO" parent="baseDAO"></bean>
+    <bean id="processStepSysjumpDAO" class="com.iwork.process.definition.step.dao.ProcessStepSysjumpDAO" parent="baseDAO"></bean>
+    <bean id="processStepTriggerDAO" class="com.iwork.process.definition.step.dao.ProcessStepTriggerDAO" parent="baseDAO"></bean>
+    <bean id="processStepServiceDAO" class="com.iwork.process.definition.step.dao.ProcessStepServiceDAO" parent="baseDAO"></bean>
+    	
+    <bean id="processDefService" class="com.iwork.process.definition.flow.service.ProcessDefService" scope="prototype">
+    </bean>
+    
+    <bean id="processDefMapService" class="com.iwork.process.definition.flow.service.ProcessDefMapService" scope="prototype">
+    	<property name="processDefMapDAO" ref="processDefMapDAO" />
+    	<property name="processDeploymentDAO" ref="processDeploymentDAO" /> 
+    	<property name="processEngine" ref="processEngine" />
+    </bean>
+    <bean id="processDefParamService" class="com.iwork.process.definition.flow.service.ProcessDefParamService" scope="prototype">
+   		<property name="processDefParamDAO" ref="processDefParamDAO" />
+    </bean>
+    <bean id="processDefTriggerService" class="com.iwork.process.definition.flow.service.ProcessDefTriggerService" scope="prototype">
+    	<property name="processDefTriggerDAO" ref="processDefTriggerDAO" />
+    </bean>
+    <bean id="processStepService" class="com.iwork.process.definition.step.service.ProcessStepService" scope="prototype">
+    	<property name="processEngine" ref="processEngine" />
+    	<property name="processStepMapDAO" ref="processStepMapDAO" />
+    	<property name="processDeploymentDAO" ref="processDeploymentDAO" />
+    </bean>
+    <bean id="processStepFormMapService" class="com.iwork.process.definition.step.service.ProcessStepFormMapService" scope="prototype">
+    	<property name="processStepFormDAO" ref="processStepFormDAO" />
+    	<property name="processStepFormMapDAO" ref="processStepFormMapDAO" />
+    	<property name="sysEngineSubformDAO" ref="sysEngineSubformDAO" />
+    	<property name="sysEngineIFormService" ref="sysEngineIFormService" />
+         <property name="sysEngineIFormMapService" ref="sysEngineIFormMapService" />
+    </bean>
+    <bean id="processStepFormService" class="com.iwork.process.definition.step.service.ProcessStepFormService" scope="prototype">
+    	<property name="sysEngineIFormDAO" ref="sysEngineIFormDAO" />
+    	<property name="sysEngineGroupDAO" ref="sysEngineGroupDAO" />
+   	 	<property name="processStepFormDAO" ref="processStepFormDAO" />
+   	 	<property name="processStepFormMapDAO" ref="processStepFormMapDAO" />
+   	 	<property name="processStepFormMapService" ref="processStepFormMapService" />
+    </bean>
+    <bean id="processStepManualJumpService" class="com.iwork.process.definition.step.service.ProcessStepManualJumpService" scope="prototype">
+    	<property name="processStepManualJumpDAO" ref="processStepManualJumpDAO" />
+    	<property name="processEngine" ref="processEngine" />
+    	<property name="processStepMapService" ref="processStepMapService" />
+    </bean>
+    <bean id="processStepOffLineService" class="com.iwork.process.definition.step.service.ProcessStepOffLineService" scope="prototype">
+    	<property name="processStepOffLineDAO" ref="processStepOffLineDAO" />
+    	<property name="processEngine" ref="processEngine" />
+    	<property name="processStepMapService" ref="processStepMapService" />
+    </bean>
+    <bean id="processStepMapService" class="com.iwork.process.definition.step.service.ProcessStepMapService" scope="prototype">
+    	<property name="processStepMapDAO" ref="processStepMapDAO" />
+    	<property name="processEngine" ref="processEngine" />
+    </bean>
+    <bean id="processStepRouteService" class="com.iwork.process.definition.step.service.ProcessStepRouteService" scope="prototype">
+    	<property name="processStepRouteDAO" ref="processStepRouteDAO" />
+    </bean>
+    <bean id="processStepSuperviseService" class="com.iwork.process.definition.step.service.ProcessStepSuperviseService" scope="prototype">
+    	<property name="processStepSuperviseDAO" ref="processStepSuperviseDAO" />
+    </bean>
+    <bean id="processStepSysjumpService" class="com.iwork.process.definition.step.service.ProcessStepSysjumpService" scope="prototype">
+    	<property name="processStepSysjumpDAO" ref="processStepSysjumpDAO" />
+    	<property name="processStepMapDAO" ref="processStepMapDAO" />
+    	<property name="processEngine" ref="processEngine" />
+    </bean>
+    <bean id="processStepSummaryService" class="com.iwork.process.definition.step.service.ProcessStepSummaryService" scope="prototype">
+   	 	<property name="processRuntimeExcuteService" ref="processRuntimeExcuteService" />
+   	 	<property name="sysEngineMetadataDAO" ref="sysEngineMetadataDAO" />
+    	<property name="sysEngineMetadataMapDAO" ref="sysEngineMetadataMapDAO" />
+   	 	<property name="processStepFormService" ref="processStepFormService" />
+   	 	<property name="sysEngineIFormService" ref="sysEngineIFormService" />
+   	 	<property name="sysEngineIFormMapService" ref="sysEngineIFormMapService" />
+   	 	<property name="processStepSummaryDAO" ref="processStepSummaryDAO" />
+   	 	<property name="sysEngineSubformService" ref="sysEngineSubformService" /> 
+    	<property name="processEngine" ref="processEngine" />
+    </bean>
+     <bean id="processStepServiceService" class="com.iwork.process.definition.step.service.ProcessStepServiceService" scope="prototype">
+     	<property name="processStepServiceDAO" ref="processStepServiceDAO"></property>
+     </bean>
+    <bean id="processStepTriggerService" class="com.iwork.process.definition.step.service.ProcessStepTriggerService" scope="prototype">
+    	<property name="processStepTriggerDAO" ref="processStepTriggerDAO" />
+    </bean>
+    
+    <bean id="processDefAction" class="com.iwork.process.definition.flow.action.ProcessDefAction" scope="prototype">
+    	<property name="processDefService" ref="processDefService" /> 
+    	<property name="processDeploymentService" ref="processDeploymentService" />  
+    </bean>  
+    <bean id="processDefMapAction" class="com.iwork.process.definition.flow.action.ProcessDefMapAction" scope="prototype">
+    	<property name="processDefMapService" ref="processDefMapService" />
+    </bean>
+    <bean id="processDefParamAction" class="com.iwork.process.definition.flow.action.ProcessDefParamAction" scope="prototype">
+   		<property name="processDefParamService" ref="processDefParamService" />
+    </bean>
+    <bean id="processDefTriggerAction" class="com.iwork.process.definition.flow.action.ProcessDefTriggerAction" scope="prototype">
+    	<property name="processDefTriggerService" ref="processDefTriggerService" />
+    </bean>
+    <!-- 流程动作设置 --> 
+     <bean id="processDefActionDao" class="com.iwork.process.definition.flow.dao.ProcessDefActionDao" parent="baseDAO">
+    </bean>
+    <bean id="processDefActionService" class="com.iwork.process.definition.flow.service.ProcessDefActionService" scope="prototype">
+    	<property name="processDefActionDao" ref="processDefActionDao" /> 	
+    </bean> 
+    <bean id="processDefActionAction" class="com.iwork.process.definition.flow.action.ProcessDefActionAction" scope="prototype">
+    	<property name="processDefActionService" ref="processDefActionService" />
+    </bean>
+    <!-- 流程级摘要设置 -->
+        <bean id="processSummaryAction" class="com.iwork.process.definition.flow.action.ProcessSummaryAction" scope="prototype">
+    	<property name="processStepSummaryService" ref="processStepSummaryService" />
+    </bean>
+    <!--服务节点设置 -->
+    <bean id="processStepServiceAction" class="com.iwork.process.definition.step.action.ProcessStepServiceAction" scope="prototype">
+    	<property name="processStepServiceService" ref="processStepServiceService" />
+    </bean>
+    
+    <!-- 脚本触发器 -->
+     <bean id="processStepScriptTriggerDao" class="com.iwork.process.definition.step.dao.ProcessStepScriptTriggerDao" parent="baseDAO">
+    </bean>
+    <bean id="processStepScriptTriggerService" class="com.iwork.process.definition.step.service.ProcessStepScriptTriggerService" scope="prototype">
+    	<property name="processStepScriptTriggerDao" ref="processStepScriptTriggerDao" /> 	
+    </bean> 
+    <bean id="processStepScriptTriggerAction" class="com.iwork.process.definition.step.action.ProcessStepScriptTriggerAction" scope="prototype">
+    	<property name="processStepScriptTriggerService" ref="processStepScriptTriggerService" />
+    	<property name="processStepService" ref="processStepService" />
+    </bean>
+    <bean id="processStepAction" class="com.iwork.process.definition.step.action.ProcessStepAction" scope="prototype">
+    <property name="processStepService" ref="processStepService" />
+    </bean>
+    <bean id="processStepFormAction" class="com.iwork.process.definition.step.action.ProcessStepFormAction" scope="prototype">
+    	 <property name="processStepService" ref="processStepService" />
+   	 	<property name="processStepFormService" ref="processStepFormService" />
+   	 	<property name="processStepFormMapService" ref="processStepFormMapService" />
+    </bean>
+    <bean id="processStepFormMapAction" class="com.iwork.process.definition.step.action.ProcessStepFormMapAction" scope="prototype">
+    	 <property name="processStepService" ref="processStepService" />
+   	 	<property name="processStepFormService" ref="processStepFormService" />
+   	 	<property name="processStepFormMapService" ref="processStepFormMapService" />
+    </bean>
+    <bean id="processStepManualJumpAction" class="com.iwork.process.definition.step.action.ProcessStepManualJumpAction" scope="prototype">
+    	 <property name="processStepService" ref="processStepService" />
+    	<property name="processStepManualJumpService" ref="processStepManualJumpService" />
+    </bean>
+    <bean id="processStepOffLineAction" class="com.iwork.process.definition.step.action.ProcessStepOffLineAction" scope="prototype">
+    	 <property name="processStepService" ref="processStepService" /> 
+    	<property name="processStepOffLineService" ref="processStepOffLineService" />
+    </bean>
+    <bean id="processStepMapAction" class="com.iwork.process.definition.step.action.ProcessStepMapAction" scope="prototype">
+    	 <property name="processStepService" ref="processStepService" />
+    	<property name="processStepMapService" ref="processStepMapService" />
+    </bean>
+    <bean id="processStepRouteAction" class="com.iwork.process.definition.step.action.ProcessStepRouteAction" scope="prototype">
+    	 <property name="processStepService" ref="processStepService" />
+    	<property name="processStepRouteService" ref="processStepRouteService" />
+    	<property name="processStepSysjumpService" ref="processStepSysjumpService" />
+    	<property name="orgStationService" ref="orgStationService" />
+    </bean>
+    <bean id="processStepSuperviseAction" class="com.iwork.process.definition.step.action.ProcessStepSuperviseAction" scope="prototype">
+    	 <property name="processStepService" ref="processStepService" />
+    	<property name="processStepSuperviseService" ref="processStepSuperviseService" />
+    </bean>
+    <bean id="processStepSummaryAction" class="com.iwork.process.definition.step.action.ProcessStepSummaryAction" scope="prototype">
+    	 <property name="processStepService" ref="processStepService" />
+    	<property name="processStepSummaryService" ref="processStepSummaryService" />
+    </bean>
+    <bean id="processStepSysjumpAction" class="com.iwork.process.definition.step.action.ProcessStepSysjumpAction" scope="prototype">
+    	 <property name="processStepService" ref="processStepService" />
+    	<property name="processStepSysjumpService" ref="processStepSysjumpService" />
+    </bean>
+    <bean id="processStepTriggerAction" class="com.iwork.process.definition.step.action.ProcessStepTriggerAction" scope="prototype">
+    	 <property name="processStepService" ref="processStepService" />
+    	<property name="processStepTriggerService" ref="processStepTriggerService" />
+    </bean>
+    
+    <!-- 意见审批 -->
+    <bean id="processOpinionDAO" class="com.iwork.process.tools.processopinion.dao.ProcessOpinionDAO" parent="baseDAO"></bean>
+    <bean id="processOpinionService" class="com.iwork.process.tools.processopinion.service.ProcessOpinionService" scope="prototype">
+    	<property name="processOpinionDAO" ref="processOpinionDAO" />
+    	<property name="processDeploymentService" ref="processDeploymentService" />    	
+    	<property name="processStepMapService" ref="processStepMapService" />
+    	<property name="processEngine" ref="processEngine" />
+    </bean>
+    <bean id="processOpinionAction" class="com.iwork.process.tools.processopinion.action.ProcessOpinionAction" scope="prototype">
+        <property name="processOpinionService" ref="processOpinionService" />
+    </bean>
+    <!-- 意见审批-end -->
+	<!-- 编辑跳转规则 -->
+    <bean id="ruleEditerService" class="com.iwork.process.tools.ruleEditer.service.RuleEditerService" scope="prototype">
+    	<property name="processStepFormService" ref="processStepFormService" />
+    	<property name="sysEngineIFormMapService" ref="sysEngineIFormMapService" />
+    </bean>
+    <bean id="ruleEditerAction" class="com.iwork.process.tools.ruleEditer.action.RuleEditerAction" scope="prototype">
+    	<property name="ruleEditerService" ref="ruleEditerService" />
+    </bean>
+	<!-- 编辑跳转规则 end -->
+    <!-- 流程任务执行 -->
+    <bean id="processRuntimeExcuteAction" class="com.iwork.process.runtime.action.ProcessRuntimeExcuteAction" scope="prototype">
+    	<property name="processRuntimeExcuteService" ref="processRuntimeExcuteService" />
+    	<property name="processStepTriggerService" ref="processStepTriggerService" />
+    	<property name="processDeploymentService" ref="processDeploymentService" /> 
+    	<property name="iformService" ref="iformService" /> 
+    	<property name="sysEngineIFormService" ref="sysEngineIFormService" />
+    	<property name="processOpinionService" ref="processOpinionService" />
+    	<property name="processStepFormService" ref="processStepFormService" />
+    	<property name="processStepFormMapService" ref="processStepFormMapService" />
+    	<property name="processRuntimeSignsService" ref="processRuntimeSignsService" />
+    </bean>
+    
+    <!-- 流程任务操作 -->
+    <bean id="processRuntimeOperateAction" class="com.iwork.process.runtime.action.ProcessRuntimeOperateAction" scope="prototype">
+    	<property name="processRuntimeOperateService" ref="processRuntimeOperateService" />
+    	<property name="multiAddressBookService" ref="multiAddressBookService" />
+    	<property name="processStepTriggerService" ref="processStepTriggerService" />
+    </bean> 
+    <!-- 流程任务执行 -->
+    <bean id="processRuntimeSendAction" class="com.iwork.process.runtime.action.ProcessRuntimeSendAction" scope="prototype">
+    	<property name="processOpinionService" ref="processOpinionService" /> <!-- 意见跟踪 -->
+    	<property name="processStepTriggerService" ref="processStepTriggerService" />
+    	<property name="processRuntimeSendService" ref="processRuntimeSendService" />
+    	<property name="iformService" ref="iformService" />
+    	<property name="sysEngineIFormService" ref="sysEngineIFormService" />
+    </bean>
+    <!-- 流程任务监控 -->
+    <bean id="processRuntimeMonitorAction" class="com.iwork.process.runtime.action.ProcessRuntimeMonitorAction" scope="prototype">
+    	<property name="processRuntimeMonitorService" ref="processRuntimeMonitorService" /> 
+    	<property name="processOpinionService" ref="processOpinionService" /> 
+    	<property name="processStepMapService" ref="processStepMapService" />
+    </bean>
+    
+    <bean id="processRuntimeOffLineAction" class="com.iwork.process.runtime.action.ProcessRuntimeOffLineAction" scope="prototype">
+    	<property name="processRuntimeOffLineService" ref="processRuntimeOffLineService" /> 
+    </bean> 
+    <bean id="processRuntimeCcDAO" class="com.iwork.process.runtime.dao.ProcessRuntimeCcDAO" parent="baseDAO"></bean>
+    <bean id="processRuntimeOffLineDAO" class="com.iwork.process.runtime.dao.ProcessRuntimeOffLineDAO" parent="baseDAO"></bean>
+    <bean id="processRuntimeForwardDAO" class="com.iwork.process.runtime.dao.ProcessRuntimeForwardDAO" parent="baseDAO"></bean>
+    <bean id="processRuntimeOffLineService" class="com.iwork.process.runtime.service.ProcessRuntimeOffLineService">
+    	<property name="processRuntimeOffLineDAO" ref="processRuntimeOffLineDAO"></property>
+    	<property name="processStepOffLineDAO" ref="processStepOffLineDAO"></property>
+    		<property name="processStepMapService" ref="processStepMapService" />
+    	<property name="historyService" ref="historyService" /> 
+    </bean>
+    <bean id="processRuntimeExcuteService" class="com.iwork.process.runtime.service.ProcessRuntimeExcuteService" scope="prototype">
+    	<property name="processDeploymentService" ref="processDeploymentService" />
+    	<property name="processEngine" ref="processEngine" />
+    	<property name="taskService" ref="taskService" />
+    	<property name="runtimeService" ref="runtimeService" />
+    	<property name="repositoryService" ref="repositoryService" />
+    	<property name="processStepFormDAO" ref="processStepFormDAO" />
+		<property name="sysEngineIFormDAO" ref="sysEngineIFormDAO" />    	
+		<property name="iformService" ref="iformService" /> 
+		<property name="processRuntimeCcDAO" ref="processRuntimeCcDAO" />    
+		<property name="processDefActionService" ref="processDefActionService" />	
+    	<property name="processDefMapService" ref="processDefMapService" />
+		<property name="processDefParamService" ref="processDefParamService" />
+		<property name="processDefTriggerService" ref="processDefTriggerService" />
+		<property name="processStepFormService" ref="processStepFormService" />
+		<property name="processStepFormMapService" ref="processStepFormMapService" />
+		<property name="processStepManualJumpService" ref="processStepManualJumpService" /> 
+		<property name="processStepMapService" ref="processStepMapService" />
+		<property name="processStepSysjumpService" ref="processStepSysjumpService" />
+		<property name="processStepTriggerService" ref="processStepTriggerService" />
+		<property name="processStepDIYBtnService" ref="processStepDIYBtnService" />
+		<property name="processStepScriptTriggerService" ref="processStepScriptTriggerService" />
+		<property name="processRuntimeSignsService" ref="processRuntimeSignsService" />
+		<property name="processOpinionService" ref="processOpinionService" />
+    </bean>
+    <bean id="processRuntimeOperateService" class="com.iwork.process.runtime.service.ProcessRuntimeOperateService" scope="prototype">
+    	<property name="processEngine" ref="processEngine" />
+    	<property name="taskService" ref="taskService" />
+    	<property name="runtimeService" ref="runtimeService" />
+    	<property name="repositoryService" ref="repositoryService" />
+    	<property name="processStepFormDAO" ref="processStepFormDAO" />
+		<property name="sysEngineIFormDAO" ref="sysEngineIFormDAO" />
+		<property name="processRuntimeCcDAO" ref="processRuntimeCcDAO" />    <!-- 抄送 -->	
+		<property name="processOpinionDAO" ref="processOpinionDAO" />    <!-- 意见 -->	 
+    	<property name="iformService" ref="iformService" />
+    	<property name="processDefActionService" ref="processDefActionService" />
+    	<property name="processDefMapService" ref="processDefMapService" />
+		<property name="processDefParamService" ref="processDefParamService" />
+		<property name="processDefTriggerService" ref="processDefTriggerService" />
+		<property name="processStepFormService" ref="processStepFormService" />
+		<property name="processStepFormMapService" ref="processStepFormMapService" />
+		<property name="processStepManualJumpService" ref="processStepManualJumpService" />
+		<property name="processStepMapService" ref="processStepMapService" />
+		<property name="processStepSysjumpService" ref="processStepSysjumpService" />
+		<property name="processStepTriggerService" ref="processStepTriggerService" />
+		<property name="processRuntimeSignsService" ref="processRuntimeSignsService" />
+    </bean>
+    <bean id="processRuntimeSendService" class="com.iwork.process.runtime.service.ProcessRuntimeSendService" scope="prototype">
+    	<property name="processEngine" ref="processEngine" />
+    	<property name="taskService" ref="taskService" />
+    	<property name="runtimeService" ref="runtimeService" />
+    	<property name="repositoryService" ref="repositoryService" />
+    	<property name="processStepFormDAO" ref="processStepFormDAO" />
+		<property name="sysEngineIFormDAO" ref="sysEngineIFormDAO" />    	
+		<property name="processRuntimeCcDAO" ref="processRuntimeCcDAO" />    	
+		<property name="processRuntimeForwardDAO" ref="processRuntimeForwardDAO" />    	
+    	<property name="processDefMapService" ref="processDefMapService" />
+		<property name="processDefParamService" ref="processDefParamService" />
+		<property name="processDefTriggerService" ref="processDefTriggerService" />
+		<property name="processStepFormService" ref="processStepFormService" />
+		<property name="processStepFormMapService" ref="processStepFormMapService" />
+		<property name="processStepManualJumpService" ref="processStepManualJumpService" />
+		<property name="processStepMapService" ref="processStepMapService" />
+		<property name="processStepSysjumpService" ref="processStepSysjumpService" />
+		<property name="processStepTriggerService" ref="processStepTriggerService" />
+		<property name="processRemindUtil" ref="processRemindUtil" />
+		<property name="processRuntimeSignsService" ref="processRuntimeSignsService" />
+    </bean>
+    <bean id="processRuntimeMonitorService" class="com.iwork.process.runtime.service.ProcessRuntimeMonitorService" scope="prototype">
+    	<property name="processEngine" ref="processEngine" />
+    	<property name="taskService" ref="taskService" />
+    	<property name="runtimeService" ref="runtimeService" />
+    	<property name="iformService" ref="iformService" />
+    	<property name="repositoryService" ref="repositoryService" />
+    	<property name="historyService" ref="historyService" />
+    	<property name="processStepMapService" ref="processStepMapService" />
+    	<property name="processRuntimeCcDAO" ref="processRuntimeCcDAO" />   
+    	<property name="processRuntimeOffLineService" ref="processRuntimeOffLineService" />
+    </bean>
+    
+    
+    <!-- 会签管理 -->
+    <bean id="processRuntimeSignsAction" class="com.iwork.process.runtime.action.ProcessRuntimeSignsAction" scope="prototype">
+    	<property name="processRuntimeSignsService" ref="processRuntimeSignsService" />
+    	<property name="processRuntimeOperateService" ref="processRuntimeOperateService" />
+    	<property name="processStepMapService" ref="processStepMapService" /> 
+    	<property name="multiAddressBookService" ref="multiAddressBookService" />
+    </bean>
+       <bean id="processRuntimeSignsService" class="com.iwork.process.runtime.service.ProcessRuntimeSignsService" scope="prototype">
+       <property name="taskService" ref="taskService" />
+       <property name="processOpinionService" ref="processOpinionService" /> <!-- 意见跟踪 -->
+    	<property name="processRuntimeSignsDAO" ref="processRuntimeSignsDAO" />
+    	<property name="processRuntimeCcDAO" ref="processRuntimeCcDAO" />
+    	<property name="multiAddressBookService" ref="multiAddressBookService" />
+    	<property name="processRemindUtil" ref="processRemindUtil" />
+    </bean>
+     <bean id="processRuntimeSignsDAO" class="com.iwork.process.runtime.dao.ProcessRuntimeSignsDAO" parent="baseDAO"></bean>
+    
+    <!-- 精确路由管理平台 -->
+        <bean id="processRouteCommonDAO" class="com.iwork.process.route.dao.ProcessRouteCommonDAO" parent="baseDAO"></bean>
+        <bean id="processRouteLinkDAO" class="com.iwork.process.route.dao.ProcessRouteLinkDAO" parent="baseDAO"></bean>
+        <bean id="processRouteMpDAO" class="com.iwork.process.route.dao.ProcessRouteMpDAO" parent="baseDAO"></bean>
+        <bean id="processRouteProfessionalDAO" class="com.iwork.process.route.dao.ProcessRouteProfessionalDAO" parent="baseDAO"></bean>
+        <bean id="processRouteRuntimeDAO" class="com.iwork.process.route.dao.ProcessRouteRuntimeDAO" parent="baseDAO"></bean>
+        <bean id="processRouteDesignService" class="com.iwork.process.route.service.ProcessRouteDesignService" scope="prototype">
+       		<property name="processRouteCommonDAO" ref="processRouteCommonDAO" />
+       		<property name="processRouteLinkDAO" ref="processRouteLinkDAO" />
+       		<property name="processRouteMpDAO" ref="processRouteMpDAO" />
+       		<property name="processRouteProfessionalDAO" ref="processRouteProfessionalDAO" />
+       		<property name="processRouteRuntimeDAO" ref="processRouteRuntimeDAO" />
+        </bean>
+         <bean id="processRouteDesignAction" class="com.iwork.process.route.action.ProcessRouteDesignAction" scope="prototype">
+    	<property name="processRouteDesignService" ref="processRouteDesignService" /> 
+    	</bean> 
+    <!-- 精确路由管理平台END -->
+    
+    <!-- 移动端流程操作(加载表单，保存表单) --> 
+    <bean id="syncMobileProcessExcuteAction" class="com.iwork.app.mobile.process.runtime.SyncMobileProcessExcuteAction" scope="prototype">
+    	<property name="processRuntimeExcuteService" ref="processRuntimeExcuteService" />
+    	<property name="processStepTriggerService" ref="processStepTriggerService" />
+    	<property name="processDeploymentService" ref="processDeploymentService" /> 
+    	<property name="iformService" ref="iformService" /> 
+    	<property name="sysEngineIFormService" ref="sysEngineIFormService" />
+    	<property name="sysEngineSubformService" ref="sysEngineSubformService" />
+    	<property name="processOpinionService" ref="processOpinionService" />
+    	<property name="processStepFormService" ref="processStepFormService" /> 
+    	<property name="processStepFormMapService" ref="processStepFormMapService" />
+    </bean>
+     <!-- 移动端流程办理动作-->
+    <bean id="syncMobileProcessOperateAction" class="com.iwork.app.mobile.process.runtime.SyncMobileProcessOperateAction" scope="prototype">
+    	<property name="processRuntimeOperateService" ref="processRuntimeOperateService" />
+    	<property name="processStepTriggerService" ref="processStepTriggerService" />
+    </bean>
+     <!-- 移动端流程办理动作-->
+    <bean id="syncIFormPlugsAction" class="com.iwork.app.mobile.iform.SyncIFormPlugsAction" scope="prototype">
+    	<property name="radioAddressBookService" ref="radioAddressBookService" />
+    	<property name="multiAddressBookService" ref="multiAddressBookService" />
+    </bean>
+    <!-- END --> 
+    <!-- 流程分析 -->
+      <bean id="processAnalyticsAction" class="com.iwork.process.analytics.action.ProcessAnalyticsAction" scope="prototype">
+    	<property name="processAnalyticsService" ref="processAnalyticsService" />
+    </bean>
+     <bean id="processAnalyticsService" class="com.iwork.process.analytics.service.ProcessAnalyticsService" scope="prototype">
+    	<property name="processEngine" ref="processEngine" />
+    	<property name="taskService" ref="taskService" />
+    	<property name="runtimeService" ref="runtimeService" />
+    	<property name="iformService" ref="iformService" />
+    	<property name="repositoryService" ref="repositoryService" />
+    	<property name="historyService" ref="historyService" />
+    	<property name="processDeploymentService" ref="processDeploymentService" />
+    	<property name="processStepMapService" ref="processStepMapService" />
+    </bean>
+    <!-- 流程分析 -->
+    <!-- 结束 -->
+    <!-- 垃圾收集 -->
+     <bean id="sysGCfreeAction" class="com.iwork.core.gc.action.SysGCfreeAction" scope="prototype">
+    	<property name="sysGCfreeService" ref="sysGCfreeService" />
+    </bean>
+     <bean id="sysGCfreeService" class="com.iwork.core.gc.service.SysGCfreeService" scope="prototype">
+    </bean>
+</beans>

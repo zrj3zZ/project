@@ -1,0 +1,16 @@
+$(document).ready(function () {
+    var isDialogDisabled = $("#isDialogDisabled").val();
+    if (isDialogDisabled == 1) {
+        var px;
+        if ($("#HFNR").val().length > 20) {
+            px = $("#HFNR").val().length / 50 * 25 + "px";
+            $("#HFNR").css('height', px);
+        } else {
+            $("#HFNR").css('height', "20px");
+        }
+        $("#HFNR").attr("readonly", true);
+        $("#HFNR").css('border', '0px solid white');
+        $(".tools_nav").hide();
+        $("#DIVHFZL").hide();
+    }
+});

@@ -1,0 +1,35 @@
+<div id="border">
+		<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 5px" width="100%">
+			<tbody>
+				<tr>
+					<td class="formpage_title">基础信息维护表</td>
+				</tr>
+				<tr>
+					<td align="right" id="help"></td>
+				</tr>
+				<tr>
+					<td align="right" class="line"></td>
+				</tr>
+				<tr>
+					<td align="left">
+						<table border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody>
+								<tr id="itemTr_285">
+									<td class="td_title"  id="title_TYPE" width="180">基础信息类型									</td>
+									<td class="td_data"  id="data_TYPE">${TYPE}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_287">
+									<td class="td_title"  id="title_NO" width="180">基础信息编号									</td>
+									<td class="td_data"  id="data_NO">${NO}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_286">
+									<td class="td_title"  id="title_NAME" width="180">基础信息名称									</td>
+									<td class="td_data"  id="data_NAME">${NAME}&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+</div>

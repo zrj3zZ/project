@@ -1,0 +1,66 @@
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					并购补充披露
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_0">
+								<td class="td_title" id="title_COMPANYNAME" width="15%">
+									公司名称
+								</td>
+								<td class="td_data" id="data_COMPANYNAME" width="35%">
+									${COMPANYNAME}&nbsp;　
+								</td>
+								<td class="td_title" id="title_EXTEND1" width="15%">
+									披露日期
+								</td>
+								<td class="td_data" id="data_EXTEND1" width="35%">
+									${EXTEND2}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_18">
+								<td class="td_title" id="title_TBSJ" width="15%">
+									填报日期
+								</td>
+								<td class="td_data" id="data_TBSJ" width="35%">
+									${TBSJ}&nbsp;　
+								</td>
+								<td class="td_title" id="title_" width="15%">
+									
+								</td>
+								<td class="td_data" id="data_" width="35%">
+									
+								</td>
+							</tr>
+							<tr id="fjTr_5015">
+								<td class="td_title" id="title_FJ">
+									附件
+								</td>
+								<td id="data_FJ" class="td_data" colspan="3">
+									${FJ}&nbsp;　
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${INSTANCEID}${COMPANYNO}${TBRID}${XMBH}${LCBH}${LCBS}${TASKID}${SPZT}${JDBH}${SCORE}${JDMC}${TJRID}${TJRXM}${TJSJ}${EXTEND1}${EXTEND3}${EXTEND4}${EXTEND5}${XMLXZL}${BSFJUUID}${SBFJUUID}
+</div>

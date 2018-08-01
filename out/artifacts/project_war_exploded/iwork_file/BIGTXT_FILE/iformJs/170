@@ -1,0 +1,49 @@
+var nmsxold = "";
+$(function () {
+    nmsxold = $("#NMSX").val();
+});
+
+function savebeforeEvent() {
+    var khbh = $("#KHBH").val();
+    var nmsx = $("#NMSX").val();
+    var instanceId = $("#instanceId").val();
+    if (instanceId == "0") {
+        $.ajaxSetup({
+            async: false
+        });
+        var flag = new Boolean();
+        $.post("zqb_nmsx_namecheck.action", {
+            khbh: khbh,
+            nmsx: nmsx
+        }, function (data) {
+            if (data != "0") {
+                flag = false;
+                alert("内幕事项名称已存在!");
+            } else {
+                flag = true;
+            }
+        });
+        return flag;
+    } else {
+        if (nmsxold == nmsx) {
+            return true;
+        } else {
+            $.ajaxSetup({
+                async: false
+            });
+            var flag = new Boolean();
+            $.post("zqb_nmsx_namecheck.action", {
+                khbh: khbh,
+                nmsx: nmsx
+            }, function (data) {
+                if (data != "0") {
+                    flag = false;
+                    alert("内幕事项名称已存在!");
+                } else {
+                    flag = true;
+                }
+            });
+            return flag;
+        }
+    }
+}

@@ -1,0 +1,180 @@
+
+
+.base-nav .sub-cate dd a span:nth-of-type(1) {
+	display: none
+}
+
+.base-nav .nav-ul .more-li>a {
+	width: 117px
+}
+
+.base-nav .nav-ul .more-li>a:hover,.base-nav .nav-ul .more-li.open>a {
+	background: #fff!important;
+	color: #48484e;
+	border: 0;
+	position: relative;
+	z-index: 2
+}
+
+.base-nav .nav-ul .more-li>a>i {
+	display: inline-block;
+	margin-left: 10px
+}
+
+.base-nav .sub-cate {
+	left: 0;
+	background: #fff;
+	border:1px solid #666;
+	border: 0;
+	z-index: 1;
+	padding: 16px 20px 8px;
+	white-space: nowrap
+}
+
+.base-nav .sub-cate .group {
+	display: inline-block;
+	vertical-align: top
+}
+
+.base-nav .sub-cate .group+.group {
+	margin-left: 35px
+}
+
+.base-nav .sub-cate .group dl {
+	width: 140px;
+}
+
+.base-nav .sub-cate dl+dl {
+	padding-top: 5px;
+	border-top: 1px solid #f1f1f1;
+	
+}
+
+.sub-cate dt{
+		background:#fafbfb;
+		border-bottom:1px solid #efefef;
+	
+}
+
+.base-nav .sub-cate dt {
+	font-weight: bold;
+	line-height:25px;
+}
+
+.base-nav .sub-cate dd {
+	padding: 5px 0
+}
+
+.base-nav .sub-cate dd a {
+	display: block;
+	height: 27px;
+	line-height: 27px;
+	color: #666;
+	padding: 0 9px;
+	margin-bottom: 6px;
+	text-decoration: none;
+	border-radius: 2px;
+	-webkit-transition: background .15s linear;
+	-o-transition: background .15s linear;
+	transition: background .15s linear
+}
+
+.base-nav .sub-cate dd a.hide {
+	display: none
+}
+
+.base-nav .sub-cate dd a:last-child {
+	margin-bottom: 0
+}
+
+.base-nav .sub-cate dd a:hover {
+	color: #323232;
+	background: #f3f3f3
+}
+
+.base-nav .sub-cate dd a .graph {
+	margin-right: 13px;
+	margin-top: -2px
+}
+
+.base-nav .sub-cate dd a:hover .graph {
+	opacity: 1
+}
+
+
+.base-nav .nav-ul li>a>.graph-home {
+	background-position: 0 0
+}
+
+
+.base-nav .nav-autolis {
+	float: left;
+	max-width: 105px;
+	height: 50px;
+	overflow: hidden
+}
+
+.base-nav .nav-autolis.hideli>li:not(.active) {
+	display: none!important
+}
+.subgroup {
+	vertical-align: top
+}
+
+.subgroup {
+	margin-left: 10px
+}
+
+.subgroup dl {
+	width: 166px
+}
+
+.subgroup dl+dl {
+	padding-top: 6px;
+	border-top: 1px solid #f1f1f1
+}
+
+.subgroup dt {
+	font-weight: bold;
+	line-height:30px;
+}
+
+.subgroup dd {
+	padding: 12px 0
+}
+
+.subgroup dd a {
+	display: block;
+	height: 27px;
+	line-height: 27px;
+	color: #666;
+	padding: 0 9px;
+	margin-bottom: 6px;
+	text-decoration: none;
+	border-radius: 2px;
+	-webkit-transition: background .15s linear;
+	-o-transition: background .15s linear;
+	transition: background .15s linear
+}
+
+.subgroup dd a.hide {
+	display: none
+}
+
+.subgroup dd a:last-child {
+	margin-bottom: 0
+}
+
+.subgroup dd a:hover {
+	color: #323232;
+	background: #f3f3f3
+}
+
+.subgroup dd a .graph {
+	margin-right: 13px;
+	margin-top: -2px
+}
+
+.subgroup dd a:hover .graph {
+	opacity: 1
+}

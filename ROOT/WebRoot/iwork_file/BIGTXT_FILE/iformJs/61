@@ -1,0 +1,127 @@
+/*
+ * 加载后
+ */
+function onLoad() {
+    document.getElementById("tr_subformSUBFORM_YMGLSQZCXFZB").style.display = "none";
+    document.getElementById("tr_subformSUBFORM_YMGLSQGHZB").style.display = "none";
+    document.getElementById("tr_subformSUBFORM_YMGLSQBAZB").style.display = "none";
+    document.getElementById("tr_subformSUBFORM_YMGLSQQTZB").style.display = "none";
+
+    changeSQLX();
+}
+/*
+ * 点击申请类型
+ */
+function changeSQLX() {
+    var sqlx;
+    $('input[name="SQLX"]').each(function () { //
+        //alert(this.value);
+        if (this.checked == true) {
+            sqlx = this.value;
+        }
+    });
+    //alert(sqlx);
+    //alert(document.getElementById("subformSUBFORM_YMGLSQZCXFZB").style.display);
+    //document.getElementById("subformSUBFORM_YMGLSQZCXFZB").style.display = "none";
+    if (sqlx != undefined) {
+        if (sqlx == '域名注册') {
+            document.getElementById("title_YMZCZZ").style.display = ""; // 域名注册组织
+            document.getElementById("data_YMZCZZ").style.display = "";
+            document.getElementById("title_YMFZR").style.display = ""; // 域名负责人
+            document.getElementById("data_YMFZR").style.display = "";
+            document.getElementById("title_YMSYR").style.display = ""; // 域名使用人
+            document.getElementById("data_YMSYR").style.display = "";
+            document.getElementById("title_FWSYR").style.display = "none"; // 法务审阅人
+            document.getElementById("data_FWSYR").style.display = "none";
+            //document.getElementById("title_BABGLX").style.display = "none";// 备案变更类型
+            //document.getElementById("data_BABGLX").style.display = "none";
+            document.getElementById("title_BZ").style.display = ""; // 备注
+            document.getElementById("data_BZ").style.display = "";
+            document.getElementById("title_FJ").style.display = ""; // 附件
+            document.getElementById("data_FJ").style.display = "";
+            document.getElementById("tr_subformSUBFORM_YMGLSQZCXFZB").style.display = "";
+            document.getElementById("tr_subformSUBFORM_YMGLSQGHZB").style.display = "none";
+            document.getElementById("tr_subformSUBFORM_YMGLSQBAZB").style.display = "none";
+            document.getElementById("tr_subformSUBFORM_YMGLSQQTZB").style.display = "none";
+        } else if (sqlx == '域名续费') {
+            document.getElementById("title_YMZCZZ").style.display = "none"; // 域名注册组织
+            document.getElementById("data_YMZCZZ").style.display = "none";
+            document.getElementById("title_YMFZR").style.display = ""; // 域名负责人
+            document.getElementById("data_YMFZR").style.display = "";
+            document.getElementById("title_YMSYR").style.display = ""; // 域名使用人
+            document.getElementById("data_YMSYR").style.display = "";
+            document.getElementById("title_FWSYR").style.display = "none"; // 法务审阅人
+            document.getElementById("data_FWSYR").style.display = "none";
+            //document.getElementById("title_BABGLX").style.display = "none";// 备案变更类型
+            //document.getElementById("data_BABGLX").style.display = "none";
+            document.getElementById("title_BZ").style.display = ""; // 备注
+            document.getElementById("data_BZ").style.display = "";
+            document.getElementById("title_FJ").style.display = ""; // 附件
+            document.getElementById("data_FJ").style.display = "";
+            document.getElementById("tr_subformSUBFORM_YMGLSQZCXFZB").style.display = "";
+            document.getElementById("tr_subformSUBFORM_YMGLSQGHZB").style.display = "none";
+            document.getElementById("tr_subformSUBFORM_YMGLSQBAZB").style.display = "none";
+            document.getElementById("tr_subformSUBFORM_YMGLSQQTZB").style.display = "none";
+        } else if (sqlx == '域名过户') {
+            document.getElementById("title_YMZCZZ").style.display = "none"; // 域名注册组织
+            document.getElementById("data_YMZCZZ").style.display = "none";
+            document.getElementById("title_YMFZR").style.display = "none"; // 域名负责人
+            document.getElementById("data_YMFZR").style.display = "none";
+            document.getElementById("title_YMSYR").style.display = "none"; // 域名使用人
+            document.getElementById("data_YMSYR").style.display = "none";
+            document.getElementById("title_FWSYR").style.display = ""; // 法务审阅人
+            document.getElementById("data_FWSYR").style.display = "";
+            //document.getElementById("title_BABGLX").style.display = "none";// 备案变更类型
+            //document.getElementById("data_BABGLX").style.display = "none";
+            document.getElementById("title_BZ").style.display = ""; // 备注
+            document.getElementById("data_BZ").style.display = "";
+            document.getElementById("title_FJ").style.display = ""; // 附件
+            document.getElementById("data_FJ").style.display = "";
+            document.getElementById("tr_subformSUBFORM_YMGLSQZCXFZB").style.display = "none";
+            document.getElementById("tr_subformSUBFORM_YMGLSQGHZB").style.display = "";
+            document.getElementById("tr_subformSUBFORM_YMGLSQBAZB").style.display = "none";
+            document.getElementById("tr_subformSUBFORM_YMGLSQQTZB").style.display = "none";
+        } else if (sqlx == '网站备案') {
+            document.getElementById("title_YMZCZZ").style.display = "none"; // 域名注册组织
+            document.getElementById("data_YMZCZZ").style.display = "none";
+            document.getElementById("title_YMFZR").style.display = "none"; // 域名负责人
+            document.getElementById("data_YMFZR").style.display = "none";
+            document.getElementById("title_YMSYR").style.display = "none"; // 域名使用人
+            document.getElementById("data_YMSYR").style.display = "none";
+            document.getElementById("title_FWSYR").style.display = ""; // 法务审阅人
+            document.getElementById("data_FWSYR").style.display = "";
+            //document.getElementById("title_BABGLX").style.display = "none";// 备案变更类型
+            //document.getElementById("data_BABGLX").style.display = "none";
+            document.getElementById("title_BZ").style.display = ""; // 备注
+            document.getElementById("data_BZ").style.display = "";
+            document.getElementById("title_FJ").style.display = ""; // 附件
+            document.getElementById("data_FJ").style.display = "";
+            document.getElementById("tr_subformSUBFORM_YMGLSQZCXFZB").style.display = "none";
+            document.getElementById("tr_subformSUBFORM_YMGLSQGHZB").style.display = "none";
+            document.getElementById("tr_subformSUBFORM_YMGLSQBAZB").style.display = "";
+            document.getElementById("tr_subformSUBFORM_YMGLSQQTZB").style.display = "none";
+        } else if (sqlx == '其他') {
+            document.getElementById("title_YMZCZZ").style.display = "none"; // 域名注册组织
+            document.getElementById("data_YMZCZZ").style.display = "none";
+            document.getElementById("title_YMFZR").style.display = "none"; // 域名负责人
+            document.getElementById("data_YMFZR").style.display = "none";
+            document.getElementById("title_YMSYR").style.display = "none"; // 域名使用人
+            document.getElementById("data_YMSYR").style.display = "none";
+            document.getElementById("title_FWSYR").style.display = "none"; // 法务审阅人
+            document.getElementById("data_FWSYR").style.display = "none";
+            //document.getElementById("title_BABGLX").style.display = "none";// 备案变更类型
+            //document.getElementById("data_BABGLX").style.display = "none";
+            document.getElementById("title_BZ").style.display = ""; // 备注
+            document.getElementById("data_BZ").style.display = "";
+            document.getElementById("title_FJ").style.display = ""; // 附件
+            document.getElementById("data_FJ").style.display = "";
+            document.getElementById("tr_subformSUBFORM_YMGLSQZCXFZB").style.display = "none";
+            document.getElementById("tr_subformSUBFORM_YMGLSQGHZB").style.display = "none";
+            document.getElementById("tr_subformSUBFORM_YMGLSQBAZB").style.display = "none";
+            document.getElementById("tr_subformSUBFORM_YMGLSQQTZB").style.display = "";
+        }
+    }
+}
+$().ready(function(){
+    onLoad();
+});

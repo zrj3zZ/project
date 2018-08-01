@@ -1,0 +1,1 @@
+<a href='${parameters.action?html}' id="${parameters.oid?html}"  ${parameters.disabled?html} }"><img src="../iwork/${parameters.icon?html}">${parameters.text?html}</a> 

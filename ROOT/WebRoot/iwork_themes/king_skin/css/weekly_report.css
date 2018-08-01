@@ -1,0 +1,30 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{background-color:#f9f9f9; }
+.wr{width:990px;}
+.wr_bg{ width:990px; height:900px; position:absolute; left:50%; margin-left:-495px; }
+.wr_bg_left{ width:6px; background:url(../images/wr_bg.png);height:100%; position:absolute; }
+.wr_bg_center{ width:968px; background-color:#fcfcfc; padding:5px 5px 0px 5px; height:100%; position:absolute; left:6px; top:0px;}
+.wr_bg_right{ width:6px; background:url(../images/wr_bg.png) -6px 0;height:100%; position:absolute; right:0; top:0;}
+.wr_nav{ background:url(../images/wr_nav.png) no-repeat; height:56px; position:absolute; z-index:999; width:1000px; top:56px;}
+.wr_shangji{color:#fff; width:100px;  padding:15px 0px 5px 40px }
+.wr_btn_a{ background:url(../images/listbox_bg_a.png) no-repeat;  height:40px; width:129px; cursor:pointer; border:0 none;float:left}
+.wr_btn_b{ background:url(../images/listbox_bg_b.png) no-repeat;  height:40px; width:129px; cursor:pointer; border:0 none;float:left}
+.wr_arrow_a{ background:url(../images/listbox_arrow_a.png) no-repeat;  height:40px; width:34px; cursor:pointer; border:0 none; float:left;}
+.wr_arrow_b{ background:url(../images/listbox_arrow_b.png) no-repeat;  height:40px; width:34px; cursor:pointer; border:0 none;float:left}
+.wr_nav_left{ margin-left:20px; margin-top:10px;}
+.wr_nav_right{ margin-right:20px;  float:right}
+.wr_search_input{ background:url(../images/search_input.png) no-repeat; height:40px; width:146px;cursor:pointer; border:0 none;float:left;
+}
+.wr_search_input_text{color:#c4c5c5;width:130px; height:30px; margin-left:10px; border:0 none; background:transparent; line-height:30px;
+}
+.wr_search_btn_a{ background:url(../images/search_btn_a.png); height:40px; width:66px; cursor:pointer; border:0 none;float:left;}
+.wr_search_btn_b{ background:url(../images/search_btn_b.png); height:40px; width:66px; cursor:pointer; border:0 none;float:left; }
+.wr_header{ height:55px;}
+.wr_logo{ background:url(../images/logo.jpg); height:41px; width:100px; float:left}
+.wr_logo_txt{ background:url(../images/logo_txt.jpg);height:41px; width:98px;float:left}
+.wr_header_right span{ margin:0 5px}
+.wr_grid_1{ margin-top:1px;}
+.wr_summarize{ height:28px; line-height:28px; color:#6d6c6c; font-size:12px; font-weight:bold; margin-top:55px; padding-left:10PX;}
+.wr_plan{ height:28px; line-height:28px; color:#6d6c6c; font-size:12px; font-weight:bold; margin-top:10px; padding-left:10PX;}

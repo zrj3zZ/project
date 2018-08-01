@@ -1,0 +1,68 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+	padding:0px;
+	margin:0px;
+	font-size:12px;
+	font-family:宋体;
+}
+.crumb_nav {
+	background:url(../iwork_img/crumb_bg.png) repeat-x;
+	height:27px;
+	padding-left:20px;
+	line-height:25px;
+	color:#505050
+}
+.news_list_box {
+	padding:10px;
+	line-height:24px;
+}
+.news_list_box table {
+	table-layout:fixed;
+}
+.news_list_box table a {
+	text-decoration:none;
+	color:#505050;
+	outline:none;
+}
+.news_list_box table a:hover {
+	color:#0066cc
+}
+.data{ width:100px; text-align:right; padding-right:20px}
+.text-overflow {
+	width:90%;
+	word-break:keep-all;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;/* 需与overflow:hidden;一起使用。*/
+}
+.fenye_bar_box { text-align:left;  width:550px; margin:0 auto;
+}
+.fenye_bar{ 
+	height:20px;
+	background:url(../iwork_img/fy_bg.png) repeat-x;
+	display:block;
+	border-radius:3px;
+	cursor:pointer;
+	line-height:22px;
+	text-align:center;
+	border:1px solid #ababab;
+	margin:2px;
+	float:left;
+	padding:0 7px 0 7px
+}
+.fenye_bar_selected {
+	height:20px;
+	background:url(../iwork_img/fy_selected_bg.png) repeat-x;
+	display:block;
+	border-radius:3px;
+	cursor:pointer;
+	line-height:22px;
+	text-align:center;
+	color:#fff;
+	border:1px solid #255572;
+	margin:2px;
+	float:left;
+	padding:0 7px 0 7px;
+	font-weight:bold;
+}

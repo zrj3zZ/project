@@ -1,0 +1,56 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+* {
+	margin:0px;
+	padding:0px;
+}
+html {
+	color:#000;
+}
+body {
+	text-align:left;
+	font-style:normal;
+	font-size:12px;
+	line-height:20px;
+	font-family:"宋体", Arial Narrow, arial, serif;
+	background-color:#f8f8f8;
+}
+ul, ol, li {
+	list-style:none;
+}
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+img, fieldset {
+	border:0;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size:12px;
+	margin: 0;
+	padding: 0;
+}
+input, label, select, option, textarea, button, fieldset, legend, table, td {
+	font-size:12px;
+}
+sup {
+	vertical-align:text-top;
+}
+sub {
+	vertical-align:text-bottom;
+}
+address, caption, cite, code, dfn, em, strong, th, var {
+	font-style:normal;
+	font-weight:normal;
+}
+a {
+	color:#333;
+	text-decoration:none;
+	font-style: normal;
+}
+a:hover {
+	text-decoration:underline;
+	cursor: pointer;
+}

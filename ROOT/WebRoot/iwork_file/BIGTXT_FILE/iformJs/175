@@ -1,0 +1,111 @@
+function showUploadifyPageJDZL(divjdzl, jdzl) {
+    mainFormAlertFlag = false;
+    saveSubReportFlag = false;
+    var valid = mainFormValidator.form();
+    if (!valid) {
+        return false;
+    }
+    mainFormAlertFlag = false;
+    saveSubReportFlag = false;
+    uploadifyDialog(jdzl, jdzl, divjdzl, '', 'true', '', '');
+}
+
+function changeZl() {
+    $.ajaxSetup({
+        async: false
+    });
+    $("#JDZL").val("");
+    //$("#zlinfo").html("");
+    var obj = document.getElementById('GROUPID');
+    // ��λid
+    var index = obj.selectedIndex;
+    // ѡ�е��ı�
+    var text = obj.options[index].text;
+    // ֵ	    
+    var value = obj.options[index].value;
+    var projectNo = $("#PROJECTNO").val();
+    //�ı��ж��Ƿ������һ�����񣬲����ڲ��ɽ��иü��ı���?
+    $.post("zqb_project_checkrwid.action", {
+        "groupid": value,
+        "projectNo": projectNo
+    }, function (data) {
+        var dataJson = eval("(" + data + ")");
+        var id = dataJson[0].GROUPID;
+        var jdzl = dataJson[0].JDZL;
+        var sxzlmb = dataJson[0].SXZLMB;
+        var uuid = dataJson[0].UUID;
+        var d = parseInt(id);
+        if (d < value && d != 0) {
+            alert("���������һ����׶Σ�");
+            $("#GROUPID").val(d);
+            $("#JDZL").val(jdzl);
+            $("#labelSXZLMB").append("<div  id=\"eb266039238b422b9922fa3d49ae881f\" style=\"background-color: #F5F5F5;vertical-align:middle;border-bottom: 1px solid #E5E5E5;font: 11px Verdana, Geneva, sans-serif;padding: 5px;width: 200px\"><span><a href=\"uploadifyDownload.action?fileUUID=" + uuid + "\" target=\"_blank\"><img style=\"margin:3px\"/>" + sxzlmb + "</a></span>");
+            return;
+        } else if (d > value && d != 0) {
+            alert("�ý׶��Ѵ��ڣ�");
+            $("#GROUPID").val(d);
+            $("#JDZL").val(jdzl);
+            $("#labelSXZLMB").append("<div  id=\"eb266039238b422b9922fa3d49ae881f\" style=\"background-color: #F5F5F5;vertical-align:middle;border-bottom: 1px solid #E5E5E5;font: 11px Verdana, Geneva, sans-serif;padding: 5px;width: 200px\"><span><a href=\"uploadifyDownload.action?fileUUID=" + uuid + "\" target=\"_blank\"><img style=\"margin:3px\"/>" + sxzlmb + "</a></span>");
+            return;
+        } else {
+            $("#JDZL").val(jdzl);
+            $("#labelSXZLMB").append("<div  id=\"eb266039238b422b9922fa3d49ae881f\" style=\"background-color: #F5F5F5;vertical-align:middle;border-bottom: 1px solid #E5E5E5;font: 11px Verdana, Geneva, sans-serif;padding: 5px;width: 200px\"><span><a href=\"uploadifyDownload.action?fileUUID=" + uuid + "\" target=\"_blank\"><img style=\"margin:3px\"/>" + sxzlmb + "</a></span>");
+        }
+    });
+}
+
+function removeUploadFileItemEvent(uuid) {
+    $.post("zqb_project_deleteFile.action", {
+        "uuid": uuid
+    }, function (data) {
+        return true;
+    });
+    return true;
+}
+$(function(){
+ var groupid = $("#GROUPID").val();
+if(typeof(groupid) =='undefined'){
+var url=location.search; 
+var Request = new Object(); 
+if(url.indexOf("?")!=-1) 
+{ 
+var str = url.substr(1); 
+strs= str.split("&"); 
+for(var i=0;i <strs.length;i++)
+{ 
+Request[strs[i].split("=")[0]]=(strs[i].split("=")[1]); 
+} 
+} 
+groupid = Request["GROUPID"]; 
+}
+var projectNo = $("#PROJECTNO").val();
+var instanceid = $("#instanceId").val();
+var actStepDefId = $("#actStepDefId").val();
+if(typeof(projectNo ) =='undefined'){
+var url=location.search; 
+var Request = new Object(); 
+if(url.indexOf("?")!=-1) 
+{ 
+var str = url.substr(1); 
+strs= str.split("&"); 
+for(var i=0;i <strs.length;i++)
+{ 
+Request[strs[i].split("=")[0]]=(strs[i].split("=")[1]); 
+} 
+} 
+projectNo= Request["PROJECTNO"]; 
+}
+if(actStepDefId==""){
+       $.post("zqb_gpfx_project_getjdzl.action", {
+           "groupid": groupid,
+           "projectNo": projectNo,
+           "instanceid":instanceid
+       }, function (data) {
+           var dataJson = eval("(" + data + ")");
+           var content = dataJson[0].CONTENT;
+           var attach = dataJson[0].ATTACH;
+           $("#itemTr_2353").after(content);
+           $("#ATTACH").val(attach);
+       });
+}
+});

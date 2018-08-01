@@ -1,0 +1,54 @@
+<div id="border">
+	<table width="100%" class="ke-zeroborder" style="margin-bottom:5px;" border="0" cellspacing="0" cellpadding="0">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					项目任务评价表单
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table width="100%" class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0">
+						<tbody>
+							<tr id="itemTr_1836">
+								<td width="180" class="td_title" id="title_GROUPID">
+									任务阶段
+								</td>
+								<td class="td_data" id="data_GROUPID">
+									${GROUPID}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1840">
+								<td width="180" class="td_title" id="title_LDPJ">
+									领导评价
+								</td>
+								<td class="td_data" id="data_LDPJ">
+									${LDPJ}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1839">
+								<td width="180" class="td_title" id="title_PJSM">
+									评价说明
+								</td>
+								<td class="td_data" id="data_PJSM">
+									${PJSM}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${PROJECTNO}${PJSJ}${PJR}
+</div>

@@ -1,0 +1,180 @@
+		/* CSS Document */
+
+		input {
+		outline: none;
+		}
+		textarea {
+		outline: none;
+		}
+		* {
+			padding:0px;
+			margin:0px;
+			font-size:12px;
+		}
+		.box {
+			width:99%;
+		}
+		.button1 {
+			background:url(../../iwork_img/engine/button1_1.png) no-repeat;
+			width:100px;
+			white-space:nowrap;
+			height:27px;
+			cursor:pointer;
+			display:block;
+			float:right;
+			line-height:27px;
+			margin-right:5px;
+			margin-bottom:5px;
+			padding-left:30px;
+		}
+		.button1_hover {
+			background:url(../../iwork_img/engine/button1_2.png) no-repeat;
+			width:100px;
+			height:27px;
+			white-space:nowrap;
+			cursor:pointer;
+			display:block;
+			float:right;
+			line-height:27px;
+			margin-right:5px;
+			padding-left:30px;
+			margin-bottom:5px;
+		}
+		.button1_click {
+			background:url(../../iwork_img/engine/button1_3.png) no-repeat;
+			width:100px;
+			height:27px;
+			white-space:nowrap;
+			cursor:pointer;
+			display:block;
+			float:right;
+			line-height:27px;
+			margin-right:5px;
+			padding-left:30px;
+			margin-bottom:5px;
+		}
+		.button2 {
+			background:url(../../iwork_img/engine/button2_1.png) no-repeat;
+			width:100px;
+			height:27px;
+			white-space:nowrap;
+			cursor:pointer;
+			display:block;
+			float:right;
+			line-height:27px;
+			margin-right:5px;
+			padding-left:30px;
+			margin-bottom:5px;
+		}
+		.button2_hover {
+			background:url(../../iwork_img/engine/button2_2.png) no-repeat;
+			width:100px;
+			height:27px;
+			white-space:nowrap;
+			cursor:pointer;
+			display:block;
+			float:right;
+			line-height:27px;
+			margin-right:5px;
+			padding-left:30px;
+			margin-bottom:5px;
+		}
+		.button2_click {
+			background:url(../../iwork_img/engine/button2_3.png) no-repeat;
+			width:100px;
+			height:27px;
+			white-space:nowrap;
+			cursor:pointer;
+			display:block;
+			float:right;
+			line-height:27px;
+			margin-right:5px;
+			padding-left:30px;
+			margin-bottom:5px;
+		}
+		/*存储管理样式*/
+		.right {
+			margin-top:3px;
+			margin-left:235px;
+			color:#5c5c5c;
+		}
+		.right_left {
+			background:url(../../iwork_img/engine/right_left.jpg) no-repeat left;
+			height:133px;
+			float:left;
+		}
+		.right_center {
+			background:url(../../iwork_img/engine/right_center.jpg);
+			height:133px;
+			text-align:right;
+		}
+		.right_right {
+			background:url(../../iwork_img/engine/right_right.jpg) no-repeat;
+			width:10px;
+			height:133px;
+		}
+		.right_left_click {
+			background:url(../../iwork_img/engine/right_left_click.jpg) no-repeat;
+			width:7px;
+			height:133px;
+			float:left;
+			color:#0381ce;
+		}
+		.right_center_click {
+			background:url(../../iwork_img/engine/right_center_click.jpg) repeat-x;
+			height:133px;
+			color:#0381ce;
+		}
+		.right_right_click {
+			background:url(../../iwork_img/engine/right_right_click.jpg) no-repeat;
+			width:8px;
+			height:133px;
+		}
+		.data_title{
+			cursor:pointer;
+			display:block;
+			float:right;
+			text-align:right;
+		}
+		body {
+			margin-left: 0px; 
+			margin-top: 0px;
+			margin-right: 0px;
+			margin-bottom: 0px;
+		}
+		.data_title{
+			cursor:pointer;
+			display:block;
+			float:right;
+			text-align:right;
+		}
+		body {
+			margin-left: 0px; 
+			margin-top: 0px;
+			margin-right: 0px;
+			margin-bottom: 0px;
+		}
+		.icon_txt{
+			text-align:center;
+			font-size:12px;
+			color:#999;
+			font-family:微软雅黑;
+		}
+		.title{
+			text-align:left;
+			font-size:14px;
+			font-family:黑体; 
+			padding-left:10px;
+			color:#666;
+		}
+		.memo{
+			text-align:left;
+			font-size:12px;
+			font-family:宋体;
+			padding-left:10px;
+			color:#999;
+			width:100%
+		}
+	   .forbidden{position:absolute; background:url(../../iwork_img/delete.png) no-repeat; height:16px;width:16px; top:35px; left:49px;}
+		@media screen and (-webkit-min-device-pixel-ratio:0){ .forbidden{position:absolute; background:url(../../iwork_img/delete.png) no-repeat; height:16px;width:16px; top:45px; left:59px;} }
+		@-moz-document url-prefix(){.forbidden{position:absolute; background:url(../../iwork_img/delete.png) no-repeat; height:16px;width:16px; top:45px; left:59px;} }

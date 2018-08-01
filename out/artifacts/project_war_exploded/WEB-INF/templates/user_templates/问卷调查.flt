@@ -1,0 +1,92 @@
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					信披自查反馈
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+						<tbody>
+							<tr id="itemTr_2091">
+								<td id="title_WT1" width="180">
+									${WT1}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2091">
+								<td id="data_AS1" class="td_data">
+									${AS1}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2091">
+								<td id="data_BZ1" class="td_data">
+									备注：${BZ1}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2092">
+								<td id="title_WT2" width="180">
+									${WT2}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2092">
+								<td id="data_AS2" class="td_data">
+									${AS2}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2092">
+								<td id="data_BZ2" class="td_data">
+									备注：${BZ2}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2093">
+								<td id="title_WT3" width="180">
+									${WT3}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2093">
+								<td id="data_AS3" class="td_data">
+									${AS3}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2093">
+								<td id="data_BZ3" class="td_data">
+									备注：${BZ3}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2094">
+								<td id="title_WT4" width="180">
+									${WT4}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2094">
+								<td id="data_AS4" class="td_data">
+									${AS4}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2094">
+								<td id="data_BZ4" class="td_data">
+									备注：${BZ4}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${CUSTOMERNAME}${CUSTOMERNO}${USERNAME}${USERID}${TZGGID}
+</div>

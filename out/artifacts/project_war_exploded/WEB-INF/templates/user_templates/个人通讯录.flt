@@ -1,0 +1,131 @@
+<script type="text/javascript"> 
+	$(function() {
+		$.post("getphonegroup.action",function(data){
+			var data = eval('(' + data + ')');
+			var count;
+			var zb;
+			var instanceid;
+			var checks = document.getElementById("ZB").value;
+			var ck = checks.split(",");
+			var branks = "";
+			$.map(data, function(item) {
+				count=0;
+				zb = item.ZB;
+				instanceid = item.INSTANCEID;
+				if(ck != ""){
+					for (var k = 0; k < ck.length; k++) {
+						if(ck[k]== zb){
+							count=1;
+							continue;
+						}else{
+							continue;
+						}
+					}
+				}
+				if(count==1){
+					branks  += "<input onclick='setValue(this);' checked='checked' type='checkbox' name='chkId'  value='"+zb+"'>"+zb+"&nbsp;&nbsp;<a href='javascript:deleteZB("+instanceid+")'><img id='"+instanceid+"' src='/iwork_img/del3.gif' border='0'></a><br>"
+				}else{
+					branks  += "<input onclick='setValue(this);' type='checkbox' name='chkId'  value='"+zb+"'>"+zb+"&nbsp;&nbsp;<a href='javascript:deleteZB("+instanceid+")'><img id='"+instanceid+"' src='/iwork_img/del3.gif' border='0'></a><br>"
+				}
+			});
+			var branches = $(branks).appendTo("#GroupView");
+			$("#GroupView").treeview({add:branches});
+		});
+	});
+	function setValue(obj){
+		var ZBvalue = document.getElementById("ZB").value;
+		var objvalue = obj.value+",";
+		if(obj.checked==true){
+			document.getElementById("ZB").value=(objvalue+ZBvalue);
+		}else{
+			ZBvalue=ZBvalue.replace(objvalue,"");
+			document.getElementById("ZB").value=ZBvalue;
+		}
+	}
+	function deleteZB(instanceid){
+		$.messager.confirm("确认","确认删除分组?",function(result){
+			if(result){
+				$.post("delphonegroup.action",{id:instanceid},function(data){ 
+		       			if(data=='success'){
+		       				window.location.reload();
+		       			}else{
+		       				alert(data);
+		       			}
+		     		 });
+			}
+		});
+	}
+</script>
+<div>
+	<table style="margin-bottom:5px;" class="ke-zeroborder" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" border="0" cellpadding="0" cellspacing="0" width="100%">
+						<tbody>
+							<tr id="itemTr_1447">
+								<td class="td_title" id="title_NAME" width="180">
+									<span style="color:red;"></span>姓名
+								</td>
+								<td class="td_data" id="data_NAME">
+									${NAME}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1448">
+								<td class="td_title" id="title_TEL" width="180">
+									<span style="color:red;"></span>联系电话
+								</td>
+								<td class="td_data" id="data_TEL">
+									${TEL}&nbsp;<span style="color:red;" id="spanphone">
+								</td>
+							</tr>
+							<tr id="itemTr_1449">
+								<td class="td_title" id="title_TITLE" width="180">
+									<span style="color:red;"></span>职务
+								</td>
+								<td class="td_data" id="data_TITLE">
+									${TITLE}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1450">
+								<td class="td_title" id="title_EMAIL" width="180">
+									<span style="color:red;"></span>邮箱
+								</td>
+								<td class="td_data" id="data_EMAIL">
+									${EMAIL}&nbsp;<span style="color:red;" id="spanemail"></span>
+								</td>
+							</tr>
+							<tr id="itemTr_1451">
+								<td class="td_title" id="title_COMPANY" width="180">
+									所属公司
+								</td>
+								<td class="td_data" id="data_COMPANY">
+									${COMPANY}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1452" style="display: none;">
+								<td class="td_title" id="title_ZB" width="180">
+									组别
+								</td>
+								<td class="td_data" id="data_ZB">
+									${ZB}&nbsp;下方选择
+								</td>
+							</tr>
+							<tr id="itemTr_1453">
+								<td class="td_title" width="180">
+									组别
+								</td>
+								<td id="GroupView" class="td_data">
+									
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${USERID}
+</div>

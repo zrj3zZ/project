@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.iwork.plugs.sms.bean">
+	
+	
+	<class table="IWORK_SMS_CONFIG" name="ConfigMst">
+		<id name="cid" column="cid" type="integer">
+			<generator class="increment"></generator>
+		</id>
+		
+            <property name="type" type="java.lang.String" column="TYPE" >
+            </property>
+            <property name="ckey" type="java.lang.String" column="CKEY">
+            </property>
+            <property name="value" type="java.lang.String" column="VALUE">
+            </property>
+        
+    </class>
+</hibernate-mapping>

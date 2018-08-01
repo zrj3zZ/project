@@ -1,0 +1,55 @@
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+		<tbody>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="98%">
+						<tbody>
+							<tr id="itemTr_4017">
+								<td class="text-title" id="title_SXMC" width="90px">
+									事项名称
+								</td>
+								<td class="td_data" id="data_SXMC" width="240px">
+									${SXMC}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_4018">
+								<td class="text-title" id="title_SXGY" width="90px">
+									事项概要
+								</td>
+								<td class="td_data" id="data_SXGY" width="90px">
+									${SXGY}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_18">
+								<td class="td_title" id="title_SXLX" width="90px">
+									事项类型
+								</td>
+								<td class="td_data" style="width:auto;float:left;">
+									<div id="SXLXDIV" style="width:auto;float:left;">
+									</div>
+									<div id="data_SXLX" style="width:auto;">
+										${SXLX}&nbsp;
+									</div>
+								</td>
+								
+							</tr>
+  							 <tr id="itemTr_4019">
+								
+                                                             <td id="data_SXFJ" class="td_data" colspan="6" style="padding:0px;border:0px;">
+									<center>
+										${SXFJ}&nbsp;
+									</center>
+								</td>
+							</tr>
+
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${INSTANCEID}${COMPANYNO}${COMPANYNAME}${EXTEND1}${EXTEND2}${EXTEND3}${EXTEND4}${EXTEND5}${LCBS}${LCBH}${TASKID}${SPZT}${CREATEUSER}${CREATEDATE}${KHBH}${KHMC}${NOTICETYPE}${QCRID}${YXID}${LCID}${STEPID}${CREATENAME}${NOTICESQ}
+</div>

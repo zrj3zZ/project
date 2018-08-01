@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<report version="5.0">
+	<head>
+		<property name="type">0</property>
+		<name><![CDATA[动态色彩]]></name>
+		<dataSets/>
+		<parameters/>
+		<variables/>
+		<query-form>
+			<formProps />
+			<query-grid row="1" col="2">
+				<rows>
+				<rc idx="1"  size="25" />
+				</rows>
+				<cols>
+				<rc idx="1"  size="150" />
+				<rc idx="2"  size="150" />
+				</cols>
+				<cells>
+					<cell r="1" c="1" af="0" >
+					</cell>
+					<cell r="1" c="2" >
+						<btn action="0" text="查  询">
+						</btn>
+					</cell>
+				</cells>
+			</query-grid>
+		</query-form>
+	</head>
+	<body>
+		<sheet id="sheet1">
+			<page>
+				<property name="pageDirection">0</property>
+			</page>
+			<grid row="4" col="2">
+				<properties>
+				</properties>
+				<rows>
+					<row id="1">
+						<property name="type">1</property>
+						<property name="height">30</property>
+					</row>
+					<row id="2">
+						<property name="type">1</property>
+						<property name="height">3</property>
+					</row>
+					<row id="3">
+						<property name="type">2</property>
+						<property name="height">40</property>
+					</row>
+					<row id="4">
+						<property name="height">40</property>
+					</row>
+				</rows>
+				<columns>
+					<column id="1">
+						<property name="type">0</property>
+						<property name="width">85</property>
+					</column>
+					<column id="2">
+						<property name="width">85</property>
+					</column>
+				</columns>
+				<cells>
+					<cell id="1,1" type="0" colspan="2" >
+						<property name="value"><![CDATA[九九乘法表]]></property>
+						<property name="font-size">14</property>
+						<property name="bold">0</property>
+						<border type="1">1:0,0,0:1;1:0,0,0:1</border>
+					</cell>
+					<cell id="2,1" type="0" >
+						<border type="1">1:0,0,0:1</border>
+					</cell>
+					<cell id="2,2" type="0" >
+						<border type="1">1:0,0,0:1</border>
+					</cell>
+					<cell id="3,1" type="2" >
+						<property name="value"><![CDATA[乘数,积,被乘数]]></property>
+						<property name="font-size">9</property>
+						<property name="background"><![CDATA[='204,153,255']]></property>
+						<property name="bias-type">1</property>
+						<border type="1">1:0,0,0:1</border>
+						<border type="2">1:0,0,0:1</border>
+						<border type="3">1:0,0,0:1</border>
+					</cell>
+					<cell id="3,2" type="0" >
+						<property name="value"><![CDATA[=zone(1,9)]]></property>
+						<property name="ext-direction">2</property>
+						<property name="background"><![CDATA[=if(@value%2=0,'0,255,0','255,255,0')]]></property>
+						<border type="1">1:0,0,0:1</border>
+						<border type="3">1:0,0,0:1</border>
+					</cell>
+					<cell id="4,1" type="0" >
+						<property name="value"><![CDATA[=zone(1,9)]]></property>
+						<property name="ext-direction">3</property>
+						<property name="background"><![CDATA[=if(@value%2=0,'0,255,0','255,255,0')]]></property>
+						<border type="1">1:0,0,0:1</border>
+						<border type="2">1:0,0,0:1</border>
+						<border type="3">1:0,0,0:1</border>
+					</cell>
+					<cell id="4,2" type="0" >
+						<property name="value"><![CDATA[=B3*A4]]></property>
+						<property name="view"><![CDATA[=A4+'×'+B3+'＝'+@value]]></property>
+						<property name="background"><![CDATA[=if(@value%2=0,'204,153,255','204,255,255')]]></property>
+						<border type="1">1:0,0,0:1</border>
+						<border type="3">1:0,0,0:1</border>
+					</cell>
+				</cells>
+			</grid>
+		</sheet>
+	</body>
+</report>

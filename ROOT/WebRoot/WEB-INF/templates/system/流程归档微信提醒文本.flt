@@ -1,0 +1,5 @@
+${USERNAME},您好！
+流程标题为【${TASKTITLE}】的单据，已审批完成
+【发 送 人】${SENDER}
+【所在部门】${SENDER_DEPT}
+【意见留言】${OPINION}

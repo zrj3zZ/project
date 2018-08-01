@@ -1,0 +1,55 @@
+<div >
+		<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 5px" width="100%">
+			<tbody>
+				<tr>
+					<td class="dialog_formpage_title">费用类别维护表单</td>
+				</tr>
+				<tr>
+					<td align="right" id="help"></td>
+				</tr>
+				<tr>
+					<td align="right" class="line"></td>
+				</tr>
+				<tr>
+					<td align="left">
+						<table border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody>
+								<tr id="itemTr_1027">
+									<td class="td_title"  id="title_FZBH" width="180">									<font color='red'>*</font>分组编号									</td>
+									<td class="td_data"  id="data_FZBH">${FZBH}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_1028">
+									<td class="td_title"  id="title_FZMC" width="180">									<font color='red'>*</font>分组名称									</td>
+									<td class="td_data"  id="data_FZMC">${FZMC}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_1029">
+									<td class="td_title"  id="title_FYLBBH" width="180">									<font color='red'>*</font>费用类别编号									</td>
+									<td class="td_data"  id="data_FYLBBH">${FYLBBH}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_1030">
+									<td class="td_title"  id="title_FYLBMC" width="180">									<font color='red'>*</font>费用类别名称									</td>
+									<td class="td_data"  id="data_FYLBMC">${FYLBMC}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_1031">
+									<td class="td_title"  id="title_FYGSLX" width="180">									<font color='red'>*</font>费用归属类型									</td>
+									<td class="td_data"  id="data_FYGSLX">${FYGSLX}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_1032">
+									<td class="td_title"  id="title_PZSCCL" width="180">									<font color='red'>*</font>凭证生成策略									</td>
+									<td class="td_data"  id="data_PZSCCL">${PZSCCL}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_1033">
+									<td class="td_title"  id="title_LYCL" width="180">路由策略									</td>
+									<td class="td_data"  id="data_LYCL">${LYCL}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_1057">
+									<td class="td_title"  id="title_YSLX" width="180">预算类型									</td>
+									<td class="td_data"  id="data_YSLX">${YSLX}&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+</div>

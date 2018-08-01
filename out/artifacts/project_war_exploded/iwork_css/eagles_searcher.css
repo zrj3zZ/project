@@ -1,0 +1,321 @@
+﻿@charset "utf-8";
+/* CSS Document */
+input {
+outline: none;
+}
+textarea {
+outline: none;
+}
+
+* {
+	padding:0px;
+	margin:0px;
+	font-size:12px;
+}
+.head_bg {
+	background:url(../iwork_img/eagles/head_bg.jpg) repeat-x;
+	height:53px;
+}
+.head {
+	background:url(../iwork_img/eagles/head.jpg) no-repeat;
+	height:53px;
+}
+.head_font {
+	float:right;
+	width:400px;
+	height:50px;
+	margin-right:30px;
+	margin-top:3px;
+}
+.head_font_top {
+	text-align:right;
+	width:400px;
+	height:25px;
+	line-height:25px;
+}
+.head_font_bottom {
+	float:right;
+	width:400px;
+	height:25px;
+	line-height:25px;
+}
+.icon_usr {
+
+		float:right;
+	background:url(../iwork_img/eagles/hire-me.png) no-repeat 0px 5px;
+	
+	margin:0px 3px 0px 3px;
+	padding-left:20px;
+}
+.icon_warn {
+	background:url(../iwork_img/eagles/fram.png) no-repeat 0px 5px;
+	float:right;
+	
+
+	margin:0px 0px 0px 10px;
+	padding-left:20px;
+}
+.icon_massage {
+
+	float:right;
+	background:url(../iwork_img/eagles/email.png) no-repeat 0px 5px;
+
+	margin:0px 0px 0px 10px;
+	padding-left:20px;
+}
+.head_font a:link {
+	color:#fff;
+	text-decoration:none;
+}
+.head_font a:visited {
+	color:#fff;
+	text-decoration:none;
+}
+.head_font a:hover {
+	color:#fff;
+	text-decoration:underline;
+}
+.head_font a:active {
+	color:#fff;
+	text-decoration:none;
+}
+/*搜索页*/
+.search {
+	margin:0 auto;
+	width:588px;
+	height:280px;
+}
+.search_logo {
+	background:url(../iwork_img/eagles/logo.jpg) no-repeat;
+	height:65px;
+	width:588px;
+	margin-top:50px;
+	margin-bottom:10px;
+}
+.search_tab {
+	position:relative;
+	height:29px;
+	width:568px;
+	padding-left:20px;
+	margin-bottom:-2px;
+	clear:both;
+}
+.search_tab li {
+	display:block;
+	float:left;
+}
+.search_tab li a {
+	display:block;
+	width:65px;
+	height:29px;
+	line-height:29px;
+	text-align:center;
+	font-size:14px;
+}
+.selected a {
+	color:#000;
+	text-decoration:none;
+	background:url(../iwork_img/eagles/tab_bg.jpg);
+	height:29px;
+	width:65px;
+}
+.search_tab a:link {
+	color:#108fdc;
+	text-decoration:none;
+}
+.search_tab a:visited {
+	color:#108fdc;
+	text-decoration:none;
+}
+.search_tab a:hover {
+	color:#108fdc;
+	text-decoration:none;
+}
+.search_tab a:active {
+	color:#108fdc;
+	text-decoration:none;
+}
+.search_box {
+	background:url(../iwork_img/eagles/search_box.jpg) no-repeat;
+	height:80px; 
+	padding-left:25px;
+	padding-top:10px; 
+	margin-top:-3px;
+}
+	.search_input {
+		margin-top:3px;
+		width:438px;
+		height:30px;
+		line-height:30px;
+		background:transparent none!important;
+		border:0;
+		left:-5px;
+		font-size:20px;
+		color:#525252;
+		font-family:"微软雅黑";
+		
+	}
+}  /*chrome and safari*/
+
+.search_input {
+	position:relative;
+	width:420px;
+	height:30px;
+	line-height:30px;
+	background:transparent none!important;
+	border:0;
+    left:-5px;
+	top:2px;
+	top:-12px\0;
+	font-size:20px;
+	color:#525252;
+	font-family:"微软雅黑";
+	+top:-4px;
+
+
+}
+.search_button {
+	position:relative;
+	width:98px;
+	height:38px;
+	background:transparent none!important;
+	border:0;
+	cursor:pointer;
+	left:-5px;
+}
+/*搜索结果*/
+.result_box {
+	padding:10px 10px 10px 20px;
+}
+.mini_search_box {
+	background:url(../iwork_img/eagle_logo2.png) no-repeat;
+	height:50px; 
+	clear:both;
+	border-bottom:1px solid #ccc;
+	padding: 5px 5px 0px 130px;
+}
+
+.mini_search_input {
+	width:340px;
+	height:30px;
+	padding-left:5px;
+	font-size:14px;
+	line-height:30px;
+	background:transparent none!important;
+	border:1px solid #ccc;
+	color:#525252;
+} /*chrome and safari*/
+.mini_search_input:hover{
+	border:1px solid #FF9900;
+}
+.mini_search_button {
+	cursor:pointer;
+	width:80px;
+	height:30px; 
+	margin-left:15px;
+	margin-bottom:5px;
+}
+.mini_search_tab {
+	position:relative;
+	height:16px;
+	width:568px;
+	padding-left:125px;
+}
+.mini_search_tab li {
+	display:block;
+	float:left;
+}
+.mini_search_tab li a {
+	display:block;
+	width:40px;
+	height:14px;
+	line-height:14px;
+	text-align:center;
+	font-size:12px;
+}
+.mini_selected a {
+	color:#000;
+	font-weight:bold;
+	font-size:12px;
+	text-decoration:none;
+}
+
+.result_title{
+	font-size:12px;
+	font-weight:bold;
+	color:#0384d0;
+	line-height:30px;
+	padding-left:30px;
+	padding-right:30px;
+	width:600px;
+}
+.result_title a{
+	font-size:12px;
+}
+.result_article {
+	font-size:12px;
+	color:#6c6c6c;
+	line-height:20px;
+	margin-bottom:14px;
+	padding-left:30px;
+	padding-right:30px;
+	width:600px;
+}
+.fanye {
+	height:20px;
+	text-align:center
+}
+.nofind{
+	color:red;
+	text-align:left;
+	padding-left:100px;
+	font-size:14px;
+	text-decoration:none;
+	font-family:"宋体"
+}
+.select_index{
+	color:red;
+	font-size:12px;
+	font-family:"宋体";
+	text-decoration:none;
+}
+.container{
+	padding:5px;
+	
+}
+.tablist{
+	
+}
+.searchAreaTab{
+	padding-top:10px;
+	height:30px;
+	background:#F6F6F6;
+	padding-left:15px;
+	
+}
+.unSelectTab {
+	padding:3px;
+	border-bottom:3px solid #FF9900;
+	font-size:16px;
+	font-weight:bold;
+	text-decoration:none;
+	color:#333;  
+	margin-right:20px;
+	font-family:微软雅黑;
+}
+
+.selectTab {
+	padding:3px;
+	font-size:16px;
+	text-decoration:none;
+	color:#000;
+	margin-right:20px;
+	font-family:微软雅黑;
+}
+.selectTab:hover {
+	color:#FF9900;
+}
+.result_Item{
+	padding:5px;
+	border-bottom:1px solid #efefef;
+}

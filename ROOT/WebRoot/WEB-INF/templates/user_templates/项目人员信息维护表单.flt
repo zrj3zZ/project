@@ -1,0 +1,77 @@
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					项目人员信息维护表单
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" border="0" cellpadding="0" cellspacing="0" width="100%">
+						<tbody>
+							<tr id="itemTr_1438">
+								<td class="td_title" id="title_XM" width="180">
+									<span style="color:red;"></span>姓名
+								</td>
+								<td class="td_data" id="data_XM">
+									${XM}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1439">
+								<td class="td_title" id="title_XB" width="180">
+									<span style="color:red;"></span>性别
+								</td>
+								<td class="td_data" id="data_XB">
+									${XB}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1443">
+								<td class="td_title" id="title_POSITION" width="180">
+									职务
+								</td>
+								<td class="td_data" id="data_POSITION">
+									${POSITION}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1440">
+								<td class="td_title" id="title_LXDH" width="180">
+									<span style="color:red;"></span>联系电话
+								</td>
+								<td class="td_data" id="data_LXDH">
+									${LXDH}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1441">
+								<td class="td_title" id="title_EMAIL" width="180">
+									<span style="color:red;"></span>email
+								</td>
+								<td class="td_data" id="data_EMAIL">
+									${EMAIL}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1442">
+								<td class="td_title" id="title_BZ" width="180">
+									备注
+								</td>
+								<td class="td_data" id="data_BZ">
+									${BZ}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

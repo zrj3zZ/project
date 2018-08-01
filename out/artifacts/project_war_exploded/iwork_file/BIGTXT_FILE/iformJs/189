@@ -1,0 +1,6 @@
+document.write("<script type='text/javascript' src='iwork_js/iwork/addressClean.js'><\/script>");
+$(function () {
+    $("#CSFZR").attr('readonly', 'readonly');
+    $("#FSFZR").attr('readonly', 'readonly');
+    $("#ZZSPR").attr('readonly', 'readonly');
+});

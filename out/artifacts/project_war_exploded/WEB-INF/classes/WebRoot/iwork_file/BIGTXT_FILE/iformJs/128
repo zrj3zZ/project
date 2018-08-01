@@ -1,0 +1,20 @@
+document.write("<script type='text/javascript' src='iwork_js/jqueryjs/jquery.i18n.properties-1.0.9.js'><\/script>");
+$(function(){
+jQuery.i18n.properties({
+name:'strings',
+	path:'resources/i18n/',
+	mode:'map',
+	callback: function() {
+	var count=$.i18n.prop('string_count');
+if(count=='1'){$("#itemTr_1964").show();}else{$("#itemTr_1964").hide();}
+}
+});
+});
+function removeUploadFileItemEvent(uuid) {
+    $.post("zqb_project_deleteXMZL.action", {
+        "uuid": uuid
+    }, function (data) {
+        return true;
+    });
+    return true;
+}

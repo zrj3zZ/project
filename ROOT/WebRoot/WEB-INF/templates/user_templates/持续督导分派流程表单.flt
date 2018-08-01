@@ -1,0 +1,48 @@
+<div id="border">
+	<span style="float:right;"> <!-- <a href="#" onclick="setMenuLayout()">布局设置</a>&nbsp;&nbsp; --> <a href="#" onclick="showlog()"><img src="iwork_img/min_monitor.gif" border="0" />修改日志</a> </span> 
+	<table style="margin-bottom:5px;" class="ke-zeroborder" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					持续督导分派流程表单
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<div>
+						<iframe border="0" name="URL" id="URL" src=" " height="100%" width="100%">
+						</iframe>
+					</div>
+&nbsp;
+					<table class="ke-zeroborder" border="0" cellpadding="0" cellspacing="0" width="100%">
+						<tbody>
+							<tr id="itemTr_1820">
+							</tr>
+							<tr id="itemTr_1818">
+								<td class="td_title" id="title_KHFZR" width="180">
+									持续督导专员
+								</td>
+								<td class="td_data" id="data_KHFZR">
+									${KHFZR}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${WLINS}
+</div>

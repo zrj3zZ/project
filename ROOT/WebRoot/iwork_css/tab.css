@@ -1,0 +1,184 @@
+@charset "utf-8";
+ .tabsk {
+      width:100%;
+      font-size:14px;
+      line-height:normal;
+	  background-color:#FFF;
+      }
+    .tabsk ul {
+        margin:0;
+        padding:0px 12px 0 0px;
+        list-style:none;
+      }
+    .tabsk li {
+      display:inline;
+      margin:0;
+      padding:0;
+      }
+    .tabsk a {
+      float:left;
+	  height:24px;
+	  background-image:url(images/tab/tab2-color-left.gif);
+	  background-repeat:no-repeat;
+      padding:0 0 0 11px;
+      text-decoration:none;
+	  cursor:pointer;
+      }
+    .tabsk a span {
+      float:left;
+	  padding:2px 24px 4px 6px;
+	  line-height:24px;
+	  color:#005D94;
+	  background:url(images/tab/tab2-color-right.gif) no-repeat right top;
+	  cursor:pointer;}
+
+    .tabsk .current a {
+      float:left;
+	  height:24px;
+	  background-image:url(images/tab/tab2-gary-left.gif);
+	  background-repeat:no-repeat;
+      padding:0 0 0 11px;
+      text-decoration:none;
+	  cursor:pointer;}
+    .tabsk .current a span {
+      float:left;
+	  padding:2px 24px 4px 6px;
+	  line-height:24px;
+	  color:#cccccc;
+	  background:url(images/tab/tab2-gary-right.gif) no-repeat right top;
+	  cursor:pointer;}	
+	  
+	  	  
+	 .tabsk .current1 a {
+      float:left;
+	  height:24px;
+	  background-image:url(#);
+	  background-repeat:no-repeat;
+      padding:0 0 0 11px;
+      text-decoration:none;
+	  cursor:pointer;}
+    .tabsk .current1 a span {
+      float:left;
+	  padding:2px 24px 4px 6px;
+	  line-height:24px;
+	  color:#cccccc;
+	  background:url(#) no-repeat right top;
+	  cursor:pointer;}	 
+
+/* =1 选项卡样式
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/	  
+.t1 {
+	DISPLAY: block; OVERFLOW: hidden
+}
+.t11 {
+	DISPLAY: block; OVERFLOW: hidden
+}
+.t2 {
+	DISPLAY: block; OVERFLOW: hidden
+}
+.t3 {
+	DISPLAY: block; OVERFLOW: hidden
+}
+.t4 {
+	DISPLAY: block; OVERFLOW: hidden
+}
+.b1 {
+	DISPLAY: block; OVERFLOW: hidden
+}
+.b2 {
+	DISPLAY: block; OVERFLOW: hidden
+}
+.b3 {
+	DISPLAY: block; OVERFLOW: hidden
+}
+.b4 {
+	DISPLAY: block; OVERFLOW: hidden
+}
+.t1 {
+	HEIGHT: 1px
+}
+.t11 {
+	HEIGHT: 1px
+}
+.t2 {
+	HEIGHT: 1px
+}
+.t3 {
+	HEIGHT: 1px
+}
+.b1 {
+	HEIGHT: 1px
+}
+.b2 {
+	HEIGHT: 1px
+}
+.b3 {
+	HEIGHT: 1px
+}
+.t2 {
+	BORDER-RIGHT: #048CD6 1px solid; BORDER-LEFT: #048CD6 1px solid
+}
+.t3 {
+	BORDER-RIGHT: #048CD6 1px solid; BORDER-LEFT: #048CD6 1px solid
+}
+.t4 {
+	BORDER-RIGHT: #048CD6 1px solid; BORDER-LEFT: #048CD6 1px solid
+}
+.b2 {
+	BORDER-RIGHT: #048CD6 1px solid; BORDER-LEFT: #048CD6 1px solid
+}
+.b3 {
+	BORDER-RIGHT: #048CD6 1px solid; BORDER-LEFT: #048CD6 1px solid
+}
+.b4 {
+	BORDER-RIGHT: #048CD6 1px solid; BORDER-LEFT: #048CD6 1px solid
+}
+.box-cont {
+	BORDER-RIGHT: #048CD6 1px solid; BORDER-LEFT: #048CD6 1px solid
+}
+.t1 {
+	MARGIN: 0px 1px; BACKGROUND-COLOR: #048CD6
+}
+.t11 {
+	MARGIN: 0px 5px; BACKGROUND-COLOR: #048CD6
+}
+.b1 {
+	MARGIN: 0px 5px; BACKGROUND-COLOR: #048CD6
+}
+.t2 {
+	background-color:#ECF6FC;
+	BORDER-TOP-WIDTH: 2px; BORDER-LEFT-WIDTH: 2px; BORDER-BOTTOM-WIDTH: 2px; MARGIN: 0px 3px; BORDER-RIGHT-WIDTH: 2px
+}
+.b2 {background-color:#ECF6FC;
+	BORDER-TOP-WIDTH: 2px; BORDER-LEFT-WIDTH: 2px; BORDER-BOTTOM-WIDTH: 2px; MARGIN: 0px 3px; BORDER-RIGHT-WIDTH: 2px
+}
+.t3 {background-color:#ECF6FC;
+	MARGIN: 0px 2px
+}
+.b3 {background-color:#ECF6FC;
+	MARGIN: 0px 2px
+}
+.t4 {background-color:#ECF6FC;
+	MARGIN: 0px 1px; HEIGHT: 2px
+}
+.b4 {background-color:#ECF6FC;
+	MARGIN: 0px 1px; HEIGHT: 2px
+}
+.box-cont {
+	background-color:#F4FBFF;
+	padding:0px 4px;
+}
+.box-cont-bg{
+	background-color:#fff;}
+	
+.box-head{
+	height:22px;
+	line-height:22px;
+	background-color:#F4FBFF;
+	}
+
+.box-head-title{float:left;font-weight:bold;font-size:12px;color:#185B8D;}
+
+.fieldset-line1{ border:1px  solid #e7e7e7;}
+.fieldset-text{line-height:18px;font-size:12px;padding:8px;color:#333;}
+.fieldset-line2{ border:1px  solid #C0DBF8;}

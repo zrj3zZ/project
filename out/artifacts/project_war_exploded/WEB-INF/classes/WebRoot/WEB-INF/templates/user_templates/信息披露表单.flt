@@ -1,0 +1,41 @@
+<div id="border">
+		<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 5px" width="100%">
+			<tbody>
+				<tr>
+					<td class="formpage_title">信息披露表单</td>
+				</tr>
+				<tr>
+					<td align="right" id="help"></td>
+				</tr>
+				<tr>
+					<td align="right" class="line"></td>
+				</tr>
+				<tr>
+					<td align="left">
+						<table border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody>
+								<tr id="itemTr_1462">
+									<td class="td_title"  id="title_PL_DATE" width="180">时间									</td>
+									<td class="td_data"  id="data_PL_DATE">${PL_DATE}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_1463">
+									<td class="td_title"  id="title_PL_TITLE" width="180">名称									</td>
+									<td class="td_data"  id="data_PL_TITLE">${PL_TITLE}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_1464">
+									<td class="td_title"  id="title_PL_CONTENT" width="180">内容									</td>
+									<td class="td_data"  id="data_PL_CONTENT">${PL_CONTENT}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_1465">
+									<td class="td_title"  id="title_FJ" width="180">附件									</td>
+									<td class="td_data"  id="data_FJ">${FJ}&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+</div>
+<div style="display:none">
+${KHBH}${KHMC}</div>

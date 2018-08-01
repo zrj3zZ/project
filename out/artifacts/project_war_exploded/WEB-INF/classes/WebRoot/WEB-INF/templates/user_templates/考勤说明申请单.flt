@@ -1,0 +1,42 @@
+<div id="border">
+		<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 5px" width="100%">
+			<tbody>
+				<tr>
+					<td class="formpage_title">考勤说明申请单</td>
+				</tr>
+				<tr>
+					<td align="right" id="help"><span id="data_SQDJBH">申请单据编号:${SQDJBH}</span></td>
+				</tr>
+				<tr>
+					<td align="right" class="line"></td>
+				</tr>
+				<tr>
+					<td align="left">
+						<table border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody>
+								<tr>
+									<td class="td_title"  id="title_USERID" width="15%">									<font color='red'>*</font>用户帐号									</td>
+									<td class="td_data"  id="data_USERID"  width="35%">${USERID}&nbsp;　</td>
+									<td class="td_title"  id="title_USERNAME" width="15%">									<font color='red'>*</font>用户姓名									</td>
+									<td class="td_data"  id="data_USERNAME"  width="35%">${USERNAME}&nbsp;　</td>
+								</tr>
+								<tr>
+									<td class="td_title"  id="title_DEPTNO" width="15%">									<font color='red'>*</font>部门编号									</td>
+									<td class="td_data"  id="data_DEPTNO"  width="35%">${DEPTNO}&nbsp;　</td>
+									<td class="td_title"  id="title_DEPTNAME" width="15%">									<font color='red'>*</font>部门名称									</td>
+									<td class="td_data"  id="data_DEPTNAME"  width="35%">${DEPTNAME}&nbsp;　</td>
+								</tr>
+								<tr>
+									<td class="td_title"  id="title_SQRQ" width="15%">申请日期									</td>
+									<td class="td_data"  id="data_SQRQ"  width="35%">${SQRQ}&nbsp;　</td>
+								</tr>
+								<tr>
+									<td class="td_data"  colspan="4"  width="80%">${SUBFORM_KQSMXXMBD}&nbsp;　</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+</div>

@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+"http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+	<package strict-method-invocation="false"  name="webservice" extends="tiles-default">
+		  <!-- 定义一个名为 checkLogin 的拦截器 -->  
+        <interceptors>  
+            <!-- 定义权限检查拦截器 -->  
+            <interceptor name="checkLogin"  
+                class="com.iwork.core.server.root.IWorkInterceptor" />  
+            <!-- 定义一个包含权限检查的拦截器栈 -->  
+            <interceptor-stack name="myDefaultStack">  
+                <!-- 定义拦截器栈包含checkLogin拦截器 -->  
+                <interceptor-ref name="checkLogin"></interceptor-ref>  
+                <interceptor-ref name="defaultStack"></interceptor-ref>  
+            </interceptor-stack>  
+        </interceptors>  
+        
+        <!-- 设置全局 全局默认的拦截器栈-->  
+        <default-interceptor-ref name="myDefaultStack"></default-interceptor-ref>  
+        
+        <!-- 定义全局Result -->   
+        <global-results>  
+            <!-- 当返回login视图名时，转入/login.jsp页面 -->  
+            <result name="login">/login.jsp</result>  
+        </global-results>
+			
+		<!-- WebService管理 -->
+		<action name="web_service_index" method="index" class="webServiceAction">
+		 	<result name="success">app/engine/webservice/index.jsp</result>
+		</action> 
+		
+		<action name="web_service_showGroupJSON" method="showGroupJson" class="webServiceAction">
+		</action> 
+		
+		<action name="web_service_showJSON" method="showJson" class="webServiceAction">
+		</action> 
+		
+		<action name="web_service_showlist" method="showlist" class="webServiceAction">
+			<result name="success">app/engine/webservice/showlist.jsp</result>
+		</action>
+		
+		<action name="web_service_add" method="add" class="webServiceAction">
+			<result name="success">app/engine/webservice/edit.jsp</result>
+		</action> 
+		
+		<action name="web_service_save" method="save" class="webServiceAction">
+		</action> 
+			
+		<action name="web_service_delete" method="delete" class="webServiceAction">
+		</action> 
+		
+		<action name="web_service_param_index" method="paramIndex" class="webServiceAction">
+		 	<result name="success">app/engine/webservice/paramframe.jsp</result>
+		</action> 
+		
+		<action name="web_service_param_tabs"  class="webServiceAction">
+		 	<result name="success">app/engine/webservice/tablist.jsp</result>
+		</action> 
+		
+		<action name="web_service_param_baseinfo" method="edit" class="webServiceAction">
+		 	<result name="success">app/engine/webservice/baseinfo.jsp</result>
+		</action> 
+		
+		<action name="web_service_param_input" method="inputIndex" class="webServiceAction">
+		 	<result name="success">app/engine/webservice/inputIndex.jsp</result> 
+		</action>  
+		<action name="web_service_param_output" method="outputIndex" class="webServiceAction">
+		 	<result name="success">app/engine/webservice/output.jsp</result> 
+		</action>  
+		<action name="web_service_param_addPage" method="addPage" class="webServiceAction">
+		 	<result name="success">app/engine/webservice/param.jsp</result> 
+		</action>  
+		<action name="web_service_param_editPage" method="editPage" class="webServiceAction">
+		 	<result name="success">app/engine/webservice/param.jsp</result> 
+		</action>  
+		<action name="web_service_param_save" method="paramSave" class="webServiceAction">
+		</action> 
+		<action name="web_service_param_del" method="paramDel" class="webServiceAction">
+		</action> 
+		<action name="web_service_param_moveUp" method="moveUp" class="webServiceAction">
+		</action> 
+		<action name="web_service_param_moveDown" method="moveDown" class="webServiceAction">
+		</action> 
+		
+		<action name="web_service_param_json" method="showParamsJSON" class="webServiceAction">
+		</action> 
+		
+		<action name="web_service_runtime_showlog" method="showlog" class="webServiceRuntimeAction">
+		 	<result name="success">app/engine/webservice/runtime/loglist.jsp</result> 
+		</action>   
+		
+		<action name="web_service_runtime_showjson" method="showJSON" class="webServiceRuntimeAction">
+		</action>  
+		 
+		<action name="web_service_runtime_showitem" method="showItem" class="webServiceRuntimeAction">
+			<result name="success">app/engine/webservice/runtime/logitem.jsp</result> 
+		</action> 
+		
+		<action name="web_service_demo_index" method="demo" class="webServiceAction">
+		 	<result name="success">app/engine/webservice/demo.jsp</result>
+		</action>
+		
+	</package>
+     
+</struts>

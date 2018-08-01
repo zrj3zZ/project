@@ -1,0 +1,96 @@
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" width="100%" cellspacing="0" cellpadding="0" border="0">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					历次股权变动描述
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" width="100%" cellspacing="0" cellpadding="0" border="0">
+						<tbody>
+							<tr id="itemTr_3121">
+								<td class="td_title" id="title_NAME" width="180">
+									<span style="color:red;">*</span>股东姓名/名称
+								</td>
+								<td class="td_data" id="data_NAME">
+									${NAME}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_3122">
+								<td class="td_title" id="title_BDQCZE" width="180">
+									变动前持股数量（万）
+								</td>
+								<td class="td_data" id="data_BDQCZE">
+									${BDQCZE}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_3123">
+								<td class="td_title" id="title_BDQCZBL" width="180">
+									变动前持股比例(%)
+								</td>
+								<td class="td_data" id="data_BDQCZBL">
+									${BDQCZBL}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_3124">
+								<td class="td_title" id="title_BDHCZE" width="180">
+									变动后出持股数量（万）
+								</td>
+								<td class="td_data" id="data_BDHCZE">
+									${BDHCZE}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_3125">
+								<td class="td_title" id="title_BDHCZBL" width="180">
+									变动后持股比例(%)
+								</td>
+								<td class="td_data" id="data_BDHCZBL">
+									${BDHCZBL}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_3126">
+								<td class="td_title" id="title_ZZFS" width="180">
+									限售股份（万）
+								</td>
+								<td class="td_data" id="data_ZZFS">
+									${ZZFS}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_6000">
+								<td class="td_title" id="title_WXSGF" width="180">
+									无限售股份（万）
+								</td>
+								<td class="td_data" id="data_WXSGF">
+									${WXSGF}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_3127">
+								<td class="td_title" id="title_BDSJ" width="180">
+									附件
+								</td>
+								<td class="td_data" id="data_BDSJ">
+									${SCFJ}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${TBR}${CJSJ}${BDSJ}
+</div>

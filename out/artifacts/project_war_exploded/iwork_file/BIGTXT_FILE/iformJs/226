@@ -1,0 +1,9 @@
+$(function(){
+$.post("sx_getJdzl.action", {
+"jdmc": "¹É¸Ä"
+}, function (data) {
+var dataJson = eval("(" + data + ")");
+var content = dataJson[0].CONTENT;
+$("#spanjdzl").html(content);
+});
+});

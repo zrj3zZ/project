@@ -1,0 +1,222 @@
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					并购资料归档
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_2">
+								<td class="td_title" id="title_JYF" width="18%">
+									交易方
+								</td>
+								<td class="td_data" id="data_JYF" width="35%">
+									&nbsp;&nbsp;<span id="jyf"></span>&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_3">
+								<td class="td_title" id="title_JYDSF" width="18%">
+									交易对手方
+								</td>
+								<td class="td_data" id="data_JYDSF" width="35%">
+									&nbsp;&nbsp;<span id="jydsf"></span>&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_8">
+								<td class="td_title" id="title_OWNER" width="18%">
+									大区负责人
+								</td>
+								<td class="td_data" id="data_OWNER" width="35%">
+									&nbsp;&nbsp;<span id="owner"></span>&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_9">
+								<td class="td_title" id="title_MANAGER" width="18%">
+									项目负责人
+								</td>
+								<td class="td_data" id="data_MANAGER" width="35%">
+									&nbsp;&nbsp;<span id="manager"></span>&nbsp;　
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse;" class="ke-zeroborder">
+						<tbody>
+							<tr>
+								<td style="border:1px solid #000;width:30%;">
+									项目阶段
+								</td>
+								<td style="border:1px solid #000;width:30%;">
+									需要上传的文件
+								</td>
+								<td style="border:1px solid #000;width:30%;">
+									已上传文件
+								</td>
+								
+							</tr>
+							<tr>
+								<td style="border:1px solid #000;width:30%;">
+									项目立项
+								</td>
+								<td style="border:1px solid #000;width:30%;text-align:left;">
+									<span id="LXCONTENT"></span>
+								</td>
+								<td style="border:1px solid #000;width:30%;text-align:left;">
+									<span id="LXFJZL"></span>
+								</td>
+								
+									
+<script>
+										function showUploadifyPageXMLXZL() {
+											mainFormAlertFlag = false;
+											saveSubReportFlag = false;
+											var valid = mainFormValidator
+													.form();
+											if (!valid) {
+												return false;
+											}
+											mainFormAlertFlag = false;
+											saveSubReportFlag = false;
+											uploadifyDialog(
+													'XMLXZL',
+													'XMLXZL',
+													'LXFJZL',
+													'',
+													'true',
+													'', '');
+										}
+									</script>
+&nbsp;
+									
+								
+							</tr>
+							<tr>
+								<td style="border:1px solid #000;width:30%;">
+									方案资料报审
+								</td>
+								<td style="border:1px solid #000;width:30%;text-align:left;">
+									<span id="BSCONTENT"></span>
+								</td>
+								<td style="border:1px solid #000;width:30%;text-align:left;">
+									<span id="BSFJZL"></span>
+								</td>
+								
+<script>
+										function showUploadifyPageBSFJUUID() {
+											mainFormAlertFlag = false;
+											saveSubReportFlag = false;
+											var valid = mainFormValidator
+													.form();
+											if (!valid) {
+												return false;
+											}
+											mainFormAlertFlag = false;
+											saveSubReportFlag = false;
+											uploadifyDialog(
+													'BSFJUUID',
+													'BSFJUUID',
+													'BSFJZL',
+													'',
+													'true',
+													'', '');
+										}
+									</script>
+&nbsp;
+								
+							</tr>
+							<tr>
+								<td style="border:1px solid #000;width:30%;">
+									申报资料
+								</td>
+								<td style="border:1px solid #000;width:30%;text-align:left;">
+									<span id="SBCONTENT"></span>
+								</td>
+								<td style="border:1px solid #000;width:30%;text-align:left;">
+									<span id="SBFJZL"></span>
+								</td>
+								
+<script>
+										function showUploadifyPageSBFJUUID() {
+											mainFormAlertFlag = false;
+											saveSubReportFlag = false;
+											var valid = mainFormValidator
+													.form();
+											if (!valid) {
+												return false;
+											}
+											mainFormAlertFlag = false;
+											saveSubReportFlag = false;
+											uploadifyDialog(
+													'SBFJUUID',
+													'SBFJUUID',
+													'SBFJZL',
+													'',
+													'true',
+													'', '');
+										}
+									</script>
+&nbsp;
+									
+							</tr>
+							<tr>
+								<td style="border:1px solid #000;width:30%;">
+									资料归档
+								</td>
+								<td style="border:1px solid #000;width:30%;text-align:left;">
+									<span id="GDCONTENT"></span>
+								</td>
+								<td style="border:1px solid #000;width:30%;text-align:left;">
+									<span id="GDFJZL"></span>
+								</td>
+								<td style="border:1px solid #000;width:10%;">
+									
+<script>
+										function showUploadifyPageFJ() {
+											mainFormAlertFlag = false;
+											saveSubReportFlag = false;
+											var valid = mainFormValidator
+													.form();
+											if (!valid) {
+												return false;
+											}
+											mainFormAlertFlag = false;
+											saveSubReportFlag = false;
+											uploadifyDialog(
+													'FJ',
+													'FJ',
+													'GDFJZL',
+													'',
+													'true',
+													'', '');
+										}
+									</script>
+&nbsp;
+									
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${INSTANCEID}${COMPANYNO}${COMPANYNAME}${TBRID}${TBSJ}${XMBH}${LCBH}${LCBS}${TASKID}${SPZT}${JDBH}${SCORE}${COMPANYNAME}${JDMC}${TJRID}${TJRXM}${TJSJ}${EXTEND1}${EXTEND2}${EXTEND3}${FJ}${EXTEND4}${EXTEND5}
+</div>

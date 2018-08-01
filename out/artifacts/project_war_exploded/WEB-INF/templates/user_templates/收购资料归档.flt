@@ -1,0 +1,116 @@
+<script type="text/javascript">
+$(function () {
+    var xmbh = $("#XMBH").val();
+    $.post("hl_zqb_getSgMainContent.action", {
+        xmbh: xmbh
+    }, function (data) {
+        var dataJson = eval("(" + data + ")");
+        $("#jyf").html(dataJson[0].JYF);
+		$("#khlxdh").html(dataJson[0].KHLXDH);
+        $("#jydsf").html(dataJson[0].JYDSF);
+        $("#sgfs").html(dataJson[0].SGFS);
+        $("#czbm").html(dataJson[0].CZBM);
+        $("#sfgljy").html(dataJson[0].SFGLJY);
+        $("#gdykzrbg").html(dataJson[0].GDYKZRBG);
+        $("#sfcz").html(dataJson[0].SFCZ);
+        $("#sfwg").html(dataJson[0].SFWG);
+        $("#owner").html(dataJson[0].OWNER);
+        $("#manager").html(dataJson[0].MANAGER);
+        $("#EXTEND5").val(dataJson[0].COMPANYNO);
+    });
+     var instanceId= $("#instanceId").val();
+    $.post("zqb_announcement_gettentuserdateforpro.action",{instanceId:instanceId},function (data) {
+	$("#contenttd").html(data);
+    });
+     var jdmc = document.getElementById("JDMC").value;
+    $.post("zqb_announcement_gettentuserdateforrctwo.action",{xmbh:xmbh,jdmc:jdmc},function (data) {
+	$("#contentted").html(data);
+    });
+});
+</script>
+<div id="border">
+	<table width="100%" class="ke-zeroborder" style="margin-bottom:5px;" border="0" cellspacing="0" cellpadding="0">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					资料归档
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table width="100%" class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0">
+						<tbody>
+							<tr id="itemTr_2">
+								<td class="td_title" id="title_JYF" width="15%">
+									收购人
+								</td>
+								<td class="td_data" id="data_JYF" width="35%">
+									<span id="jyf"></span> 
+								</td>
+								<td class="td_title" id="title_KHLXDH" width="15%">
+									标名称
+								</td>
+								<td class="td_data" id="data_KHLXDH" width="35%">
+									<span id="khlxdh"></span> 
+								</td>
+							</tr>
+							<tr id="itemTr_8">
+								<td width="15%" class="td_title" id="title_OWNER">
+									业务部门负责人
+								</td>
+								<td width="35%" class="td_data" id="data_OWNER">
+									<span id="owner"></span> 
+								</td>
+								<td width="15%" class="td_title" id="title_MANAGER">
+									项目负责人
+								</td>
+								<td width="35%" class="td_data" id="data_MANAGER">
+									<span id="manager"></span> 
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<table width="100%" class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0">
+						<tbody>
+							<tr id="itemTr_2">
+								<td width="15%" class="td_title" id="title_FJ">
+									附件
+								</td>
+								<td width="85%" class="td_data" id="data_FJ" colspan="3">
+									${FJ}
+								</td>
+							</tr>
+							<tr id="itemTr_1793">
+								<td width="15%" class="td_title" id="title_FJ">
+								</td>
+								<td width="85%" class="td_data" id="contentted" style="color:red;border-bottom-color:#999999;border-bottom-width:0px;border-bottom-style:dotted;" colspan="3">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<table width="100%">
+						<tbody>
+							<tr id="itemTr_1793">
+								<td width="15%" class="td_title" id="title_FJ">
+								</td>
+								<td width="85%" class="td_data" id="contenttd" style="color:red;border-bottom-color:#999999;border-bottom-width:0px;border-bottom-style:dotted;" colspan="3">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${INSTANCEID}${COMPANYNO}${COMPANYNAME}${TBRID}${TBSJ}${XMBH}${LCBH}${LCBS}${TASKID}${SPZT}${SCORE}${JDBH}${JDMC}${TJRID}${TJRXM}${TJSJ}${EXTEND1}${EXTEND2}${EXTEND3}${EXTEND4}${EXTEND5}
+</div>

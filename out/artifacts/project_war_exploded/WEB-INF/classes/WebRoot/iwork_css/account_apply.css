@@ -1,0 +1,215 @@
+@charset "utf-8";
+*{
+	margin:0px;
+	padding:0px;}
+img {
+	border:0px;
+}
+body {
+	font-size:12px;
+	font-family:宋体;
+	font-family:Arial;
+	min-height:400px;
+	min-width:996px;
+	max-height:1000px;
+	max-height:2048px;
+}
+a:link {
+	text-decoration:none;
+	color:#0e91dd;
+}
+a:visited {
+	text-decoration:none;
+	color:#0e91dd;
+}
+a:hover {
+	text-decoration:none;
+	color:#0e91dd;
+}
+a:active {
+	text-decoration:none;
+	color:#0e91dd;
+}
+a {blr:expression(this.onFocus=this.blur())} 
+
+@charset "utf-8";
+/* CSS Document */
+
+body {
+}
+.bg1 {
+}
+.logo {
+}
+.masking {
+	background:#000;
+	filter:alpha(opacity=30);
+	-moz-opacity:0.3;
+	-khtml-opacity: 0.3;
+	opacity: 0.3;
+}
+.nav {
+	margin-top:80px;
+	background:url(../iwork_img/nav.png);
+	height:46px;
+	line-height:46px;
+}
+.main1 {
+	margin-top:80px;
+	height:225px;
+	border-top:1px solid #dd621f;
+}
+.main2 {
+	padding-top:20px;
+	margin:0 auto;
+	width:420px;
+	height:315px;
+	font-size:14px;
+}
+.explain_box {
+	width:200px;
+	margin-left:-7px;
+}
+.explain {
+	word-wrap: normal;
+	white-space:nowrap;
+	height:30px;
+	line-height:30px;
+	color:#666666;
+	font-size:12px;
+	padding-left:15px;
+	border:1px solid #bbbbbb;
+}
+.explain_arrow {
+	position:absolute;
+	background:url(../images/arrow.png) no-repeat;
+	height:32px;
+	width:7px;
+	float:left;
+	z-index:99999;
+}
+.explain_bottom {
+	background:url(../images/explain_bottom.png) repeat-x;
+	height:3px;
+	margin-left:6px;
+}
+.register_box {
+	position:absolute;
+	top:0px;
+	left:50%;
+	width:950px;
+	margin-left:-475px;
+	font-size:14px;
+	line-height:48px;
+}
+.register_box2 {
+	position:absolute;
+	top:0px;
+	left:50%;
+	width:950px;
+	margin-left:-475px;
+	font-size:14px;
+	line-height:40px;
+}
+.register_box3 {
+	position:absolute;
+	top:0px;
+	left:50%;
+	width:950px;
+	margin-left:-475px;
+	font-size:14px;
+	line-height:24px;
+}
+.register_button1 {
+	background:url(../iwork_img/btn1a.jpg) no-repeat;
+	width:263px;
+	height:35px;
+	line-height:39px;
+	color:#fff;
+	cursor:pointer;
+	text-align:center
+}
+.register_button2 {
+	background:url(../iwork_img/btn1b.jpg) no-repeat;
+	width:263px;
+	height:35px;
+	line-height:39px;
+	color:#fff;
+	cursor:pointer;
+	text-align:center
+}
+.enter_button1 {
+	background:url(../iwork_img/btn2a.jpg)  no-repeat;
+	width:159px;
+	height:38px;
+	line-height:38px;
+	color:#fff;
+	cursor:pointer;
+	text-align:center;
+	float:left
+}
+.enter_button2 {
+	background:url(../iwork_img/btn2b.jpg)  no-repeat;
+	width:159px;
+	height:38px;
+	line-height:38px;
+	color:#fff;
+	cursor:pointer;
+	text-align:center;
+	float:left
+}
+.register_middle {
+	height:130px;
+	border-top:1px dashed #eeeeee;
+	border-bottom:1px dashed #eeeeee;
+}
+
+.register_bottom {
+	height:200px;
+	background-color:#fafafa;
+	line-height:45px;
+	font-size:12px;
+	padding-top:20px;
+}
+/*input框3种状态，普通状态1，聚焦状态2，错误状态3*/
+.input1 {
+	background:url(../iwork_img/input_bg.png) #fff;
+	border:1px solid #dfdfdf;
+	width:250px;
+	height:30px; 
+	padding-left:10px;
+	font-size:16px;
+}
+.text1 {
+	color:#666666;
+	font-size:12px;
+	line-height:14px;
+}
+.input2 {
+	background:url(../iwork_img/input_bg.png) #fff;
+	border:1px solid #377bcb;
+	width:250px;
+	height:30px;
+	padding-left:10px;
+	line-height:30px;
+		font-size:14px;
+}
+.text2 {
+	color:#377bcb;
+	font-size:12px;
+	line-height:14px;
+}
+.input3 {
+	background:url(../iwork_img/input_bg.png);
+	border:1px solid #da1111;
+	width:250px;
+	height:30px;
+	padding-left:10px;
+	line-height:30px;
+		font-size:14px;
+}
+.text3 {
+	color:#da1111;
+	font-size:12px;
+	line-height:14px;
+}

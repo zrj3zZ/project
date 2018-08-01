@@ -1,0 +1,51 @@
+<div id="border">
+		<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 5px" width="100%">
+			<tbody>
+				<tr>
+					<td class="formpage_title">用户答题内容记录表</td>
+				</tr>
+				<tr>
+					<td align="right" id="help"></td>
+				</tr>
+				<tr>
+					<td align="right" class="line"></td>
+				</tr>
+				<tr>
+					<td align="left">
+						<table border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody>
+								<tr>
+									<td class="td_title"  id="title_ITEMNO" width="15%">									<font color='red'>*</font>题目编号									</td>
+									<td class="td_data"  id="data_ITEMNO"  width="35%">${ITEMNO}&nbsp;</td>
+									<td class="td_title"  id="title_REPLY" width="15%">									<font color='red'>*</font>回答内容									</td>
+									<td class="td_data"  id="data_REPLY"  width="35%">${REPLY}&nbsp;</td>
+								</tr>
+								<tr>
+									<td class="td_title"  id="title_PAPERNO" width="15%">									<font color='red'>*</font>试卷模板编号									</td>
+									<td class="td_data"  id="data_PAPERNO"  width="35%">${PAPERNO}&nbsp;</td>
+									<td class="td_title"  id="title_DEPTNAME" width="15%">									<font color='red'>*</font>部门名称									</td>
+									<td class="td_data"  id="data_DEPTNAME"  width="35%">${DEPTNAME}&nbsp;</td>
+								</tr>
+								<tr>
+									<td class="td_title"  id="title_DATETIME" width="15%">答题时间									</td>
+									<td class="td_data"  id="data_DATETIME"  width="35%">${DATETIME}&nbsp;</td>
+									<td class="td_title"  id="title_USERID" width="15%">									<font color='red'>*</font>答题人									</td>
+									<td class="td_data"  id="data_USERID"  width="35%">${USERID}&nbsp;</td>
+								</tr>
+								<tr>
+									<td class="td_title"  id="title_USERNAME" width="15%">									<font color='red'>*</font>答题人姓名									</td>
+									<td class="td_data"  id="data_USERNAME"  width="35%">${USERNAME}&nbsp;</td>
+									<td class="td_title"  id="title_SCORE" width="15%">									<font color='red'>*</font>分数									</td>
+									<td class="td_data"  id="data_SCORE"  width="35%">${SCORE}&nbsp;</td>
+								</tr>
+								<tr>
+									<td class="td_title"  id="title_EXAMNO" width="15%">									<font color='red'>*</font>答题实例编号									</td>
+									<td class="td_data"  id="data_EXAMNO"  width="35%">${EXAMNO}&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+</div>

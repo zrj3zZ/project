@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="gb2312"?>
+<org-config>
+	<user-item>
+		<key>u1</key> 
+		<type>user</type>
+		<title>执行用户微信账号同步操作</title> 
+		<implements-class>com.iwork.core.organization.impl.OrgExtendUserForWeiXinImpl</implements-class>
+		<memo>新增、修改、注销账号时调用微信接口实现微信账号添加</memo>
+	</user-item>
+	<department-item>
+		<key>d1</key> 
+		<type>department</type> 
+		<title>执行部门微信账号同步操作</title> 
+		<implements-class>com.iwork.core.organization.impl.OrgExtendDeptForWeiXinImpl</implements-class>
+		<memo>新增、修改部门时调用微信接口实现微信部门扩展接口</memo>
+	</department-item>
+	<role-item>
+		<key>r1</key>
+		<type>role</type> 
+		<title>执行角色微信账号同步操作</title> 
+		<implements-class>com.iwork.core.organization.impl.OrgExtendDeptForWeiXinImpl</implements-class>
+		<memo>新增、修改、注销角色时调用微信接口实现微信角色扩展接口</memo>
+	</role-item>
+</org-config>

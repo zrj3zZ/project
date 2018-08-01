@@ -1,0 +1,96 @@
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					股份解限售情况表
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" border="0" cellpadding="0" cellspacing="0" width="100%">
+						<tbody>
+							<tr id="itemTr_0">
+								<td class="td_title" id="title_JXS_DATE" width="15%">
+									<span style="color:red;"></span>时间
+								</td>
+								<td class="td_data" id="data_JXS_DATE" width="35%">
+									${JXS_DATE}&nbsp;　
+								</td>
+								<td class="td_title" id="title_TYPE" width="15%">
+									<span style="color:red;"></span>类型
+								</td>
+								<td class="td_data" id="data_TYPE" width="35%">
+									${TYPE}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_2">
+								<td class="td_title" id="title_USERID" width="15%">
+									<span style="color:red;"></span>人员
+								</td>
+								<td class="td_data" id="data_USERID" width="35%">
+									${USERID}&nbsp;　
+								</td>
+								<td class="td_title" id="title_GDXZ" width="15%">
+									股东性质/职务
+								</td>
+								<td class="td_data" id="data_GDXZ" width="35%">
+									${GDXZ}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_4">
+								<td class="td_title" id="title_JXSQ_XSSL" width="15%">
+									<span style="color:red;"></span>解限售前限售股份数量(万股)
+								</td>
+								<td class="td_data" id="data_JXSQ_XSSL" width="35%">
+									${JXSQ_XSSL}&nbsp;　
+								</td>
+								<td class="td_title" id="title_JXSQ_WXSSL" width="15%">
+									<span style="color:red;"></span>解限售前无限售股份数量(万股)
+								</td>
+								<td class="td_data" id="data_JXSQ_WXSSL" width="35%">
+									${JXSQ_WXSSL}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_6">
+								<td class="td_title" id="title_BCJXSSL" width="15%">
+									<span style="color:red;"></span>本次解限售数量(万股)
+								</td>
+								<td class="td_data" id="data_BCJXSSL" width="35%">
+									${BCJXSSL}&nbsp;　
+								</td>
+								<td class="td_title" id="title_JXSH_XSSL" width="15%">
+									<span style="color:red;"></span>本次解限售后限售股份数量(万股)
+								</td>
+								<td class="td_data" id="data_JXSH_XSSL" width="35%">
+									${JXSH_XSSL}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_8">
+								<td class="td_title" id="title_JXSH_WXSSL" width="15%">
+									<span style="color:red;"></span>本次解限售后无限售股份数量(万股)
+								</td>
+								<td class="td_data" id="data_JXSH_WXSSL" width="35%">
+									${JXSH_WXSSL}&nbsp;　
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${KHBH}${KHMC}
+</div>

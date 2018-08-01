@@ -1,0 +1,16 @@
+$(function () {
+    $.post("sx_getCwJdzl.action", {
+        "jdmc": "工作进度汇报",
+        "xmlx": "一般性财务顾问项目",
+        "xmbh": $("#XMBH").val()
+    }, function (data) {
+        var dataJson = eval("(" + data + ")");
+        var content = dataJson[0].CONTENT;
+        $("#spanjdzl").html(content);
+        $("#customername").html(dataJson[0].CUSTOMERNAME);
+        $("#xmfqrq").html(dataJson[0].XMFQRQ);
+        $("#owner").html(dataJson[0].OWNER);
+        $("#manager").html(dataJson[0].MANAGER);
+        $("#COMPANYNAME").val(dataJson[0].CUSTOMERNAME);
+    });
+})

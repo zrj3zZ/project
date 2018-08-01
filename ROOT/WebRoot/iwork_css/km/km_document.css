@@ -1,0 +1,313 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+	margin:0px;
+	padding:0px;
+	font-size:12px;
+}
+img {
+	border: 0 none;
+}
+/*树形结构样式*/
+.tree_left {
+	width:225px;
+	height:500px;
+	border:1px solid #dcdcdc;
+	background:#fafafa;
+	float:left;
+	color:#5c5c5c;
+	position:absolute;
+	left:5px;
+	top:5px;
+}
+.tree_title {
+	background:url(images/tree_title_bg.jpg) repeat-x;
+	height:26px;
+	line-height:26px;
+	cursor:pointer;
+	padding-left:40px;
+	font-weight:bold;
+}
+.tree_title_click {
+	background:url(images/tree_title_bg2.jpg) repeat-x;
+	height:26px;
+	line-height:26px;
+	cursor:pointer;
+	padding-left:40px;
+}
+.tree_main {
+	height:150px;
+	padding:10px 10px 10px 40px;
+ font
+}
+.right_top {
+	margin-top:5px;
+	margin-left:235px;
+}
+.right_bottom {
+	margin-top:5px;
+	margin-left:235px;
+}
+/*选项卡的样式*/
+.tab_bg {
+	margin-top:2px;
+	height:24px;
+	clear:both;
+	font-size:14px;
+	z-index:1;
+}
+.tab_bg li {
+	display:block;
+	float:left;
+	font-size:12px;
+	margin-left:5px;
+}
+.tab_bg li a {
+	display:block;
+	width:74px;
+	height:24px;
+	line-height:24px;
+	text-align:center
+}
+.tab_bg a:link {
+	color:#818181;
+	text-decoration:none;
+	background:url(images/tab_bt02.jpg) repeat-x;
+	border:#d9dada 1px solid;
+}
+.tab_bg a:visited {
+	color:#818181;
+	text-decoration:none;
+	background:url(images/tab_bt02.jpg) repeat-x;
+	border:#d9dada 1px solid;
+}
+.tab_bg a:hover {
+	color:#000;
+	text-decoration: none;
+	background:url(images/tab_bt01.jpg) repeat-x;
+	font-weight:bold;
+	border:#d9dada 1px solid;
+}
+.tab_bg a:active {
+	color:#818181;
+	text-decoration:none;
+	background:url(images/tab_bt02.jpg) repeat-x;
+	border:#d9dada 1px solid;
+}
+.selected a:link {
+	font-weight:bold;
+	color:#000;
+	text-decoration:none;
+	background:url(images/tab_bt01.jpg) repeat-x;
+	border:#d9dada 1px solid;
+	border-bottom:1px #fafafa solid;
+}
+.selected a:visited {
+	color:#000;
+	text-decoration:none;
+	background:url(images/tab_bt01.jpg) repeat-x;
+	border:#d9dada 1px solid;
+	border-bottom:1px #fafafa solid;
+}
+.selected a:hover {
+	color:#000;
+	text-decoration: none;
+	background:url(images/tab_bt01.jpg) repeat-x;
+	font-weight:bold;
+	border:#d9dada 1px solid;
+	border-bottom:1px #fafafa solid;
+}
+.selected a:active {
+	color:#000;
+	text-decoration:none;
+	background:url(images/tab_bt01.jpg) repeat-x;
+	border:#d9dada 1px solid;
+	border-bottom:1px #fafafa solid;
+}
+.div_des {
+	margin-top:1px;
+	padding:7px;
+	border: 1px #dcdcdc solid;
+	background:#fafafa;
+	height:243px;
+}
+/* 数据列表表格样式 */
+.div_list {
+	clear:both;
+	border:1px solid #dcdcdc;
+}
+.div_list table {
+	background: #fff;
+	width: 100%;
+	border-collapse:collapse;
+	border-style:none;
+}
+.div_list table th {
+	padding: 0px;
+	text-align: center;
+	font-weight: bold;
+	color: #656464;
+	border-collapse:collapse;
+	border-style:none;
+	cursor:pointer;
+	border:1px solid #f7f7f7;
+	background:url(/iwork_img/km/thead_bg.jpg);
+	height:29px;
+	line-height:29px;
+}
+.div_list table td {
+	color: #656464;
+	text-align:center;
+	border:1px solid #f7f7f7;
+	border-collapse:collapse;
+	padding:0px;
+	height:29px;
+	line-height:29px;
+}
+.div_list table tr:hover {
+	background:url(/iwork_img/km/tr_hover_bg.jpg);
+	height:29px;
+	line-height:29px;
+	color:#000;
+	
+}
+.div_list table td:hover {
+	color:#000;
+}
+.div_list table tr {
+	background: #fff;
+}
+.even {
+	background:url(/iwork_img/km/table_td_even.jpg) repeat-x  
+}
+/*选项卡内容中的二级tab选项卡通用样式*/
+.report_top {
+	height:30px;
+	line-height:30px;
+	clear:both;
+	padding-left:20px;
+	padding-bottom:5px;
+}
+.sub_tab{
+	list-style-type:none;
+}
+.sub_tab li {	
+	float:left; 
+}
+.sub_tab li:hover{	
+	background:#efefef;
+}
+.sub_tab li a {	
+	height:29px;
+	line-height:29px;
+	text-align:center;
+	font-size:12px;
+	padding:0px 10px 0px 10px;
+}
+.sub_tab_selected {
+	color:black;
+	font-weight:bold;
+	text-decoration:none;
+	background:url(images/tab_bg.jpg);    //这个图片还没有
+	height:29px;
+	line-height:29px;
+	padding:0px 10px 0px 10px;
+}
+.sub_tab a:link {
+	color:#0175bb;
+	text-decoration:none;
+}
+.sub_tab a:visited {
+	color:#0175bb;
+	text-decoration:none;
+}
+.sub_tab a:hover {
+	color:#0175bb;
+	text-decoration:none;
+}
+.sub_tab a:active {
+	color:#0175bb;
+	text-decoration:none;
+}
+/*预览页面样式*/
+.content{ padding:5px; }
+.icon_box{ width:64px; height:100px; float:left; margin-right:10px;}
+.icon_images{ width:64px; height:64px;}
+.icon_text{ width:64px; height:16px; line-height:16px; text-align:center; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
+/*评论页面样式*/
+.comment{ position:relative}
+.comment_left {
+	height:200px;
+	margin-right:330px;
+	border:1px solid #dddddd;   
+	background-color:#fff;
+	padding:10px;
+	overflow-y:auto;
+	overflow-x:hidden;
+}
+.comment_left table {
+	color:#656464;
+	word-break:break-all;
+}
+.pageTool{
+    margin-right:330px;
+}
+.comment_right {
+	width:305px;
+	height:200px;
+	position:absolute;
+	right:10px;
+	top:0px;	
+}
+.comment_content{
+	width:300px;
+	height:160px;	
+}
+/*猜你想要样式*/
+.cnxy_main {
+	border-bottom:1px solid #e6e6e6;
+		color:#656464;
+}
+.cnxy_title {
+	font-weight:bold;
+	color:#4d4d4d;
+	margin-right:400px;
+	height:30px;
+	width:45%
+}
+.cnxy_path {
+	color:#4d4d4d;
+	font-weight:normal;
+	width:50%
+}
+.cnxy_content {
+	
+}
+/*手风琴-最近浏览样式*/
+ #results-display{
+        max-width:300px;
+    }
+    .day{
+       margin-top:18px;
+       padding:0px 3px;
+       display:inline-block;
+    }
+    .entry{
+    	margin-left:5px;
+    	margin-top:5px;
+    	overflow:auto;
+    }
+    .entry .time{
+        color:#888;
+        float:left;
+        min-width:56px;
+        -webkit-margin-end:5px;
+        padding-top:1px;
+        white-space:nowrap;
+    }
+    .entry .title{
+        max-width:240px;
+        overflow:hidden;
+        white-space:nowrap;
+        text-overflow:ellipsis;
+    }

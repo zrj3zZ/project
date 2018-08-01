@@ -1,0 +1,64 @@
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					内核反馈及回复
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_3166">
+								<td colspan="4">
+									<br />
+									<table width="100%" style="border-collapse:collapse;">
+										<tbody>
+											<tr id="itemTr_24" colspan="4"> 
+												<td  colspan="4"
+													style="color:#333;font-family:微软雅黑;font-size:14px;font-weight:100;overflow-wrap:break-word;padding-bottom:3px;padding-left:3px;text-align:left;vertical-align:middle;word-break:break-all;"
+													id="data_PROJECTNAME" width="250">公司名称&nbsp;&nbsp;<span id="projectName"></span>&nbsp;
+												</td>
+											</tr>
+											<tr colspan="4">
+												<td colspan="4"
+													style="color:#333;font-family:微软雅黑;font-size:14px;font-weight:100;overflow-wrap:break-word;padding-bottom:3px;padding-left:3px;text-align:left;vertical-align:middle;word-break:break-all;"
+													id="data_MANAGER" width="250">项目负责人&nbsp;&nbsp;<span id="manager"></span>&nbsp;
+												</td>
+											</tr>
+											<tr>
+												<td style="border:1px solid #000;" width="50%" height="20px;">
+													需要增加的附件
+												</td>
+												<td rowspan="2" style="border:1px solid #000;">
+													${FJ}
+												</td>
+											</tr>
+											<tr>
+												<td style="border:1px solid #000;" width="50%">
+													<span id="spanjdzl"></span> 
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${TBRID}${TBSJ}${CUSTOMERNAME}${CUSTOMERNO}${SPZT}${LCBH}${LCBS}${TASKID}${SCORE}${JDMC}${TJRID}${TJRXM}${TJSJ}${EXTEND1}${EXTEND2}${EXTEND3}${EXTEND4}${EXTEND5}
+</div>

@@ -1,0 +1,301 @@
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					员工基础信息表
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_0">
+								<td class="td_title" id="title_ITCODE" width="15%">
+									员工帐号
+								</td>
+								<td class="td_data" id="data_ITCODE" width="35%">
+									${ITCODE}&nbsp;　
+								</td>
+								<td class="td_title" id="title_PERNO" width="15%">
+									员工编号
+								</td>
+								<td class="td_data" id="data_PERNO" width="35%">
+									${PERNO}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_2">
+								<td class="td_title" id="title_PERNAME" width="15%">
+									员工姓名
+								</td>
+								<td class="td_data" id="data_PERNAME" width="35%">
+									${PERNAME}&nbsp;　
+								</td>
+								<td class="td_title" id="title_PHOTO" width="15%">
+									照片
+								</td>
+								<td class="td_data" id="data_PHOTO" width="35%">
+									${PHOTO}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_4">
+								<td class="td_title" id="title_GENDER" width="15%">
+									性别
+								</td>
+								<td class="td_data" id="data_GENDER" width="35%">
+									${GENDER}&nbsp;　
+								</td>
+								<td class="td_title" id="title_BIRTHDAY" width="15%">
+									出生日期
+								</td>
+								<td class="td_data" id="data_BIRTHDAY" width="35%">
+									${BIRTHDAY}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_6">
+								<td class="td_title" id="title_ZJLBMC" width="15%">
+									证件类别名称
+								</td>
+								<td class="td_data" id="data_ZJLBMC" width="35%">
+									${ZJLBMC}&nbsp;　
+								</td>
+								<td class="td_title" id="title_ZJHM" width="15%">
+									证件号码
+								</td>
+								<td class="td_data" id="data_ZJHM" width="35%">
+									${ZJHM}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_9">
+								<td class="td_title" id="title_HYZKMC" width="15%">
+									婚姻状况名称
+								</td>
+								<td class="td_data" id="data_HYZKMC" width="35%">
+									${HYZKMC}&nbsp;　
+								</td>
+								<td class="td_title" id="title_ZZMMMC" width="15%">
+									政治面貌名称
+								</td>
+								<td class="td_data" id="data_ZZMMMC" width="35%">
+									${ZZMMMC}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_11">
+								<td class="td_title" id="title_JG" width="15%">
+									籍贯
+								</td>
+								<td class="td_data" id="data_JG" width="35%">
+									${JG}&nbsp;　
+								</td>
+								<td class="td_title" id="title_NATIONNAME" width="15%">
+									国籍名称
+								</td>
+								<td class="td_data" id="data_NATIONNAME" width="35%">
+									${NATIONNAME}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_15">
+								<td class="td_title" id="title_HJXZMC" width="15%">
+									户籍性质名称
+								</td>
+								<td class="td_data" id="data_HJXZMC" width="35%">
+									${HJXZMC}&nbsp;　
+								</td>
+								<td class="td_title" id="title_HJSZD" width="15%">
+									户籍所在地
+								</td>
+								<td class="td_data" id="data_HJSZD" width="35%">
+									${HJSZD}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_19">
+								<td class="td_title" id="title_MZMC" width="15%">
+									民族名称
+								</td>
+								<td class="td_data" id="data_MZMC" width="35%">
+									${MZMC}&nbsp;　
+								</td>
+								<td class="td_title" id="title_ZC" width="15%">
+									职称
+								</td>
+								<td class="td_data" id="data_ZC" width="35%">
+									${ZC}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_21">
+								<td class="td_title" id="title_ZHXLMC" width="15%">
+									最后学历名称
+								</td>
+								<td class="td_data" id="data_ZHXLMC" width="35%">
+									${ZHXLMC}&nbsp;　
+								</td>
+								<td class="td_title" id="title_ZHXWMC" width="15%">
+									最后学位名称
+								</td>
+								<td class="td_data" id="data_ZHXWMC" width="35%">
+									${ZHXWMC}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_25">
+								<td class="td_title" id="title_BYYX" width="15%">
+									毕业院校
+								</td>
+								<td class="td_data" id="data_BYYX" width="35%">
+									${BYYX}&nbsp;　
+								</td>
+								<td class="td_title" id="title_ZY" width="15%">
+									专业
+								</td>
+								<td class="td_data" id="data_ZY" width="35%">
+									${ZY}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_27">
+								<td class="td_title" id="title_YYSP" width="15%">
+									英语水平
+								</td>
+								<td class="td_data" id="data_YYSP" width="35%">
+									${YYSP}&nbsp;　
+								</td>
+								<td class="td_title" id="title_QTWYJSP" width="15%">
+									其他外语及水平
+								</td>
+								<td class="td_data" id="data_QTWYJSP" width="35%">
+									${QTWYJSP}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_29">
+								<td class="td_title" id="title_DQGZDD" width="15%">
+									当前工作地点
+								</td>
+								<td class="td_data" id="data_DQGZDD" width="35%">
+									${DQGZDD}&nbsp;　
+								</td>
+								<td class="td_title" id="title_QWGZDD" width="15%">
+									期望工作地点
+								</td>
+								<td class="td_data" id="data_QWGZDD" width="35%">
+									${QWGZDD}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_31">
+								<td class="td_title" id="title_DASZD" width="15%">
+									档案所在地
+								</td>
+								<td class="td_data" id="data_DASZD" width="35%">
+									${DASZD}&nbsp;　
+								</td>
+								<td class="td_title" id="title_BJBX" width="15%">
+									是否在北京上过基本保险
+								</td>
+								<td class="td_data" id="data_BJBX" width="35%">
+									${BJBX}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_33">
+								<td class="td_title" id="title_FJOINDATE" width="15%">
+									首次加入金山日期
+								</td>
+								<td class="td_data" id="data_FJOINDATE" width="35%">
+									${FJOINDATE}&nbsp;　
+								</td>
+								<td class="td_title" id="title_FRGS" width="15%">
+									法人公司
+								</td>
+								<td class="td_data" id="data_FRGS" width="35%">
+									${FRGS}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_35">
+								<td class="td_title" id="title_RZLX" width="15%">
+									入职类型
+								</td>
+								<td class="td_data" id="data_RZLX" width="35%">
+									${RZLX}&nbsp;　
+								</td>
+								<td class="td_title" id="title_YGLX" width="15%">
+									用工类型
+								</td>
+								<td class="td_data" id="data_YGLX" width="35%">
+									${YGLX}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_37">
+							</tr>
+							<tr id="txtAreaTr_1206">
+								<td class="td_title" id="title_ZYTZ">
+									专业特长（限50字）
+								</td>
+								<td id="data_ZYTZ" class="td_data" colspan="3">
+									${ZYTZ}&nbsp;　
+								</td>
+							</tr>
+							<tr id="txtAreaTr_1207">
+								<td class="td_title" id="title_XQAH">
+									兴趣爱好（限50字）
+								</td>
+								<td id="data_XQAH" class="td_data" colspan="3">
+									${XQAH}&nbsp;　
+								</td>
+							</tr>
+							<tr id="txtAreaTr_1208">
+								<td class="td_title" id="title_ZYQW">
+									职业期望（限50字）
+								</td>
+								<td id="data_ZYQW" class="td_data" colspan="3">
+									${ZYQW}&nbsp;　
+								</td>
+							</tr>
+							<tr id="subformTr_127">
+								<td class="td_data" colspan="4" width="80%">
+									${SUBFORM_YGLXFSB}&nbsp;　
+								</td>
+							</tr>
+							<tr id="subformTr_128">
+								<td class="td_data" colspan="4" width="80%">
+									${SUBFORM_YGWBGZJLB}&nbsp;　
+								</td>
+							</tr>
+							<tr id="subformTr_129">
+								<td class="td_data" colspan="4" width="80%">
+									${SUBFORM_JSGZJL}&nbsp;　
+								</td>
+							</tr>
+							<tr id="subformTr_130">
+								<td class="td_data" colspan="4" width="80%">
+									${SUBFORM_YGJYJLB}&nbsp;　
+								</td>
+							</tr>
+							<tr id="subformTr_131">
+								<td class="td_data" colspan="4" width="80%">
+									${SUBFORM_YGJTQKB}&nbsp;　
+								</td>
+							</tr>
+							<tr id="subformTr_132">
+								<td class="td_data" colspan="4" width="80%">
+									${SUBFORM_YGPXJLB}&nbsp;　
+								</td>
+							</tr>
+							<tr id="subformTr_133">
+								<td class="td_data" colspan="4" width="80%">
+									${SUBFORM_YGZYJNZSB}&nbsp;　
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${ZJLB}${HYZK}${ZZMM}${NATIONALITY}${HJXZ}${ZHXL}${ZHXW}${MZ}
+</div>

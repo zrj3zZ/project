@@ -1,0 +1,53 @@
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" width="100%" cellspacing="0" cellpadding="0" border="0">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					快捷应用模块表单
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" width="100%" cellspacing="0" cellpadding="0" border="0">
+						<tbody>
+							<tr id="itemTr_4269">
+								<td class="td_title" id="title_TITLE" width="180">
+									<span style="color:red;">*</span>标题
+								</td>
+								<td class="td_data" id="data_TITLE">
+									${TITLE}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_4271">
+								<td class="td_title" id="title_TYPE" width="180">
+									<span style="color:red;">*</span>类型
+								</td>
+								<td class="td_data" id="data_TYPE">
+									${TYPE}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_4272">
+								<td class="td_title" id="title_URL" width="180">
+									<span style="color:red;">*</span>路径
+								</td>
+								<td class="td_data" id="data_URL">
+									${URL}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

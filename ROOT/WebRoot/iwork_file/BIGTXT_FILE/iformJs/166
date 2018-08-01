@@ -1,0 +1,47 @@
+$(function () {
+$.ajaxSetup({
+        async: false
+    });
+var flag = new Boolean();
+var customerno=$("#CUSTOMERNO").val();
+var tzggid=$("#TZGGID").val();
+var instanceid=$("#instanceId").val();
+$.post("zqb_vote_check.action", {
+        customerno:customerno,
+        tzggid:tzggid,
+        instanceid:instanceid
+    }, function (data) {
+        if (data != "") {
+            flag = false;
+            alert(data);
+        } else {
+            flag = true;
+        }
+    });
+return flag;
+});
+function savebeforeEvent() {
+$.ajaxSetup({
+        async: false
+    });
+var flag = new Boolean();
+var customerno=$("#CUSTOMERNO").val();
+var tzggid=$("#TZGGID").val();
+var instanceid=$("#instanceId").val();
+$.post("zqb_vote_check.action", {
+        customerno:customerno,
+        tzggid:tzggid,
+        instanceid:instanceid
+    }, function (data) {
+        if (data != "") {
+            flag = false;
+            alert(data);
+        } else {
+            flag = true;
+        }
+    });
+if(flag){
+window.parent.opener.windowReload();
+}
+return flag;
+}

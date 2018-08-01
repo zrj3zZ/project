@@ -1,0 +1,39 @@
+<div id="border">
+		<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 5px" width="100%">
+			<tbody>
+				<tr>
+					<td class="formpage_title">承揽人表单</td>
+				</tr>
+				<tr>
+					<td align="right" id="help"></td>
+				</tr>
+				<tr>
+					<td align="right" class="line"></td>
+				</tr>
+				<tr>
+					<td align="left">
+						<table border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody>
+								<tr id="itemTr_2320">
+									<td class="td_title"  id="title_CLR" width="180">承揽人									</td>
+									<td class="td_data"  id="data_CLR">${CLR}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_2323">
+									<td class="td_title"  id="title_TBSJ" width="180">填报时间									</td>
+									<td class="td_data"  id="data_TBSJ">${TBSJ}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_2322">
+									<td class="td_title"  id="title_TBR" width="180">填报人									</td>
+									<td class="td_data"  id="data_TBR">${TBR}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_2321">
+									<td class="td_title"  id="title_FPBL" width="180">分配比例									</td>
+									<td class="td_data"  id="data_FPBL">${FPBL}&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+</div>

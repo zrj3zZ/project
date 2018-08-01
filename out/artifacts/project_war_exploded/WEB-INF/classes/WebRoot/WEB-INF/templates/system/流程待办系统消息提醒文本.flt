@@ -1,0 +1,7 @@
+${USERNAME},您好！ 您的同事在${SYSTEMNAME}中给您发送了一条待办流程，请您及时登录${SYSTEMNAME}进行处理。<br>
+<b><font size=2>【发 送 人】${SENDER} </font></b><br>
+<b><font size=2>【发送日期】${SENDDATE} </font></b><br>
+<b><font size=2>【所在部门】${SENDER_DEPT} </font></b><br>
+<b><font size=2>【任务标题】${TASKTITLE} </font></b><br>
+<b><font size=2>【意见留言】${OPINION} </font></b><br>
+<B>${SOURCE}</B>  

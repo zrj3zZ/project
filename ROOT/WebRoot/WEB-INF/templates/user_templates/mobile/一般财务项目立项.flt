@@ -1,0 +1,79 @@
+<script type="text/javascript">
+$(function () {
+    var xmbh = $("#PROJECTNO").val();
+    $.post("hl_zqb_getybcwMainContent.action", {
+        xmbh: xmbh
+    }, function (data) {
+        var dataJson = eval("(" + data + ")");
+        $("#jyf").html(dataJson[0].JYF);
+        $("#clbm").html(dataJson[0].CLBM);
+        $("#xmlx").html(dataJson[0].XMLX);
+        $("#czbm").html(dataJson[0].CZBM);
+        $("#cwgwzz").html(dataJson[0].CWGWZZ);
+        $("#xmfwnr").html(dataJson[0].XMFWNR);
+        $("#owner").html(dataJson[0].OWNER);
+        $("#manager").html(dataJson[0].MANAGER);
+	$("#A07").val(dataJson[0].A02);
+	$("#A08").val(dataJson[0].A03);
+    });
+    var instanceId= $("#instanceId").val();
+    $.post("zqb_announcement_gettentuserdateforpro.action",{instanceId:instanceId},function (data) {
+	$("#contenttd").html(data);
+    });
+    var jdmc = document.getElementById("JDMC").value;
+
+    $.post("zqb_announcement_gettentuserdateforrctwo.action",{xmbh:xmbh,jdmc:jdmc},function (data) {
+	$("#contentted").html(data);
+    });
+});
+</script>
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					一般财务项目立项
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_6842">
+								<td class="td_title" id="title_ATTACH" width="180">
+									项目相关附件
+								</td>
+								<td class="td_data" id="data_ATTACH">
+									${ATTACH}&nbsp;
+								</td>
+							</tr>
+                                                         <tr id="itemTr_1795">
+								<td class="td_title" id="title_FJ" width="15%"></td>
+								<td id="contentted" colspan="3" class="td_data" width="85%" style="border-bottom: 0px dotted #999999;color:red;"></td>
+							</tr>
+						</tbody>
+					</table>
+					<table width="100%">
+						<tbody>
+							<tr id="itemTr_1793">
+								<td class="td_title" id="title_FJ" width="15%"></td>
+								<td id="contenttd" colspan="3" class="td_data" width="85%" style="border-bottom: 0px dotted #999999;color:red;"></td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${CREATEUSER}${CREATEUSERID}${CREATEDATE}${PROJECTNAME}${PROJECTNO}${OWNER}${MANAGER}${STARTDATE}${ENDDATE}${CUSTOMERNAME}${CUSTOMERNO}${TYPENO}${MEMO}${CUSTOMERINFO}${XMJD}${STATUS}${KHLXR}${KHLXDH}${GSGK}${CZWT}${LSYG}${CZHGQ}${GSZYYW}${GSZYCP}${GSJZYS}${A01}${A02}${A03}${A04}${A05}${A06}${A07}${A08}${YJZXYNJLR}${FXPGFS}${YLQK}${XMZTPD}${XMYS}${WTJJJCS}${HTJE}${SFXZCL}${ZCLR}${ZCLRDH}${FZJGMC}${FZJGLXR}${WBCLRJG}${XMBZ}${GGJZR}${SBJZR}${SPZT}${LCBH}${LCBS}${STEPID}${TASKID}${QRDG}${SFTXCL}${SSSYB}${XMZRY}${CLSLR}${SHTGR}${GZLXR}${GZLXDH}${GZYJDZ}${YJSBSJ}${XMCY}
+</div>

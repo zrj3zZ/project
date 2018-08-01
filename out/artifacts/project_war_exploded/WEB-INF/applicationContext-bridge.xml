@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "file:///E:/source/RMS/ROOT/WebRoot/WEB-INF/spring-beans-2.0.dtd">
+<beans>
+
+	<bean id="connectionBridgeDesignAction" class="com.iwork.connection.bridge.action.ConnectionBridgeDesignAction" scope="prototype">
+		<property name="connectionBridgeDesignService" ref="connectionBridgeDesignService"></property>
+	</bean>
+	<bean id="connectionBridgeDesignService" class="com.iwork.connection.bridge.service.ConnectionBridgeDesignService" scope="prototype">
+		<property name="connectionBridgeDesignDAO" ref="connectionBridgeDesignDAO"></property>
+	</bean>
+	<bean id="connectionBridgeDesignDAO" class="com.iwork.connection.bridge.dao.ConnectionBridgeDesignDAO" parent="baseDAO">
+	</bean>
+	
+	<bean id="connectionBridgeRunAction" class="com.iwork.connection.bridge.action.ConnectionBridgeRunAction" scope="prototype">
+		<property name="connectionBridgeDesignService" ref="connectionBridgeDesignService"></property>
+	</bean>
+	
+	
+</beans>
+
+
+
+
+

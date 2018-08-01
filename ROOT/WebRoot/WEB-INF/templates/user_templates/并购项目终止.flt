@@ -1,0 +1,85 @@
+<script type="text/javascript">
+	$(function(){
+		$.post("dg_zqb_project_xgzt.action",function(data){ 
+		  if(data!='true'){
+			 document.getElementById("EXTEND4").readOnly=true;
+		  }
+		});
+	})
+</script>
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" width="100%" cellspacing="0" cellpadding="0" border="0">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					并购项目终止
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" width="100%" cellspacing="0" cellpadding="0" border="0">
+						<tbody>
+							<tr id="itemTr_0">
+								<td class="td_title" id="title_COMPANYNAME" width="15%">
+									公司名称
+								</td>
+								<td class="td_data" id="data_COMPANYNAME" width="35%">
+									${COMPANYNAME}&nbsp;　
+								</td>
+								<td class="td_title" id="title_ZZSJ" width="15%">
+									入库时间
+								</td>
+								<td class="td_data" id="data_ZZSJ" width="35%">
+									${ZZSJ}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_0">
+								<td class="td_title" id="title_ZZYY">
+									主要问题
+								</td>
+								<td id="data_ZZYY" class="td_data">
+									${EXTEND3}&nbsp;　
+								</td>
+								<td class="td_title" id="title_" width="15%">
+									当前状态
+								</td>
+								<td class="td_data" id="data_" width="35%">
+									${EXTEND4}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_0">
+								<td class="td_title" id="title_ZZYY">
+									入库原因
+								</td>
+								<td id="data_ZZYY" class="td_data" colspan="3">
+									${ZZYY}&nbsp;　
+								</td>
+							</tr>
+							<tr id="fjTr_5062">
+								<td class="td_title" id="title_FJ">
+									附件
+								</td>
+								<td id="data_FJ" class="td_data" colspan="3">
+									${FJ}&nbsp;　
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${USERID}${PROJECTNO}${EXTEND1}${EXTEND2}${EXTEND5}${EXTEND6}${EXTEND7}${EXTEND8}${EXTEND9}${EXTEND10}${USERNAME}${GROUPID}${PROJECTNAME}${INSTANCEID}${COMPANYNO}${JDMC}${JDBH}${XMBH}{JDID}${CJSJ}
+</div>

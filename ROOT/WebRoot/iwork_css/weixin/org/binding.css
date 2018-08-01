@@ -1,0 +1,455 @@
+*
+{
+    margin: 0 auto;
+    padding: 0px;
+}
+
+
+body
+{
+    background: 0 49px repeat-x #F3F3F3;
+}
+
+
+table
+{
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-collapse: collapse;
+}
+
+
+#LogoBg_Topbar
+{
+    width: 100%;
+    height: 60px;/* */
+    background: #2E61BC;
+    text-align: center;
+    overflow: hidden;
+}
+#LogoBg_Topbar div
+{
+ 
+    height: 45px; /* */ 
+    background-position:center;/* */ 
+    background-size:contain; /* */ 
+    -moz-background-size:contain; /* */  
+    -webkit-background-size:contain;/* */  
+    -o-background-size:contain;/* */ 
+    width: 204px;
+    margin: 7px auto 0;/**/
+    background: url('../images/logo.png') no-repeat;
+}
+
+
+.bg_titlebar_on
+{
+    line-height: 53px;/* */
+    font-size: large;
+    font-weight: bold;
+    color: #2E61BC;
+    height: 43px;
+    background: url('../images/bg_titlebar.png') repeat-x 0px -215px;
+}
+
+#Block
+{
+    overflow: hidden;
+    height: 100%;
+    text-align: center;
+}
+
+
+#InputTitle
+{
+    height: 53px;/* */
+    background:#efefef;;
+}
+#InputTitle td
+{
+    line-height: 53px;/* */
+    text-align: center;
+    vertical-align: middle;
+    font-size: 18px;
+    font-weight: bolder;
+    letter-spacing: 1px;
+}
+#InputBlock
+{
+    height: 185px;
+    -webkit-border-bottom-left-radius: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    -moz-border-radius-bottomright: 10px;
+    background-color: #ececec;
+}
+#AssureWord
+{
+    text-align:center;/* */
+    color: #B3B3B3;
+    font-size: 12px;
+    height: 18px;
+    padding-top: 5px;/* */
+    padding-left: 15px;
+    padding-bottom: 0px;/* */
+}
+
+
+#RememberFlag
+{
+    margin-top: 15px;
+    height: 20px;
+}
+#RememberFlag .left
+{
+    width: 70px;
+    height: 20px;
+}
+#RememberFlag .right
+{
+    height: 20px;
+    font-size: 12px;
+    color: #646464;
+    vertical-align: middle;
+    line-height: 20px;
+    padding-left: 10px;
+}
+
+#Tool, #Iphone, #Android
+{
+    font-size: 14px;
+    font-weight: bolder;
+    color: #012d65;
+    height: 32px;
+    line-height: 30px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+#Iphone .left
+{
+    width: 42px;
+    height: 100%;
+    background: url('../images/All.png') 0px -372px no-repeat;
+}
+#Iphone .mid
+{
+    height: 100%;
+    background: url('../images/All.png') 0px -564px repeat-x;
+}
+#Iphone .right
+{
+    width: 50px;
+    height: 100%;
+    background: url('../images/All.png') 0px -468px no-repeat;
+}
+#Android .left
+{
+    width: 42px;
+    height: 100%;
+    background: url('../images/All.png') 0px -404px no-repeat;
+}
+#Android .mid
+{
+    height: 100%;
+    background: url('../images/All.png') 0px -596px repeat-x;
+}
+#Android .right
+{
+    width: 50px;
+    height: 100%;
+    background: url('../images/All.png') 0px -500px no-repeat;
+}
+#Tool .left
+{
+    width: 42px;
+    height: 100%;
+    background: url('../images/All.png') 0px -436px no-repeat;
+}
+#Tool .mid
+{
+    height: 100%;
+    background: url('../images/All.png') 0px -628px repeat-x;
+}
+#Tool .right
+{
+    width: 50px;
+    height: 100%;
+    background: url('../images/All.png') 0px -532px no-repeat;
+}
+.on
+{
+    color: #fff;
+    text-shadow: 1px 0px #6c6c6c;
+}
+.out
+{
+    cursor: pointer;
+    color: #6c6c6c;
+    text-shadow: 1px 0px #fff;
+}
+
+.left_l_on, .left_l_out, .right_r_on, .right_r_out
+{
+    width: 9px;
+    height: 43px;
+}
+.left_l_on
+{
+    background: url('../images/All.png') no-repeat 0px -129px;
+}
+.left_l_out
+{
+    background: url('../images/All.png') no-repeat 0px 0px;
+}
+.left_r_on, .mid_on, .right_l_on
+{
+    color: #fff;
+    height: 43px;
+    background: url('../images/All.png') repeat-x 0px -215px;
+}
+.mid_on, .mid_out
+{
+    border-left: solid 1px #6c6c6c;
+    border-right: solid 1px #6c6c6c;
+}
+.left_r_out, .mid_out, .right_l_out
+{
+    height: 43px;
+    background: url('../images/All.png') repeat-x 0px -86px;
+}
+.right_r_out
+{
+    background: url('../images/All.png') no-repeat -41px -43px;
+}
+.right_r_on
+{
+    background: url('../images/All.png') no-repeat -41px -172px;
+}
+.InputLine
+{
+    height: 36px;/* */
+    padding-bottom:2px;/* */
+    padding-top:2px;/* */
+
+}
+.InputLine .left
+{
+    height: 30px;
+    width: 80px;
+    font-size: 16px;
+    color: #4f4f4f;
+    font-weight: bold;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #CDCDCD;
+}
+.InputLine .left_noline
+{
+    height: 30px;
+    width: 80px;
+    font-size: 16px;
+    color: #4f4f4f;
+    font-weight: bold;
+}
+.InputLine .left_margin
+{
+    height: 30px;
+    width: 15px;
+    font-size: 14px;
+    color: #4f4f4f;
+    font-weight: bold;
+}
+.InputLine .word_left
+{
+    padding-left: 15px;
+    height: 30px;
+    width: 80px;
+    font-size: 16px;
+    color: #4f4f4f;
+}
+.InputLine .right
+{
+    padding-left: 15px;
+    height: 28px; /*后修改*/
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #CDCDCD;
+}
+.InputLine .right_noline
+{
+    padding-left: 15px;
+    height: 30px;
+}
+.InputLine .right_1
+{
+    padding-left: 15px;
+    height: 30px;
+    text-align: right;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #CDCDCD;
+}
+.InputLine .right_margin
+{
+    width: 15px;
+    height: 30px;
+}
+
+.Line
+{
+    background: url('../images/line.png');
+}
+
+.line15px
+{
+    height: 15px;
+}
+.line10px
+{
+    height: 10px;
+}
+.line5px
+{
+    height: 5px;
+}
+.line20px
+{
+    height: 20px;
+}
+.input90
+{
+    border: solid 1px #acacac;
+    background-color: #fff;
+    height: 28px;/* */
+    line-height: 30px;
+    font-size: 16px;
+    color: #646464;
+    font-family: Arial;
+    margin-top: 0px;
+    width: 90%;
+    font-family: Arial;
+}
+
+.NoneInput90
+{
+    width: 90%;
+    height: 28px; /* 后修改*/
+    text-align: left;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    background-color: #F3F3F3;
+    border-bottom-style: none;
+    font-size: 16px;
+    color: #646464;
+    font-family: Arial;
+}
+.NoneSelect90
+{
+    width: 90%;
+    height: 30px;
+    text-align: left;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    background-color: #F3F3F3;
+    border-bottom-style: none;
+    font-size: 16px;
+    color: #646464;
+    font-family: Arial;
+}
+.NoneInput90_1
+{
+    width: 90%;
+    height: 30px;
+    text-align: right;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    background-color: #F3F3F3;
+    border-bottom-style: none;
+    font-size: 16px;
+    color: #646464;
+    font-family: Arial;
+}
+.right_1 input:focus
+{
+    text-align: left;
+}
+
+.input100px
+{
+    width: 100px;
+    font-family: Arial;
+}
+
+.InputBlockBody
+{
+    background-color: #F3F3F3;
+}
+
+.InputBlockBottom
+{
+    -webkit-border-bottom-left-radius: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    -moz-border-radius-bottomright: 10px;
+    background-color: #F3F3F3;
+}
+
+#TitleMsg
+{
+    margin: 0px;
+    padding: 8px;
+    border: 0px;
+    font-size: 14px;
+    font-weight: bold;
+}
+#AppBanner
+{
+    background: #FEFEFE;
+    height: 25px;
+    padding: 0px 10px 24px 10px;
+    font-size: 12px;
+    color: #000;
+    font-weight: bold;
+}
+
+#AppBanner a
+{
+    display: block;
+    width: 40px;
+    height: 15px;
+    background: #FF9300;
+    padding: 5px;
+    text-align: center;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    -moz-border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+form
+{
+    display: none;
+}
+.shadow
+{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    background-color: Black;
+    z-index: 100;
+    opacity: 0.7;
+}
+#MicroMessengerTip
+{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 101;
+}

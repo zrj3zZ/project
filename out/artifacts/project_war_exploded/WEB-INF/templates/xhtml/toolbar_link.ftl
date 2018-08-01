@@ -1,0 +1,1 @@
+<a href='${parameters.action?html}' id="${parameters.oid?html}"  ${parameters.disabled?html}  class="easyui-linkbutton" plain="true" iconCls="${parameters.icon?html}">${parameters.text?html}</a> 

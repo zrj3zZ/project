@@ -1,0 +1,18 @@
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+td.choose {
+	color: #004080;
+	line-height: 23px;
+	font-size: 12px;
+	text-align: left;
+	letter-spacing: 0.1em;
+	padding: 10px;
+	white-space: nowrap;
+	vertical-align: left;
+	font-family: "ËÎÌו";
+	border:0px;
+}

@@ -1,0 +1,2 @@
+ALTER TABLE orgcompany
+ADD PARENTID NUMBER;

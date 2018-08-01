@@ -1,0 +1,46 @@
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					行业信息维护表单
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_2876">
+								<td class="td_title" id="title_ZHUHY" width="180">
+									主行业
+								</td>
+								<td class="td_data" id="data_ZHUHY">
+									${ZHUHY}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2877">
+								<td class="td_title" id="title_ZIHY" width="180">
+									子行业
+								</td>
+								<td class="td_data" id="data_ZIHY">
+									${ZIHY}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${CREATOR}${CJSJ}
+</div>

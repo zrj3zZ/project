@@ -1,0 +1,240 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+	padding:0px;
+	margin:0px;
+	font-size:12px;
+}
+img {
+	border:0px;
+}
+BODY {
+	min-width:700px;
+	width:expression(document.body.clientWidth <= 700? "700px": "auto")
+}
+.colmask {
+	POSITION: relative;
+	WIDTH: 100%;
+	FLOAT: left;
+	CLEAR: both;
+	OVERFLOW: hidden
+}
+.colright {
+	POSITION: relative;
+	WIDTH: 100%;
+	FLOAT: left
+}
+.colmid {
+	POSITION: relative;
+	WIDTH: 100%;
+	FLOAT: left
+}
+.colleft {
+	POSITION: relative;
+	WIDTH: 100%;
+	FLOAT: left
+}
+.col1 {
+	POSITION: relative;
+	PADDING-BOTTOM: 1em;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	FLOAT: left;
+	OVERFLOW: hidden;
+	PADDING-TOP: 0px
+}
+.col2 {
+	POSITION: relative;
+	PADDING-BOTTOM: 1em;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	FLOAT: left;
+	OVERFLOW: hidden;
+	PADDING-TOP: 0px
+}
+.col3 {
+	POSITION: relative;
+	PADDING-BOTTOM: 1em;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	FLOAT: left;
+	OVERFLOW: hidden;
+	PADDING-TOP: 0px
+}
+.threecol {
+}
+.threecol .colmid {
+	BACKGROUND: #fff;
+	RIGHT: 33%
+}
+.threecol .colleft {
+	RIGHT: 33%
+}
+.threecol .col1 {
+	WIDTH: 33%;
+	LEFT: 101%
+}
+.threecol .col2 {
+	WIDTH: 33%;
+	LEFT: 34%
+}
+.threecol .col3 {
+	WIDTH: 33%;
+	LEFT: 69%
+}
+.report_frame {
+	border:1px solid #ebebeb;
+	background:url(../../iwork_img/report_frame_bg.jpg) repeat-x;
+	margin-top:5px;
+}
+.report_frame_title {
+	height:32px;
+	line-height:32px;
+	font-size:14px;
+	font-weight:bold;
+	padding-left:20px;
+}
+.report_frame_main {
+	line-height:24px;
+	font-size:12px;
+	background:#FFF;
+	padding:0px 20px 20px 30px;
+}
+.report_frame_main a {
+	color:#3a64b0;
+	text-decoration:none;
+}
+.report_frame_main a:hover {
+	text-decoration:underline;
+}
+.report_frame_selected {
+	border:1px solid #bcdaf8;
+	background:url(../../iwork_img/report_frame_selected_bg.jpg) repeat-x;
+	margin-top:5px;
+}
+/*选项卡内容中的二级tab选项卡通用样式*/
+.report_top {
+	height:30px;
+	line-height:30px;
+	clear:both;
+	padding-left:20px;
+}
+.sub_tab li {
+	display:block;
+	float:left;
+}
+.sub_tab li a {
+	display:block;
+	height:29px;
+	line-height:29px;
+	text-align:center;
+	font-size:12px;
+	padding:0px 10px 0px 10px;
+}
+.sub_tab li a:hover {
+	text-decoration:underline;
+}
+.sub_tab_selected {
+	color:black;
+	font-weight:bold;
+	text-decoration:none;
+	background:url(images/tab_bg.jpg);
+	height:29px;
+	line-height:29px;
+	padding:0px 10px 0px 10px;
+}
+.sub_tab a:link {
+	color:#0175bb;
+	text-decoration:none;
+}
+.sub_tab a:visited {
+	color:#0175bb;
+	text-decoration:none;
+}
+.sub_tab a:hover {
+	color:#0175bb;
+	text-decoration:none;
+}
+.sub_tab a:active {
+	color:#0175bb;
+	text-decoration:none;
+}
+/*消息中心*/
+.news_center {
+	background:url(../../iwork_img/sysmsg_frame_bg.jpg);
+	margin:0px 10px 0px 10px;
+	border:1px solid #ebebeb;
+	color:#9e9e9e;
+	margin-bottom:5px;
+}
+.news_center a {
+	color:#9e9e9e;
+	text-decoration:none;
+}
+.news_center:hover{
+	margin:0px 10px 0px 10px;
+	border:1px solid #FFCC99;
+	color:#f77215;   
+	margin-bottom:5px;
+	
+}
+.news_center_selected a {
+	color:#9e9e9e;
+	text-decoration:none;
+}
+.news_center_title {
+	font-size:14px;
+	padding-left:20px;
+	vertical-align:middle;
+	padding-top:10px;
+}
+.news_center_main {
+	line-height:24px;
+	font-size:12px;
+	background:#FFF;
+	padding:5px;
+}
+
+.msgDate{
+	text-align:right;
+	padding-right:10px;
+	
+}
+.msgContent{
+	padding:5px;
+	color:#666;
+	line-height:16px;
+	padding-left:20px;
+	
+}
+.msgLink{
+	text-align:right;
+}
+.msgLink a{
+	color:#0000ff;
+	
+}
+.msgLink a:hover{
+	color:#0000ff;
+	text-decoration:underline;
+}
+/*CSS technorati style pagination*/
+
+DIV.technorati {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; MARGIN: 3px; PADDING-TOP: 3px; TEXT-ALIGN: center
+}
+DIV.technorati A {
+	BORDER-RIGHT: #ccc 1px solid; PADDING-RIGHT: 6px; BACKGROUND-POSITION: 50% bottom; BORDER-TOP: #ccc 1px solid; PADDING-LEFT: 6px; FONT-WEIGHT: bold; PADDING-BOTTOM: 2px; BORDER-LEFT: #ccc 1px solid; COLOR: rgb(66,97,222); MARGIN-RIGHT: 3px; PADDING-TOP: 2px; BORDER-BOTTOM: #ccc 1px solid; TEXT-DECORATION: none
+}
+DIV.technorati A:hover {
+	BACKGROUND-IMAGE: none; COLOR: #fff; BACKGROUND-COLOR: #4261df
+}
+DIV.technorati A:active {
+	BACKGROUND-IMAGE: none; COLOR: #fff; BACKGROUND-COLOR: #4261df
+}
+DIV.technorati SPAN.current {
+	PADDING-RIGHT: 6px; PADDING-LEFT: 6px; FONT-WEIGHT: bold; PADDING-BOTTOM: 2px; COLOR: #000; MARGIN-RIGHT: 3px; PADDING-TOP: 2px
+}
+DIV.technorati SPAN.disabled {
+	DISPLAY: none
+}

@@ -1,0 +1,89 @@
+<div id="border">
+		<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 5px" width="100%">
+			<tbody>
+				<tr>
+					<td class="formpage_title">审批人员设置</td>
+				</tr>
+				<tr>
+					<td align="right" id="help"></td>
+				</tr>
+				<tr>
+					<td align="right" class="line"></td>
+				</tr>
+				<tr>
+					<td align="left">
+						<table border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody>
+								<tr id="itemTr_3053">
+									<td class="td_title"  id="title_LCMC" width="180">项目类型</td>
+									<td class="td_data"  id="data_LCMC" colspan="5">${XMLX}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_3054">
+									<td class="td_title"  id="title_LCMC" width="180">流程名称</td>
+									<td class="td_data"  id="data_LCMC" colspan="5">${LCMC}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_18">
+									<td width="180"></td>
+									<td>&nbsp;</td>
+									<td class="td_title" id="title_EXTENDSFSP" width="15%">扩展审批</td>
+									<td class="td_data" id="data_EXTENDSFSP" width="35%">${EXTENDSFSP}&nbsp;</td>
+									<td class="td_title" id="title_EXTENDSFSP" width="15%">扩展扣分</td>
+									<td class="td_data" id="data_EXTENDSFSP" width="35%">${EXTENDSFKF}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_3054">
+									<td class="td_title"  id="title_NODE1" width="180">一级审批</td>
+									<td class="td_data"  id="data_NODE1">${NODE1}&nbsp;<a href="javascript:clean('NODE1');" class="easyui-linkbutton" plain="true" iconcls="icon-remove">清空</a></td>
+									<td class="td_title"  id="title_NODE1SFSP" width="180">是否参与审批</td>
+									<td class="td_data" id="data_NODE1SFSP" width="35%">${NODE1SFSP}&nbsp;</td>
+									<td class="td_title"  id="title_NODE1SFKF" width="180">是否参与扣分</td>
+									<td class="td_data" id="data_NODE1SFKF" width="35%">${NODE1SFKF}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_3055">
+									<td class="td_title"  id="title_NODE2" width="180">二级审批</td>
+									<td class="td_data"  id="data_NODE2">${NODE2}&nbsp;<a href="javascript:clean('NODE2');" class="easyui-linkbutton" plain="true" iconcls="icon-remove">清空</a></td>
+									<td class="td_title"  id="title_NODE2SFSP" width="180">是否参与审批</td>
+									<td class="td_data" id="data_NODE2SFSP" width="35%">${NODE2SFSP}&nbsp;</td>
+									<td class="td_title"  id="title_NODE2SFKF" width="180">是否参与扣分</td>
+									<td class="td_data" id="data_NODE2SFKF" width="35%">${NODE2SFKF}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_3056">
+									<td class="td_title"  id="title_NODE3" width="180">三级审批</td>
+									<td class="td_data"  id="data_NODE3">${NODE3}&nbsp;<a href="javascript:clean('NODE3');" class="easyui-linkbutton" plain="true" iconcls="icon-remove">清空</a></td>
+									<td class="td_title"  id="title_NODE3SFSP" width="180">是否参与审批</td>
+									<td class="td_data" id="data_NODE3SFSP" width="35%">${NODE3SFSP}&nbsp;</td>
+									<td class="td_title"  id="title_NODE3SFKF" width="180">是否参与扣分</td>
+									<td class="td_data" id="data_NODE3SFKF" width="35%">${NODE3SFKF}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_3057">
+									<td class="td_title"  id="title_NODE4" width="180">四级审批</td>
+									<td class="td_data"  id="data_NODE4">${NODE4}&nbsp;<a href="javascript:clean('NODE4');" class="easyui-linkbutton" plain="true" iconcls="icon-remove">清空</a></td>
+									<td class="td_title"  id="title_NODE4SFSP" width="180">是否参与审批</td>
+									<td class="td_data" id="data_NODE4SFSP" width="35%">${NODE4SFSP}&nbsp;</td>
+									<td class="td_title"  id="title_NODE4SFKF" width="180">是否参与扣分</td>
+									<td class="td_data" id="data_NODE4SFKF" width="35%">${NODE4SFKF}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_3058">
+									<td class="td_title"  id="title_NODE5" width="180">五级审批</td>
+									<td class="td_data"  id="data_NODE5">${NODE5}&nbsp;<a href="javascript:clean('NODE5');" class="easyui-linkbutton" plain="true" iconcls="icon-remove">清空</a></td>
+									<td class="td_title"  id="title_NODE5SFSP" width="180">是否参与审批</td>
+									<td class="td_data" id="data_NODE5SFSP" width="35%">${NODE5SFSP}&nbsp;</td>
+									<td class="td_title"  id="title_NODE5SFKF" width="180">是否参与扣分</td>
+									<td class="td_data" id="data_NODE5SFKF" width="35%">${NODE5SFKF}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_3059">
+									<td class="td_title"  id="title_NODE6" width="180">六级审批</td>
+									<td class="td_data"  id="data_NODE6">${NODE6}&nbsp;<a href="javascript:clean('NODE6');" class="easyui-linkbutton" plain="true" iconcls="icon-remove">清空</a></td>
+									<td class="td_title"  id="title_NODE6SFSP" width="180">是否参与审批</td>
+									<td class="td_data" id="data_NODE6SFSP" width="35%">${NODE6SFSP}&nbsp;</td>
+									<td class="td_title"  id="title_NODE6SFKF" width="180">是否参与扣分</td>
+									<td class="td_data" id="data_NODE6SFKF" width="35%">${NODE6SFKF}&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+</div>
+<div style="display:none">
+${TBR}${TBSJ}${NODE7}${NODE8}${NODE9}${NODE10}${NODE7SFSP}${NODE8SFSP}${NODE9SFSP}${NODE10SFSP}${NODE7SFKF}${NODE8SFKF}${NODE9SFKF}${NODE10SFKF}</div>

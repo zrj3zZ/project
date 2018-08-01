@@ -1,0 +1,12 @@
+
+${USERNAME},您好！ 您曾经办理过的流程标题为【${TASKTITLE}】的流程<br>
+在审批过程中被${SENDER} <b><font color="red">驳回办理</font></b>，驳回意见为【${OPINION}】,特此通知！<br>
+<b><font size=2>【发送日期】${SENDDATE} </font></b><br>
+<b><font size=2>【任务标题】${TASKTITLE} </font></b><br>
+<b><a target="_blank" href="${LINKURL}"><font size=3>查看详情</font></a></b><br>
+说明： <br>
+1.单击“点击办理”链接，输入用户名及密码，系统将自动跳转至表单页面，执行流程办理，或者您可以登录${LOGINURL}【常用功能-流程处理中心-通知传阅】处理待办流程。
+2.此为系统自动发送的邮件，请不要直接回复；
+3.${SYSTEMNAME}为公司内部办公系统，包含公司保密信息，请勿将其中信息透漏给无关人员；同时请您妥善保管好自己的用户名和密码。
+
+${SOURCE} 

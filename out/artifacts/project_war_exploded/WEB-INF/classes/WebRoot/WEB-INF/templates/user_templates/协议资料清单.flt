@@ -1,0 +1,148 @@
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#XMBH").val($("#PROJECTNO").val());
+		//$("#iformMain").attr('action','savezlqddata.action');
+	});
+</script>
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					协议资料清单
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_2473" style="display:none;">
+								<td class="td_title" id="title_XMBH" width="180">
+									
+								</td>
+								<td class="td_data" id="data_XMBH">
+									${XMBH}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2474">
+								<td class="td_title" id="title_XYZLMC" width="180">
+									协议资料名称
+								</td>
+								<td class="td_data" id="data_XYZLMC">
+									${XYZLMC}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2475" style="display:none;">
+								<td class="td_title" id="title_HTQDRQ" width="180">
+									
+								</td>
+								<td class="td_data" id="data_HTQDRQ">
+									${HTQDRQ}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2476" style="display:none;">
+								<td class="td_title" id="title_HTZZRQ" width="180">
+									
+								</td>
+								<td class="td_data" id="data_HTZZRQ">
+									${HTZZRQ}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2477" style="display:none;">
+								<td class="td_title" id="title_HTFZR" width="180">
+									
+								</td>
+								<td class="td_data" id="data_HTFZR">
+									${HTFZR}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2478" style="display:none;">
+								<td class="td_title" id="title_ZLFS" width="180">
+									
+								</td>
+								<td class="td_data" id="data_ZLFS">
+									${ZLFS}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2485" style="display:none;">
+								<td class="td_title" id="title_KDDH" width="180">
+									
+								</td>
+								<td class="td_data" id="data_KDDH">
+									${KDDH}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2480" style="display:none;">
+								<td class="td_title" id="title_HTWJ" width="180">
+									
+								</td>
+								<td class="td_data" id="data_HTWJ">
+									${HTWJ}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2481" style="display:none;">
+								<td class="td_title" id="title_YJDZ" width="180">
+									
+								</td>
+								<td class="td_data" id="data_YJDZ">
+									${YJDZ}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2482" style="display:none;">
+								<td class="td_title" id="title_SJR" width="180">
+									
+								</td>
+								<td class="td_data" id="data_SJR">
+									${SJR}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2483" style="display:none;">
+								<td class="td_title" id="title_SJRDH" width="180">
+									
+								</td>
+								<td class="td_data" id="data_SJRDH">
+									${SJRDH}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2484" style="display:none;">
+								<td class="td_title" id="title_YB" width="180">
+									
+								</td>
+								<td class="td_data" id="data_YB">
+									${YB}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2479" style="display:none;">
+								<td class="td_title" id="title_ZZHTSFYGD" width="180">
+									
+								</td>
+								<td class="td_data" id="data_ZZHTSFYGD">
+									${ZZHTSFYGD}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2480" style="display:none;">
+								<td class="td_title" id="title_ZT" width="180">
+									状态
+								</td>
+								<td class="td_data" id="data_ZT">
+									${ZT}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${projectNo}
+</div>

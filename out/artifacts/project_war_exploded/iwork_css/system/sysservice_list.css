@@ -1,0 +1,43 @@
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.servicename{
+	color:#00FF00;
+	padding-top:3px;
+	background-image:URL(../../iwork_img/grid_bk1.gif);
+	padding-left:6px;
+	text-align:left;
+	 font-size:12px;
+}
+.servicecontent{
+	background-image:URL(../../iwork_img/grid_bk1.gif);
+	color:#00FF00;
+	text-align:left;
+	top:auto;
+	padding-left:10px;
+	padding-top:10px;
+	font-size:12px;
+	
+}
+.title{
+   font-size:20px;
+   font-family:黑体;
+}
+.page{
+	color:#FFFFF;
+}
+.servicetitle{
+	background-color:#666666;
+	color:#FFFFFF;
+	font-family:黑体;
+	font-size:14px;
+	padding:5px;
+}
+.STYLE1 {color: #FFFFFF}
+/*普通连接*/
+.Acolor A:link {text-decoration: none;	color: #FFFFFF}
+.Acolor A:visited {text-decoration: none;color:#FFFFFF}
+.Acolor A:Hover {text-decoration: underline;color: #FFFFFF;}

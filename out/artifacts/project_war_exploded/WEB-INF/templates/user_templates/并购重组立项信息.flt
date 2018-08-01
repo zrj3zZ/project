@@ -1,0 +1,184 @@
+<script type="text/javascript">
+function dept_book(targetname,targetid) {
+    var pageUrl = "zqb_gpfx_addxmcy_department_index.action?targetname="+targetname;
+    art.dialog.open(pageUrl,{
+        id: "deptBookDialog",
+        title: '部门地址簿',
+        content: pageUrl,
+        pading: 0,
+        lock: true,
+        width: 350,
+        height: 550
+    });
+}
+</script>
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					并购重组立项信息
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_0">
+								<td class="td_title" id="title_TBRID" width="15%">
+									填报人
+								</td>
+								<td class="td_data" id="data_TBRID" width="35%">
+									${TBRID}&nbsp;　
+								</td>
+								<td class="td_title" id="title_TBSJ" width="15%">
+									填报时间
+								</td>
+								<td class="td_data" id="data_TBSJ" width="35%">
+									${TBSJ}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_2">
+								<td class="td_title" id="title_JYF" width="15%">
+									<span style="color:red;">*</span>交易方（客户名称）
+								</td>
+								<td class="td_data" id="data_JYF" width="35%">
+									${JYF}
+								</td>
+								<td class="td_title" id="title_JYDSF" width="15%">
+									<span style="color:red;">*</span>交易对手方
+								</td>
+								<td class="td_data" id="data_JYDSF" width="35%">
+									${JYDSF}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_4">
+								<td class="td_title" id="title_SGFS" width="15%">
+									<span style="color:red;">*</span>收购方式
+								</td>
+								<td class="td_data" id="data_SGFS" width="35%">
+									${SGFS}&nbsp;　
+								</td>
+								<td class="td_title" id="title_CZBM" width="15%">
+									<span style="color:red;">*</span>承做部门
+								</td>
+								<td class="td_data" id="data_CZBM" width="35%">
+									${CZBM}&nbsp;<a id="selfdefinebook1" href="###" onclick="dept_book('CZBM','');" title="部门地址薄" class="easyui-linkbutton" plain="true" iconcls="icon-deptbook"></a>
+								</td>
+							</tr>
+							<tr id="itemTr_2964">
+								<td class="td_title" id="title_SFGLJY" width="180">
+									<span style="color:red;">*</span>是否构成关联交易
+								</td>
+								<td class="td_data" id="data_SFGLJY">
+									${SFGLJY}&nbsp;
+								</td>
+								<td class="td_title" id="title_GDYKZRBG" width="180">
+									<span style="color:red;">*</span>控股股东、实际控制是否变更
+								</td>
+								<td class="td_data" id="data_GDYKZRBG">
+									${GDYKZRBG}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2976">
+								<td class="td_title" id="title_SFCZ" width="180">
+									<span style="color:red;">*</span>是否构成重大资产重组
+								</td>
+								<td class="td_data" id="data_SFCZ">
+									${SFCZ}&nbsp;
+								</td>
+								<td class="td_title" id="title_SFWG" width="180">
+									<span style="color:red;">*</span>交易对手方在最近两年是否违法违规
+								</td>
+								<td class="td_data" id="data_SFWG">
+									${SFWG}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_8">
+								<td class="td_title" id="title_OWNER" width="15%">
+									<span style="color:red;">*</span>大区负责人
+								</td>
+								<td class="td_data" id="data_OWNER" width="35%">
+									${OWNER}&nbsp;　
+								</td>
+								<td class="td_title" id="title_MANAGER" width="15%">
+									<span style="color:red;">*</span>项目负责人
+								</td>
+								<td class="td_data" id="data_MANAGER" width="35%">
+									${MANAGER}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_12">
+								<td class="td_title" id="title_KHLXR" width="15%">
+									客户联系人
+								</td>
+								<td class="td_data" id="data_KHLXR" width="35%">
+									${KHLXR}&nbsp;　
+								</td>
+								<td class="td_title" id="title_KHLXDH" width="15%">
+									客户联系电话
+								</td>
+								<td class="td_data" id="data_KHLXDH" width="35%">
+									${KHLXDH}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_14">
+								<td class="td_title" id="title_XMFQRQ" width="15%">
+									<span style="color:red;">*</span>项目发起日期
+								</td>
+								<td class="td_data" id="data_XMFQRQ" width="35%">
+									${XMFQRQ}&nbsp;　
+								</td>
+								<td class="td_title" id="title_TPRQ" width="15%">
+									停牌日期
+								</td>
+								<td class="td_data" id="data_TPRQ" width="35%">
+									${TPRQ}&nbsp;　
+								</td>
+							</tr>
+							<tr id="fjTr_2975">
+								<td class="td_title" id="title_FJ">
+									项目风险
+								</td>
+								<td id="data_FJ" class="td_data" colspan="3">
+									${XMFX}&nbsp;　
+								</td>
+							</tr>
+							<tr id="txtAreaTr_2974">
+								<td class="td_title" id="title_BZ">
+									备注
+								</td>
+								<td id="data_BZ" class="td_data" colspan="3">
+									${BZ}&nbsp;　
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div style="border-right-width:0px;width:840px;border-top-width:0px;border-bottom-width:0px;height:800px;border-left-width:0px;border-image:none;" id="mainFrameTab" class="easyui-tabs" fit="true">
+		<div style="border-bottom:#efefef 0px solid;border-left:#efefef 0px solid;height:800px;border-top:#efefef 0px solid;border-right:#efefef 0px solid;border-image:none;image:none;" title="项目阶段信息" border="true" cache="false">
+			<iframe id="URL" height="100%" border="0" width="100%" name="URL" qbiframeattached="true">
+			</iframe>
+		</div>
+		<div style="border-bottom:#efefef 0px solid;border-left:#efefef 0px solid;height:500px;border-top:#efefef 0px solid;border-right:#efefef 0px solid;border-image:none;" title="项目参与人" border="true" cache="false">
+			${SUBFORM_XMCYLB}&nbsp;
+		</div>
+		<div style="border-bottom:#efefef 0px solid;border-left:#efefef 0px solid;height:500px;border-top:#efefef 0px solid;border-right:#efefef 0px solid;border-image:none;" title="中介机构" border="true" cache="false">
+			${SUBFORM_XMZJJG}&nbsp;
+		</div>
+	</div>
+</div>
+<div style="display:none;">
+	${INSTANCEID}${COMPANYNO}${COMPANYNAME}${XMBH}${XMTZZT}${XMZT}${JDBH}
+</div>

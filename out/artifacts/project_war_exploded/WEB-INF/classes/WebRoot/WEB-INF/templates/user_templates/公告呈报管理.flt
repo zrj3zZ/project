@@ -1,0 +1,94 @@
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					公告呈报管理6565
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="98%">
+						<tbody>
+							<tr id="itemTr_1705">
+								<td id="title_ZQJCXS" class="td_title" width="100px">
+									公司简称
+								</td>
+								<td id="data_ZQJCXS" class="td_data" width="120px">
+									${ZQJCXS}&nbsp;
+								</td>
+								<td id="title_ZQDMXS" class="td_title" width="100px">
+									证券代码
+								</td>
+								<td id="data_ZQDMXS" class="td_data" width="120px">
+									${ZQDMXS}&nbsp;
+								</td>
+								<td id="title_XPSX" class="td_title" width="100px">
+									信披事项
+								</td>
+								<td id="data_XPSX" class="td_data" width="auto">
+									&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1706">
+								<td id="title_NOTICENO" class="td_title" width="100px">
+									公告编号
+								</td>
+								<td id="data_NOTICENO" class="td_data" width="120px">
+									${NOTICENO}&nbsp;
+								</td>
+								<td id="title_NOTICEDATE" class="td_title" width="100px">
+									披露日期
+								</td>
+								<td id="data_NOTICEDATE" class="td_data" width="120px">
+									${NOTICEDATE}&nbsp;
+								</td>
+								<td id="title_NOTICETYPE" class="td_title" width="100px">
+									公告类型
+								</td>
+								<td id="data_NOTICETYPE" class="td_data">
+									${NOTICETYPE}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1709">
+								<td id="title_NOTICENAME" class="td_title" width="120">
+									公告名称
+								</td>
+								<td id="data_NOTICENAME" class="td_data" colspan="5">
+									${NOTICENAME}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1910">
+								<td id="title_GGZY" class="td_title" width="120">
+									公告摘要
+								</td>
+								<td id="data_GGZY" class="td_data" colspan="5">
+									${GGZY}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1596">
+								<td id="title_NOTICEFILE" class="td_title" width="180">
+									公告附件
+								</td>
+								<td id="data_NOTICEFILE" class="td_data" colspan="3">
+									${NOTICEFILE}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${INSTANCEID}${MTYDKJ}${COMPANYNO}${COMPANYNAME}${CREATENAME}${CREATEDATE}${NOTICEFLAG}${PAPERFILENO}${BZLX}${MEETID}${CREATERID}${KHBH}${KHMC}${RWID}${YXID}${SPZT}${PRCID}${LCBS}${STEPID}${LCBH}${MEETNAME}${NOTICETEXT}${NOTICESQ}${GGDF}${QCRID}${BZLX}
+</div>

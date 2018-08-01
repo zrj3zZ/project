@@ -1,0 +1,115 @@
+document.write("<script type='text/javascript' src='iwork_js/iwork/project.js'><\/script>");
+$(function () {
+    $("#spanuserid").html("填报人:" + $("#CREATEUSER").val() + "[" + $("#CREATEUSERID").val() + "]");
+    $("#HTJE").keyup(function () {
+        if (htje == "") return;
+        var htjearr = htje.split(".");
+        if (htjearr[0].length > 8) {
+            $("#htjespan").html("整数部分超过8位,请重新输入");
+            $("#HTJE").val("");
+        } else {
+            $("#htjespan").html("");
+        }
+    });
+    window.onbeforeunload = function (event) {
+        window.opener.top.frames["deskframe"].location.reload();
+    };
+    document.getElementsByName("OWNER")[0].readOnly = true;
+    document.getElementsByName("MANAGER")[0].readOnly = true;
+    var instanceid = $("#instanceId").val();
+    var projectNo = $("#PROJECTNO").val();
+    var projectName = $("#PROJECTNAME").val();
+    if (typeof (projectName) == 'undefined') {
+        projectName = $("input[name='PROJECTNAME']").val();
+        instanceid = $("input[name='instanceId']").val();
+        projectNo = $("input[name='PROJECTNO']").val();
+    }
+    if (typeof (projectName) == 'undefined') {
+        var url = location.search;
+        var Request = new Object();
+        if (url.indexOf("?") != -1) {
+            var str = url.substr(1);
+            strs = str.split("&");
+            for (var i = 0; i < strs.length; i++) {
+                Request[strs[i].split("=")[0]] = (strs[i].split("=")[1]);
+            }
+            projectName = Request["PROJECTNAME"];
+        }
+    }
+    $("#URL").attr("src", "loadProjectNew.action?instanceId=" + instanceid + "&projectNo=" + projectNo + "&projectName=" + encodeURI(projectName));
+    $("#PJ").attr("src", "loadPj.action?instanceId=" + instanceid + "&projectNo=" + projectNo + "&projectName=" + encodeURI(projectName));
+    $("#XGWT").attr("src", "loadXgwt.action?instanceId=" + instanceid + "&projectNo=" + projectNo + "&projectName=" + encodeURI(projectName));
+});
+//打开数据字典
+function openDictionary(uuid, subformkey, subformid) {
+    var pageUrl = "url:sys_dictionary_runtime_show.action?dictionaryUUID=" + uuid + "&subformkey=" + subformkey + "&subformid=" + subformid;
+    var obj = $("#iformMain").serialize();
+    var dg = $.dialog({
+        id: 'DictionaryDialog',
+        cover: true,
+        title: "数据选择",
+        width: 800,
+        height: 520,
+        loadingText: '正在加载中,请稍后...',
+        bgcolor: '#999',
+        rang: true,
+        lock: true,
+        iconTitle: false,
+        extendDrag: true,
+        autoSize: false,
+        resize: false,
+        content: pageUrl,
+        data: obj,
+        close: function () {
+            if (uuid == "c36498ba75ff47a48e26f99bc393fa99") {               
+                var customername = $("#CUSTOMERNAME").val();
+                $("#PROJECTNAME").val(customername);
+            }
+        }
+    });
+    dg.ShowDialog();
+}
+
+function addItem() {
+    var pageUrl = "url:createFormInstance.action?formid=88&demId=21";
+    $.dialog({
+        title: '客户信息维护表单',
+        loadingText: '正在加载中,请稍后...',
+        bgcolor: '#999',
+        rang: true,
+        width: 1100,
+        cache: false,
+        lock: true,
+        height: 580,
+        iconTitle: false,
+        extendDrag: true,
+        autoSize: false,
+        content: pageUrl
+    });
+}
+
+function dept_book() {
+    var pageUrl = "url:zqb_addxmcy_department_index.action";
+    $.dialog({
+        id: "deptBookDialog",
+        title: '部门地址簿',
+        content: pageUrl,
+        pading: 0,
+        lock: true,
+        width: 350,
+        height: 550
+    });
+}
+
+function dept_clbm_book() {
+    var pageUrl = "url:zqb_clbm_index.action";
+    $.dialog({
+        id: "deptBookDialog",
+        title: '部门地址簿',
+        content: pageUrl,
+        pading: 0,
+        lock: true,
+        width: 350,
+        height: 550
+    });
+}

@@ -1,0 +1,116 @@
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					档案存档流程表
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_6823">
+								<td class="td_title" id="title_SQSJ" width="180">
+									申请时间
+								</td>
+								<td class="td_data" id="data_SQSJ">
+									${SQSJ}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_6822">
+								<td class="td_title" id="title_YHM" width="180">
+									用户名
+								</td>
+								<td class="td_data" id="data_YHM">
+									${BMMC}/${YHM}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_6831">
+								<td class="td_title" id="title_DABH" width="180">
+									档案编号
+								</td>
+								<td class="td_data" id="data_DABH">
+									${DABH}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_6825">
+								<td class="td_title" id="title_DAMC" width="180">
+									<span style="color:red;">*</span>档案名称
+								</td>
+								<td class="td_data" id="data_DAMC">
+									${DAMC}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_6826">
+								<td class="td_title" id="title_DALX" width="180">
+									档案类型
+								</td>
+								<td class="td_data" id="data_DALX">
+									${DALX}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_6827">
+								<td class="td_title" id="title_GDWZ" width="180">
+									归档位置
+								</td>
+								<td class="td_data" id="data_GDWZ">
+									${GDWZ}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_6828">
+								<td class="td_title" id="title_DAJS" width="180">
+									档案件数
+								</td>
+								<td class="td_data" id="data_DAJS">
+									${DAJS}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_6829">
+								<td class="td_title" id="title_DAFJ" width="180">
+									附件
+								</td>
+								<td class="td_data" id="data_DAFJ">
+									${DAFJ}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_6824">
+								<td class="td_title" id="title_GDSJ" width="180">
+									归档时间
+								</td>
+								<td class="td_data" id="data_GDSJ">
+									${GDSJ}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="data" style="padding:10px;padding-left:10px;padding-right:10px;">
+					<fieldset class="td_memo">
+						<legend class="td_memo_title">使用说明</legend>
+						<p>
+							<span style="color:#E53333;">*附件上传（档案电子版、项目底稿传目录）</span> 
+						</p>
+					</fieldset>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${INSTANCEID}${COMPANYNO}${COMPANYNAME}${YHID}${ZT}${LCBH}${LZJD}${RWID}${BMID}${BMMC}${JSID}
+</div>

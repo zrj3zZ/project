@@ -1,0 +1,118 @@
+<script type="text/javascript">
+$(function(){
+$("#spanzhxgsj").html($("#ZHXGSJ").val());
+});
+</script>
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					项目签约
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_100">
+								<td class="td_title" colspan="4">
+									最后修改人：${ZHXGR}&nbsp;&nbsp;最后修改时间：<span id="spanzhxgsj"></span> &nbsp;&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_0">
+								<td class="td_title" id="title_GSMC" width="15%">
+									公司名称
+								</td>
+								<td class="td_data" id="data_GSMC" width="35%">
+									${GSMC}&nbsp;　
+								</td>
+								<td class="td_title" id="title_LCJSRQ" width="15%">
+									OA流程结束日期
+								</td>
+								<td class="td_data" id="data_LCJSRQ" width="35%">
+									${LCJSRQ}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_5">
+								<td class="td_title" id="title_SSBM" width="15%">
+									所属部门
+								</td>
+								<td class="td_data" id="data_SSBM" width="35%">
+									${SSBM}&nbsp;<a id="selfdefinebook1" href="###" onclick="dept_book('','','','','','','','SSBM','SSBM');" title="部门地址薄" class="easyui-linkbutton" plain="true" iconcls="icon-deptbook"></a>　
+								</td>
+								<td class="td_title" id="title_JBR" width="15%">
+									OA经办人
+								</td>
+								<td class="td_data" id="data_JBR" width="35%">
+									${JBR}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_7">
+								<td class="td_title" id="title_XYLX" width="15%">
+									协议类型
+								</td>
+								<td class="td_data" id="data_XYLX" width="35%">
+									${XYLX}&nbsp;　
+								</td>
+								<td class="td_title" id="title_SDXYRQ" width="15%">
+									收到协议日期
+								</td>
+								<td class="td_data" id="data_SDXYRQ" width="35%">
+									${SDXYRQ}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_9">
+								<td class="td_title" id="title_XMLX" width="15%">
+									项目类型
+								</td>
+								<td class="td_data" id="data_XMLX" width="35%">
+									${XMLX}&nbsp;　
+								</td>
+								<td class="td_title" id="title_QSXYRQ" width="15%">
+									签署协议日期
+								</td>
+								<td class="td_data" id="data_QSXYRQ" width="35%">
+									${QSXYRQ}&nbsp;　
+								</td>
+							</tr>
+							<tr id="txtAreaTr_3090">
+								<td class="td_title" id="title_FKJD" rowspan="2">
+									付款节点
+								</td>
+								<td id="data_FKJD" class="td_data" rowspan="2">
+									${FKJD}&nbsp;
+								</td>
+								<td class="td_title" id="title_XYJE" width="15%">
+									协议金额(万元)
+								</td>
+								<td class="td_data" id="data_XYJE" width="35%">
+									${XYJE}&nbsp;　
+								</td>
+							</tr>
+							<tr id="txtAreaTr_3092">
+								<td class="td_title" id="title_DDJE">
+									督导金额(万元)
+								</td>
+								<td id="data_DDJE" class="td_data">
+									${DDJE}&nbsp;　
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${TBRID}${TBSJ}${CUSTOMERNO}${ZHXGSJ}
+</div>

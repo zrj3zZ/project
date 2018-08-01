@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "file:///E:/source/RMS/ROOT/WebRoot/WEB-INF/spring-beans-2.0.dtd">
+<beans>
+	<bean id="iworkThemeAction" class="com.iwork.app.theme.action.IWorkThemeAction"
+		scope="prototype">
+		<property name="iworkThemeService" ref="iworkThemeService" />
+	</bean>
+	<bean id="iworkThemeService" class="com.iwork.app.theme.service.IWorkThemeService"
+
+		scope="prototype">
+
+	</bean>
+
+	<!-- 办公用品管理 -->
+	<bean id="iworkbgypManageAction" class="com.iwork.plugs.bgyp.action.IWorkbgypManageAction"
+
+		scope="prototype">
+		<property name="iworkbgypManageService" ref="iworkbgypManageService" />
+	</bean>
+	<bean id="iworkbgypManageService" class="com.iwork.plugs.bgyp.service.IWorkbgypManageService"
+
+		scope="prototype">
+		<property name="iworkbgypManageDao" ref="iworkbgypManageDao" />
+	</bean>
+	<bean id="iworkbgypManageDao" class="com.iwork.plugs.bgyp.dao.IWorkbgypManageDao"
+		parent="baseDAO">
+	</bean>
+	<!-- 会议室预订  -->
+	<bean id="meetingRoomDao" class="com.iwork.plugs.meeting.dao.MeetingRoomDao"
+		parent="baseDAO" />
+	<bean id="meetingRoomService" class="com.iwork.plugs.meeting.service.MeetingRoomService"
+
+		scope="prototype">
+		<property name="meetingRoomDao" ref="meetingRoomDao" />
+	</bean>
+	<bean id="meetingRoomOrderAction" class="com.iwork.plugs.meeting.action.MeetingRoomOrderAction"
+
+		scope="prototype">
+		<property name="meetingRoomService" ref="meetingRoomService" />
+	</bean>
+	<bean id="meetingRoomOperationAction"
+
+		class="com.iwork.plugs.meeting.action.MeetingRoomOperationAction"
+
+		scope="prototype">
+		<property name="meetingRoomService" ref="meetingRoomService" />
+	</bean>
+	<!-- 资讯门户/RSS订阅 -->
+	<bean id="rssInformationDao" class="com.iwork.plugs.rss.dao.IworkPlugsRssDao"
+		parent="baseDAO" />
+	<bean id="rssInformationService" class="com.iwork.plugs.rss.service.IworkPlugsRssService"
+
+		scope="prototype">
+		<property name="rssInformationDao" ref="rssInformationDao" />
+		<property name="sysPersonDAO" ref="sysPersonDAO" />
+	</bean>
+	<bean id="rssInformationAction" class="com.iwork.plugs.rss.action.IworkPlugsRssAction"
+
+		scope="prototype">
+		<property name="rssInformationService" ref="rssInformationService" />
+	</bean>
+	<bean id="setRssUserProfile" class="com.iwork.plugs.rss.action.IworkPlugsRssAction"
+
+		scope="prototype">
+		<property name="rssInformationService" ref="rssInformationService" />
+	</bean>
+	<bean id="getRssUserProfile" class="com.iwork.plugs.rss.action.IworkPlugsRssAction"
+
+		scope="prototype">
+		<property name="rssInformationService" ref="rssInformationService" />
+	</bean>
+	<bean id="addRssSubscription" class="com.iwork.plugs.rss.action.IworkPlugsRssAction"
+
+		scope="prototype">
+		<property name="rssInformationService" ref="rssInformationService" />
+	</bean>
+	<bean id="deleteRssSubscription" class="com.iwork.plugs.rss.action.IworkPlugsRssAction"
+
+		scope="prototype">
+		<property name="rssInformationService" ref="rssInformationService" />
+	</bean>
+	<bean id="resetRssUserProfile" class="com.iwork.plugs.rss.action.IworkPlugsRssAction"
+
+		scope="prototype">
+		<property name="rssInformationService" ref="rssInformationService" />
+	</bean>
+	<bean id="getAddRssPage" class="com.iwork.plugs.rss.action.IworkPlugsRssAction"
+
+		scope="prototype">
+		<property name="rssInformationService" ref="rssInformationService" />
+	</bean>
+
+	<!-- 在线问答 -->
+	<bean id="examDAO" class="com.iwork.plugs.onlinetest.dao.ExamDAO"
+
+		parent="baseDAO" />
+	<bean id="examUserDAO" class="com.iwork.plugs.onlinetest.dao.ExamUserDAO"
+		parent="baseDAO" />
+	<bean id="examService" class="com.iwork.plugs.onlinetest.service.ExamService"
+
+		scope="prototype">
+		<property name="examDAO" ref="examDAO" />
+		<property name="examUserDAO" ref="examUserDAO" />
+		<property name="sysEngineMetadataDAO" ref="sysEngineMetadataDAO" />
+		<property name="sysEngineIFormDAO" ref="sysEngineIFormDAO" />
+	</bean>
+	<bean id="onLineExamAction" class="com.iwork.plugs.onlinetest.action.OnLineExamAction"
+
+		scope="prototype">
+		<property name="examService" ref="examService" />
+	</bean>
+	<!-- 在线问答END -->
+	 <!-- 财务管理 -->
+    <bean id="iWorkPlugsFiSubjectAction" class="com.iwork.plugs.fi.subject.action.IWorkPlugsFiSubjectAction" scope="prototype">   
+    	<property name="iWorkPlugsFiSubjectService" ref="iWorkPlugsFiSubjectService" /> 
+    </bean>
+    <bean id="iWorkPlugsFiSubjectService" class="com.iwork.plugs.fi.subject.service.IWorkPlugsFiSubjectService" scope="prototype">
+        	<property name="iWorkPlugsFiSubjectDAO" ref="iWorkPlugsFiSubjectDAO" /> 
+        	<property name="deptAddressBookService" ref="deptAddressBookService" /> 
+        	<property name="radioAddressBookService" ref="radioAddressBookService" /> 
+    </bean>
+    <bean id="iWorkPlugsFiSubjectDAO" class="com.iwork.plugs.fi.subject.dao.IWorkPlugsFiSubjectDAO" >   
+    </bean>
+    <bean id="iWorkPlugsFiExpenseAction" class="com.iwork.plugs.fi.expense.action.IWorkPlugsFiExpenseAction" scope="prototype">   
+    	<property name="iWorkPlugsFiExpenseService" ref="iWorkPlugsFiExpenseService" /> 
+    </bean>
+    <bean id="iWorkPlugsFiExpenseService" class="com.iwork.plugs.fi.expense.service.IWorkPlugsFiExpenseService" scope="prototype">   
+    </bean>	
+	<bean id="iWorkPlugsFiVoucherAction" class="com.iwork.plugs.fi.voucher.action.IWorkPlugsFiVoucherAction" scope="prototype">
+		<property name="iworkPlugsFiVoucherService" ref="iworkPlugsFiVoucherService" />
+	</bean>
+	<bean id="iworkPlugsFiVoucherService" class="com.iwork.plugs.fi.voucher.service.IWorkPlugsFiVoucherService" scope="prototype">
+	</bean>
+	<!-- 法人组织结构 -->
+	<bean id="iWorkHrLegalOrganizationAction"
+
+		class="com.iwork.plugs.hr.org.action.IWorkHrLegalOrganizationAction"
+
+		scope="prototype">
+		<property name="iWorkHrLegalOrganizationService" ref="iWorkHrLegalOrganizationService" />
+	</bean>
+	<bean id="iWorkHrLegalOrganizationService"
+
+		class="com.iwork.plugs.hr.org.service.IWorkHrLegalOrganizationService"
+
+		scope="prototype">
+	</bean>
+
+	<!-- weboffice -->
+	<bean id="iWorkPlugsWebOfficeAction"
+
+		class="com.iwork.plugs.weboffice.action.IWorkPlugsWebOfficeAction"
+
+		scope="prototype">
+		<property name="iWorkPlugsWebOfficeService" ref="iWorkPlugsWebOfficeService" />
+	</bean>
+	<bean id="iWorkPlugsWebOfficeService" class="com.iwork.plugs.weboffice.service.IWorkPlugsWebOfficeService" scope="prototype">
+	</bean>
+	<!--  -->
+	<bean id="iWorkMailMgrAction" class="com.iwork.plugs.email.action.IWorkMailMgrAction" scope="prototype">
+		<property name="iWorkMailMgrService" ref="iWorkMailMgrService" />
+	</bean>
+	<bean id="iWorkMailMgrService" class="com.iwork.plugs.email.service.IWorkMailMgrService" scope="prototype">
+	</bean>
+	<!-- 收件箱 -->
+	<bean id="iWorkMailClientAction" class="com.iwork.plugs.email.action.IWorkMailClientAction" scope="prototype">
+		<property name="multiAddressBookService" ref="multiAddressBookService" />
+		<property name="iWorkMailClientService" ref="iWorkMailClientService" />
+		<property name="emailUploadifyService" ref="emailUploadifyService" />
+		<property name="iWorkMailGroupService" ref="iWorkMailGroupService" />
+	</bean>
+	<bean id="iWorkMailClientService" class="com.iwork.plugs.email.service.IWorkMailClientService" scope="prototype">
+		<property name="iWorkMailDAO" ref="iWorkMailDAO" />
+		<property name="iWorkMailTaskDAO" ref="iWorkMailTaskDAO" />
+		<property name="iWorkMailOwnerDAO" ref="iWorkMailOwnerDAO" />
+		<property name="orgUserService" ref="orgUserService" />
+		<property name="orgDepartmentService" ref="orgDepartmentService" />
+	</bean>
+	<bean id="iWorkMailDAO" class="com.iwork.plugs.email.dao.IWorkMailDAO" parent="baseDAO" />
+	<bean id="iWorkMailTaskDAO" class="com.iwork.plugs.email.dao.IWorkMailTaskDAO" parent="baseDAO" />
+	<bean id="iWorkMailOwnerDAO" class="com.iwork.plugs.email.dao.IWorkMailOwnerDAO" parent="baseDAO" />
+	<!-- yanglianfeng action实例化对象-->
+	<bean id="iWorkMailOwnerAction" class="com.iwork.plugs.email.action.IWorkMailOwnerAction"
+		scope="prototype">
+		<property name="iWorkMailOwnerService" ref="iWorkMailOwnerService" />
+	</bean>
+	<!-- yanglianfeng service实例化对象-->
+	<bean id="iWorkMailOwnerService" class="com.iwork.plugs.email.service.IWorkMailOwnerService"
+		scope="prototype">
+		<property name="iWorkMailDAO" ref="iWorkMailDAO" />
+		<property name="iWorkMailTaskDAO" ref="iWorkMailTaskDAO" />
+		<property name="iWorkMailOwnerDAO" ref="iWorkMailOwnerDAO" />
+		<property name="iWorkMailDelDAO" ref="iWorkMailDelDAO" />
+	</bean>
+	<bean id="iWorkMailDelDAO" class="com.iwork.plugs.email.dao.IWorkMailDelDAO"
+		parent="baseDAO" />
+	<bean id="iWorkMailGroupDAO" class="com.iwork.plugs.email.dao.IWorkMailGroupDAO"
+		parent="baseDAO" />
+	<!-- 标星邮件 -->
+	<bean id="iWorkMailReceiveStarAction" class="com.iwork.plugs.email.action.IWorkMailReceiveStarAction"	scope="prototype">
+		<property name="iWorkMailReceiveStarService" ref="iWorkMailReceiveStarService" />
+	</bean>
+	<bean id="iWorkMailReceiveStarService"		class="com.iwork.plugs.email.service.IWorkMailReceiveStarService"		scope="prototype">
+		<property name="iWorkMailDAO" ref="iWorkMailDAO" />
+		<property name="iWorkMailTaskDAO" ref="iWorkMailTaskDAO" />
+		<property name="iWorkMailOwnerDAO" ref="iWorkMailOwnerDAO" />
+		<property name="iWorkMailDelDAO" ref="iWorkMailDelDAO" />
+	</bean>
+	<!-- 已删除邮箱 -->
+	<bean id="iWorkMailDelAction" class="com.iwork.plugs.email.action.IWorkMailDelAction"		scope="prototype">
+		<property name="iWorkMailDelService" ref="iWorkMailDelService" />
+	</bean>
+	<bean id="iWorkMailDelService" class="com.iwork.plugs.email.service.IWorkMailDelService"	scope="prototype">
+		<property name="iWorkMailTaskDAO" ref="iWorkMailTaskDAO" />
+		<property name="iWorkMailOwnerDAO" ref="iWorkMailOwnerDAO" />
+		<property name="iWorkMailDelDAO" ref="iWorkMailDelDAO" />
+	</bean>
+	<bean id="reciWorkMailClientAction" class="com.iwork.plugs.email.action.RecIWorkMailClientAction"	scope="prototype">
+		<property name="reciWorkMailClientService" ref="reciWorkMailClientService" />
+		<property name="emailUploadifyService" ref="emailUploadifyService" />
+	</bean>
+	<bean id="reciWorkMailClientService" class="com.iwork.plugs.email.service.RecIWorkMailClientService"	scope="prototype">
+		<property name="iWorkMailDAO" ref="iWorkMailDAO" />
+		<property name="iWorkMailTaskDAO" ref="iWorkMailTaskDAO" />
+		<property name="iWorkMailOwnerDAO" ref="iWorkMailOwnerDAO" />
+		<property name="iWorkMailDelDAO" ref="iWorkMailDelDAO" />
+	</bean>
+	<bean id="iWorkMailGroupService" class="com.iwork.plugs.email.service.IWorkMailGroupService"	scope="prototype">
+		<property name="iWorkMailGroupDAO" ref="iWorkMailGroupDAO" />
+	</bean>
+	<bean id="iWorkMailGroupAction" class="com.iwork.plugs.email.action.IWorkMailGroupAction"	scope="prototype">
+		<property name="iWorkMailGroupService" ref="iWorkMailGroupService" />
+	</bean>
+	
+	<!-- 人力资源 -->
+	<bean id="iWorkHrArchivesAction" class="com.iwork.plugs.hr.archives.action.IWorkHrArchivesAction"	scope="prototype">
+		<property name="iWorkHrArchivesService" ref="iWorkHrArchivesService" />
+	</bean>
+	<bean id="iWorkHrArchivesService" class="com.iwork.plugs.hr.archives.service.IWorkHrArchivesService" scope="prototype">
+    </bean>
+    <!-- 员工自助管理 -->
+	
+	
+	<bean id="iWorkHrStaffAction" class="com.iwork.plugs.hr.staff.action.IWorkHrStaffAction"	scope="prototype">
+		<property name="iWorkHrStaffService" ref="iWorkHrStaffService" />
+	</bean>
+	<bean id="iWorkHrStaffService" class="com.iwork.plugs.hr.staff.service.IWorkHrStaffService" scope="prototype">
+    </bean>
+    <bean id="iWorkHrWorkAction" class="com.iwork.plugs.hr.staff.action.IWorkHrWorkAction"	scope="prototype">
+		<property name="iWorkHrWorkService" ref="iWorkHrWorkService" />
+	</bean>
+	<bean id="iWorkHrWorkService" class="com.iwork.plugs.hr.staff.service.IWorkHrWorkService" scope="prototype">
+    </bean>
+	<bean id="iWorkHrBackLeaveAction" class="com.iwork.plugs.hr.staff.action.IWorkHrBackLeaveAction"	scope="prototype">
+		<property name="iWorkHrBacdLeaveService" ref="iWorkHrBacdLeaveService" />
+	</bean>
+	<bean id="iWorkHrBacdLeaveService" class="com.iwork.plugs.hr.staff.service.IWorkHrBacdLeaveService" scope="prototype">
+    </bean>
+    <bean id="iWorkHrAttendanceAction" class="com.iwork.plugs.hr.staff.action.IWorkHrAttendanceAction"	scope="prototype">
+		<property name="iWorkHrAttendanceService" ref="iWorkHrAttendanceService" />
+	</bean>
+	<bean id="iWorkHrAttendanceService" class="com.iwork.plugs.hr.staff.service.IWorkHrAttendanceService" scope="prototype">
+    </bean>
+    <bean id="iWorkHrAccountAction" class="com.iwork.plugs.hr.staff.action.IWorkHrAccountAction"	scope="prototype">
+		<property name="iWorkHrAccountService" ref="iWorkHrAccountService" />
+	</bean>
+	<bean id="iWorkHrAccountService" class="com.iwork.plugs.hr.staff.service.IWorkHrAccountService" scope="prototype">
+    </bean>
+	<bean id="assetsService" class="com.iwork.asset.service.AssetsServiceImpl" scope="prototype">
+    </bean>
+    <bean id="assetsAction" class="com.iwork.asset.action.AssetsAction"	scope="prototype">
+		<property name="assetsService" ref="assetsService" />
+	</bean>	
+	<!-- IT资产 -->
+	<bean id="iWorkAssetTypeAction" class="com.iwork.plugs.eam.action.IWorkAssetTypeAction" scope="prototype">
+		<property name="iWorkAssetTypeService" ref="iWorkAssetTypeService" />
+	</bean>
+	<bean id="iWorkAssetTypeService" class="com.iwork.plugs.eam.service.IWorkAssetTypeService" scope="prototype">
+	</bean>
+	 <!-- 证券宝 -->
+     <bean id="zqbProjectManageAction" class=" com.ibpmsoft.project.zqb.action.ZqbProjectManageAction" scope="prototype">   
+    	<property name="zqbProjectManageService" ref="zqbProjectManageService" /> 
+    </bean>
+    <bean id="zqbProjectManageService" class="com.ibpmsoft.project.zqb.service.ZqbProjectManageService" scope="prototype">
+   		 <property name="zqbProjectManageDAO" ref="zqbProjectManageDAO" /> 
+    </bean>
+    <bean id="zqbProjectManageDAO" class="com.ibpmsoft.project.zqb.dao.ZqbProjectManageDAO" parent="baseDAO">   
+    </bean>
+    
+    <bean id="zqbGpfxProjectManageAction" class=" com.ibpmsoft.project.zqb.action.ZqbGpfxProjectManageAction" scope="prototype">   
+    	<property name="zqbGpfxProjectManageService" ref="zqbGpfxProjectManageService" /> 
+    </bean>
+    <bean id="zqbGpfxProjectManageService" class="com.ibpmsoft.project.zqb.service.ZqbGpfxProjectManageService" scope="prototype">
+   		 <property name="zqbGpfxProjectManageDAO" ref="zqbGpfxProjectManageDAO" /> 
+    </bean>
+    <bean id="zqbGpfxProjectManageDAO" class="com.ibpmsoft.project.zqb.dao.ZqbGpfxProjectManageDAO" parent="baseDAO">   
+    </bean>
+     
+     <bean id="zqbMeetingManageAction" class=" com.ibpmsoft.project.zqb.action.ZqbMeetingManageAction" scope="prototype">   
+    	<property name="zqbMeetingManageService" ref="zqbMeetingManageService" /> 
+    	<property name="uploadifyService" ref="uploadifyService" />
+    </bean>
+    <bean id="zqbMeetingManageService" class="com.ibpmsoft.project.zqb.service.ZqbMeetingManageService" scope="prototype">
+   	 <property name="uploadifyService" ref="uploadifyService" />
+   		 <property name="zqbMeetingManageDAO" ref="zqbMeetingManageDAO" /> 
+    </bean>
+    <bean id="zqbMeetingManageDAO" class="com.ibpmsoft.project.zqb.dao.ZqbMeetingManageDAO" parent="baseDAO">   
+    </bean>
+    
+     <bean id="zqbWorkFlowAction" class=" com.ibpmsoft.project.zqb.action.ZqbWorkFlowAction" scope="prototype">   
+    	<property name="zqbWorkFlowService" ref="zqbWorkFlowService" /> 
+    </bean>
+    <bean id="zqbWorkFlowService" class="com.ibpmsoft.project.zqb.service.ZqbWorkFlowService" scope="prototype">
+   		 <property name="zqbWorkFlowDAO" ref="zqbWorkFlowDAO" /> 
+    </bean>
+    <bean id="zqbWorkFlowDAO" class="com.ibpmsoft.project.zqb.dao.ZqbWorkFlowDAO"  parent="baseDAO">
+    </bean>
+     <bean id="zqbEventManageAction" class=" com.ibpmsoft.project.zqb.action.ZqbEventManageAction" scope="prototype">   
+    	<property name="zqbEventManageService" ref="zqbEventManageService" /> 
+    </bean>
+    <bean id="zqbEventManageService" class="com.ibpmsoft.project.zqb.service.ZqbEventManageService" scope="prototype">
+   		 <property name="zqbEventManageDAO" ref="zqbEventManageDAO" /> 
+    </bean>
+    <bean id="zqbEventManageDAO" class="com.ibpmsoft.project.zqb.dao.ZqbEventManageDAO" scope="prototype">   
+    </bean>
+     <bean id="zqbSearchCenterAction" class=" com.ibpmsoft.project.zqb.action.ZqbSearchCenterAction" scope="prototype">   
+    	<property name="zqbSearchCenterService" ref="zqbSearchCenterService" /> 
+    </bean>
+    <bean id="zqbSearchCenterService" class="com.ibpmsoft.project.zqb.service.ZqbSearchCenterService" scope="prototype">
+    </bean>
+     <bean id="zqbShenPiAction" class=" com.ibpmsoft.project.zqb.action.ZqbShenPiAction" scope="prototype">   
+    	<property name="zqbShenPiService" ref="zqbShenPiService" /> 
+    </bean>
+    <bean id="zqbShenPiService" class="com.ibpmsoft.project.zqb.service.ZqbShenPiService" scope="prototype">
+    </bean>
+    
+    <bean id="zqbFileUploadCommitAction" class=" com.ibpmsoft.project.zqb.action.ZqbFileUploadCommitAction" scope="prototype">   
+    	<property name="zqbFileUploadCommitService" ref="zqbFileUploadCommitService" /> 
+    </bean>
+    <bean id="zqbFileUploadCommitService" class="com.ibpmsoft.project.zqb.service.ZqbFileUploadCommitService" scope="prototype">
+   		 <property name="zqbFileUploadCommitDAO" ref="zqbFileUploadCommitDAO" /> 
+    </bean>
+    <bean id="zqbFileUploadCommitDAO" class="com.ibpmsoft.project.zqb.dao.ZqbFileUploadCommitDAO" parent="baseDAO">   
+    </bean>
+    
+    <bean id="zqbOnlineChatAction" class=" com.ibpmsoft.project.zqb.action.ZqbOnlineChatAction" scope="prototype">   
+    	<property name="zqbOnlineChatService" ref="zqbOnlineChatService" />
+    </bean>
+    <bean id="zqbOnlineChatService" class="com.ibpmsoft.project.zqb.service.ZqbOnlineChatService" scope="prototype">
+    	<property name="zqbOnlineChatDAO" ref="zqbOnlineChatDAO" />
+    </bean>
+    <bean id="zqbOnlineChatDAO" class="com.ibpmsoft.project.zqb.dao.ZqbOnlineChatDAO" parent="baseDAO">
+    </bean>
+    
+    <bean id="zqbCheckAction" class="com.ibpmsoft.project.zqb.action.ZqbCheckAction" scope="prototype">   
+    	<property name="zqbCheckService" ref="zqbCheckService" />
+    </bean>
+    <bean id="zqbCheckService" class="com.ibpmsoft.project.zqb.service.ZqbCheckService" scope="prototype">
+    </bean>
+    
+    <!-- 新时代证券 -->
+    <bean id="xsdZqbProjectManageAction" class=" com.ibpmsoft.project.zqb.action.XSDZqbProjectManageAction" scope="prototype">   
+    	<property name="xsdZqbProjectManageService" ref="xsdZqbProjectManageService" /> 
+    </bean>
+    <bean id="xsdZqbProjectManageService" class="com.ibpmsoft.project.zqb.service.XSDZqbProjectManageService" scope="prototype">
+   		 <property name="xsdZqbProjectManageDAO" ref="xsdZqbProjectManageDAO" /> 
+    </bean>
+    <bean id="xsdZqbProjectManageDAO" class="com.ibpmsoft.project.zqb.dao.XSDZqbProjectManageDAO" parent="baseDAO">   
+    </bean>
+    
+    <bean id="itsArticlesAction" class="com.iwork.plugs.itsArticles.action.ItsArticlesAction" scope="prototype">   
+    	<property name="itsArticlesService" ref="itsArticlesService" /> 
+    </bean>
+    <bean id="itsArticlesService" class="com.iwork.plugs.itsArticles.service.ItsArticlesService" scope="prototype">
+   		 <property name="itsArticlesDao" ref="itsArticlesDao" />
+    </bean>
+    <bean id="itsArticlesDao" class="com.iwork.plugs.itsArticles.dao.ItsArticlesDao" parent="baseDAO">   
+    </bean>
+    <bean id="zqbUpdateDataService" class="com.ibpmsoft.project.zqb.service.ZqbUpdateDataService" scope="prototype">
+    </bean>
+    <bean id="zqbInvoiceAction" class="com.ibpmsoft.project.zqb.action.ZqbInvoiceAction" scope="prototype">   
+    	<property name="zqbInvoiceService" ref="zqbInvoiceService" /> 
+    </bean>
+    <bean id="zqbInvoiceService" class="com.ibpmsoft.project.zqb.service.ZqbInvoiceService" scope="prototype">   
+    	<property name="zqbInvoiceDAO" ref="zqbInvoiceDAO" /> 
+    </bean>
+    <bean id="zqbInvoiceDAO" class="com.ibpmsoft.project.zqb.dao.ZqbInvoiceDAO" parent="baseDAO">   
+    </bean>
+    <bean id="zqbProjectSxService" class="com.ibpmsoft.project.zqb.sx.service.ZqbProjectSxService" scope="prototype">
+    	<property name="zqbProjectSxDAO" ref="zqbProjectSxDAO" />
+    </bean>
+    <bean id="zqbProjectSxDAO" class="com.ibpmsoft.project.zqb.sx.dao.ZqbProjectSxDAO" parent="baseDAO">   
+    </bean>
+    <bean id="zqbGpfxProjectSxService" class="com.ibpmsoft.project.zqb.sx.gpfx.service.ZqbGpfxProjectSxService" scope="prototype">
+    	<property name="zqbGpfxProjectSxDAO" ref="zqbGpfxProjectSxDAO" />
+    </bean>
+    <bean id="zqbGpfxProjectSxDAO" class="com.ibpmsoft.project.zqb.sx.gpfx.dao.ZqbGpfxProjectSxDAO" parent="baseDAO">   
+    </bean>
+    
+    <bean id="zqbZtProjectAction" class="com.ibpmsoft.project.zqb.zt.action.ZqbZtProjectAction" scope="prototype">   
+    	<property name="zqbZtProjectService" ref="zqbZtProjectService" /> 
+    </bean>
+	<bean id="zqbZtProjectService" class="com.ibpmsoft.project.zqb.zt.service.ZqbZtProjectService" scope="prototype">   
+    	<property name="zqbZtProjectDao" ref="zqbZtProjectDao" /> 
+    </bean>
+    <bean id="zqbZtProjectDao" class="com.ibpmsoft.project.zqb.zt.dao.ZqbZtProjectDao" parent="baseDAO">   
+    </bean>
+	<bean id="zqbHlProjectAction" class="com.ibpmsoft.project.zqb.hl.action.ZqbHlProjectAction" scope="prototype">   
+    	<property name="zqbHlProjectService" ref="zqbHlProjectService" /> 
+    	<property name="zqbCheckAction" ref="zqbCheckAction" /> 
+    </bean>
+	<bean id="zqbHlProjectService" class="com.ibpmsoft.project.zqb.hl.service.ZqbHlProjectService" scope="prototype">   
+    	<property name="zqbHlProjectDAO" ref="zqbHlProjectDAO" /> 
+    </bean>
+    <bean id="zqbHlProjectDAO" class="com.ibpmsoft.project.zqb.hl.dao.ZqbHlProjectDAO" parent="baseDAO">   
+    </bean>
+</beans>
+
+
+
+
+

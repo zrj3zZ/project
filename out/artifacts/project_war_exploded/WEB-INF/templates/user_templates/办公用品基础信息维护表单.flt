@@ -1,0 +1,60 @@
+<div id="border">
+		<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 5px" width="100%">
+			<tbody>
+				<tr>
+					<td class="formpage_title">办公用品基础信息维护表单</td>
+				</tr>
+				<tr>
+					<td align="right" id="help"></td>
+				</tr>
+				<tr>
+					<td align="right" class="line"></td>
+				</tr>
+				<tr>
+					<td align="left">
+						<table border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody>
+								<tr>
+									<td class="td_title"  id="title_LBBH" width="15%">类别编号									</td>
+									<td class="td_data"  id="data_LBBH"  width="35%">${LBBH}&nbsp;</td>
+									<td class="td_title"  id="title_LBMC" width="15%">									<font color='red'>*</font>类别名称									</td>
+									<td class="td_data"  id="data_LBMC"  width="35%">${LBMC}&nbsp;</td>
+								</tr>
+								<tr>
+									<td class="td_title"  id="title_NAME" width="15%">									<font color='red'>*</font>名称									</td>
+									<td class="td_data"  id="data_NAME"  width="35%">${NAME}&nbsp;</td>
+									<td class="td_title"  id="title_NO" width="15%">									<font color='red'>*</font>编号									</td>
+									<td class="td_data"  id="data_NO"  width="35%">${NO}&nbsp;</td>
+								</tr>
+								<tr>
+									<td class="td_title"  id="title_JLDW" width="15%">计量单位									</td>
+									<td class="td_data"  id="data_JLDW"  width="35%">${JLDW}&nbsp;</td>
+									<td class="td_title"  id="title_GG" width="15%">规格									</td>
+									<td class="td_data"  id="data_GG"  width="35%">${GG}&nbsp;</td>
+								</tr>
+								<tr>
+									<td class="td_title"  id="title_TP" width="15%">									<font color='red'>*</font>图片									</td>
+									<td class="td_data"  id="data_TP"  width="35%">${TP}&nbsp;</td>
+									<td class="td_title"  id="title_KCSL" width="15%">库存数量									</td>
+									<td class="td_data"  id="data_KCSL"  width="35%">${KCSL}&nbsp;</td>
+								</tr>
+								<tr>
+									<td class="td_title"  id="title_ZDKC" width="15%">最低库存									</td>
+									<td class="td_data"  id="data_ZDKC"  width="35%">${ZDKC}&nbsp;</td>
+									<td class="td_title"  id="title_DJ" width="15%">单价									</td>
+									<td class="td_data"  id="data_DJ"  width="35%">${DJ}&nbsp;</td>
+								</tr>
+								<tr>
+									<td class="td_title"  id="title_SFCY" width="15%">是否常用									</td>
+									<td class="td_data"  id="data_SFCY"  width="35%">${SFCY}&nbsp;</td>
+								</tr>
+								<tr><td   class="td_title" id="title_XH" >型号									</td>
+									<td id="data_XH"  class="td_data" colspan="3">${XH}&nbsp;</td>
+								</td></tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+</div>

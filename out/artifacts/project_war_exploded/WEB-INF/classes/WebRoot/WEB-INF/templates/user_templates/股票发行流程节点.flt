@@ -1,0 +1,107 @@
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					股票发行流程节点
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_3307">
+								<td class="td_title" id="title_TYPE" width="180">
+									<span style="color:red;">*</span>阶段
+								</td>
+								<td class="td_data" id="data_TYPE">
+									${TYPE}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_3308">
+								<td class="td_title" id="title_NODE1" width="180">
+									节点1
+								</td>
+								<td class="td_data" id="data_NODE1">
+									${NODE1}&nbsp;是否扣分：${NODE1SFKF}&nbsp;&nbsp;&nbsp;&nbsp;是否跳过：${NODE1SKP}
+								</td>
+							</tr>
+							<tr id="itemTr_3309">
+								<td class="td_title" id="title_NODE2" width="180">
+									节点2
+								</td>
+								<td class="td_data" id="data_NODE2">
+									${NODE2}&nbsp;是否扣分：${NODE2SFKF}&nbsp;&nbsp;&nbsp;&nbsp;是否跳过：${NODE2SKP}
+								</td>
+							</tr>
+							<tr id="itemTr_3310">
+								<td class="td_title" id="title_NODE3" width="180">
+									节点3
+								</td>
+								<td class="td_data" id="data_NODE3">
+									${NODE3}&nbsp;是否扣分：${NODE3SFKF}&nbsp;&nbsp;&nbsp;&nbsp;是否跳过：${NODE3SKP}
+								</td>
+							</tr>
+							<tr id="itemTr_3311">
+								<td class="td_title" id="title_NODE4" width="180">
+									节点4
+								</td>
+								<td class="td_data" id="data_NODE4">
+									${NODE4}&nbsp;是否扣分：${NODE4SFKF}&nbsp;&nbsp;&nbsp;&nbsp;是否跳过：${NODE4SKP}
+								</td>
+							</tr>
+							<tr id="itemTr_3312">
+								<td class="td_title" id="title_NODE5" width="180">
+									节点5
+								</td>
+								<td class="td_data" id="data_NODE5">
+									${NODE5}&nbsp;是否扣分：${NODE5SFKF}&nbsp;&nbsp;&nbsp;&nbsp;是否跳过：${NODE5SKP}
+								</td>
+							</tr>
+							<tr id="itemTr_3313">
+								<td class="td_title" id="title_NODE6" width="180">
+									节点6
+								</td>
+								<td class="td_data" id="data_NODE6">
+									${NODE6}&nbsp;是否扣分：${NODE6SFKF}&nbsp;&nbsp;&nbsp;&nbsp;是否跳过：${NODE6SKP}
+								</td>
+							</tr>
+							<tr id="itemTr_3314">
+								<td class="td_title" id="title_NODE7" width="180">
+									节点7
+								</td>
+								<td class="td_data" id="data_NODE7">
+									${NODE7}&nbsp;是否扣分：${NODE7SFKF}&nbsp;&nbsp;&nbsp;&nbsp;是否跳过：${NODE7SKP}
+								</td>
+							</tr>
+							<tr id="itemTr_3315">
+								<td class="td_title" id="title_NODE8" width="180">
+									节点8
+								</td>
+								<td class="td_data" id="data_NODE8">
+									${NODE8}&nbsp;是否扣分：${NODE8SFKF}&nbsp;&nbsp;&nbsp;&nbsp;是否跳过：${NODE8SKP}
+								</td>
+							</tr>
+							<tr id="itemTr_3316">
+								<td class="td_title" id="title_NODE9" width="180">
+									节点9
+								</td>
+								<td class="td_data" id="data_NODE9">
+									${NODE9}&nbsp;是否扣分：${NODE9SFKF}&nbsp;&nbsp;&nbsp;&nbsp;是否跳过：${NODE9SKP}
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

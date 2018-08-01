@@ -1,0 +1,28 @@
+	A:visited {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:link {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #a4b6d7; TEXT-DECORATION: underline
+}
+
+#border { 
+	width:auto;
+	border-top: 0px solid #E1E1E1 	;
+	border-left: 0px solid #E1E1E1 	;
+	border-bottom: 0px solid #E1E1E1 	;
+	border-right: 0px solid #E1E1E1 	;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top:10px;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 5px;
+	padding:10px;
+	background-color:#FFFFFF;
+	
+	background-repeat:no-repeat;
+	background-position:top right;
+}

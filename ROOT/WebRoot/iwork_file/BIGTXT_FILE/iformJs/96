@@ -1,0 +1,34 @@
+document.write("<script type='text/javascript' src='iwork_js/iwork/meet/hna_meeting_info.js'><\/script>");
+function savebeforeEvent() {
+    var flag = new Boolean();
+    var plantime = $("#PLANTIME").val();//计划时间
+    var meettype = $("input[name='MEETTYPE']:checked").val();//会议类型   -股东大会
+    var hysx = $("input[name='HYSX']:checked").val();//会议属性 -临时-正式
+    var customerno = $("#CUSTOMERNO").val();
+    var num = 0;
+    var seachUrl = encodeURI("zqb_meeting_set.action?plantime="+plantime+"&meettype="+meettype+"&hysx="+hysx+"&customerno="+customerno);
+    $.post("zqb_meeting_set.action", {
+        plantime: plantime,
+        meettype: meettype,
+        hysx: hysx,
+        customerno:customerno
+    }, function (data) {
+        if (data != "") {
+	    var strs= new Array();
+	    strs = data.split(",");
+            if(strs[0] == "重置设定时间小于15天"){
+                var r1 = confirm("距离"+strs[1]+"的召开日期不满15天，是否确认添加？");
+                flag=r1;
+            }else if(strs[0] == "重置设定时间小于20天"){
+		var r2 = confirm("距离"+strs[1]+"的召开日期不满20天，是否确认添加？");
+                flag=r2;
+            }else if(strs[0] == "设定时间小于设定时间"){
+		var r3 = confirm("设定时间小于当前系统时间，是否确认添加？");
+		flag=r3;
+	    }
+        }else{
+            return false;
+        }
+    });
+return flag;
+}

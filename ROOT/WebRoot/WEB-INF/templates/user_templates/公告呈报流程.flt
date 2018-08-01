@@ -1,0 +1,715 @@
+<script>
+//公告关键字特殊处理   包含某些关键字td的隐藏和显示 
+function ggsfxs(){
+	var reg = RegExp('[^权益]变动');
+		var ggmc=document.getElementById("NOTICENAME").value;
+		if(ggmc.indexOf('终止挂牌')!= -1 || ggmc.indexOf('摘牌')!= -1){
+			var oU1 = document.getElementById("title_ZPRQ");
+			oU1.style.display=""; 
+			var oU2 = document.getElementById("value_ZPRQ");
+			oU2.style.display=""; 
+		}else{
+			document.getElementById("title_ZPRQ").style.display= "none"
+			document.getElementById("value_ZPRQ").style.display= "none"
+			$("input[name=ZPRQ]").val("");
+		}
+		if(ggmc.indexOf('人变更')!= -1 || ggmc.indexOf('董事变更')!= -1 || ggmc.indexOf('任命')!= -1 || ggmc.indexOf('任职')!= -1 || ggmc.indexOf('换届')!= -1 || ggmc.indexOf('就职')!= -1 || ggmc.indexOf('任免')!= -1  || ggmc.indexOf('选举')!= -1 || ggmc.match(reg)){
+			var oU3 = document.getElementById("title_SFCG");
+			oU3.style.display=""; 
+			var oU4 = document.getElementById("title_XSBLSJ");
+			oU4.style.display=""; 
+		}else{
+			document.getElementById("title_SFCG").style.display= "none";
+			document.getElementById("title_XSBLSJ").style.display= "none"
+			$("input[name=XSBLSJ]").val("");
+		}
+}
+window.onload=function(){
+	//判断是否是ie8   包含某些关键字td的隐藏和显示 
+	var isie8=false;;
+	 var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串  
+      var isOpera = userAgent.indexOf("Opera") > -1; //判断是否Opera浏览器  
+      var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1 && !isOpera; //判断是否IE浏览器  
+	   if (isIE)  {
+		 var reIE = new RegExp("MSIE (\\d+\\.\\d+);");  
+          reIE.test(userAgent);  
+          var fIEVersion = parseFloat(RegExp["$1"]);  
+		    if(fIEVersion == 8)  {
+			    isie8=true;
+
+			}
+	   }
+	   if(isie8){
+		document.getElementById("NOTICENAME").onpropertychange=function(){
+			ggsfxs();
+		};
+	   }else{
+		document.getElementById("NOTICENAME").oninput=function(){
+			ggsfxs();
+		};
+	   }
+}
+  $(function(){
+  
+	 //默认隐藏是否持股那一行些字段
+	document.getElementById("title_SFCG").style.display= "none";
+	document.getElementById("title_XSBLSJ").style.display= "none"
+	document.getElementById("title_ZPRQ").style.display= "none"
+	document.getElementById("value_ZPRQ").style.display= "none"
+	
+	var XSBLSJ=$("input[name='XSBLSJ']").val();
+	var ZPRQ=$("input[name='ZPRQ']").val();
+	var dxan1=$('input[name="SFCG"]:checked').val();
+	if(dxan1!=null && dxan1!=""){
+			var oU3 = document.getElementById("title_SFCG");
+			oU3.style.display=""; 
+			var oU4 = document.getElementById("title_XSBLSJ");
+			oU4.style.display=""; 
+			document.getElementById("xssj").style.display ="none";
+	}
+	if(XSBLSJ!=null && XSBLSJ!=""){
+		var oU3 = document.getElementById("title_SFCG");
+			oU3.style.display=""; 
+			var oU4 = document.getElementById("title_XSBLSJ");
+			oU4.style.display=""; 
+	}
+	
+	if(ZPRQ!=null && ZPRQ!=""){
+			var oU1 = document.getElementById("title_ZPRQ");
+			oU1.style.display=""; 
+			var oU2 = document.getElementById("value_ZPRQ");
+			oU2.style.display=""; 	
+	}
+	$('input[type=radio][name=PAPERFILENO]').change(function() {
+		if(this.value=='是'){ 	
+			document.getElementById("gddh").style.display ="inline";
+		}else{
+			document.getElementById("gddh").style.display ="none";
+			$("input[name=COMPANYNO]").val("");
+		}
+	});
+	document.getElementById("gddh").style.display ="none";
+	
+	$('input[type=radio][name=SFCG]').change(function() {
+		if(this.value=='是'){ 	
+			document.getElementById("xssj").style.display ="inline";
+		}else{
+			document.getElementById("xssj").style.display ="none";
+			$("input[name=XSBLSJ]").val("");
+		}
+	});
+	document.getElementById("xssj").style.display ="none";
+	
+	var sfxs=document.getElementsByName("COMPANYNO")[0].value;
+	if(sfxs!=null && sfxs!=""){
+		document.getElementById("gddh").style.display ="inline";
+	}
+	
+	var sfxs1=document.getElementsByName("XSBLSJ")[0].value;
+	if(sfxs1!=null && sfxs1!=""){
+		document.getElementById("xssj").style.display ="inline";
+	}
+	
+	
+	$.post('zqb_rycx.action',function(data){
+		var strs= new Array();
+		strs=data.split(",");
+		document.getElementById("data").value=strs[1];
+		if(strs[0]=='1'){
+  			document.getElementById("tjtx").style.display = "none";	
+		}			
+        });
+	var INSTANCEID= $("#INSTANCEID").val();
+	$.post("zqb_announcement_gettentuserdate.action",{instanceId:INSTANCEID},function (data) {
+		$("#contenttd").html(data);
+	});
+	if(INSTANCEID=="" || INSTANCEID==null){
+		document.getElementById("tjtx").style.display = "none";	
+	}
+ $("input[name='MEETNAME']").css("display", "none");
+    var str = $("input[name='MEETNAME']").val();
+    if ($("#MEETNAME").val() == undefined) {
+        $("#data_MEETNAME").hide();
+        $("#GLHYDIV").css('background', 'none');
+        $("#GLHYDIV").css('border', '0px');
+    }
+    var zqdm=$("#ZQDMXS").val();
+    var id = $("input[name='MEETID']").val();
+    $("#fpcontent").mouseover(function () {
+        var id = $("input[name='MEETID']").val();
+        if (id != str) {
+            $.post("zqb_glhy_getthisname.action?id=" + id, function (data) {
+                $("#GLHYDIV").empty();
+                $("#GLHYDIV").html(data);
+            });
+            $.post("zqb_xpsxt_gg_getbc.action?id=" + id, function (data) {
+                $("#data_SXBCDES").html(data);
+            });
+            $.post("zqb_xpsxt_gg_getbcfile.action?id=" + id, function (data) {
+                $("#DIVSXBCFILEHTML").html(data);
+            });
+            str = id;
+        }
+    });
+});
+function checkGlhy(id) {
+    var pageUrl = "zqb_glhy_check.action?id=" + id;
+    art.dialog.open(pageUrl,{ 
+        title: '会议计划表单',
+        loadingText: '正在加载中,请稍后...',
+        bgcolor: '#999',
+        rang: true,
+        width: 890,
+        cache: false,
+        lock: true,
+        height: 530,
+        iconTitle: false,
+        extendDrag: true,
+        autoSize: false,
+ close: function () {}
+    });
+}
+function aloneUploadifyReomve(colName,uuid,divId){
+	window.onbeforeunload = null;
+	if(confirm('确定要删除该文件吗?')) {
+		var instanceId = $("#instanceId").val();
+		if(instanceId =="" || instanceId==null){
+			return false;
+		}else{
+			$.post("zqb_yz.action", {
+				"instanceId": instanceId
+			}, function (data) {
+				if(data=="1"){
+					alert("已提交督导老师审批，如需删除请联系督导老师协助删除");
+					return false;
+				}else{
+					if(uuid!=null&&uuid!=""){
+						var flag = uploadifyRemoveServer(uuid);
+						if(flag){
+							removeFileObject(uuid);
+							uploadifyRemovePage(divId);
+							reSetUUIDs(colName,uuid);
+							if($("#submitbtn")!=null){
+								if(typeof(mainFormAlertFlag)!='undefined'){
+									mainFormAlertFlag=false;
+								}
+								if(typeof(saveSubReportFlag)!='undefined'){
+									saveSubReportFlag=false;
+								}
+							}
+							if($("#aloneTable tr").length<=1){
+								uploadifyRemovePage("aloneTable");
+							}
+							saveForm();
+							//window.location.reload();
+						}else{
+							alert("删除失败");
+						}
+					}
+				}
+			});
+		}
+	} 	
+}
+function addAdvance(){
+			var title="";
+			var startDate = $("#data").val();
+			var endDate = $("#data").val();
+			var startTime = "09:00";
+			var endTime = "17:00";
+			var allDay = 1;
+			if(startTime==endTime&&startTime=="00:00"){
+				allDay = 1;
+			}else{
+				allDay = 0;
+			}
+		var pageUrl ="addSchCalendar_Advancezs.action?startDate="+startDate+"&endDate="+endDate+"&startTime="+startTime+"&endTime="+endTime+"&allDay="+allDay+"&title=1"+encodeURI(encodeURI(title));
+				art.dialog.open(pageUrl,{
+					title:'创建事项',
+					loadingText:'正在加载中,请稍后...',
+					rang:true,
+					cache:false,
+					lock: true,
+					height:600, 
+					close:function(){
+						window.location.reload();
+					}
+				});
+		}
+	function getRepeateMode(reStartdate,reEnddate,reMode,reDayInterval,reWeekDate,reMonthDays,reYearMonth,reYearDays){
+		$("#editForm_iworkSchCalendar_reStartdate").val(reStartdate);
+		$("#editForm_iworkSchCalendar_reEnddate").val(reEnddate);
+		$("#editForm_iworkSchCalendar_reMode").val(reMode);
+		$("#editForm_iworkSchCalendar_reDayInterval").val(reDayInterval);
+		$("#editForm_iworkSchCalendar_reWeekDate").val(reWeekDate);
+		$("#editForm_iworkSchCalendar_reMonthDays").val(reMonthDays);
+		$("#editForm_iworkSchCalendar_reYearMonth").val(reYearMonth);
+		$("#editForm_iworkSchCalendar_reYearDays").val(reYearDays);
+		var api = art.dialog.open.api;
+		api.test(); 
+	}
+ function downloadThisNoticeFiles() {
+        var instanceId = $("#instanceId").val();
+        var noticefile = "";
+        var companyname = "";
+        if (typeof ($("#NOTICEFILE").val()) == 'undefined' && typeof ($("#COMPANYNAME").val()) == 'undefined' ) {
+            $.post("zqb_nmsx_getnoticefileuuid.action", {
+                instanceId: instanceId
+            }, function (data) {
+                noticefile = data;
+                if (instanceId == 0 || noticefile == "") {
+                    alert("请先上传公告附件!");
+                    return;
+                }
+                var strs = new Array();
+                strs = noticefile.split(",");
+                var url = encodeURI("zqb_nmsx_downloadthisnoticefile.action?instanceId=" + instanceId);
+               /*  if (strs.length > 1) {
+                    var url = encodeURI("zqb_nmsx_downloadthisnoticefile.action?instanceId=" + instanceId);
+                } else {
+                    var url = "uploadifyDownload.action?fileUUID=" + noticefile
+                } */
+                window.location.href = url;
+            });
+        } else {
+            noticefile = $("#NOTICEFILE").val();
+            companyname =$("#COMPANYNAME").val();
+            var flag="";
+            if (instanceId == 0 || (noticefile == "" && companyname=="" ) || (typeof (companyname) == 'undefined' && typeof (noticefile) == 'undefined')) {
+                alert("请先上传公告附件!")
+                return;
+            }
+            if(noticefile!=""){
+            	flag=noticefile;
+            }else{
+            	flag=companyname;
+            }
+            var url = encodeURI("zqb_nmsx_downloadthisnoticefile.action?instanceId=" + instanceId);
+           /*  if (strs.length +comp.length> 1) {
+                var url = encodeURI("zqb_nmsx_downloadthisnoticefile.action?instanceId=" + instanceId);
+            } else {
+                var url = "uploadifyDownload.action?fileUUID=" + noticefile
+            } */
+            window.location.href = url;
+        }
+    }
+
+function saveForm(){
+var ggmc=document.getElementById("NOTICENAME").value;
+	var valid = mainFormValidator.form(); //执行校验操作
+	if(!valid){
+		return false;
+	}else{
+		
+		//集成weboffice
+		try{ 
+			$("[form-type='GovWord']").each(function(){
+				$(this)[0].contentWindow.SaveDocument(); 
+			});
+		}catch(e){} 
+		//保存富文本
+		try{ 
+			saveHtmlEditor();  
+		}catch(e){} 
+		try{	
+			var flag = formSaveEventScript();
+			if(flag==false){
+				return flag;
+			}
+		}catch(e){} 
+		var dxan=$('input[name="PAPERFILENO"]:checked').val();
+		var comp=$("#COMPANYNO").val();
+		var zqdms=$("#ZQDMXS").val();
+		var zpsjUrl = "updateZpsj.action";
+		if(dxan==='是'){
+			if(comp==""  || comp==null){
+				alert("请选择召开时间");
+			}else{
+				if(ggmc.indexOf('终止挂牌')!= -1 || ggmc.indexOf('摘牌')!= -1){
+					var ZPRQ=document.getElementById("ZPRQ").value;
+					if(ZPRQ==null || ZPRQ==''){
+						alert("请选择摘牌时间");
+						return false;
+					}else{
+						$.post(zpsjUrl,{enddate:ZPRQ,khbh:zqdms},function(data){ }); 
+					}
+				}
+				var reg = RegExp('[^权益]变动');
+				if(ggmc.indexOf('人变更')!= -1 || ggmc.indexOf('董事变更')!= -1 || ggmc.indexOf('任命')!= -1 || ggmc.indexOf('任职')!= -1 || ggmc.indexOf('换届')!= -1 || ggmc.indexOf('就职')!= -1 || ggmc.indexOf('任免')!= -1  || ggmc.indexOf('选举')!= -1 || 	 ggmc.match(reg)){
+					var dxz=$('input[name="SFCG"]:checked').val();
+					if(dxz==null || dxz==''){
+						alert("请选择是否持股");
+						return false;
+					}else if(dxz=='是'){
+						 var XSBLSJ1=document.getElementById("XSBLSJ").value;
+						 if(XSBLSJ1==null || XSBLSJ1==''){
+							alert("请选择限售办理时间");
+							return false;
+						 }
+					}
+				}
+				$("#NOTICEFLAG").val("0");
+				var submitOption = {
+					beforeSubmit:lockPage,
+					error :failResponse,
+					complete:unLockPage,
+					success:successResponse,
+					dataType:'text'
+				};
+				$('#iformMain').attr('action','processRuntimeFormSave.action');
+				$('#iformMain').ajaxSubmit(submitOption); 
+			}
+		}else{
+			if(ggmc.indexOf('终止挂牌')!= -1 || ggmc.indexOf('摘牌')!= -1){
+				var ZPRQ=document.getElementById("ZPRQ").value;
+				if(ZPRQ==null || ZPRQ==''){
+					alert("请选择摘牌时间");
+					return false;
+				}else{
+					$.post(zpsjUrl,{enddate:ZPRQ,khbh:zqdms},function(data){ });
+				}
+			}
+			var reg = RegExp('[^权益]变动');
+				if(ggmc.indexOf('人变更')!= -1 || ggmc.indexOf('董事变更')!= -1 || ggmc.indexOf('任命')!= -1 || ggmc.indexOf('任职')!= -1 || ggmc.indexOf('换届')!= -1 || ggmc.indexOf('就职')!= -1 || ggmc.indexOf('任免')!= -1  || ggmc.indexOf('选举')!= -1 || 	 ggmc.match(reg)){
+					var dxz=$('input[name="SFCG"]:checked').val();
+					if(dxz==null || dxz==''){
+						alert("请选择是否持股");
+						return false;
+					}else if(dxz=='是'){
+						 var XSBLSJ1=document.getElementById("XSBLSJ").value;
+						 if(XSBLSJ1==null || XSBLSJ1==''){
+							alert("请选择限售办理时间");
+							return false;
+						 }
+					}
+				}
+			$("#NOTICEFLAG").val("0");
+			var submitOption = {
+				beforeSubmit:lockPage,
+				error :failResponse,
+				complete:unLockPage,
+				success:successResponse,
+				dataType:'text'
+			};
+			$('#iformMain').attr('action','processRuntimeFormSave.action');
+			$('#iformMain').ajaxSubmit(submitOption); 
+		}
+	}
+}
+		
+function executeHandle(){
+			var valid = mainFormValidator.form(); //执行校验操作
+			if(!valid){
+				return false;
+			}else{
+				var flag = singleSave();
+				if(!flag){
+					showSysTips(); 
+					return false;
+				}
+				//=====================================================
+				//===============执行办理动作的表单自定义控制脚本================
+				//=====================================================
+				try{
+					flag = formTransEventScript();
+					if(flag==false){
+						showSysTips(); 
+						return flag;
+					}
+				}catch(e){}
+				//==================END==================================
+				var title="任务办理";
+				var width=820;
+				var height=520;
+				var khbh=$("#KHBH").val();
+
+				$.post("zqb_announcement_gddhyztx.action",{khbh:khbh},function (data) {
+					if(data=='0'){
+						if(confirm("请再次确认股东大会召开填写是否正确！")){
+							var actDefId = $("#actDefId").val();
+							var actStepDefId = $("#actStepDefId").val();
+							var excutionId = $("#excutionId").val();
+							var taskId = $("#taskId").val();
+							var instanceId = $("#instanceId").val();
+							var prcDefId = $("#prcDefId").val();
+							var formId = $("#formId").val();
+							var dataid = $("#dataid").val();
+							var pageUrl = "processRuntimeHandle.action?actDefId="+actDefId+"&actStepDefId="+actStepDefId+"&prcDefId="+prcDefId+"&excutionId="+excutionId+"&taskId="+taskId+"&instanceId="+instanceId+"&formId="+formId+"&dataid="+dataid;
+
+							if(title=='undefined'){
+				title = "执行提交";
+			}
+			if(width=='undefined'){
+				width='800';
+			}
+			if(height=='undefined'){
+				height='400';
+			}
+			
+			opra = art.dialog.open(pageUrl,{
+				title:title,
+				lock:true,
+				background: '#999', // 背景色
+			    opacity: 0.87,	// 透明度
+			    width: width, 
+			    height: height,
+			    close:function(){
+			    	window.location.reload();
+				}
+			 });
+						}
+					}else{
+							var actDefId = $("#actDefId").val();
+							var actStepDefId = $("#actStepDefId").val();
+							var excutionId = $("#excutionId").val();
+							var taskId = $("#taskId").val();
+							var instanceId = $("#instanceId").val();
+							var prcDefId = $("#prcDefId").val();
+							var formId = $("#formId").val();
+							var dataid = $("#dataid").val();
+							var pageUrl = "processRuntimeHandle.action?actDefId="+actDefId+"&actStepDefId="+actStepDefId+"&prcDefId="+prcDefId+"&excutionId="+excutionId+"&taskId="+taskId+"&instanceId="+instanceId+"&formId="+formId+"&dataid="+dataid;
+							if(title=='undefined'){
+				title = "执行提交";
+			}
+			if(width=='undefined'){
+				width='800';
+			}
+			if(height=='undefined'){
+				height='400';
+			}
+			
+			opra = art.dialog.open(pageUrl,{
+				title:title,
+				lock:true,
+				background: '#999', // 背景色
+			    opacity: 0.87,	// 透明度
+			    width: width, 
+			    height: height,
+			    close:function(){
+			    	window.location.reload();
+				}
+			 });
+					}
+				});
+				
+				
+				
+			}
+		}
+function del(bs,id,name){
+
+	   document.getElementById("div"+bs).style.display = "none";
+var meetname= document.getElementById("MEETNAME").value;
+var meetid= document.getElementById("MEETID").value;
+
+var name2="";
+var id2="";
+
+var name1=meetname.split(",");
+var id1=meetid.split(",");
+if(name1.length>1){
+	for(var i=0;i<name1.length;i++){
+		
+		if(name1[i]!=name){
+			if(name2==""){
+				name2=name1[i];
+			}else{
+				name2=name2+","+name1[i];
+			}
+		}
+			
+		
+  	}
+	for(var i=0;i<id1.length;i++){
+		
+		if(id1[i]!=id){
+			if(id2==""){
+				id2=id1[i];
+			}else{
+				id2=id2+","+id1[i];
+			}
+		}
+			
+		
+  	}
+}
+
+document.getElementById("MEETNAME").value=name2;
+document.getElementById("MEETID").value=id2;
+}
+
+
+function dels(bs,id,name){
+
+	   document.getElementById("divs"+bs).style.display = "none";
+var bzlx= document.getElementById("BZLX").value;
+
+
+var bzlx2="";
+
+
+
+var bzlx1=bzlx.split(",");
+if(bzlx1.length>1){
+	for(var i=0;i<bzlx1.length;i++){
+		
+		if(bzlx1[i]!=id){
+			if(bzlx2==""){
+				bzlx2=bzlx1[i];
+			}else{
+				bzlx2=bzlx2+","+bzlx1[i];
+			}
+		}
+			
+		
+  	}
+	
+}
+
+document.getElementById("BZLX").value=bzlx2;
+
+}
+</script>
+<div id="border">
+	<table width="100%" class="ke-zeroborder" style="margin-bottom:5px;" border="0" cellspacing="0" cellpadding="0">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					${ZQJCXS}（${ZQDMXS}）公告呈报流程
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+					<input id="data" type="hidden" /> <a class="easyui-linkbutton" id="tjtx" href="javascript:void(0);" plain="true" iconcls="icon-search" onclick="addAdvance();">添加事项提醒</a> <a class="easyui-linkbutton" href="javascript:void(0);" plain="true" iconcls="icon-search" onclick="downloadThisNoticeFiles();">批量下载</a> <a class="easyui-linkbutton" href="javascript:void(0);" plain="true" iconcls="icon-search" onclick="getGLFxx();">查看关联方</a> <a class="easyui-linkbutton" href="javascript:void(0);" plain="true" iconcls="icon-search" onclick="getItsArticles();">查看公司章程</a> 
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table width="98%" class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0">
+						<tbody>
+							<tr id="itemTr_1706">
+								<td width="90" class="td_title" id="title_NOTICENO">
+									公告编号
+								</td>
+								<td width="120" class="td_data" id="data_NOTICENO">
+									${NOTICENO}&nbsp;
+								</td>
+								<td width="90" class="td_title" id="title_NOTICEDATE">
+									披露日期
+								</td>
+								<td width="120" class="td_data" id="data_NOTICEDATE">
+									${NOTICEDATE}&nbsp;
+								</td>
+								<td width="90" class="td_title" id="title_NOTICETYPE">
+									公告类型
+								</td>
+								<td width="130" class="td_data" id="data_NOTICETYPE">
+									${NOTICETYPE}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1709">
+								<td width="120" class="td_title" id="title_NOTICENAME">
+									公告名称
+								</td>
+								<td class="td_data" id="data_NOTICENAME" colspan="5">
+									${NOTICENAME}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_SFCG">
+									是否持股
+								</td>
+								<td class="td_data" colspan="3" id="title_XSBLSJ">
+									${SFCG}&nbsp;<span id="xssj" style="color:black;line-height:30px;letter-spacing:0.1em;font-family:微软雅黑;font-size:14px;vertical-align:middle;white-space:nowrap;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									限售办理时间${XSBLSJ}</span> 
+								</td>
+								<td class="td_title" id="title_ZPRQ">
+									摘牌时间
+								</td>
+								<td class="td_data" id="value_ZPRQ" >
+									${ZPRQ}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_PAPERFILENO" colspan="1">
+									是否要召开股东大会
+								</td>
+								<td class="td_data" colspan="5">
+									${PAPERFILENO}&nbsp;<span id="gddh" style="color:black;line-height:30px;letter-spacing:0.1em;font-family:微软雅黑;font-size:14px;vertical-align:middle;white-space:nowrap;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;召开时间${COMPANYNO}</span> 
+								</td>
+							</tr>
+							
+							<tr id="itemTr_1910">
+								<td width="120" class="td_title" id="title_GGZY">
+									公告摘要
+								</td>
+								<td class="td_data" id="data_GGZY" colspan="5">
+									${GGZY}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td width="120" class="td_title" id="title_GGZY">
+									<br />
+								</td>
+								<td class="td_data" colspan="5">
+									<span style="color:red;">摘要说明：请体现讨论的议案及主要介绍</span>&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1704">
+								<td class="td_title" id="title_XPSX" colspan="1">
+									信披事项
+								</td>
+								<td class="td_data" colspan="5">
+									<div id="XPSXDIV" style="width:auto;float:left;">
+									</div>
+									<div id="data_XPSX" style="width:auto;">
+										${BZLX}&nbsp;
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_MEETNAME" colspan="1">
+									关联会议
+								</td>
+								<td class="td_data" colspan="5">
+									<div id="GLHYDIV" style="width:auto;float:left;">
+									</div>
+									<div id="data_MEETNAME" style="width:auto;">
+										${MEETNAME}&nbsp;
+									</div>
+								</td>
+							</tr>
+							<tr id="itemTr_1712">
+								<td class="td_data" id="data_NOTICEFILE" style="padding:0px;border:0px currentColor;border-image:none;" colspan="6">
+									<center>
+										${NOTICEFILE}
+									</center>
+								</td>
+							</tr>
+							<tr id="itemTr_1792">
+								<td class="td_data" id="data_COMPANYNAME" style="padding:0px;border:0px currentColor;border-image:none;" colspan="6">
+									<center>
+										${COMPANYNAME}
+									</center>
+								</td>
+							</tr>
+							<tr id="itemTr_1793">
+								<td class="td_data" id="contenttd" style="color:red;border-bottom-color:#999999;border-bottom-width:0px;border-bottom-style:dotted;" colspan="5">
+									<br />
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${INSTANCEID}${MTYDKJ}${CREATENAME}${CREATEDATE}${NOTICEFLAG}${MEETID}${CREATERID}${KHBH}${KHMC}${NOTICETEXT}${NOTICESQ}${GGDF}<input id="sp" value="ggsp" />${QCRID}
+</div>

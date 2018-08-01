@@ -1,0 +1,135 @@
+<script type="text/javascript">
+function saveForm(){
+ 	var instanceId = $("#instanceId").val();
+if($("#border a").last().text()!=""){
+	var name=$("#border a").last().text().split(".")[0];
+}else{
+	var name="0";
+}
+	var filename=$("#ZDMC").val();
+
+	if(instanceId ==null || instanceId ==""){
+		instanceId ="0";
+	}
+	var valid = mainFormValidator.form(); //???У?????
+	if(!valid){
+	return false;
+	}
+	//???渻???
+ 	try{ 
+ 		saveHtmlEditor();  
+ 	}catch(e){} 
+	$.post("addOrUpdGszc.action", { instanceId : instanceId,name :encodeURI(name),filename:encodeURI(filename)  }, function (data) {
+               document.getElementById("submitbtn").click();	
+        });
+	
+} 
+   $(function () {
+    /*if ($("#ZDFJ").val() != '') {
+        $("button[onclick='showUploadifyPageZDFJ();return false;']").hide();
+    }
+    $("#ZDMC").attr("readonly", "readonly");*/
+});
+</script>
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					制度清单
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help" style="text-align:right;">
+					<p style="margin-left:15px;float:right;">
+						填报时间${CJSJ}
+					</p>
+					<p style="margin-left:15px;float:right;">
+						填报人:${CJRMC}[${CJRBH}]
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<!--
+							<tr id="itemTr_0">
+								<td class="td_title" id="title_ZDLX" width="15%">
+									下发日期
+								</td>
+								<td class="td_data" id="data_ZDLX" width="35%">
+									&nbsp;
+								</td>
+								<td class="td_title" id="title_WH" width="15%">
+									是否公开披露
+								</td>
+								<td class="td_data" id="data_WH" width="35%">
+									&nbsp;
+								</td>
+							</tr>
+-->
+							<tr id="itemTr_5">
+								<td class="td_title" id="title_XFRQ" width="15%">
+									下发日期
+								</td>
+								<td class="td_data" id="data_XFRQ" width="35%">
+									${XFRQ}&nbsp;
+								</td>
+								<td class="td_title" id="title_SFGKPL" width="15%">
+									是否公开披露
+								</td>
+								<td class="td_data" id="data_SFGKPL" width="35%">
+									${SFGKPL}&nbsp;
+								</td>
+							</tr>
+<!--
+							<tr id="itemTr_7">
+								<td class="td_title" id="title_SFGKPL" width="15%">
+									????????
+								</td>
+								<td class="td_data" id="data_SFGKPL" width="35%">
+									${SFGKPL}&nbsp;??
+								</td>
+							</tr>
+-->
+							<!--
+							<tr id="txtAreaTr_1558">
+								<td class="td_title" id="title_ZDMS">
+									???????
+								</td>
+								<td id="data_ZDMS" class="td_data" colspan="3">
+									&nbsp;??
+								</td>
+							</tr>
+-->
+                                                          <tr id="fjTr_1557">
+								<td class="td_title" id="title_ZDMC">
+									制度名称
+								</td>
+								<td id="data_ZDMC" class="td_data">
+									${ZDMC}&nbsp;
+								</td>
+							</tr>
+							<tr id="fjTr_1557">
+								<td class="td_title" id="title_ZDFJ">
+									制度附件
+								</td>
+								<td id="data_ZDFJ" class="td_data">
+									${ZDFJ}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${INSTANCEID}${COMPANYNO}${COMPANYNAME}${CJRBH}${CJRMC}${CJSJ}${KHBH}${KHMC}${ZDLX}${WH}${ZDMS}
+</div>

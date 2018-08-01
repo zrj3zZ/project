@@ -1,0 +1,48 @@
+<div id="border">
+		<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 5px" width="100%">
+			<tbody>
+				<tr>
+					<td class="formpage_title">质控日期设置</td>
+				</tr>
+				<tr>
+					<td align="right" id="help"></td>
+				</tr>
+				<tr>
+					<td align="right" class="line"></td>
+				</tr>
+				<tr>
+					<td align="left">
+						<table border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody>
+								<tr id="itemTr_2316">
+									<td class="td_title"  id="title_CBSJ" width="180">呈报时间									</td>
+									<td class="td_data"  id="data_CBSJ">${CBSJ}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_2003">
+									<td class="td_title"  id="title_ZKDATE" width="180">质控日期									</td>
+									<td class="td_data"  id="data_ZKDATE">${ZKDATE}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_2772">
+									<td class="td_title"  id="title_OWNER" width="180">部门负责人									</td>
+									<td class="td_data"  id="data_OWNER">${OWNER}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_2005">
+									<td class="td_title"  id="title_PROJECTNAME" width="180">项目名称									</td>
+									<td class="td_data"  id="data_PROJECTNAME">${PROJECTNAME}&nbsp;</td>
+								</tr>
+								<tr id="itemTr_2004">
+									<td class="td_title"  id="title_ZKR" width="180">质控人									</td>
+									<td class="td_data"  id="data_ZKR">${ZKR}&nbsp;</td>
+								</tr>
+								<tr  id="txtAreaTr_156" ><td class="td_title">质控内核相关人员									</td>
+									<td class="td_data"  width="80%">${SUBFORM_ZKNHXGRY}&nbsp;</td>
+								</td></tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+</div>
+<div style="display:none">
+${PROJECTNO}${JLSJ}</div>

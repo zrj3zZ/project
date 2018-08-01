@@ -1,0 +1,16 @@
+$(function() {
+		$("#mainFrameTab").click(function(){
+			if($("select[name='RZZT']").val()=="离任"){
+                              $("input[name='LRSJ']").attr("class","{required:true}");
+                              if($("input[name='LRSJ']").val()==""){
+                                   alert("温馨提示：您选择的任职状态为离任，请输入离任时间!")
+                              }
+                        }
+			if($("select[name='RZZT']").val()=="在职"){
+                              $("input[name='LRSJ']").attr("class","{required:false}");
+                        }
+			if($("input[name='LRSJ']").val()!=""){
+                              $("option[value='离任']").attr('selected','selected');
+                        }
+		});
+	});

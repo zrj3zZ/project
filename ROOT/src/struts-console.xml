@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+"http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+ 	<package strict-method-invocation="false"  name="console"  extends="struts-default">
+ 		  <!-- 定义一个名为 checkLogin 的拦截器 -->  
+        <interceptors>  
+            <!-- 定义权限检查拦截器 -->  
+            <interceptor name="checkLogin"  
+                class="com.iwork.core.server.root.IWorkInterceptor" />  
+            <!-- 定义一个包含权限检查的拦截器栈 -->  
+            <interceptor-stack name="myDefaultStack">  
+                <!-- 定义拦截器栈包含checkLogin拦截器 -->  
+                <interceptor-ref name="checkLogin"></interceptor-ref>  
+                <interceptor-ref name="defaultStack"></interceptor-ref>  
+            </interceptor-stack>  
+        </interceptors>  
+        
+        <!-- 设置全局 全局默认的拦截器栈-->  
+        <default-interceptor-ref name="myDefaultStack"></default-interceptor-ref>  
+        <!-- 定义全局Result -->    
+        <global-results>  
+            <!-- 当返回login视图名时，转入/login.jsp页面 -->  
+            <result name="login">admin/adminLogin.jsp</result>  
+        </global-results>
+        
+ 		<action name="console">
+			<result>admin/adminLogin.jsp</result>	
+		</action>  
+ 		<action name="adminDoLogin" method="loginadmin" class="loginAction">
+ 			<result name="success" type="redirect">adminIndex.action</result> 
+			<result  name="error">admin/adminLogin.jsp</result>	
+		</action>
+		<action name="checkqx" method="indexqx" class="zqbChangePasswordAction"></action>
+		<action name="adminIndex" method="index" class="sysAdminIndexAction">
+			<result  name="success">admin/index.jsp</result> 
+			<result  name="error">admin/adminLogin.jsp</result>	 
+		</action>
+		<action name="admin_dashboard_index" method="index" class="sysDashboardAction">
+			<result  name="success">admin/dashboard/index.jsp</result> 
+			<result  name="error">admin/adminLogin.jsp</result>	 
+		</action>  
+		<action name="admin_portlet_design" method="showDesign" class="sysDashboardAction">
+			<result  name="success">admin/dashboard/tree.jsp</result>
+		</action>  
+		<action name="admin_portlet_design_treeJSON" method="showDesignJSON" class="sysDashboardAction">
+		</action>  
+		<action name="admin_portlet_design_setPortlet" method="setPortlet" class="sysDashboardAction">
+		</action>  
+		<action name="admin_portlet_design_move"  method="movePortlet"   class="sysDashboardAction" >
+		</action>	
+		<action name="admin_portlet_design_update"  method="updatePortlet"   class="sysDashboardAction" >
+		</action>	
+		<action name="admin_portlet_design_remove"  method="removePortlet"   class="sysDashboardAction" >
+		</action>
+		
+		<!-- 目录管理 -->
+		<action name="directory_list" method="list" class="sysNavDirectoryAction">
+			<result name="success">app/navigation/directory/list.jsp</result>
+		</action>
+		<action name="directory_add" method="addItem" class="sysNavDirectoryAction">
+			<result>app/navigation/directory/edit.jsp</result>
+		</action>
+		<action name="directory_edit" method="load" class="sysNavDirectoryAction">
+			<result>app/navigation/directory/edit.jsp</result>
+		</action>
+		<action name="directory_save" method="save" class="sysNavDirectoryAction">
+			<result name="success">app/public/succes.jsp</result>
+			<result type="redirect">directory_list.action
+			</result>
+		</action>
+		<action name="directory_delete" method="delete" class="sysNavDirectoryAction">
+			<result name="success">app/navigation/directory/list.jsp</result>
+			<result type="redirect">directory_list.action
+			</result>
+		</action>
+		<action name="directory_moveup" method="moveUp" class="sysNavDirectoryAction">
+			<result>app/navigation/directory/list.jsp</result>
+			<result type="redirect">directory_list.action
+			</result>
+		</action>
+		<action name="directory_movedown" method="moveDown"
+			class="sysNavDirectoryAction">
+			<result>app/navigation/directory/list.jsp</result>
+			<result type="redirect">directory_list.action
+			</result>
+		</action>
+		<!-- 后台导航菜单管理 -->
+		<action name="function_list" method="list" class="sysNavFunctionAction">
+			<result name="success">app/navigation/function/list.jsp</result>
+		</action>
+		<action name="function_add" method="addItem" class="sysNavFunctionAction">
+			<result>app/navigation/function/edit.jsp</result>
+		</action>
+		<action name="function_edit" method="load" class="sysNavFunctionAction">
+			<result>app/navigation/function/edit.jsp</result>
+		</action>
+		<action name="function_save" method="save" class="sysNavFunctionAction">
+			<result name="success">app/public/succes.jsp</result>
+			<result type="redirect">function_list.action?directoryId=${directoryId}</result>
+		</action>
+		<action name="function_delete" method="delete" class="sysNavFunctionAction">
+			<result name="success">app/navigation/function/list.jsp</result>
+			<result type="redirect">function_list.action?directoryId=${directoryId}
+			</result>
+		</action>
+		<action name="function_moveup" method="moveUp" class="sysNavFunctionAction">
+			<result>app/navigation/function/list.jsp</result>
+			<result type="redirect">function_list.action?directoryId=${directoryId}
+			</result>
+		</action> 
+		<action name="function_movedown" method="moveDown" class="sysNavFunctionAction">
+			<result>app/navigation/function/list.jsp</result>
+			<result type="redirect">function_list.action?directoryId=${directoryId}
+			</result>
+		</action>
+			<!-- 系统信息监控 -->
+		<action name="systemThreadMonitor" method="showSysThreadMonitorWeb"
+			class="systemServerMonitorAction">
+			<result name="success">app/system/monitor/threadlist.jsp</result>
+		</action>
+		<action name="systemDBPoolMonitor" method="systemDBPoolMonitor"
+			class="systemServerMonitorAction">
+			<result name="success">app/system/monitor/dbpoollist.jsp</result>
+		</action>
+		<action name="systemJVMMonitor" method="getJVMInfo"
+			class="systemServerMonitorAction">
+			<result name="success">app/system/monitor/jvminfo.jsp</result>
+		</action>
+		<action name="systemJVMMonitorChart" method="getJVMInfoChar" class="systemServerMonitorAction">
+			<result name="success">app/system/monitor/jvmchart.jsp</result>
+		</action>
+		<action name="systemJVMMonitorParams" method="getJVMFreeJSON" class="systemServerMonitorAction">
+		</action>
+		<action name="systemServerMonitorChart" method="getServerInfoChar" class="systemServerMonitorAction">
+			<result name="success">app/system/monitor/serverchart.jsp</result>
+		</action>
+		<action name="systemServerMonitorParams" method="getServerFreeJSON" class="systemServerMonitorAction">
+		</action>
+		<action name="showOrgUserInfo" method="getOrgUserMonitor" class="systemServerMonitorAction">
+			<result name="success">app/system/monitor/monitorInfo.jsp</result>
+		</action>
+		<action name="showEngineModelInfo" method="getEngineModelMonitor" class="systemServerMonitorAction">
+			<result name="success">app/system/monitor/monitorInfo.jsp</result>
+		</action>
+		<action name="showProcessTaskInfo" method="getProcessTaskMonitor" class="systemServerMonitorAction">
+			<result name="success">app/system/monitor/processTaskMonitor.jsp</result>
+		</action>
+		<action name="showLoginInfo" method="getLoginInfo" class="systemServerMonitorAction">
+			<result name="success">app/system/monitor/loginInfoMonitor.jsp</result>
+		</action> 
+		
+    </package>   
+</struts>

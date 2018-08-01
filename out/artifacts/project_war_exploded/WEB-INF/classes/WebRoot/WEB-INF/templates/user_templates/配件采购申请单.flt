@@ -1,0 +1,232 @@
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					配件采购申请审批单
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+					<span id="data_DDH">订单号:${DDH} &nbsp;</span><span style="color:#004080;font-family:????;letter-spacing:1px;line-height:30px;white-space:nowrap;">签订日期：</span><span style="color:#0000FF;font-family:????;line-height:15px;text-align:left;">${QDRQ}&nbsp;</span> 
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr>
+								<td class="td_title" id="title_SQR" width="10%">
+									申请人
+								</td>
+								<td class="td_data" id="data_SQR" width="15%" colspan="3">
+									${SQR} 【${SQRZH} ，<span style="color:#0000FF;font-family:????;line-height:15px;white-space:normal;background-color:#FFFFFF;">${SQRBMMC} ，</span>${SQRBMID} ，${SQRDH}&nbsp;】
+								</td>
+								<td class="td_title" id="title_SQRQ" width="10%">
+									申请日期
+								</td>
+								<td class="td_data" id="data_SQRQ" width="15%">
+									${SQRQ}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_SQRQ" width="10%">
+									卖方
+								</td>
+								<td class="td_data" id="data_SQRQ" width="15%">
+									${MF}&nbsp;
+								</td>
+								<td class="td_title" id="title_MF" width="10%">
+									卖方联系人<br />
+								</td>
+								<td class="td_data" id="data_MF" width="15%">
+									${MFLXR}&nbsp;
+								</td>
+								<td class="td_title" id="title_MFLXR" width="10%">
+									卖方联系电话
+								</td>
+								<td class="td_data" id="data_MFLXR" width="15%">
+									${MFLXDH}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_MFLXDH" width="10%">
+									卖方传真
+								</td>
+								<td class="td_data" id="data_MFLXDH" width="15%">
+									${MFCZ}&nbsp;
+								</td>
+								<td class="td_title" id="title_MFCZ" width="10%">
+									卖方地址
+								</td>
+								<td class="td_data" id="data_MFCZ" width="15%" colspan="3">
+									${MFDZ}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_BUYERNAME" width="10%">
+									买方
+								</td>
+								<td class="td_data" id="data_BUYERNAME" width="15%">
+									${BUYERNAME}&nbsp;
+								</td>
+								<td class="td_title" id="title_BUYER" width="10%">
+									买方联系人
+								</td>
+								<td class="td_data" id="data_BUYER" width="15%">
+									${BUYER}&nbsp;
+								</td>
+								<td class="td_title" id="title_BUYERPHONE" width="10%">
+									买方联系电话
+								</td>
+								<td class="td_data" id="data_BUYERPHONE" width="15%">
+									${BUYERPHONE}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_BUYERFAX" width="10%">
+									买方传真
+								</td>
+								<td class="td_data" id="data_BUYERFAX" width="15%">
+									${BUYERFAX}&nbsp;
+								</td>
+								<td class="td_title" id="title_BUYERADD" width="10%">
+									买方地址
+								</td>
+								<td class="td_data" id="data_BUYERADD" width="15%">
+									${BUYERADD}&nbsp;
+								</td>
+								<td class="td_title" id="title_HJZJE" width="10%">
+									<br />
+								</td>
+								<td class="td_data" id="data_HJZJE" width="15%">
+									<br />
+								</td>
+							</tr>
+							<tr>
+								<td colspan="6">
+									<span style="color:#0000FF;font-family:????;line-height:15px;">${SUBFORM_BJCGSQDXXM}&nbsp;</span> 
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_HJSL" width="10%" colspan="2" style="text-align:left;">
+									<br />
+								</td>
+								<td class="td_title" id="title_JHDD" width="10%">
+									合计数量
+								</td>
+								<td class="td_data" id="data_JHDD" width="15%">
+									${HJSL}&nbsp;
+								</td>
+								<td class="td_title" id="title_FKSJJFS" width="10%">
+									合计总金额
+								</td>
+								<td class="td_data" id="data_FKSJJFS" width="15%">
+									${HJZJE}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_HJSL" width="10%">
+									交货地点
+								</td>
+								<td class="td_data" id="data_HJSL" width="15%" colspan="3">
+									${JHDD}&nbsp;
+								</td>
+								<td class="td_title" id="title_FKSJJFS" width="10%">
+									<br />
+								</td>
+								<td class="td_data" id="data_FKSJJFS" width="15%">
+									<br />
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_HJSL" width="10%">
+									付款时间及方式
+								</td>
+								<td class="td_data" id="data_HJSL" width="15%" colspan="3">
+									${FKSJJFS}&nbsp;
+								</td>
+								<td class="td_title" id="title_FKSJJFS" width="10%">
+									最迟装运日期
+								</td>
+								<td class="td_data" id="data_FKSJJFS" width="15%">
+									${ZCZYRQ}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_ZCZYRQ" width="10%">
+									结算币种
+								</td>
+								<td class="td_data" id="data_ZCZYRQ" width="15%">
+									${JSBZ}&nbsp;
+								</td>
+								<td class="td_title" id="title_JSFS" width="10%">
+									账号
+								</td>
+								<td class="td_data" id="data_JSFS" width="15%">
+									${JSZH}&nbsp;
+								</td>
+								<td class="td_title" id="title_JSZH" width="10%">
+									<br />
+								</td>
+								<td class="td_data" id="data_JSZH" width="15%">
+									<br />
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_KHMC" width="10%">
+									结算方式
+								</td>
+								<td class="td_data" id="data_KHMC" width="15%">
+									${JSFS}
+								</td>
+								<td class="td_title" id="title_KHYX" width="10%">
+									开户名称
+								</td>
+								<td class="td_data" id="data_KHYX" width="15%">
+									${KHMC}
+								</td>
+								<td class="td_title" id="title_JSBZ" width="10%">
+									开户银行
+								</td>
+								<td class="td_data" id="data_JSBZ" width="15%">
+									${KHYX}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td>
+								</td>
+								<td>
+								</td>
+								<td>
+								</td>
+								<td>
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_MEMO">
+									备注
+								</td>
+								<td id="data_MEMO" class="td_data" colspan="5">
+									${MEMO}&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td class="td_title" id="title_FJ">
+									附件
+								</td>
+								<td id="data_FJ" class="td_data" colspan="5">
+									${FJ}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

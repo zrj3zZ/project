@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="gb2312"?>
+<eagles-config>
+	<eagles-item>
+		<id>6</id>
+		<type>SYSNAV</type> 
+		<title>导航</title> 
+		<implements-class>com.iwork.eaglesearch.impl.EaglesSearchNavigationImpl</implements-class>
+	</eagles-item> 
+	<eagles-item>
+		<id>1</id>
+		<type>FORMINDEX</type>
+		<title>流程</title>
+		<implements-class>com.iwork.eaglesearch.impl.EaglesSearchFormDataImpl</implements-class>
+	</eagles-item> 
+	<eagles-item>
+		<id>2</id>
+		<type>KMINDEX</type>
+		<title>知识</title>
+		<implements-class>com.iwork.eaglesearch.impl.EaglesSearchKnowledgeMeagementImpl</implements-class>
+	</eagles-item>  
+	<eagles-item> 
+		<id>3</id>
+		<type>KNOWINDEX</type>
+		<title>知道</title>
+		<implements-class>com.iwork.eaglesearch.impl.EaglesSearchknowImpl</implements-class>
+	</eagles-item> 
+	<eagles-item>
+		<id>4</id>
+		<type>INFOINDEX</type> 
+		<title>资讯</title>
+		<implements-class>com.iwork.eaglesearch.impl.EaglesSearchNewsInfoImpl</implements-class>
+	</eagles-item>  
+	<eagles-item> 
+		<id>5</id>
+		<type>ORGINFO</type> 
+		<title>人员</title> 
+		<implements-class>com.iwork.eaglesearch.impl.EaglesSearchOrgInfoImpl</implements-class>
+	</eagles-item> 
+	<eagles-item>
+		<id>7</id>
+		<type>EMAIL</type>
+		<title>内部邮件</title>
+		<implements-class>com.iwork.plugs.email.fullsearch.EaglesSearchEmailImpl</implements-class>
+	</eagles-item>  
+</eagles-config>

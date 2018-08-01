@@ -1,0 +1,61 @@
+
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					内幕信息
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help" style="text-align:right;">
+					<p style="margin-left:15px;float:right;">
+						填报人:${CREATEUSERDATE}
+					</p>
+					<p style="margin-left:15px;float:right;">
+						填报时间:${CREATEUSER}[${CREATEUSERID}]
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_1992">
+								<td class="td_title" id="title_NMSX" width="180">
+									知悉内幕信息内容
+								</td>
+								<td class="td_data" id="data_NMSX">
+									${NMSX}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1993">
+								<td class="td_title" id="title_NMSJ" width="180">
+									内幕时间
+								</td>
+								<td class="td_data" id="data_NMSJ">
+									${NMSJ}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_1994">
+								<td class="td_title" id="title_NMXGZL" width="180">
+									内幕相关资料
+								</td>
+								<td class="td_data" id="data_NMXGZL">
+									${NMXGZL}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${KHBH}${KHMC}
+</div>

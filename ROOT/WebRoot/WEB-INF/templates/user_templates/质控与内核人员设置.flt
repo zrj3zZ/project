@@ -1,0 +1,46 @@
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					质控与内核人员设置
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+						<tbody>
+							<tr id="itemTr_2080">
+								<td id="title_ZKR" class="td_title" width="180">
+									质控人
+								</td>
+								<td id="data_ZKR" class="td_data">
+									${ZKR}&nbsp;<a href="javascript:clean('ZKR');" class="easyui-linkbutton" plain="true" iconcls="icon-remove">清空</a> 
+								</td>
+							</tr>
+							<tr id="itemTr_2081">
+								<td id="title_NHSPR" class="td_title" width="180">
+									内核审批人
+								</td>
+								<td id="data_NHSPR" class="td_data">
+									${NHSPR}&nbsp;<a href="javascript:clean('NHSPR');" class="easyui-linkbutton" plain="true" iconcls="icon-remove">清空</a> 
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${CJSJ}
+</div>

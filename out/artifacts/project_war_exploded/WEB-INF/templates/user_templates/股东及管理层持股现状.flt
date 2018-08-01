@@ -1,0 +1,82 @@
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					股东及管理层持股现状
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" border="0" cellpadding="0" cellspacing="0" width="100%">
+						<tbody>
+							<tr id="itemTr_0">
+								<td id="title_NAME" class="td_title" width="15%">
+									<span style="color:red;"></span>名称
+								</td>
+								<td id="data_NAME" class="td_data" width="35%">
+									${NAME}&nbsp;　
+								</td>
+								<td id="title_ZHIWU" class="td_title" width="15%">
+									<span style="color:red;"></span>职务
+								</td>
+								<td id="data_ZHIWU" class="td_data" width="35%">
+									${ZHIWU}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_2">
+								<td id="title_CGS" class="td_title" width="15%">
+									<span style="color:red;"></span>持股数(万股)
+								</td>
+								<td id="data_CGS" class="td_data" width="35%">
+									${CGS}&nbsp;　
+								</td>
+								<td id="title_CGBL" class="td_title" width="15%">
+									<span style="color:red;"></span>持股比例(%)
+								</td>
+								<td id="data_CGBL" class="td_data" width="35%">
+									${CGBL}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_4">
+								<td id="title_SFZYDJ" class="td_title" width="15%">
+									<span style="color:red;"></span>是否质押/冻结
+								</td>
+								<td id="data_SFZYDJ" class="td_data" width="35%">
+									${SFZYDJ}&nbsp;　
+								</td>
+								<td id="title_XSGFS" class="td_title" width="15%">
+									<span style="color:red;"></span>限售股份数(万股)
+								</td>
+								<td id="data_XSGFS" class="td_data" width="35%">
+									${XSGFS}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_6">
+								<td id="title_WXSGF" class="td_title" width="15%">
+									<span style="color:red;"></span>无限售股份数(万股)
+								</td>
+								<td id="data_WXSGF" class="td_data" width="35%">
+									${WXSGF}&nbsp;　
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${KHBH}${KHMC}
+</div>

@@ -1,0 +1,729 @@
+	#IMMainToolbar{
+		position:absolute;
+	  width:100%; 
+	  height:25px; 
+	  border-top:1px solid #b5b5b5;
+	 	bottom:0px;
+	  z-index:1; 
+	  border-bottom:0; 	
+	  background-image:url("../../../aws_img/im/toolBar_bg.gif");
+ }	
+ .IMONELineToolbar{
+ 	float:left;
+ 	width:200px;
+ 	height:25px;
+ 	cursor:pointer;
+ 	padding-left:28px;
+ 	background: url("../../../aws_img/im/oneLine.gif") no-repeat;
+ 	background-position:6% 50%;
+ 	font-size:12px;
+ 	font-family:"宋体";
+ 	line-height:25px;
+ }
+ .IMONELineToolbar_omMouse{
+  float:left;
+ 	width:200px;
+ 	height:25px;
+ 	cursor:pointer;
+ 	padding-left:28px;
+ 	background: url("../../../aws_img/im/oneLine.gif") no-repeat;
+ 	background-position:6% 50%;
+ 	font-size:12px;
+ 	font-family:"宋体";
+ 	line-height:25px;
+ 	background-color:#ffffff;
+ 	border-right:1px solid #b5b5b5;
+ }
+ .IMTalkInfoToolbar{
+  float:left;
+ 	height:25px;
+ 	width:200px;
+ 	cursor:pointer;
+ 	padding-left:40px;
+ 	background:url("../../../aws_img/im/talk_message.gif") no-repeat;
+ 	background-position:12% 50%;
+ 	font-size:12px;
+ 	line-height:25px;
+ 	border-right:1px solid #E5E5E5;
+ 	border-left:1px solid #E5E5E5;
+ 	font-family:"宋体";
+ }
+ .IMTalkInfoToolbar2{
+  float:left;
+ 	height:25px;
+ 	width:200px;
+ 	cursor:pointer;
+ 	padding-left:40px;
+ 	background:url("../../../aws_img/im/talk_message.gif") no-repeat;
+ 	background-position:12% 50%;
+ 	font-size:12px;
+ 	line-height:25px;
+ 	font-family:"宋体";
+ 	background-color:#ffffff;
+ }
+  .IMTalkInfoToolbar_omMouse{
+  float:left;
+ 	height:25px;
+ 	width:200px;
+ 	cursor:pointer;
+ 	padding-left:40px;
+ 	background:url("../../../aws_img/im/talk_message.gif") no-repeat;
+ 	background-position:12% 50%;
+ 	font-size:12px;
+ 	line-height:25px;
+ 	font-family:"宋体";
+ 	border-right:1px solid #b5b5b5;
+ 	background-color:#ffffff;
+ }
+ .IMTalkInfoToolbar_Remind{
+  float:left;
+ 	height:25px;
+ 	width:200px;
+ 	cursor:pointer;
+ 	padding-left:40px;
+ 	background:url("../../../aws_img/im/talk_message.gif") no-repeat;
+ 	background-position:12% 50%;
+ 	font-size:12px;
+ 	line-height:25px;
+ 	font-family:"宋体";
+ 	border-right:1px solid #b5b5b5;
+ 	border-left:1px solid #b5b5b5;
+ 	background-color:#0a246a;
+ }
+ .IMReminderInfoToolbar{
+ 	float:left;
+ 	width:200px;
+ 	height:25px;
+ 	cursor:pointer;
+ 	padding-left:40px;
+ 	background:url("../../../aws_img/im/system_message.gif") no-repeat;
+ 	background-position:12% 50%;
+ 	font-size:12px;
+ 	line-height:25px;	
+ 	border-right:1px solid #E5E5E5;
+ 	border-left:1px solid #E5E5E5;
+ 	font-family:"宋体";
+ }
+ .IMReminderInfoToolbar_OnMouse{
+ 	float:left;
+ 	width:200px;
+ 	height:25px;
+ 	cursor:pointer;
+ 	padding-left:40px;
+ 	background:url("../../../aws_img/im/system_message.gif") no-repeat;
+ 	background-position:12% 50%;
+ 	font-size:12px;
+ 	line-height:25px;	
+ 	font-family:"宋体";
+ 	border-right:1px solid #b5b5b5;
+ 	border-left:1px solid #b5b5b5;
+ 	background-color:#ffffff;
+ }
+ .IMReminderInfoToolbar_Remind{
+ 	float:left;
+ 	width:200px;
+ 	height:25px;
+ 	cursor:pointer;
+ 	padding-left:40px;
+ 	background:url("../../../aws_img/im/system_message.gif") no-repeat;
+ 	background-position:12% 50%;
+ 	font-size:12px;
+ 	line-height:25px;	
+ 	font-family:"宋体";
+ 	border-right:1px solid #b5b5b5;
+ 	border-left:1px solid #b5b5b5;
+ 	background-color:#0a246a;
+ }
+.myFriends_list{ 
+	position:absolute; 
+	bottom:25px; 
+	width:220px; 
+	height:350px;
+  z-index:2; 
+  -left:1px;
+ }
+.myFriends{
+	border:1px solid #b5b5b5; 
+	background:#fff; color:#036; 
+	font-size:12px; 
+	line-height:150%;
+	position:absolute; 
+	bottom:25px; 
+	width:220px; 
+	height:350px;
+  z-index:2; 
+  -left:1px;
+}
+.reviceTalkInfo{
+	border:1px solid #b5b5b5; 
+	width:200px;
+	*width:95%;
+  height:100%; 
+	background:#fff; color:#036; 
+	font-size:12px; 
+	line-height:150%;
+}
+.header{
+	height:25px; 
+	font-size:12px; 
+	width:98%;
+	*width:100%;
+	background-image:url("../../../aws_img/im/toolBar_bg.gif");
+	line-height:25px;	
+	color:#000000;
+ 	font-family:"宋体";
+ 	padding-left:5px;
+}
+.talk_header{
+	cursor: move;
+	height:25px; 
+	font-size:12px; 
+	width:99%;
+	*width:100%;
+	background-image:url("../../../aws_img/im/head.png");
+	line-height:25px;	
+	color:#000000;
+ 	font-family:"宋体";
+ 	padding-left:5px;
+}
+.search{
+	height:15px; 
+	width:100%;
+ 	padding-left:5px;
+ 	border-bottom:1px solid #e5e5e5;
+ 	padding-bottom:4px;
+}
+.searchImg{
+	float:left;
+	margin-top:5px;
+	margin-right:5px;
+}
+.searchInput{
+	width:60%;
+	float:right;
+	margin-top:5px;
+}
+.talk_box{ 
+	position:absolute; 
+	left:expression(document.body.clientWidth/3); 
+	top:expression(document.body.clientHeight/4); 
+ }
+.talk{
+	float:left;
+	/*border:1px solid #b5b5b5; */
+	width:100%; 
+	height:100%; 
+	color:#036; 
+	font-size:12px;
+	display:none;
+}
+.talk_name{
+	height:30px; 
+	font-size:12px; 
+	width:99%;
+	*width:100%;
+	background-image:url("../../../aws_img/im/talk_name.gif");
+	line-height:30px;	
+	color:#000000;
+ 	font-family:"宋体";
+ 	padding-left:5px;
+}
+.talk_info{
+	height:260px;
+	width:100%;	
+	border-left:1px solid #c4c6ca;
+	border-right:1px solid #c4c6ca;
+	background:#ffffff;
+}
+.talk_info_left{
+	float:left;
+	height:100%;
+	width:70%;	
+	border-right:1px solid #b4b6b4;
+}
+.talk_info_right{
+	float:right;
+	height:100%;
+	width:20%;	
+}
+.talk_info_right_top{
+	margin:0;
+	padding:0;
+	width:148px;
+	height:151px;
+	margin-left:-50px;
+	*margin-left:4px;
+	*margin-right:4px;
+	padding-top:1px;
+	background:url("../../../aws_img/im/photo.gif") no-repeat;
+}
+.talk_info_photo{
+	width:92px;
+	height:106px;
+	margin-top:30px;
+	margin-left:24px;
+	background:url("../../../aws_img/im/photo2.gif") no-repeat;
+}
+.photoImg{
+	width:80px;
+	height:94px;	
+	margin-top:6px;
+	margin-left:6px;
+}
+.talk_info_right_bottom{
+	margin:0;
+	padding:0;
+	width:148px;
+	height:99px;
+	margin-left:-50px;
+	margin-top:-50px;
+	*margin-left:4px;
+	*margin-top:4px;
+	background:url("../../../aws_img/im/me.png") no-repeat;
+}
+.me_info_photo{
+	margin:0;
+	padding:0;
+	width:40px;
+	height:40px;
+	margin-left:10px;
+	margin-top:	53px;
+	*margin-top:23px;
+	background:url("../../../aws_img/im/mePhoto.png") no-repeat;
+}
+.mePhotoImg{
+	width:30px;
+	height:34px;	
+	margin-top:3px;
+	margin-left:3px;
+}
+.dialogTitle{
+	width:60%;
+	float:left; 
+}
+.talkWithName{
+	width:20%;
+	float:left;
+}
+.dialogtitleico{
+	float:right;
+	height:16px;
+	width:16px;
+	padding-top:5px;
+	padding-right:5px;
+	cursor:pointer;
+} 
+.line{
+	background-color:#F3F3F3;
+	width:100%;
+	height:36px;
+	background-image:url("../../../aws_img/im/line.gif");
+}
+.reciveMessage{
+	width:100%;
+	height:135px;
+	border:1px;
+	overflow:auto;
+  scrollBar-arrow-color:purple;
+	background:#ffffff;
+}
+textarea{
+	overflow:auto;
+  width:100%;
+	text-align:left;
+	line-height:25px;
+	height:80px;
+	font-family:"宋体";
+	font-size:12px;
+	border:0px solid gray;
+	background:#FFFFFF url(../../../aws_img/dot_25.gif);
+}
+.Message{
+	width:100%;
+	height:100px;
+}
+.sendSubmit{
+	height:33px;
+	width:100%;
+	background-image:url("../../../aws_img/im/bottom.gif");
+}
+.bottom_header{
+	width:100%;
+	text-align: right;
+	height:33px;
+	width:100%;
+	background-image:url("../../../aws_img/im/bottom.gif");
+}
+.face{
+	cursor:pointer;
+	margin-top:12px;
+	margin-left:8px;
+	width:24px;
+	height:20px;
+	}
+.oneLine{
+	width:95%;
+	*width:100%;
+	padding-left:8px;;
+	padding-top:6px;
+	padding-bottom:3px;
+	cursor:pointer;
+	height:60px;
+}
+.oneLineOnMouse{
+	width:95%;
+	*width:100%;
+	height:30px;
+	padding-top:6px;
+	padding-bottom:3px;
+	padding-left:8px;
+	background-color:#dcf0ff;
+	cursor:pointer;
+	height:60px;
+}
+.oneLineInnerLeft{
+	width:20%;
+	float:left;
+	height:30px;
+}
+.oneLineInnerRight{
+	width:70%;
+	float:right;
+	height:50px;
+	*height:100%;
+}
+.oneLineInnerRightInner{
+	width:100%;
+	height:30px;
+}
+.imgPhoto{
+width:45px;
+height:50px;
+border:1px solid #CECECE;	
+}
+.workStatus {
+   position: absolute;
+   margin-top: 38px;
+   margin-left: -35px;
+   font-size:9px;
+}
+.message{
+	width:100%;
+	height:120px;
+	overflow:auto;
+  scrollBar-arrow-color:purple;
+  background-color:#ffffff;
+}
+.historyMessageInfo_top{
+	padding:0;
+	margin:0;
+	width:100%;
+	height:8px;
+	margin-top:40px;
+	*margin-top:2px;
+	margin-left:2px;
+}
+.historyMessageInfo_bottom{
+	padding:0;
+	margin:0;
+	width:350px;
+	*width:100%;
+	height:8px;
+	margin-top:-8px;
+	*margin-top:-4px;
+	margin-left:2px;
+}
+.historyMessageInfo_top_read{
+	width:100%;
+	height:8px;
+	margin-top:5px;
+	color:#696969;
+ 	font-family:"宋体";
+ 	margin-left:2px;
+}
+.historyMessageInfo_bottom_read{
+	width:99%;
+	height:8px;
+	margin-top:6px;
+	*margin-top:-4px;
+	color:#696969;
+ 	font-family:"宋体";
+ 	float:left;
+ 	margin-bottom:10px;
+ 	*margin-bottom:1px;
+	*margin-left:2px;
+ 	white-space:nowrap;
+}
+.historyMessageFrom{
+	width:20%;
+	float:left;
+	height:20px;
+	white-space:nowrap;
+	color:#00B050;
+ 	font-family:"宋体";
+}
+.historyMessageFromReceive{
+	width:20%;
+	float:left;
+	height:20px;
+	color:#0000ff;
+ 	font-family:"宋体";
+	white-space:nowrap;
+}
+.historyMessageFromSend{
+	width:20%;
+	float:left;
+	height:20px;
+	color:#008040;
+ 	font-family:"宋体";
+	white-space:nowrap;
+}
+.historyMessageDate{
+	width:75%;
+	float:right;
+	height:20px;
+	color:#00B050;
+ 	font-family:"宋体";
+}
+.historyMessageDateReceive{
+	width:75%;
+	float:right;
+	height:20px;
+	color:#0000ff;
+ 	font-family:"宋体";
+}
+.historyMessageDateSend{
+	width:70%;
+	float:right;
+	height:20px;
+	color:#008040;
+ 	font-family:"宋体";
+}
+#receiveMessageList{
+	position:absolute;
+	background-color:#75BAD7;
+ 	border:1px solid #14495f; 
+  z-index:2008; 
+  display:none;
+	width:15%;
+	bottom:20;
+	left:10%;
+}
+#talkMessage_box{ 
+	position:absolute; 
+	/*left:expression(body.clientWidth-350); */
+	bottom:25px; 
+	width:400px; 
+  z-index:2; 
+  padding-left:200px;
+ }
+.receiveMessageListInfoLi{
+	cursor:pointer;
+	width:95%;
+	*width:100%;
+	float:left;
+ 	height:20px;
+ 	padding-left:25px;
+ 	background:url("../../../aws_img/im/writeMessage.gif") no-repeat;
+ 	background-position:5% 50%;
+ 	font-size:12px;
+ 	line-height:25px;	
+ 	font-family:"宋体";
+}
+.receiveMessageListInfoLi_onMouse{
+	width:100%;
+	float:left;
+ 	cursor:pointer;
+ 	padding-left:25px;
+ 	background:url("../../../aws_img/im/writeMessage.gif") no-repeat;
+ 	background-position:5% 50%;
+ 	font-size:12px;
+ 	line-height:25px;	
+ 	font-family:"宋体";
+ 	overflow:auto;	
+ 	background-color:#dcf0ff;
+}
+.systemRemindDailog{
+	width:526px; 
+	color:#036; 
+	font-size:12px;
+	height:300px;
+	position:absolute;
+	z-index:1000;
+	left:expression(document.body.clientWidth/3); 
+	top:expression(document.body.clientHeight/4); 
+	display:none;
+}
+.systemReminghistoryMessage{
+	width:100%;
+	height:100%;
+	background:#ffffff; 
+	overflow:auto;
+	border-left:1px solid #b5b5b5; 
+	border-right:1px solid #b5b5b5; 
+	border-top:1px solid #b5b5b5; 
+}
+.historyMessage{
+	width:100%;
+	height:25px;
+ 	background-color:#fcfea4;
+ 	border-bottom:1px solid #bcbaad;
+}
+.historyMessage_left{
+	width:80%;
+	height:25px;
+ 	cursor:pointer;
+ 	padding-left:40px;
+ 	background:url("../../../aws_img/im/history.gif") no-repeat;
+ 	background-position:5% 50%;
+ 	font-size:12px;
+ 	line-height:23px;	
+ 	font-family:"宋体";	
+ 	float:left;
+}
+.historyMessage_right{
+	width:10%;
+	float:right;
+	height:25px;
+ 	cursor:pointer;
+ 	background:url("../../../aws_img/im/back1.gif") no-repeat;
+ 	background-position:5% 50%;
+ 	display:none;
+	}
+.lookHistoryMessageInfo{
+	position:absolute;
+	z-index:3;
+	width:100%;  
+	color:#036; 
+	font-size:12px;
+	display:none;
+}
+.lookHistoryMessageInfoHeader{
+	height:25px; 
+	font-size:12px; 
+	width:100%;
+	background-image:url("../../../aws_img/im/toolBar_bg.gif");
+	line-height:25px;	
+	color:#000000;
+ 	font-family:"宋体";
+ 	padding-left:5px;
+	}
+.lookHistoryMessageInfoNote{
+	*scrollBar-arrow-color:purple;
+	width:70%;
+	*width:100%;
+	height:236px;
+	background-color:#ffffff;
+	overflow:auto;
+}
+.lookHistoryMessageToolBar{
+	height:33px;
+	width:70%;
+	*width:100%;
+	text-align: right;
+	background-color:#ffffff;
+	background:none;
+	
+}
+.lookHistoryMessageToolBarSelectDate{
+	height:33px;
+	width:100%;	
+	margin-top:3px;
+	margin-right:3px;
+	background:none;
+}
+.dateSelector_submit{
+		cursor:pointer;
+		background-color:#ffffff;
+}
+
+.dragBottom{
+	bottom:1px;
+	padding-right:1px;
+	cursor:nw-resize; 
+	/*position:absolute; */
+	background-image:url('../../../aws_img/im/drag.gif'); 
+	/*background-position:-42px -10px; */
+	width:10px; 
+	height:10px; 
+	font-size:0;
+	}
+.sendMessage{
+  width:100%;
+  height:66px;
+}
+.sendMessage_left{
+	overflow:auto;
+	float:left;
+  width:93%;
+	text-align:left;
+	line-height:25px;
+	height:100%;
+	font-family:"宋体";
+	font-size:12px;
+	background:#FFFFFF url(../../../aws_img/im/dot_25.gif);
+}
+.sendMessage_right{
+	float:right;
+  width:19px;
+  height:62px;
+  margin-top:2px;
+  margin-right:2px;	
+  cursor:pointer;
+  background:url(../../../aws_img/im/push.png);
+}
+.faceDailog{
+	position:absolute; 
+	z-index:100;
+	width:218px;
+	border:1px solid #b5b5b5; 
+	display:none;	
+}
+.faceDIVTable{
+		width:100%;
+		height:100%;
+		border:1px;
+		border:1px solid #b5b5b5;
+}
+.faceDIVTr{
+		width:100%;
+		height:24px;
+		border:1px solid #b5b5b5;
+}
+.faceDIVTd{
+		width:24px;
+		height:24px;
+		border:1px solid #b5b5b5;
+		float:left;
+}
+.faceDIVTdOnMouse{
+		width:24px;
+		height:24px;
+		border:1px solid #b5b5b5;
+		float:left;
+		background-color:#dcf0ff;
+		cursor:pointer;
+}
+.functionKey{
+	text-align:right;
+	line-height:25px;
+	height:100%;
+	font-family:"宋体";
+	font-size:12px;
+	color:gray;
+}
+.lookHistoryMessageInfoNote_SystemRemind{
+	scrollBar-arrow-color:purple;
+	width:100%;
+	height:236px;
+	background-color:#ffffff;
+	overflow:auto;
+	border-right:1px solid #E5E5E5;
+}
+.systemRemindRecive{
+	scrollBar-arrow-color:purple;
+	width:100%;
+	height:236px;
+	background-color:#ffffff;
+	overflow:auto;
+}

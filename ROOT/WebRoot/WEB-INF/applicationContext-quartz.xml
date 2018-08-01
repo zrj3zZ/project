@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "file:///E:/source/RMS/ROOT/WebRoot/WEB-INF/spring-beans-2.0.dtd">
+<beans>
+    <!-- 定时任务 开始 -->
+    <!-- 系统前台定义的计划任务调度执行 -->
+     <bean id="scheduleTrigger" class="com.iwork.app.schedule.quartz.AutoExecuteSchedule">
+    	<property name="sysScheduleService">
+    		<ref bean="sysScheduleService"/>
+    	</property>
+    </bean><!-- 要调用的工作类 -->
+    <bean id="scheduleJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    	<property name="targetObject">
+            <ref bean="scheduleTrigger" /><!-- 定时执行的类 -->  
+    	</property>
+    	<property name="targetMethod">  
+            <value>execute</value>  <!-- 定时执行的类方法 --> 
+        </property>
+        <property name="concurrent" value="false"/>
+     </bean> 
+     <bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+     	<property name="jobDetail">  
+            <ref bean="scheduleJobDetail" />  
+        </property>
+        <property name="cronExpression">  
+            <value>* * * * * ?</value>  
+        </property>
+     </bean> 
+     <!-- 系统前台定义的计划任务调度执行END -->
+     <!-- 系统服务优化调度程序 -->
+    <bean id="severOptimizaTask" class="com.iwork.app.schedule.quartz.SeverOptimizaTask">
+    </bean>
+    <bean id="severOptimizaTaskDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    	<property name="targetObject">
+            <ref bean="severOptimizaTask" /><!-- 定时执行的类 -->  
+    	</property>
+    	<property name="targetMethod">  
+            <value>execute</value>  <!-- 定时执行的类方法 --> 
+        </property>
+        <property name="concurrent" value="false"/>
+     </bean> 
+    
+    
+    <!-- 系统级计划任务调度定义 -->
+    <bean id="processSuperviseTask" class="com.iwork.app.schedule.quartz.ProcessSuperviseTask">
+	    <property name="processRuntimeExcuteService"  ref="processRuntimeExcuteService" ></property>
+	    <property name="processOpinionService" ref="processOpinionService" />
+	     <property name="processRuntimeOperateService"  ref="processRuntimeOperateService" ></property>
+	      <property name="processRuntimeSendService"  ref="processRuntimeSendService" ></property>
+	    <property name="processDeploymentDAO" ref="processDeploymentDAO" />
+	    <property name="processStepMapService" ref="processStepMapService" />
+	    <property name="processDefMapService" ref="processDefMapService" />
+	    <property name="processStepTriggerService" ref="processStepTriggerService" />
+	    <property name="processStepSuperviseService" ref="processStepSuperviseService" />
+	    <property name="mailfreemarderConfig" ref="mailfreemarderConfig" />
+    </bean><!-- 要调用的工作类 -->
+    <bean id="djgScheduleTask" class="com.iwork.app.schedule.quartz.DjgScheduleTask"></bean>
+    <bean id="processSuperviseTaskDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    	<property name="targetObject"> 
+            <ref bean="processSuperviseTask" /><!-- 定时执行的类 -->  
+    	</property>
+    	<property name="targetMethod">   
+            <value>execute</value>  <!-- 定时执行的类方法 --> 
+        </property>
+        <property name="concurrent" value="false"/>
+     </bean> 
+     <!-- 开启定时提醒任务的，流程新增待办定时提醒 -->
+    <bean id="processTodoTask" class="com.iwork.app.schedule.quartz.ProcessTodoTask">
+	    <property name="processRuntimeExcuteService"  ref="processRuntimeExcuteService" ></property>
+	    <property name="processDeploymentDAO" ref="processDeploymentDAO" />
+	    <property name="processStepMapService" ref="processStepMapService" />
+	    <property name="processDefMapService" ref="processDefMapService" />
+	    <property name="taskService" ref="taskService" />
+	    <property name="mailfreemarderConfig" ref="mailfreemarderConfig" />
+    </bean><!-- 要调用的工作类 -->
+     <!-- 周一至周五 早8点至晚18点每半小时执行一次 -->
+     <bean id="quartzJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+     	<property name="jobDetail">  
+            <ref bean="processSuperviseTaskDetail" />  
+        </property>
+        <property name="cronExpression">  
+            <value>0 */30 8-22 ? * MON-FRI</value>  <!-- 周一至周五 早8点至晚18点每半小时执行一次 -->
+        </property>
+     </bean> 
+    <bean id="processTodoDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    	<property name="targetObject">
+            <ref bean="processTodoTask" /><!-- 定时执行的类 -->  
+    	</property>
+    	<property name="targetMethod">  
+            <value>execute</value>  <!-- 定时执行的类方法 --> 
+        </property>
+        <property name="concurrent" value="false"/>
+     </bean> 
+     <bean id="djgScheduleDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    	<property name="targetObject">
+            <ref bean="djgScheduleTask" /><!-- 定时执行的类 -->  
+    	</property>
+    	<property name="targetMethod">  
+            <value>execute</value>  <!-- 定时执行的类方法 --> 
+        </property>
+        <property name="concurrent" value="false"/>
+     </bean> 
+      <!-- 后台维护任务调度每天凌晨2点数据维护-->
+     <bean id="backstageTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+     	<property name="jobDetail">  
+            <ref bean="severOptimizaTaskDetail" />  
+        </property>
+        <property name="cronExpression">  
+            <value>0 0 2 * * ?</value>  
+        </property>
+     </bean>
+     
+     <!-- 周一至周五 早8点至晚22点每2小时执行一次新增待办任务批量提醒 -->
+     <bean id="todoTaskJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+     	<property name="jobDetail">   
+            <ref bean="processTodoDetail" />  
+        </property>
+        <property name="cronExpression">  
+            <value>0 0 8-23/1 ? * *</value>  <!-- 早8点至晚23点每小时执行一次 -->
+        </property>
+     </bean> 
+     
+     <!-- 周一至周五 早8点至晚20点每小时执行一次流程督办任务 -->
+     <bean id="superviseTaskJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+     	<property name="jobDetail">   
+            <ref bean="processSuperviseTaskDetail" />  
+        </property>
+        <property name="cronExpression">  
+            <value>0 0 8-20/1 ? * *</value>  <!-- 早8点至晚20点每小时执行一次 -->
+        </property>
+     </bean> 
+     <bean id="djgJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+     	<property name="jobDetail">   
+            <ref bean="djgScheduleDetail" />  
+        </property>
+        <property name="cronExpression">  
+            <value>0 50 15 ? * SUN-SAT</value>  <!--周一到周日下午1:10分触发 -->
+        </property>
+     </bean> 
+      
+     <!-- 系统级计划调度执行END --> 
+     <!-- 触发器工厂，将所有的定时任务都注入工厂-->  
+     <bean id="schedulerFactory" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">  
+     <!-- 添加触发器 -->
+     <property name="triggers">
+     	<list>
+     		<!-- 将上面定义的测试定时任务注入（可以定义多个定时任务，同时注入）-->  
+             <ref local="quartzJobTrigger" />  <!-- 周一至周五 早8点至晚18点每半小时执行一次 -->
+             <ref local="todoTaskJobTrigger" />  <!-- 周一至周五 早8点至晚22点每小时执行一次 -->
+             <ref local="superviseTaskJobTrigger" /> <!-- 周一至周五 早8点至晚22点每小时执行一次 -->
+             <ref local="backstageTrigger" /> <!-- 后台维护任务调度每天凌晨2点数据维护-->
+             <ref local="cronTrigger" />  <!-- 执行系统定时计划任务 --> 
+             <ref local="djgJobTrigger" />
+     	</list>  
+     </property> 
+      </bean>
+    <!-- 定时任务 结束 -->
+</beans>

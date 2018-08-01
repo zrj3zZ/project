@@ -1,0 +1,90 @@
+<script>
+	function saveForm(){
+	
+	var valid = mainFormValidator.form(); //执行校验操作
+	if(!valid){
+	return false;
+	}
+	//保存富文本
+ 	try{ 
+ 		saveHtmlEditor();  
+ 	}catch(e){} 
+var instanceid=$("#instanceId").val();
+var flag=$("#QUESTION").val();
+$.post('xpwtcfyz.action',{instanceid:instanceid,flag:flag},function(data){
+		if(data=='false') alert("信披问题不能重复！");
+		else  document.getElementById("submitbtn").click();	
+  });
+	
+} 
+</script>
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					信披自查问题表单
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_2044">
+								<td class="td_title" id="title_QUESTION" width="180">
+									<span style="color:red;">*</span>问题
+								</td>
+								<td class="td_data" id="data_QUESTION">
+									${QUESTION}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2045">
+								<td class="td_title" id="title_DEFULTANSWER" width="180">
+									<span style="color:red;">*</span>默认答案
+								</td>
+								<td class="td_data" id="data_DEFULTANSWER">
+									${DEFULTANSWER}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2046">
+								<td class="td_title" id="title_MEMO" width="180">
+									情况说明
+								</td>
+								<td class="td_data" id="data_MEMO">
+									${MEMO}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2056">
+								<td class="td_title" id="title_STATUS" width="180">
+									有效状态
+								</td>
+								<td class="td_data" id="data_STATUS">
+									${STATUS}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2056">
+								<td class="td_title" id="title_STATUS" width="180">
+									功能模块
+								</td>
+								<td class="td_data" id="data_STATUS">
+									${TYPE}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${SORTID}${EXTEND1}${EXTEND2}${EXTEND3}
+</div>

@@ -1,0 +1,120 @@
+<div id="border">
+	<table width="100%" class="ke-zeroborder" style="margin-bottom:5px;" border="0" cellspacing="0" cellpadding="0">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					重要督导事项表单
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table width="100%" class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0">
+						<tbody>
+							<tr id="itemTr_0">
+								<td width="15%" class="td_title" id="title_SXMC">
+									<span style="color:red;">*</span>事项名称
+								</td>
+								<td width="35%" class="td_data" id="data_SXMC" colspan="3">
+									${SXMC}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_7">
+								<td width="15%" class="td_title" id="title_ZCFKSJ">
+									最迟反馈时间
+								</td>
+								<td width="35%" class="td_data" id="data_ZCFKSJ">
+									${ZCFKSJ}&nbsp;　
+								</td>
+								<td width="15%" class="td_title" id="title_SPR">
+									审批人
+								</td>
+								<td width="35%" class="td_data" id="data_SPR">
+									${SPR}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_24">
+								<td width="15%" class="td_title" id="title_GSMC">
+									公司名称
+								</td>
+								<td width="35%" class="td_data" id="data_GSMC">
+									${GSMC}&nbsp;　
+								</td>
+								<td width="15%" class="td_title" id="title_GSDH">
+									公司电话
+								</td>
+								<td width="35%" class="td_data" id="data_GSDH">
+									${GSDH}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_20">
+								<td width="15%" class="td_title" id="title_NAME">
+									姓名
+								</td>
+								<td width="35%" class="td_data" id="data_NAME">
+									${NAME}&nbsp;　
+								</td>
+								<td width="15%" class="td_title" id="title_USERID">
+									账号
+								</td>
+								<td width="35%" class="td_data" id="data_USERID">
+									${USERID}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_22">
+								<td width="15%" class="td_title" id="title_TEL">
+									联系电话
+								</td>
+								<td width="35%" class="td_data" id="data_TEL">
+									${TEL}&nbsp;　
+								</td>
+								<td width="15%" class="td_title" id="title_EMAIL">
+									邮箱
+								</td>
+								<td width="35%" class="td_data" id="data_EMAIL">
+									${EMAIL}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_26">
+							</tr>
+							<tr id="txtAreaTr_4365">
+								<td class="td_title" id="title_SXGS">
+									事项概述
+								</td>
+								<td class="td_data" id="data_SXGS" colspan="3">
+									${SXGS}&nbsp;　
+								</td>
+							</tr>
+							<tr id="fjTr_4347">
+								<td class="td_title" id="title_SXZL">
+									事项资料
+								</td>
+								<td class="td_data" id="data_SXZL" colspan="3">
+									${SXZL}&nbsp;　
+								</td>
+							</tr>
+							<tr id="fjTr_4348">
+								<td class="td_title" id="title_FKDZL">
+									反馈的资料
+								</td>
+								<td class="td_data" id="data_FKDZL" colspan="3">
+									${FKDZL}&nbsp;　
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${INSTANCEID}${COMPANYNO}${COMPANYNAME}${CJR}${GXSJ}${LCBH}${RWID}${LCBS}${YXID}${SXBH}${FKZT}${SPZT}${PRCID}${STEPID}${EXTEND1}${EXTEND2}${EXTEND3}${EXTEND4}${EXTEND5}${POSITION}
+</div>

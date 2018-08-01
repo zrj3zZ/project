@@ -1,0 +1,34 @@
+$(function () {
+var instanceId = $("#INSTANCEID").val();
+var projectNo = $("#PROJECTNO").val();
+var customerNo = $("#CUSTOMERNO").val();
+$.ajax({
+	url : 'sx_zqb_getXmxlContent.action',
+	async : false,
+	type : "POST",
+	data: {
+		instanceId:instanceId,
+		projectNo:projectNo,
+		customerNo:customerNo
+    },
+    dataType : "json",
+    success : function(data) {
+	    if(data!=null){
+	    	$("#xmlxdcb").html(data.dcContent);
+	    	$("#xmlxsqbg").html(data.sqbgContent);
+		}
+	}
+});
+});
+function openFormPage(formId,demId,instanceId){
+	var pageUrl='openFormPage.action?formid='+formId+'&demId='+demId+'&instanceId='+instanceId;
+	art.dialog.open(pageUrl,{
+		id:'FormPage',
+		title:'',
+		lock:true,
+		background: '#999',
+		opacity: 0.87,
+		width:'90%',
+		height:'90%'
+	});
+}

@@ -1,0 +1,79 @@
+$().ready(function() {
+	loadSetting();
+})
+
+function loadSetting(){
+	var meettype = $("input[name='GSLX']:checked").val();
+	if(meettype=='分公司'){
+		$("#itemTr_1246").hide();
+		$("#itemTr_1247").hide();
+		$("#itemTr_1249").hide();
+		$("itemTr_1250").hide();
+	}else{
+		$("#itemTr_1246").show();
+		$("#itemTr_1247").show();
+		$("#itemTr_1249").show();
+		$("#itemTr_1250").show();
+	}
+}
+function savebeforeEvent() {
+    $.ajaxSetup({
+        async: false
+    });
+    var gsmc= $("#GSMC").val();
+    var khmc= $("#KHMC").val();
+    var khbh= $("#KHBH").val();
+    var instanceId= $("#instanceId").val();
+    var flag = new Boolean();
+    $.post("zqb_fzgs_namecheck.action", {
+        gsmc:gsmc,
+        khmc:khmc,
+        khbh:khbh,
+        instanceId:instanceId
+    }, function (data) {
+        if (data == '1') {
+            flag = false;
+            alert("公司存在!");
+        } else {
+            flag = true;
+        }
+    });
+    return flag;
+}
+function setData() {
+    var gsmc = $("#GSMC").val();
+    var khbh = $("#KHBH").val();
+    $.post('zqb_fzgs_getThisData.action?gsmc=' + gsmc + '&khbh=' + khbh, function (data) {
+        var subdata = data.split(",");
+        for (var i = 0; i < subdata.length; i++) {
+            var ssubdata = subdata[i].split("-");
+            if (ssubdata[1] != null && ssubdata != '') {
+                if (ssubdata[0] == 'GSLX') {
+                    if ($("#GSLX0").val() == ssubdata[1]) {
+                        $("#GSLX0").attr("checked", "checked")
+                    }
+                    if ($("#GSLX1").val() == ssubdata[1]) {
+                        $("#GSLX1").attr("checked", "checked")
+                    }
+                    if ($("#GSLX2").val() == ssubdata[1]) {
+                        $("#GSLX2").attr("checked", "checked")
+                    }
+                    if ($("#GSLX3").val() == ssubdata[1]) {
+                        $("#GSLX3").attr("checked", "checked")
+                    }
+                } else {
+                    $("#" + ssubdata[0]).val(ssubdata[1]);
+                }
+            }
+        }
+    });
+}
+
+
+function checknumCGBL() {
+    var reg1 = /^-?\d{0,6}(\.\d{0,4})?$/;
+    var num = $("#CGBL").val();
+    if (!reg1.test(num)) {
+        alert("持股比例数值过大，请输入整数部分不大于6位，小数部分不大于4位或无小数部分的数值");
+    }
+}

@@ -1,0 +1,154 @@
+<script type="text/javascript">
+$(function () {
+    var xmbh = $("#PROJECTNO").val();
+    $.post("hl_zqb_getdzwothMainContent.action", {
+        xmbh: xmbh
+    }, function (data) {
+        var dataJson = eval("(" + data + ")");
+       
+        $("#projectname").html(dataJson[0].PROJECTNAME);
+        $("#owner").html(dataJson[0].OWNER);
+        $("#manager").html(dataJson[0].MANAGER);
+        
+        $("#clbm").html(dataJson[0].CLBM);
+        
+        $("#EXTEND1").val(dataJson[0].EXTEND1);
+        $("#EXTEND2").val(dataJson[0].EXTEND2);
+    });
+    var instanceId= $("#instanceId").val();
+    $.post("zqb_announcement_gettentuserdateforpro.action",{instanceId:instanceId},function (data) {
+	$("#contenttd").html(data);
+    });
+    var jdmc = document.getElementById("JDMC").value;
+
+    $.post("zqb_announcement_gettentuserdateforrctwo.action",{xmbh:xmbh,jdmc:jdmc},function (data) {
+	$("#contentted").html(data);
+    });
+});
+</script>
+<style type="text/css">
+.formpage_title {
+	text-align: center;
+	vertical-align:bottom;
+	height:50px;
+	font-size: 22px;
+	color:#000;
+	margin-bottom:20px;
+}
+.line {
+	background-color: #ccc;
+	height:15px;
+	margin-bottom:20px;
+}
+td {
+	line-height: 30px;
+	padding-left: 3px;
+	font-size: 12px;
+	border-bottom:1px #efefef dotted;
+	vertical-align:middle;
+	word-wrap:break-word;
+	word-break:break-all;
+	font-weight:100;
+	line-height:15px;
+	padding-top:5px;
+	text-align:left;
+}
+legend {
+	font-size: 16px;
+}
+</style>
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					定增股票发行(200人以上)
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+					<br />
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<fieldset style="margin-top:15px;color:#004080;width:100%;border:1px dashed #CCCCCC;">
+		<legend algin="right" style="color:#004080;">项目信息</legend>
+		<table width="100%">
+			<tbody>
+				
+				<tr>
+					<td id="title_" class="td_title" width="15%">
+						项目名称
+					</td>
+					<td id="data_" class="td_data" width="35%">
+						<span id="projectname"></span> 
+					</td>
+				</tr>
+                                 <tr>
+					<td id="title_" class="td_title" width="15%">
+						承揽人
+					</td>
+					<td id="data_" class="td_data" width="35%">
+						<span id="clbm"></span> 
+					</td>
+				</tr>
+				<tr id="itemTr_0">
+					<td id="title_" class="td_title" width="15%">
+						业务部门负责人
+					</td>
+					<td id="data_" class="td_data" width="35%">
+						<span id="owner"></span> 
+					</td>
+				</tr>
+				<tr>
+					<td id="title_" class="td_title" width="15%">
+						项目负责人
+					</td>
+					<td id="data_" class="td_data" width="35%">
+						<span id="manager"></span> 
+					</td>
+				</tr>
+				
+				
+				
+			</tbody>
+		</table>
+	</fieldset>
+	<fieldset style="margin-top:15px;color:#004080;width:100%;border:1px dashed #CCCCCC;">
+		<legend algin="right" style="color:#004080;">股票发行信息</legend>
+		<table width="100%">
+			<tbody>
+				<tr id="itemTr_0">
+					<td id="title_NFXFILE" class="td_title" width="15%">
+						附件
+					</td>
+					<td id="data_NFXFILE" class="td_data" width="35%" colspan="3">
+						${NFXFILE}
+					</td>
+				</tr>
+                                 <tr id="itemTr_1795">
+								<td class="td_title" id="title_FJ" width="15%"></td>
+								<td id="contentted" colspan="3" class="td_data" width="85%" style="border-bottom: 0px dotted #999999;color:red;"></td>
+			</tr>
+			</tbody>
+		</table>
+	</fieldset>
+	<table width="100%">
+		<tbody>
+			<tr id="itemTr_1793">
+								<td class="td_title" id="title_FJ" width="15%"></td>
+								<td id="contenttd" colspan="3" class="td_data" width="85%" style="border-bottom: 0px dotted #999999;color:red;"></td>
+			</tr>
+			</tbody>
+		</table>
+	</fieldset>
+</div>
+<div style="display:none;">
+	${GROUPID}${PROJECTNO}${PROJECTNAME}${CJSJ}${CREATEUSER}${CREATEUSERID}${SCORE}${JDMC}${TJRID}${TJRXM}${TJSJ}${EXTEND1}${EXTEND2}${EXTEND3}${EXTEND4}${EXTEND5}
+</div>

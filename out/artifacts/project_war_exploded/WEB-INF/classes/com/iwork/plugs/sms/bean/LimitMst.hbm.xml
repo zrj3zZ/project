@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.iwork.plugs.sms.bean">
+	
+	
+	<class table="IWORK_SMS_LIMIT" name="LimitMst">
+		<id name="cid" column="cid" type="integer">
+			<generator class="increment"></generator>
+		</id>
+	
+            <property name="userid" type="java.lang.String" column="USERID">
+            </property>
+            <property name="smsLimit" type="integer" column="SMS_LIMIT">
+            </property>
+            <property name="cmobilechannel" type="integer" column="CMOBILECHANNEL" >
+            </property>
+            <property name="cunicomchannel" type="integer"  column="CUNICOMCHANNEL">
+            </property>
+            <property name="ctelecomchannel" type="integer"  column="CTELECOMCHANNEL">
+            </property>
+            <property name="submittime" type="java.util.Date"  column="SUBMITTIME" >
+            </property>
+        
+    </class>
+</hibernate-mapping>

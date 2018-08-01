@@ -1,0 +1,99 @@
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>工作周报</title>
+<link href="css/base.css" rel="stylesheet" type="text/css" />
+<link href="css/login.css" rel="stylesheet" type="text/css" />
+<link href="css/register.css" rel="stylesheet" type="text/css" />
+<link type='text/css' href='css/basic.css' rel='stylesheet' media='screen' />
+<script language="javascript" src="js/jquery/jquery1.4.js"></script>
+<script type='text/javascript' src='js/jquery/jquery.simplemodal.js'></script>
+<script language="javascript" src="js/jquery/jquery.cookie.js"></script>
+<script language="javascript" src="js/common.js"></script>
+<script language="javascript" src="js/login_index.js"></script>
+<script language="javascript" src="js/login_modifyPassword.js"></script>
+</head>
+
+<body>
+<form id="login" action="" method="post">
+<div class="main2">
+  <div class="login_box">
+
+    <div class="login_left">
+      <div class="tab">
+      <span class="org_txt_onblur" id="org_txt"></span>
+     <span class="user_txt_onblur" id="user_txt"></span>
+     <span class="password_txt_onfocus" id="password_txt"/></span>
+        <div class="tab_box">
+          <div>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+             <tr>
+                <td align="right" >&nbsp;</td>
+                <td ><div id="errormessage" style="font-size:12px; width:260px;padding-bottom:7px; color:#F00"></div></td>
+              </tr>
+              <tr>
+                <td align="right" style=" line-height:24px; padding-right:5px;width:80px;"><div style="*margin-right:-15px">账号</div></td>
+                <td style="width:200px;"><input name="user" type="text" class="input1" id="user" onfocus="this.className='input2'" onblur="this.className='input1'" style="font-size:14px; color:#333;" tabindex="1"/></td>
+              </tr>
+             <tr>
+                <td colspan="2"><div style="height:10px"></div></td>
+              </tr>
+              <tr>
+                <td  align="right" style=" line-height:24px; padding-right:5px; width:80px; text-align:right "><div style="*margin-right:-15px">所在组织</div></td>
+                <td width="303" style="width:200px;"><label for="textfield"></label>
+                  <input name="org" type="text" class="input1" id="org" onfocus="this.className='input2'" onblur="this.className='input1'" style="font-size:14px; color:#333;" onkeyup="orgProcessKeyup(this,event);" tabindex="2"/></td>
+              </tr>
+              <tr>
+                <td colspan="2"><div style="height:10px"></div></td>
+              </tr>
+              <tr>
+                <td align="right" style="line-height:24px; padding-right:5px;width:80px;"><div style="*margin-right:-15px">密码</div></td>
+                <td style="width:200px;"><input name="password" type="password" class="input1" id="password" onfocus="this.className='input2'" onblur="this.className='input1'" tabindex="3"/></td>
+              </tr>
+                            <tr>
+                <td colspan="2"><div style="height:10px"></div></td>
+              </tr>
+              <tr id="yzm1" style="display:none;">
+                <td align="right" style=" line-height:24px; padding-right:5px; width:80px;"><div style="*margin-right:-15px">验证码</div></td>
+                <td style="width:200px;"><input  style="width:80px;float:left;" type="text" id="captcha" name="j_captcha" class="input1" onfocus="this.className='input2'" onblur="this.className='input1'"/><img id="captchaImage" src="captcha.jpeg" alt="换一张"  style="float:left; margin-left:8px;cursor:pointer;"/></td>
+              </tr>
+              <tr id="yzm2"><td colspan="2"><div style="height:32px;"></div></td></tr>
+                            <tr>
+                <td colspan="2"><div style="height:10px"></div></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td style="width:200px; padding-bottom:5px;"><span style="font-size:12px; color:#333333; float:left">
+                  <input id="check1" name="check1" type="checkbox" style="vertical-align:middle; margin-top:-2px; margin-bottom:-2px;" tabindex="4"/>
+                  <a>记住密码</a></span> <span class="hack" id="test"><a href="#">忘记密码</a></span></span></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td rowspan="2" style="width:200px;"><div id="login1_button" class="register_button1" onmousedown="this.className='register_button2'" onmouseup="this.className='register_button1'" style="cursor:pointer;" tabindex="5" onFocus="this.blur()">登 录</div></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+              </tr>
+            </table>
+          </div>
+       
+        </div>
+      </div>
+      <div class="text_box"> <span style="float:left;">还没用过工作周报？现在<span><a href="org!regIndex.action" target="_blank" style="font-weight:bold">注册</a></span></span> <span style="float:right; " >同事已经在用了，马上<span><a href="org!regJoinIndex.action" target="_blank" style="font-weight:bold">加入我的组织</a></span></span> </div>
+    </div>
+    <div class="login_right">
+      <div class="login_right_text"><span style="font-size:12px; float:right; padding-right:28px"></span></div>
+      <div class="login_right_images"><br />
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+</body>
+</html>

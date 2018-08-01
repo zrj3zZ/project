@@ -1,0 +1,64 @@
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" border="0" cellpadding="0" cellspacing="0" width="100%">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					通用项目阶段提交资料清单
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" border="0" cellpadding="0" cellspacing="0" width="100%">
+						<tbody>
+							<tr id="itemTr_2321">
+								<td class="td_title" id="title_XMLX" width="180">
+									项目类型
+								</td>
+								<td class="td_data" id="data_XMLX">
+									${XMLX}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2322">
+								<td class="td_title" id="title_JDMC" width="180">
+									<span style="color:red;">*</span>阶段名称
+								</td>
+								<td class="td_data" id="data_JDMC">
+									${JDMC}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2326">
+								<td class="td_title" id="title_CONTENT" width="180">
+									<span style="color:red;">*</span>资料内容
+								</td>
+								<td class="td_data" id="data_CONTENT">
+									${CONTENT}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2327">
+								<td class="td_title" id="title_SXZLQD" width="180">
+									所需资料模版
+								</td>
+								<td class="td_data" id="data_SXZLQD">
+									${SXZLQD}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${CJRZH}${CJRXM}${CJSJ}${SORTID}${STATE}
+</div>

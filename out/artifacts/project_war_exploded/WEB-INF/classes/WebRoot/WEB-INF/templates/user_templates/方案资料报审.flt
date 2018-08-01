@@ -1,0 +1,86 @@
+<div id="border">
+		<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 5px" width="100%">
+			<tbody>
+				<tr>
+					<td class="formpage_title">方案资料报审</td>
+				</tr>
+				<tr>
+					<td align="right" id="help"></td>
+				</tr>
+				<tr>
+					<td align="right" class="line"></td>
+				</tr>
+				<tr>
+					<td align="left">
+						<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+							<tbody>
+								<tr>
+									<td colspan="4">
+										<br />
+										<table width="100%" style="border-collapse:collapse;">
+											<tr id="itemTr_2">
+												<td class="td_title" id="title_JYF" width="15%">
+													交易方
+												</td>
+												<td class="td_data" id="data_JYF" width="35%">
+													<span id="jyf"></span>&nbsp;　
+												</td>
+												<td class="td_title" id="title_JYDSF" width="15%">
+													交易对手方
+												</td>
+												<td class="td_data" id="data_JYDSF" width="35%">
+													<span id="jydsf"></span>&nbsp;　
+												</td>
+											</tr>
+											<tr id="itemTr_8">
+												<td class="td_title" id="title_OWNER" width="15%">
+													大区负责人
+												</td>
+												<td class="td_data" id="data_OWNER" width="35%">
+													<span id="owner"></span>&nbsp;　
+												</td>
+												<td class="td_title" id="title_MANAGER" width="15%">
+													项目负责人
+												</td>
+												<td class="td_data" id="data_MANAGER" width="35%">
+													<span id="manager"></span>&nbsp;　
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<table border="0" cellpadding="0" cellspacing="0" width="100%">
+							<tbody>
+								<tr>
+									<td colspan="4">
+										<br />
+										<table width="100%" style="border-collapse:collapse;">
+											<tbody>
+												<tr>
+													<td style="border:1px solid #000;" width="50%" height="20px;">
+														需要增加的附件
+													</td>
+													<td rowspan="2" style="border:1px solid #000;">
+														${FJ}
+													</td>
+												</tr>
+												<tr>
+													<td style="border:1px solid #000;" width="50%">
+														<span id="spanjdzl"></span> 
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+</div>
+<div style="display:none">
+${INSTANCEID}${COMPANYNO}${COMPANYNAME}${TBRID}${TBSJ}${XMBH}${LCBH}${LCBS}${TASKID}${SPZT}${JDBH}${SCORE}</div>

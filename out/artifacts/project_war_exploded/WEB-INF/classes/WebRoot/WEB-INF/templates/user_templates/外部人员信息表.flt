@@ -1,0 +1,160 @@
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					外部人员信息表
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help" style="text-align:right;">
+					<p style="margin-left:15px;float:right;">
+						填报时间:${CREATEDATE}
+					</p>
+					<p style="margin-left:15px;float:right;">
+						填报人:${CREATEUSER}[${CREATEUSERID}]
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" border="0" cellspacing="0" cellpadding="0" width="100%">
+						<tbody>
+							<tr id="itemTr_0">
+								<td id="title_XM" class="td_title" width="15%">
+									<span style="color:red;"></span>姓名
+								</td>
+								<td id="data_XM" class="td_data" width="35%">
+									${XM}&nbsp;　
+								</td>
+								<td id="title_XB" class="td_title" width="15%">
+									性别
+								</td>
+								<td id="data_XB" class="td_data" width="35%">
+									${XB}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_6">
+								<td id="title_DH" class="td_title" width="15%">
+									电话
+								</td>
+								<td id="data_DH" class="td_data" width="35%">
+									${DH}&nbsp;　
+								</td>
+								<td id="title_SJ" class="td_title" width="15%">
+									手机
+								</td>
+								<td id="data_SJ" class="td_data" width="35%">
+									${SJ}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_2">
+								<td id="title_CSRQ" class="td_title" width="15%">
+									出生日期
+								</td>
+								<td id="data_CSRQ" class="td_data" width="35%">
+									${CSRQ}&nbsp;　
+								</td>
+								<td id="title_GJ" class="td_title" width="15%">
+									国籍
+								</td>
+								<td id="data_GJ" class="td_data" width="35%">
+									${GJ}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_4">
+								<td id="title_DZYJ" class="td_title" width="15%">
+									电子邮件
+								</td>
+								<td id="data_DZYJ" class="td_data" width="35%">
+									${DZYJ}&nbsp;　
+								</td>
+								<td id="title_CW" class="td_title" width="15%">
+									称谓
+								</td>
+								<td id="data_CW" class="td_data" width="35%">
+									${CW}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_8">
+								<td id="title_CZ" class="td_title" width="15%">
+									传真
+								</td>
+								<td id="data_CZ" class="td_data" width="35%">
+									${CZ}&nbsp;　
+								</td>
+								<td id="title_GDZH" class="td_title" width="15%">
+									股东账号
+								</td>
+								<td id="data_GDZH" class="td_data" width="35%">
+									${GDZH}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_10">
+								<td id="title_ZJH" class="td_title" width="15%">
+									证件号
+								</td>
+								<td id="data_ZJH" class="td_data" width="35%">
+									${ZJH}&nbsp;　
+								</td>
+								<td id="title_RZLX" class="td_title" width="15%">
+									任职类型
+								</td>
+								<td id="data_RZLX" class="td_data" width="35%">
+									${RZLX}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_12">
+								<td id="title_DZ" class="td_title" width="15%">
+									地址
+								</td>
+								<td id="data_DZ" class="td_data" width="35%">
+									${DZ}&nbsp;　
+								</td>
+							</tr>
+							<tr id="fjTr_1326">
+								<td id="title_JL" class="td_title">
+									简历
+								</td>
+								<td id="data_JL" class="td_data" colspan="3">
+									${JL}&nbsp;　
+								</td>
+							</tr>
+							<tr id="txtAreaTr_1327">
+								<td id="title_BZ" class="td_title">
+									备注
+								</td>
+								<td id="data_BZ" class="td_data" colspan="3">
+									${BZ}&nbsp;　
+								</td>
+							</tr>
+							<tr id="subformTr_133">
+								<td class="td_data" width="80%" colspan="4">
+									<div style="border-bottom:0px;border-left:0px;width:840px;height:400px;border-top:0px;border-right:0px;" id="mainFrameTab" class="easyui-tabs" fit="true">
+										<div style="border-bottom:#efefef 0px solid;border-left:#efefef 0px solid;height:500px;border-top:#efefef 0px solid;border-right:#efefef 0px solid;" title="任职信息" border="true" cache="false">
+											${SUBFORM_RZXX}&nbsp;　
+										</div>
+										<div style="border-bottom:#efefef 0px solid;border-left:#efefef 0px solid;height:500px;border-top:#efefef 0px solid;border-right:#efefef 0px solid;" title="亲属信息" border="true" cache="false">
+											${SUBFORM_QSXX_1}&nbsp;　
+										</div>
+										<div style="border-bottom:#efefef 0px solid;border-left:#efefef 0px solid;height:500px;border-top:#efefef 0px solid;border-right:#efefef 0px solid;" title="间接联系人" border="true" cache="false">
+											${SUBFORM_JJLXR}&nbsp;　
+										</div>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${KHBH}${KHMC}
+</div>

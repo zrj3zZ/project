@@ -1,0 +1,86 @@
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					部门通知
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_2863">
+								<td class="td_title" id="title_TZBT" width="180">
+									<span style="color:red;">*</span>通知标题
+								</td>
+								<td class="td_data" id="data_TZBT">
+									${TZBT}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2864">
+								<td class="td_title" id="title_ZCHFSJ" width="180">
+									最迟回复时间
+								</td>
+								<td class="td_data" id="data_ZCHFSJ">
+									${ZCHFSJ}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2865">
+								<td class="td_title" id="title_TZNR" width="180">
+									<span style="color:red;">*</span>通知内容
+								</td>
+								<td class="td_data" id="data_TZNR">
+									${TZNR}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2866">
+								<td class="td_title" id="title_XGZL" width="180">
+									相关资料
+								</td>
+								<td class="td_data" id="data_XGZL">
+									${XGZL}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2867" style="display:none;">
+								<td class="td_title" id="title_HFR" width="180">
+									回复内容
+								</td>
+								<td class="td_data" id="data_HFR">
+									${HFR}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_2868" style="display:none;">
+								<td class="td_title" id="title_SFTZHFR" width="180">
+									回复资料
+								</td>
+								<td class="td_data" id="data_SFTZHFR">
+									${SFTZHFR}&nbsp;
+								</td>
+							</tr>
+							<tr id="txtAreaTr_154">
+								<td class="td_title">
+									事项反馈人
+								</td>
+								<td class="td_data" width="80%">
+									${SUBFORM_GZSCSXFKRBBD}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${FSR}${JSZT}${FSZT}${FSSJ}${FSRID}${FKZT}
+</div>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.iwork.plugs.sms.bean">
+	
+	
+	<class table="IWORK_SMS_PHONEBOOK" name="PhonebookMst">
+		<id name="cid" column="cid" type="integer">
+			<generator class="increment"></generator>
+		</id>
+		
+            <property name="userid" type="string" column="USERID">
+            </property>
+            <property name="name" type="java.lang.String" column="NAME">
+            </property>
+            <property name="mobilenum" type="java.lang.Long" column="MOBILENUM" >
+            </property>
+            <property name="groupname" type="string" column="GROUPNAME">
+            </property>
+            <property name="attr1" type="java.lang.String" column="ATTR1">
+            </property>
+            <property name="attr2" type="java.lang.String" column="ATTR2">
+            </property>
+            <property name="attr3" type="java.lang.String" column="ATTR3">
+            </property>
+
+    </class>
+</hibernate-mapping>

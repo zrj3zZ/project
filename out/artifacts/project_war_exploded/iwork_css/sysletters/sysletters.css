@@ -1,0 +1,72 @@
+			.td_title1 {
+					line-height: 30px;
+					font-size: 12px;
+					text-align: center;
+					letter-spacing: 0.1em;
+					padding-right:10px;
+					white-space:nowrap;
+					border-bottom:1px #999999 thick;
+					vertical-align:middle;
+					font-family:"宋体";
+			}
+			.td_title2 {
+					line-height: 30px;
+					font-size: 12px;
+					text-align: left;
+					letter-spacing: 0.1em;
+					padding-right:10px;
+					white-space:nowrap;
+					border-bottom:1px #999999 thick;
+					vertical-align:middle;
+					font-family:"宋体";
+			}
+			/*数据字段内容样式*/
+			.td_data1 {
+				color:#0000FF;
+				line-height: 23px;
+				text-align: left;
+				padding-left: 3px;
+				font-size: 12px;
+				font-family:"宋体";
+				border-bottom:1px #999999 dotted;
+				vertical-align:middle;
+				word-wrap:break-word;
+				word-break:break-all;
+				font-weight:500;
+				line-height:15px;
+				padding-top:5px;
+				color:0000FF; 
+			}
+			
+			/*回复时间样式*/
+			.td_data_reply_time {
+				color:#0000FF;
+				line-height: 23px;
+				text-align: left;
+				padding-left: 3px;
+				font-size: 12px;
+				font-family:"宋体";
+				border-bottom:1px #999999 dotted;
+				vertical-align:middle;
+				word-wrap:break-word;
+				word-break:break-all;
+				font-weight:500;
+				line-height:15px;
+				padding-top:5px;
+				color:888888; 
+			}
+		.button{
+			width:100px;
+			font-size:16px;
+			font-family:黑体;
+			padding:2px;
+		}
+	 	.input_xie {
+   			font-size: 24px;
+   			color: #FF0000;
+   			font-style: italic;
+		}
+		a:link{text-decoration:none ; color:white ;}
+		a:visited {text-decoration:none ; color:white;}
+		a:hover {text-decoration:underline ; color:white;}
+		a:active {text-decoration:none ; colorwhite;} 

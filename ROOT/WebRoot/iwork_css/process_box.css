@@ -1,0 +1,66 @@
+.leftDiv{
+		width:200px;
+		background:#f2f9ff;
+		border:1px solid #d4e4f2;
+	}
+	.processBoxTitle{
+		font-size:18px;
+		font-family:Î¢ÈíÑÅºÚ;
+		background:#fafafa;
+		border-bottom:1px solid #efefef;
+		padding-left:20px;
+		height:50px; 
+		vertical-align:bottom;
+	}
+	.processBoxTitle td{
+		font-size:20px;
+	}
+	.leftTools{
+		text-align:center;
+		padding-top:5px;
+		font-size:12px;
+	}
+	.leftTools a{
+		font-size:12px;
+	}
+	.leftTab{
+		font-size:16px;
+		font-family:Î¢ÈíÑÅºÚ;
+		width:100%;
+		text-align:center;
+		padding-left:0px;
+	}
+	.leftTab li{
+		line-height:40px;
+		border-bottom:1px solid #efefef;
+		font-size:14px;
+	}
+	.tab_item a{
+		color:#666;
+	}
+	.tab_item:hover{
+		background:#efefef;
+		cursor:pointer;
+	}
+	.tab_active{
+		background-image: url(../../../iwork_img/AuditingToolbar.gif);
+		color:#fff;
+	}
+	.tab_active a{
+		color:#fff;
+		font-weight:bold;
+	}
+	.memo{ 
+		color:#999;	
+		padding:5px;
+		padding-left:20px;
+		line-height:20px;	
+	}
+	.memoTip{
+		background-image:url(../../../iwork_img/warning.gif);
+		background-repeat: no-repeat;
+		background-position: 3px 3px;
+		padding:5px;
+		padding-left:20px;
+		color:#666;
+	}

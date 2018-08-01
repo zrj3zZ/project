@@ -1,0 +1,89 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+	padding:0px;
+	margin:0px;
+}
+img {
+	border:0px
+}
+.tvlist_body {
+	font-size:12px;
+	font-family:宋体;
+	padding:5px;
+	font-family:arial
+}
+.tvlist_left {
+	width:430px;
+	position:absolute;
+	height:430px;
+}
+.tv_list_top {
+	background:url(../../iwork_img/tv_top.jpg) no-repeat #000000;
+	height:139px;
+	width:409px;
+}
+.tv_list_left {
+	background:url(../../iwork_img/tv_bg.jpg) no-repeat #000000;
+	height:235px;
+	width:307px;
+	float:left
+}
+.tv_list_right {
+	background:url(../../iwork_img/tv_menu.jpg) no-repeat #000000;
+	height:237px;
+	width:102px;
+	float:left
+}
+.tv_list_bottom {
+	background:url(../../iwork_img/tv_bottom.jpg) no-repeat;
+	height:60px;
+	width:409px;
+	float:left;
+	color:#fff;
+	padding:10px 30px 5px 10px;
+	text-align:center
+}
+.tvlist_right {
+	color:#666666;
+	min-width:400px;
+width:expression_r_r(document.body.clientWidth > 400? "400px": "auto" );
+	margin-top:10px;
+}
+.tvlist_right td {
+	border-bottom:1px #d5d5d5 dotted
+}
+.tvlist_right table {
+	line-height:30px;
+	word-wrap:break-word;
+	word-break:break-all;
+}
+.tvlist_right table a:link {
+	text-decoration:none;
+	color:#003399
+}
+.tvlist_right table a:visited {
+	text-decoration:none;
+	color:#003399
+}
+.tvlist_right table a:hover {
+	text-decoration:none;
+	color:#003399
+}
+.tvlist_right table a:active {
+	text-decoration:none;
+	color:#003399
+}
+.tvlist_right table img {
+	margin:2px 5px 0px 2px;
+}
+.video {
+	position:absolute;
+	background-color:#ececec;
+	width:295px;
+	height:244px;
+	top:134px;
+	left:14px;
+}
+

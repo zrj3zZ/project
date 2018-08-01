@@ -1,0 +1,96 @@
+<script type="text/javascript">
+	$(function(){
+		showKh();
+		var flag=document.getElementById("EXTEND2").value;
+		if(flag=='0'){
+			document.getElementById("savebtn").style.display="none";
+			
+		}
+	});
+	function showKh(){
+		var id=document.getElementById("DEPARTMENTID").value;
+		$.ajax({
+				url : "getZbkh.action",
+				type : "GET",
+				data: {"id":id},  
+				dataType : "json",
+				success : function(data) {
+					$("#labelCUSTOMERNAME").html(data[0].companyname);
+					document.getElementById("CUSTOMERNO").value=data[0].companyno;
+					document.getElementById("CUSTOMERNAME").value=data[0].companyname;
+					document.getElementById("CJSJ").value=data[0].time;
+				}
+		});
+		
+	}
+</script>
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" width="100%" cellspacing="0" cellpadding="0" border="0">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					财务入账信息
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" width="100%" cellspacing="0" cellpadding="0" border="0">
+						<tbody>
+							<tr id="itemTr_3215">
+								<td class="td_title" id="title_CJSJ" colspan="2">
+									填写人：${LRR}[${XYLX}]&nbsp;&nbsp;最后修改时间：${CJSJ}
+								</td>
+								
+							</tr>
+							<tr id="itemTr_3206">
+								<td class="td_title" id="title_CUSTOMERNAME" width="180">
+									<span style="color:red;">*</span>客户名称
+								</td>
+								<td class="td_data" id="data_CUSTOMERNAME">
+									${CUSTOMERNAME}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_3212">
+								<td class="td_title" id="title_DZRQ" width="180">
+									<span style="color:red;">*</span>入账日期
+								</td>
+								<td class="td_data" id="data_DZRQ">
+									${DZRQ}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_3213">
+								<td class="td_title" id="title_DZJE" width="180">
+									<span style="color:red;">*</span>入账金额
+								</td>
+								<td class="td_data" id="data_DZJE">
+									${DZJE}（万元）&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_3216">
+								<td class="td_title" id="title_EXTEND1" width="180">
+									收入凭证资料
+								</td>
+								<td class="td_data" id="data_EXTEND1">
+									${EXTEND1}&nbsp;
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${DEPARTMENTID}${CUSTOMERNO}${DEPARTMENTNAME}${XMLX}${EXTEND2}${EXTEND3}${EXTEND4}${EXTEND5}${LCBH}${SPZT}${LCBS}${TASKID}
+</div>

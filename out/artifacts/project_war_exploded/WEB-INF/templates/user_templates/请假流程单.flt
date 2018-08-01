@@ -1,0 +1,207 @@
+<script type="text/javascript">
+function saveForm(){
+var struts=1;
+var data = $("#STARTDATE").val();    //获取控件上选择的日期
+            data = data.replace("-","/");
+             if (data == "") {
+                 alert("请选择开始日期！");
+                 return;
+             }
+             var now = new Date();
+             now.setDate(now.getDate()-1);
+             var chknow = new Date(Date.parse(data));
+             if (chknow < now) {
+                 alert("开始日期不能小于今天");
+                 return;
+             } 
+    var data1 = $("#ENDDATE").val();    //获取控件上选择的日期
+            data1 = data1.replace("-","/");
+             if (data1 == "") {
+                 alert("请选择结束日期！");
+                 return;
+             }
+             var chknow1 = new Date(Date.parse(data1));
+             if (chknow1 < chknow) {
+                 alert("结束日期不能小于开始日期");
+                 return;
+             } 
+
+
+
+			var valid = mainFormValidator.form(); //执行校验操作
+			if(!valid){
+				return false;
+			}else{
+				 //集成weboffice
+			 	try{ 
+			 		$("[form-type='GovWord']").each(function(){
+			 		    $(this)[0].contentWindow.SaveDocument(); 
+			 		  });
+			 	}catch(e){} 
+			 	//保存富文本
+			 	try{ 
+			 		saveHtmlEditor();  
+			 	}catch(e){} 
+				try{	
+					var flag = formSaveEventScript();
+						if(flag==false){
+							return flag;
+						}
+				}catch(e){} 
+				 var submitOption = {
+					    	beforeSubmit:lockPage,
+					    	error :failResponse,
+					    	complete:unLockPage,
+					    	success:successResponse,
+					    	dataType:'text'
+					    };
+					$('#iformMain').attr('action','processRuntimeFormSave.action');
+					$('#iformMain').ajaxSubmit(submitOption); 
+}
+			}
+
+		
+$(function(){
+	var now = Format(new Date(),'yyyy-MM-dd HH:mm:ss');
+	$("#GXSJ").val(now);
+	$("#labelGXSJ").html(now);
+});
+function Format(now,mask){
+	var d = now;
+	var zeroize = function (value, length){
+		if (!length) length = 2;
+			value = String(value);
+		for (var i = 0, zeros = ''; i < (length - value.length); i++){
+			zeros += '0';
+		}
+		return zeros + value;
+	};
+	return mask.replace(/"[^"]*"|'[^']*'|\b(?:d{1,4}|m{1,4}|yy(?:yy)?|([hHMstT])\1?|[lLZ])\b/g, function ($0){
+		switch ($0){
+			case 'd': return d.getDate();
+			case 'dd': return zeroize(d.getDate());
+			case 'ddd': return ['Sun', 'Mon', 'Tue', 'Wed', 'Thr', 'Fri', 'Sat'][d.getDay()];
+			case 'dddd': return ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][d.getDay()];
+			case 'M': return d.getMonth() + 1;
+			case 'MM': return zeroize(d.getMonth() + 1);
+			case 'MMM': return ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][d.getMonth()];
+			case 'MMMM': return ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][d.getMonth()];
+			case 'yy': return String(d.getFullYear()).substr(2);
+			case 'yyyy': return d.getFullYear();
+			case 'h': return d.getHours() % 12 || 12;
+			case 'hh': return zeroize(d.getHours() % 12 || 12);
+			case 'H': return d.getHours();
+			case 'HH': return zeroize(d.getHours());
+			case 'm': return d.getMinutes();
+			case 'mm': return zeroize(d.getMinutes());
+			case 's': return d.getSeconds();
+			case 'ss': return zeroize(d.getSeconds());
+			case 'l': return zeroize(d.getMilliseconds(), 3);
+			case 'L': var m = d.getMilliseconds();
+			if (m > 99) m = Math.round(m / 10);
+				return zeroize(m);
+			case 'tt': return d.getHours() < 12 ? 'am' : 'pm';
+			case 'TT': return d.getHours() < 12 ? 'AM' : 'PM';
+			case 'Z': return d.toUTCString().match(/[A-Z]+$/);
+			// Return quoted strings with the surrounding quotes removed
+			default: return $0.substr(1, $0.length - 2);
+		}
+	});
+}
+</script>
+<div id="border">
+	<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:5px;" width="100%" class="ke-zeroborder">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					请假流程单
+				</td>
+			</tr>
+			<tr>
+				<td align="right" id="help">
+				</td>
+			</tr>
+			<tr>
+				<td align="right" class="line">
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table border="0" cellpadding="0" cellspacing="0" width="100%" class="ke-zeroborder">
+						<tbody>
+							<tr id="itemTr_0">
+								<td class="td_title" id="title_PROJECTNO" width="15%">
+									请假人
+								</td>
+								<td class="td_data" id="data_PROJECTNO" width="35%" colspan="2">
+									${PROJECTNAME}[${PROJECTNO}]
+								</td>
+								<td class="td_title" id="title_HTJE" width="15%">
+									请假类型
+								</td>
+								<td class="td_data" id="data_HTJE" width="35%" colspan="2">
+									${HTJE}&nbsp;
+								</td>
+							</tr>
+							<tr id="itemTr_4">
+								<td class="td_title" id="title_STARTDATE" width="15%">
+									开始日期-时间
+								</td>
+								<td class="td_data" id="data_STARTDATE" width="25%">
+									${STARTDATE}&nbsp;
+								</td><td width="10%" class="td_data" id="data_SCALE" >
+                                                                     <select name="SCALE">
+  									<option value ="">8:00</option>
+  									<option value ="">9:00</option>
+									<option value ="">13:00</option>
+								    </select>     
+								 	
+								</td>
+								<td class="td_title" id="title_ENDDATE" width="15%">
+									截止日期-时间
+								</td>
+								<td class="td_data" id="data_ENDDATE" width="25%">
+									${ENDDATE}&nbsp;
+                                                                  </td><td width="10%" class="td_data" id="data_GROUPID">
+                                                                    <select name="GROUPID">
+  									<option value ="">12:00</option>
+  									<option value ="">18:00</option>
+								    </select>      
+									
+								</td>
+								
+							</tr>
+							
+							<tr id="itemTr_15">
+								<td class="td_title" id="title_MANAGER" width="15%">
+									工作交接人
+								</td>
+								<td class="td_data" id="data_MANAGER" width="35%" colspan="2">
+									${MANAGER}&nbsp;　
+								</td>
+								<td class="td_title" id="title_SXYZLMB" width="15%">
+									工作交接人电话
+								</td>
+								<td class="td_data" id="data_SXYZLMB" width="35%" colspan="2">
+									${SXYZLMB}&nbsp;　
+								</td>
+							</tr>
+							
+							<tr id="itemTr_17">
+								<td class="td_title" id="title_MEMO" width="15%">
+									请假事由
+								</td>
+								<td class="td_data" id="data_MEMO" width="85%" colspan="5">
+									${MEMO}&nbsp;　
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${ORDERINDEX}${PRIORITY}${SSJE}${INSTANCEID}${LCBH}${LZJD}${SPZT}${LCBS}${LZWZ}${RWID}${EXTEND2}${EXTEND3}${EXTEND4}${EXTEND5}${TASK_NAME}${JDZL}${ATTACH}${GXSJ}
+</div>

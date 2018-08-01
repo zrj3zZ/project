@@ -1,0 +1,85 @@
+<script type="text/javascript">
+	$(function(){
+		$.post("dg_zqb_project_xgzt.action",function(data){ 
+		  if(data!='true'){
+			 document.getElementById("FD5").readOnly=true;
+		  }
+		});
+	})
+</script>
+<div id="border">
+	<table style="margin-bottom:5px;" class="ke-zeroborder" width="100%" cellspacing="0" cellpadding="0" border="0">
+		<tbody>
+			<tr>
+				<td class="formpage_title">
+					项目终止
+				</td>
+			</tr>
+			<tr>
+				<td id="help" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td class="line" align="right">
+					<br />
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+					<table class="ke-zeroborder" width="100%" cellspacing="0" cellpadding="0" border="0">
+						<tbody>
+							<tr id="itemTr_0">
+								<td class="td_title" id="title_PROJECTNAME" width="15%">
+									项目名称
+								</td>
+								<td class="td_data" id="data_PROJECTNAME" width="35%">
+									${PROJECTNAME}&nbsp;　
+								</td>
+								<td class="td_title" id="title_ZZSJ" width="15%">
+									入库时间
+								</td>
+								<td class="td_data" id="data_ZZSJ" width="35%">
+									${ZZSJ}&nbsp;　
+								</td>
+							</tr>
+							<tr id="itemTr_39">
+								<td class="td_title" id="title_PROJECTNAME" width="15%">
+									主要问题
+								</td>
+								<td class="td_data" id="data_PROJECTNAME" width="35%">
+									${FD4}
+								</td>
+								<td class="td_title" id="title_ZZSJ" width="15%">
+									当前状态
+								</td>
+								<td class="td_data" id="data_ZZSJ" width="35%">
+									${FD5}
+								</td>
+							</tr>
+							<tr id="txtAreaTr_5595">
+								<td class="td_title" id="title_JCXYYY">
+									入库原因
+								</td>
+								<td id="data_JCXYYY" class="td_data" colspan="3">
+									${JCXYYY}&nbsp;　
+								</td>
+							</tr>
+							<tr id="fjTr_5558">
+								<td class="td_title" id="title_FJ">
+									附件
+								</td>
+								<td id="data_FJ" class="td_data" colspan="3">
+									${FJ}&nbsp;　
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div style="display:none;">
+	${TBRID}${XMBH}${LXRQ}${LX1}${LX2}${LX3}${LX4}${LX5}${GGRQ}${GG1}${GG2}${GG3}${GG4}${GG5}${FDCY}${FD1}${FD2}${FD3}${SLRQ}${FK}${FKHFRQ}${SHRQ}${SHJG}${FXGFS}${FXGJ}${MJZJZE}${MJZJJE}${ZQJC}${ZQDM}${SSRQ}${XMNR}${XMSJ}${XMFJ}${JDBH}
+</div>
